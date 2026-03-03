@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Upload, message } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
 import type { UploadProps } from 'antd'
@@ -18,8 +18,14 @@ const UploadComponent: React.FC<UploadComponentProps> = ({
 }) => {
   const [uploading, setUploading] = useState(false)
   const [fileList, setFileList] = useState<any[]>([])
+  const messageKeyRef = useRef<string>('upload')
 
-  // Validate file type
+  // Cleanup messages on unmount
+  useEffect(() => {
+    return () => {
+      message.destroy(messageKeyRef.current)
+    }
+  }, [])
   const beforeUpload = (file: File) => {
     const isValidType =
       file.type === 'image/png' ||
@@ -46,26 +52,32 @@ const UploadComponent: React.FC<UploadComponentProps> = ({
   const handleUpload = async (file: File) => {
     try {
       setUploading(true)
-      message.loading({ content: 'Uploading file...', key: 'upload', duration: 0 })
+      message.loading({ content: 'Uploading file...', key: messageKeyRef.current, duration: 0 })
 
       const response = await uploadImage(file)
 
-      message.success({ content: 'File uploaded successfully!', key: 'upload', duration: 2 })
+      message.success({ content: 'File uploaded successfully!', key: messageKeyRef.current, duration: 2 })
 
       // Call success callback
       onUploadSuccess(response)
 
       // Clear file list
       setFileList([])
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Upload error:', error)
 
-      const errorMessage =
-        error.response?.data?.detail ||
-        error.message ||
-        'Failed to upload file. Please try again.'
+      // Type guard for error handling
+      let errorMessage = 'Failed to upload file. Please try again.'
 
-      message.error({ content: errorMessage, key: 'upload', duration: 3 })
+      if (error instanceof Error) {
+        errorMessage = error.message
+      } else if (typeof error === 'object' && error !== null) {
+        // Handle axios errors with response data
+        const errorObj = error as { response?: { data?: { detail?: string } }; message?: string }
+        errorMessage = errorObj.response?.data?.detail || errorObj.message || errorMessage
+      }
+
+      message.error({ content: errorMessage, key: messageKeyRef.current, duration: 3 })
 
       // Call error callback if provided
       if (onUploadError) {
@@ -82,7 +94,13 @@ const UploadComponent: React.FC<UploadComponentProps> = ({
     fileList,
     beforeUpload,
     customRequest: ({ file, onSuccess, onError }) => {
-      handleUpload(file as File)
+      // Proper type validation with instanceof check
+      if (!(file instanceof File)) {
+        onError?.(new Error('Invalid file type'))
+        return
+      }
+
+      handleUpload(file)
         .then(() => onSuccess?.('ok'))
         .catch((err) => onError?.(err))
     },
