@@ -7,6 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from api.routes.upload import router as upload_router
 from api.routes.registration import router as registration_router
+from api.routes.processing import router as processing_router
+from api.routes.download import router as download_router
 from api import websocket
 import os
 
@@ -35,6 +37,8 @@ app.mount("/api/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 # Include routers
 app.include_router(upload_router)
 app.include_router(registration_router)
+app.include_router(processing_router)
+app.include_router(download_router)
 app.include_router(websocket.router)
 
 
