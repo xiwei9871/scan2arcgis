@@ -4,7 +4,11 @@ FastAPI application for the Geological Map Digitizer.
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from api.routes.upload import router as upload_router
+from api.routes.registration import router as registration_router
+from api import websocket
+import os
 
 # Create FastAPI application
 app = FastAPI(
@@ -22,8 +26,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount static files for uploaded images
+uploads_dir = "uploads"
+if not os.path.exists(uploads_dir):
+    os.makedirs(uploads_dir)
+app.mount("/api/uploads", StaticFiles(directory=uploads_dir), name="uploads")
+
 # Include routers
 app.include_router(upload_router)
+app.include_router(registration_router)
+app.include_router(websocket.router)
 
 
 @app.get("/")
