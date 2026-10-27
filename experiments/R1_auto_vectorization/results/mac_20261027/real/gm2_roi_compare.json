@@ -1,0 +1,158 @@
+{
+ "work": "gm2_roi",
+ "source_sha256": "0b540ecb1243b0a307aa0c72e96e9416c36b286e71b3725ffb097df95a13250f",
+ "scale": 0.5,
+ "roi_orig": [
+  2950,
+  300,
+  3100,
+  3500
+ ],
+ "n_legend_swatches": 33,
+ "methods": {
+  "legend_rf_selftrain": {
+   "runtime_s": 8.07892183399963,
+   "mean_margin_UNCALIBRATED": 0.8244438767433167,
+   "low_margin_frac": 0.1493500460829493,
+   "n_regions": 262,
+   "classes_used": 28
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "runtime_s": 8.569668041003752,
+   "mean_margin_UNCALIBRATED": 0.8304358720779419,
+   "low_margin_frac": 0.1476822119815668,
+   "n_regions": 227,
+   "classes_used": 26
+  },
+  "legacy_stratigraphy": {
+   "runtime_s": 11.78228066599695,
+   "n_polygons": 65,
+   "unlabeled_frac": 0.3636084792626728,
+   "confidence_values_UNCALIBRATED": [
+    0.403,
+    0.432,
+    0.437,
+    0.443,
+    0.446,
+    0.452,
+    0.456,
+    0.458
+   ],
+   "n_regions": 2124,
+   "classes_used": 17
+  }
+ },
+ "reference_eval": {
+  "reference": "legacy draft_partial_label (not reviewed)",
+  "metric": "class-agnostic purity / best_iou",
+  "results": {
+   "legend_rf_selftrain": {
+    "per_polygon": [
+     {
+      "label": "gm2 beige central band",
+      "purity": 0.20629184231825798,
+      "best_iou": 0.11102154842129927,
+      "dominant": "S27"
+     },
+     {
+      "label": "gm2 orange upper unit",
+      "purity": 0.4662020198060031,
+      "best_iou": 0.36317739149397715,
+      "dominant": "S27"
+     },
+     {
+      "label": "gm2 green strip unit",
+      "purity": 0.2401359255701523,
+      "best_iou": 0.13797753214364636,
+      "dominant": "S21"
+     },
+     {
+      "label": "gm2 near-color lavender unit",
+      "purity": 0.26659668591137436,
+      "best_iou": 0.2236845416341629,
+      "dominant": "S28"
+     }
+    ],
+    "mean_purity": 0.29480661840144695,
+    "mean_best_iou": 0.20896525342327144
+   },
+   "legend_rf_selftrain_shadeinv": {
+    "per_polygon": [
+     {
+      "label": "gm2 beige central band",
+      "purity": 0.19530819031654836,
+      "best_iou": 0.11112468121562806,
+      "dominant": "S27"
+     },
+     {
+      "label": "gm2 orange upper unit",
+      "purity": 0.4689945343700269,
+      "best_iou": 0.3646241069766776,
+      "dominant": "S27"
+     },
+     {
+      "label": "gm2 green strip unit",
+      "purity": 0.2429771037120218,
+      "best_iou": 0.2146669725134874,
+      "dominant": "S21"
+     },
+     {
+      "label": "gm2 near-color lavender unit",
+      "purity": 0.2718552398090525,
+      "best_iou": 0.13876449055804352,
+      "dominant": "S24"
+     }
+    ],
+    "mean_purity": 0.2947837670519124,
+    "mean_best_iou": 0.20729506281595914
+   },
+   "legacy_stratigraphy": {
+    "per_polygon": [
+     {
+      "label": "gm2 beige central band",
+      "purity": 0.15184919752680087,
+      "best_iou": 0.018009406612071354,
+      "dominant": "S26"
+     },
+     {
+      "label": "gm2 orange upper unit",
+      "purity": 0.3904690961127556,
+      "best_iou": 0.06367539112133627,
+      "dominant": "S27"
+     },
+     {
+      "label": "gm2 green strip unit",
+      "purity": 0.19185168148138126,
+      "best_iou": 0.04485228128565566,
+      "dominant": "S21"
+     },
+     {
+      "label": "gm2 near-color lavender unit",
+      "purity": 0.17362725250556096,
+      "best_iou": 0.08320211941716028,
+      "dominant": "S28"
+     }
+    ],
+    "mean_purity": 0.2269493069066247,
+    "mean_best_iou": 0.05243479960905589
+   }
+  }
+ },
+ "reference_lines_eval": {
+  "note": "draft labels cover few lines; precision measured only inside a 20px corridor",
+  "results": {
+   "legend_rf_selftrain": {
+    "recall_tol3px": 0.2737642585551331,
+    "precision_in_corridor": 0.17760833178352242
+   },
+   "legend_rf_selftrain_shadeinv": {
+    "recall_tol3px": 0.20082958866228828,
+    "precision_in_corridor": 0.1668711656441718
+   },
+   "legacy_stratigraphy": {
+    "recall_tol3px": 0.39543726235741444,
+    "precision_in_corridor": 0.16915013873188778
+   }
+  }
+ }
+}

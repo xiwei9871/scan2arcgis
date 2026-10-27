@@ -1,0 +1,51 @@
+{
+ "layers": {
+  "geologic_units": 261,
+  "contacts": 588,
+  "structures": 4
+ },
+ "topology": {
+  "n_polygons": 261,
+  "invalid": 0,
+  "overlap_area_px": 0.0,
+  "coverage_ratio": 0.9999996313364056
+ },
+ "decisions": {
+  "units": {
+   "AUTO_ACCEPT": 0,
+   "AUTO_RETRY": 30,
+   "HUMAN_REVIEW": 112,
+   "BLOCKED": 0,
+   "NONE": 119
+  },
+  "contacts": {
+   "AUTO_ACCEPT": 0,
+   "AUTO_RETRY": 0,
+   "HUMAN_REVIEW": 198,
+   "BLOCKED": 0,
+   "NONE": 390
+  },
+  "faults": {
+   "AUTO_ACCEPT": 0,
+   "AUTO_RETRY": 0,
+   "HUMAN_REVIEW": 2,
+   "BLOCKED": 0,
+   "NONE": 2
+  }
+ },
+ "timings_s": {
+  "classify": 7.93889741699968,
+  "polygonize": 0.10144395800307393,
+  "total": 9.113974917003361
+ },
+ "producer_version": "926be33",
+ "map_id": "work",
+ "source_sha256": "275edb7b9340798f1769833e2eee561b2d2373d7afad3d7a75dad28972afaeb5",
+ "run_id": "r1_work_1793105115",
+ "coord_space": "image_px_unreferenced",
+ "env": {
+  "python": "3.11.15",
+  "machine": "arm64",
+  "cpus": 10
+ }
+}

@@ -1,0 +1,212 @@
+{
+ "clean_s0": {
+  "legend_rf_selftrain": {
+   "miou": 0.9741621551301591,
+   "mean_margin": 0.9834504723548889,
+   "low_margin_frac": 0.012145042419433594
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9749649469408087,
+   "mean_margin": 0.9843855500221252,
+   "low_margin_frac": 0.009385108947753906
+  },
+  "_picked": "legend_rf_selftrain_shadeinv",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "clean_s1": {
+  "legend_rf_selftrain": {
+   "miou": 0.9687190119558333,
+   "mean_margin": 0.9861915111541748,
+   "low_margin_frac": 0.010608673095703125
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9707217050856741,
+   "mean_margin": 0.9853853583335876,
+   "low_margin_frac": 0.012404441833496094
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "clean_s2": {
+  "legend_rf_selftrain": {
+   "miou": 0.9740353447253338,
+   "mean_margin": 0.9883056879043579,
+   "low_margin_frac": 0.008502960205078125
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9752314225133514,
+   "mean_margin": 0.9901071786880493,
+   "low_margin_frac": 0.005259513854980469
+  },
+  "_picked": "legend_rf_selftrain_shadeinv",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "hillshade_s0": {
+  "legend_rf_selftrain": {
+   "miou": 0.6955422887300545,
+   "mean_margin": 0.748879611492157,
+   "low_margin_frac": 0.2226095199584961
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9043269956184519,
+   "mean_margin": 0.8063889741897583,
+   "low_margin_frac": 0.1055450439453125
+  },
+  "_picked": "legend_rf_selftrain_shadeinv",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "hillshade_s1": {
+  "legend_rf_selftrain": {
+   "miou": 0.6666494350914033,
+   "mean_margin": 0.7703529596328735,
+   "low_margin_frac": 0.18064308166503906
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.8301815293715165,
+   "mean_margin": 0.7799034714698792,
+   "low_margin_frac": 0.1586627960205078
+  },
+  "_picked": "legend_rf_selftrain_shadeinv",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "hillshade_s2": {
+  "legend_rf_selftrain": {
+   "miou": 0.6207976349200574,
+   "mean_margin": 0.8385554552078247,
+   "low_margin_frac": 0.10197830200195312
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.7760211255526186,
+   "mean_margin": 0.814324140548706,
+   "low_margin_frac": 0.0807657241821289
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "near_color_s0": {
+  "legend_rf_selftrain": {
+   "miou": 0.9740240621387649,
+   "mean_margin": 0.9861422777175903,
+   "low_margin_frac": 0.01099395751953125
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9765965225458508,
+   "mean_margin": 0.985693097114563,
+   "low_margin_frac": 0.009902000427246094
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "near_color_s1": {
+  "legend_rf_selftrain": {
+   "miou": 0.9710899156464553,
+   "mean_margin": 0.988276481628418,
+   "low_margin_frac": 0.007982254028320312
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9709302874764738,
+   "mean_margin": 0.988232433795929,
+   "low_margin_frac": 0.0064296722412109375
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain"
+ },
+ "near_color_s2": {
+  "legend_rf_selftrain": {
+   "miou": 0.9739606775064527,
+   "mean_margin": 0.9873680472373962,
+   "low_margin_frac": 0.009141921997070312
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9742839219295628,
+   "mean_margin": 0.9864288568496704,
+   "low_margin_frac": 0.008234977722167969
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "scan_jpeg_s0": {
+  "legend_rf_selftrain": {
+   "miou": 0.9632214471269158,
+   "mean_margin": 0.9173964858055115,
+   "low_margin_frac": 0.046914100646972656
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.8709043178480201,
+   "mean_margin": 0.9014071822166443,
+   "low_margin_frac": 0.0811147689819336
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain"
+ },
+ "scan_jpeg_s1": {
+  "legend_rf_selftrain": {
+   "miou": 0.9335018729589476,
+   "mean_margin": 0.9309396743774414,
+   "low_margin_frac": 0.05027580261230469
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.6136888048540337,
+   "mean_margin": 0.7862229943275452,
+   "low_margin_frac": 0.14615154266357422
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain"
+ },
+ "scan_jpeg_s2": {
+  "legend_rf_selftrain": {
+   "miou": 0.5686254302046049,
+   "mean_margin": 0.752833902835846,
+   "low_margin_frac": 0.1682882308959961
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.7883957571760393,
+   "mean_margin": 0.8040887713432312,
+   "low_margin_frac": 0.059528350830078125
+  },
+  "_picked": "legend_rf_selftrain_shadeinv",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "thick_ink_s0": {
+  "legend_rf_selftrain": {
+   "miou": 0.9541883028363927,
+   "mean_margin": 0.9288920164108276,
+   "low_margin_frac": 0.05432319641113281
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9544845085002049,
+   "mean_margin": 0.9209203124046326,
+   "low_margin_frac": 0.056118011474609375
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "thick_ink_s1": {
+  "legend_rf_selftrain": {
+   "miou": 0.955991711007849,
+   "mean_margin": 0.9644470810890198,
+   "low_margin_frac": 0.027428627014160156
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9599848361721794,
+   "mean_margin": 0.9681513905525208,
+   "low_margin_frac": 0.017194747924804688
+  },
+  "_picked": "legend_rf_selftrain_shadeinv",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ },
+ "thick_ink_s2": {
+  "legend_rf_selftrain": {
+   "miou": 0.9277599800922669,
+   "mean_margin": 0.9629347324371338,
+   "low_margin_frac": 0.015777587890625
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "miou": 0.9291005364566292,
+   "mean_margin": 0.9618784785270691,
+   "low_margin_frac": 0.02010631561279297
+  },
+  "_picked": "legend_rf_selftrain",
+  "_oracle": "legend_rf_selftrain_shadeinv"
+ }
+}

@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.15, pytest-7.4.3, pluggy-1.7.0 -- <repo>/.venv/bin/python
+rootdir: <repo>
+configfile: pyproject.toml
+testpaths: tests
+collecting ... collected 20 items
+
+tests/d0/test_validate.py::test_valid_legacy_record_has_no_issues PASSED [  5%]
+tests/d0/test_validate.py::test_v1_uncalibrated_cannot_carry_probability PASSED [ 10%]
+tests/d0/test_validate.py::test_v4_legacy_cannot_claim_calibration PASSED [ 15%]
+tests/d0/test_validate.py::test_v2_calibrated_requires_reference_and_value PASSED [ 20%]
+tests/d0/test_validate.py::test_v3_auto_accept_requires_calibration_and_hard_checks PASSED [ 25%]
+tests/d0/test_validate.py::test_v5_ground_truth_constraints PASSED       [ 30%]
+tests/d0/test_validate.py::test_v6_auto_accepted_status_requires_decision PASSED [ 35%]
+tests/d0/test_validate.py::test_v7_model_version_consistency PASSED      [ 40%]
+tests/d0/test_validate.py::test_v8_score_range_enforced_by_schema PASSED [ 45%]
+tests/d0/test_validate.py::test_schema_rejects_unknown_fields_and_enums PASSED [ 50%]
+tests/d0/test_validate.py::test_duplicate_feature_ids_are_reported PASSED [ 55%]
+tests/r1/test_r1_pipeline.py::test_generator_is_deterministic PASSED     [ 60%]
+tests/r1/test_r1_pipeline.py::test_metrics_on_perfect_prediction PASSED  [ 65%]
+tests/r1/test_r1_pipeline.py::test_auroc_basic PASSED                    [ 70%]
+tests/r1/test_r1_pipeline.py::test_legend_classifier_reaches_baseline_on_clean_synthetic PASSED [ 75%]
+tests/r1/test_r1_pipeline.py::test_polygons_form_a_partition_and_contacts_agree PASSED [ 80%]
+tests/r1/test_r1_pipeline.py::test_decision_policy_never_auto_accepts PASSED [ 85%]
+tests/r1/test_r1_pipeline.py::test_gpkg_export_is_unreferenced_and_d0_valid PASSED [ 90%]
+tests/r1/test_r1_pipeline.py::test_export_rejects_fake_probability PASSED [ 95%]
+tests/r1/test_r1_pipeline.py::test_known_limitation_small_intrusive_body_can_be_lost PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/r1/test_r1_pipeline.py::test_gpkg_export_is_unreferenced_and_d0_valid
+  <repo>/.venv/lib/python3.11/site-packages/pyogrio/geopandas.py:948: UserWarning: 'crs' was not provided.  The output dataset will not have projection information defined and may not be usable in other systems.
+    write(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 20 passed, 1 warning in 2.64s =========================

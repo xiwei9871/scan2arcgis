@@ -1,0 +1,38 @@
+{
+ "work": "u2",
+ "source_sha256": "c81bc4b51ba7a90e4a896ebc762d85b6c0ab6a01bfe8c063db4ace66dcb1fdbe",
+ "scale": 1.0,
+ "roi_orig": [
+  80,
+  18,
+  805,
+  780
+ ],
+ "n_legend_swatches": 12,
+ "methods": {
+  "legend_rf_selftrain": {
+   "runtime_s": 0.936798666996765,
+   "mean_margin_UNCALIBRATED": 0.8778840899467468,
+   "low_margin_frac": 0.08142220098741838,
+   "n_regions": 138,
+   "classes_used": 11
+  },
+  "legend_rf_selftrain_shadeinv": {
+   "runtime_s": 1.0601280000046245,
+   "mean_margin_UNCALIBRATED": 0.8735439777374268,
+   "low_margin_frac": 0.0841837872272655,
+   "n_regions": 141,
+   "classes_used": 11
+  },
+  "legacy_stratigraphy": {
+   "runtime_s": 1.0149029169988353,
+   "n_polygons": 5,
+   "unlabeled_frac": 0.9615623506927855,
+   "confidence_values_UNCALIBRATED": [
+    0.85
+   ],
+   "n_regions": 157,
+   "classes_used": 5
+  }
+ }
+}

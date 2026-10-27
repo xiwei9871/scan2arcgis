@@ -40,3 +40,4 @@ Thumbs.db
 
 # Local run outputs (synthetic suites, predictions, overlays)
 runs/
+*.egg-info/
