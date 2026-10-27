@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scan2arcgis/d0/feature_record/0.1",
+  "title": "D0 feature record (attributes only; geometry stored in GeoPackage)",
+  "type": "object",
+  "required": ["feature_id", "map_id", "record_kind", "feature_class", "calibration_status",
+               "producer_kind", "producer_name", "producer_version", "review_status", "decision"],
+  "properties": {
+    "feature_id": {"type": "string", "minLength": 1},
+    "map_id": {"type": "string", "minLength": 1},
+    "record_kind": {"enum": ["prediction", "ground_truth"]},
+    "feature_class": {"enum": ["stratigraphic_unit", "intrusive_unit", "contact", "fault", "structure_other", "mineral_point"]},
+    "legend_code": {"type": ["string", "null"]},
+    "legend_entry_id": {"type": ["string", "null"]},
+    "class_candidates": {"type": "array", "items": {"type": "object",
+      "required": ["legend_code"], "properties": {"legend_code": {"type": "string"}, "raw_score": {"type": ["number", "null"]}}}},
+
+    "calibration_status": {"enum": ["UNCALIBRATED", "CALIBRATED", "NOT_APPLICABLE"]},
+    "raw_score": {"type": ["number", "null"]},
+    "raw_score_semantics": {"type": ["string", "null"]},
+    "calibrated_p_correct": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "p_error": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "calibration_ref": {"type": ["object", "null"],
+      "required": ["calibrator_id", "method", "calib_dataset_version", "fitted_at"],
+      "properties": {"calibrator_id": {"type": "string"}, "method": {"type": "string"},
+                     "calib_dataset_version": {"type": "string"}, "fitted_at": {"type": "string"}}},
+
+    "producer_kind": {"enum": ["legacy_rule", "model", "hybrid", "human", "import"]},
+    "producer_name": {"type": "string", "minLength": 1},
+    "producer_version": {"type": "string", "minLength": 1},
+    "model_version_id": {"type": ["string", "null"]},
+    "run_id": {"type": ["string", "null"]},
+    "derived_from": {"type": "array", "items": {"type": "string"}},
+
+    "review_status": {"enum": ["UNREVIEWED", "AUTO_ACCEPTED", "HUMAN_CONFIRMED", "HUMAN_CORRECTED", "HUMAN_REJECTED"]},
+    "reviewer_role": {"type": ["string", "null"]},
+    "reviewed_at": {"type": ["string", "null"]},
+    "supersedes": {"type": ["string", "null"]},
+    "review_sampling": {"enum": ["risk_queue", "random_audit", null]},
+
+    "hard_checks": {"type": "array", "items": {"type": "object", "required": ["check_id", "status"],
+      "properties": {"check_id": {"type": "string"}, "status": {"enum": ["PASS", "FAIL", "NOT_RUN"]}, "detail": {}}}},
+    "geometry_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "quality_signals": {"type": "object"},
+    "decision": {"enum": ["AUTO_ACCEPT", "AUTO_RETRY", "HUMAN_REVIEW", "BLOCKED", "NONE"]},
+    "decision_policy_id": {"type": ["string", "null"]},
+
+    "annotator_role": {"type": ["string", "null"]},
+    "label_status": {"enum": ["draft", "reviewed", "adjudicated", null]},
+    "label_method": {"enum": ["from_scratch", "corrected_from_prediction", "imported_vector", null]},
+    "double_annotated": {"type": ["boolean", "null"]}
+  },
+  "additionalProperties": false
+}

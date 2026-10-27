@@ -1,0 +1,11 @@
+# Threshold registry. A report may only emit PASS/FAIL against APPROVED entries.
+# status: UNSET | PROPOSED | APPROVED. Legacy minimum_metrics.json values are NOT migrated.
+thresholds:
+  - {id: tol.position_mm,            value: null, unit: map_mm, status: UNSET, source: "", approved_by_role: ""}
+  - {id: unit.object_iou_min,        value: null, unit: ratio,  status: UNSET, source: "", approved_by_role: ""}
+  - {id: line.length_match_min,      value: null, unit: ratio,  status: UNSET, source: "", approved_by_role: ""}
+  - {id: legend.color_delta_e_max,   value: null, unit: deltaE2000, status: UNSET, source: "", approved_by_role: ""}
+  - {id: georef.checkpoint_rmse_max, value: null, unit: map_mm, status: UNSET, source: "", approved_by_role: ""}
+  - {id: georef.checkpoint_max_err,  value: null, unit: map_mm, status: UNSET, source: "", approved_by_role: ""}
+  - {id: autoaccept.alpha.S1,        value: null, unit: error_rate, status: UNSET, source: "", approved_by_role: ""}
+  - {id: autoaccept.alpha.S1S2,      value: null, unit: error_rate, status: UNSET, source: "", approved_by_role: ""}

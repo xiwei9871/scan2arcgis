@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Guard against publishing legacy company history or data to the public GitHub remote.
+# Install: cp scripts/hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+remote_url="$2"
+case "$remote_url" in *github.com*) ;; *) exit 0 ;; esac
+LEGACY_ROOT=b7248db22e8db24e5d73a67b045c0e6a4b008fbc
+zero=0000000000000000000000000000000000000000
+fail=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if git merge-base --is-ancestor "$LEGACY_ROOT" "$local_sha" 2>/dev/null; then
+    echo "pre-push: $local_ref contains legacy GitLab history; refusing to push to GitHub." >&2; fail=1
+  fi
+  if [ "$remote_sha" = "$zero" ]; then range="$local_sha"; else range="$remote_sha..$local_sha"; fi
+  bad=$(git diff-tree -r --no-commit-id --name-only --root $(git rev-list "$range") 2>/dev/null \
+        | grep -iE '\.(jpe?g|png|tiff?|pdf|whl|gpkg|shp|dbf|pt|pth|onnx|safetensors)$|^legacy/|^data/(raw|labels)/' | sort -u)
+  if [ -n "$bad" ]; then echo "pre-push: data/binary files in push:" >&2; echo "$bad" >&2; fail=1; fi
+  if git grep -qE 'mqkj-[A-Za-z0-9_-]{10,}' "$local_sha" -- . 2>/dev/null; then
+    echo "pre-push: token-like string (mqkj-) found; refusing." >&2; fail=1
+  fi
+done
+exit $fail
