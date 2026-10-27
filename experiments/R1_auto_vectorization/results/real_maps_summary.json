@@ -1,0 +1,876 @@
+{
+ "note": "real maps have no complete ground truth; only gm2 has legacy draft partial labels",
+ "maps": {
+  "gm2_roi": {
+   "source_image": "gm2.jpg",
+   "source_sha256": "0b540ecb1243b0a307aa0c72e96e9416c36b286e71b3725ffb097df95a13250f",
+   "roi_orig": [
+    2950,
+    300,
+    3100,
+    3500
+   ],
+   "legend_orig": [
+    6130,
+    300,
+    2763,
+    4700
+   ],
+   "scale": 0.5,
+   "swatches": 33,
+   "swatch_fill_rgb": [
+    [
+     255,
+     255,
+     102
+    ],
+    [
+     255,
+     229,
+     204
+    ],
+    [
+     217,
+     254,
+     76
+    ],
+    [
+     207,
+     247,
+     255
+    ],
+    [
+     255,
+     217,
+     255
+    ],
+    [
+     242,
+     217,
+     255
+    ],
+    [
+     242,
+     204,
+     255
+    ],
+    [
+     228,
+     242,
+     242
+    ],
+    [
+     215,
+     229,
+     229
+    ],
+    [
+     203,
+     217,
+     217
+    ],
+    [
+     218,
+     185,
+     90
+    ],
+    [
+     229,
+     223,
+     127
+    ],
+    [
+     242,
+     217,
+     177
+    ],
+    [
+     255,
+     223,
+     0
+    ],
+    [
+     255,
+     190,
+     0
+    ],
+    [
+     239,
+     147,
+     0
+    ],
+    [
+     215,
+     123,
+     0
+    ],
+    [
+     183,
+     183,
+     0
+    ],
+    [
+     239,
+     240,
+     0
+    ],
+    [
+     135,
+     255,
+     254
+    ],
+    [
+     178,
+     229,
+     128
+    ],
+    [
+     140,
+     217,
+     139
+    ],
+    [
+     152,
+     229,
+     127
+    ],
+    [
+     254,
+     204,
+     255
+    ],
+    [
+     255,
+     204,
+     216
+    ],
+    [
+     255,
+     217,
+     255
+    ],
+    [
+     255,
+     203,
+     153
+    ],
+    [
+     255,
+     76,
+     1
+    ],
+    [
+     255,
+     153,
+     255
+    ],
+    [
+     255,
+     127,
+     254
+    ],
+    [
+     255,
+     178,
+     255
+    ],
+    [
+     255,
+     25,
+     255
+    ],
+    [
+     255,
+     178,
+     255
+    ]
+   ],
+   "ocr_codes": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "jnce",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "PzLz",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "nYs",
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "legacy_polygons": 65,
+   "legacy_unlabeled": 0.3636073732718894,
+   "legacy_s": 12.136572714000067,
+   "new_regions": 251,
+   "new_classes": 28,
+   "new_low_margin": 0.15162912442396315,
+   "new_s": 9.822280170999875,
+   "vectorization": {
+    "layers": {
+     "geologic_units": 250,
+     "contacts": 547,
+     "structures": 4
+    },
+    "topology": {
+     "n_polygons": 250,
+     "invalid": 0,
+     "overlap_area_px": 0.0,
+     "coverage_ratio": 0.9999996313364056
+    },
+    "decisions": {
+     "units": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 30,
+      "HUMAN_REVIEW": 98,
+      "BLOCKED": 0,
+      "NONE": 122
+     },
+     "contacts": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 148,
+      "BLOCKED": 0,
+      "NONE": 399
+     },
+     "faults": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 2,
+      "BLOCKED": 0,
+      "NONE": 2
+     }
+    },
+    "timings_s": {
+     "classify": 9.760348629999498,
+     "polygonize": 0.09342675000152667,
+     "total": 11.015923880000628
+    }
+   },
+   "legacy_fairness": null,
+   "reference_eval": {
+    "reference": "legacy draft_partial_label (not reviewed)",
+    "metric": "class-agnostic purity / best_iou",
+    "results": {
+     "legend_rf_selftrain": {
+      "per_polygon": [
+       {
+        "label": "gm2 beige central band",
+        "purity": 0.21688424749421242,
+        "best_iou": 0.20603128417522518,
+        "dominant": "S26"
+       },
+       {
+        "label": "gm2 orange upper unit",
+        "purity": 0.46629825196073016,
+        "best_iou": 0.36325186688952177,
+        "dominant": "S27"
+       },
+       {
+        "label": "gm2 green strip unit",
+        "purity": 0.24113710262966823,
+        "best_iou": 0.1384961598997019,
+        "dominant": "S21"
+       },
+       {
+        "label": "gm2 near-color lavender unit",
+        "purity": 0.2680012996425983,
+        "best_iou": 0.22466236742971837,
+        "dominant": "S28"
+       }
+      ],
+      "mean_purity": 0.2980802254318023,
+      "mean_best_iou": 0.23311041959854178
+     },
+     "legend_rf_selftrain_shadeinv": {
+      "per_polygon": [
+       {
+        "label": "gm2 beige central band",
+        "purity": 0.22176556156435687,
+        "best_iou": 0.21013456716503698,
+        "dominant": "S26"
+       },
+       {
+        "label": "gm2 orange upper unit",
+        "purity": 0.4687860313681183,
+        "best_iou": 0.3647683645290406,
+        "dominant": "S27"
+       },
+       {
+        "label": "gm2 green strip unit",
+        "purity": 0.24454200659333722,
+        "best_iou": 0.21612383557055115,
+        "dominant": "S21"
+       },
+       {
+        "label": "gm2 near-color lavender unit",
+        "purity": 0.2684711704281323,
+        "best_iou": 0.22512228756334432,
+        "dominant": "S28"
+       }
+      ],
+      "mean_purity": 0.30089119248848617,
+      "mean_best_iou": 0.25403726370699325
+     },
+     "legacy_stratigraphy": {
+      "per_polygon": [
+       {
+        "label": "gm2 beige central band",
+        "purity": 0.15184919752680087,
+        "best_iou": 0.018009406612071354,
+        "dominant": "S26"
+       },
+       {
+        "label": "gm2 orange upper unit",
+        "purity": 0.3904690961127556,
+        "best_iou": 0.06367539112133627,
+        "dominant": "S27"
+       },
+       {
+        "label": "gm2 green strip unit",
+        "purity": 0.19185844619124287,
+        "best_iou": 0.04485228128565566,
+        "dominant": "S21"
+       },
+       {
+        "label": "gm2 near-color lavender unit",
+        "purity": 0.17362725250556096,
+        "best_iou": 0.08320211941716028,
+        "dominant": "S28"
+       }
+      ],
+      "mean_purity": 0.2269509980840901,
+      "mean_best_iou": 0.05243479960905589
+     }
+    }
+   },
+   "reference_lines_eval": {
+    "note": "draft labels cover few lines; precision measured only inside a 20px corridor",
+    "results": {
+     "legend_rf_selftrain": {
+      "recall_tol3px": 0.24887659868648462,
+      "precision_in_corridor": 0.18578748050790822
+     },
+     "legend_rf_selftrain_shadeinv": {
+      "recall_tol3px": 0.2011752506049084,
+      "precision_in_corridor": 0.16930817610062893
+     },
+     "legacy_stratigraphy": {
+      "recall_tol3px": 0.39543726235741444,
+      "precision_in_corridor": 0.16915013873188778
+     }
+    }
+   }
+  },
+  "u2": {
+   "source_image": "u2_ningwu_jingle.png",
+   "source_sha256": "c81bc4b51ba7a90e4a896ebc762d85b6c0ab6a01bfe8c063db4ace66dcb1fdbe",
+   "roi_orig": [
+    80,
+    18,
+    805,
+    780
+   ],
+   "legend_orig": [
+    80,
+    805,
+    909,
+    175
+   ],
+   "scale": 1.0,
+   "swatches": 12,
+   "swatch_fill_rgb": [
+    [
+     248,
+     248,
+     246
+    ],
+    [
+     150,
+     138,
+     182
+    ],
+    [
+     253,
+     209,
+     208
+    ],
+    [
+     218,
+     237,
+     241
+    ],
+    [
+     173,
+     211,
+     233
+    ],
+    [
+     179,
+     150,
+     187
+    ],
+    [
+     209,
+     222,
+     163
+    ],
+    [
+     133,
+     172,
+     208
+    ],
+    [
+     228,
+     134,
+     109
+    ],
+    [
+     248,
+     248,
+     244
+    ],
+    [
+     207,
+     91,
+     66
+    ],
+    [
+     243,
+     218,
+     230
+    ]
+   ],
+   "ocr_codes": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "Pal",
+    null
+   ],
+   "legacy_polygons": 5,
+   "legacy_unlabeled": 0.9615623506927855,
+   "legacy_s": 0.9881052920009097,
+   "new_regions": 138,
+   "new_classes": 11,
+   "new_low_margin": 0.08142220098741838,
+   "new_s": 1.181338209000387,
+   "vectorization": {
+    "layers": {
+     "geologic_units": 137,
+     "contacts": 313,
+     "structures": 7
+    },
+    "topology": {
+     "n_polygons": 137,
+     "invalid": 0,
+     "overlap_area_px": 0.0,
+     "coverage_ratio": 0.9999984073897117
+    },
+    "decisions": {
+     "units": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 9,
+      "HUMAN_REVIEW": 5,
+      "BLOCKED": 0,
+      "NONE": 123
+     },
+     "contacts": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 0,
+      "BLOCKED": 0,
+      "NONE": 313
+     },
+     "faults": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 6,
+      "BLOCKED": 0,
+      "NONE": 1
+     }
+    },
+    "timings_s": {
+     "classify": 1.2066424590011593,
+     "polygonize": 0.0318660409993754,
+     "total": 1.9134198760002619
+    }
+   },
+   "legacy_fairness": {
+    "A_swatch_colours": {
+     "n_polygons": 5,
+     "labeled_frac": 0.03843764930721452,
+     "secs": 1.1900461249988439
+    },
+    "B_full_map_mask": {
+     "n_polygons": 6,
+     "labeled_frac": 0.11419971333014811,
+     "secs": 1.2664476669997384
+    },
+    "C_map_sampled_colours": {
+     "n_polygons": 11,
+     "labeled_frac": 0.5293263258480649,
+     "secs": 1.7226215840000805
+    }
+   },
+   "reference_eval": null,
+   "reference_lines_eval": null
+  },
+  "u3": {
+   "source_image": "u3_qilian_jiuxi.png",
+   "source_sha256": "f13c447e7775b1ff6b12e74175e7d9305ca7e35fbe6dae933927ecc6b6897c61",
+   "roi_orig": [
+    33,
+    33,
+    3357,
+    2177
+   ],
+   "legend_orig": [
+    33,
+    2250,
+    3357,
+    560
+   ],
+   "scale": 0.5,
+   "swatches": 14,
+   "swatch_fill_rgb": [
+    [
+     248,
+     245,
+     230
+    ],
+    [
+     250,
+     179,
+     123
+    ],
+    [
+     134,
+     147,
+     191
+    ],
+    [
+     215,
+     228,
+     146
+    ],
+    [
+     220,
+     218,
+     195
+    ],
+    [
+     230,
+     180,
+     207
+    ],
+    [
+     138,
+     211,
+     217
+    ],
+    [
+     53,
+     194,
+     152
+    ],
+    [
+     250,
+     183,
+     193
+    ],
+    [
+     165,
+     185,
+     160
+    ],
+    [
+     232,
+     183,
+     176
+    ],
+    [
+     231,
+     205,
+     218
+    ],
+    [
+     254,
+     130,
+     154
+    ],
+    [
+     251,
+     250,
+     249
+    ]
+   ],
+   "ocr_codes": [
+    null,
+    "a",
+    null,
+    "pS",
+    "Za",
+    null,
+    null,
+    null,
+    "Zz",
+    "L",
+    "PS",
+    "L",
+    null,
+    null
+   ],
+   "legacy_polygons": 8,
+   "legacy_unlabeled": 0.9420534117997617,
+   "legacy_s": 3.394879501000105,
+   "new_regions": 223,
+   "new_classes": 14,
+   "new_low_margin": 0.026215667285984717,
+   "new_s": 3.2281298350008,
+   "vectorization": {
+    "layers": {
+     "geologic_units": 223,
+     "contacts": 458,
+     "structures": 13
+    },
+    "topology": {
+     "n_polygons": 223,
+     "invalid": 0,
+     "overlap_area_px": 0.0,
+     "coverage_ratio": 1.0
+    },
+    "decisions": {
+     "units": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 18,
+      "HUMAN_REVIEW": 2,
+      "BLOCKED": 0,
+      "NONE": 203
+     },
+     "contacts": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 0,
+      "BLOCKED": 0,
+      "NONE": 458
+     },
+     "faults": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 10,
+      "BLOCKED": 0,
+      "NONE": 3
+     }
+    },
+    "timings_s": {
+     "classify": 3.2477523350007687,
+     "polygonize": 0.053113666999706766,
+     "total": 4.209960919000878
+    }
+   },
+   "legacy_fairness": {
+    "A_swatch_colours": {
+     "n_polygons": 8,
+     "labeled_frac": 0.05794658820023838,
+     "secs": 3.326960210000834
+    },
+    "B_full_map_mask": {
+     "n_polygons": 9,
+     "labeled_frac": 0.32157450659047887,
+     "secs": 10.193335295998622
+    },
+    "C_map_sampled_colours": {
+     "n_polygons": 11,
+     "labeled_frac": 0.4158070707424805,
+     "secs": 12.944047881999722
+    }
+   },
+   "reference_eval": null,
+   "reference_lines_eval": null
+  },
+  "u1": {
+   "source_image": "u1_hejing_K45E001001.png",
+   "source_sha256": "cb0e2408f229e38a7e0b640f6aa76a9c466a9600c85eae362e38bd7b9bda071b",
+   "roi_orig": [
+    24,
+    54,
+    774,
+    722
+   ],
+   "legend_orig": [
+    818,
+    62,
+    452,
+    740
+   ],
+   "scale": 1.0,
+   "swatches": 11,
+   "swatch_fill_rgb": [
+    [
+     148,
+     250,
+     247
+    ],
+    [
+     190,
+     54,
+     190
+    ],
+    [
+     108,
+     65,
+     228
+    ],
+    [
+     48,
+     175,
+     242
+    ],
+    [
+     58,
+     171,
+     240
+    ],
+    [
+     206,
+     103,
+     205
+    ],
+    [
+     202,
+     103,
+     204
+    ],
+    [
+     198,
+     85,
+     198
+    ],
+    [
+     207,
+     101,
+     207
+    ],
+    [
+     207,
+     103,
+     201
+    ],
+    [
+     203,
+     104,
+     205
+    ]
+   ],
+   "ocr_codes": [
+    "ee",
+    "on",
+    null,
+    "oe",
+    null,
+    "zo",
+    "Lal",
+    "Aa",
+    "ad",
+    "wa",
+    "o"
+   ],
+   "legacy_polygons": 4,
+   "legacy_unlabeled": 0.9833812908444101,
+   "legacy_s": 1.0800632089994906,
+   "new_regions": 96,
+   "new_classes": 8,
+   "new_low_margin": 0.3470674339868439,
+   "new_s": 0.8972324579990527,
+   "vectorization": {
+    "layers": {
+     "geologic_units": 96,
+     "contacts": 184,
+     "structures": 1
+    },
+    "topology": {
+     "n_polygons": 96,
+     "invalid": 0,
+     "overlap_area_px": 0.0,
+     "coverage_ratio": 1.0
+    },
+    "decisions": {
+     "units": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 27,
+      "HUMAN_REVIEW": 22,
+      "BLOCKED": 0,
+      "NONE": 47
+     },
+     "contacts": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 26,
+      "BLOCKED": 0,
+      "NONE": 158
+     },
+     "faults": {
+      "AUTO_ACCEPT": 0,
+      "AUTO_RETRY": 0,
+      "HUMAN_REVIEW": 0,
+      "BLOCKED": 0,
+      "NONE": 1
+     }
+    },
+    "timings_s": {
+     "classify": 0.8618541670002742,
+     "polygonize": 0.015685416001360863,
+     "total": 1.2287033750017144
+    }
+   },
+   "legacy_fairness": {
+    "A_swatch_colours": {
+     "n_polygons": 4,
+     "labeled_frac": 0.016618709155589915,
+     "secs": 1.186311625999224
+    },
+    "B_full_map_mask": {
+     "n_polygons": 4,
+     "labeled_frac": 0.016618709155589915,
+     "secs": 1.085386042999744
+    },
+    "C_map_sampled_colours": {
+     "n_polygons": 3,
+     "labeled_frac": 0.009741816802307688,
+     "secs": 0.8679499170011695
+    }
+   },
+   "reference_eval": null,
+   "reference_lines_eval": null
+  }
+ }
+}

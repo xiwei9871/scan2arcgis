@@ -1,3 +1,6 @@
-map_id,file_name,sha256,source,sheet_no,scale,crs,scan_dpi,split,license_status,notes
-gm1,地质图1.jpg,0168ca909c799875b34816927f6910fe8c2cdc186c2ebf12221c4e014c87b73d,legacy repo docs/,,,,300,dev,unconfirmed,19011x20604
-gm2,地质图2.jpg,0b540ecb1243b0a307aa0c72e96e9416c36b286e71b3725ffb097df95a13250f,legacy repo docs/,,,,300,dev,unconfirmed,8893x5330
+map_id,file_name,sha256,source,sheet_no,scale_denominator,crs_hint,scan_dpi,width_px,height_px,style_group,split,license_status,publishable,notes
+gm1,gm1.jpg,0168ca909c799875b34816927f6910fe8c2cdc186c2ebf12221c4e014c87b73d,legacy repo docs/地质图1.jpg,,,,300,19011,20604,,dev,unconfirmed,false,not used in R1 (memory)
+gm2,gm2.jpg,0b540ecb1243b0a307aa0c72e96e9416c36b286e71b3725ffb097df95a13250f,legacy repo docs/地质图2.jpg,,200000,,300,8893,5330,cn_1to200k,dev,unconfirmed,false,legacy draft partial labels available
+u1,u1_hejing_K45E001001.png,cb0e2408f229e38a7e0b640f6aa76a9c466a9600c85eae362e38bd7b9bda071b,provided by project owner 2026-10-27,K45E001001,,,,1280,826,cn_1to250k_screen,dev,unconfirmed,false,low-res screenshot; no labels
+u2,u2_ningwu_jingle.png,c81bc4b51ba7a90e4a896ebc762d85b6c0ab6a01bfe8c063db4ace66dcb1fdbe,provided by project owner 2026-10-27,,,,,989,987,cn_regional_screen,dev,unconfirmed,false,no labels
+u3,u3_qilian_jiuxi.png,f13c447e7775b1ff6b12e74175e7d9305ca7e35fbe6dae933927ecc6b6897c61,provided by project owner 2026-10-27,,,,,3431,2841,cn_regional_screen,dev,unconfirmed,false,no labels

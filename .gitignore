@@ -37,3 +37,6 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local run outputs (synthetic suites, predictions, overlays)
+runs/
