@@ -1,0 +1,3 @@
+map_id,file_name,sha256,source,sheet_no,scale,crs,scan_dpi,split,license_status,notes
+gm1,地质图1.jpg,0168ca909c799875b34816927f6910fe8c2cdc186c2ebf12221c4e014c87b73d,legacy repo docs/,,,,300,dev,unconfirmed,19011x20604
+gm2,地质图2.jpg,0b540ecb1243b0a307aa0c72e96e9416c36b286e71b3725ffb097df95a13250f,legacy repo docs/,,,,300,dev,unconfirmed,8893x5330

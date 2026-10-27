@@ -1,0 +1,2 @@
+245 failed, 884 passed, 19 skipped, 1 deselected, 8 warnings in 11.13s
+dev HEAD 7aad0c1: 245 failed, 958 passed, 52 skipped, 1 deselected

@@ -1,0 +1,56 @@
+     55 TypeError: CommodityVariantProfile.__init__() got an unexpected keyword argument 'symbol_shape_id'
+     24 TypeError: _supplement_legend_consistency_samples_into_current_bundle() got an unexpected keyword argument 'section_id'
+     18 KeyError: 'symbol_shape_id'
+     18 KeyError: 'section_id'
+     15 AttributeError: 'RecognitionPipeline' object has no attribute 'contour_pipeline'. Did you mean
+      7 AttributeError: 'OCRRegion' object has no attribute 'region_id'. Did you mean
+      5 fastapi.exceptions.HTTPException: 
+      5 KeyError: 'boundary_name'
+      5 AttributeError: 'CommodityLegendSymbol' object has no attribute 'symbol_shape_id'. Did you mean
+      4 TypeError: ensure_persistent_legend_ids() got an unexpected keyword argument 'section_id'
+      3 pydantic_core._pydantic_core.ValidationError: 2 validation errors for LegendSectionStateRequest
+      3 AttributeError: 'CommodityLegendSymbol' object has no attribute 'symbol_pattern_ids'. Did you mean
+      3 AssertionError: assert [{'geometry':...'
+      3 AssertionError: assert 4 == 1
+      2 pydantic_core._pydantic_core.ValidationError: 1 validation error for LegendSectionStateRequest
+      2 TypeError: _append_commodity_supplement_features() got an unexpected keyword argument 'item_id'
+      2 KeyError: 'source_gate_dark_low_chroma_solid_map_fill'
+      2 AssertionError: assert ['fusion', 'b...'module_diff'] == ['fusion', 'b...'module_diff']
+      1 pydantic_core._pydantic_core.ValidationError: 1 validation error for LegendEntryRequest
+      1 pydantic_core._pydantic_core.ValidationError: 1 validation error for AppliedCandidateContext
+      1 UnboundLocalError: local variable 'crs_name' referenced before assignment
+      1 TypeError: test_pipeline_passes_commodity_mode_and_guidance_samples_to_raw_modules.<locals>.fake_run_raw_modules() got an
+      1 TypeError: _collect_legend_consistency_supplement_samples() got an unexpected keyword argument 'section_id'
+      1 KeyError: 'symbol_pattern_ids'
+      1 KeyError: 'source_gate_template_body_evidence_missing'
+      1 KeyError: 'item_id'
+      1 KeyError: 'geologic_structure_raw'
+      1 KeyError: 'contours'
+      1 KeyError: 'contour_support'
+      1 KeyError: 'contact_features_before_sliver_filter_count'
+      1 KeyError: 'boundary_current_summary'
+      1 AttributeError: <module 'api.routes.recognition' from 'backend/api/routes/recognition.py'> has no attribute 'get
+      1 AttributeError: <module 'api.routes.recognition' from 'backend/api/routes/recognition.py'> has no attribute 'Con
+      1 AttributeError: 'NoneType' object has no attribute 'startswith'
+      1 AssertionError: assert {'boundaries'...rock'
+      1 AssertionError: assert {'backend/cor...ty_class_id']} == {}
+      1 AssertionError: assert set() == {'feature_01m...25ppxyvjd6pd'}
+      1 AssertionError: assert frozenset({'b...tratigraphy'}) == {'boundary', ...stratigraphy'}
+      1 AssertionError: assert [] == [{'bbox_px'
+      1 AssertionError: assert [] == ['positive-1']
+      1 AssertionError: assert [] == ['Qh', 'γ5']
+      1 AssertionError: assert ['stratigraph...ic_structure'] == ['stratigraph...', 'boundary']
+      1 AssertionError: assert ['features.cs...d_items.json'] == ['features.cs...summary.json']
+      1 AssertionError: assert ['core/recogn...andidates.py'] == []
+      1 AssertionError: assert ['achromatic'...00', 'f90d17'] == ['achromatic', 'f90d17']
+      1 AssertionError: assert 3 == 2
+      1 AssertionError: assert 2 == 1
+      1 AssertionError: assert ((0 + 0) + 0) >= 1
+      1 AssertionError: assert 'text_marker' in []
+      1 AssertionError: assert 'slash' in []
+      1 AssertionError: assert 'inner_circle' in []
+      1 AssertionError: assert 'extra_recognized_items' == 'missing_legend_items'
+      1 AssertionError: assert 'extra_recognized_items' == 'class_mismatch'
+      1 AssertionError: assert 'cross' in ['hollow']
+      1 AssertionError: assert 'contours_pixel.geojson' in ['reports/export_manifest.json']
+      1 AssertionError: assert 'autonomous' == 'supplementary'
