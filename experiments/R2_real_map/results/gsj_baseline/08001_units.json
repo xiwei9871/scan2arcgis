@@ -1,0 +1,902 @@
+[
+ {
+  "id": 0,
+  "major_code": "1",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "完新世",
+   "LEGEND02E": "Holocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "沖積層",
+   "LEGEND04E": "Alluvium",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "礫・砂および粘土",
+   "LEGEND06E": "Gravel, sand and clay"
+  },
+  "area_px": 540605,
+  "n_polygons": 1
+ },
+ {
+  "id": 1,
+  "major_code": "10",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "三峯山火山岩",
+   "LEGEND04E": "Mitsumineyama Volcanics",
+   "LEGEND05": "上部層",
+   "LEGEND05E": "Upper member",
+   "LEGEND06": "安山岩溶岩",
+   "LEGEND06E": "Andesite lava"
+  },
+  "area_px": 1562,
+  "n_polygons": 1
+ },
+ {
+  "id": 2,
+  "major_code": "11",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "三峯山火山岩",
+   "LEGEND04E": "Mitsumineyama Volcanics",
+   "LEGEND05": "中部層",
+   "LEGEND05E": "Middle member",
+   "LEGEND06": "安山岩火山角礫岩（凝灰岩および凝灰質砂岩を伴う）",
+   "LEGEND06E": "Andesite volcanic breccia (with tuff and tuffaceous sandstone)"
+  },
+  "area_px": 33549,
+  "n_polygons": 1
+ },
+ {
+  "id": 3,
+  "major_code": "12",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "三峯山火山岩",
+   "LEGEND04E": "Mitsumineyama Volcanics",
+   "LEGEND05": "下部層",
+   "LEGEND05E": "Lower member",
+   "LEGEND06": "安山岩溶岩",
+   "LEGEND06E": "Andesite lava"
+  },
+  "area_px": 49009,
+  "n_polygons": 1
+ },
+ {
+  "id": 4,
+  "major_code": "13",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "聖山火山岩",
+   "LEGEND04E": "Hijiriyama Volcanics",
+   "LEGEND05": "聖山玄武岩",
+   "LEGEND05E": "Hijiriyama Basalt",
+   "LEGEND06": "紫蘇輝石普通輝石かんらん石玄武岩",
+   "LEGEND06E": "Hypersthene-augite-olivine basalt"
+  },
+  "area_px": 10129,
+  "n_polygons": 1
+ },
+ {
+  "id": 5,
+  "major_code": "14",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "聖山火山岩",
+   "LEGEND04E": "Hijiriyama Volcanics",
+   "LEGEND05": "たら原山安山岩",
+   "LEGEND05E": "Tararayama Andesite",
+   "LEGEND06": "かんらん石普通輝石安山岩溶岩および火山角礫岩",
+   "LEGEND06E": "Olivine-augite andesite lava and volcanic breccia"
+  },
+  "area_px": 66144,
+  "n_polygons": 1
+ },
+ {
+  "id": 6,
+  "major_code": "15",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "聖山火山岩",
+   "LEGEND04E": "Hijiriyama Volcanics",
+   "LEGEND05": "聖山安山岩",
+   "LEGEND05E": "Hijiriyama Andesite",
+   "LEGEND06": "紫蘇輝石普通輝石安山岩溶岩・玄武岩質安山岩溶岩および火山角礫岩",
+   "LEGEND06E": "Hypersthene-augite andesite lava, basaltic andesite lava and volcanic breccia"
+  },
+  "area_px": 225822,
+  "n_polygons": 1
+ },
+ {
+  "id": 7,
+  "major_code": "16",
+  "legend": {
+   "LEGEND01": "新第三紀-第四紀",
+   "LEGEND01E": "Neogene-Quaternary",
+   "LEGEND02": "鮮新世-更新世",
+   "LEGEND02E": "Pliocene-Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "聖山火山岩",
+   "LEGEND04E": "Hijiriyama Volcanics",
+   "LEGEND05": "聖山安山岩",
+   "LEGEND05E": "Hijiriyama Andesite",
+   "LEGEND06": "紫蘇輝石普通輝石安山岩溶岩・玄武岩質安山岩溶岩および火山角礫岩",
+   "LEGEND06E": "Hypersthene-augite andesite lava, basaltic andesite lava and volcanic breccia"
+  },
+  "area_px": 2428,
+  "n_polygons": 1
+ },
+ {
+  "id": 8,
+  "major_code": "17",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "込地層",
+   "LEGEND04E": "Komiji Formation",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "砂質泥岩",
+   "LEGEND06E": "Sandy mudstone"
+  },
+  "area_px": 2658,
+  "n_polygons": 1
+ },
+ {
+  "id": 9,
+  "major_code": "18",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "冠着安山岩",
+   "LEGEND04E": "Kamuriki Andesite",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "安山岩溶岩",
+   "LEGEND06E": "Andesite lava"
+  },
+  "area_px": 13642,
+  "n_polygons": 1
+ },
+ {
+  "id": 10,
+  "major_code": "19",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "冠着層",
+   "LEGEND04E": "Kamuriki Formation",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "安山岩凝灰角礫岩・火山角礫岩・デイサイト凝灰角礫岩および溶結凝灰岩",
+   "LEGEND06E": "Andesite tuff breccia, volcanic breccia, dacite tuff breccia and welded tuff"
+  },
+  "area_px": 32095,
+  "n_polygons": 1
+ },
+ {
+  "id": 11,
+  "major_code": "2",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "完新世",
+   "LEGEND02E": "Holocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "旧河床堆積物",
+   "LEGEND04E": "Older fluvial deposits",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "礫および砂",
+   "LEGEND06E": "Gravel and sand"
+  },
+  "area_px": 1377199,
+  "n_polygons": 1
+ },
+ {
+  "id": 12,
+  "major_code": "20",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "岩脈",
+   "LEGEND04E": "Dike",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "安山岩",
+   "LEGEND06E": "Andesite"
+  },
+  "area_px": 5346,
+  "n_polygons": 1
+ },
+ {
+  "id": 13,
+  "major_code": "21",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "裾花層",
+   "LEGEND04E": "Susobana Formation",
+   "LEGEND05": "上部層",
+   "LEGEND05E": "Upper member",
+   "LEGEND06": "安山岩溶岩・デイサイト溶岩・火山角礫岩および流紋岩溶岩",
+   "LEGEND06E": "Andesite lava, dacite lava, volcanic breccia and rhyolite lava"
+  },
+  "area_px": 149791,
+  "n_polygons": 1
+ },
+ {
+  "id": 14,
+  "major_code": "22",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "裾花層",
+   "LEGEND04E": "Susobana Formation",
+   "LEGEND05": "下部層",
+   "LEGEND05E": "Lower member",
+   "LEGEND06": "流紋岩溶岩および凝灰岩",
+   "LEGEND06E": "Rhyolite lava and tuff"
+  },
+  "area_px": 227070,
+  "n_polygons": 1
+ },
+ {
+  "id": 15,
+  "major_code": "23",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "岩床",
+   "LEGEND04E": "Sheet",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "安山岩質玄武岩",
+   "LEGEND06E": "Andesitic basalt"
+  },
+  "area_px": 11348,
+  "n_polygons": 1
+ },
+ {
+  "id": 16,
+  "major_code": "24",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "丸山安山岩",
+   "LEGEND04E": "Maruyama Andesite",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "安山岩溶岩",
+   "LEGEND06E": "Andesite lava"
+  },
+  "area_px": 3869,
+  "n_polygons": 1
+ },
+ {
+  "id": 17,
+  "major_code": "25",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "北山デイサイト",
+   "LEGEND04E": "Kitayama Dacite",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "デイサイト餅盤",
+   "LEGEND06E": "Dacite laccolith"
+  },
+  "area_px": 21135,
+  "n_polygons": 1
+ },
+ {
+  "id": 18,
+  "major_code": "26",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "小川層",
+   "LEGEND04E": "Ogawa Formation",
+   "LEGEND05": "重部層",
+   "LEGEND05E": "Shige Member",
+   "LEGEND06": "礫岩・礫質砂岩・砂質泥岩・砂岩および砂岩砂質泥岩互層（石炭をはさむ）",
+   "LEGEND06E": "Conglomerate, pebbly sandstone, sandy mudstone, sandstone and alternation of sandstone and sandy mudstone (with coal)"
+  },
+  "area_px": 512574,
+  "n_polygons": 1
+ },
+ {
+  "id": 19,
+  "major_code": "27",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "小川層",
+   "LEGEND04E": "Ogawa Formation",
+   "LEGEND05": "重部層",
+   "LEGEND05E": "Shige Member",
+   "LEGEND06": "酸性凝灰岩",
+   "LEGEND06E": "Acid tuff"
+  },
+  "area_px": 3048,
+  "n_polygons": 1
+ },
+ {
+  "id": 20,
+  "major_code": "28",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世後期",
+   "LEGEND03E": "Late Miocene",
+   "LEGEND04": "小川層",
+   "LEGEND04E": "Ogawa Formation",
+   "LEGEND05": "差切部層",
+   "LEGEND05E": "Sashikiri Member",
+   "LEGEND06": "砂岩・礫質砂岩・礫岩および砂質泥岩（石炭をはさむ）",
+   "LEGEND06E": "Sandstone, pebbly sandstone, conglomerate, and sandy mudstone (with coal)"
+  },
+  "area_px": 1308988,
+  "n_polygons": 1
+ },
+ {
+  "id": 21,
+  "major_code": "29",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": null,
+   "LEGEND04E": null,
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "石英斑岩",
+   "LEGEND06E": "Quartz porphyry"
+  },
+  "area_px": 28438,
+  "n_polygons": 1
+ },
+ {
+  "id": 22,
+  "major_code": "3",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "完新世",
+   "LEGEND02E": "Holocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "扇状地堆積物",
+   "LEGEND04E": "Fan deposits",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "礫・砂および粘土",
+   "LEGEND06E": "Gravel, sand and clay"
+  },
+  "area_px": 330525,
+  "n_polygons": 1
+ },
+ {
+  "id": 23,
+  "major_code": "30",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": null,
+   "LEGEND04E": null,
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "石英閃緑岩",
+   "LEGEND06E": "Quartz diorite"
+  },
+  "area_px": 12770,
+  "n_polygons": 1
+ },
+ {
+  "id": 24,
+  "major_code": "31",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "青木層",
+   "LEGEND04E": "Aoki Formation",
+   "LEGEND05": "最上部層",
+   "LEGEND05E": "Uppermost member",
+   "LEGEND06": "砂質泥岩砂岩互層",
+   "LEGEND06E": "Alternation of sandy mudstone and sandstone"
+  },
+  "area_px": 209788,
+  "n_polygons": 1
+ },
+ {
+  "id": 25,
+  "major_code": "32",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "青木層",
+   "LEGEND04E": "Aoki Formation",
+   "LEGEND05": "上部層",
+   "LEGEND05E": "Upper member",
+   "LEGEND06": "砂質泥岩",
+   "LEGEND06E": "Sandy mudstone"
+  },
+  "area_px": 1042892,
+  "n_polygons": 1
+ },
+ {
+  "id": 26,
+  "major_code": "33",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "青木層",
+   "LEGEND04E": "Aoki Formation",
+   "LEGEND05": "中部層",
+   "LEGEND05E": "Middle member",
+   "LEGEND06": "砂岩・礫岩および砂質泥岩砂岩互層",
+   "LEGEND06E": "Sandstone, conglomerate, and alternation of sandy mudstone and sandstone"
+  },
+  "area_px": 102854,
+  "n_polygons": 1
+ },
+ {
+  "id": 27,
+  "major_code": "34",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "青木層",
+   "LEGEND04E": "Aoki Formation",
+   "LEGEND05": "下部層",
+   "LEGEND05E": "Lower member",
+   "LEGEND06": "砂質泥岩・砂質泥岩砂岩互層および砂岩",
+   "LEGEND06E": "Sandy mudstone, sandstone, and alternation of sandy mudstone and sandstone"
+  },
+  "area_px": 546171,
+  "n_polygons": 1
+ },
+ {
+  "id": 28,
+  "major_code": "35",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "青木層",
+   "LEGEND04E": "Aoki Formation",
+   "LEGEND05": "最下部層",
+   "LEGEND05E": "Lowermost member",
+   "LEGEND06": "礫岩および砂岩",
+   "LEGEND06E": "Conglomerate and sandstone"
+  },
+  "area_px": 125416,
+  "n_polygons": 1
+ },
+ {
+  "id": 29,
+  "major_code": "36",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "岩脈および岩床",
+   "LEGEND04E": "Dike and sheet",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "ひん岩",
+   "LEGEND06E": "Porphyrite"
+  },
+  "area_px": 295424,
+  "n_polygons": 1
+ },
+ {
+  "id": 30,
+  "major_code": "37",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世中期",
+   "LEGEND03E": "Middle Miocene",
+   "LEGEND04": "別所層",
+   "LEGEND04E": "Bessho Formation",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "頁岩",
+   "LEGEND06E": "Shale"
+  },
+  "area_px": 869716,
+  "n_polygons": 1
+ },
+ {
+  "id": 31,
+  "major_code": "38",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "森部層",
+   "LEGEND05E": "Mori Member",
+   "LEGEND06": "頁岩および頁岩砂岩互層",
+   "LEGEND06E": "Shale, and alternation of shale and sandstone"
+  },
+  "area_px": 181439,
+  "n_polygons": 1
+ },
+ {
+  "id": 32,
+  "major_code": "39",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "森部層",
+   "LEGEND05E": "Mori Member",
+   "LEGEND06": "デイサイト凝灰岩",
+   "LEGEND06E": "Dacite tuff"
+  },
+  "area_px": 3173,
+  "n_polygons": 1
+ },
+ {
+  "id": 33,
+  "major_code": "4",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "完新世",
+   "LEGEND02E": "Holocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "崩積堆積物",
+   "LEGEND04E": "Colluvial deposits",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "礫・砂および粘土",
+   "LEGEND06E": "Gravel, sand and clay"
+  },
+  "area_px": 436986,
+  "n_polygons": 1
+ },
+ {
+  "id": 34,
+  "major_code": "40",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "森部層",
+   "LEGEND05E": "Mori Member",
+   "LEGEND06": "デイサイト凝灰岩",
+   "LEGEND06E": "Dacite tuff"
+  },
+  "area_px": 2249,
+  "n_polygons": 1
+ },
+ {
+  "id": 35,
+  "major_code": "41",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "森部層",
+   "LEGEND05E": "Mori Member",
+   "LEGEND06": "デイサイト凝灰岩",
+   "LEGEND06E": "Dacite tuff"
+  },
+  "area_px": 6227,
+  "n_polygons": 1
+ },
+ {
+  "id": 36,
+  "major_code": "42",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "横尾部層",
+   "LEGEND05E": "Yokoo Member",
+   "LEGEND06": "緑色凝灰岩・頁岩および凝灰質砂岩",
+   "LEGEND06E": "Green tuff, shale and tuffaceous sandstone"
+  },
+  "area_px": 315599,
+  "n_polygons": 1
+ },
+ {
+  "id": 37,
+  "major_code": "43",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "太郎山部層",
+   "LEGEND05E": "Taroyama Member",
+   "LEGEND06": "凝灰岩・凝灰角礫岩および頁岩",
+   "LEGEND06E": "Tuff, tuff breccia and shale"
+  },
+  "area_px": 304911,
+  "n_polygons": 1
+ },
+ {
+  "id": 38,
+  "major_code": "44",
+  "legend": {
+   "LEGEND01": "新第三紀",
+   "LEGEND01E": "Neogene",
+   "LEGEND02": "中新世",
+   "LEGEND02E": "Miocene",
+   "LEGEND03": "中新世前期",
+   "LEGEND03E": "Early Miocene",
+   "LEGEND04": "内村層",
+   "LEGEND04E": "Uchimura Formation",
+   "LEGEND05": "大峯山部層",
+   "LEGEND05E": "Omineyama Member",
+   "LEGEND06": "頁岩および凝灰岩",
+   "LEGEND06E": "Shale and tuff"
+  },
+  "area_px": 147236,
+  "n_polygons": 1
+ },
+ {
+  "id": 39,
+  "major_code": "5",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "更新世",
+   "LEGEND02E": "Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "段丘堆積物",
+   "LEGEND04E": "Terrace deposits",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "礫・砂および泥",
+   "LEGEND06E": "Gravel, sand and mud"
+  },
+  "area_px": 9273,
+  "n_polygons": 1
+ },
+ {
+  "id": 40,
+  "major_code": "6",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "更新世",
+   "LEGEND02E": "Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "大町テフラ層",
+   "LEGEND04E": "Omachi Tephra Formation",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "火山灰（軽石およびスコリアを伴う）",
+   "LEGEND06E": "Volcanic ash (with pumice and scoria)"
+  },
+  "area_px": 198926,
+  "n_polygons": 1
+ },
+ {
+  "id": 41,
+  "major_code": "7",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "更新世",
+   "LEGEND02E": "Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "姨捨土石流堆積物",
+   "LEGEND04E": "Obasute Mudflow Deposits",
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "安山岩角礫・砂および粘土",
+   "LEGEND06E": "Andesite breccia, sand and clay"
+  },
+  "area_px": 73088,
+  "n_polygons": 1
+ },
+ {
+  "id": 42,
+  "major_code": "8",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "更新世",
+   "LEGEND02E": "Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "上小湖成層",
+   "LEGEND04E": "Josho Lake Deposits",
+   "LEGEND05": "新期上小湖成層",
+   "LEGEND05E": "Younger Josho Lake Deposits",
+   "LEGEND06": "泥・砂・泥炭および礫",
+   "LEGEND06E": "Mud, sand, peat and gravel"
+  },
+  "area_px": 132012,
+  "n_polygons": 1
+ },
+ {
+  "id": 43,
+  "major_code": "88",
+  "legend": {
+   "LEGEND01": null,
+   "LEGEND01E": null,
+   "LEGEND02": null,
+   "LEGEND02E": null,
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": null,
+   "LEGEND04E": null,
+   "LEGEND05": null,
+   "LEGEND05E": null,
+   "LEGEND06": "水域（河川・湖沼・海など）",
+   "LEGEND06E": "Water area (river, lake, sea etc.)"
+  },
+  "area_px": 145246,
+  "n_polygons": 1
+ },
+ {
+  "id": 44,
+  "major_code": "9",
+  "legend": {
+   "LEGEND01": "第四紀",
+   "LEGEND01E": "Quaternary",
+   "LEGEND02": "更新世",
+   "LEGEND02E": "Pleistocene",
+   "LEGEND03": null,
+   "LEGEND03E": null,
+   "LEGEND04": "上小湖成層",
+   "LEGEND04E": "Josho Lake Deposits",
+   "LEGEND05": "古期上小湖成層",
+   "LEGEND05E": "Older Josho Lake Deposits",
+   "LEGEND06": "礫・泥および砂",
+   "LEGEND06E": "Gravel, mud and sand"
+  },
+  "area_px": 116211,
+  "n_polygons": 1
+ }
+]

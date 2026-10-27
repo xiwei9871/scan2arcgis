@@ -1,0 +1,25 @@
+{
+ "n_boundary_px": 189339,
+ "median_px": 0.9550018310546875,
+ "p90_px": 8.7564697265625,
+ "frac_within_3px": 0.8144703415566787,
+ "best_shift": {
+  "median_px": 0.9550018310546875,
+  "dx": 0,
+  "dy": -2
+ },
+ "n_units": 45,
+ "line_kinds": {
+  "contact": 1,
+  "fault": 11,
+  "frame": 1
+ },
+ "line_kind_values": {
+  "\u5730\u8cea\u5883\u754c\u7dda": "contact",
+  "\u65ad\u5c64": "fault",
+  "\u63a8\u5b9a\u65ad\u5c64": "fault",
+  "\u4f0f\u5728\u65ad\u5c64": "fault",
+  "\u56f3\u90ed\u7dda": "frame"
+ },
+ "line_type_column": "LEGEND01"
+}

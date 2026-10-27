@@ -1,0 +1,2019 @@
+{
+ "image": "GSJ_MAP_G050_08001_1980_200dpi.jpg",
+ "scale": 0.5,
+ "work_size": [
+  3110,
+  2137
+ ],
+ "n_swatches": 38,
+ "n_official_units": 45,
+ "methods": {
+  "legend_nearest_color": {
+   "n_gt_units": 45,
+   "n_pred_classes_used": 34,
+   "n_units_matched": 32,
+   "pixel_acc_matched": 0.6152302517789473,
+   "purity_many_to_one": 0.6996140158185112,
+   "miou_matched_all_units": 0.29186148102873766,
+   "fw_iou_matched": 0.492106430083459,
+   "units_iou_ge_0.5": 12,
+   "units_iou_lt_0.2": 21,
+   "small_units": {
+    "n": 18,
+    "n_iou_ge_0.5": 1
+   },
+   "components": {
+    "gt": 830,
+    "pred": 1421,
+    "ratio": 1.7120481927710844
+   },
+   "boundary_from_areas": {
+    "precision": 0.33898575680514537,
+    "recall": 0.5150537445860878,
+    "f1": 0.4088707445485173,
+    "pred_px": 175382,
+    "gt_px": 114058
+   },
+   "per_unit": [
+    {
+     "major_code": "1",
+     "name": "第四紀",
+     "gt_px": 135052,
+     "matched_pred": "S00",
+     "iou_matched": 0.2060992987063787,
+     "dominant_pred": "S00",
+     "dominant_share": 0.32771821224417264,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "10",
+     "name": "新第三紀-第四紀",
+     "gt_px": 390,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S10",
+     "dominant_share": 0.5974358974358974,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "11",
+     "name": "新第三紀-第四紀",
+     "gt_px": 8395,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9983323406789756,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "12",
+     "name": "新第三紀-第四紀",
+     "gt_px": 12242,
+     "matched_pred": "S09",
+     "iou_matched": 0.00011270780501549733,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9830093122038882,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "13",
+     "name": "新第三紀-第四紀",
+     "gt_px": 2537,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 0.8352384706346078,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "14",
+     "name": "新第三紀-第四紀",
+     "gt_px": 16541,
+     "matched_pred": "S10",
+     "iou_matched": 0.3654338165985906,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9844023940511456,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "15",
+     "name": "新第三紀-第四紀",
+     "gt_px": 56527,
+     "matched_pred": "S13",
+     "iou_matched": 0.8422107222870847,
+     "dominant_pred": "S13",
+     "dominant_share": 0.9443451801793833,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "16",
+     "name": "新第三紀-第四紀",
+     "gt_px": 602,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9700996677740864,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "17",
+     "name": "新第三紀",
+     "gt_px": 671,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 0.4992548435171386,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "18",
+     "name": "新第三紀",
+     "gt_px": 3408,
+     "matched_pred": "S15",
+     "iou_matched": 0.17777967257844474,
+     "dominant_pred": "S15",
+     "dominant_share": 0.6117957746478874,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "19",
+     "name": "新第三紀",
+     "gt_px": 8025,
+     "matched_pred": "S34",
+     "iou_matched": 0.11920471540424034,
+     "dominant_pred": "S18",
+     "dominant_share": 0.5500311526479751,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "2",
+     "name": "第四紀",
+     "gt_px": 344266,
+     "matched_pred": "S02",
+     "iou_matched": 0.3187147770111823,
+     "dominant_pred": "S02",
+     "dominant_share": 0.43663330099399883,
+     "n_pred_classes_covering_5pct": 5
+    },
+    {
+     "major_code": "20",
+     "name": "新第三紀",
+     "gt_px": 1351,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S19",
+     "dominant_share": 0.5588452997779423,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "21",
+     "name": "新第三紀",
+     "gt_px": 37428,
+     "matched_pred": "S19",
+     "iou_matched": 0.4509076177158614,
+     "dominant_pred": "S19",
+     "dominant_share": 0.9218499519076627,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "22",
+     "name": "新第三紀",
+     "gt_px": 56805,
+     "matched_pred": "S21",
+     "iou_matched": 0.23245636528368976,
+     "dominant_pred": "S19",
+     "dominant_share": 0.6267934160725288,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "23",
+     "name": "新第三紀",
+     "gt_px": 2845,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S28",
+     "dominant_share": 0.2383128295254833,
+     "n_pred_classes_covering_5pct": 6
+    },
+    {
+     "major_code": "24",
+     "name": "新第三紀",
+     "gt_px": 974,
+     "matched_pred": "S20",
+     "iou_matched": 0.20636550308008214,
+     "dominant_pred": "S21",
+     "dominant_share": 0.6242299794661191,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "25",
+     "name": "新第三紀",
+     "gt_px": 5285,
+     "matched_pred": "S25",
+     "iou_matched": 0.5404921700223714,
+     "dominant_pred": "S25",
+     "dominant_share": 0.9142857142857143,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "26",
+     "name": "新第三紀",
+     "gt_px": 128178,
+     "matched_pred": "S23",
+     "iou_matched": 0.6814602935641701,
+     "dominant_pred": "S23",
+     "dominant_share": 0.7062990528795893,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "27",
+     "name": "新第三紀",
+     "gt_px": 764,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S28",
+     "dominant_share": 0.8756544502617801,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "28",
+     "name": "新第三紀",
+     "gt_px": 327197,
+     "matched_pred": "S24",
+     "iou_matched": 0.4388946174468963,
+     "dominant_pred": "S24",
+     "dominant_share": 0.4553036855472391,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "29",
+     "name": "新第三紀",
+     "gt_px": 7106,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S25",
+     "dominant_share": 0.3778497044750915,
+     "n_pred_classes_covering_5pct": 5
+    },
+    {
+     "major_code": "3",
+     "name": "第四紀",
+     "gt_px": 82644,
+     "matched_pred": "S16",
+     "iou_matched": 0.09778650252722153,
+     "dominant_pred": "S02",
+     "dominant_share": 0.452700740525628,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "30",
+     "name": "新第三紀",
+     "gt_px": 3200,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S11",
+     "dominant_share": 0.571875,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "31",
+     "name": "新第三紀",
+     "gt_px": 52472,
+     "matched_pred": "S14",
+     "iou_matched": 0.3742353908842521,
+     "dominant_pred": "S14",
+     "dominant_share": 0.7543832901356914,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "32",
+     "name": "新第三紀",
+     "gt_px": 260713,
+     "matched_pred": "S28",
+     "iou_matched": 0.8035839385284487,
+     "dominant_pred": "S28",
+     "dominant_share": 0.9723373978282632,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "33",
+     "name": "新第三紀",
+     "gt_px": 25715,
+     "matched_pred": "S29",
+     "iou_matched": 0.528553711687238,
+     "dominant_pred": "S29",
+     "dominant_share": 0.6960917752284659,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "34",
+     "name": "新第三紀",
+     "gt_px": 136543,
+     "matched_pred": "S30",
+     "iou_matched": 0.7524985775010878,
+     "dominant_pred": "S30",
+     "dominant_share": 0.8232717898390983,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "35",
+     "name": "新第三紀",
+     "gt_px": 31351,
+     "matched_pred": "S31",
+     "iou_matched": 0.4728411197908751,
+     "dominant_pred": "S31",
+     "dominant_share": 0.9923766387037096,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "36",
+     "name": "新第三紀",
+     "gt_px": 73790,
+     "matched_pred": "S32",
+     "iou_matched": 0.674758214308589,
+     "dominant_pred": "S32",
+     "dominant_share": 0.7138501151917604,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "37",
+     "name": "新第三紀",
+     "gt_px": 217415,
+     "matched_pred": "S33",
+     "iou_matched": 0.8973396469359595,
+     "dominant_pred": "S33",
+     "dominant_share": 0.9840627371616494,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "38",
+     "name": "新第三紀",
+     "gt_px": 45332,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S35",
+     "dominant_share": 0.8480984734845143,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "39",
+     "name": "新第三紀",
+     "gt_px": 786,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S33",
+     "dominant_share": 0.6463104325699746,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "4",
+     "name": "第四紀",
+     "gt_px": 109263,
+     "matched_pred": "S04",
+     "iou_matched": 0.01916703775751752,
+     "dominant_pred": "S02",
+     "dominant_share": 0.3081738557425661,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "40",
+     "name": "新第三紀",
+     "gt_px": 567,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S36",
+     "dominant_share": 0.8289241622574955,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "41",
+     "name": "新第三紀",
+     "gt_px": 1558,
+     "matched_pred": "S12",
+     "iou_matched": 0.0885286783042394,
+     "dominant_pred": "S35",
+     "dominant_share": 0.44801026957637996,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "42",
+     "name": "新第三紀",
+     "gt_px": 78819,
+     "matched_pred": "S35",
+     "iou_matched": 0.5120779566822732,
+     "dominant_pred": "S35",
+     "dominant_share": 0.8533982922899301,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "43",
+     "name": "新第三紀",
+     "gt_px": 76194,
+     "matched_pred": "S36",
+     "iou_matched": 0.8214812145828556,
+     "dominant_pred": "S36",
+     "dominant_share": 0.9874399559020395,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "44",
+     "name": "新第三紀",
+     "gt_px": 36785,
+     "matched_pred": "S37",
+     "iou_matched": 0.8987457184396639,
+     "dominant_pred": "S37",
+     "dominant_share": 0.9914910969145032,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "5",
+     "name": "第四紀",
+     "gt_px": 2315,
+     "matched_pred": "S27",
+     "iou_matched": 0.008397715821296607,
+     "dominant_pred": "S02",
+     "dominant_share": 0.350755939524838,
+     "n_pred_classes_covering_5pct": 5
+    },
+    {
+     "major_code": "6",
+     "name": "第四紀",
+     "gt_px": 49743,
+     "matched_pred": "S26",
+     "iou_matched": 0.34049590993350454,
+     "dominant_pred": "S26",
+     "dominant_share": 0.804997688116921,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "7",
+     "name": "第四紀",
+     "gt_px": 18224,
+     "matched_pred": "S11",
+     "iou_matched": 0.4855497649331244,
+     "dominant_pred": "S11",
+     "dominant_share": 0.7310689201053556,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "8",
+     "name": "第四紀",
+     "gt_px": 32996,
+     "matched_pred": "S18",
+     "iou_matched": 0.5334805564016651,
+     "dominant_pred": "S18",
+     "dominant_share": 0.6369559946660202,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "88",
+     "name": null,
+     "gt_px": 36353,
+     "matched_pred": "S01",
+     "iou_matched": 0.0170240129964632,
+     "dominant_pred": "S02",
+     "dominant_share": 0.43949605259538416,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "9",
+     "name": "第四紀",
+     "gt_px": 29028,
+     "matched_pred": "S05",
+     "iou_matched": 0.2270887007729113,
+     "dominant_pred": "S05",
+     "dominant_share": 0.38259611409673416,
+     "n_pred_classes_covering_5pct": 3
+    }
+   ],
+   "matching_note": "1:1 Hungarian on pixel overlap, evaluation only (upper bound of legend association)",
+   "contacts_vs_official_geoL": {
+    "precision": 0.21891977592220696,
+    "recall": 0.4777381451951322,
+    "f1": 0.30025159988956324,
+    "pred_px": 189220,
+    "gt_px": 47660
+   },
+   "faults_vs_official_geoL_recall_only": 0.425414364640884,
+   "n_polygons": 1315,
+   "runtime_s": 6.825212240219116,
+   "peak_rss_mb": 7839.711232
+  },
+  "legend_rf": {
+   "n_gt_units": 45,
+   "n_pred_classes_used": 34,
+   "n_units_matched": 32,
+   "pixel_acc_matched": 0.6991383269588941,
+   "purity_many_to_one": 0.731344065322204,
+   "miou_matched_all_units": 0.32966479346015487,
+   "fw_iou_matched": 0.5808251127051549,
+   "units_iou_ge_0.5": 14,
+   "units_iou_lt_0.2": 20,
+   "small_units": {
+    "n": 18,
+    "n_iou_ge_0.5": 1
+   },
+   "components": {
+    "gt": 830,
+    "pred": 968,
+    "ratio": 1.1662650602409639
+   },
+   "boundary_from_areas": {
+    "precision": 0.454,
+    "recall": 0.5631871503971664,
+    "f1": 0.5027333783767897,
+    "pred_px": 142500,
+    "gt_px": 114058
+   },
+   "per_unit": [
+    {
+     "major_code": "1",
+     "name": "第四紀",
+     "gt_px": 135052,
+     "matched_pred": "S06",
+     "iou_matched": 0.19317058468957204,
+     "dominant_pred": "S00",
+     "dominant_share": 0.43549151437964634,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "10",
+     "name": "新第三紀-第四紀",
+     "gt_px": 390,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S10",
+     "dominant_share": 0.5743589743589743,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "11",
+     "name": "新第三紀-第四紀",
+     "gt_px": 8395,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9920190589636688,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "12",
+     "name": "新第三紀-第四紀",
+     "gt_px": 12242,
+     "matched_pred": "S12",
+     "iou_matched": 0.014877333524068379,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9060611011272668,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "13",
+     "name": "新第三紀-第四紀",
+     "gt_px": 2537,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 1.0,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "14",
+     "name": "新第三紀-第四紀",
+     "gt_px": 16541,
+     "matched_pred": "S10",
+     "iou_matched": 0.38970993568709805,
+     "dominant_pred": "S10",
+     "dominant_share": 0.8975273562662475,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "15",
+     "name": "新第三紀-第四紀",
+     "gt_px": 56527,
+     "matched_pred": "S13",
+     "iou_matched": 0.851563568920172,
+     "dominant_pred": "S13",
+     "dominant_share": 0.9909423815167973,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "16",
+     "name": "新第三紀-第四紀",
+     "gt_px": 602,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 1.0,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "17",
+     "name": "新第三紀",
+     "gt_px": 671,
+     "matched_pred": "S14",
+     "iou_matched": 0.049427679500520294,
+     "dominant_pred": "S14",
+     "dominant_share": 0.4247391952309985,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "18",
+     "name": "新第三紀",
+     "gt_px": 3408,
+     "matched_pred": "S15",
+     "iou_matched": 0.6959292763157895,
+     "dominant_pred": "S15",
+     "dominant_share": 0.9932511737089202,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "19",
+     "name": "新第三紀",
+     "gt_px": 8025,
+     "matched_pred": "S18",
+     "iou_matched": 0.40653560958786,
+     "dominant_pred": "S18",
+     "dominant_share": 0.5875389408099688,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "2",
+     "name": "第四紀",
+     "gt_px": 344266,
+     "matched_pred": "S00",
+     "iou_matched": 0.5696696345364838,
+     "dominant_pred": "S00",
+     "dominant_share": 0.8203424096483533,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "20",
+     "name": "新第三紀",
+     "gt_px": 1351,
+     "matched_pred": "S17",
+     "iou_matched": 0.38702928870292885,
+     "dominant_pred": "S17",
+     "dominant_share": 0.41080680977054035,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "21",
+     "name": "新第三紀",
+     "gt_px": 37428,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S19",
+     "dominant_share": 0.8811584909693277,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "22",
+     "name": "新第三紀",
+     "gt_px": 56805,
+     "matched_pred": "S19",
+     "iou_matched": 0.5601622014893435,
+     "dominant_pred": "S19",
+     "dominant_share": 0.921661825543526,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "23",
+     "name": "新第三紀",
+     "gt_px": 2845,
+     "matched_pred": "S11",
+     "iou_matched": 0.02328255245760276,
+     "dominant_pred": "S26",
+     "dominant_share": 0.410896309314587,
+     "n_pred_classes_covering_5pct": 5
+    },
+    {
+     "major_code": "24",
+     "name": "新第三紀",
+     "gt_px": 974,
+     "matched_pred": "S20",
+     "iou_matched": 0.22782608695652173,
+     "dominant_pred": "S20",
+     "dominant_share": 0.6724845995893224,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "25",
+     "name": "新第三紀",
+     "gt_px": 5285,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S25",
+     "dominant_share": 0.9882686849574267,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "26",
+     "name": "新第三紀",
+     "gt_px": 128178,
+     "matched_pred": "S23",
+     "iou_matched": 0.8867996145872872,
+     "dominant_pred": "S23",
+     "dominant_share": 0.9478069559518795,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "27",
+     "name": "新第三紀",
+     "gt_px": 764,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S23",
+     "dominant_share": 0.9947643979057592,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "28",
+     "name": "新第三紀",
+     "gt_px": 327197,
+     "matched_pred": "S24",
+     "iou_matched": 0.8017508689867,
+     "dominant_pred": "S24",
+     "dominant_share": 0.8360681791092217,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "29",
+     "name": "新第三紀",
+     "gt_px": 7106,
+     "matched_pred": "S25",
+     "iou_matched": 0.1401643074417379,
+     "dominant_pred": "S25",
+     "dominant_share": 0.8235294117647058,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "3",
+     "name": "第四紀",
+     "gt_px": 82644,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S00",
+     "dominant_share": 0.6679250762305794,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "30",
+     "name": "新第三紀",
+     "gt_px": 3200,
+     "matched_pred": "S16",
+     "iou_matched": 0.001541623843782117,
+     "dominant_pred": "S26",
+     "dominant_share": 0.875625,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "31",
+     "name": "新第三紀",
+     "gt_px": 52472,
+     "matched_pred": "S27",
+     "iou_matched": 0.8344202649824947,
+     "dominant_pred": "S27",
+     "dominant_share": 0.9265894191187681,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "32",
+     "name": "新第三紀",
+     "gt_px": 260713,
+     "matched_pred": "S28",
+     "iou_matched": 0.9446461777237654,
+     "dominant_pred": "S28",
+     "dominant_share": 0.9898470732184432,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "33",
+     "name": "新第三紀",
+     "gt_px": 25715,
+     "matched_pred": "S29",
+     "iou_matched": 0.34125916221096986,
+     "dominant_pred": "S29",
+     "dominant_share": 0.7495625121524402,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "34",
+     "name": "新第三紀",
+     "gt_px": 136543,
+     "matched_pred": "S30",
+     "iou_matched": 0.286929317181418,
+     "dominant_pred": "S31",
+     "dominant_share": 0.44268838387907106,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "35",
+     "name": "新第三紀",
+     "gt_px": 31351,
+     "matched_pred": "S31",
+     "iou_matched": 0.2850947167666098,
+     "dominant_pred": "S31",
+     "dominant_share": 0.9917705974291091,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "36",
+     "name": "新第三紀",
+     "gt_px": 73790,
+     "matched_pred": "S32",
+     "iou_matched": 0.46819769003491807,
+     "dominant_pred": "S32",
+     "dominant_share": 0.4724488413064101,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "37",
+     "name": "新第三紀",
+     "gt_px": 217415,
+     "matched_pred": "S33",
+     "iou_matched": 0.7756566164381701,
+     "dominant_pred": "S33",
+     "dominant_share": 0.7877009405974749,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "38",
+     "name": "新第三紀",
+     "gt_px": 45332,
+     "matched_pred": "S34",
+     "iou_matched": 0.227552345583377,
+     "dominant_pred": "S35",
+     "dominant_share": 0.502095649872055,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "39",
+     "name": "新第三紀",
+     "gt_px": 786,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S02",
+     "dominant_share": 0.5152671755725191,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "4",
+     "name": "第四紀",
+     "gt_px": 109263,
+     "matched_pred": "S02",
+     "iou_matched": 0.2156975369125249,
+     "dominant_pred": "S02",
+     "dominant_share": 0.5258504708821834,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "40",
+     "name": "新第三紀",
+     "gt_px": 567,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S35",
+     "dominant_share": 0.7918871252204586,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "41",
+     "name": "新第三紀",
+     "gt_px": 1558,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S35",
+     "dominant_share": 0.613607188703466,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "42",
+     "name": "新第三紀",
+     "gt_px": 78819,
+     "matched_pred": "S35",
+     "iou_matched": 0.7032173888904311,
+     "dominant_pred": "S35",
+     "dominant_share": 0.9641837627983101,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "43",
+     "name": "新第三紀",
+     "gt_px": 76194,
+     "matched_pred": "S36",
+     "iou_matched": 0.9209524306279991,
+     "dominant_pred": "S36",
+     "dominant_share": 0.9269233797936846,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "44",
+     "name": "新第三紀",
+     "gt_px": 36785,
+     "matched_pred": "S37",
+     "iou_matched": 0.9474672648547133,
+     "dominant_pred": "S37",
+     "dominant_share": 0.9874677178197635,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "5",
+     "name": "第四紀",
+     "gt_px": 2315,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S02",
+     "dominant_share": 0.8449244060475162,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "6",
+     "name": "第四紀",
+     "gt_px": 49743,
+     "matched_pred": "S26",
+     "iou_matched": 0.3615012524833722,
+     "dominant_pred": "S26",
+     "dominant_share": 0.8413445107854371,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "7",
+     "name": "第四紀",
+     "gt_px": 18224,
+     "matched_pred": "S08",
+     "iou_matched": 0.6725084459459459,
+     "dominant_pred": "S08",
+     "dominant_share": 0.6990781387181738,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "8",
+     "name": "第四紀",
+     "gt_px": 32996,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S06",
+     "dominant_share": 0.8117953691356528,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "88",
+     "name": null,
+     "gt_px": 36353,
+     "matched_pred": "S01",
+     "iou_matched": 0.01585407884620483,
+     "dominant_pred": "S02",
+     "dominant_share": 0.6046818694468132,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "9",
+     "name": "第四紀",
+     "gt_px": 29028,
+     "matched_pred": "S07",
+     "iou_matched": 0.6345208489965878,
+     "dominant_pred": "S07",
+     "dominant_share": 0.755925313490423,
+     "n_pred_classes_covering_5pct": 3
+    }
+   ],
+   "matching_note": "1:1 Hungarian on pixel overlap, evaluation only (upper bound of legend association)",
+   "contacts_vs_official_geoL": {
+    "precision": 0.28464726109354727,
+    "recall": 0.5228283676038606,
+    "f1": 0.3686096708591026,
+    "pred_px": 158786,
+    "gt_px": 47660
+   },
+   "faults_vs_official_geoL_recall_only": 0.43278084714548803,
+   "n_polygons": 932,
+   "runtime_s": 4.533726215362549,
+   "peak_rss_mb": 7839.711232
+  },
+  "legend_rf_selftrain": {
+   "n_gt_units": 45,
+   "n_pred_classes_used": 35,
+   "n_units_matched": 32,
+   "pixel_acc_matched": 0.699302883252977,
+   "purity_many_to_one": 0.7422356594661887,
+   "miou_matched_all_units": 0.36093641047248043,
+   "fw_iou_matched": 0.587585673096842,
+   "units_iou_ge_0.5": 15,
+   "units_iou_lt_0.2": 20,
+   "small_units": {
+    "n": 18,
+    "n_iou_ge_0.5": 3
+   },
+   "components": {
+    "gt": 830,
+    "pred": 978,
+    "ratio": 1.1783132530120481
+   },
+   "boundary_from_areas": {
+    "precision": 0.4556385788418915,
+    "recall": 0.5965298356976275,
+    "f1": 0.516651142190023,
+    "pred_px": 150694,
+    "gt_px": 114058
+   },
+   "per_unit": [
+    {
+     "major_code": "1",
+     "name": "第四紀",
+     "gt_px": 135052,
+     "matched_pred": "S34",
+     "iou_matched": 0.17201685037831055,
+     "dominant_pred": "S00",
+     "dominant_share": 0.5253161745105589,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "10",
+     "name": "新第三紀-第四紀",
+     "gt_px": 390,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 0.5666666666666667,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "11",
+     "name": "新第三紀-第四紀",
+     "gt_px": 8395,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9905896366885051,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "12",
+     "name": "新第三紀-第四紀",
+     "gt_px": 12242,
+     "matched_pred": "S12",
+     "iou_matched": 0.013239704483944115,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9553994445352066,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "13",
+     "name": "新第三紀-第四紀",
+     "gt_px": 2537,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 1.0,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "14",
+     "name": "新第三紀-第四紀",
+     "gt_px": 16541,
+     "matched_pred": "S10",
+     "iou_matched": 0.38477953464455583,
+     "dominant_pred": "S10",
+     "dominant_share": 0.9047820567075752,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "15",
+     "name": "新第三紀-第四紀",
+     "gt_px": 56527,
+     "matched_pred": "S13",
+     "iou_matched": 0.7949793174032325,
+     "dominant_pred": "S13",
+     "dominant_share": 0.9893679126788968,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "16",
+     "name": "新第三紀-第四紀",
+     "gt_px": 602,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S13",
+     "dominant_share": 1.0,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "17",
+     "name": "新第三紀",
+     "gt_px": 671,
+     "matched_pred": "S14",
+     "iou_matched": 0.10883036405886909,
+     "dominant_pred": "S14",
+     "dominant_share": 0.4187779433681073,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "18",
+     "name": "新第三紀",
+     "gt_px": 3408,
+     "matched_pred": "S15",
+     "iou_matched": 0.6772836538461539,
+     "dominant_pred": "S15",
+     "dominant_share": 0.9920774647887324,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "19",
+     "name": "新第三紀",
+     "gt_px": 8025,
+     "matched_pred": "S16",
+     "iou_matched": 0.8173667403586342,
+     "dominant_pred": "S16",
+     "dominant_share": 0.8292834890965732,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "2",
+     "name": "第四紀",
+     "gt_px": 344266,
+     "matched_pred": "S00",
+     "iou_matched": 0.4649436617324655,
+     "dominant_pred": "S00",
+     "dominant_share": 0.6357351582787728,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "20",
+     "name": "新第三紀",
+     "gt_px": 1351,
+     "matched_pred": "S17",
+     "iou_matched": 0.4019746121297602,
+     "dominant_pred": "S17",
+     "dominant_share": 0.4219096965210955,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "21",
+     "name": "新第三紀",
+     "gt_px": 37428,
+     "matched_pred": "S18",
+     "iou_matched": 0.12133979355382346,
+     "dominant_pred": "S19",
+     "dominant_share": 0.8436197499198461,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "22",
+     "name": "新第三紀",
+     "gt_px": 56805,
+     "matched_pred": "S19",
+     "iou_matched": 0.5937144034975428,
+     "dominant_pred": "S19",
+     "dominant_share": 0.9634363172255963,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "23",
+     "name": "新第三紀",
+     "gt_px": 2845,
+     "matched_pred": "S11",
+     "iou_matched": 0.029843022252889425,
+     "dominant_pred": "S26",
+     "dominant_share": 0.43479789103690686,
+     "n_pred_classes_covering_5pct": 5
+    },
+    {
+     "major_code": "24",
+     "name": "新第三紀",
+     "gt_px": 974,
+     "matched_pred": "S20",
+     "iou_matched": 0.6286286286286287,
+     "dominant_pred": "S20",
+     "dominant_share": 0.6447638603696099,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "25",
+     "name": "新第三紀",
+     "gt_px": 5285,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S25",
+     "dominant_share": 0.9873226111636708,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "26",
+     "name": "新第三紀",
+     "gt_px": 128178,
+     "matched_pred": "S23",
+     "iou_matched": 0.8807654780911832,
+     "dominant_pred": "S23",
+     "dominant_share": 0.929621307868745,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "27",
+     "name": "新第三紀",
+     "gt_px": 764,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S23",
+     "dominant_share": 0.9882198952879581,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "28",
+     "name": "新第三紀",
+     "gt_px": 327197,
+     "matched_pred": "S24",
+     "iou_matched": 0.8046269177433588,
+     "dominant_pred": "S24",
+     "dominant_share": 0.8387943654740111,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "29",
+     "name": "新第三紀",
+     "gt_px": 7106,
+     "matched_pred": "S25",
+     "iou_matched": 0.14296909438213254,
+     "dominant_pred": "S25",
+     "dominant_share": 0.8215592457078525,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "3",
+     "name": "第四紀",
+     "gt_px": 82644,
+     "matched_pred": "S08",
+     "iou_matched": 0.001305166379838067,
+     "dominant_pred": "S02",
+     "dominant_share": 0.5028435216107643,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "30",
+     "name": "新第三紀",
+     "gt_px": 3200,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S26",
+     "dominant_share": 0.868125,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "31",
+     "name": "新第三紀",
+     "gt_px": 52472,
+     "matched_pred": "S27",
+     "iou_matched": 0.8653297651325751,
+     "dominant_pred": "S27",
+     "dominant_share": 0.9366709864308583,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "32",
+     "name": "新第三紀",
+     "gt_px": 260713,
+     "matched_pred": "S28",
+     "iou_matched": 0.9569849937335251,
+     "dominant_pred": "S28",
+     "dominant_share": 0.9928618826065444,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "33",
+     "name": "新第三紀",
+     "gt_px": 25715,
+     "matched_pred": "S29",
+     "iou_matched": 0.38393611457537113,
+     "dominant_pred": "S29",
+     "dominant_share": 0.7422516041221077,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "34",
+     "name": "新第三紀",
+     "gt_px": 136543,
+     "matched_pred": "S30",
+     "iou_matched": 0.29353567780534073,
+     "dominant_pred": "S31",
+     "dominant_share": 0.49944706063291416,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "35",
+     "name": "新第三紀",
+     "gt_px": 31351,
+     "matched_pred": "S31",
+     "iou_matched": 0.2684843763524626,
+     "dominant_pred": "S31",
+     "dominant_share": 0.9893783292398967,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "36",
+     "name": "新第三紀",
+     "gt_px": 73790,
+     "matched_pred": "S32",
+     "iou_matched": 0.46610260398508946,
+     "dominant_pred": "S32",
+     "dominant_share": 0.47108009215340835,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "37",
+     "name": "新第三紀",
+     "gt_px": 217415,
+     "matched_pred": "S33",
+     "iou_matched": 0.9007864922089375,
+     "dominant_pred": "S33",
+     "dominant_share": 0.9255709127705081,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "38",
+     "name": "新第三紀",
+     "gt_px": 45332,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S35",
+     "dominant_share": 0.4990735021618283,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "39",
+     "name": "新第三紀",
+     "gt_px": 786,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S34",
+     "dominant_share": 0.4262086513994911,
+     "n_pred_classes_covering_5pct": 5
+    },
+    {
+     "major_code": "4",
+     "name": "第四紀",
+     "gt_px": 109263,
+     "matched_pred": "S02",
+     "iou_matched": 0.22083050124085168,
+     "dominant_pred": "S02",
+     "dominant_share": 0.639301501880783,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "40",
+     "name": "新第三紀",
+     "gt_px": 567,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S35",
+     "dominant_share": 0.691358024691358,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "41",
+     "name": "新第三紀",
+     "gt_px": 1558,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S35",
+     "dominant_share": 0.6033376123234917,
+     "n_pred_classes_covering_5pct": 3
+    },
+    {
+     "major_code": "42",
+     "name": "新第三紀",
+     "gt_px": 78819,
+     "matched_pred": "S35",
+     "iou_matched": 0.706124578434478,
+     "dominant_pred": "S35",
+     "dominant_share": 0.9616209289638286,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "43",
+     "name": "新第三紀",
+     "gt_px": 76194,
+     "matched_pred": "S36",
+     "iou_matched": 0.9556090264681018,
+     "dominant_pred": "S36",
+     "dominant_share": 0.9642754022626453,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "44",
+     "name": "新第三紀",
+     "gt_px": 36785,
+     "matched_pred": "S37",
+     "iou_matched": 0.9582089552238806,
+     "dominant_pred": "S37",
+     "dominant_share": 0.9860812831317113,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "5",
+     "name": "第四紀",
+     "gt_px": 2315,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S02",
+     "dominant_share": 0.8768898488120951,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "6",
+     "name": "第四紀",
+     "gt_px": 49743,
+     "matched_pred": "S26",
+     "iou_matched": 0.3842854428146124,
+     "dominant_pred": "S26",
+     "dominant_share": 0.8537281627565687,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "7",
+     "name": "第四紀",
+     "gt_px": 18224,
+     "matched_pred": "S05",
+     "iou_matched": 0.3618726275832982,
+     "dominant_pred": "S05",
+     "dominant_share": 0.37664618086040386,
+     "n_pred_classes_covering_5pct": 4
+    },
+    {
+     "major_code": "8",
+     "name": "第四紀",
+     "gt_px": 32996,
+     "matched_pred": "S06",
+     "iou_matched": 0.682377747486795,
+     "dominant_pred": "S06",
+     "dominant_share": 0.9709964844223542,
+     "n_pred_classes_covering_5pct": 1
+    },
+    {
+     "major_code": "88",
+     "name": null,
+     "gt_px": 36353,
+     "matched_pred": null,
+     "iou_matched": 0.0,
+     "dominant_pred": "S02",
+     "dominant_share": 0.6334827937171623,
+     "n_pred_classes_covering_5pct": 2
+    },
+    {
+     "major_code": "9",
+     "name": "第四紀",
+     "gt_px": 29028,
+     "matched_pred": "S07",
+     "iou_matched": 0.7990626246509772,
+     "dominant_pred": "S07",
+     "dominant_share": 0.8281314592806945,
+     "n_pred_classes_covering_5pct": 2
+    }
+   ],
+   "matching_note": "1:1 Hungarian on pixel overlap, evaluation only (upper bound of legend association)",
+   "contacts_vs_official_geoL": {
+    "precision": 0.29464901519174314,
+    "recall": 0.5500629458665548,
+    "f1": 0.383741471092686,
+    "pred_px": 163839,
+    "gt_px": 47660
+   },
+   "faults_vs_official_geoL_recall_only": 0.4419889502762431,
+   "n_polygons": 893,
+   "runtime_s": 7.633378028869629,
+   "peak_rss_mb": 7839.711232
+  }
+ },
+ "swatches": [
+  {
+   "id": "S00",
+   "box": [
+    366,
+    234,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    249,
+    251,
+    246
+   ]
+  },
+  {
+   "id": "S01",
+   "box": [
+    366,
+    271,
+    49,
+    28
+   ],
+   "fill_rgb": [
+    248,
+    251,
+    246
+   ]
+  },
+  {
+   "id": "S02",
+   "box": [
+    366,
+    308,
+    49,
+    28
+   ],
+   "fill_rgb": [
+    241,
+    248,
+    242
+   ]
+  },
+  {
+   "id": "S03",
+   "box": [
+    366,
+    346,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    227,
+    236,
+    238
+   ]
+  },
+  {
+   "id": "S04",
+   "box": [
+    366,
+    383,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    246,
+    147,
+    87
+   ]
+  },
+  {
+   "id": "S05",
+   "box": [
+    366,
+    420,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    188,
+    134,
+    83
+   ]
+  },
+  {
+   "id": "S06",
+   "box": [
+    365,
+    458,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    253,
+    222,
+    193
+   ]
+  },
+  {
+   "id": "S07",
+   "box": [
+    365,
+    495,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    246,
+    173,
+    130
+   ]
+  },
+  {
+   "id": "S08",
+   "box": [
+    365,
+    533,
+    49,
+    26
+   ],
+   "fill_rgb": [
+    185,
+    134,
+    85
+   ]
+  },
+  {
+   "id": "S09",
+   "box": [
+    365,
+    570,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    137,
+    103,
+    66
+   ]
+  },
+  {
+   "id": "S10",
+   "box": [
+    365,
+    607,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    135,
+    89,
+    63
+   ]
+  },
+  {
+   "id": "S11",
+   "box": [
+    365,
+    644,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    178,
+    110,
+    57
+   ]
+  },
+  {
+   "id": "S12",
+   "box": [
+    365,
+    681,
+    48,
+    28
+   ],
+   "fill_rgb": [
+    136,
+    90,
+    70
+   ]
+  },
+  {
+   "id": "S13",
+   "box": [
+    364,
+    719,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    169,
+    95,
+    54
+   ]
+  },
+  {
+   "id": "S14",
+   "box": [
+    364,
+    757,
+    49,
+    26
+   ],
+   "fill_rgb": [
+    149,
+    188,
+    157
+   ]
+  },
+  {
+   "id": "S15",
+   "box": [
+    364,
+    794,
+    49,
+    26
+   ],
+   "fill_rgb": [
+    174,
+    83,
+    78
+   ]
+  },
+  {
+   "id": "S16",
+   "box": [
+    364,
+    831,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    249,
+    202,
+    207
+   ]
+  },
+  {
+   "id": "S17",
+   "box": [
+    364,
+    868,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    175,
+    84,
+    93
+   ]
+  },
+  {
+   "id": "S18",
+   "box": [
+    363,
+    906,
+    49,
+    26
+   ],
+   "fill_rgb": [
+    247,
+    178,
+    163
+   ]
+  },
+  {
+   "id": "S19",
+   "box": [
+    363,
+    943,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    239,
+    141,
+    139
+   ]
+  },
+  {
+   "id": "S20",
+   "box": [
+    363,
+    980,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    223,
+    90,
+    87
+   ]
+  },
+  {
+   "id": "S21",
+   "box": [
+    363,
+    1017,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    223,
+    90,
+    101
+   ]
+  },
+  {
+   "id": "S22",
+   "box": [
+    363,
+    1055,
+    49,
+    26
+   ],
+   "fill_rgb": [
+    218,
+    81,
+    72
+   ]
+  },
+  {
+   "id": "S23",
+   "box": [
+    363,
+    1092,
+    48,
+    26
+   ],
+   "fill_rgb": [
+    253,
+    228,
+    82
+   ]
+  },
+  {
+   "id": "S24",
+   "box": [
+    362,
+    1166,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    245,
+    168,
+    70
+   ]
+  },
+  {
+   "id": "S25",
+   "box": [
+    362,
+    1204,
+    49,
+    26
+   ],
+   "fill_rgb": [
+    216,
+    79,
+    66
+   ]
+  },
+  {
+   "id": "S26",
+   "box": [
+    362,
+    1241,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    232,
+    128,
+    67
+   ]
+  },
+  {
+   "id": "S27",
+   "box": [
+    362,
+    1278,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    197,
+    217,
+    168
+   ]
+  },
+  {
+   "id": "S28",
+   "box": [
+    362,
+    1315,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    192,
+    199,
+    76
+   ]
+  },
+  {
+   "id": "S29",
+   "box": [
+    362,
+    1352,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    85,
+    126,
+    62
+   ]
+  },
+  {
+   "id": "S30",
+   "box": [
+    362,
+    1389,
+    49,
+    28
+   ],
+   "fill_rgb": [
+    88,
+    133,
+    95
+   ]
+  },
+  {
+   "id": "S31",
+   "box": [
+    362,
+    1427,
+    48,
+    26
+   ],
+   "fill_rgb": [
+    84,
+    105,
+    59
+   ]
+  },
+  {
+   "id": "S32",
+   "box": [
+    362,
+    1463,
+    48,
+    28
+   ],
+   "fill_rgb": [
+    212,
+    77,
+    53
+   ]
+  },
+  {
+   "id": "S33",
+   "box": [
+    362,
+    1501,
+    48,
+    27
+   ],
+   "fill_rgb": [
+    86,
+    115,
+    132
+   ]
+  },
+  {
+   "id": "S34",
+   "box": [
+    362,
+    1542,
+    44,
+    19
+   ],
+   "fill_rgb": [
+    189,
+    155,
+    152
+   ]
+  },
+  {
+   "id": "S35",
+   "box": [
+    361,
+    1687,
+    49,
+    28
+   ],
+   "fill_rgb": [
+    182,
+    132,
+    124
+   ]
+  },
+  {
+   "id": "S36",
+   "box": [
+    361,
+    1724,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    139,
+    112,
+    124
+   ]
+  },
+  {
+   "id": "S37",
+   "box": [
+    361,
+    1762,
+    49,
+    27
+   ],
+   "fill_rgb": [
+    132,
+    71,
+    89
+   ]
+  }
+ ]
+}
