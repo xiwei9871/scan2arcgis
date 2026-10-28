@@ -1,0 +1,7 @@
+{"surveyed_at":"2026-10-28","repos":[
+{"name":"MapReader","url":"https://github.com/maps-as-data/MapReader.git","commit":"13534ca04767e332b530437809b1ecdc40ad347f","last_commit_date":"2026-09-13","tracked_files":228},
+{"name":"Geology-from-points-and-lines","url":"https://github.com/pinogcosentino/Geology-from-points-and-lines.git","commit":"3d33d8b2a6d55f3a71fe33307c77d30af6c377d6","last_commit_date":"2026-04-07","tracked_files":38},
+{"name":"autotracer","url":"https://github.com/Pradipkraze/autotracer.git","commit":"7c13596d08ed21c21ae670d50ca0dfbb6620decb","last_commit_date":"2026-04-29","tracked_files":8},
+{"name":"qgis-raster-vectorizer","url":"https://github.com/terEtiy/qgis-raster-vectorizer.git","commit":"74321c31fe649df82de6090c6f9dc6379402c7d6","last_commit_date":"2026-05-31","tracked_files":22},
+{"name":"allmaps","url":"https://github.com/allmaps/allmaps.git","commit":"fd64fa55216dcaa3eada0a47184ba6fdf921a761","last_commit_date":"2026-10-26","tracked_files":1881},
+{"name":"mapwarper","url":"https://github.com/timwaters/mapwarper.git","commit":"1d56d8ea681a30bbde89033b4abab7a0ebf462ad","last_commit_date":"2026-07-28","tracked_files":1484}]}
