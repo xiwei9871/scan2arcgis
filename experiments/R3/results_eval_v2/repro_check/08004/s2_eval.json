@@ -1,0 +1,146 @@
+{
+ "params": {
+  "MIN_LEN": 15,
+  "LONG_LEN": 60,
+  "MIN_PIECE": 150,
+  "MARGIN_DE": 6.0
+ },
+ "l0": {
+  "all": {
+   "vs_contacts": {
+    "precision": 0.14723441973245852,
+    "recall": 0.5375586854460094,
+    "f1": 0.2311563610242816,
+    "pred_px": 196306,
+    "gt_px": 31950
+   },
+   "vs_faults": {
+    "precision": 0.001003535296934378,
+    "recall": 0.5870646766169154,
+    "f1": 0.0020036455385034416,
+    "pred_px": 196306,
+    "gt_px": 201
+   },
+   "vs_contacts_or_faults": {
+    "precision": 0.14780495756624862,
+    "recall": 0.5378943438491693,
+    "f1": 0.23189013173453987,
+    "pred_px": 196306,
+    "gt_px": 32142
+   }
+  },
+  "long": {
+   "vs_contacts": {
+    "precision": 0.1563514214088388,
+    "recall": 0.39755868544600936,
+    "f1": 0.22443665422845113,
+    "pred_px": 140811,
+    "gt_px": 31950
+   },
+   "vs_faults": {
+    "precision": 0.001079461121645326,
+    "recall": 0.4228855721393035,
+    "f1": 0.0021534253922688533,
+    "pred_px": 140811,
+    "gt_px": 201
+   },
+   "vs_contacts_or_faults": {
+    "precision": 0.15700477945615043,
+    "recall": 0.39779727459398917,
+    "f1": 0.22514723191793584,
+    "pred_px": 140811,
+    "gt_px": 32142
+   }
+  },
+  "long_px_far_from_official_frac": 0.7657995469103976
+ },
+ "methods": {
+  "R1": {
+   "region_ub_pixel_acc": 0.8193932551462358,
+   "region_ub_miou": 0.45354794972906765,
+   "region_ub_units_iou_ge_0.5": 19,
+   "contact": {
+    "precision": 0.32621371249590786,
+    "recall": 0.5857589984350547,
+    "f1": 0.41905336687612593,
+    "pred_px": 113021,
+    "gt_px": 31950
+   },
+   "fault_recall_by_area_edges": 0.6616915422885572,
+   "instance_recall": 0.4716312056737589,
+   "small_instance_recall": 0.40611353711790393,
+   "fragments_per_instance_mean": 1.55859375,
+   "adjacency_precision": 0.4748603351955307,
+   "adjacency_recall": 0.5629139072847682,
+   "n_regions": 514,
+   "note": "region_ub_* and adjacency use Hungarian matching = evaluation-only upper bound"
+  },
+  "A_oracle": {
+   "region_ub_pixel_acc": 0.4813213295050854,
+   "region_ub_miou": 0.35492685900542725,
+   "region_ub_units_iou_ge_0.5": 17,
+   "contact": {
+    "precision": 0.8114831837747136,
+    "recall": 0.6688888888888889,
+    "f1": 0.7333184611763875,
+    "pred_px": 54828,
+    "gt_px": 31950
+   },
+   "fault_recall_by_area_edges": 0.9253731343283582,
+   "instance_recall": 0.35815602836879434,
+   "small_instance_recall": 0.3231441048034934,
+   "fragments_per_instance_mean": 1.3967611336032388,
+   "adjacency_precision": 0.5849056603773585,
+   "adjacency_recall": 0.4105960264900662,
+   "n_regions": 237,
+   "note": "ORACLE (official lines) - not an automatic result"
+  },
+  "A1": {
+   "region_ub_pixel_acc": 0.3972662416662611,
+   "region_ub_miou": 0.07822014599931756,
+   "region_ub_units_iou_ge_0.5": 2,
+   "contact": {
+    "precision": 0.2539164490861619,
+    "recall": 0.19417840375586853,
+    "f1": 0.2200654189986467,
+    "pred_px": 47492,
+    "gt_px": 31950
+   },
+   "fault_recall_by_area_edges": 0.23383084577114427,
+   "instance_recall": 0.18439716312056736,
+   "small_instance_recall": 0.19213973799126638,
+   "fragments_per_instance_mean": 2.7732558139534884,
+   "adjacency_precision": 0.5211267605633803,
+   "adjacency_recall": 0.24503311258278146,
+   "n_regions": 534,
+   "note": "region_ub_* and adjacency use Hungarian matching = evaluation-only upper bound"
+  },
+  "B1": {
+   "region_ub_pixel_acc": 0.8235394423086282,
+   "region_ub_miou": 0.46215058615376214,
+   "region_ub_units_iou_ge_0.5": 19,
+   "contact": {
+    "precision": 0.3346680904075458,
+    "recall": 0.5969327073552426,
+    "f1": 0.4288839806752796,
+    "pred_px": 112380,
+    "gt_px": 31950
+   },
+   "fault_recall_by_area_edges": 0.6616915422885572,
+   "instance_recall": 0.46099290780141844,
+   "small_instance_recall": 0.388646288209607,
+   "fragments_per_instance_mean": 2.18359375,
+   "adjacency_precision": 0.4644808743169399,
+   "adjacency_recall": 0.5629139072847682,
+   "n_regions": 658,
+   "note": "region_ub_* and adjacency use Hungarian matching = evaluation-only upper bound"
+  }
+ },
+ "B1_corrections": {
+  "changed_px_frac": 0.015532434668353691,
+  "repair_px": 16728,
+  "damage_px": 6078,
+  "neutral_px": 17091,
+  "note": "judged with R1's evaluation-only Hungarian mapping held fixed"
+ }
+}

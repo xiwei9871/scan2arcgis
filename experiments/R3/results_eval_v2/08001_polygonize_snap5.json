@@ -1,0 +1,27 @@
+{
+ "sheet": "08001",
+ "method": "vector: unary_union (node) -> shapely.snap(tolerance) -> polygonize_full; geo_A not used",
+ "snap_tolerance_m": 5.0,
+ "crs_metric": "EPSG:32654",
+ "n_input_lines": 12,
+ "n_faces": 796,
+ "n_official_instances": 830,
+ "dangles": 0,
+ "cut_edges": 14,
+ "invalid_rings": 0,
+ "dangling_nodes": 14,
+ "invalid_faces": 0,
+ "face_area_over_sheet_area": 0.9427835156830777,
+ "map_px_covered_by_faces": 0.9999996091299428,
+ "score_faces_ideal_label": {
+  "face_purity_vs_geo_A": 0.984815083212359,
+  "ub_pixel_acc": 0.9848146982776311,
+  "ub_miou": 0.9456194622390244,
+  "note": "upper bound of THESE faces: each face given its majority official unit"
+ },
+ "score_faces_R1_vote": {
+  "ub_pixel_acc": 0.7903584082989531,
+  "ub_miou": 0.44658824207785464
+ },
+ "reference_geo_A_ideal_regions_R1_vote_miou": 0.47828628792847094
+}
