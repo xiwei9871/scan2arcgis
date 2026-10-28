@@ -1,0 +1,58 @@
+{
+ "image": "GSJ_MAP_G050_08004_2012_200dpi.jpg",
+ "n_units": 42,
+ "n_instances": 515,
+ "scored_px": 2286215,
+ "note": "ORACLE diagnostics read ground truth; evaluation only",
+ "methods": {
+  "R1": {
+   "pixel_acc": 0.8288612400845939,
+   "miou": 0.46788700275877443,
+   "units_iou_ge_0.5": 20,
+   "scoring": "Hungarian 1:1 (evaluation-only upper bound)"
+  },
+  "P_swatch": {
+   "pixel_acc": 0.7898071703667415,
+   "miou": 0.3994167827950215,
+   "units_iou_ge_0.5": 18,
+   "scoring": "Hungarian 1:1 (evaluation-only upper bound)"
+  },
+  "P_xlsx": {
+   "pixel_acc": 0.5901496578405793,
+   "miou": 0.39136511596368917,
+   "units_iou_ge_0.5": 16,
+   "scoring": "direct (predicts official units)"
+  },
+  "P_ideal": {
+   "pixel_acc": 0.8145296920893267,
+   "miou": 0.553961679933132,
+   "units_iou_ge_0.5": 25,
+   "scoring": "direct (predicts official units)"
+  },
+  "R_vote": {
+   "pixel_acc": 0.9180575755123643,
+   "miou": 0.5962083548263318,
+   "units_iou_ge_0.5": 27,
+   "scoring": "Hungarian 1:1 (evaluation-only upper bound)"
+  },
+  "R_swatch": {
+   "pixel_acc": 0.9023298333708772,
+   "miou": 0.5562262558694591,
+   "units_iou_ge_0.5": 25,
+   "scoring": "Hungarian 1:1 (evaluation-only upper bound)"
+  },
+  "R_xlsx": {
+   "pixel_acc": 0.6274724818094536,
+   "miou": 0.4532792803313002,
+   "units_iou_ge_0.5": 19,
+   "scoring": "direct (predicts official units)"
+  },
+  "R_ideal": {
+   "pixel_acc": 0.5064681143287049,
+   "miou": 0.36023113764435144,
+   "units_iou_ge_0.5": 15,
+   "scoring": "direct (predicts official units)",
+   "note": "unit reference = pixel-weighted mean of the unit's OTHER regions' medians; units with one region cannot be predicted for it"
+  }
+ }
+}

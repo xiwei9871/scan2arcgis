@@ -1,0 +1,16 @@
+{
+ "note": "GSJ 1:50k sheets. Raw files stay local (data/raw/gsj*, git-ignored). Use per GSJ site terms (https://www.gsj.jp/siteinfo/index.html); cite the original map and vector data.",
+ "dev": {
+  "08004": {"name": "Haruna San", "year": 2012, "image": "GSJ_MAP_G050_08004_2012_200dpi.jpg", "vectors": "GSJ_MAP_G050_08004_2012_V01", "units": 42},
+  "08001": {"name": "Sakaki", "year": 1980, "image": "GSJ_MAP_G050_08001_1980_200dpi.jpg", "vectors": "GSJ_MAP_G050_08001_1980_V01", "units": 45}
+ },
+ "holdout_sealed": {
+  "status": "SEALED: only file integrity, sheet bounds and unit count were read. No registration, recognition or metric has been run. Unseal only after the registration + evaluation pipeline is frozen at a recorded commit.",
+  "source": "https://www.gsj.jp/data/50KGM/VCT/ (direct HTTP 200; via local proxy: connection failed); identical to the copies the user placed in ~/Downloads (diff -rq)",
+  "08011": {"name": "Nakaminato", "year": 1972, "image": "GSJ_MAP_G050_08011_1972_200dpi.jpg", "image_sha256": "d13e0a7591718af52ee12cb1e5d227969dd49e68581921c4fae335cf84f10b91",
+            "vectors_zip": "GSJ_MAP_G050_08011_1972_V01.zip", "vectors_zip_sha256": "1b0d9bbe1dba042c84ff3bb016ffd0f38fc30e5e6aff906ee8eccab624013952", "units": 23,
+            "bounds_lonlat": [140.4967, 36.3365, 140.7467, 36.5032]},
+  "08021": {"name": "Ishioka", "year": 1981, "image": "GSJ_MAP_G050_08021_1981_200dpi.jpg", "image_sha256": "9f7897ec3f0096d3a3f6f021841f508c08cce31a68c0e037b275d7c27d7f03b4",
+            "vectors_zip": "GSJ_MAP_G050_08021_1981_V01.zip", "vectors_zip_sha256": "40f80ee83f6b15d0372b648caff1035355dd45a614be440ef5b8e3eb303ead90", "units": 14}
+ }
+}

@@ -1,0 +1,478 @@
+{
+ "method": "legend_rf_selftrain",
+ "image": "GSJ_MAP_G050_08001_1980_200dpi.jpg",
+ "region_upper_bound": {
+  "pixel_acc_matched": 0.699302883252977,
+  "miou_matched_all_units": 0.36093641047248043,
+  "fw_iou_matched": 0.587585673096842,
+  "units_iou_ge_0.5": 15,
+  "n_gt_units": 45,
+  "n_units_matched": 32,
+  "purity_many_to_one": 0.7422356594661887,
+  "label": "Hungarian 1:1 class mapping computed from ground truth (evaluation-only upper bound)"
+ },
+ "semantic_system": {
+  "pixel_acc": 0.00818677334813428,
+  "miou_symbol": 0.0038038351468668865,
+  "units_iou_ge_0.5": 0,
+  "swatches": 38,
+  "ocr_nonempty": 24,
+  "ocr_matches_an_official_symbol": 6,
+  "ocr_codes": {
+   "S00": null,
+   "S01": null,
+   "S02": null,
+   "S03": "oMe",
+   "S04": "ou",
+   "S05": "om",
+   "S06": null,
+   "S07": null,
+   "S08": "Lome",
+   "S09": "ae",
+   "S10": "ae",
+   "S11": "te",
+   "S12": null,
+   "S13": "po",
+   "S14": "km",
+   "S15": null,
+   "S16": null,
+   "S17": null,
+   "S18": "pS",
+   "S19": "poss",
+   "S20": "ae",
+   "S21": "a",
+   "S22": "ae",
+   "S23": "os",
+   "S24": "Lo",
+   "S25": null,
+   "S26": "a",
+   "S27": "poke",
+   "S28": null,
+   "S29": null,
+   "S30": "a",
+   "S31": null,
+   "S32": "ee",
+   "S33": "ee",
+   "S34": "Mr",
+   "S35": null,
+   "S36": "a",
+   "S37": "a"
+  },
+  "label": "system's own mapping: R1 ocr_code on each legend swatch"
+ },
+ "topology": {
+  "instances": 634,
+  "instance_recall": 0.30126182965299686,
+  "small_instances": 538,
+  "small_instance_recall": 0.23605947955390336,
+  "small_threshold_work_px": 5000,
+  "fragments_per_gt_instance_mean": 1.0905587668593448,
+  "fragments_per_gt_instance_p90": 2.0,
+  "adjacency_precision": 0.5290697674418605,
+  "adjacency_recall": 0.4595959595959596,
+  "n_polygons": 893,
+  "invalid_polygons": 0,
+  "components_ratio_pred_over_gt": 1.1783132530120481,
+  "note": "adjacency uses the Hungarian mapping (inherits the upper-bound caveat)"
+ },
+ "legend_audit": {
+  "n_units": 45,
+  "n_legend_rows": 45,
+  "n_detected_swatches": 38,
+  "counts": {
+   "detected": 37,
+   "missed": 2,
+   "same_colour_other_code": 5,
+   "no_print_swatch": 1
+  },
+  "area_frac": {
+   "detected": 0.976173733923026,
+   "missed": 0.0012034889061306015,
+   "same_colour_other_code": 0.008413477981312503,
+   "no_print_swatch": 0.014209299189530936
+  },
+  "swatches_matching_no_unit": [
+   "S01"
+  ],
+  "granularity": {
+   "legend_rows_not_on_map": [],
+   "map_units_not_in_legend": []
+  },
+  "per_unit": {
+   "1": {
+    "status": "detected",
+    "symbol": "a",
+    "same_colour_as": [],
+    "nearest_swatch": "S00",
+    "nearest_swatch_dE": 3.234283208847046,
+    "gt_px": 135052
+   },
+   "10": {
+    "status": "same_colour_other_code",
+    "symbol": "M3",
+    "same_colour_as": [
+     "7"
+    ],
+    "nearest_swatch": "S08",
+    "nearest_swatch_dE": 0.0,
+    "gt_px": 390
+   },
+   "11": {
+    "status": "detected",
+    "symbol": "M2",
+    "same_colour_as": [],
+    "nearest_swatch": "S09",
+    "nearest_swatch_dE": 2.148289442062378,
+    "gt_px": 8395
+   },
+   "12": {
+    "status": "detected",
+    "symbol": "M1",
+    "same_colour_as": [],
+    "nearest_swatch": "S10",
+    "nearest_swatch_dE": 2.935157060623169,
+    "gt_px": 12242
+   },
+   "13": {
+    "status": "detected",
+    "symbol": "H4",
+    "same_colour_as": [],
+    "nearest_swatch": "S11",
+    "nearest_swatch_dE": 1.270884394645691,
+    "gt_px": 2537
+   },
+   "14": {
+    "status": "detected",
+    "symbol": "H3",
+    "same_colour_as": [],
+    "nearest_swatch": "S12",
+    "nearest_swatch_dE": 1.0741454362869263,
+    "gt_px": 16541
+   },
+   "15": {
+    "status": "detected",
+    "symbol": "H2",
+    "same_colour_as": [],
+    "nearest_swatch": "S13",
+    "nearest_swatch_dE": 1.8395884037017822,
+    "gt_px": 56527
+   },
+   "16": {
+    "status": "detected",
+    "symbol": "H1",
+    "same_colour_as": [],
+    "nearest_swatch": "S10",
+    "nearest_swatch_dE": 7.720638275146484,
+    "gt_px": 602
+   },
+   "17": {
+    "status": "detected",
+    "symbol": "Km",
+    "same_colour_as": [],
+    "nearest_swatch": "S14",
+    "nearest_swatch_dE": 1.6171435117721558,
+    "gt_px": 671
+   },
+   "18": {
+    "status": "detected",
+    "symbol": "Al",
+    "same_colour_as": [],
+    "nearest_swatch": "S15",
+    "nearest_swatch_dE": 2.2360680103302,
+    "gt_px": 3408
+   },
+   "19": {
+    "status": "detected",
+    "symbol": "Ka",
+    "same_colour_as": [],
+    "nearest_swatch": "S16",
+    "nearest_swatch_dE": 1.6171435117721558,
+    "gt_px": 8025
+   },
+   "2": {
+    "status": "detected",
+    "symbol": "Or",
+    "same_colour_as": [],
+    "nearest_swatch": "S02",
+    "nearest_swatch_dE": 1.0,
+    "gt_px": 344266
+   },
+   "20": {
+    "status": "detected",
+    "symbol": "An",
+    "same_colour_as": [],
+    "nearest_swatch": "S17",
+    "nearest_swatch_dE": 1.0,
+    "gt_px": 1351
+   },
+   "21": {
+    "status": "detected",
+    "symbol": "S2",
+    "same_colour_as": [],
+    "nearest_swatch": "S18",
+    "nearest_swatch_dE": 2.2360680103302,
+    "gt_px": 37428
+   },
+   "22": {
+    "status": "detected",
+    "symbol": "S1",
+    "same_colour_as": [],
+    "nearest_swatch": "S19",
+    "nearest_swatch_dE": 1.0741454362869263,
+    "gt_px": 56805
+   },
+   "23": {
+    "status": "detected",
+    "symbol": "Ab",
+    "same_colour_as": [],
+    "nearest_swatch": "S20",
+    "nearest_swatch_dE": 0.39215850830078125,
+    "gt_px": 2845
+   },
+   "24": {
+    "status": "detected",
+    "symbol": "Am",
+    "same_colour_as": [],
+    "nearest_swatch": "S21",
+    "nearest_swatch_dE": 0.3921546936035156,
+    "gt_px": 974
+   },
+   "25": {
+    "status": "detected",
+    "symbol": "Kd",
+    "same_colour_as": [],
+    "nearest_swatch": "S22",
+    "nearest_swatch_dE": 0.0,
+    "gt_px": 5285
+   },
+   "26": {
+    "status": "detected",
+    "symbol": "O3",
+    "same_colour_as": [],
+    "nearest_swatch": "S23",
+    "nearest_swatch_dE": 0.0,
+    "gt_px": 128178
+   },
+   "27": {
+    "status": "missed",
+    "symbol": "O2",
+    "same_colour_as": [],
+    "nearest_swatch": "S28",
+    "nearest_swatch_dE": 10.068965911865234,
+    "gt_px": 764
+   },
+   "28": {
+    "status": "detected",
+    "symbol": "O1",
+    "same_colour_as": [],
+    "nearest_swatch": "S24",
+    "nearest_swatch_dE": 1.6171435117721558,
+    "gt_px": 327197
+   },
+   "29": {
+    "status": "detected",
+    "symbol": "Qp",
+    "same_colour_as": [],
+    "nearest_swatch": "S25",
+    "nearest_swatch_dE": 1.270886778831482,
+    "gt_px": 7106
+   },
+   "3": {
+    "status": "detected",
+    "symbol": "f",
+    "same_colour_as": [],
+    "nearest_swatch": "S03",
+    "nearest_swatch_dE": 4.402125835418701,
+    "gt_px": 82644
+   },
+   "30": {
+    "status": "detected",
+    "symbol": "Qd",
+    "same_colour_as": [],
+    "nearest_swatch": "S26",
+    "nearest_swatch_dE": 2.3203632831573486,
+    "gt_px": 3200
+   },
+   "31": {
+    "status": "detected",
+    "symbol": "A5",
+    "same_colour_as": [],
+    "nearest_swatch": "S27",
+    "nearest_swatch_dE": 2.0380845069885254,
+    "gt_px": 52472
+   },
+   "32": {
+    "status": "detected",
+    "symbol": "A4",
+    "same_colour_as": [],
+    "nearest_swatch": "S28",
+    "nearest_swatch_dE": 1.4142135381698608,
+    "gt_px": 260713
+   },
+   "33": {
+    "status": "detected",
+    "symbol": "A3",
+    "same_colour_as": [],
+    "nearest_swatch": "S29",
+    "nearest_swatch_dE": 1.5686264038085938,
+    "gt_px": 25715
+   },
+   "34": {
+    "status": "detected",
+    "symbol": "A2",
+    "same_colour_as": [],
+    "nearest_swatch": "S30",
+    "nearest_swatch_dE": 1.0,
+    "gt_px": 136543
+   },
+   "35": {
+    "status": "detected",
+    "symbol": "A1",
+    "same_colour_as": [],
+    "nearest_swatch": "S31",
+    "nearest_swatch_dE": 1.0741454362869263,
+    "gt_px": 31351
+   },
+   "36": {
+    "status": "detected",
+    "symbol": "P",
+    "same_colour_as": [],
+    "nearest_swatch": "S32",
+    "nearest_swatch_dE": 1.0,
+    "gt_px": 73790
+   },
+   "37": {
+    "status": "detected",
+    "symbol": "Bs",
+    "same_colour_as": [],
+    "nearest_swatch": "S33",
+    "nearest_swatch_dE": 1.6171435117721558,
+    "gt_px": 217415
+   },
+   "38": {
+    "status": "detected",
+    "symbol": "Mr",
+    "same_colour_as": [],
+    "nearest_swatch": "S34",
+    "nearest_swatch_dE": 1.4142135381698608,
+    "gt_px": 45332
+   },
+   "39": {
+    "status": "same_colour_other_code",
+    "symbol": "t3",
+    "same_colour_as": [
+     "40",
+     "41"
+    ],
+    "nearest_swatch": "S37",
+    "nearest_swatch_dE": 19.308547973632812,
+    "gt_px": 786
+   },
+   "4": {
+    "status": "detected",
+    "symbol": "ta",
+    "same_colour_as": [],
+    "nearest_swatch": "S03",
+    "nearest_swatch_dE": 1.1764678955078125,
+    "gt_px": 109263
+   },
+   "40": {
+    "status": "same_colour_other_code",
+    "symbol": "t2",
+    "same_colour_as": [
+     "39",
+     "41"
+    ],
+    "nearest_swatch": "S37",
+    "nearest_swatch_dE": 19.308547973632812,
+    "gt_px": 567
+   },
+   "41": {
+    "status": "same_colour_other_code",
+    "symbol": "t1",
+    "same_colour_as": [
+     "39",
+     "40"
+    ],
+    "nearest_swatch": "S37",
+    "nearest_swatch_dE": 19.308547973632812,
+    "gt_px": 1558
+   },
+   "42": {
+    "status": "detected",
+    "symbol": "Yk",
+    "same_colour_as": [],
+    "nearest_swatch": "S35",
+    "nearest_swatch_dE": 1.5440455675125122,
+    "gt_px": 78819
+   },
+   "43": {
+    "status": "detected",
+    "symbol": "Tr",
+    "same_colour_as": [],
+    "nearest_swatch": "S36",
+    "nearest_swatch_dE": 0.39215850830078125,
+    "gt_px": 76194
+   },
+   "44": {
+    "status": "detected",
+    "symbol": "Om",
+    "same_colour_as": [],
+    "nearest_swatch": "S37",
+    "nearest_swatch_dE": 1.270884394645691,
+    "gt_px": 36785
+   },
+   "5": {
+    "status": "missed",
+    "symbol": "t",
+    "same_colour_as": [],
+    "nearest_swatch": "S03",
+    "nearest_swatch_dE": 21.920700073242188,
+    "gt_px": 2315
+   },
+   "6": {
+    "status": "detected",
+    "symbol": "l",
+    "same_colour_as": [],
+    "nearest_swatch": "S04",
+    "nearest_swatch_dE": 1.2708820104599,
+    "gt_px": 49743
+   },
+   "7": {
+    "status": "same_colour_other_code",
+    "symbol": "Ob",
+    "same_colour_as": [
+     "10"
+    ],
+    "nearest_swatch": "S05",
+    "nearest_swatch_dE": 1.270884394645691,
+    "gt_px": 18224
+   },
+   "8": {
+    "status": "detected",
+    "symbol": "Ju",
+    "same_colour_as": [],
+    "nearest_swatch": "S06",
+    "nearest_swatch_dE": 0.7843093872070312,
+    "gt_px": 32996
+   },
+   "88": {
+    "status": "no_print_swatch",
+    "symbol": null,
+    "same_colour_as": [],
+    "nearest_swatch": null,
+    "nearest_swatch_dE": null,
+    "gt_px": 36353
+   },
+   "9": {
+    "status": "detected",
+    "symbol": "Jl",
+    "same_colour_as": [],
+    "nearest_swatch": "S07",
+    "nearest_swatch_dE": 1.4675791263580322,
+    "gt_px": 29028
+   }
+  },
+  "note": "official RGB from xlsx is the publisher's reference colour; GSJ notes patterns are not encoded"
+ }
+}
