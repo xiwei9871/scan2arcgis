@@ -1,0 +1,484 @@
+{
+ "reference": "experiments/R3/review/same_colour_review_index.json",
+ "reference_status": "CONFIRMED",
+ "runs": {
+  "opencv410": {
+   "08004": {
+    "tess_psm7": {
+     "correct": 6,
+     "n": 6,
+     "accuracy": 1.0,
+     "errors": []
+    },
+    "tess_psm8": {
+     "correct": 0,
+     "n": 6,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S07",
+       "Mz",
+       "Me"
+      ],
+      [
+       "S10",
+       "Sm",
+       "oe"
+      ],
+      [
+       "S11",
+       "Jg",
+       "oe"
+      ],
+      [
+       "S12",
+       "Hf",
+       "oH"
+      ],
+      [
+       "S17",
+       "Ohf",
+       "ot"
+      ],
+      [
+       "S33",
+       "Ic",
+       "oe"
+      ]
+     ]
+    },
+    "rapid_rec": {
+     "correct": 1,
+     "n": 6,
+     "accuracy": 0.16666666666666666,
+     "errors": [
+      [
+       "S07",
+       "Mz",
+       "M"
+      ],
+      [
+       "S11",
+       "Jg",
+       "a"
+      ],
+      [
+       "S12",
+       "Hf",
+       "H"
+      ],
+      [
+       "S17",
+       "Ohf",
+       "Of"
+      ],
+      [
+       "S33",
+       "Ic",
+       null
+      ]
+     ]
+    },
+    "rapid_detrec": {
+     "correct": 1,
+     "n": 6,
+     "accuracy": 0.16666666666666666,
+     "errors": [
+      [
+       "S07",
+       "Mz",
+       null
+      ],
+      [
+       "S11",
+       "Jg",
+       "J"
+      ],
+      [
+       "S12",
+       "Hf",
+       null
+      ],
+      [
+       "S17",
+       "Ohf",
+       null
+      ],
+      [
+       "S33",
+       "Ic",
+       null
+      ]
+     ]
+    },
+    "tess_sub": {
+     "correct": 6,
+     "n": 6,
+     "accuracy": 1.0,
+     "errors": []
+    },
+    "tess_sub_case": {
+     "correct": 6,
+     "n": 6,
+     "accuracy": 1.0,
+     "errors": []
+    }
+   },
+   "08001": {
+    "tess_psm7": {
+     "correct": 1,
+     "n": 2,
+     "accuracy": 0.5,
+     "errors": [
+      [
+       "S08",
+       "M3",
+       null
+      ]
+     ]
+    },
+    "tess_psm8": {
+     "correct": 0,
+     "n": 2,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S05",
+       "Ob",
+       "tm"
+      ],
+      [
+       "S08",
+       "M3",
+       "he"
+      ]
+     ]
+    },
+    "rapid_rec": {
+     "correct": 0,
+     "n": 2,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S05",
+       "Ob",
+       "b"
+      ],
+      [
+       "S08",
+       "M3",
+       "Mo"
+      ]
+     ]
+    },
+    "rapid_detrec": {
+     "correct": 0,
+     "n": 2,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S05",
+       "Ob",
+       null
+      ],
+      [
+       "S08",
+       "M3",
+       "Mo"
+      ]
+     ]
+    },
+    "tess_sub": {
+     "correct": 1,
+     "n": 2,
+     "accuracy": 0.5,
+     "errors": [
+      [
+       "S08",
+       "M3",
+       "M"
+      ]
+     ]
+    },
+    "tess_sub_case": {
+     "correct": 1,
+     "n": 2,
+     "accuracy": 0.5,
+     "errors": [
+      [
+       "S08",
+       "M3",
+       "M"
+      ]
+     ]
+    }
+   }
+  },
+  "opencv411": {
+   "08004": {
+    "tess_psm7": {
+     "correct": 6,
+     "n": 6,
+     "accuracy": 1.0,
+     "errors": []
+    },
+    "tess_psm8": {
+     "correct": 0,
+     "n": 6,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S07",
+       "Mz",
+       "Me"
+      ],
+      [
+       "S10",
+       "Sm",
+       "oe"
+      ],
+      [
+       "S11",
+       "Jg",
+       "oe"
+      ],
+      [
+       "S12",
+       "Hf",
+       "oH"
+      ],
+      [
+       "S17",
+       "Ohf",
+       "ot"
+      ],
+      [
+       "S33",
+       "Ic",
+       "oe"
+      ]
+     ]
+    },
+    "rapid_rec": {
+     "correct": 1,
+     "n": 6,
+     "accuracy": 0.16666666666666666,
+     "errors": [
+      [
+       "S07",
+       "Mz",
+       "M"
+      ],
+      [
+       "S11",
+       "Jg",
+       "a"
+      ],
+      [
+       "S12",
+       "Hf",
+       "H"
+      ],
+      [
+       "S17",
+       "Ohf",
+       "Of"
+      ],
+      [
+       "S33",
+       "Ic",
+       null
+      ]
+     ]
+    },
+    "rapid_detrec": {
+     "correct": 1,
+     "n": 6,
+     "accuracy": 0.16666666666666666,
+     "errors": [
+      [
+       "S07",
+       "Mz",
+       null
+      ],
+      [
+       "S11",
+       "Jg",
+       "J"
+      ],
+      [
+       "S12",
+       "Hf",
+       null
+      ],
+      [
+       "S17",
+       "Ohf",
+       null
+      ],
+      [
+       "S33",
+       "Ic",
+       null
+      ]
+     ]
+    },
+    "tess_sub": {
+     "correct": 6,
+     "n": 6,
+     "accuracy": 1.0,
+     "errors": []
+    },
+    "tess_sub_case": {
+     "correct": 6,
+     "n": 6,
+     "accuracy": 1.0,
+     "errors": []
+    }
+   },
+   "08001": {
+    "tess_psm7": {
+     "correct": 1,
+     "n": 2,
+     "accuracy": 0.5,
+     "errors": [
+      [
+       "S08",
+       "M3",
+       null
+      ]
+     ]
+    },
+    "tess_psm8": {
+     "correct": 0,
+     "n": 2,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S05",
+       "Ob",
+       "tm"
+      ],
+      [
+       "S08",
+       "M3",
+       "he"
+      ]
+     ]
+    },
+    "rapid_rec": {
+     "correct": 0,
+     "n": 2,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S05",
+       "Ob",
+       "b"
+      ],
+      [
+       "S08",
+       "M3",
+       "Mo"
+      ]
+     ]
+    },
+    "rapid_detrec": {
+     "correct": 0,
+     "n": 2,
+     "accuracy": 0.0,
+     "errors": [
+      [
+       "S05",
+       "Ob",
+       null
+      ],
+      [
+       "S08",
+       "M3",
+       "Mo"
+      ]
+     ]
+    },
+    "tess_sub": {
+     "correct": 1,
+     "n": 2,
+     "accuracy": 0.5,
+     "errors": [
+      [
+       "S08",
+       "M3",
+       "M"
+      ]
+     ]
+    },
+    "tess_sub_case": {
+     "correct": 1,
+     "n": 2,
+     "accuracy": 0.5,
+     "errors": [
+      [
+       "S08",
+       "M3",
+       "M"
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "pooled": {
+  "opencv410": {
+   "tess_psm7": {
+    "correct": 7,
+    "n": 8
+   },
+   "tess_psm8": {
+    "correct": 0,
+    "n": 8
+   },
+   "rapid_rec": {
+    "correct": 1,
+    "n": 8
+   },
+   "rapid_detrec": {
+    "correct": 1,
+    "n": 8
+   },
+   "tess_sub": {
+    "correct": 7,
+    "n": 8
+   },
+   "tess_sub_case": {
+    "correct": 7,
+    "n": 8
+   }
+  },
+  "opencv411": {
+   "tess_psm7": {
+    "correct": 7,
+    "n": 8
+   },
+   "tess_psm8": {
+    "correct": 0,
+    "n": 8
+   },
+   "rapid_rec": {
+    "correct": 1,
+    "n": 8
+   },
+   "rapid_detrec": {
+    "correct": 1,
+    "n": 8
+   },
+   "tess_sub": {
+    "correct": 7,
+    "n": 8
+   },
+   "tess_sub_case": {
+    "correct": 7,
+    "n": 8
+   }
+  }
+ }
+}

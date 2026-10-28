@@ -1,10 +1,9 @@
 {
- "status": "PROVISIONAL",
+ "status": "CONFIRMED",
  "created": "2026-10-28",
  "transcriber": "Claude (visual reading of the 200 dpi printed legend)",
  "method": "read from runs/r3fix/review_pkg/<sheet>/<swatch>_context.png and _zoom4x.png; the official xlsx was NOT opened for this transcription",
  "disclosure": "Earlier R2/R3 evaluation outputs had shown the transcriber which official codes form each same-colour group (e.g. {Mz,Sm,Jg,Hf}), but not which swatch carries which code.",
- "use_rule": "Not ground truth until 'human_confirmed' is filled. Scores computed with it are labelled PROVISIONAL.",
  "sheets": {
   "08004": [
    {
@@ -32,9 +31,9 @@
      "context": "057afaa59da31ce9b9e7d4398b652a233e7e8c20853be5709602996c096bef3e",
      "zoom4x": "fa4f3e3ec87a3866bccf365a525178dc697d0dfc77296c3b61ab70267a3fac72"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    },
    {
     "swatch": "S10",
@@ -61,9 +60,9 @@
      "context": "fc004027ca217778a3a337a498911af2da0be7bbe8a533c01bcd0dfae420af3e",
      "zoom4x": "02acb8d9a00cf66f4e57dddf52ea6ca5c43337663d53e8e1056a2e660dfadb18"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    },
    {
     "swatch": "S11",
@@ -90,9 +89,9 @@
      "context": "6d27e198f1cf0a845dcd23f3801341521b77beacbe7362a234f410019c35bcdb",
      "zoom4x": "79474b0cd7588ae2f3ad12f87677b2353c42f0825eed235a6abe021b0c89d62b"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    },
    {
     "swatch": "S12",
@@ -119,9 +118,9 @@
      "context": "00c2e9e33101e6d77266e3143b1ac9624a124d3d2bbde3fafec32d4eeab038dd",
      "zoom4x": "002bdf7cc9d53c2ded2ed825b47c2235c5baf3d9d22127ed6576f2a428d546e4"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    },
    {
     "swatch": "S17",
@@ -148,9 +147,9 @@
      "context": "d112626ef08715e4c1cb65a84759ad56cad9db4e44dd4b1d797fb0271f5fd057",
      "zoom4x": "f74dba71ee1ab29451cefd4a7ffbee86b962dc103cd0aee868379cfe2f575a0e"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    },
    {
     "swatch": "S33",
@@ -177,9 +176,9 @@
      "context": "500b35ffb909150940ce2519513f000cec143f322b97529a96238b40efbbb6d6",
      "zoom4x": "faaccccb9787ec25cf40e4fe6bde8d47a4bff767018252470578542011815004"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    }
   ],
   "08001": [
@@ -208,9 +207,9 @@
      "context": "e754508f993ca1133eb40992a67f0b8a68441b489791e2cc122326c9efa53505",
      "zoom4x": "48eea8d6d2f4ae7f630a0d0d77f8e43b56ef0e085c5ecdc2fd7f2f958ccd7039"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "visually confirmed against printed legend"
    },
    {
     "swatch": "S08",
@@ -237,10 +236,17 @@
      "context": "69b93650b3178e38b60fd9ae5a61ab7c28c87df8dde9b84ed4cd06821aa3cb8d",
      "zoom4x": "33b65d2f07a8b524c9c58919701a7fe71d30e60e71ac0b6b79554bf38d53bc6e"
     },
-    "human_confirmed": null,
+    "human_confirmed": true,
     "human_code_if_different": null,
-    "human_comment": null
+    "human_comment": "printed as M with subscript 3 (M₃); stored as M3"
    }
   ]
+ },
+ "confirmation": {
+  "date": "2026-10-28",
+  "by": "project owner (independent visual check of the local review images)",
+  "result": "8/8 transcriptions correct, no changes",
+  "previous_status": "PROVISIONAL",
+  "use_rule": "CONFIRMED entries are the reference for same-colour legend OCR scoring; transcription field kept unchanged"
  }
 }

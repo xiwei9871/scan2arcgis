@@ -22,7 +22,7 @@
    - 小单元的损失主要来自 R1 分割：小实例里只有 93/229（08004）和 127/538（08001）能被 R1 分出来，其余 59% 和 76% 在命名之前就已经丢了。
 6. **原 A3 本身就不会把同色小单元强制归入大单元。** 同色单元被赋成同组其他代号的比例：A3 是 0.000 / 0.009，A1 和 A2t 是 0.194 / 0.185（08004）。
    本轮加上了候选集输出：08004 的命中率为 0.95，平均约 2.2 个候选；08001 的命中率为 0.65–0.71，平均约 2.9 个候选。
-7. **同色组图例的 OCR（PROVISIONAL 参考）：**
+7. **同色组图例的 OCR（参考已于 2026-10-28 人工确认，CONFIRMED）：**
    - Tesseract psm7 在 08004 上 6/6 全对，在 08001 上 1/2；读错的是带下标的 `M3`。
    - RapidOCR 在 08004 上只对 1/6。
 8. **还没有统一配置。** 语义 mIoU 最好的配置，08004 上是 R3_A2t（0.401），08001 上是 R3_A3（0.204），两者不同。
@@ -105,7 +105,7 @@ python3.11 -m venv .venv-ocr && .venv-ocr/bin/pip install -r experiments/R3/env/
 
 ## 7. 审核包
 
-- **索引：** `experiments/R3/review/same_colour_review_index.json`，状态为 `PROVISIONAL`，确认字段还是空的。
+- **索引：** `experiments/R3/review/same_colour_review_index.json`，状态为 `CONFIRMED`。项目负责人在 2026-10-28 对照本地审核图片逐个核对，8 个转录全部正确，没有修改。原转录和确认前的状态（`previous_status: PROVISIONAL`）都保留在文件里。
 - **图片（只在本地）：** `/Users/xiwei/geomap2arcgis/runs/r3fix/review_pkg/08004/` 和 `.../08001/`，每个色块两张：原图局部和 4 倍放大图。
 - **操作说明：** `experiments/R3/review/README.md`。
 
@@ -206,7 +206,7 @@ for sm in 0.5 2 5; do .venv/bin/python experiments/R3/eval_v2.py polygonize $n $
 | 08001 | 2 | 12 | 790 | 830 | 0 | 12 | 0/0 | 0.943 | 1.000 | 0.985 | 0.946 | 0.447 | 0.478 |
 | 08001 | 5 | 12 | 796 | 830 | 0 | 14 | 0/0 | 0.943 | 1.000 | 0.985 | 0.946 | 0.447 | 0.478 |
 
-### 同色组图例 OCR（PROVISIONAL 参考）
+### 同色组图例 OCR（参考为 CONFIRMED）
 
 | 图幅 | 色块 | 转录 | tess_psm7 | tess_sub_case | rapid_rec | rapid_detrec |
 |---|---|---|---|---|---|---|
@@ -220,3 +220,22 @@ for sm in 0.5 2 5; do .venv/bin/python experiments/R3/eval_v2.py polygonize $n $
 | 08001 | S05 | Ob | Ob | Ob | b | None |
 | 08001 | S08 | M3 | None | M | Mo | Mo |
 | 08001 | 正确数 | | 1/2 | 1/2 | 0/2 | 0/2 |
+
+## 9. 同色组图例 OCR：用人工确认参考重新计算（2026-10-28 追加）
+
+参考：`same_colour_review_index.json`（`CONFIRMED`，8/8 转录被确认正确）。评价脚本 `experiments/R3/s1_samecolour_eval.py`（只用于评价）。识别算法和评价规则都没有改。
+
+| 引擎 | 08004（6 个） | 08001（2 个） | 合计 | OpenCV 4.10 与 4.11 是否一致 |
+|---|---|---|---|---|
+| tess_psm7 | 6/6 | 1/2 | 7/8 | 一致 |
+| tess_sub_case | 6/6 | 1/2 | 7/8 | 一致 |
+| tess_sub | 6/6 | 1/2 | 7/8 | 一致 |
+| rapid_rec | 1/6 | 0/2 | 1/8 | 一致 |
+| rapid_detrec | 1/6 | 0/2 | 1/8 | 一致 |
+| tess_psm8 | 0/6 | 0/2 | 0/8 | 一致 |
+
+- **结论：** Tesseract（psm7、下标拆分版）在同色组色块上读对 7/8。唯一的错误是 08001 的 S08（印刷为 M₃）：psm7 什么也没读出，下标拆分版读成 `M`，下标 3 丢失。
+- **RapidOCR：** 只读对 1/8。所以图例框内的代号仍应以 Tesseract 为准。
+- **含义：** 同色组的代号**是能从图例读出来的**。S1 在同色小单元上失败，原因不在图例 OCR，而在于图面上没有这些单元的代号锚点，以及 R1 没有把这些小单元分割出来。这一点和第 5 节的结论一致。
+- **错误明细：** [['S08', 'M3', 'M'], ['S08', 'M3', None]]
+- **结果文件：** `experiments/R3/results_fixes/same_colour_ocr_confirmed.json`。
