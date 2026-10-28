@@ -1,0 +1,24 @@
+{
+ "08004": {
+  "region_ub_pixel_acc": 0.8193932551462358,
+  "region_ub_miou": 0.45354794972906765,
+  "semantic_pixel_acc": 0.00018492384057618375,
+  "semantic_miou": 1.9031080037430728e-05,
+  "contact_f1": 0.41905336687612593,
+  "instance_recall": 0.4716312056737589,
+  "small_instance_recall": 0.40611353711790393,
+  "oracle_ideal_regions_vote_miou": 0.5962083548263318,
+  "oracle_ideal_colour_pixel_miou": 0.553961679933132
+ },
+ "08001": {
+  "region_ub_pixel_acc": 0.699302883252977,
+  "region_ub_miou": 0.36093641047248043,
+  "semantic_pixel_acc": 0.00818677334813428,
+  "semantic_miou": 0.0038038351468668865,
+  "contact_f1": 0.383741471092686,
+  "instance_recall": 0.30126182965299686,
+  "small_instance_recall": 0.23605947955390336,
+  "oracle_ideal_regions_vote_miou": 0.47828628792847094,
+  "oracle_ideal_colour_pixel_miou": 0.5310178694958059
+ }
+}
