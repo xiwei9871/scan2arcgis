@@ -1,0 +1,82 @@
+{
+ "08004": {
+  "opencv_before": "4.10.0.84 (contrib-headless, main venv)",
+  "opencv_after": "4.11.0 (opencv-python, .venv-ocr)",
+  "legend_code_changes": {
+   "tess_psm7": 0,
+   "tess_psm8": 0,
+   "rapid_rec": 0,
+   "rapid_detrec": 0,
+   "tess_sub": 0,
+   "tess_sub_case": 0
+  },
+  "spot_candidates_before": 545,
+  "spot_candidates_after": 545,
+  "spot_only_before": [
+   [
+    "tess",
+    4212,
+    2814,
+    null,
+    null
+   ]
+  ],
+  "spot_only_after": [
+   [
+    "tess",
+    4212,
+    2814,
+    "we4",
+    null
+   ]
+  ],
+  "lexicon_identical": true
+ },
+ "08001": {
+  "opencv_before": "4.10.0.84 (contrib-headless, main venv)",
+  "opencv_after": "4.11.0 (opencv-python, .venv-ocr)",
+  "legend_code_changes": {
+   "tess_psm7": 0,
+   "tess_psm8": 0,
+   "rapid_rec": 0,
+   "rapid_detrec": 0,
+   "tess_sub": 0,
+   "tess_sub_case": 0
+  },
+  "spot_candidates_before": 916,
+  "spot_candidates_after": 916,
+  "spot_only_before": [
+   [
+    "rapid",
+    4541,
+    1064,
+    "Fau",
+    null
+   ],
+   [
+    "tess",
+    4541,
+    1064,
+    null,
+    null
+   ]
+  ],
+  "spot_only_after": [
+   [
+    "rapid",
+    4542,
+    1064,
+    "Fau",
+    null
+   ],
+   [
+    "tess",
+    4542,
+    1064,
+    null,
+    null
+   ]
+  ],
+  "lexicon_identical": true
+ }
+}
