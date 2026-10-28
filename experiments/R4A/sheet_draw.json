@@ -1,0 +1,1383 @@
+{
+ "seed": 20261028,
+ "targets": {
+  "train": 10,
+  "validation": 2
+ },
+ "train_regions": [
+  "05",
+  "06",
+  "07"
+ ],
+ "validation_regions": [
+  "13",
+  "14",
+  "15"
+ ],
+ "excluded": {
+  "region_08": "dev 08004/08001 and sealed holdout 08011/08021",
+  "year_mismatch": [
+   "12018"
+  ]
+ },
+ "train_order": [
+  {
+   "code": "05016",
+   "year": "1983",
+   "jpg": "JPG/GSJ_MAP_G050_05016_1983_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05016_1983_V01.zip"
+  },
+  {
+   "code": "05011",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_05011_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05011_1959_V01.zip"
+  },
+  {
+   "code": "06081",
+   "year": "1981",
+   "jpg": "JPG/GSJ_MAP_G050_06081_1981_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06081_1981_V01.zip"
+  },
+  {
+   "code": "06006",
+   "year": "1964",
+   "jpg": "JPG/GSJ_MAP_G050_06006_1964_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06006_1964_V01.zip"
+  },
+  {
+   "code": "06054",
+   "year": "2004",
+   "jpg": "JPG/GSJ_MAP_G050_06054_2004_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06054_2004_V01.zip"
+  },
+  {
+   "code": "07060",
+   "year": "1989",
+   "jpg": "JPG/GSJ_MAP_G050_07060_1989_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07060_1989_V01.zip"
+  },
+  {
+   "code": "05030",
+   "year": "2004",
+   "jpg": "JPG/GSJ_MAP_G050_05030_2004_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05030_2004_V01.zip"
+  },
+  {
+   "code": "05021",
+   "year": "1970",
+   "jpg": "JPG/GSJ_MAP_G050_05021_1970_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05021_1970_V01.zip"
+  },
+  {
+   "code": "06061",
+   "year": "2002",
+   "jpg": "JPG/GSJ_MAP_G050_06061_2002_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06061_2002_V01.zip"
+  },
+  {
+   "code": "06019",
+   "year": "1976",
+   "jpg": "JPG/GSJ_MAP_G050_06019_1976_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06019_1976_V01.zip"
+  },
+  {
+   "code": "06090",
+   "year": "1984",
+   "jpg": "JPG/GSJ_MAP_G050_06090_1984_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06090_1984_V01.zip"
+  },
+  {
+   "code": "07046",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_07046_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07046_1994_V01.zip"
+  },
+  {
+   "code": "05003",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_05003_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05003_1957_V01.zip"
+  },
+  {
+   "code": "06012",
+   "year": "1981",
+   "jpg": "JPG/GSJ_MAP_G050_06012_1981_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06012_1981_V01.zip"
+  },
+  {
+   "code": "07089",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_07089_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07089_1956_V01.zip"
+  },
+  {
+   "code": "06005",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_06005_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06005_1957_V01.zip"
+  },
+  {
+   "code": "06037",
+   "year": "1982",
+   "jpg": "JPG/GSJ_MAP_G050_06037_1982_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06037_1982_V01.zip"
+  },
+  {
+   "code": "06020",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_06020_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06020_1994_V01.zip"
+  },
+  {
+   "code": "06004",
+   "year": "2012",
+   "jpg": "JPG/GSJ_MAP_G050_06004_2012_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06004_2012_V01.zip"
+  },
+  {
+   "code": "06065",
+   "year": "1986",
+   "jpg": "JPG/GSJ_MAP_G050_06065_1986_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06065_1986_V01.zip"
+  },
+  {
+   "code": "05026",
+   "year": "1968",
+   "jpg": "JPG/GSJ_MAP_G050_05026_1968_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05026_1968_V01.zip"
+  },
+  {
+   "code": "05015",
+   "year": "1981",
+   "jpg": "JPG/GSJ_MAP_G050_05015_1981_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05015_1981_V01.zip"
+  },
+  {
+   "code": "06047",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_06047_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06047_1992_V01.zip"
+  },
+  {
+   "code": "05036",
+   "year": "1962",
+   "jpg": "JPG/GSJ_MAP_G050_05036_1962_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05036_1962_V01.zip"
+  },
+  {
+   "code": "05051",
+   "year": "1985",
+   "jpg": "JPG/GSJ_MAP_G050_05051_1985_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05051_1985_V01.zip"
+  },
+  {
+   "code": "06108",
+   "year": "1975",
+   "jpg": "JPG/GSJ_MAP_G050_06108_1975_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06108_1975_V01.zip"
+  },
+  {
+   "code": "07038",
+   "year": "1991",
+   "jpg": "JPG/GSJ_MAP_G050_07038_1991_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07038_1991_V01.zip"
+  },
+  {
+   "code": "05035",
+   "year": "1983",
+   "jpg": "JPG/GSJ_MAP_G050_05035_1983_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05035_1983_V01.zip"
+  },
+  {
+   "code": "07098",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_07098_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07098_1957_V01.zip"
+  },
+  {
+   "code": "06055",
+   "year": "1979",
+   "jpg": "JPG/GSJ_MAP_G050_06055_1979_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06055_1979_V01.zip"
+  },
+  {
+   "code": "06043",
+   "year": "1955",
+   "jpg": "JPG/GSJ_MAP_G050_06043_1955_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06043_1955_V01.zip"
+  },
+  {
+   "code": "06041",
+   "year": "1971",
+   "jpg": "JPG/GSJ_MAP_G050_06041_1971_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06041_1971_V01.zip"
+  },
+  {
+   "code": "06091",
+   "year": "1987",
+   "jpg": "JPG/GSJ_MAP_G050_06091_1987_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06091_1987_V01.zip"
+  },
+  {
+   "code": "05022",
+   "year": "2013",
+   "jpg": "JPG/GSJ_MAP_G050_05022_2013_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05022_2013_V01.zip"
+  },
+  {
+   "code": "07031",
+   "year": "2006",
+   "jpg": "JPG/GSJ_MAP_G050_07031_2006_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07031_2006_V01.zip"
+  },
+  {
+   "code": "07037",
+   "year": "1995",
+   "jpg": "JPG/GSJ_MAP_G050_07037_1995_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07037_1995_V01.zip"
+  },
+  {
+   "code": "06018",
+   "year": "1970",
+   "jpg": "JPG/GSJ_MAP_G050_06018_1970_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06018_1970_V01.zip"
+  },
+  {
+   "code": "07097",
+   "year": "1955",
+   "jpg": "JPG/GSJ_MAP_G050_07097_1955_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07097_1955_V01.zip"
+  },
+  {
+   "code": "06075",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_06075_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06075_1958_V01.zip"
+  },
+  {
+   "code": "07063",
+   "year": "1985",
+   "jpg": "JPG/GSJ_MAP_G050_07063_1985_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07063_1985_V01.zip"
+  },
+  {
+   "code": "07011",
+   "year": "1996",
+   "jpg": "JPG/GSJ_MAP_G050_07011_1996_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07011_1996_V01.zip"
+  },
+  {
+   "code": "06062",
+   "year": "1961",
+   "jpg": "JPG/GSJ_MAP_G050_06062_1961_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06062_1961_V01.zip"
+  },
+  {
+   "code": "05002",
+   "year": "1962",
+   "jpg": "JPG/GSJ_MAP_G050_05002_1962_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05002_1962_V01.zip"
+  },
+  {
+   "code": "06028",
+   "year": "1977",
+   "jpg": "JPG/GSJ_MAP_G050_06028_1977_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06028_1977_V01.zip"
+  },
+  {
+   "code": "05004",
+   "year": "1977",
+   "jpg": "JPG/GSJ_MAP_G050_05004_1977_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05004_1977_V01.zip"
+  },
+  {
+   "code": "05010",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_05010_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05010_1959_V01.zip"
+  },
+  {
+   "code": "06014",
+   "year": "1987",
+   "jpg": "JPG/GSJ_MAP_G050_06014_1987_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06014_1987_V01.zip"
+  },
+  {
+   "code": "06079",
+   "year": "1990",
+   "jpg": "JPG/GSJ_MAP_G050_06079_1990_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06079_1990_V01.zip"
+  },
+  {
+   "code": "06064",
+   "year": "1984",
+   "jpg": "JPG/GSJ_MAP_G050_06064_1984_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06064_1984_V01.zip"
+  },
+  {
+   "code": "06002",
+   "year": "2011",
+   "jpg": "JPG/GSJ_MAP_G050_06002_2011_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06002_2011_V01.zip"
+  },
+  {
+   "code": "06045",
+   "year": "1961",
+   "jpg": "JPG/GSJ_MAP_G050_06045_1961_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06045_1961_V01.zip"
+  },
+  {
+   "code": "06099",
+   "year": "1983",
+   "jpg": "JPG/GSJ_MAP_G050_06099_1983_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06099_1983_V01.zip"
+  },
+  {
+   "code": "07101",
+   "year": "1954",
+   "jpg": "JPG/GSJ_MAP_G050_07101_1954_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07101_1954_V01.zip"
+  },
+  {
+   "code": "06070",
+   "year": "1996",
+   "jpg": "JPG/GSJ_MAP_G050_06070_1996_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06070_1996_V01.zip"
+  },
+  {
+   "code": "07026",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_07026_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07026_1993_V01.zip"
+  },
+  {
+   "code": "06034",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_06034_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06034_1956_V01.zip"
+  },
+  {
+   "code": "07103",
+   "year": "2010",
+   "jpg": "JPG/GSJ_MAP_G050_07103_2010_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07103_2010_V01.zip"
+  },
+  {
+   "code": "07027",
+   "year": "2001",
+   "jpg": "JPG/GSJ_MAP_G050_07027_2001_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07027_2001_V01.zip"
+  },
+  {
+   "code": "05007",
+   "year": "1975",
+   "jpg": "JPG/GSJ_MAP_G050_05007_1975_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05007_1975_V01.zip"
+  },
+  {
+   "code": "07071",
+   "year": "1961",
+   "jpg": "JPG/GSJ_MAP_G050_07071_1961_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07071_1961_V01.zip"
+  },
+  {
+   "code": "05020",
+   "year": "1985",
+   "jpg": "JPG/GSJ_MAP_G050_05020_1985_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05020_1985_V01.zip"
+  },
+  {
+   "code": "06098",
+   "year": "1996",
+   "jpg": "JPG/GSJ_MAP_G050_06098_1996_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06098_1996_V01.zip"
+  },
+  {
+   "code": "06077",
+   "year": "1981",
+   "jpg": "JPG/GSJ_MAP_G050_06077_1981_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06077_1981_V01.zip"
+  },
+  {
+   "code": "06033",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_06033_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06033_1956_V01.zip"
+  },
+  {
+   "code": "06013",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_06013_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06013_1958_V01.zip"
+  },
+  {
+   "code": "06039",
+   "year": "1979",
+   "jpg": "JPG/GSJ_MAP_G050_06039_1979_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06039_1979_V01.zip"
+  },
+  {
+   "code": "06035",
+   "year": "1964",
+   "jpg": "JPG/GSJ_MAP_G050_06035_1964_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06035_1964_V01.zip"
+  },
+  {
+   "code": "06011",
+   "year": "1977",
+   "jpg": "JPG/GSJ_MAP_G050_06011_1977_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06011_1977_V01.zip"
+  },
+  {
+   "code": "05053",
+   "year": "1973",
+   "jpg": "JPG/GSJ_MAP_G050_05053_1973_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05053_1973_V01.zip"
+  },
+  {
+   "code": "05031",
+   "year": "2005",
+   "jpg": "JPG/GSJ_MAP_G050_05031_2005_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05031_2005_V01.zip"
+  },
+  {
+   "code": "07073",
+   "year": "2000",
+   "jpg": "JPG/GSJ_MAP_G050_07073_2000_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07073_2000_V01.zip"
+  },
+  {
+   "code": "05059",
+   "year": "1962",
+   "jpg": "JPG/GSJ_MAP_G050_05059_1962_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05059_1962_V01.zip"
+  },
+  {
+   "code": "05034",
+   "year": "1963",
+   "jpg": "JPG/GSJ_MAP_G050_05034_1963_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05034_1963_V01.zip"
+  },
+  {
+   "code": "06036",
+   "year": "1964",
+   "jpg": "JPG/GSJ_MAP_G050_06036_1964_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06036_1964_V01.zip"
+  },
+  {
+   "code": "07070",
+   "year": "1973",
+   "jpg": "JPG/GSJ_MAP_G050_07070_1973_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07070_1973_V01.zip"
+  },
+  {
+   "code": "07058",
+   "year": "2002",
+   "jpg": "JPG/GSJ_MAP_G050_07058_2002_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07058_2002_V02.zip"
+  },
+  {
+   "code": "05029",
+   "year": "1990",
+   "jpg": "JPG/GSJ_MAP_G050_05029_1990_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05029_1990_V01.zip"
+  },
+  {
+   "code": "06024",
+   "year": "2013",
+   "jpg": "JPG/GSJ_MAP_G050_06024_2013_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06024_2013_V01.zip"
+  },
+  {
+   "code": "06068",
+   "year": "1997",
+   "jpg": "JPG/GSJ_MAP_G050_06068_1997_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06068_1997_V01.zip"
+  },
+  {
+   "code": "05009",
+   "year": "1961",
+   "jpg": "JPG/GSJ_MAP_G050_05009_1961_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05009_1961_V01.zip"
+  },
+  {
+   "code": "06056",
+   "year": "1989",
+   "jpg": "JPG/GSJ_MAP_G050_06056_1989_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06056_1989_V01.zip"
+  },
+  {
+   "code": "05043",
+   "year": "1984",
+   "jpg": "JPG/GSJ_MAP_G050_05043_1984_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05043_1984_V01.zip"
+  },
+  {
+   "code": "05012",
+   "year": "1976",
+   "jpg": "JPG/GSJ_MAP_G050_05012_1976_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05012_1976_V01.zip"
+  },
+  {
+   "code": "07041",
+   "year": "2004",
+   "jpg": "JPG/GSJ_MAP_G050_07041_2004_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07041_2004_V01.zip"
+  },
+  {
+   "code": "07025",
+   "year": "1996",
+   "jpg": "JPG/GSJ_MAP_G050_07025_1996_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07025_1996_V01.zip"
+  },
+  {
+   "code": "06088",
+   "year": "1983",
+   "jpg": "JPG/GSJ_MAP_G050_06088_1983_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06088_1983_V01.zip"
+  },
+  {
+   "code": "05014",
+   "year": "1966",
+   "jpg": "JPG/GSJ_MAP_G050_05014_1966_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05014_1966_V01.zip"
+  },
+  {
+   "code": "06050",
+   "year": "1965",
+   "jpg": "JPG/GSJ_MAP_G050_06050_1965_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06050_1965_V01.zip"
+  },
+  {
+   "code": "07035",
+   "year": "1990",
+   "jpg": "JPG/GSJ_MAP_G050_07035_1990_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07035_1990_V01.zip"
+  },
+  {
+   "code": "05044",
+   "year": "1963",
+   "jpg": "JPG/GSJ_MAP_G050_05044_1963_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05044_1963_V01.zip"
+  },
+  {
+   "code": "07049",
+   "year": "1989",
+   "jpg": "JPG/GSJ_MAP_G050_07049_1989_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07049_1989_V01.zip"
+  },
+  {
+   "code": "07077",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_07077_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07077_1956_V01.zip"
+  },
+  {
+   "code": "06026",
+   "year": "1984",
+   "jpg": "JPG/GSJ_MAP_G050_06026_1984_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06026_1984_V01.zip"
+  },
+  {
+   "code": "06038",
+   "year": "1988",
+   "jpg": "JPG/GSJ_MAP_G050_06038_1988_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06038_1988_V01.zip"
+  },
+  {
+   "code": "07061",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_07061_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07061_1994_V01.zip"
+  },
+  {
+   "code": "07051",
+   "year": "2004",
+   "jpg": "JPG/GSJ_MAP_G050_07051_2004_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07051_2004_V01.zip"
+  },
+  {
+   "code": "07062",
+   "year": "2000",
+   "jpg": "JPG/GSJ_MAP_G050_07062_2000_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07062_2000_V01.zip"
+  },
+  {
+   "code": "07050",
+   "year": "1986",
+   "jpg": "JPG/GSJ_MAP_G050_07050_1986_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07050_1986_V01.zip"
+  },
+  {
+   "code": "07074",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_07074_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07074_1993_V01.zip"
+  },
+  {
+   "code": "07048",
+   "year": "1996",
+   "jpg": "JPG/GSJ_MAP_G050_07048_1996_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07048_1996_V01.zip"
+  },
+  {
+   "code": "07033",
+   "year": "1995",
+   "jpg": "JPG/GSJ_MAP_G050_07033_1995_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07033_1995_V01.zip"
+  },
+  {
+   "code": "07042",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_07042_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07042_1992_V01.zip"
+  },
+  {
+   "code": "06100",
+   "year": "1974",
+   "jpg": "JPG/GSJ_MAP_G050_06100_1974_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06100_1974_V01.zip"
+  },
+  {
+   "code": "07084",
+   "year": "2003",
+   "jpg": "JPG/GSJ_MAP_G050_07084_2003_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07084_2003_V01.zip"
+  },
+  {
+   "code": "07075",
+   "year": "1981",
+   "jpg": "JPG/GSJ_MAP_G050_07075_1981_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07075_1981_V01.zip"
+  },
+  {
+   "code": "07064",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_07064_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07064_1992_V01.zip"
+  },
+  {
+   "code": "06080",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_06080_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06080_1992_V01.zip"
+  },
+  {
+   "code": "05052",
+   "year": "1985",
+   "jpg": "JPG/GSJ_MAP_G050_05052_1985_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05052_1985_V01.zip"
+  },
+  {
+   "code": "06048",
+   "year": "1979",
+   "jpg": "JPG/GSJ_MAP_G050_06048_1979_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06048_1979_V01.zip"
+  },
+  {
+   "code": "05001",
+   "year": "1962",
+   "jpg": "JPG/GSJ_MAP_G050_05001_1962_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05001_1962_V01.zip"
+  },
+  {
+   "code": "06003",
+   "year": "1970",
+   "jpg": "JPG/GSJ_MAP_G050_06003_1970_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06003_1970_V01.zip"
+  },
+  {
+   "code": "07054",
+   "year": "1999",
+   "jpg": "JPG/GSJ_MAP_G050_07054_1999_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07054_1999_V01.zip"
+  },
+  {
+   "code": "05028",
+   "year": "1962",
+   "jpg": "JPG/GSJ_MAP_G050_05028_1962_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05028_1962_V01.zip"
+  },
+  {
+   "code": "06069",
+   "year": "1967",
+   "jpg": "JPG/GSJ_MAP_G050_06069_1967_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06069_1967_V01.zip"
+  },
+  {
+   "code": "06057",
+   "year": "1961",
+   "jpg": "JPG/GSJ_MAP_G050_06057_1961_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06057_1961_V01.zip"
+  },
+  {
+   "code": "05005",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_05005_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05005_1957_V01.zip"
+  },
+  {
+   "code": "05049",
+   "year": "1987",
+   "jpg": "JPG/GSJ_MAP_G050_05049_1987_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05049_1987_V01.zip"
+  },
+  {
+   "code": "07012",
+   "year": "1998",
+   "jpg": "JPG/GSJ_MAP_G050_07012_1998_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07012_1998_V01.zip"
+  },
+  {
+   "code": "07096",
+   "year": "1986",
+   "jpg": "JPG/GSJ_MAP_G050_07096_1986_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07096_1986_V01.zip"
+  },
+  {
+   "code": "05006",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_05006_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_05006_1958_V01.zip"
+  },
+  {
+   "code": "07085",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_07085_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07085_1992_V01.zip"
+  },
+  {
+   "code": "06078",
+   "year": "1969",
+   "jpg": "JPG/GSJ_MAP_G050_06078_1969_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06078_1969_V01.zip"
+  },
+  {
+   "code": "07028",
+   "year": "2011",
+   "jpg": "JPG/GSJ_MAP_G050_07028_2011_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07028_2011_V01.zip"
+  },
+  {
+   "code": "07016",
+   "year": "1988",
+   "jpg": "JPG/GSJ_MAP_G050_07016_1988_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07016_1988_V01.zip"
+  },
+  {
+   "code": "06071",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_06071_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06071_1993_V01.zip"
+  },
+  {
+   "code": "06089",
+   "year": "1982",
+   "jpg": "JPG/GSJ_MAP_G050_06089_1982_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_06089_1982_V01.zip"
+  },
+  {
+   "code": "07100",
+   "year": "1954",
+   "jpg": "JPG/GSJ_MAP_G050_07100_1954_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_07100_1954_V01.zip"
+  }
+ ],
+ "validation_order": [
+  {
+   "code": "15061",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_15061_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15061_1956_V01.zip"
+  },
+  {
+   "code": "13068",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_13068_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13068_1957_V01.zip"
+  },
+  {
+   "code": "13025",
+   "year": "1997",
+   "jpg": "JPG/GSJ_MAP_G050_13025_1997_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13025_1997_V01.zip"
+  },
+  {
+   "code": "13011",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_13011_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13011_1992_V01.zip"
+  },
+  {
+   "code": "15023",
+   "year": "1977",
+   "jpg": "JPG/GSJ_MAP_G050_15023_1977_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15023_1977_V01.zip"
+  },
+  {
+   "code": "15041",
+   "year": "2005",
+   "jpg": "JPG/GSJ_MAP_G050_15041_2005_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15041_2005_V02.zip"
+  },
+  {
+   "code": "13076",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_13076_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13076_1957_V01.zip"
+  },
+  {
+   "code": "14030",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_14030_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14030_1958_V01.zip"
+  },
+  {
+   "code": "14071",
+   "year": "2010",
+   "jpg": "JPG/GSJ_MAP_G050_14071_2010_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14071_2010_V01.zip"
+  },
+  {
+   "code": "15094",
+   "year": "1964",
+   "jpg": "JPG/GSJ_MAP_G050_15094_1964_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15094_1964_V01.zip"
+  },
+  {
+   "code": "13015",
+   "year": "2001",
+   "jpg": "JPG/GSJ_MAP_G050_13015_2001_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13015_2001_V01.zip"
+  },
+  {
+   "code": "15078",
+   "year": "1982",
+   "jpg": "JPG/GSJ_MAP_G050_15078_1982_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15078_1982_V01.zip"
+  },
+  {
+   "code": "13014",
+   "year": "1985",
+   "jpg": "JPG/GSJ_MAP_G050_13014_1985_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13014_1985_V01.zip"
+  },
+  {
+   "code": "15076",
+   "year": "1984",
+   "jpg": "JPG/GSJ_MAP_G050_15076_1984_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15076_1984_V01.zip"
+  },
+  {
+   "code": "15042",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_15042_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15042_1958_V01.zip"
+  },
+  {
+   "code": "15096",
+   "year": "1965",
+   "jpg": "JPG/GSJ_MAP_G050_15096_1965_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15096_1965_V01.zip"
+  },
+  {
+   "code": "15059",
+   "year": "2009",
+   "jpg": "JPG/GSJ_MAP_G050_15059_2009_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15059_2009_V01.zip"
+  },
+  {
+   "code": "13087",
+   "year": "1988",
+   "jpg": "JPG/GSJ_MAP_G050_13087_1988_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13087_1988_V01.zip"
+  },
+  {
+   "code": "13012",
+   "year": "1986",
+   "jpg": "JPG/GSJ_MAP_G050_13012_1986_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13012_1986_V01.zip"
+  },
+  {
+   "code": "14086",
+   "year": "1963",
+   "jpg": "JPG/GSJ_MAP_G050_14086_1963_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14086_1963_V01.zip"
+  },
+  {
+   "code": "15082",
+   "year": "1957",
+   "jpg": "JPG/GSJ_MAP_G050_15082_1957_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15082_1957_V01.zip"
+  },
+  {
+   "code": "15034",
+   "year": "1998",
+   "jpg": "JPG/GSJ_MAP_G050_15034_1998_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15034_1998_V01.zip"
+  },
+  {
+   "code": "13002",
+   "year": "1991",
+   "jpg": "JPG/GSJ_MAP_G050_13002_1991_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13002_1991_V01.zip"
+  },
+  {
+   "code": "14080",
+   "year": "1982",
+   "jpg": "JPG/GSJ_MAP_G050_14080_1982_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14080_1982_V01.zip"
+  },
+  {
+   "code": "15025",
+   "year": "1990",
+   "jpg": "JPG/GSJ_MAP_G050_15025_1990_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15025_1990_V01.zip"
+  },
+  {
+   "code": "14015",
+   "year": "2005",
+   "jpg": "JPG/GSJ_MAP_G050_14015_2005_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14015_2005_V01.zip"
+  },
+  {
+   "code": "14046",
+   "year": "1997",
+   "jpg": "JPG/GSJ_MAP_G050_14046_1997_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14046_1997_V01.zip"
+  },
+  {
+   "code": "15017",
+   "year": "1966",
+   "jpg": "JPG/GSJ_MAP_G050_15017_1966_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15017_1966_V01.zip"
+  },
+  {
+   "code": "14079",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_14079_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14079_1958_V01.zip"
+  },
+  {
+   "code": "14003",
+   "year": "1961",
+   "jpg": "JPG/GSJ_MAP_G050_14003_1961_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14003_1961_V01.zip"
+  },
+  {
+   "code": "15100",
+   "year": "2005",
+   "jpg": "JPG/GSJ_MAP_G050_15100_2005_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15100_2005_V01.zip"
+  },
+  {
+   "code": "14068",
+   "year": "1989",
+   "jpg": "JPG/GSJ_MAP_G050_14068_1989_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14068_1989_V01.zip"
+  },
+  {
+   "code": "14040",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_14040_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14040_1958_V01.zip"
+  },
+  {
+   "code": "13089",
+   "year": "1980",
+   "jpg": "JPG/GSJ_MAP_G050_13089_1980_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13089_1980_V01.zip"
+  },
+  {
+   "code": "14059",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_14059_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14059_1956_V01.zip"
+  },
+  {
+   "code": "15081",
+   "year": "1967",
+   "jpg": "JPG/GSJ_MAP_G050_15081_1967_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15081_1967_V01.zip"
+  },
+  {
+   "code": "15037",
+   "year": "1962",
+   "jpg": "JPG/GSJ_MAP_G050_15037_1962_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15037_1962_V01.zip"
+  },
+  {
+   "code": "15024",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_15024_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15024_1993_V01.zip"
+  },
+  {
+   "code": "14036",
+   "year": "1955",
+   "jpg": "JPG/GSJ_MAP_G050_14036_1955_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14036_1955_V01.zip"
+  },
+  {
+   "code": "15002",
+   "year": "1990",
+   "jpg": "JPG/GSJ_MAP_G050_15002_1990_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15002_1990_V01.zip"
+  },
+  {
+   "code": "15033",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_15033_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15033_1958_V01.zip"
+  },
+  {
+   "code": "15003",
+   "year": "1974",
+   "jpg": "JPG/GSJ_MAP_G050_15003_1974_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15003_1974_V01.zip"
+  },
+  {
+   "code": "13088",
+   "year": "1980",
+   "jpg": "JPG/GSJ_MAP_G050_13088_1980_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13088_1980_V01.zip"
+  },
+  {
+   "code": "15091",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_15091_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15091_1959_V01.zip"
+  },
+  {
+   "code": "13041",
+   "year": "1964",
+   "jpg": "JPG/GSJ_MAP_G050_13041_1964_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13041_1964_V01.zip"
+  },
+  {
+   "code": "13013",
+   "year": "1999",
+   "jpg": "JPG/GSJ_MAP_G050_13013_1999_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13013_1999_V01.zip"
+  },
+  {
+   "code": "13059",
+   "year": "2010",
+   "jpg": "JPG/GSJ_MAP_G050_13059_2010_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13059_2010_V01.zip"
+  },
+  {
+   "code": "14076",
+   "year": "1997",
+   "jpg": "JPG/GSJ_MAP_G050_14076_1997_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14076_1997_V01.zip"
+  },
+  {
+   "code": "15068",
+   "year": "1986",
+   "jpg": "JPG/GSJ_MAP_G050_15068_1986_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15068_1986_V01.zip"
+  },
+  {
+   "code": "15074",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_15074_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15074_1958_V01.zip"
+  },
+  {
+   "code": "15044",
+   "year": "2010",
+   "jpg": "JPG/GSJ_MAP_G050_15044_2010_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15044_2010_V01.zip"
+  },
+  {
+   "code": "15052",
+   "year": "1979",
+   "jpg": "JPG/GSJ_MAP_G050_15052_1979_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15052_1979_V01.zip"
+  },
+  {
+   "code": "15011",
+   "year": "1977",
+   "jpg": "JPG/GSJ_MAP_G050_15011_1977_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15011_1977_V01.zip"
+  },
+  {
+   "code": "15075",
+   "year": "1976",
+   "jpg": "JPG/GSJ_MAP_G050_15075_1976_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15075_1976_V01.zip"
+  },
+  {
+   "code": "15016",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_15016_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15016_1993_V01.zip"
+  },
+  {
+   "code": "15079",
+   "year": "1971",
+   "jpg": "JPG/GSJ_MAP_G050_15079_1971_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15079_1971_V01.zip"
+  },
+  {
+   "code": "14065",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_14065_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14065_1993_V01.zip"
+  },
+  {
+   "code": "13024",
+   "year": "1983",
+   "jpg": "JPG/GSJ_MAP_G050_13024_1983_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13024_1983_V01.zip"
+  },
+  {
+   "code": "14088",
+   "year": "1968",
+   "jpg": "JPG/GSJ_MAP_G050_14088_1968_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14088_1968_V01.zip"
+  },
+  {
+   "code": "15008",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_15008_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15008_1994_V01.zip"
+  },
+  {
+   "code": "14077",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_14077_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14077_1994_V01.zip"
+  },
+  {
+   "code": "14082",
+   "year": "2008",
+   "jpg": "JPG/GSJ_MAP_G050_14082_2008_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14082_2008_V01.zip"
+  },
+  {
+   "code": "14075",
+   "year": "1988",
+   "jpg": "JPG/GSJ_MAP_G050_14075_1988_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14075_1988_V01.zip"
+  },
+  {
+   "code": "15083",
+   "year": "1977",
+   "jpg": "JPG/GSJ_MAP_G050_15083_1977_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15083_1977_V01.zip"
+  },
+  {
+   "code": "15097",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_15097_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15097_1959_V01.zip"
+  },
+  {
+   "code": "15055",
+   "year": "1982",
+   "jpg": "JPG/GSJ_MAP_G050_15055_1982_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15055_1982_V01.zip"
+  },
+  {
+   "code": "15060",
+   "year": "1991",
+   "jpg": "JPG/GSJ_MAP_G050_15060_1991_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15060_1991_V01.zip"
+  },
+  {
+   "code": "13003",
+   "year": "1999",
+   "jpg": "JPG/GSJ_MAP_G050_13003_1999_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13003_1999_V01.zip"
+  },
+  {
+   "code": "15051",
+   "year": "1996",
+   "jpg": "JPG/GSJ_MAP_G050_15051_1996_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15051_1996_V01.zip"
+  },
+  {
+   "code": "15090",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_15090_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15090_1994_V01.zip"
+  },
+  {
+   "code": "14051",
+   "year": "1994",
+   "jpg": "JPG/GSJ_MAP_G050_14051_1994_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14051_1994_V01.zip"
+  },
+  {
+   "code": "13027",
+   "year": "1965",
+   "jpg": "JPG/GSJ_MAP_G050_13027_1965_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13027_1965_V01.zip"
+  },
+  {
+   "code": "15102",
+   "year": "1967",
+   "jpg": "JPG/GSJ_MAP_G050_15102_1967_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15102_1967_V01.zip"
+  },
+  {
+   "code": "13077",
+   "year": "1986",
+   "jpg": "JPG/GSJ_MAP_G050_13077_1986_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13077_1986_V01.zip"
+  },
+  {
+   "code": "14066",
+   "year": "2005",
+   "jpg": "JPG/GSJ_MAP_G050_14066_2005_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14066_2005_V01.zip"
+  },
+  {
+   "code": "13042",
+   "year": "1966",
+   "jpg": "JPG/GSJ_MAP_G050_13042_1966_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13042_1966_V01.zip"
+  },
+  {
+   "code": "15080",
+   "year": "1971",
+   "jpg": "JPG/GSJ_MAP_G050_15080_1971_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15080_1971_V01.zip"
+  },
+  {
+   "code": "13001",
+   "year": "1989",
+   "jpg": "JPG/GSJ_MAP_G050_13001_1989_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13001_1989_V01.zip"
+  },
+  {
+   "code": "15043",
+   "year": "1982",
+   "jpg": "JPG/GSJ_MAP_G050_15043_1982_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15043_1982_V01.zip"
+  },
+  {
+   "code": "15035",
+   "year": "1985",
+   "jpg": "JPG/GSJ_MAP_G050_15035_1985_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15035_1985_V01.zip"
+  },
+  {
+   "code": "13062",
+   "year": "2007",
+   "jpg": "JPG/GSJ_MAP_G050_13062_2007_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13062_2007_V01.zip"
+  },
+  {
+   "code": "14069",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_14069_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14069_1959_V01.zip"
+  },
+  {
+   "code": "14035",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_14035_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14035_1956_V01.zip"
+  },
+  {
+   "code": "13052",
+   "year": "2009",
+   "jpg": "JPG/GSJ_MAP_G050_13052_2009_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13052_2009_V01.zip"
+  },
+  {
+   "code": "14034",
+   "year": "1998",
+   "jpg": "JPG/GSJ_MAP_G050_14034_1998_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14034_1998_V01.zip"
+  },
+  {
+   "code": "14039",
+   "year": "1958",
+   "jpg": "JPG/GSJ_MAP_G050_14039_1958_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14039_1958_V01.zip"
+  },
+  {
+   "code": "14085",
+   "year": "1997",
+   "jpg": "JPG/GSJ_MAP_G050_14085_1997_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14085_1997_V01.zip"
+  },
+  {
+   "code": "15049",
+   "year": "1964",
+   "jpg": "JPG/GSJ_MAP_G050_15049_1964_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15049_1964_V01.zip"
+  },
+  {
+   "code": "13067",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_13067_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_13067_1959_V01.zip"
+  },
+  {
+   "code": "14049",
+   "year": "1955",
+   "jpg": "JPG/GSJ_MAP_G050_14049_1955_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14049_1955_V01.zip"
+  },
+  {
+   "code": "15053",
+   "year": "1956",
+   "jpg": "JPG/GSJ_MAP_G050_15053_1956_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15053_1956_V01.zip"
+  },
+  {
+   "code": "15013",
+   "year": "1974",
+   "jpg": "JPG/GSJ_MAP_G050_15013_1974_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15013_1974_V01.zip"
+  },
+  {
+   "code": "15095",
+   "year": "1965",
+   "jpg": "JPG/GSJ_MAP_G050_15095_1965_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15095_1965_V01.zip"
+  },
+  {
+   "code": "14087",
+   "year": "1992",
+   "jpg": "JPG/GSJ_MAP_G050_14087_1992_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14087_1992_V01.zip"
+  },
+  {
+   "code": "14058",
+   "year": "1955",
+   "jpg": "JPG/GSJ_MAP_G050_14058_1955_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14058_1955_V01.zip"
+  },
+  {
+   "code": "15084",
+   "year": "1959",
+   "jpg": "JPG/GSJ_MAP_G050_15084_1959_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15084_1959_V01.zip"
+  },
+  {
+   "code": "15071",
+   "year": "1963",
+   "jpg": "JPG/GSJ_MAP_G050_15071_1963_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_15071_1963_V01.zip"
+  },
+  {
+   "code": "14078",
+   "year": "1972",
+   "jpg": "JPG/GSJ_MAP_G050_14078_1972_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14078_1972_V01.zip"
+  },
+  {
+   "code": "14033",
+   "year": "1993",
+   "jpg": "JPG/GSJ_MAP_G050_14033_1993_200dpi.jpg",
+   "vct": "VCT/GSJ_MAP_G050_14033_1993_V01.zip"
+  }
+ ]
+}

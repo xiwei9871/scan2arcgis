@@ -1,0 +1,221 @@
+{
+ "rules": "experiments/R4A/sheet_qc_rules.md",
+ "sheets": {
+  "05016": {
+   "role_pool": "train",
+   "year": "1983",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "status": "FAIL_Q3_frame_detection",
+   "error": "ValueError: cannot convert float NaN to integer"
+  },
+  "05011": {
+   "role_pool": "train",
+   "year": "1959",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "status": "FAIL_Q3_frame_detection",
+   "error": "RuntimeError: top/bottom neatline not found rows=0"
+  },
+  "06081": {
+   "role_pool": "train",
+   "year": "1981",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 27.54,
+   "ink_z": 2.55,
+   "null_z": 2.42,
+   "cells_trusted": 4,
+   "cell_median_px": 19.8,
+   "status": "FAIL_Q3_registration"
+  },
+  "06006": {
+   "role_pool": "train",
+   "year": "1964",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 8.58,
+   "ink_z": 3.58,
+   "null_z": 2.81,
+   "cells_trusted": 7,
+   "cell_median_px": 18.82,
+   "status": "FAIL_Q3_registration"
+  },
+  "06054": {
+   "role_pool": "train",
+   "year": "2004",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 17.75,
+   "ink_z": 4.52,
+   "null_z": 2.97,
+   "cells_trusted": 8,
+   "cell_median_px": 9.84,
+   "status": "FAIL_Q3_registration"
+  },
+  "07060": {
+   "role_pool": "train",
+   "year": "1989",
+   "Q1": true,
+   "Q2": false,
+   "width_deg": 0.25,
+   "height_deg": 0.1783,
+   "status": "FAIL_Q2_nonstandard_quadrangle"
+  },
+  "05030": {
+   "role_pool": "train",
+   "year": "2004",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 1.02,
+   "ink_z": 13.66,
+   "null_z": 3.03,
+   "cells_trusted": 16,
+   "cell_median_px": 1.36,
+   "status": "PASS"
+  },
+  "05021": {
+   "role_pool": "train",
+   "year": "1970",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 20.71,
+   "ink_z": 2.63,
+   "null_z": 3.31,
+   "cells_trusted": 7,
+   "cell_median_px": 16.5,
+   "status": "FAIL_Q3_registration"
+  },
+  "06061": {
+   "role_pool": "train",
+   "year": "2002",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 1.46,
+   "ink_z": 14.58,
+   "null_z": 4.31,
+   "cells_trusted": 16,
+   "cell_median_px": 1.54,
+   "status": "PASS"
+  },
+  "06019": {
+   "role_pool": "train",
+   "year": "1976",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "status": "FAIL_Q3_frame_detection",
+   "error": "RuntimeError: top/bottom neatline not found rows=1"
+  },
+  "06090": {
+   "role_pool": "train",
+   "year": "1984",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1666,
+   "ink_residual_px": 22.73,
+   "ink_z": 3.48,
+   "null_z": 3.24,
+   "cells_trusted": 13,
+   "cell_median_px": 20.31,
+   "status": "FAIL_Q3_registration"
+  },
+  "07046": {
+   "role_pool": "train",
+   "year": "1994",
+   "Q1": true,
+   "Q2": false,
+   "width_deg": 0.3,
+   "height_deg": 0.1667,
+   "status": "FAIL_Q2_nonstandard_quadrangle"
+  },
+  "05003": {
+   "role_pool": "train",
+   "year": "1957",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 21.27,
+   "ink_z": 2.92,
+   "null_z": 3.2,
+   "cells_trusted": 4,
+   "cell_median_px": 23.32,
+   "status": "FAIL_Q3_registration"
+  },
+  "06012": {
+   "role_pool": "train",
+   "year": "not_downloaded",
+   "status": "not_downloaded"
+  },
+  "15061": {
+   "role_pool": "val",
+   "year": "1956",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 19.88,
+   "ink_z": 2.99,
+   "null_z": 2.44,
+   "cells_trusted": 8,
+   "cell_median_px": 18.2,
+   "status": "FAIL_Q3_registration"
+  },
+  "13068": {
+   "role_pool": "val",
+   "year": "1957",
+   "Q1": true,
+   "Q2": true,
+   "width_deg": 0.25,
+   "height_deg": 0.1667,
+   "ink_residual_px": 14.51,
+   "ink_z": 2.18,
+   "null_z": 3.17,
+   "cells_trusted": 9,
+   "cell_median_px": 14.56,
+   "status": "FAIL_Q3_registration"
+  },
+  "13025": {
+   "role_pool": "val",
+   "year": "1997",
+   "Q1": true,
+   "Q2": false,
+   "width_deg": 0.5,
+   "height_deg": 0.1667,
+   "status": "FAIL_Q2_nonstandard_quadrangle"
+  },
+  "13011": {
+   "role_pool": "val",
+   "year": "1992",
+   "Q1": true,
+   "Q2": false,
+   "width_deg": 0.2667,
+   "height_deg": 0.1668,
+   "status": "FAIL_Q2_nonstandard_quadrangle"
+  },
+  "15023": {
+   "role_pool": "val",
+   "year": "not_downloaded",
+   "status": "not_downloaded"
+  }
+ }
+}
