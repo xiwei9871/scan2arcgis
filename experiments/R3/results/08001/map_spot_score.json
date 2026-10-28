@@ -1,0 +1,150 @@
+{
+ "readers": {
+  "rapid": {
+   "n_text_boxes": 445,
+   "n_lexicon_matched": 41,
+   "n_correct": 25,
+   "precision_code": 0.6097560975609756,
+   "units_anchored": 11,
+   "units_with_symbol": 44,
+   "instances_anchored": 25,
+   "n_instances": 830,
+   "area_anchored_frac": 0.12063852532544818,
+   "same_colour_anchored": [
+    "Ob"
+   ],
+   "same_colour_units": [
+    "M3",
+    "t3",
+    "t2",
+    "t1",
+    "Ob"
+   ],
+   "top_wrong": [
+    [
+     "O",
+     "O1",
+     3
+    ],
+    [
+     "M",
+     "M1",
+     2
+    ],
+    [
+     "A",
+     "A4",
+     1
+    ],
+    [
+     "A",
+     "outside",
+     1
+    ],
+    [
+     "An",
+     "S2",
+     1
+    ],
+    [
+     "Jl",
+     "Ju",
+     1
+    ],
+    [
+     "ta",
+     "Yk",
+     1
+    ],
+    [
+     "Ab",
+     "O1",
+     1
+    ],
+    [
+     "H4",
+     "H2",
+     1
+    ],
+    [
+     "A4",
+     "Ju",
+     1
+    ]
+   ]
+  },
+  "tess": {
+   "n_text_boxes": 471,
+   "n_lexicon_matched": 92,
+   "n_correct": 23,
+   "precision_code": 0.25,
+   "units_anchored": 8,
+   "units_with_symbol": 44,
+   "instances_anchored": 22,
+   "n_instances": 830,
+   "area_anchored_frac": 0.1179079071058222,
+   "same_colour_anchored": [
+    "Ob"
+   ],
+   "same_colour_units": [
+    "M3",
+    "t3",
+    "t2",
+    "t1",
+    "Ob"
+   ],
+   "top_wrong": [
+    [
+     "O",
+     "O1",
+     8
+    ],
+    [
+     "Ss",
+     "A5",
+     3
+    ],
+    [
+     "A",
+     "A5",
+     2
+    ],
+    [
+     "M",
+     "M1",
+     2
+    ],
+    [
+     "H4",
+     "H2",
+     2
+    ],
+    [
+     "Bs",
+     "a",
+     2
+    ],
+    [
+     "Dy",
+     "a",
+     2
+    ],
+    [
+     "f",
+     "a",
+     2
+    ],
+    [
+     "O",
+     "A2",
+     2
+    ],
+    [
+     "A",
+     "A2",
+     1
+    ]
+   ]
+  }
+ }
+}

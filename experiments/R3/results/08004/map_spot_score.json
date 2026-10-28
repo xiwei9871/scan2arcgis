@@ -1,0 +1,138 @@
+{
+ "readers": {
+  "rapid": {
+   "n_text_boxes": 266,
+   "n_lexicon_matched": 38,
+   "n_correct": 30,
+   "precision_code": 0.7894736842105263,
+   "units_anchored": 12,
+   "units_with_symbol": 40,
+   "instances_anchored": 24,
+   "n_instances": 515,
+   "area_anchored_frac": 0.4512044381721738,
+   "same_colour_anchored": [
+    "Ohf",
+    "Sm"
+   ],
+   "same_colour_units": [
+    "Mz",
+    "Sm",
+    "Jg",
+    "Hf",
+    "Ohf",
+    "Ic"
+   ],
+   "top_wrong": [
+    [
+     "Cut",
+     "Cwt",
+     2
+    ],
+    [
+     "Gm",
+     "Mzd",
+     1
+    ],
+    [
+     "Spf",
+     "Ohv",
+     1
+    ],
+    [
+     "Cut",
+     "Al3",
+     1
+    ],
+    [
+     "Spf",
+     "Ohl",
+     1
+    ],
+    [
+     "Gm",
+     "Ohv",
+     1
+    ],
+    [
+     "Al",
+     "Al1",
+     1
+    ]
+   ]
+  },
+  "tess": {
+   "n_text_boxes": 279,
+   "n_lexicon_matched": 46,
+   "n_correct": 19,
+   "precision_code": 0.41304347826086957,
+   "units_anchored": 11,
+   "units_with_symbol": 40,
+   "instances_anchored": 19,
+   "n_instances": 515,
+   "area_anchored_frac": 0.34057092802569466,
+   "same_colour_anchored": [
+    "Ohf"
+   ],
+   "same_colour_units": [
+    "Mz",
+    "Sm",
+    "Jg",
+    "Hf",
+    "Ohf",
+    "Ic"
+   ],
+   "top_wrong": [
+    [
+     "Als",
+     "Al3",
+     3
+    ],
+    [
+     "Spf",
+     "Ohv",
+     1
+    ],
+    [
+     "Cut",
+     "Cwt",
+     1
+    ],
+    [
+     "Mopf",
+     "Mpf",
+     1
+    ],
+    [
+     "Yhi",
+     "Sbf",
+     1
+    ],
+    [
+     "Hi",
+     "Au",
+     1
+    ],
+    [
+     "Alt",
+     "Al1",
+     1
+    ],
+    [
+     "Hf",
+     "a",
+     1
+    ],
+    [
+     "Hi",
+     "Ic",
+     1
+    ],
+    [
+     "Is",
+     "Au",
+     1
+    ]
+   ]
+  }
+ }
+}

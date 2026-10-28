@@ -1,0 +1,279 @@
+{
+ "note": "EVALUATION ONLY reference from xlsx colours",
+ "reference": {
+  "S00": {
+   "code": "Or",
+   "major_code": "2",
+   "nearest_dE": 1.5686264038085938
+  },
+  "S01": {
+   "code": "Or",
+   "major_code": "2",
+   "nearest_dE": 1.5686264038085938
+  },
+  "S02": {
+   "code": "Or",
+   "major_code": "2",
+   "nearest_dE": 1.0
+  },
+  "S03": {
+   "code": "ta",
+   "major_code": "4",
+   "nearest_dE": 1.1764678955078125
+  },
+  "S04": {
+   "code": "l",
+   "major_code": "6",
+   "nearest_dE": 1.2708820104599
+  },
+  "S05": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "M3",
+    "Ob"
+   ],
+   "nearest_dE": 1.270884394645691
+  },
+  "S06": {
+   "code": "Ju",
+   "major_code": "8",
+   "nearest_dE": 0.7843093872070312
+  },
+  "S07": {
+   "code": "Jl",
+   "major_code": "9",
+   "nearest_dE": 1.4675791263580322
+  },
+  "S08": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "M3",
+    "Ob"
+   ],
+   "nearest_dE": 0.0
+  },
+  "S09": {
+   "code": "M2",
+   "major_code": "11",
+   "nearest_dE": 2.148289442062378
+  },
+  "S10": {
+   "code": "M1",
+   "major_code": "12",
+   "nearest_dE": 2.935157060623169
+  },
+  "S11": {
+   "code": "H4",
+   "major_code": "13",
+   "nearest_dE": 1.270884394645691
+  },
+  "S12": {
+   "code": "H3",
+   "major_code": "14",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S13": {
+   "code": "H2",
+   "major_code": "15",
+   "nearest_dE": 1.8395884037017822
+  },
+  "S14": {
+   "code": "Km",
+   "major_code": "17",
+   "nearest_dE": 1.6171435117721558
+  },
+  "S15": {
+   "code": "Al",
+   "major_code": "18",
+   "nearest_dE": 2.2360680103302
+  },
+  "S16": {
+   "code": "Ka",
+   "major_code": "19",
+   "nearest_dE": 1.6171435117721558
+  },
+  "S17": {
+   "code": "An",
+   "major_code": "20",
+   "nearest_dE": 1.0
+  },
+  "S18": {
+   "code": "S2",
+   "major_code": "21",
+   "nearest_dE": 2.2360680103302
+  },
+  "S19": {
+   "code": "S1",
+   "major_code": "22",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S20": {
+   "code": "Ab",
+   "major_code": "23",
+   "nearest_dE": 0.39215850830078125
+  },
+  "S21": {
+   "code": "Am",
+   "major_code": "24",
+   "nearest_dE": 0.3921546936035156
+  },
+  "S22": {
+   "code": "Kd",
+   "major_code": "25",
+   "nearest_dE": 0.0
+  },
+  "S23": {
+   "code": "O3",
+   "major_code": "26",
+   "nearest_dE": 0.0
+  },
+  "S24": {
+   "code": "O1",
+   "major_code": "28",
+   "nearest_dE": 1.6171435117721558
+  },
+  "S25": {
+   "code": "Qp",
+   "major_code": "29",
+   "nearest_dE": 1.270886778831482
+  },
+  "S26": {
+   "code": "Qd",
+   "major_code": "30",
+   "nearest_dE": 2.3203632831573486
+  },
+  "S27": {
+   "code": "A5",
+   "major_code": "31",
+   "nearest_dE": 2.0380845069885254
+  },
+  "S28": {
+   "code": "A4",
+   "major_code": "32",
+   "nearest_dE": 1.4142135381698608
+  },
+  "S29": {
+   "code": "A3",
+   "major_code": "33",
+   "nearest_dE": 1.5686264038085938
+  },
+  "S30": {
+   "code": "A2",
+   "major_code": "34",
+   "nearest_dE": 1.0
+  },
+  "S31": {
+   "code": "A1",
+   "major_code": "35",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S32": {
+   "code": "P",
+   "major_code": "36",
+   "nearest_dE": 1.0
+  },
+  "S33": {
+   "code": "Bs",
+   "major_code": "37",
+   "nearest_dE": 1.6171435117721558
+  },
+  "S34": {
+   "code": "Mr",
+   "major_code": "38",
+   "nearest_dE": 1.4142135381698608
+  },
+  "S35": {
+   "code": "Yk",
+   "major_code": "42",
+   "nearest_dE": 1.5440455675125122
+  },
+  "S36": {
+   "code": "Tr",
+   "major_code": "43",
+   "nearest_dE": 0.39215850830078125
+  },
+  "S37": {
+   "code": "Om",
+   "major_code": "44",
+   "nearest_dE": 1.270884394645691
+  }
+ },
+ "scores": {
+  "tess_psm7": {
+   "n_swatches": 38,
+   "n_scorable": 36,
+   "read_any": 26,
+   "exact": 12,
+   "exact_rate": 0.3333333333333333,
+   "exact_ci": 12,
+   "valid_in_lexicon": 14
+  },
+  "tess_psm8": {
+   "n_swatches": 38,
+   "n_scorable": 36,
+   "read_any": 33,
+   "exact": 0,
+   "exact_rate": 0.0,
+   "exact_ci": 2,
+   "valid_in_lexicon": 1
+  },
+  "rapid_rec": {
+   "n_swatches": 38,
+   "n_scorable": 36,
+   "read_any": 29,
+   "exact": 9,
+   "exact_rate": 0.25,
+   "exact_ci": 10,
+   "valid_in_lexicon": 10
+  },
+  "rapid_detrec": {
+   "n_swatches": 38,
+   "n_scorable": 36,
+   "read_any": 21,
+   "exact": 7,
+   "exact_rate": 0.19444444444444445,
+   "exact_ci": 8,
+   "valid_in_lexicon": 7
+  },
+  "tess_sub": {
+   "n_swatches": 38,
+   "n_scorable": 36,
+   "read_any": 32,
+   "exact": 18,
+   "exact_rate": 0.5,
+   "exact_ci": 18,
+   "valid_in_lexicon": 24
+  },
+  "tess_sub_case": {
+   "n_swatches": 38,
+   "n_scorable": 36,
+   "read_any": 32,
+   "exact": 18,
+   "exact_rate": 0.5,
+   "exact_ci": 18,
+   "valid_in_lexicon": 24
+  }
+ },
+ "ambiguous_swatches": {
+  "S05": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "M3",
+    "Ob"
+   ],
+   "nearest_dE": 1.270884394645691
+  },
+  "S08": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "M3",
+    "Ob"
+   ],
+   "nearest_dE": 0.0
+  }
+ }
+}

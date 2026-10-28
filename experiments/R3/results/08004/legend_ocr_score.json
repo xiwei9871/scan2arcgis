@@ -1,0 +1,337 @@
+{
+ "note": "EVALUATION ONLY reference from xlsx colours",
+ "reference": {
+  "S00": {
+   "code": "t",
+   "major_code": "2",
+   "nearest_dE": 1.4142135381698608
+  },
+  "S01": {
+   "code": "c",
+   "major_code": "3",
+   "nearest_dE": 0.0
+  },
+  "S02": {
+   "code": "Fl",
+   "major_code": "4",
+   "nearest_dE": 0.3921546936035156
+  },
+  "S03": {
+   "code": "Ipf",
+   "major_code": "6",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S04": {
+   "code": "Sbf",
+   "major_code": "8",
+   "nearest_dE": 0.39215850830078125
+  },
+  "S05": {
+   "code": "Yhl",
+   "major_code": "9",
+   "nearest_dE": 1.0
+  },
+  "S06": {
+   "code": "Mzd",
+   "major_code": "10",
+   "nearest_dE": 0.39215087890625
+  },
+  "S07": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 0.0
+  },
+  "S08": {
+   "code": "My",
+   "major_code": "12",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S09": {
+   "code": "Jd",
+   "major_code": "13",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S10": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 1.0
+  },
+  "S11": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 1.0
+  },
+  "S12": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 1.0
+  },
+  "S13": {
+   "code": "Spf",
+   "major_code": "17",
+   "nearest_dE": 2.8554837703704834
+  },
+  "S14": {
+   "code": "Nd",
+   "major_code": "18",
+   "nearest_dE": 0.0
+  },
+  "S15": {
+   "code": "Hu",
+   "major_code": "19",
+   "nearest_dE": 1.0
+  },
+  "S16": {
+   "code": "Mpf",
+   "major_code": "20",
+   "nearest_dE": 0.0
+  },
+  "S17": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Ic",
+    "Ohf"
+   ],
+   "nearest_dE": 0.0
+  },
+  "S18": {
+   "code": "Ohl",
+   "major_code": "23",
+   "nearest_dE": 1.0
+  },
+  "S19": {
+   "code": "Ohv",
+   "major_code": "24",
+   "nearest_dE": 1.0741440057754517
+  },
+  "S20": {
+   "code": "Kp",
+   "major_code": "25",
+   "nearest_dE": 0.3921546936035156
+  },
+  "S21": {
+   "code": "Ky",
+   "major_code": "26",
+   "nearest_dE": 0.39215850830078125
+  },
+  "S22": {
+   "code": "Kg",
+   "major_code": "27",
+   "nearest_dE": 0.3921546936035156
+  },
+  "S23": {
+   "code": "Au",
+   "major_code": "30",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S24": {
+   "code": "Cwt",
+   "major_code": "31",
+   "nearest_dE": 2.270195722579956
+  },
+  "S25": {
+   "code": "Al3",
+   "major_code": "32",
+   "nearest_dE": 0.0
+  },
+  "S26": {
+   "code": "Al2",
+   "major_code": "33",
+   "nearest_dE": 2.0380845069885254
+  },
+  "S27": {
+   "code": "Al1",
+   "major_code": "34",
+   "nearest_dE": 1.0741454362869263
+  },
+  "S28": {
+   "code": "Am",
+   "major_code": "35",
+   "nearest_dE": 1.4675780534744263
+  },
+  "S29": {
+   "code": "Gm",
+   "major_code": "36",
+   "nearest_dE": 1.0
+  },
+  "S30": {
+   "code": "Ip",
+   "major_code": "37",
+   "nearest_dE": 1.0
+  },
+  "S31": {
+   "code": "Iu",
+   "major_code": "39",
+   "nearest_dE": 1.0
+  },
+  "S32": {
+   "code": "It",
+   "major_code": "40",
+   "nearest_dE": 0.0
+  },
+  "S33": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Ic",
+    "Ohf"
+   ],
+   "nearest_dE": 0.7843170166015625
+  },
+  "S34": {
+   "code": "Is",
+   "major_code": "42",
+   "nearest_dE": 0.0
+  },
+  "S35": {
+   "code": "Hi",
+   "major_code": "43",
+   "nearest_dE": 1.0741454362869263
+  }
+ },
+ "scores": {
+  "tess_psm7": {
+   "n_swatches": 36,
+   "n_scorable": 30,
+   "read_any": 36,
+   "exact": 23,
+   "exact_rate": 0.7666666666666667,
+   "exact_ci": 23,
+   "valid_in_lexicon": 29
+  },
+  "tess_psm8": {
+   "n_swatches": 36,
+   "n_scorable": 30,
+   "read_any": 35,
+   "exact": 1,
+   "exact_rate": 0.03333333333333333,
+   "exact_ci": 1,
+   "valid_in_lexicon": 4
+  },
+  "rapid_rec": {
+   "n_swatches": 36,
+   "n_scorable": 30,
+   "read_any": 27,
+   "exact": 12,
+   "exact_rate": 0.4,
+   "exact_ci": 13,
+   "valid_in_lexicon": 14
+  },
+  "rapid_detrec": {
+   "n_swatches": 36,
+   "n_scorable": 30,
+   "read_any": 18,
+   "exact": 4,
+   "exact_rate": 0.13333333333333333,
+   "exact_ci": 4,
+   "valid_in_lexicon": 5
+  },
+  "tess_sub": {
+   "n_swatches": 36,
+   "n_scorable": 30,
+   "read_any": 36,
+   "exact": 22,
+   "exact_rate": 0.7333333333333333,
+   "exact_ci": 22,
+   "valid_in_lexicon": 28
+  },
+  "tess_sub_case": {
+   "n_swatches": 36,
+   "n_scorable": 30,
+   "read_any": 36,
+   "exact": 23,
+   "exact_rate": 0.7666666666666667,
+   "exact_ci": 23,
+   "valid_in_lexicon": 29
+  }
+ },
+ "ambiguous_swatches": {
+  "S07": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 0.0
+  },
+  "S10": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 1.0
+  },
+  "S11": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 1.0
+  },
+  "S12": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Hf",
+    "Jg",
+    "Mz",
+    "Sm"
+   ],
+   "nearest_dE": 1.0
+  },
+  "S17": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Ic",
+    "Ohf"
+   ],
+   "nearest_dE": 0.0
+  },
+  "S33": {
+   "code": null,
+   "reason": "same_colour_group",
+   "group": [
+    "Ic",
+    "Ohf"
+   ],
+   "nearest_dE": 0.7843170166015625
+  }
+ }
+}

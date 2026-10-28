@@ -1,0 +1,10402 @@
+{
+ "image": "GSJ_MAP_G050_08004_2012_200dpi.jpg",
+ "detector": "RapidOCR PP-OCRv4 det (rapidocr 3.4.5)",
+ "lexicon_source": "legend OCR engine tess_sub_case",
+ "lexicon": [
+  "Al",
+  "Als",
+  "Alt",
+  "Am",
+  "Au",
+  "Cut",
+  "Fl",
+  "Gm",
+  "Hf",
+  "Hi",
+  "Hu",
+  "Ic",
+  "Ip",
+  "Ipf",
+  "Is",
+  "It",
+  "Jd",
+  "Jg",
+  "Kg",
+  "Kp",
+  "Ky",
+  "Mopf",
+  "My",
+  "Mz",
+  "Mzd",
+  "Nd",
+  "Ohf",
+  "Ohl",
+  "Ohv",
+  "Sbf",
+  "Sm",
+  "Spf",
+  "Yhi",
+  "c",
+  "lu",
+  "t"
+ ],
+ "seconds": 24.434524059295654,
+ "n_boxes": 266,
+ "candidates": [
+  {
+   "reader": "rapid",
+   "raw": "前",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99998,
+   "centre_px": [
+    5194.5,
+    1143.5
+   ],
+   "box_px": [
+    5178.0,
+    1128.0,
+    33.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "金",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99995,
+   "centre_px": [
+    4538.5,
+    2927.0
+   ],
+   "box_px": [
+    4528.0,
+    2918.0,
+    21.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "地",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99993,
+   "centre_px": [
+    4766.0,
+    2782.0
+   ],
+   "box_px": [
+    4756.0,
+    2769.0,
+    20.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "安",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99991,
+   "centre_px": [
+    2651.5,
+    2815.5
+   ],
+   "box_px": [
+    2638.0,
+    2802.0,
+    27.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "中之",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99972,
+   "centre_px": [
+    2452.0,
+    261.5
+   ],
+   "box_px": [
+    2373.0,
+    243.0,
+    158.0,
+    37.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "宿",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99953,
+   "centre_px": [
+    4583.5,
+    2591.5
+   ],
+   "box_px": [
+    4572.0,
+    2575.0,
+    23.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "高",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99952,
+   "centre_px": [
+    4695.5,
+    2869.5
+   ],
+   "box_px": [
+    4678.0,
+    2852.0,
+    35.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "市",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99927,
+   "centre_px": [
+    4855.5,
+    2870.0
+   ],
+   "box_px": [
+    4816.0,
+    2853.0,
+    79.0,
+    34.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "鼻",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99903,
+   "centre_px": [
+    4124.0,
+    3028.5
+   ],
+   "box_px": [
+    4115.0,
+    3019.0,
+    18.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "神",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99895,
+   "centre_px": [
+    4013.0,
+    2929.0
+   ],
+   "box_px": [
+    4005.0,
+    2923.0,
+    16.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "36",
+   "token": "36",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99885,
+   "centre_px": [
+    5182.0,
+    3182.5
+   ],
+   "box_px": [
+    5171.0,
+    3173.0,
+    22.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "田",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9988,
+   "centre_px": [
+    2219.5,
+    1038.5
+   ],
+   "box_px": [
+    2195.0,
+    1026.0,
+    49.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "原",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99863,
+   "centre_px": [
+    2220.5,
+    3113.5
+   ],
+   "box_px": [
+    2208.0,
+    3104.0,
+    25.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "名湖",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99856,
+   "centre_px": [
+    3345.0,
+    777.5
+   ],
+   "box_px": [
+    3310.0,
+    763.0,
+    70.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "36",
+   "token": "36",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9985,
+   "centre_px": [
+    5181.0,
+    304.5
+   ],
+   "box_px": [
+    5169.0,
+    294.0,
+    24.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "伊香保",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99804,
+   "centre_px": [
+    4033.5,
+    309.0
+   ],
+   "box_px": [
+    3991.0,
+    295.0,
+    85.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "B",
+   "token": "B",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99788,
+   "centre_px": [
+    5193.5,
+    2486.5
+   ],
+   "box_px": [
+    5181.0,
+    2473.0,
+    25.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "坊峰",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99777,
+   "centre_px": [
+    1680.5,
+    890.0
+   ],
+   "box_px": [
+    1643.0,
+    876.0,
+    75.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "沙",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99748,
+   "centre_px": [
+    4309.0,
+    3089.5
+   ],
+   "box_px": [
+    4299.0,
+    3080.0,
+    20.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "高根",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99724,
+   "centre_px": [
+    3840.0,
+    466.5
+   ],
+   "box_px": [
+    3813.0,
+    452.0,
+    54.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "38",
+   "token": "38",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99693,
+   "centre_px": [
+    3872.5,
+    2844.0
+   ],
+   "box_px": [
+    3865.0,
+    2838.0,
+    15.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "E",
+   "token": "E",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99687,
+   "centre_px": [
+    5174.5,
+    557.0
+   ],
+   "box_px": [
+    5166.0,
+    546.0,
+    17.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "MIOKA",
+   "token": "MlOKA",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99687,
+   "centre_px": [
+    4307.0,
+    3230.5
+   ],
+   "box_px": [
+    4211.0,
+    3218.0,
+    192.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "森熊",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99672,
+   "centre_px": [
+    2662.0,
+    2699.0
+   ],
+   "box_px": [
+    2641.0,
+    2689.0,
+    42.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Higashiagatsuma",
+   "token": "Higashiagatsuma",
+   "code": null,
+   "edit_dist": 13,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99581,
+   "centre_px": [
+    2466.5,
+    498.5
+   ],
+   "box_px": [
+    2368.0,
+    484.0,
+    197.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "M",
+   "token": "M",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99571,
+   "centre_px": [
+    5194.5,
+    2599.5
+   ],
+   "box_px": [
+    5180.0,
+    2582.0,
+    29.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "相水",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99562,
+   "centre_px": [
+    3605.5,
+    3027.5
+   ],
+   "box_px": [
+    3580.0,
+    3014.0,
+    51.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3630",
+   "token": "3630",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9952,
+   "centre_px": [
+    5192.5,
+    304.5
+   ],
+   "box_px": [
+    5169.0,
+    294.0,
+    47.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "NAKAN",
+   "token": "NAKAN",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99514,
+   "centre_px": [
+    4227.0,
+    262.5
+   ],
+   "box_px": [
+    4128.0,
+    249.0,
+    198.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "TOMIO",
+   "token": "TOMlO",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99493,
+   "centre_px": [
+    4221.5,
+    3230.5
+   ],
+   "box_px": [
+    4128.0,
+    3217.0,
+    187.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "荒神",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99486,
+   "centre_px": [
+    3187.5,
+    2181.0
+   ],
+   "box_px": [
+    3163.0,
+    2170.0,
+    49.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "高崎市",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99426,
+   "centre_px": [
+    4786.0,
+    2870.0
+   ],
+   "box_px": [
+    4676.0,
+    2850.0,
+    220.0,
+    40.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "13845",
+   "token": "13845",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99407,
+   "centre_px": [
+    1630.0,
+    3244.0
+   ],
+   "box_px": [
+    1601.0,
+    3233.0,
+    58.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "門",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99359,
+   "centre_px": [
+    4310.0,
+    3111.5
+   ],
+   "box_px": [
+    4299.0,
+    3101.0,
+    22.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Shinto",
+   "token": "Shinto",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99357,
+   "centre_px": [
+    4673.5,
+    1359.5
+   ],
+   "box_px": [
+    4637.0,
+    1347.0,
+    73.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Gm",
+   "token": "Gm",
+   "code": "Gm",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.99338,
+   "centre_px": [
+    4384.5,
+    626.0
+   ],
+   "box_px": [
+    4369.0,
+    615.0,
+    31.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99304,
+   "centre_px": [
+    4034.0,
+    3176.0
+   ],
+   "box_px": [
+    4027.0,
+    3171.0,
+    14.0,
+    10.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "新井",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.993,
+   "centre_px": [
+    2170.0,
+    3112.5
+   ],
+   "box_px": [
+    2145.0,
+    3100.0,
+    50.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "崎",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99274,
+   "centre_px": [
+    4799.0,
+    2869.5
+   ],
+   "box_px": [
+    4766.0,
+    2856.0,
+    66.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "AKANOJO",
+   "token": "AKANOJO",
+   "code": null,
+   "edit_dist": 6,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99253,
+   "centre_px": [
+    4288.0,
+    261.5
+   ],
+   "box_px": [
+    4171.0,
+    245.0,
+    234.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "天狗山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99241,
+   "centre_px": [
+    3283.5,
+    1355.0
+   ],
+   "box_px": [
+    3246.0,
+    1341.0,
+    75.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "富",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99232,
+   "centre_px": [
+    2389.5,
+    3231.5
+   ],
+   "box_px": [
+    2373.0,
+    3214.0,
+    33.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "SHBUKAWA",
+   "token": "SHBUKAWA",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99207,
+   "centre_px": [
+    4838.5,
+    442.0
+   ],
+   "box_px": [
+    4745.0,
+    426.0,
+    187.0,
+    32.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "我峰町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99139,
+   "centre_px": [
+    4658.0,
+    2840.0
+   ],
+   "box_px": [
+    4618.0,
+    2827.0,
+    80.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "上野平",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99136,
+   "centre_px": [
+    4242.5,
+    969.0
+   ],
+   "box_px": [
+    4208.0,
+    957.0,
+    69.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3620",
+   "token": "3620",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99108,
+   "centre_px": [
+    1605.0,
+    3184.0
+   ],
+   "box_px": [
+    1580.0,
+    3172.0,
+    50.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Haruna San",
+   "token": "HarunaSan",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99101,
+   "centre_px": [
+    3254.5,
+    540.0
+   ],
+   "box_px": [
+    3187.0,
+    523.0,
+    135.0,
+    34.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Yoshioka",
+   "token": "Yoshioka",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99096,
+   "centre_px": [
+    4713.0,
+    986.5
+   ],
+   "box_px": [
+    4663.0,
+    973.0,
+    100.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "IH",
+   "token": "IH",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99062,
+   "centre_px": [
+    5194.0,
+    2363.5
+   ],
+   "box_px": [
+    5178.0,
+    2332.0,
+    32.0,
+    63.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "橋",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.99014,
+   "centre_px": [
+    5194.5,
+    892.5
+   ],
+   "box_px": [
+    5178.0,
+    876.0,
+    33.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "13900",
+   "token": "13900",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98907,
+   "centre_px": [
+    5167.0,
+    3238.5
+   ],
+   "box_px": [
+    5141.0,
+    3228.0,
+    52.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "（新99）",
+   "token": "99",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98857,
+   "centre_px": [
+    3391.5,
+    261.5
+   ],
+   "box_px": [
+    3329.0,
+    248.0,
+    125.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9885,
+   "centre_px": [
+    4440.5,
+    2920.5
+   ],
+   "box_px": [
+    4434.0,
+    2914.0,
+    13.0,
+    13.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "iagatsuma",
+   "token": "iagatsuma",
+   "code": null,
+   "edit_dist": 8,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9884,
+   "centre_px": [
+    2503.0,
+    499.0
+   ],
+   "box_px": [
+    2445.0,
+    486.0,
+    116.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "南新",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98834,
+   "centre_px": [
+    4827.0,
+    2776.5
+   ],
+   "box_px": [
+    4800.0,
+    2766.0,
+    54.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "中筋",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98736,
+   "centre_px": [
+    5139.5,
+    633.0
+   ],
+   "box_px": [
+    5116.0,
+    621.0,
+    47.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "KARUIZAWA",
+   "token": "KARUlZAWA",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98723,
+   "centre_px": [
+    1607.0,
+    2477.0
+   ],
+   "box_px": [
+    1589.0,
+    2334.0,
+    36.0,
+    286.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "H",
+   "token": "H",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98699,
+   "centre_px": [
+    3496.0,
+    276.0
+   ],
+   "box_px": [
+    3488.0,
+    267.0,
+    16.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9866,
+   "centre_px": [
+    3682.0,
+    912.5
+   ],
+   "box_px": [
+    3659.0,
+    902.0,
+    46.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "ANNAKA",
+   "token": "ANNAKA",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98639,
+   "centre_px": [
+    2741.5,
+    2853.0
+   ],
+   "box_px": [
+    2677.0,
+    2839.0,
+    129.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "TAKASAKI",
+   "token": "TAKASAKl",
+   "code": null,
+   "edit_dist": 6,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98558,
+   "centre_px": [
+    4785.0,
+    2908.5
+   ],
+   "box_px": [
+    4711.0,
+    2896.0,
+    148.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.98502,
+   "centre_px": [
+    4300.0,
+    1755.5
+   ],
+   "box_px": [
+    4287.0,
+    1745.0,
+    26.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98368,
+   "centre_px": [
+    3081.5,
+    774.0
+   ],
+   "box_px": [
+    3064.0,
+    764.0,
+    35.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "黑後",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98245,
+   "centre_px": [
+    3270.5,
+    2884.5
+   ],
+   "box_px": [
+    3246.0,
+    2873.0,
+    49.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Am",
+   "token": "Am",
+   "code": "Am",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.9819,
+   "centre_px": [
+    1740.0,
+    2572.0
+   ],
+   "box_px": [
+    1727.0,
+    2564.0,
+    26.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "箕鄉町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.98017,
+   "centre_px": [
+    4501.5,
+    1707.0
+   ],
+   "box_px": [
+    4456.0,
+    1693.0,
+    91.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "上野田",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97948,
+   "centre_px": [
+    5112.0,
+    1171.5
+   ],
+   "box_px": [
+    5076.0,
+    1159.0,
+    72.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97759,
+   "centre_px": [
+    3237.5,
+    1141.5
+   ],
+   "box_px": [
+    3220.0,
+    1132.0,
+    35.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "榛名湖",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97725,
+   "centre_px": [
+    3322.5,
+    778.0
+   ],
+   "box_px": [
+    3266.0,
+    763.0,
+    113.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "1343",
+   "token": "1343",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9771,
+   "centre_px": [
+    3866.5,
+    652.5
+   ],
+   "box_px": [
+    3853.0,
+    645.0,
+    27.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "松井田町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97654,
+   "centre_px": [
+    1953.0,
+    2336.5
+   ],
+   "box_px": [
+    1892.0,
+    2321.0,
+    122.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "長岩",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97546,
+   "centre_px": [
+    3061.0,
+    2623.0
+   ],
+   "box_px": [
+    3037.0,
+    2612.0,
+    48.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "13845",
+   "token": "13845",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97493,
+   "centre_px": [
+    1636.5,
+    249.5
+   ],
+   "box_px": [
+    1606.0,
+    236.0,
+    61.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "伊香保神社",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97357,
+   "centre_px": [
+    4057.5,
+    425.5
+   ],
+   "box_px": [
+    4013.0,
+    415.0,
+    89.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.97352,
+   "centre_px": [
+    3098.5,
+    1017.5
+   ],
+   "box_px": [
+    3082.0,
+    1006.0,
+    33.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97329,
+   "centre_px": [
+    3290.0,
+    635.0
+   ],
+   "box_px": [
+    3272.0,
+    624.0,
+    36.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "熊谷",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97306,
+   "centre_px": [
+    3206.0,
+    2608.5
+   ],
+   "box_px": [
+    3178.0,
+    2594.0,
+    56.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "石尊山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97184,
+   "centre_px": [
+    3028.0,
+    2598.5
+   ],
+   "box_px": [
+    2991.0,
+    2585.0,
+    74.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "5",
+   "token": "5",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97104,
+   "centre_px": [
+    5194.0,
+    1716.5
+   ],
+   "box_px": [
+    5185.0,
+    1710.0,
+    18.0,
+    13.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Cwt",
+   "token": "Cwt",
+   "code": "Cut",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.97042,
+   "centre_px": [
+    3960.5,
+    2890.0
+   ],
+   "box_px": [
+    3944.0,
+    2880.0,
+    33.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Karasu Gawa",
+   "token": "KarasuGawa",
+   "code": null,
+   "edit_dist": 9,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.97032,
+   "centre_px": [
+    4389.5,
+    2857.5
+   ],
+   "box_px": [
+    4325.0,
+    2843.0,
+    129.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "板",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.96924,
+   "centre_px": [
+    4100.5,
+    3028.5
+   ],
+   "box_px": [
+    4091.0,
+    3020.0,
+    19.0,
+    17.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Nd",
+   "token": "Nd",
+   "code": "Nd",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96814,
+   "centre_px": [
+    4065.0,
+    3133.5
+   ],
+   "box_px": [
+    4051.0,
+    3124.0,
+    28.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "相水谷津",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.968,
+   "centre_px": [
+    3673.5,
+    2916.0
+   ],
+   "box_px": [
+    3624.0,
+    2905.0,
+    99.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96795,
+   "centre_px": [
+    3879.5,
+    2666.5
+   ],
+   "box_px": [
+    3862.0,
+    2655.0,
+    35.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96629,
+   "centre_px": [
+    4376.0,
+    3051.5
+   ],
+   "box_px": [
+    4363.0,
+    3044.0,
+    26.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.9661,
+   "centre_px": [
+    4135.5,
+    1462.5
+   ],
+   "box_px": [
+    4119.0,
+    1452.0,
+    33.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "362",
+   "token": "362",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.96444,
+   "centre_px": [
+    5181.5,
+    3201.0
+   ],
+   "box_px": [
+    5170.0,
+    3191.0,
+    23.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Sbf",
+   "token": "Sbf",
+   "code": "Sbf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96329,
+   "centre_px": [
+    4663.5,
+    499.5
+   ],
+   "box_px": [
+    4650.0,
+    489.0,
+    27.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "A12",
+   "token": "A12",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.96214,
+   "centre_px": [
+    2216.5,
+    2713.0
+   ],
+   "box_px": [
+    2206.0,
+    2705.0,
+    21.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.95559,
+   "centre_px": [
+    3303.5,
+    2296.0
+   ],
+   "box_px": [
+    3289.0,
+    2287.0,
+    29.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Cwt",
+   "token": "Cwt",
+   "code": "Cut",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.95531,
+   "centre_px": [
+    3138.5,
+    2591.0
+   ],
+   "box_px": [
+    3121.0,
+    2582.0,
+    35.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "古贺良山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.95223,
+   "centre_px": [
+    2522.0,
+    338.0
+   ],
+   "box_px": [
+    2470.0,
+    323.0,
+    104.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.95098,
+   "centre_px": [
+    2449.5,
+    521.5
+   ],
+   "box_px": [
+    2432.0,
+    511.0,
+    35.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "榛名湖温泉",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94793,
+   "centre_px": [
+    3362.0,
+    695.5
+   ],
+   "box_px": [
+    3317.0,
+    685.0,
+    90.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "中後",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9468,
+   "centre_px": [
+    2637.5,
+    3183.5
+   ],
+   "box_px": [
+    2601.0,
+    3173.0,
+    73.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "下室田",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94622,
+   "centre_px": [
+    3749.0,
+    2284.5
+   ],
+   "box_px": [
+    3714.0,
+    2271.0,
+    70.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "帽",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94594,
+   "centre_px": [
+    3438.5,
+    526.0
+   ],
+   "box_px": [
+    3420.0,
+    514.0,
+    37.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94588,
+   "centre_px": [
+    3181.5,
+    1067.0
+   ],
+   "box_px": [
+    3162.0,
+    1058.0,
+    39.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.9455,
+   "centre_px": [
+    4146.0,
+    2917.0
+   ],
+   "box_px": [
+    4132.0,
+    2907.0,
+    28.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "榛名富士",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.945,
+   "centre_px": [
+    3491.5,
+    731.0
+   ],
+   "box_px": [
+    3443.0,
+    717.0,
+    97.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "箕輪久保",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94238,
+   "centre_px": [
+    1751.0,
+    2349.5
+   ],
+   "box_px": [
+    1687.0,
+    2333.0,
+    128.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "（东京15）",
+   "token": "15",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94205,
+   "centre_px": [
+    3391.5,
+    3230.5
+   ],
+   "box_px": [
+    3331.0,
+    3219.0,
+    121.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94149,
+   "centre_px": [
+    2537.0,
+    463.0
+   ],
+   "box_px": [
+    2522.0,
+    449.0,
+    30.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "13859485",
+   "token": "13859485",
+   "code": null,
+   "edit_dist": 8,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.94133,
+   "centre_px": [
+    5169.0,
+    3222.0
+   ],
+   "box_px": [
+    5142.0,
+    3213.0,
+    54.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "榛名町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9391,
+   "centre_px": [
+    3372.5,
+    1822.0
+   ],
+   "box_px": [
+    3326.0,
+    1806.0,
+    93.0,
+    32.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "日",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93827,
+   "centre_px": [
+    3882.5,
+    691.0
+   ],
+   "box_px": [
+    3876.0,
+    683.0,
+    13.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Mpt",
+   "token": "Mpt",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93712,
+   "centre_px": [
+    4351.5,
+    1152.0
+   ],
+   "box_px": [
+    4339.0,
+    1145.0,
+    25.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Mzd",
+   "token": "Mzd",
+   "code": "Mzd",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.93546,
+   "centre_px": [
+    4432.5,
+    723.0
+   ],
+   "box_px": [
+    4413.0,
+    714.0,
+    39.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "田",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93546,
+   "centre_px": [
+    3867.5,
+    1808.0
+   ],
+   "box_px": [
+    3849.0,
+    1797.0,
+    37.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "鼻",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93498,
+   "centre_px": [
+    4572.0,
+    2695.5
+   ],
+   "box_px": [
+    4563.0,
+    2680.0,
+    18.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Mpf",
+   "token": "Mpf",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93434,
+   "centre_px": [
+    3896.5,
+    1988.0
+   ],
+   "box_px": [
+    3882.0,
+    1979.0,
+    29.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3630112",
+   "token": "3630112",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93394,
+   "centre_px": [
+    5192.0,
+    287.0
+   ],
+   "box_px": [
+    5166.0,
+    278.0,
+    52.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohv",
+   "token": "Ohv",
+   "code": "Ohv",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.93225,
+   "centre_px": [
+    4154.0,
+    444.0
+   ],
+   "box_px": [
+    4135.0,
+    432.0,
+    38.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "良珊寺",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.92998,
+   "centre_px": [
+    5045.5,
+    423.5
+   ],
+   "box_px": [
+    5005.0,
+    410.0,
+    81.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Oht",
+   "token": "Oht",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.92236,
+   "centre_px": [
+    3358.0,
+    957.5
+   ],
+   "box_px": [
+    3342.0,
+    948.0,
+    32.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohl",
+   "token": "Ohl",
+   "code": "Ohl",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.92072,
+   "centre_px": [
+    3443.0,
+    543.0
+   ],
+   "box_px": [
+    3427.0,
+    534.0,
+    32.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "#",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91985,
+   "centre_px": [
+    1609.0,
+    1019.5
+   ],
+   "box_px": [
+    1593.0,
+    1003.0,
+    32.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "石原",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91907,
+   "centre_px": [
+    5077.5,
+    541.5
+   ],
+   "box_px": [
+    5055.0,
+    530.0,
+    45.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "天日山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91839,
+   "centre_px": [
+    3364.5,
+    937.5
+   ],
+   "box_px": [
+    3328.0,
+    925.0,
+    73.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "重動公園",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91703,
+   "centre_px": [
+    5074.5,
+    2651.0
+   ],
+   "box_px": [
+    5035.0,
+    2641.0,
+    79.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "下",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.916,
+   "centre_px": [
+    4212.0,
+    2813.5
+   ],
+   "box_px": [
+    4184.0,
+    2796.0,
+    56.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohl",
+   "token": "Ohl",
+   "code": "Ohl",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.91569,
+   "centre_px": [
+    3348.5,
+    1357.5
+   ],
+   "box_px": [
+    3334.0,
+    1348.0,
+    29.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Mpf",
+   "token": "Mpf",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91429,
+   "centre_px": [
+    3977.5,
+    2403.5
+   ],
+   "box_px": [
+    3961.0,
+    2393.0,
+    33.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "十七才",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9133,
+   "centre_px": [
+    3769.5,
+    700.0
+   ],
+   "box_px": [
+    3730.0,
+    687.0,
+    79.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "hf",
+   "token": "hf",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91121,
+   "centre_px": [
+    2454.0,
+    521.5
+   ],
+   "box_px": [
+    2446.0,
+    516.0,
+    16.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Mpf",
+   "token": "Mpf",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90832,
+   "centre_px": [
+    3215.0,
+    1004.0
+   ],
+   "box_px": [
+    3200.0,
+    995.0,
+    30.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "名神九折岩",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90795,
+   "centre_px": [
+    3166.0,
+    1050.0
+   ],
+   "box_px": [
+    3080.0,
+    1022.0,
+    172.0,
+    56.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "長者久保",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90546,
+   "centre_px": [
+    2105.5,
+    2307.0
+   ],
+   "box_px": [
+    2054.0,
+    2293.0,
+    103.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.90469,
+   "centre_px": [
+    2509.0,
+    1106.5
+   ],
+   "box_px": [
+    2496.0,
+    1099.0,
+    26.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "小食",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9043,
+   "centre_px": [
+    5093.5,
+    1066.0
+   ],
+   "box_px": [
+    5064.0,
+    1055.0,
+    59.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.90372,
+   "centre_px": [
+    3857.5,
+    1828.0
+   ],
+   "box_px": [
+    3840.0,
+    1817.0,
+    35.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "本鄉",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90057,
+   "centre_px": [
+    4438.5,
+    2703.5
+   ],
+   "box_px": [
+    4414.0,
+    2691.0,
+    49.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "不秋間",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90044,
+   "centre_px": [
+    3621.5,
+    2939.5
+   ],
+   "box_px": [
+    3584.0,
+    2927.0,
+    75.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "榛名山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.89999,
+   "centre_px": [
+    3254.0,
+    511.5
+   ],
+   "box_px": [
+    3208.0,
+    496.0,
+    92.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spt",
+   "token": "Spt",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.89746,
+   "centre_px": [
+    3459.5,
+    930.5
+   ],
+   "box_px": [
+    3445.0,
+    921.0,
+    29.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "36°30",
+   "token": "3630",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.8943,
+   "centre_px": [
+    1606.5,
+    304.0
+   ],
+   "box_px": [
+    1580.0,
+    292.0,
+    53.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "东吾妻町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.89216,
+   "centre_px": [
+    2465.5,
+    462.5
+   ],
+   "box_px": [
+    2373.0,
+    445.0,
+    185.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "S",
+   "token": "S",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.89204,
+   "centre_px": [
+    3791.5,
+    3169.0
+   ],
+   "box_px": [
+    3786.0,
+    3164.0,
+    11.0,
+    10.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "本",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.89183,
+   "centre_px": [
+    3573.0,
+    2970.0
+   ],
+   "box_px": [
+    3550.0,
+    2963.0,
+    46.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "明保野",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.8895,
+   "centre_px": [
+    4579.0,
+    439.5
+   ],
+   "box_px": [
+    4539.0,
+    426.0,
+    80.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "138s9485",
+   "token": "138s9485",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.88669,
+   "centre_px": [
+    5165.0,
+    270.0
+   ],
+   "box_px": [
+    5138.0,
+    261.0,
+    54.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "（东京3）",
+   "token": "3",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.88596,
+   "centre_px": [
+    1608.5,
+    1743.5
+   ],
+   "box_px": [
+    1595.0,
+    1691.0,
+    27.0,
+    105.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "小模",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.88537,
+   "centre_px": [
+    3267.5,
+    3160.5
+   ],
+   "box_px": [
+    3243.0,
+    3153.0,
+    49.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "船尾",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.88456,
+   "centre_px": [
+    4263.5,
+    853.5
+   ],
+   "box_px": [
+    4234.0,
+    843.0,
+    59.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "君妻山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.88303,
+   "centre_px": [
+    4347.0,
+    1036.5
+   ],
+   "box_px": [
+    4308.0,
+    1021.0,
+    78.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohy",
+   "token": "Ohy",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.8817,
+   "centre_px": [
+    3416.5,
+    435.0
+   ],
+   "box_px": [
+    3400.0,
+    426.0,
+    33.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "13900'",
+   "token": "13900",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.879,
+   "centre_px": [
+    5164.5,
+    251.5
+   ],
+   "box_px": [
+    5137.0,
+    242.0,
+    55.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "之，条",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.87667,
+   "centre_px": [
+    2579.0,
+    262.0
+   ],
+   "box_px": [
+    2499.0,
+    243.0,
+    160.0,
+    38.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "花",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.87438,
+   "centre_px": [
+    2291.5,
+    1618.0
+   ],
+   "box_px": [
+    2280.0,
+    1610.0,
+    23.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3620'",
+   "token": "3620",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.87213,
+   "centre_px": [
+    5194.5,
+    3182.5
+   ],
+   "box_px": [
+    5171.0,
+    3172.0,
+    47.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "館",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.87148,
+   "centre_px": [
+    3545.5,
+    3091.0
+   ],
+   "box_px": [
+    3534.0,
+    3079.0,
+    23.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.87016,
+   "centre_px": [
+    3392.0,
+    2322.5
+   ],
+   "box_px": [
+    3378.0,
+    2315.0,
+    28.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "H",
+   "token": "H",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.86864,
+   "centre_px": [
+    5195.0,
+    2453.5
+   ],
+   "box_px": [
+    5181.0,
+    2430.0,
+    28.0,
+    47.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "高户谷山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.86766,
+   "centre_px": [
+    1699.5,
+    2642.0
+   ],
+   "box_px": [
+    1649.0,
+    2628.0,
+    101.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "相馬原",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.86687,
+   "centre_px": [
+    4389.0,
+    1510.0
+   ],
+   "box_px": [
+    4341.0,
+    1496.0,
+    96.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "A13",
+   "token": "A13",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.86215,
+   "centre_px": [
+    3660.5,
+    2686.5
+   ],
+   "box_px": [
+    3651.0,
+    2681.0,
+    19.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3620113",
+   "token": "3620113",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.861,
+   "centre_px": [
+    1606.5,
+    3202.5
+   ],
+   "box_px": [
+    1580.0,
+    3192.0,
+    53.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3630",
+   "token": "3630",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.85901,
+   "centre_px": [
+    5180.0,
+    288.0
+   ],
+   "box_px": [
+    5167.0,
+    278.0,
+    26.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "湖畔",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.8583,
+   "centre_px": [
+    3267.0,
+    833.5
+   ],
+   "box_px": [
+    3252.0,
+    807.0,
+    30.0,
+    53.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "ohf",
+   "token": "ohf",
+   "code": "Ohf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.85809,
+   "centre_px": [
+    4399.0,
+    354.5
+   ],
+   "box_px": [
+    4385.0,
+    346.0,
+    28.0,
+    17.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Cwt",
+   "token": "Cwt",
+   "code": "Cut",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.85476,
+   "centre_px": [
+    3739.5,
+    2778.5
+   ],
+   "box_px": [
+    3721.0,
+    2769.0,
+    37.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Sbf",
+   "token": "Sbf",
+   "code": "Sbf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.85412,
+   "centre_px": [
+    4355.0,
+    1745.0
+   ],
+   "box_px": [
+    4344.0,
+    1737.0,
+    22.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3620113",
+   "token": "3620113",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.85401,
+   "centre_px": [
+    5194.5,
+    3201.5
+   ],
+   "box_px": [
+    5170.0,
+    3192.0,
+    49.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "馬場",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.85167,
+   "centre_px": [
+    3103.0,
+    2883.5
+   ],
+   "box_px": [
+    3078.0,
+    2871.0,
+    50.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "鳥帽子岳",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84936,
+   "centre_px": [
+    3460.5,
+    527.0
+   ],
+   "box_px": [
+    3397.0,
+    512.0,
+    127.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Al3",
+   "token": "Al3",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84892,
+   "centre_px": [
+    1800.0,
+    2327.5
+   ],
+   "box_px": [
+    1786.0,
+    2318.0,
+    28.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "神户",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84864,
+   "centre_px": [
+    4057.5,
+    2582.0
+   ],
+   "box_px": [
+    4038.0,
+    2573.0,
+    39.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "室田",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84334,
+   "centre_px": [
+    3384.5,
+    2038.0
+   ],
+   "box_px": [
+    3364.0,
+    2031.0,
+    41.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Al3",
+   "token": "Al3",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84224,
+   "centre_px": [
+    3837.5,
+    2686.0
+   ],
+   "box_px": [
+    3825.0,
+    2679.0,
+    25.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "H1",
+   "token": "H1",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84183,
+   "centre_px": [
+    3516.0,
+    775.5
+   ],
+   "box_px": [
+    3503.0,
+    765.0,
+    26.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "宫排",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.84106,
+   "centre_px": [
+    2235.5,
+    2823.0
+   ],
+   "box_px": [
+    2210.0,
+    2810.0,
+    51.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "兰軒茶屋",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.83565,
+   "centre_px": [
+    2837.5,
+    2931.0
+   ],
+   "box_px": [
+    2774.0,
+    2918.0,
+    127.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "天神峡",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.83283,
+   "centre_px": [
+    3182.5,
+    881.0
+   ],
+   "box_px": [
+    3156.0,
+    872.0,
+    53.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "風穴",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.82955,
+   "centre_px": [
+    3908.5,
+    585.5
+   ],
+   "box_px": [
+    3884.0,
+    573.0,
+    49.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "1384486",
+   "token": "1384486",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.82881,
+   "centre_px": [
+    1630.5,
+    3226.5
+   ],
+   "box_px": [
+    1603.0,
+    3216.0,
+    55.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "中秋间",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.82835,
+   "centre_px": [
+    3387.5,
+    2885.0
+   ],
+   "box_px": [
+    3352.0,
+    2875.0,
+    71.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "13859485",
+   "token": "13859485",
+   "code": null,
+   "edit_dist": 8,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.82303,
+   "centre_px": [
+    5165.0,
+    270.5
+   ],
+   "box_px": [
+    5137.0,
+    258.0,
+    56.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "黑岩",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.82253,
+   "centre_px": [
+    3770.5,
+    991.0
+   ],
+   "box_px": [
+    3738.0,
+    972.0,
+    65.0,
+    38.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "AI3",
+   "token": "Al3",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.81763,
+   "centre_px": [
+    3049.0,
+    2641.5
+   ],
+   "box_px": [
+    3038.0,
+    2634.0,
+    22.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "橡名Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.81313,
+   "centre_px": [
+    3550.0,
+    940.5
+   ],
+   "box_px": [
+    3496.0,
+    929.0,
+    108.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Sbi",
+   "token": "Sbi",
+   "code": "Sbf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.80456,
+   "centre_px": [
+    4565.5,
+    2177.0
+   ],
+   "box_px": [
+    4555.0,
+    2171.0,
+    21.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "网",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.80355,
+   "centre_px": [
+    2640.5,
+    3230.5
+   ],
+   "box_px": [
+    2626.0,
+    3215.0,
+    29.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "秋間丘陵",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.79981,
+   "centre_px": [
+    2368.5,
+    2444.5
+   ],
+   "box_px": [
+    2294.0,
+    2426.0,
+    149.0,
+    37.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "AI3",
+   "token": "Al3",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.79905,
+   "centre_px": [
+    3903.5,
+    2854.0
+   ],
+   "box_px": [
+    3892.0,
+    2846.0,
+    23.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "A13",
+   "token": "A13",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.79758,
+   "centre_px": [
+    3903.5,
+    2854.0
+   ],
+   "box_px": [
+    3890.0,
+    2845.0,
+    27.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "S",
+   "token": "S",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.79413,
+   "centre_px": [
+    3197.5,
+    3155.5
+   ],
+   "box_px": [
+    3193.0,
+    3151.0,
+    9.0,
+    9.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "波川市稳合公",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.79301,
+   "centre_px": [
+    4391.0,
+    517.0
+   ],
+   "box_px": [
+    4330.0,
+    505.0,
+    122.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "浅間山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.79021,
+   "centre_px": [
+    4219.5,
+    662.0
+   ],
+   "box_px": [
+    4181.0,
+    648.0,
+    77.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Gmi",
+   "token": "Gmi",
+   "code": "Gm",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.78733,
+   "centre_px": [
+    4169.5,
+    861.5
+   ],
+   "box_px": [
+    4155.0,
+    854.0,
+    29.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohl",
+   "token": "Ohl",
+   "code": "Ohl",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.78448,
+   "centre_px": [
+    3613.5,
+    1016.0
+   ],
+   "box_px": [
+    3600.0,
+    1009.0,
+    27.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spt",
+   "token": "Spt",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.7824,
+   "centre_px": [
+    3235.0,
+    2303.0
+   ],
+   "box_px": [
+    3224.0,
+    2297.0,
+    22.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "水识山）",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77978,
+   "centre_px": [
+    4222.0,
+    634.0
+   ],
+   "box_px": [
+    4178.0,
+    619.0,
+    88.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "下高别当",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77971,
+   "centre_px": [
+    3913.0,
+    3144.5
+   ],
+   "box_px": [
+    3853.0,
+    3132.0,
+    120.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "中里见康",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77938,
+   "centre_px": [
+    3912.0,
+    2622.5
+   ],
+   "box_px": [
+    3866.0,
+    2612.0,
+    92.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "c下里見",
+   "token": "c",
+   "code": "c",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.77912,
+   "centre_px": [
+    4053.5,
+    2854.5
+   ],
+   "box_px": [
+    4012.0,
+    2841.0,
+    83.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "浅間出",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77779,
+   "centre_px": [
+    3805.0,
+    2792.5
+   ],
+   "box_px": [
+    3772.0,
+    2780.0,
+    66.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "138448%6",
+   "token": "1384486",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77728,
+   "centre_px": [
+    1636.5,
+    269.0
+   ],
+   "box_px": [
+    1606.0,
+    256.0,
+    61.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Kg",
+   "token": "Kg",
+   "code": "Kg",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.77718,
+   "centre_px": [
+    2538.0,
+    361.0
+   ],
+   "box_px": [
+    2522.0,
+    349.0,
+    32.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohv",
+   "token": "Ohv",
+   "code": "Ohv",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.77528,
+   "centre_px": [
+    3098.5,
+    893.0
+   ],
+   "box_px": [
+    3084.0,
+    886.0,
+    29.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "地藏峡",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77258,
+   "centre_px": [
+    1855.5,
+    2129.5
+   ],
+   "box_px": [
+    1829.0,
+    2119.0,
+    53.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "相",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77215,
+   "centre_px": [
+    2508.5,
+    2125.0
+   ],
+   "box_px": [
+    2499.0,
+    2117.0,
+    19.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "茶日",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77186,
+   "centre_px": [
+    2523.5,
+    2517.0
+   ],
+   "box_px": [
+    2500.0,
+    2508.0,
+    47.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "洪川市",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.76649,
+   "centre_px": [
+    4835.5,
+    402.5
+   ],
+   "box_px": [
+    4724.0,
+    380.0,
+    223.0,
+    45.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "My",
+   "token": "My",
+   "code": "My",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.76545,
+   "centre_px": [
+    5106.0,
+    582.0
+   ],
+   "box_px": [
+    5097.0,
+    576.0,
+    18.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "潼下",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.76398,
+   "centre_px": [
+    1749.0,
+    2861.5
+   ],
+   "box_px": [
+    1728.0,
+    2853.0,
+    42.0,
+    17.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ipt",
+   "token": "Ipt",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75828,
+   "centre_px": [
+    3627.0,
+    770.0
+   ],
+   "box_px": [
+    3615.0,
+    760.0,
+    24.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohi",
+   "token": "Ohi",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75802,
+   "centre_px": [
+    4858.5,
+    795.5
+   ],
+   "box_px": [
+    4847.0,
+    790.0,
+    23.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "下沃島町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75701,
+   "centre_px": [
+    4411.0,
+    2888.0
+   ],
+   "box_px": [
+    4365.0,
+    2878.0,
+    92.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Mpta",
+   "token": "Mpta",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75674,
+   "centre_px": [
+    4352.0,
+    1151.5
+   ],
+   "box_px": [
+    4337.0,
+    1144.0,
+    30.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "確水",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75658,
+   "centre_px": [
+    4086.5,
+    3180.0
+   ],
+   "box_px": [
+    4057.0,
+    3165.0,
+    59.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "殿山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75518,
+   "centre_px": [
+    2966.0,
+    2340.5
+   ],
+   "box_px": [
+    2944.0,
+    2330.0,
+    44.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "相間",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.75324,
+   "centre_px": [
+    2164.0,
+    1687.0
+   ],
+   "box_px": [
+    2141.0,
+    1676.0,
+    46.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "S",
+   "token": "S",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.74512,
+   "centre_px": [
+    5194.0,
+    2413.0
+   ],
+   "box_px": [
+    5181.0,
+    2401.0,
+    26.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.74479,
+   "centre_px": [
+    2941.5,
+    2247.0
+   ],
+   "box_px": [
+    2924.0,
+    2236.0,
+    35.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "越新静線",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.73778,
+   "centre_px": [
+    5110.0,
+    2424.5
+   ],
+   "box_px": [
+    5093.0,
+    2371.0,
+    34.0,
+    107.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "相馬山Sm",
+   "token": "Sm",
+   "code": "Sm",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.73532,
+   "centre_px": [
+    3822.0,
+    811.0
+   ],
+   "box_px": [
+    3766.0,
+    793.0,
+    112.0,
+    36.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "北睦新幹線",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.73321,
+   "centre_px": [
+    2057.0,
+    2183.5
+   ],
+   "box_px": [
+    1991.0,
+    2163.0,
+    132.0,
+    41.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "下後閑",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.72845,
+   "centre_px": [
+    3030.5,
+    3159.5
+   ],
+   "box_px": [
+    2995.0,
+    3146.0,
+    71.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "3630112-",
+   "token": "3630112",
+   "code": null,
+   "edit_dist": 7,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.72205,
+   "centre_px": [
+    1608.5,
+    288.0
+   ],
+   "box_px": [
+    1579.0,
+    274.0,
+    59.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "榛東",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.72191,
+   "centre_px": [
+    4646.0,
+    1325.5
+   ],
+   "box_px": [
+    4585.0,
+    1309.0,
+    122.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "上後閑",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.71125,
+   "centre_px": [
+    2638.0,
+    2886.0
+   ],
+   "box_px": [
+    2605.0,
+    2874.0,
+    66.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "栗の木识",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.71118,
+   "centre_px": [
+    4070.0,
+    1081.5
+   ],
+   "box_px": [
+    4019.0,
+    1068.0,
+    102.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "单",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.70534,
+   "centre_px": [
+    5194.5,
+    1761.5
+   ],
+   "box_px": [
+    5183.0,
+    1734.0,
+    23.0,
+    55.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "香水岳",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.70343,
+   "centre_px": [
+    2892.0,
+    1022.0
+   ],
+   "box_px": [
+    2853.0,
+    1001.0,
+    78.0,
+    42.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "下太島町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.70058,
+   "centre_px": [
+    4433.5,
+    2886.0
+   ],
+   "box_px": [
+    4360.0,
+    2872.0,
+    147.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "识邮",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6991,
+   "centre_px": [
+    3670.0,
+    892.0
+   ],
+   "box_px": [
+    3641.0,
+    877.0,
+    58.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "黑",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.69856,
+   "centre_px": [
+    4702.0,
+    529.0
+   ],
+   "box_px": [
+    4692.0,
+    520.0,
+    20.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "行幸田",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.69515,
+   "centre_px": [
+    5029.5,
+    740.5
+   ],
+   "box_px": [
+    4994.0,
+    730.0,
+    71.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "上宫识",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.695,
+   "centre_px": [
+    3926.5,
+    2104.0
+   ],
+   "box_px": [
+    3889.0,
+    2089.0,
+    75.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "AI",
+   "token": "Al",
+   "code": "Al",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.6885,
+   "centre_px": [
+    3676.5,
+    2794.0
+   ],
+   "box_px": [
+    3664.0,
+    2786.0,
+    25.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "御品",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.68346,
+   "centre_px": [
+    3570.0,
+    2667.5
+   ],
+   "box_px": [
+    3548.0,
+    2657.0,
+    44.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "御蓝",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.68183,
+   "centre_px": [
+    4655.0,
+    398.0
+   ],
+   "box_px": [
+    4628.0,
+    385.0,
+    54.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Ohv",
+   "token": "Ohv",
+   "code": "Ohv",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.68009,
+   "centre_px": [
+    4029.5,
+    1110.0
+   ],
+   "box_px": [
+    4011.0,
+    1099.0,
+    37.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "CW",
+   "token": "CW",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.67441,
+   "centre_px": [
+    2993.5,
+    2370.0
+   ],
+   "box_px": [
+    2983.0,
+    2365.0,
+    21.0,
+    10.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "DEPMZ",
+   "token": "DEPMZ",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.66957,
+   "centre_px": [
+    4244.0,
+    694.0
+   ],
+   "box_px": [
+    4200.0,
+    669.0,
+    88.0,
+    50.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "浜圳運動公園",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.66335,
+   "centre_px": [
+    5051.5,
+    2650.5
+   ],
+   "box_px": [
+    4985.0,
+    2636.0,
+    133.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "ohd",
+   "token": "ohd",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.66034,
+   "centre_px": [
+    3238.0,
+    1141.5
+   ],
+   "box_px": [
+    3225.0,
+    1136.0,
+    26.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "滑泥",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6602,
+   "centre_px": [
+    3165.5,
+    3190.5
+   ],
+   "box_px": [
+    3142.0,
+    3180.0,
+    47.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "富士見皓",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.65523,
+   "centre_px": [
+    4350.5,
+    1111.5
+   ],
+   "box_px": [
+    4314.0,
+    1101.0,
+    73.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "野料",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.65368,
+   "centre_px": [
+    3176.5,
+    2873.0
+   ],
+   "box_px": [
+    3149.0,
+    2862.0,
+    55.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "水积靓音",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.65102,
+   "centre_px": [
+    4402.5,
+    705.0
+   ],
+   "box_px": [
+    4367.0,
+    693.0,
+    71.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "OHf",
+   "token": "OHf",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.65087,
+   "centre_px": [
+    4931.0,
+    499.0
+   ],
+   "box_px": [
+    4918.0,
+    491.0,
+    26.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "增由",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.64719,
+   "centre_px": [
+    2484.5,
+    3137.5
+   ],
+   "box_px": [
+    2463.0,
+    3130.0,
+    43.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Sb",
+   "token": "Sb",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.64364,
+   "centre_px": [
+    4335.0,
+    1657.0
+   ],
+   "box_px": [
+    4322.0,
+    1643.0,
+    26.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "萨生",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.64198,
+   "centre_px": [
+    2153.5,
+    582.0
+   ],
+   "box_px": [
+    2133.0,
+    573.0,
+    41.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "磨墨咔",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.64195,
+   "centre_px": [
+    3660.5,
+    805.5
+   ],
+   "box_px": [
+    3630.0,
+    792.0,
+    61.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "原",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6282,
+   "centre_px": [
+    3890.0,
+    1808.0
+   ],
+   "box_px": [
+    3884.0,
+    1801.0,
+    12.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Oht",
+   "token": "Oht",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.62514,
+   "centre_px": [
+    3777.5,
+    492.0
+   ],
+   "box_px": [
+    3763.0,
+    482.0,
+    29.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "中市稳古運动公园",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.62224,
+   "centre_px": [
+    4029.5,
+    3162.5
+   ],
+   "box_px": [
+    3962.0,
+    3152.0,
+    135.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "俺原",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.62196,
+   "centre_px": [
+    2653.0,
+    2948.0
+   ],
+   "box_px": [
+    2630.0,
+    2939.0,
+    46.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "八食方",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.61236,
+   "centre_px": [
+    3314.5,
+    3002.0
+   ],
+   "box_px": [
+    3278.0,
+    2990.0,
+    73.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "水识",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.61224,
+   "centre_px": [
+    4514.5,
+    752.0
+   ],
+   "box_px": [
+    4496.0,
+    743.0,
+    37.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "砚岩",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6109,
+   "centre_px": [
+    3211.0,
+    741.5
+   ],
+   "box_px": [
+    3186.0,
+    729.0,
+    50.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "廣之巢山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.60664,
+   "centre_px": [
+    3860.5,
+    1013.0
+   ],
+   "box_px": [
+    3809.0,
+    998.0,
+    103.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "食浏町",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.60613,
+   "centre_px": [
+    2211.0,
+    1167.0
+   ],
+   "box_px": [
+    2166.0,
+    1151.0,
+    90.0,
+    32.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "Spi",
+   "token": "Spi",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.58775,
+   "centre_px": [
+    3384.0,
+    2231.5
+   ],
+   "box_px": [
+    3374.0,
+    2226.0,
+    20.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "30",
+   "token": "30",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.57002,
+   "centre_px": [
+    2758.5,
+    3078.5
+   ],
+   "box_px": [
+    2753.0,
+    3074.0,
+    11.0,
+    9.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "川浦",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.56322,
+   "centre_px": [
+    1773.5,
+    1107.0
+   ],
+   "box_px": [
+    1750.0,
+    1096.0,
+    47.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "林业試場",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.54801,
+   "centre_px": [
+    5120.5,
+    1611.5
+   ],
+   "box_px": [
+    5077.0,
+    1600.0,
+    87.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "八州萬",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.53957,
+   "centre_px": [
+    4228.5,
+    939.5
+   ],
+   "box_px": [
+    4185.0,
+    926.0,
+    87.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "形",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.52862,
+   "centre_px": [
+    4562.5,
+    2927.0
+   ],
+   "box_px": [
+    4552.0,
+    2920.0,
+    21.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "DHPMZ",
+   "token": "DHPMZ",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.52685,
+   "centre_px": [
+    4244.0,
+    694.5
+   ],
+   "box_px": [
+    4200.0,
+    671.0,
+    88.0,
+    47.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "湯况",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.51961,
+   "centre_px": [
+    3813.5,
+    3145.0
+   ],
+   "box_px": [
+    3788.0,
+    3135.0,
+    51.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "汤元",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.51838,
+   "centre_px": [
+    3984.0,
+    449.0
+   ],
+   "box_px": [
+    3959.0,
+    438.0,
+    50.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "rapid",
+   "raw": "琴平山",
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.51145,
+   "centre_px": [
+    4170.5,
+    1502.0
+   ],
+   "box_px": [
+    4125.0,
+    1483.0,
+    91.0,
+    38.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "My",
+   "token": "My",
+   "code": "My",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96913788,
+   "centre_px": [
+    5106.0,
+    582.0
+   ],
+   "box_px": [
+    5097.0,
+    576.0,
+    18.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9682797999999999,
+   "centre_px": [
+    4034.0,
+    3176.0
+   ],
+   "box_px": [
+    4027.0,
+    3171.0,
+    14.0,
+    10.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96624557,
+   "centre_px": [
+    3857.5,
+    1828.0
+   ],
+   "box_px": [
+    3840.0,
+    1817.0,
+    35.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.96591583,
+   "centre_px": [
+    4440.5,
+    2920.5
+   ],
+   "box_px": [
+    4434.0,
+    2914.0,
+    13.0,
+    13.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spf",
+   "token": "Spf",
+   "code": "Spf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96561287,
+   "centre_px": [
+    3879.5,
+    2666.5
+   ],
+   "box_px": [
+    3862.0,
+    2655.0,
+    35.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Am",
+   "token": "Am",
+   "code": "Am",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.9655632799999999,
+   "centre_px": [
+    1740.0,
+    2572.0
+   ],
+   "box_px": [
+    1727.0,
+    2564.0,
+    26.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Als",
+   "token": "Als",
+   "code": "Als",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96166595,
+   "centre_px": [
+    3903.5,
+    2854.0
+   ],
+   "box_px": [
+    3892.0,
+    2846.0,
+    23.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Nd",
+   "token": "Nd",
+   "code": "Nd",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.96072884,
+   "centre_px": [
+    4065.0,
+    3133.5
+   ],
+   "box_px": [
+    4051.0,
+    3124.0,
+    28.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spt",
+   "token": "Spt",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.9529053500000001,
+   "centre_px": [
+    3098.5,
+    1017.5
+   ],
+   "box_px": [
+    3082.0,
+    1006.0,
+    33.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "wt",
+   "token": "wt",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9439488199999999,
+   "centre_px": [
+    2993.5,
+    2370.0
+   ],
+   "box_px": [
+    2983.0,
+    2365.0,
+    21.0,
+    10.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Oh",
+   "token": "Oh",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93971695,
+   "centre_px": [
+    3417.0,
+    434.5
+   ],
+   "box_px": [
+    3401.0,
+    425.0,
+    32.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "E",
+   "token": "E",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.93275986,
+   "centre_px": [
+    5174.5,
+    557.0
+   ],
+   "box_px": [
+    5166.0,
+    546.0,
+    17.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "H",
+   "token": "H",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.92521919,
+   "centre_px": [
+    3496.0,
+    276.0
+   ],
+   "box_px": [
+    3488.0,
+    267.0,
+    16.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ANNAKA",
+   "token": "ANNAKA",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9228694900000001,
+   "centre_px": [
+    2741.5,
+    2853.0
+   ],
+   "box_px": [
+    2677.0,
+    2839.0,
+    129.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.9207254,
+   "centre_px": [
+    4135.5,
+    1462.5
+   ],
+   "box_px": [
+    4119.0,
+    1452.0,
+    33.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ohi",
+   "token": "Ohi",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.91730629,
+   "centre_px": [
+    3613.5,
+    1016.0
+   ],
+   "box_px": [
+    3600.0,
+    1009.0,
+    27.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ont",
+   "token": "Ont",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.9131207299999999,
+   "centre_px": [
+    2509.0,
+    1106.5
+   ],
+   "box_px": [
+    2496.0,
+    1099.0,
+    26.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Sbf",
+   "token": "Sbf",
+   "code": "Sbf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.9074964900000001,
+   "centre_px": [
+    4355.0,
+    1745.0
+   ],
+   "box_px": [
+    4344.0,
+    1737.0,
+    22.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90460991,
+   "centre_px": [
+    3081.5,
+    774.0
+   ],
+   "box_px": [
+    3064.0,
+    764.0,
+    35.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "MlOKA",
+   "token": "MlOKA",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.90190147,
+   "centre_px": [
+    4307.0,
+    3230.5
+   ],
+   "box_px": [
+    4211.0,
+    3218.0,
+    192.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Cwt",
+   "token": "Cwt",
+   "code": "Cut",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.9016800700000001,
+   "centre_px": [
+    3138.5,
+    2591.0
+   ],
+   "box_px": [
+    3121.0,
+    2582.0,
+    35.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "M",
+   "token": "M",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.89938156,
+   "centre_px": [
+    4352.0,
+    1151.5
+   ],
+   "box_px": [
+    4337.0,
+    1144.0,
+    30.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Kg",
+   "token": "Kg",
+   "code": "Kg",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.89085358,
+   "centre_px": [
+    2538.0,
+    361.0
+   ],
+   "box_px": [
+    2522.0,
+    349.0,
+    32.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Mp",
+   "token": "Mp",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.88987549,
+   "centre_px": [
+    4351.5,
+    1152.0
+   ],
+   "box_px": [
+    4339.0,
+    1145.0,
+    25.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ohf",
+   "token": "Ohf",
+   "code": "Ohf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.8793154099999999,
+   "centre_px": [
+    4376.0,
+    3051.5
+   ],
+   "box_px": [
+    4363.0,
+    3044.0,
+    26.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Mof",
+   "token": "Mof",
+   "code": "Mopf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.87849716,
+   "centre_px": [
+    3977.5,
+    2403.5
+   ],
+   "box_px": [
+    3961.0,
+    2393.0,
+    33.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Mp",
+   "token": "Mp",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.87391769,
+   "centre_px": [
+    3896.5,
+    1988.0
+   ],
+   "box_px": [
+    3882.0,
+    1979.0,
+    29.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ipf",
+   "token": "Ipf",
+   "code": "Ipf",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.87130203,
+   "centre_px": [
+    3627.0,
+    770.0
+   ],
+   "box_px": [
+    3615.0,
+    760.0,
+    24.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ais",
+   "token": "Ais",
+   "code": "Als",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.85999672,
+   "centre_px": [
+    3049.0,
+    2641.5
+   ],
+   "box_px": [
+    3038.0,
+    2634.0,
+    22.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "A",
+   "token": "A",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.8563286600000001,
+   "centre_px": [
+    2216.5,
+    2713.0
+   ],
+   "box_px": [
+    2206.0,
+    2705.0,
+    21.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ag",
+   "token": "Ag",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.85273781,
+   "centre_px": [
+    3837.5,
+    2686.0
+   ],
+   "box_px": [
+    3825.0,
+    2679.0,
+    25.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Fl",
+   "token": "Fl",
+   "code": "Fl",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.85192093,
+   "centre_px": [
+    3882.5,
+    691.0
+   ],
+   "box_px": [
+    3876.0,
+    683.0,
+    13.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "AKANOJO",
+   "token": "AKANOJO",
+   "code": null,
+   "edit_dist": 6,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.85178123,
+   "centre_px": [
+    4288.0,
+    261.5
+   ],
+   "box_px": [
+    4171.0,
+    245.0,
+    234.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spt",
+   "token": "Spt",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.84105934,
+   "centre_px": [
+    2941.5,
+    2247.0
+   ],
+   "box_px": [
+    2924.0,
+    2236.0,
+    35.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "TOMlO",
+   "token": "TOMlO",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.8290967600000001,
+   "centre_px": [
+    4221.5,
+    3230.5
+   ],
+   "box_px": [
+    4128.0,
+    3217.0,
+    187.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Yh",
+   "token": "Yh",
+   "code": "Yhi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.8232688899999999,
+   "centre_px": [
+    4713.0,
+    986.5
+   ],
+   "box_px": [
+    4663.0,
+    973.0,
+    100.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spi",
+   "token": "Spi",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.8094547300000001,
+   "centre_px": [
+    4145.0,
+    2917.5
+   ],
+   "box_px": [
+    4131.0,
+    2907.0,
+    28.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.80795898,
+   "centre_px": [
+    4572.0,
+    2695.5
+   ],
+   "box_px": [
+    4563.0,
+    2680.0,
+    18.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Sof",
+   "token": "Sof",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.80596474,
+   "centre_px": [
+    3235.0,
+    2303.0
+   ],
+   "box_px": [
+    3224.0,
+    2297.0,
+    22.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "fi",
+   "token": "fi",
+   "code": "Hi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.79967125,
+   "centre_px": [
+    2508.5,
+    2125.0
+   ],
+   "box_px": [
+    2499.0,
+    2117.0,
+    19.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "On",
+   "token": "On",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.78742508,
+   "centre_px": [
+    4154.0,
+    444.0
+   ],
+   "box_px": [
+    4135.0,
+    432.0,
+    38.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "J",
+   "token": "J",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.77366219,
+   "centre_px": [
+    3267.5,
+    3160.5
+   ],
+   "box_px": [
+    3243.0,
+    3153.0,
+    49.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ae",
+   "token": "Ae",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.76061813,
+   "centre_px": [
+    4655.0,
+    398.0
+   ],
+   "box_px": [
+    4628.0,
+    385.0,
+    54.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ohl",
+   "token": "Ohl",
+   "code": "Ohl",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.74293861,
+   "centre_px": [
+    3348.5,
+    1357.5
+   ],
+   "box_px": [
+    3334.0,
+    1348.0,
+    29.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "m",
+   "token": "m",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.73495384,
+   "centre_px": [
+    4384.5,
+    626.0
+   ],
+   "box_px": [
+    4369.0,
+    615.0,
+    31.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spt",
+   "token": "Spt",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.7295336899999999,
+   "centre_px": [
+    4300.0,
+    1755.5
+   ],
+   "box_px": [
+    4287.0,
+    1745.0,
+    26.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "FAY",
+   "token": "FAY",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.72808571,
+   "centre_px": [
+    3867.5,
+    1808.0
+   ],
+   "box_px": [
+    3849.0,
+    1797.0,
+    37.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Is",
+   "token": "Is",
+   "code": "Is",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.71196686,
+   "centre_px": [
+    3197.5,
+    3155.5
+   ],
+   "box_px": [
+    3193.0,
+    3151.0,
+    9.0,
+    9.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "j",
+   "token": "j",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.7071401199999999,
+   "centre_px": [
+    1606.5,
+    3202.5
+   ],
+   "box_px": [
+    1580.0,
+    3192.0,
+    53.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "NAKANC",
+   "token": "NAKANC",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6970609299999999,
+   "centre_px": [
+    4227.0,
+    262.5
+   ],
+   "box_px": [
+    4128.0,
+    249.0,
+    198.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "TAKASAKl",
+   "token": "TAKASAKl",
+   "code": null,
+   "edit_dist": 6,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.68786522,
+   "centre_px": [
+    4787.0,
+    2908.0
+   ],
+   "box_px": [
+    4712.0,
+    2893.0,
+    150.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.67768974,
+   "centre_px": [
+    5098.5,
+    1065.0
+   ],
+   "box_px": [
+    5074.0,
+    1053.0,
+    49.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "s",
+   "token": "s",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6729080999999999,
+   "centre_px": [
+    3459.5,
+    930.5
+   ],
+   "box_px": [
+    3445.0,
+    921.0,
+    29.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Oh",
+   "token": "Oh",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6649981699999999,
+   "centre_px": [
+    3098.5,
+    893.0
+   ],
+   "box_px": [
+    3084.0,
+    886.0,
+    29.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Onf",
+   "token": "Onf",
+   "code": "Ohf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.6603860500000001,
+   "centre_px": [
+    4858.5,
+    795.5
+   ],
+   "box_px": [
+    4847.0,
+    790.0,
+    23.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Onl",
+   "token": "Onl",
+   "code": "Ohl",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.6491944100000001,
+   "centre_px": [
+    3777.5,
+    492.0
+   ],
+   "box_px": [
+    3763.0,
+    482.0,
+    29.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "d",
+   "token": "d",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.63928444,
+   "centre_px": [
+    3237.5,
+    1141.5
+   ],
+   "box_px": [
+    3220.0,
+    1132.0,
+    35.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ant",
+   "token": "ant",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.63653816,
+   "centre_px": [
+    4399.0,
+    354.5
+   ],
+   "box_px": [
+    4385.0,
+    346.0,
+    28.0,
+    17.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Alt",
+   "token": "Alt",
+   "code": "Alt",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.63278507,
+   "centre_px": [
+    3676.5,
+    2794.0
+   ],
+   "box_px": [
+    3664.0,
+    2786.0,
+    25.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "aa",
+   "token": "aa",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.62513443,
+   "centre_px": [
+    5193.5,
+    2486.5
+   ],
+   "box_px": [
+    5181.0,
+    2473.0,
+    25.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "FAN",
+   "token": "FAN",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.6047536499999999,
+   "centre_px": [
+    2523.5,
+    2517.0
+   ],
+   "box_px": [
+    2500.0,
+    2508.0,
+    47.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "yf",
+   "token": "yf",
+   "code": "Hf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.59399914,
+   "centre_px": [
+    4583.5,
+    2591.5
+   ],
+   "box_px": [
+    4572.0,
+    2575.0,
+    23.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "G",
+   "token": "G",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.59216442,
+   "centre_px": [
+    4169.5,
+    861.5
+   ],
+   "box_px": [
+    4155.0,
+    854.0,
+    29.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Qht",
+   "token": "Qht",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.57260685,
+   "centre_px": [
+    4931.0,
+    499.0
+   ],
+   "box_px": [
+    4918.0,
+    491.0,
+    26.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ont",
+   "token": "Ont",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.5623518399999999,
+   "centre_px": [
+    3392.0,
+    2322.5
+   ],
+   "box_px": [
+    3378.0,
+    2315.0,
+    28.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ER",
+   "token": "ER",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.56083431,
+   "centre_px": [
+    4033.5,
+    309.0
+   ],
+   "box_px": [
+    3991.0,
+    295.0,
+    85.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.56015125,
+   "centre_px": [
+    4855.5,
+    2870.0
+   ],
+   "box_px": [
+    4816.0,
+    2853.0,
+    79.0,
+    34.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "me",
+   "token": "me",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.55197834,
+   "centre_px": [
+    1855.5,
+    2129.5
+   ],
+   "box_px": [
+    1829.0,
+    2119.0,
+    53.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "e",
+   "token": "e",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.5519516800000001,
+   "centre_px": [
+    3290.0,
+    635.0
+   ],
+   "box_px": [
+    3272.0,
+    624.0,
+    36.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ont",
+   "token": "Ont",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.54739803,
+   "centre_px": [
+    3358.0,
+    957.5
+   ],
+   "box_px": [
+    3342.0,
+    948.0,
+    32.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "rpLZ",
+   "token": "rpLZ",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.5370356949999999,
+   "centre_px": [
+    2452.0,
+    261.5
+   ],
+   "box_px": [
+    2373.0,
+    243.0,
+    158.0,
+    37.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "pe",
+   "token": "pe",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.52582394,
+   "centre_px": [
+    4244.0,
+    694.0
+   ],
+   "box_px": [
+    4200.0,
+    669.0,
+    88.0,
+    50.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ay",
+   "token": "ay",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.52556755,
+   "centre_px": [
+    3267.0,
+    833.5
+   ],
+   "box_px": [
+    3252.0,
+    807.0,
+    30.0,
+    53.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "py",
+   "token": "py",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.51689667,
+   "centre_px": [
+    4663.5,
+    499.5
+   ],
+   "box_px": [
+    4650.0,
+    489.0,
+    27.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.51617336,
+   "centre_px": [
+    3206.0,
+    2608.5
+   ],
+   "box_px": [
+    3178.0,
+    2594.0,
+    56.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "BR",
+   "token": "BR",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.50311165,
+   "centre_px": [
+    3813.5,
+    3145.0
+   ],
+   "box_px": [
+    3788.0,
+    3135.0,
+    51.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "iL",
+   "token": "iL",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.50186764,
+   "centre_px": [
+    4766.0,
+    2782.0
+   ],
+   "box_px": [
+    4756.0,
+    2769.0,
+    20.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Hl",
+   "token": "Hl",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.49568024,
+   "centre_px": [
+    3516.0,
+    775.5
+   ],
+   "box_px": [
+    3503.0,
+    765.0,
+    26.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "LRA",
+   "token": "LRA",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.49260502,
+   "centre_px": [
+    2634.0,
+    2886.0
+   ],
+   "box_px": [
+    2596.0,
+    2873.0,
+    76.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "hes",
+   "token": "hes",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.46340857999999996,
+   "centre_px": [
+    4309.5,
+    3087.0
+   ],
+   "box_px": [
+    4296.0,
+    3072.0,
+    27.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "aw",
+   "token": "aw",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.46248748999999995,
+   "centre_px": [
+    3739.5,
+    2778.5
+   ],
+   "box_px": [
+    3721.0,
+    2769.0,
+    37.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "iy",
+   "token": "iy",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.45813263,
+   "centre_px": [
+    2537.0,
+    463.0
+   ],
+   "box_px": [
+    2522.0,
+    449.0,
+    30.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "tay",
+   "token": "tay",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.45659236999999997,
+   "centre_px": [
+    3211.0,
+    741.5
+   ],
+   "box_px": [
+    3186.0,
+    729.0,
+    50.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "REE",
+   "token": "REE",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.45619923,
+   "centre_px": [
+    2291.5,
+    1618.0
+   ],
+   "box_px": [
+    2280.0,
+    1610.0,
+    23.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Sey",
+   "token": "Sey",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.44981288999999997,
+   "centre_px": [
+    2465.5,
+    462.5
+   ],
+   "box_px": [
+    2373.0,
+    445.0,
+    185.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "AH",
+   "token": "AH",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.44511916999999995,
+   "centre_px": [
+    4438.5,
+    2703.5
+   ],
+   "box_px": [
+    4414.0,
+    2691.0,
+    49.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Bi",
+   "token": "Bi",
+   "code": "Hi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.44482746,
+   "centre_px": [
+    3545.5,
+    3091.0
+   ],
+   "box_px": [
+    3534.0,
+    3079.0,
+    23.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ont",
+   "token": "Ont",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.44287754,
+   "centre_px": [
+    2449.5,
+    521.5
+   ],
+   "box_px": [
+    2432.0,
+    511.0,
+    35.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Cc",
+   "token": "Cc",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.43481007,
+   "centre_px": [
+    3960.0,
+    2890.0
+   ],
+   "box_px": [
+    3945.0,
+    2883.0,
+    30.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ys",
+   "token": "ys",
+   "code": "Is",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.43231079,
+   "centre_px": [
+    1751.0,
+    2349.5
+   ],
+   "box_px": [
+    1687.0,
+    2333.0,
+    128.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Kid",
+   "token": "Kid",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.42606247,
+   "centre_px": [
+    4013.0,
+    2930.0
+   ],
+   "box_px": [
+    3981.0,
+    2918.0,
+    64.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ie",
+   "token": "ie",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.42523834,
+   "centre_px": [
+    4086.5,
+    3180.0
+   ],
+   "box_px": [
+    4057.0,
+    3165.0,
+    59.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Mot",
+   "token": "Mot",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.42232738,
+   "centre_px": [
+    3215.0,
+    1004.0
+   ],
+   "box_px": [
+    3200.0,
+    995.0,
+    30.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "eR",
+   "token": "eR",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.42056355,
+   "centre_px": [
+    4070.0,
+    1081.5
+   ],
+   "box_px": [
+    4019.0,
+    1068.0,
+    102.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "yi",
+   "token": "yi",
+   "code": "Hi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.41862555999999995,
+   "centre_px": [
+    4309.0,
+    3089.5
+   ],
+   "box_px": [
+    4299.0,
+    3080.0,
+    20.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ojf1",
+   "token": "ojf1",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.41857650999999996,
+   "centre_px": [
+    5051.5,
+    2650.5
+   ],
+   "box_px": [
+    4985.0,
+    2636.0,
+    133.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "at",
+   "token": "at",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.40582218,
+   "centre_px": [
+    3912.0,
+    2622.5
+   ],
+   "box_px": [
+    3866.0,
+    2612.0,
+    92.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "eR",
+   "token": "eR",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.39889763,
+   "centre_px": [
+    3670.0,
+    892.0
+   ],
+   "box_px": [
+    3641.0,
+    877.0,
+    58.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "my",
+   "token": "my",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.39685535,
+   "centre_px": [
+    3860.5,
+    1013.0
+   ],
+   "box_px": [
+    3809.0,
+    998.0,
+    103.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "FR",
+   "token": "FR",
+   "code": "Fl",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.38926872,
+   "centre_px": [
+    3030.5,
+    3159.5
+   ],
+   "box_px": [
+    2995.0,
+    3146.0,
+    71.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "WRB",
+   "token": "WRB",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.38745102000000003,
+   "centre_px": [
+    5120.5,
+    1611.5
+   ],
+   "box_px": [
+    5077.0,
+    1600.0,
+    87.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "BF",
+   "token": "BF",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.38335655,
+   "centre_px": [
+    5045.5,
+    423.5
+   ],
+   "box_px": [
+    5005.0,
+    410.0,
+    81.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Rid",
+   "token": "Rid",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.38268436,
+   "centre_px": [
+    4538.5,
+    2927.0
+   ],
+   "box_px": [
+    4528.0,
+    2918.0,
+    21.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ry",
+   "token": "ry",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.38023369,
+   "centre_px": [
+    4695.5,
+    2869.5
+   ],
+   "box_px": [
+    4678.0,
+    2852.0,
+    35.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ii",
+   "token": "ii",
+   "code": "Hi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.37833973,
+   "centre_px": [
+    5121.0,
+    1612.0
+   ],
+   "box_px": [
+    5080.0,
+    1604.0,
+    82.0,
+    16.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.37226582,
+   "centre_px": [
+    2164.0,
+    1687.0
+   ],
+   "box_px": [
+    2141.0,
+    1676.0,
+    46.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.35415188000000003,
+   "centre_px": [
+    3166.0,
+    1050.0
+   ],
+   "box_px": [
+    3080.0,
+    1022.0,
+    172.0,
+    56.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "AJe",
+   "token": "AJe",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.35010187,
+   "centre_px": [
+    4170.5,
+    1502.0
+   ],
+   "box_px": [
+    4125.0,
+    1483.0,
+    91.0,
+    38.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "j",
+   "token": "j",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.34335003000000003,
+   "centre_px": [
+    5194.0,
+    1143.0
+   ],
+   "box_px": [
+    5177.0,
+    1127.0,
+    34.0,
+    32.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "HF",
+   "token": "HF",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.33286766,
+   "centre_px": [
+    2170.0,
+    3112.5
+   ],
+   "box_px": [
+    2145.0,
+    3100.0,
+    50.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ra",
+   "token": "Ra",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.32667251999999997,
+   "centre_px": [
+    3770.5,
+    991.0
+   ],
+   "box_px": [
+    3738.0,
+    972.0,
+    65.0,
+    38.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "LR",
+   "token": "LR",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.32219959000000004,
+   "centre_px": [
+    2638.0,
+    2886.0
+   ],
+   "box_px": [
+    2605.0,
+    2874.0,
+    66.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Bhi",
+   "token": "Bhi",
+   "code": "Yhi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.31951927,
+   "centre_px": [
+    3660.5,
+    805.5
+   ],
+   "box_px": [
+    3630.0,
+    792.0,
+    61.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.31848331,
+   "centre_px": [
+    5077.5,
+    541.5
+   ],
+   "box_px": [
+    5055.0,
+    530.0,
+    45.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Me",
+   "token": "Me",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.31488669999999996,
+   "centre_px": [
+    3028.0,
+    2598.5
+   ],
+   "box_px": [
+    2991.0,
+    2585.0,
+    74.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "aia",
+   "token": "aia",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.31078482,
+   "centre_px": [
+    2522.0,
+    338.0
+   ],
+   "box_px": [
+    2470.0,
+    323.0,
+    104.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ad",
+   "token": "ad",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.30839558,
+   "centre_px": [
+    2520.0,
+    338.0
+   ],
+   "box_px": [
+    2465.0,
+    321.0,
+    110.0,
+    34.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "BPR",
+   "token": "BPR",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.29742918,
+   "centre_px": [
+    5112.0,
+    1171.5
+   ],
+   "box_px": [
+    5076.0,
+    1159.0,
+    72.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "f",
+   "token": "f",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.2961964,
+   "centre_px": [
+    4100.5,
+    3028.5
+   ],
+   "box_px": [
+    4091.0,
+    3020.0,
+    19.0,
+    17.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "us",
+   "token": "us",
+   "code": "Is",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.29465609,
+   "centre_px": [
+    5194.0,
+    1716.5
+   ],
+   "box_px": [
+    5185.0,
+    1710.0,
+    18.0,
+    13.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Be",
+   "token": "Be",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.29425497,
+   "centre_px": [
+    3372.5,
+    1822.0
+   ],
+   "box_px": [
+    3326.0,
+    1806.0,
+    93.0,
+    32.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "af",
+   "token": "af",
+   "code": "Hf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.28809685,
+   "centre_px": [
+    4514.5,
+    752.0
+   ],
+   "box_px": [
+    4496.0,
+    743.0,
+    37.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "oe",
+   "token": "oe",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.25806011,
+   "centre_px": [
+    3908.5,
+    585.5
+   ],
+   "box_px": [
+    3884.0,
+    573.0,
+    49.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ohd",
+   "token": "Ohd",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.255751,
+   "centre_px": [
+    3238.0,
+    1141.5
+   ],
+   "box_px": [
+    3225.0,
+    1136.0,
+    26.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "eC",
+   "token": "eC",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.25329733,
+   "centre_px": [
+    5194.5,
+    892.5
+   ],
+   "box_px": [
+    5178.0,
+    876.0,
+    33.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "RHAR",
+   "token": "RHAR",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.25154551999999997,
+   "centre_px": [
+    2105.5,
+    2307.0
+   ],
+   "box_px": [
+    2054.0,
+    2293.0,
+    103.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "izaR",
+   "token": "izaR",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.24878484500000003,
+   "centre_px": [
+    2579.0,
+    262.0
+   ],
+   "box_px": [
+    2499.0,
+    243.0,
+    160.0,
+    38.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "wai",
+   "token": "wai",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.24795895,
+   "centre_px": [
+    5074.5,
+    2651.0
+   ],
+   "box_px": [
+    5035.0,
+    2641.0,
+    79.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "k",
+   "token": "k",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.23158566,
+   "centre_px": [
+    3573.0,
+    2970.0
+   ],
+   "box_px": [
+    3550.0,
+    2963.0,
+    46.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "By",
+   "token": "By",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.20968065,
+   "centre_px": [
+    2211.0,
+    1166.5
+   ],
+   "box_px": [
+    2166.0,
+    1151.0,
+    90.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ph",
+   "token": "Ph",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.20574916999999998,
+   "centre_px": [
+    4057.5,
+    2582.0
+   ],
+   "box_px": [
+    4038.0,
+    2573.0,
+    39.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "aes",
+   "token": "aes",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.20563879,
+   "centre_px": [
+    3605.5,
+    3027.5
+   ],
+   "box_px": [
+    3580.0,
+    3014.0,
+    51.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "PB",
+   "token": "PB",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.19974575000000003,
+   "centre_px": [
+    5139.5,
+    633.0
+   ],
+   "box_px": [
+    5116.0,
+    621.0,
+    47.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "en",
+   "token": "en",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.19762964,
+   "centre_px": [
+    4786.0,
+    2870.0
+   ],
+   "box_px": [
+    4676.0,
+    2850.0,
+    220.0,
+    40.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Brae",
+   "token": "Brae",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.19427729,
+   "centre_px": [
+    4349.5,
+    1110.5
+   ],
+   "box_px": [
+    4312.0,
+    1099.0,
+    75.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Pee",
+   "token": "Pee",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.19354638999999998,
+   "centre_px": [
+    3182.5,
+    881.0
+   ],
+   "box_px": [
+    3156.0,
+    872.0,
+    53.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "an",
+   "token": "an",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.17523174,
+   "centre_px": [
+    5194.0,
+    2363.5
+   ],
+   "box_px": [
+    5178.0,
+    2332.0,
+    32.0,
+    63.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Md4",
+   "token": "Md4",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.174771025,
+   "centre_px": [
+    4432.5,
+    723.0
+   ],
+   "box_px": [
+    4413.0,
+    714.0,
+    39.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "HElR",
+   "token": "HElR",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.17198381000000001,
+   "centre_px": [
+    3362.0,
+    695.5
+   ],
+   "box_px": [
+    3317.0,
+    685.0,
+    90.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "it",
+   "token": "it",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.17160920999999998,
+   "centre_px": [
+    1749.0,
+    2861.5
+   ],
+   "box_px": [
+    1728.0,
+    2853.0,
+    42.0,
+    17.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "TAL",
+   "token": "TAL",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.16485309999999997,
+   "centre_px": [
+    4411.0,
+    2888.0
+   ],
+   "box_px": [
+    4365.0,
+    2878.0,
+    92.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "EHR",
+   "token": "EHR",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.1644104,
+   "centre_px": [
+    3361.5,
+    695.5
+   ],
+   "box_px": [
+    3317.0,
+    685.0,
+    89.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ay4",
+   "token": "ay4",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.16336918,
+   "centre_px": [
+    4029.5,
+    3162.5
+   ],
+   "box_px": [
+    3962.0,
+    3152.0,
+    135.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "aD",
+   "token": "aD",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.1446723,
+   "centre_px": [
+    3165.5,
+    3190.5
+   ],
+   "box_px": [
+    3142.0,
+    3180.0,
+    47.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "wiht",
+   "token": "wiht",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.14106998,
+   "centre_px": [
+    2966.0,
+    2340.5
+   ],
+   "box_px": [
+    2944.0,
+    2330.0,
+    44.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "sk",
+   "token": "sk",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.13352556,
+   "centre_px": [
+    2662.0,
+    2699.0
+   ],
+   "box_px": [
+    2641.0,
+    2689.0,
+    42.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "yt",
+   "token": "yt",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.12974072,
+   "centre_px": [
+    2389.5,
+    3231.5
+   ],
+   "box_px": [
+    2373.0,
+    3214.0,
+    33.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "mE",
+   "token": "mE",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.12915392,
+   "centre_px": [
+    3840.0,
+    466.5
+   ],
+   "box_px": [
+    3813.0,
+    452.0,
+    54.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "I1",
+   "token": "I1",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.125739765,
+   "centre_px": [
+    5194.5,
+    3201.5
+   ],
+   "box_px": [
+    5170.0,
+    3192.0,
+    49.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Milt",
+   "token": "Milt",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.12183619,
+   "centre_px": [
+    3805.0,
+    2792.5
+   ],
+   "box_px": [
+    3772.0,
+    2780.0,
+    66.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.11967850000000001,
+   "centre_px": [
+    2235.5,
+    2823.0
+   ],
+   "box_px": [
+    2210.0,
+    2810.0,
+    51.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ee",
+   "token": "ee",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.11850624,
+   "centre_px": [
+    3364.5,
+    937.5
+   ],
+   "box_px": [
+    3328.0,
+    925.0,
+    73.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ped",
+   "token": "ped",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.11197186,
+   "centre_px": [
+    4220.5,
+    662.0
+   ],
+   "box_px": [
+    4182.0,
+    648.0,
+    77.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "vas",
+   "token": "vas",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.10448027,
+   "centre_px": [
+    3913.0,
+    3144.5
+   ],
+   "box_px": [
+    3853.0,
+    3132.0,
+    120.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "yRR",
+   "token": "yRR",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.10436382500000001,
+   "centre_px": [
+    3314.5,
+    3002.0
+   ],
+   "box_px": [
+    3278.0,
+    2990.0,
+    73.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "me",
+   "token": "me",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.10260706000000001,
+   "centre_px": [
+    4702.0,
+    529.0
+   ],
+   "box_px": [
+    4692.0,
+    520.0,
+    20.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.09932299,
+   "centre_px": [
+    3769.5,
+    700.0
+   ],
+   "box_px": [
+    3730.0,
+    687.0,
+    79.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "rOnd",
+   "token": "rOnd",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.09762544999999999,
+   "centre_px": [
+    3682.0,
+    912.5
+   ],
+   "box_px": [
+    3659.0,
+    902.0,
+    46.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "cm",
+   "token": "cm",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.09613780999999999,
+   "centre_px": [
+    4228.5,
+    939.5
+   ],
+   "box_px": [
+    4185.0,
+    926.0,
+    87.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ie",
+   "token": "ie",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.09552355,
+   "centre_px": [
+    2837.5,
+    2931.0
+   ],
+   "box_px": [
+    2774.0,
+    2918.0,
+    127.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "st",
+   "token": "st",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.08630381,
+   "centre_px": [
+    1608.5,
+    1743.5
+   ],
+   "box_px": [
+    1595.0,
+    1691.0,
+    27.0,
+    105.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Fi",
+   "token": "Fi",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.08173809,
+   "centre_px": [
+    3270.5,
+    2884.5
+   ],
+   "box_px": [
+    3246.0,
+    2873.0,
+    49.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.07434864000000001,
+   "centre_px": [
+    3491.5,
+    731.0
+   ],
+   "box_px": [
+    3443.0,
+    717.0,
+    97.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ijt",
+   "token": "ijt",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.04598446,
+   "centre_px": [
+    1680.5,
+    890.0
+   ],
+   "box_px": [
+    1643.0,
+    876.0,
+    75.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "we",
+   "token": "we",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.03562183,
+   "centre_px": [
+    4124.0,
+    3028.5
+   ],
+   "box_px": [
+    4115.0,
+    3019.0,
+    18.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.005081179999999999,
+   "centre_px": [
+    5194.5,
+    1761.5
+   ],
+   "box_px": [
+    5183.0,
+    1734.0,
+    23.0,
+    55.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "dnt",
+   "token": "dnt",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.00091867,
+   "centre_px": [
+    2454.0,
+    521.5
+   ],
+   "box_px": [
+    2446.0,
+    516.0,
+    16.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1636.5,
+    249.5
+   ],
+   "box_px": [
+    1606.0,
+    236.0,
+    61.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1636.5,
+    269.0
+   ],
+   "box_px": [
+    1606.0,
+    256.0,
+    61.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1608.5,
+    288.0
+   ],
+   "box_px": [
+    1579.0,
+    274.0,
+    59.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1606.5,
+    304.0
+   ],
+   "box_px": [
+    1580.0,
+    292.0,
+    53.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Figashgtuma",
+   "token": "Figashgtuma",
+   "code": null,
+   "edit_dist": 10,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2466.5,
+    498.5
+   ],
+   "box_px": [
+    2368.0,
+    484.0,
+    197.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "K",
+   "token": "K",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2153.5,
+    582.0
+   ],
+   "box_px": [
+    2133.0,
+    573.0,
+    41.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1609.0,
+    1019.5
+   ],
+   "box_px": [
+    1593.0,
+    1003.0,
+    32.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "eA",
+   "token": "eA",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2219.5,
+    1038.5
+   ],
+   "box_px": [
+    2195.0,
+    1026.0,
+    49.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "L",
+   "token": "L",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    1773.5,
+    1107.0
+   ],
+   "box_px": [
+    1750.0,
+    1096.0,
+    47.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "C",
+   "token": "C",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3392.0,
+    261.5
+   ],
+   "box_px": [
+    3329.0,
+    248.0,
+    126.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "gtuma",
+   "token": "gtuma",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2503.0,
+    499.0
+   ],
+   "box_px": [
+    2445.0,
+    486.0,
+    116.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Hi",
+   "token": "Hi",
+   "code": "Hi",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3254.0,
+    511.5
+   ],
+   "box_px": [
+    3208.0,
+    496.0,
+    92.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "uggyan",
+   "token": "uggyan",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3254.5,
+    540.0
+   ],
+   "box_px": [
+    3187.0,
+    523.0,
+    135.0,
+    34.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3438.5,
+    526.0
+   ],
+   "box_px": [
+    3420.0,
+    514.0,
+    37.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "O",
+   "token": "O",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3441.5,
+    543.5
+   ],
+   "box_px": [
+    3427.0,
+    534.0,
+    29.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "RHi",
+   "token": "RHi",
+   "code": "Hi",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3322.5,
+    778.0
+   ],
+   "box_px": [
+    3266.0,
+    763.0,
+    113.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "of",
+   "token": "of",
+   "code": "Hf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2892.0,
+    1022.0
+   ],
+   "box_px": [
+    2853.0,
+    1001.0,
+    78.0,
+    42.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "u",
+   "token": "u",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3181.5,
+    1067.0
+   ],
+   "box_px": [
+    3162.0,
+    1058.0,
+    39.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Yirdebeat",
+   "token": "Yirdebeat",
+   "code": null,
+   "edit_dist": 8,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4057.5,
+    425.5
+   ],
+   "box_px": [
+    4013.0,
+    415.0,
+    89.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    3984.0,
+    449.0
+   ],
+   "box_px": [
+    3959.0,
+    438.0,
+    50.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "e",
+   "token": "e",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3460.5,
+    527.0
+   ],
+   "box_px": [
+    3397.0,
+    512.0,
+    127.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "WARy",
+   "token": "WARy",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4222.5,
+    634.5
+   ],
+   "box_px": [
+    4178.0,
+    621.0,
+    89.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    3866.5,
+    652.5
+   ],
+   "box_px": [
+    3853.0,
+    645.0,
+    27.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "il",
+   "token": "il",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3345.0,
+    777.5
+   ],
+   "box_px": [
+    3310.0,
+    763.0,
+    70.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "f",
+   "token": "f",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3822.0,
+    811.0
+   ],
+   "box_px": [
+    3766.0,
+    793.0,
+    112.0,
+    36.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "MEH",
+   "token": "MEH",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4262.0,
+    853.5
+   ],
+   "box_px": [
+    4230.0,
+    843.0,
+    64.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ieeOhd",
+   "token": "ieeOhd",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3550.0,
+    940.5
+   ],
+   "box_px": [
+    3496.0,
+    929.0,
+    108.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4242.0,
+    969.0
+   ],
+   "box_px": [
+    4209.0,
+    957.0,
+    66.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ob",
+   "token": "Ob",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4029.5,
+    1110.0
+   ],
+   "box_px": [
+    4011.0,
+    1099.0,
+    37.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "oo",
+   "token": "oo",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5164.0,
+    251.5
+   ],
+   "box_px": [
+    5135.0,
+    238.0,
+    58.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5165.0,
+    270.5
+   ],
+   "box_px": [
+    5137.0,
+    258.0,
+    56.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5180.0,
+    288.0
+   ],
+   "box_px": [
+    5167.0,
+    278.0,
+    26.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5181.0,
+    304.5
+   ],
+   "box_px": [
+    5169.0,
+    294.0,
+    24.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4835.5,
+    402.5
+   ],
+   "box_px": [
+    4724.0,
+    380.0,
+    223.0,
+    45.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "te",
+   "token": "te",
+   "code": "t",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4579.0,
+    439.5
+   ],
+   "box_px": [
+    4539.0,
+    426.0,
+    80.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "WA",
+   "token": "WA",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4838.5,
+    442.0
+   ],
+   "box_px": [
+    4745.0,
+    426.0,
+    187.0,
+    32.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ifelTpiPrejal",
+   "token": "ifelTpiPrejal",
+   "code": null,
+   "edit_dist": 12,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4391.0,
+    517.0
+   ],
+   "box_px": [
+    4330.0,
+    505.0,
+    122.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "WHH",
+   "token": "WHH",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4222.0,
+    634.0
+   ],
+   "box_px": [
+    4178.0,
+    619.0,
+    88.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4402.5,
+    705.0
+   ],
+   "box_px": [
+    4367.0,
+    693.0,
+    71.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "tiH",
+   "token": "tiH",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5029.5,
+    740.5
+   ],
+   "box_px": [
+    4994.0,
+    730.0,
+    71.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "BEu",
+   "token": "BEu",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4347.0,
+    1036.5
+   ],
+   "box_px": [
+    4308.0,
+    1021.0,
+    78.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ey",
+   "token": "Ey",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5122.5,
+    1172.5
+   ],
+   "box_px": [
+    5081.0,
+    1159.0,
+    83.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5192.0,
+    287.0
+   ],
+   "box_px": [
+    5166.0,
+    278.0,
+    52.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "y",
+   "token": "y",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5115.0,
+    1171.0
+   ],
+   "box_px": [
+    5083.0,
+    1159.0,
+    64.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "KH",
+   "token": "KH",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3283.5,
+    1355.0
+   ],
+   "box_px": [
+    3246.0,
+    1341.0,
+    75.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3372.0,
+    1821.5
+   ],
+   "box_px": [
+    3324.0,
+    1803.0,
+    96.0,
+    37.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "fil",
+   "token": "fil",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3384.5,
+    2038.0
+   ],
+   "box_px": [
+    3364.0,
+    2031.0,
+    41.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    3890.0,
+    1808.0
+   ],
+   "box_px": [
+    3884.0,
+    1801.0,
+    12.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    3926.5,
+    2104.0
+   ],
+   "box_px": [
+    3889.0,
+    2089.0,
+    75.0,
+    30.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "FH",
+   "token": "FH",
+   "code": "Fl",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5122.5,
+    1171.5
+   ],
+   "box_px": [
+    5096.0,
+    1162.0,
+    53.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "aBH",
+   "token": "aBH",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4646.0,
+    1325.5
+   ],
+   "box_px": [
+    4585.0,
+    1309.0,
+    122.0,
+    33.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Sht",
+   "token": "Sht",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4673.5,
+    1359.5
+   ],
+   "box_px": [
+    4637.0,
+    1347.0,
+    73.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "es",
+   "token": "es",
+   "code": "Is",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4389.0,
+    1510.0
+   ],
+   "box_px": [
+    4341.0,
+    1496.0,
+    96.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4335.0,
+    1657.0
+   ],
+   "box_px": [
+    4322.0,
+    1643.0,
+    26.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "FEB",
+   "token": "FEB",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4501.5,
+    1707.0
+   ],
+   "box_px": [
+    4456.0,
+    1693.0,
+    91.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "TEBeBioegy",
+   "token": "TEBeBioegy",
+   "code": null,
+   "edit_dist": 9,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2057.0,
+    2183.5
+   ],
+   "box_px": [
+    1991.0,
+    2163.0,
+    132.0,
+    41.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Ig",
+   "token": "Ig",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    1800.0,
+    2327.5
+   ],
+   "box_px": [
+    1786.0,
+    2318.0,
+    28.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "PFGAT",
+   "token": "PFGAT",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    1953.0,
+    2336.5
+   ],
+   "box_px": [
+    1892.0,
+    2321.0,
+    122.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1607.0,
+    2477.0
+   ],
+   "box_px": [
+    1589.0,
+    2334.0,
+    36.0,
+    286.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "BKPlEeB",
+   "token": "BKPlEeB",
+   "code": null,
+   "edit_dist": 6,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2368.5,
+    2444.5
+   ],
+   "box_px": [
+    2294.0,
+    2426.0,
+    149.0,
+    37.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Pill",
+   "token": "Pill",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    1699.5,
+    2642.0
+   ],
+   "box_px": [
+    1649.0,
+    2628.0,
+    101.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "FitA",
+   "token": "FitA",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3187.5,
+    2181.0
+   ],
+   "box_px": [
+    3163.0,
+    2170.0,
+    49.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "f",
+   "token": "f",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3384.0,
+    2231.5
+   ],
+   "box_px": [
+    3374.0,
+    2226.0,
+    20.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Spt",
+   "token": "Spt",
+   "code": "Spf",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3303.5,
+    2296.0
+   ],
+   "box_px": [
+    3289.0,
+    2287.0,
+    29.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "es",
+   "token": "es",
+   "code": "Is",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3061.0,
+    2623.0
+   ],
+   "box_px": [
+    3037.0,
+    2612.0,
+    48.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    2651.5,
+    2815.5
+   ],
+   "box_px": [
+    2638.0,
+    2802.0,
+    27.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "fl",
+   "token": "fl",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3387.5,
+    2885.0
+   ],
+   "box_px": [
+    3352.0,
+    2875.0,
+    71.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "e",
+   "token": "e",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3749.0,
+    2284.5
+   ],
+   "box_px": [
+    3714.0,
+    2271.0,
+    70.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    3570.0,
+    2667.5
+   ],
+   "box_px": [
+    3548.0,
+    2657.0,
+    44.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Als",
+   "token": "Als",
+   "code": "Als",
+   "edit_dist": 0,
+   "status": "LEXICON_EXACT",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3660.5,
+    2686.5
+   ],
+   "box_px": [
+    3651.0,
+    2681.0,
+    19.0,
+    11.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "fk",
+   "token": "fk",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3672.5,
+    2916.0
+   ],
+   "box_px": [
+    3623.0,
+    2904.0,
+    99.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "fall",
+   "token": "fall",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3628.5,
+    2940.5
+   ],
+   "box_px": [
+    3600.0,
+    2930.0,
+    57.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "f",
+   "token": "f",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4013.0,
+    2929.0
+   ],
+   "box_px": [
+    4005.0,
+    2923.0,
+    16.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4565.5,
+    2177.0
+   ],
+   "box_px": [
+    4555.0,
+    2171.0,
+    21.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ral",
+   "token": "ral",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4827.0,
+    2776.5
+   ],
+   "box_px": [
+    4800.0,
+    2766.0,
+    54.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4212.0,
+    2813.5
+   ],
+   "box_px": [
+    4184.0,
+    2796.0,
+    56.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ikT",
+   "token": "ikT",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4658.0,
+    2840.0
+   ],
+   "box_px": [
+    4618.0,
+    2827.0,
+    80.0,
+    26.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5110.0,
+    2424.5
+   ],
+   "box_px": [
+    5093.0,
+    2371.0,
+    34.0,
+    107.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Y",
+   "token": "Y",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5194.0,
+    2413.0
+   ],
+   "box_px": [
+    5181.0,
+    2401.0,
+    26.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5195.0,
+    2453.5
+   ],
+   "box_px": [
+    5181.0,
+    2430.0,
+    28.0,
+    47.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5194.5,
+    2599.5
+   ],
+   "box_px": [
+    5180.0,
+    2582.0,
+    29.0,
+    35.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    2220.5,
+    3113.5
+   ],
+   "box_px": [
+    2208.0,
+    3104.0,
+    25.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "i",
+   "token": "i",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2484.5,
+    3137.5
+   ],
+   "box_px": [
+    2463.0,
+    3130.0,
+    43.0,
+    15.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1605.0,
+    3184.0
+   ],
+   "box_px": [
+    1580.0,
+    3172.0,
+    50.0,
+    24.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1630.5,
+    3226.5
+   ],
+   "box_px": [
+    1603.0,
+    3216.0,
+    55.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    1630.0,
+    3244.0
+   ],
+   "box_px": [
+    1601.0,
+    3233.0,
+    58.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    3103.0,
+    2883.5
+   ],
+   "box_px": [
+    3078.0,
+    2871.0,
+    50.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "pein",
+   "token": "pein",
+   "code": null,
+   "edit_dist": 3,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3176.5,
+    2873.0
+   ],
+   "box_px": [
+    3149.0,
+    2862.0,
+    55.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    2653.0,
+    2948.0
+   ],
+   "box_px": [
+    2630.0,
+    2939.0,
+    46.0,
+    18.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    2758.5,
+    3078.5
+   ],
+   "box_px": [
+    2753.0,
+    3074.0,
+    11.0,
+    9.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ER",
+   "token": "ER",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2637.5,
+    3183.5
+   ],
+   "box_px": [
+    2601.0,
+    3173.0,
+    73.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "ta",
+   "token": "ta",
+   "code": "t",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    2640.5,
+    3230.5
+   ],
+   "box_px": [
+    2626.0,
+    3215.0,
+    29.0,
+    31.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "RRWS",
+   "token": "RRWS",
+   "code": null,
+   "edit_dist": 4,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3391.5,
+    3230.5
+   ],
+   "box_px": [
+    3331.0,
+    3219.0,
+    121.0,
+    23.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "s",
+   "token": "s",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3872.5,
+    2844.0
+   ],
+   "box_px": [
+    3865.0,
+    2838.0,
+    15.0,
+    12.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4053.5,
+    2854.5
+   ],
+   "box_px": [
+    4012.0,
+    2841.0,
+    83.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "pH",
+   "token": "pH",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3386.5,
+    2885.0
+   ],
+   "box_px": [
+    3350.0,
+    2874.0,
+    73.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "KR",
+   "token": "KR",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3673.5,
+    2916.0
+   ],
+   "box_px": [
+    3624.0,
+    2905.0,
+    99.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "L",
+   "token": "L",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3960.5,
+    2890.0
+   ],
+   "box_px": [
+    3944.0,
+    2880.0,
+    33.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Fel",
+   "token": "Fel",
+   "code": "Fl",
+   "edit_dist": 1,
+   "status": "LEXICON_EDIT1",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3621.5,
+    2939.5
+   ],
+   "box_px": [
+    3584.0,
+    2927.0,
+    75.0,
+    25.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "fr",
+   "token": "fr",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4310.0,
+    3111.5
+   ],
+   "box_px": [
+    4299.0,
+    3101.0,
+    22.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "s",
+   "token": "s",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    3791.5,
+    3169.0
+   ],
+   "box_px": [
+    3786.0,
+    3164.0,
+    11.0,
+    10.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4661.0,
+    2839.5
+   ],
+   "box_px": [
+    4625.0,
+    2825.0,
+    72.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "KaasuG",
+   "token": "KaasuG",
+   "code": null,
+   "edit_dist": 5,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4389.5,
+    2857.5
+   ],
+   "box_px": [
+    4325.0,
+    2843.0,
+    129.0,
+    29.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "a",
+   "token": "a",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4799.0,
+    2869.5
+   ],
+   "box_px": [
+    4766.0,
+    2856.0,
+    66.0,
+    27.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "TB",
+   "token": "TB",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    4433.5,
+    2886.0
+   ],
+   "box_px": [
+    4360.0,
+    2872.0,
+    147.0,
+    28.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    4562.5,
+    2927.0
+   ],
+   "box_px": [
+    4552.0,
+    2920.0,
+    21.0,
+    14.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5182.0,
+    3182.5
+   ],
+   "box_px": [
+    5171.0,
+    3173.0,
+    22.0,
+    19.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5181.5,
+    3201.0
+   ],
+   "box_px": [
+    5170.0,
+    3191.0,
+    23.0,
+    20.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "Bsg",
+   "token": "Bsg",
+   "code": null,
+   "edit_dist": 2,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5167.0,
+    3222.0
+   ],
+   "box_px": [
+    5141.0,
+    3211.0,
+    52.0,
+    22.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "o",
+   "token": "o",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5167.0,
+    3238.5
+   ],
+   "box_px": [
+    5141.0,
+    3228.0,
+    52.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": null,
+   "token": null,
+   "code": null,
+   "edit_dist": null,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": null,
+   "centre_px": [
+    5194.5,
+    3182.5
+   ],
+   "box_px": [
+    5171.0,
+    3172.0,
+    47.0,
+    21.0
+   ]
+  },
+  {
+   "reader": "tess",
+   "raw": "sg",
+   "token": "sg",
+   "code": null,
+   "edit_dist": 1,
+   "status": "NOT_A_CODE",
+   "score_uncalibrated": 0.0,
+   "centre_px": [
+    5169.0,
+    3222.0
+   ],
+   "box_px": [
+    5142.0,
+    3213.0,
+    54.0,
+    18.0
+   ]
+  }
+ ]
+}
