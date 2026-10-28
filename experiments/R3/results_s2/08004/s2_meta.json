@@ -1,0 +1,26 @@
+{
+ "params": {
+  "MIN_LEN": 15,
+  "LONG_LEN": 60,
+  "MIN_PIECE": 150,
+  "MARGIN_DE": 6.0
+ },
+ "l0": {
+  "otsu_blackhat_thr": 22.0,
+  "n_components": 2589,
+  "n_long": 488
+ },
+ "l0_px": 196306,
+ "l0_long_px": 140811,
+ "A1_regions_before_fill": 5118,
+ "B1": {
+  "regions_split": 278,
+  "pieces_relabelled": 53
+ },
+ "review_px": {
+  "LINE_INSIDE_REGION": 85915,
+  "BOUNDARY_NO_INK": 48510
+ },
+ "line_type": "UNKNOWN_LINE",
+ "scores": "UNCALIBRATED"
+}

@@ -1,0 +1,20 @@
+{
+ "n_anchors": 41,
+ "anchors_in_correct_unit": 25,
+ "region_sets": {
+  "R1": {
+   "n_regions": 897,
+   "regions_with_anchor": 39,
+   "anchored_area_frac": 0.24066989670174507,
+   "multi_code_regions": 1,
+   "multi_code_true_merge": 1
+  },
+  "B1": {
+   "n_regions": 1073,
+   "regions_with_anchor": 39,
+   "anchored_area_frac": 0.25321635106041734,
+   "multi_code_regions": 1,
+   "multi_code_true_merge": 1
+  }
+ }
+}
