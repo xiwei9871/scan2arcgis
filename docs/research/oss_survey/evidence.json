@@ -1,0 +1,133 @@
+{
+  "survey_date": "2026-10-28",
+  "method": "git clone --depth 1 into /tmp; SHA from .git/shallow; source read only, nothing installed or run",
+  "projects": [
+    {
+      "name": "MapReader",
+      "url": "https://github.com/maps-as-data/MapReader",
+      "studied_commit_sha": "13534ca04767e332b530437809b1ecdc40ad347f",
+      "licence_spdx": "MIT",
+      "licence_file_path": "LICENSE",
+      "key_files": [
+        "mapreader/load/images.py:1205 MapImages.patchify_all",
+        "mapreader/load/images.py:1325 _patchify_by_pixel",
+        "mapreader/load/images.py:2591 save_patches_to_geojson",
+        "mapreader/spot_text/runner_base.py:24 DetRunner",
+        "mapreader/spot_text/runner_base.py:262 _deduplicate",
+        "mapreader/spot_text/runner_base.py:296 convert_to_parent_pixel_bounds",
+        "mapreader/spot_text/runner_base.py:434 convert_to_coords",
+        "mapreader/spot_text/maptext_runner.py:26 MapTextRunner",
+        "mapreader/spot_text/deepsolo_runner.py:26 DeepSoloRunner",
+        "mapreader/spot_text/dptext_detr_runner.py:28 DPTextDETRRunner",
+        "mapreader/classify/classifier.py:29 ClassifierContainer",
+        "mapreader/process/context_post_process.py:15 ContextPostProcessor",
+        "mapreader/annotate/annotator.py",
+        "setup.py:29-67",
+        "text-requirements.txt"
+      ],
+      "python_requires": ">=3.9",
+      "heavy_deps": ["torch>=1.10,<=2.12", "torchvision", "opencv-python>=4.8.1.78 (conflicts with opencv-contrib-python cv2 module)", "jupyter/ipywidgets/ipyannotate", "tensorboard", "cartopy", "azure-storage-blob", "detectron2 (git, for text spotting)", "DeepSolo/DPText-DETR/MapTextPipeline (git forks)"],
+      "verified_claims": [
+        "Patch tiling by pixel or metre with overlap and parent-coordinate bookkeeping",
+        "Patch-level classification via torchvision models; requires manual annotation",
+        "Text spotting wraps MapTextPipeline/DeepSolo (detect+recognise) and DPText-DETR (detect only), with patch-to-parent merge and IoA dedup",
+        "No line vectorization, skeletonization, polygon topology or legend/stratigraphic association",
+        "numpy>=1.21.5,<3 compatible with 1.24.3; usable as a Python library"
+      ],
+      "unverified_claims": [
+        "MapTextPipeline rumsey-finetune weights work best for map text (docs 6-spot-text.rst:10)",
+        "Licences of the downloaded model weights (not declared in this repo)",
+        "OCR quality on GSJ unit codes with subscripts"
+      ]
+    },
+    {
+      "name": "Geology from points and lines (G4PL)",
+      "url": "https://github.com/pinogcosentino/Geology-from-points-and-lines",
+      "studied_commit_sha": "3d33d8b2a6d55f3a71fe33307c77d30af6c377d6",
+      "licence_spdx": "GPL-3.0-only",
+      "licence_file_path": "LICENSE",
+      "key_files": [
+        "G4PL_algorithm.py:555 processAlgorithm",
+        "G4PL_algorithm.py:958 _polygonize_lines (native:polygonize)",
+        "G4PL_algorithm.py:1021 _join_attributes_to_polygons (native:joinattributesbylocation)",
+        "G4PL_algorithm.py:1065-1225 polygons->lines, dedup, explode, dissolve, singleparts",
+        "G4PL_algorithm.py:1261 _validate_attribute_join",
+        "metadata.txt"
+      ],
+      "python_requires": "QGIS >=3.16 bundled Python (PyQGIS); not standalone",
+      "heavy_deps": ["QGIS/PyQGIS", "QGIS processing framework"],
+      "verified_claims": [
+        "Input is manually digitised contact lines plus manually placed attribute points",
+        "Pipeline: polygonize lines, spatial-join point attributes (DISCARD_NONMATCHING, one-to-many), rebuild contacts from polygon edges and dissolve by attribute",
+        "No raster processing, OCR or line detection",
+        "LICENSE is GPL v3 text (no 'or later' clause checked in headers)"
+      ],
+      "unverified_claims": [
+        "'ensures strict topology' (metadata about) - holds only if input lines are closed/snapped"
+      ]
+    },
+    {
+      "name": "AutoTracer",
+      "url": "https://github.com/Pradipkraze/autotracer",
+      "studied_commit_sha": "7c13596d08ed21c21ae670d50ca0dfbb6620decb",
+      "licence_spdx": "NOASSERTION",
+      "licence_file_path": null,
+      "key_files": [
+        "processing.py:21 binarize",
+        "processing.py:70 smooth",
+        "processing.py:100 skeletonize_image",
+        "processing.py:125 vectorize (graph tracer: nodes deg!=2, edges walked once, approxPolyDP)",
+        "processing.py:235 run_pipeline",
+        "dialog.py:427-476 GDAL read and QGIS memory layer output",
+        "metadata.txt"
+      ],
+      "python_requires": "QGIS >=3.16 bundled Python; processing.py itself needs only numpy, cv2, skimage",
+      "heavy_deps": ["QGIS/PyQGIS (UI only)", "scikit-image", "opencv-python"],
+      "verified_claims": [
+        "No LICENSE file in repo or in AutoTracer.zip; no licence in metadata or README",
+        "Grayscale global/adaptive threshold only; no colour or line-type separation",
+        "Graph-based skeleton tracing with shared junction nodes",
+        "No polygon topology, OCR, or attribute association"
+      ],
+      "unverified_claims": [
+        "'clean line vector layers' on scanned maps (README screenshots only)"
+      ]
+    },
+    {
+      "name": "Raster Vectorizer",
+      "url": "https://github.com/terEtiy/qgis-raster-vectorizer",
+      "studied_commit_sha": "74321c31fe649df82de6090c6f9dc6379402c7d6",
+      "licence_spdx": "GPL-2.0-or-later",
+      "licence_file_path": "raster_vectorizer/LICENSE",
+      "key_files": ["raster_vectorizer/classifier.py:26 ColorClass", "raster_vectorizer/classifier.py:186 RasterClassifier", "raster_vectorizer/vectorizer.py:117 gdal.Polygonize"],
+      "python_requires": "QGIS >=3.16 bundled Python",
+      "heavy_deps": ["QGIS/PyQGIS", "GDAL"],
+      "verified_claims": ["Interactive HSV colour-range classification then gdal.Polygonize; aimed at topographic maps"],
+      "unverified_claims": ["'or later' wording is from README:182; LICENSE file is plain GPL v2 text"]
+    },
+    {
+      "name": "Allmaps",
+      "url": "https://github.com/allmaps/allmaps",
+      "studied_commit_sha": "fd64fa55216dcaa3eada0a47184ba6fdf921a761",
+      "licence_spdx": "MIT AND AGPL-3.0-only AND GPL-3.0-or-later (per package)",
+      "licence_file_path": "packages/*/package.json, apps/*/package.json, apis/*/package.json (no root LICENSE)",
+      "key_files": ["packages/transform", "packages/render", "packages/maplibre", "packages/annotation", "apps/tiles", "apps/editor"],
+      "python_requires": "n/a (TypeScript)",
+      "heavy_deps": ["Node/pnpm", "WebGL"],
+      "verified_claims": ["25 library packages MIT; apps/editor|viewer|tiles|here|latest|explore, apis/*, packages/api-shared|db are AGPL-3.0-only or GPL-3.0-or-later", "IIIF georeferencing/viewing; no vectorization"],
+      "unverified_claims": []
+    },
+    {
+      "name": "Map Warper",
+      "url": "https://github.com/timwaters/mapwarper",
+      "studied_commit_sha": "1d56d8ea681a30bbde89033b4abab7a0ebf462ad",
+      "licence_spdx": "MIT",
+      "licence_file_path": "LICENSE",
+      "key_files": ["app/models/map.rb:691 gdal_translate GCP VRT", "app/models/map.rb:709 gdalwarp", "config/routes.rb:86-91 WMS/tile routes"],
+      "python_requires": "n/a (Ruby on Rails)",
+      "heavy_deps": ["Ruby/Rails", "GDAL CLI", "PostGIS"],
+      "verified_claims": ["Manual GCP georeferencing, GDAL warping, WMS/XYZ tile serving; no vectorization"],
+      "unverified_claims": ["PostGIS dependency (README, not checked in config)"]
+    }
+  ]
+}
