@@ -1,0 +1,90 @@
+{
+ "title": "R4-B0 pre-registration: rules, thresholds, windows and scale method fixed BEFORE any Gate 1-4 run",
+ "baseline": "R4-A2.2 sealed in Gate 0 (commit 4fa1a473d95362e7e7039bb88c407dc6c0b220a4), status DEVELOPMENT_VALIDATION",
+ "inputs": "existing local predictions runs/r4a2/r4a22/{15023,15041}/{M1,M2} (hashes in experiments/R4B0/gate0/baseline_manifest_r4a2_2.json); no retraining, no new weights",
+ "change_policy": "After this commit only crash / implementation-bug fixes are allowed, each documented in the gate report with the reason; no threshold, rule, window or method may change. Every gate runs once.",
+ "oracle_policy": "Methods prefixed O_ read official labels (dist.npy or instance seeds) and are diagnostics only. They are never reported as model accuracy and never used as inference input for a claimed improvement.",
+ "matching_rule": "A small instance is recovered iff some predicted region has IoU >= 0.5 with it (class-agnostic). Because instances are disjoint, a region can have IoU > 0.5 with at most one instance; the per-region credited count is computed and reported (regions_credited_to_more_than_one_instance must be 0). Best-overlap region = largest intersection.",
+ "gate1": {
+  "methods_attributed": ["M2_hybrid", "M2_oldseed", "M1"],
+  "primary_method": "M2_hybrid",
+  "width_primary": "width_own_px = 2 * (max DIST_L2-mask-5 distance inside the padded instance mask - 0.5): inscribed edge-to-edge diameter of the instance's own mask",
+  "width_secondary": "width_old_px = 2 * max(official dist to UNIT_BOUNDARY inside the instance) + 1 (R4-A2.2 definition, kept alongside, old report not overwritten)",
+  "width_bins_px": [[3, 6], [6, 10], [10, 20]],
+  "other_bins_reported": "lt3 and ge20 rows kept in the CSV, not part of the three-bin analysis",
+  "prob_threshold": 0.5,
+  "boundary_tol_px": 2,
+  "boundary_cov_min": 0.8,
+  "boundary_definition": "instance boundary = official UNIT_BOUNDARY pixels inside the instance; prob_boundary_cov = share of them within 2 px of (prob > 0.5); region_boundary_cov = share within 2 px of the final region boundary",
+  "two_sided_rule": "two sides are identifiable only if elongation = skeleton length / width_own >= 4, width_own < 20 px, and the two most frequent neighbouring instances across the instance boundary each hold >= 25% of its boundary pixels; then side1_cov / side2_cov are reported and both_sides_detected = min >= 0.8. Irregular units report only the overall coverage.",
+  "elongated_min": 4, "side_share_min": 0.25,
+  "dist_err_px": 2.0,
+  "dist_label_by_source": {"M2_PRED_DIST": "DIST_ERROR_M2_PRED", "M1_DERIVED_DISTANCE": "DIST_ERROR_M1_DERIVED", "M2_PROB_DERIVED_DISTANCE": "DIST_ERROR_M2_PROB_DERIVED"},
+  "dist_rule": "|max predicted distance inside the instance - max official distance inside the instance| > 2 px",
+  "own_marker_share_min": 0.8,
+  "region_cov_min": 0.5,
+  "overgrow_factor": 2,
+  "labels": {
+   "BOUNDARY_MISS": "prob_boundary_cov < 0.8",
+   "DIST_ERROR_*": "dist_rule (only methods with a distance field)",
+   "SEED_MISSING": "no marker pixel inside the instance",
+   "SEED_FUSED": "marker pixels inside the instance but no marker with >= 80% of its pixels in this instance (seed shared with a neighbour)",
+   "WATERSHED_ABSORBED": "at least one own marker, but the regions grown from own markers cover < 50% of the instance",
+   "OVER_SEG": ">= 2 own markers, own regions cover >= 50%, but no single region covers >= 50%",
+   "REGION_OVERGROWN": "own regions cover >= 50% but the best region is > 2x the instance area and IoU < 0.5",
+   "EVAL_LIMIT": "not recovered, and the best region matches the instance core (instance minus its UNIT_BOUNDARY pixels) with IoU >= 0.5 and >= 90% of the region lies within the instance dilated by 2 px (pixel evidence, not width alone)",
+   "NO_BOUNDARY_TRUTH": "instance has no UNIT_BOUNDARY pixel inside the valid area"
+  },
+  "all_labels_recorded": true,
+  "primary_failure_order": ["BOUNDARY_MISS", "DIST_ERROR", "SEED_MISSING", "SEED_FUSED", "WATERSHED_ABSORBED", "OVER_SEG", "REGION_OVERGROWN"],
+  "primary_rule": "SUCCESS if recovered; EVAL_LIMIT if flagged; otherwise the earliest label in primary_failure_order; UNEXPLAINED if none",
+  "eval_limit_dilate_px": 2, "eval_limit_core_iou_min": 0.5, "eval_limit_within_min": 0.9,
+  "evidence_check": "a separate script recomputes every label from the CSV evidence columns and must agree 100%",
+  "cases": {"n": 12, "rule": "M2_hybrid failures, primary width bins 3-6 / 6-10 / 10-20 px, both sheets pooled; per bin the two most frequent primary_failure_stage values; per (bin, stage) 2 instances drawn with numpy default_rng(20261029) from the sorted (sheet, instance) list; if a group has < 2, the next stage fills", "visuals": "local only runs/r4b0/gate1/cases/"}
+ },
+ "gate2": {
+  "methods": ["M1", "M1_DD_oldseed", "M1_DD_hybrid", "M2_oldseed", "M2_hybrid", "M2_PD_hybrid"],
+  "derived_distance": {"name": "M1_DERIVED_DISTANCE", "prob_threshold": 0.5, "clip_px": 32, "metric": "cv2 DIST_L2 mask 3 to the binary map (prob > 0.5)", "note": "no other threshold is compared"},
+  "control": "M2_PD_hybrid applies the same derived distance to M2's boundary probability, so M2_hybrid vs M2_PD_hybrid isolates the distance head within the same network",
+  "postprocess_interface": "old_markers / hybrid_markers / segment from experiments/R4A/r4a2_1_seeds.py, unchanged",
+  "evaluation": "experiments/R4A/r4a2_2_eval.py instance_metrics and boundary_metrics unchanged, same valid area; widths both definitions; runtime (post-processing seconds); topology: regions, regions < 50 px, over-segmentation",
+  "decision": {
+   "m2_head_has_independent_value": "M2_hybrid small recall - max(M1_DD_hybrid, M2_PD_hybrid) >= 0.02 on BOTH sheets",
+   "m1_matches_or_exceeds": "max(M1, M1_DD_hybrid) >= M2_hybrid - 0.01 on BOTH sheets -> prefer the simpler M1",
+   "otherwise": "inconclusive; report both",
+   "topology_guard": "a method counts only if its small over-segmentation is <= M2_hybrid + 0.03 on both sheets"
+  }
+ },
+ "gate3": {
+  "methods": {"truth_boundary_old_seeds": "O_GTD_old", "truth_boundary_hybrid_seeds": "O_GTD_hybrid", "truth_boundary_ideal_seeds": "O_GTD_ideal",
+              "pred_boundary_ideal_seeds": ["O_M2D_ideal", "O_M1DD_ideal", "O_M1P_ideal"], "pred_boundary_pred_seeds": ["M2_hybrid", "M1_DD_hybrid", "M1"]},
+  "ideal_seed": "one pixel per official instance (all instances) at the argmax of official dist inside it, first in raster order",
+  "split": "for each primary width bin, among small instances NOT recovered by M2_hybrid: postprocess_fixable = recovered by O_M2D_ideal (same predicted field, ideal seeds); boundary_required = not recovered by O_M2D_ideal; of those, recovered by O_GTD_ideal = field-limited, not recovered by O_GTD_ideal = beyond watershed reconstruction / evaluation limit. Same split for M1_DD_hybrid with O_M1DD_ideal.",
+  "label": "ORACLE - diagnostic upper bound, not a model result"
+ },
+ "gate4": {
+  "works": ["gm2_roi", "u1", "u2", "u3"],
+  "input": "runs/real/<work>/work.png map box (work.json map_box_work), exactly the images used in R4-A2.2",
+  "gsj_reference": {"line_width": "10 training sheets geotiff_rgb.png (sheet roles unchanged)", "probability": "15023 / 15041 R4-A2.2 M1 and M2 prob maps"},
+  "line_width_estimator": {
+   "ink": "gray black-hat, ellipse 15 px, > 40",
+   "line_components": "8-connected ink components with skeleton length >= 40 px and skeleton length / mean width >= 8 (removes text glyphs, dots, small symbols and filled patterns)",
+   "width_at_skeleton": "2 * DIST_L2-mask-5 distance at skeleton pixels - 1",
+   "statistic": "median over all accepted skeleton pixels",
+   "reliable_if": "accepted skeleton px >= 2000, and among the 3x3 grid cells with >= 100 accepted skeleton px there are >= 5, with coefficient of variation of cell medians <= 0.25",
+   "estimator_validation": "on 15023 rescaled by 0.5, 0.75 and 1.5 (INTER_AREA / INTER_CUBIC) the recovered factor w(rescaled)/w(original) must be within 15% of the true factor for all three; otherwise every China work is SCALE_UNCERTAIN"
+  },
+  "normalisation": "factor f = w_gsj / w_work; applied once (INTER_AREA if f < 1, INTER_CUBIC if f > 1) iff the estimator is validated, the work is reliable and 0.5 <= f <= 2.0; else SCALE_UNCERTAIN and the original size is kept. No colour transform. Inference with unchanged M1/M2 best.pt and the R4-A2.2 post-processing; outputs resized back with nearest neighbour for overlay.",
+  "descriptive_stats": ["physical scale: source dpi metadata and work scale", "image size", "ink line width (above)", "RGB mean/std per channel, HSV saturation median", "hillshade proxy: std of gray Gaussian blur sigma 8 px", "pattern proxy: std of (gray - Gaussian blur sigma 2) on non-ink pixels", "line density: accepted skeleton px per 1000 px^2", "boundary probability: share p > 0.5 and p > 0.8, quantiles 50/90/99", "predicted boundary composition at p > 0.5: share on ink (black-hat > 40 within 1 px), share on colour edges (Lab gradient magnitude, Sobel on median-blur-5 image, > 20) without ink, share on neither (texture / other)"],
+  "windows": [{"work": "gm2_roi", "x": 647, "y": 163}, {"work": "gm2_roi", "x": 130, "y": 747}, {"work": "gm2_roi", "x": 1163, "y": 1330},
+              {"work": "u1", "x": 1, "y": 466}, {"work": "u1", "x": 259, "y": 466}, {"work": "u1", "x": 259, "y": 0},
+              {"work": "u2", "x": 6, "y": 262}, {"work": "u2", "x": 274, "y": 522}, {"work": "u2", "x": 274, "y": 2},
+              {"work": "u3", "x": 1270, "y": 53}, {"work": "u3", "x": 151, "y": 416}, {"work": "u3", "x": 1270, "y": 416}],
+  "window_rule": "256 x 256 px in work-image coordinates; per work 3 of the 9 cells of a 3x3 grid over the map box drawn with numpy default_rng(20261029), window centred on the cell centre and clipped to the map box. Fixed here before any Gate 4 output.",
+  "window_failure_types": "per window the boundary composition above (ink / colour edge / other) for original and normalised input; local overlays for human review; no precision / recall / F1",
+  "no_accuracy": true
+ },
+ "gate5": {"allowed_recommendations": ["A: post-processing first", "B: supervision target and sampling first", "C: cross-style data first", "mixed with explicit priority"],
+           "evidence_rule": "A if, in the thin bins, most M2_hybrid failures are postprocess_fixable (Gate 3) and BOUNDARY_MISS is not the main primary stage; B if boundary_required dominates or BOUNDARY_MISS dominates; C if GSJ-internal results improved over M0 but China boundary statistics differ strongly from GSJ even after scale normalisation",
+           "no_training": true}
+}
