@@ -183,9 +183,9 @@ def analyze(S, M):
                     sp = ubk & (nb == ids[t]); row[f"side{j + 1}_cov"] = round(float((dB[y0:y1, x0:x1][sp] <= tol).mean()), 4)
                 row["both_sides_detected"] = bool(min(row["side1_cov"], row["side2_cov"]) >= G1["boundary_cov_min"])
         # distance
-        row["official_max_dist_px"] = round(float(S["off_maxdist"][k]), 2)
+        row["official_max_dist_px"] = round(float(S["off_maxdist"][k]), 6)
         if pmax is not None:
-            row["pred_max_dist_px"] = round(float(pmax[k]), 2)
+            row["pred_max_dist_px"] = round(float(pmax[k]), 6)
             if M["dist_source"] != "ORACLE_OFFICIAL_DIST" and abs(pmax[k] - S["off_maxdist"][k]) > G1["dist_err_px"]:
                 flags.append({"M2_PRED_DIST": "DIST_ERROR_M2_PRED", "M1_DERIVED_DISTANCE": "DIST_ERROR_M1_DERIVED",
                               "M2_PROB_DERIVED_DISTANCE": "DIST_ERROR_M2_PROB_DERIVED"}[M["dist_source"]])

@@ -1,0 +1,65 @@
+{
+ "note": "POST-HOC descriptive statistic added after the Gate 1 run (not a pre-registered label): share of instance pixels with boundary prob > 0.5. Labels and primary stages are unchanged.",
+ "values": {
+  "15023|M1|3-6": {
+   "n": 34,
+   "median_share_instance_px_p_gt_0.5": 1.0,
+   "share_instances_ge_0.9_covered": 0.912
+  },
+  "15023|M1|6-10": {
+   "n": 184,
+   "median_share_instance_px_p_gt_0.5": 0.962,
+   "share_instances_ge_0.9_covered": 0.788
+  },
+  "15023|M1|10-20": {
+   "n": 407,
+   "median_share_instance_px_p_gt_0.5": 0.716,
+   "share_instances_ge_0.9_covered": 0.091
+  },
+  "15023|M2|3-6": {
+   "n": 34,
+   "median_share_instance_px_p_gt_0.5": 1.0,
+   "share_instances_ge_0.9_covered": 0.882
+  },
+  "15023|M2|6-10": {
+   "n": 184,
+   "median_share_instance_px_p_gt_0.5": 0.987,
+   "share_instances_ge_0.9_covered": 0.864
+  },
+  "15023|M2|10-20": {
+   "n": 407,
+   "median_share_instance_px_p_gt_0.5": 0.742,
+   "share_instances_ge_0.9_covered": 0.147
+  },
+  "15041|M1|3-6": {
+   "n": 81,
+   "median_share_instance_px_p_gt_0.5": 1.0,
+   "share_instances_ge_0.9_covered": 0.889
+  },
+  "15041|M1|6-10": {
+   "n": 322,
+   "median_share_instance_px_p_gt_0.5": 0.972,
+   "share_instances_ge_0.9_covered": 0.789
+  },
+  "15041|M1|10-20": {
+   "n": 665,
+   "median_share_instance_px_p_gt_0.5": 0.704,
+   "share_instances_ge_0.9_covered": 0.078
+  },
+  "15041|M2|3-6": {
+   "n": 81,
+   "median_share_instance_px_p_gt_0.5": 1.0,
+   "share_instances_ge_0.9_covered": 0.889
+  },
+  "15041|M2|6-10": {
+   "n": 322,
+   "median_share_instance_px_p_gt_0.5": 0.992,
+   "share_instances_ge_0.9_covered": 0.845
+  },
+  "15041|M2|10-20": {
+   "n": 665,
+   "median_share_instance_px_p_gt_0.5": 0.745,
+   "share_instances_ge_0.9_covered": 0.143
+  }
+ }
+}
