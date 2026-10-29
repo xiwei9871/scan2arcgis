@@ -1,0 +1,62 @@
+{
+ "model": "M1",
+ "device": "mps",
+ "params": 4416673,
+ "seed": 20261029,
+ "overfit": false,
+ "load_seconds": 6.6,
+ "history": [
+  {
+   "step": 1000,
+   "train_loss": 0.17099231481552124,
+   "val_loss": 0.40413714572787285,
+   "minutes": 22.72,
+   "lr": 0.0009939057285945968,
+   "saved": true
+  },
+  {
+   "step": 2000,
+   "train_loss": 0.11004026979207993,
+   "val_loss": 0.43654219061136246,
+   "minutes": 40.64,
+   "lr": 0.0009757729755660803
+  },
+  {
+   "step": 3000,
+   "train_loss": 0.13594402372837067,
+   "val_loss": 0.37754517793655396,
+   "minutes": 58.67,
+   "lr": 0.0009460482294732238,
+   "saved": true
+  },
+  {
+   "step": 4000,
+   "train_loss": 0.1504625380039215,
+   "val_loss": 0.4046744294464588,
+   "minutes": 76.5,
+   "lr": 0.0009054634122155817
+  },
+  {
+   "step": 5000,
+   "train_loss": 0.09903771430253983,
+   "val_loss": 0.35780640691518784,
+   "minutes": 94.48,
+   "lr": 0.0008550178566873241,
+   "saved": true
+  },
+  {
+   "step": 5886,
+   "train_loss": 0.09999202191829681,
+   "val_loss": 0.39727407321333885,
+   "minutes": 110.06,
+   "lr": 0.0008030777983850298
+  }
+ ],
+ "stopped": "wall-clock cap at step 5886",
+ "steps": 5886,
+ "tiles_seen": 47088,
+ "best_val_loss": 0.35780640691518784,
+ "peak_mps_driver_bytes": 7648804864,
+ "train_minutes": 110.06,
+ "peak_rss_mb": 1520.3
+}

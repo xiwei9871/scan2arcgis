@@ -1,0 +1,10 @@
+{
+ "units": 1440,
+ "contacts": 3943,
+ "regions_in": 1422,
+ "connected_parts": 1440,
+ "review_status": {
+  "REVIEW": 1440
+ },
+ "confidence_filled": 1440
+}

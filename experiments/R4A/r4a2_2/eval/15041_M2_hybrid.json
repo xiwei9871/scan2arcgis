@@ -1,0 +1,82 @@
+{
+ "sheet": "15041",
+ "regions_file": "../../runs/r4a2/r4a22/15041/M2/regions_M2_hybrid.npy",
+ "valid_px": 10305315,
+ "instances": {
+  "small": {
+   "n": 1537,
+   "recall_iou50": 0.5543266102797658,
+   "under_seg": 0.3435263500325309,
+   "over_seg": 0.06376057254391672,
+   "absorbed_by_larger_neighbour": 0.2810670136629798,
+   "mean_best_iou": 0.512859210555077
+  },
+  "tiny": {
+   "n": 788,
+   "recall_iou50": 0.04187817258883249
+  },
+  "large": {
+   "n": 95,
+   "recall_iou50": 0.7473684210526316
+  },
+  "all": {
+   "n": 2420,
+   "recall_iou50": 0.3950413223140496
+  },
+  "small_by_width": {
+   "lt3px": {
+    "n": 8,
+    "recall_iou50": 0.0,
+    "absorbed": 1.0,
+    "over_seg": 0.125
+   },
+   "3-6px": {
+    "n": 73,
+    "recall_iou50": 0.0,
+    "absorbed": 0.9041095890410958,
+    "over_seg": 0.0547945205479452
+   },
+   "6-10px": {
+    "n": 279,
+    "recall_iou50": 0.07885304659498207,
+    "absorbed": 0.7562724014336918,
+    "over_seg": 0.03225806451612903
+   },
+   "ge10px": {
+    "n": 1177,
+    "recall_iou50": 0.7051826677994902,
+    "absorbed": 0.12489379779099405,
+    "over_seg": 0.0713678844519966
+   }
+  },
+  "regions": {
+   "n_pred": 1865,
+   "n_truth_instances": 2420,
+   "n_pred_lt_50px": 0
+  },
+  "hungarian_instance_mean_iou_area_ge200": 0.5056449956014518,
+  "oracle_majority_unit_miou": 0.5718570601518926
+ },
+ "boundary": {
+  "tol1": {
+   "P": 0.8351595196870951,
+   "R": 0.6603456592348546,
+   "F1": 0.7375353443999297
+  },
+  "tol2": {
+   "P": 0.9640742348356592,
+   "R": 0.7726087159123396,
+   "F1": 0.8577871468131107
+  },
+  "tol3": {
+   "P": 0.9945975209139848,
+   "R": 0.8104516390665715,
+   "F1": 0.8931315655081333
+  },
+  "recall_printed_contact_tol2": 0.7628189836417014,
+  "recall_low_ink_tol2": 0.8083150075323371,
+  "false_boundary_share_near_neg_ink_1px": 0.00038280240188486134,
+  "pred_boundary_px": 624343,
+  "truth_boundary_px": 794019
+ }
+}
