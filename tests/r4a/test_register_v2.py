@@ -10,7 +10,7 @@ def test_nominal_size_of_standard_sheet_at_200dpi():
     # 1/6 deg latitude at 1:50,000 is ~370 mm -> ~2917 px at 200 dpi, independent of latitude
     w, h = nominal_px([138.75, 36.3333, 139.0, 36.5])
     assert abs(h - 2916.7) < 1.0
-    assert 3300 < w < 3360          # 0.25 deg longitude at ~36.4 N
+    assert 3500 < w < 3560          # 0.25 deg longitude at ~36.4 N: ~22.4 km -> 448 mm -> ~3527 px
 
 
 def test_peaks_groups_adjacent_indices():
