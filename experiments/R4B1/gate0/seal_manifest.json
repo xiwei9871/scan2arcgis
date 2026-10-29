@@ -1,0 +1,42 @@
+{
+ "title": "R4-B1 Gate 0: seal of R4-B0.1 outcome and current baseline",
+ "start_commit": "393729d87d1f97db1582136ee6cb3e0d2be703e0",
+ "r4b0_1": {
+  "A1": {
+   "verdict": "FAIL",
+   "small_recall_gain": {
+    "15023": 0.0115,
+    "15041": 0.0117
+   },
+   "status": "research evidence only, NOT adopted as formal post-processing"
+  },
+  "C1": {
+   "verdict": "SCALE_ESTIMATOR_FAILED",
+   "status": "SCALE_ESTIMATOR_FAILED; no third estimator in R4-B1"
+  }
+ },
+ "formal_baseline": "M2_hybrid (R4-A2.2 M2 best.pt + experiments/R4A/r4a2_1_seeds.hybrid_markers)",
+ "baseline_small_recall": {
+  "15023": 0.5959692898272553,
+  "15041": 0.5543266102797658
+ },
+ "weights_sha256": {
+  "runs/r4a2/models/M1_formal/best.pt": "cd1fe35ac308d5841247bb5cbc2e6c9b1617d0d060ab00e413f147bdbc751dc4",
+  "runs/r4a2/models/M2_formal/best.pt": "a22787b391a685cc337373facb49c9c98dd0a390aecc7268fcd08e71d6b51a79"
+ },
+ "weights_match_r4b0_manifest": true,
+ "predictions_match_r4b0_manifest": "56/56",
+ "files_sha256": {
+  "experiments/R4A/r4a2_train.py": "f06b0485ee1881269be833bef4ddcf0357e1b555f5dfed3c15658be128311c1e",
+  "experiments/R4A/r4a2_1_train.py": "0cc7c31075bff7de41b79cd3888375c43c19f2086a7b1d25f4d59096b152c7a7",
+  "experiments/R4A/r4a2_1_labels.py": "eff11e9aee07a225628430f0c9d79b07587df963cb120adb05af6469aa5aaf88",
+  "experiments/R4A/r4a2_1_seeds.py": "0cd3d5c1000510b64810b498ff94f1879dc056481f6ce51bcca74f029b6d9a04",
+  "experiments/R4A/r4a2_2_eval.py": "e4b11e5d44a51d9a9ad73fa8da36077ed607cab07ae7d9410cbb8d567dfd8735",
+  "experiments/R4A/r4a2/freeze_config.json": "f30207831b2580078fa979c8f595c382fca892e3ace3ebfda1cfa9a723eeaf08",
+  "experiments/R4A/r4a2_1/freeze_config_v2.json": "d9525e8ef1b7368b52c1d90c5eb751e9cc54d55db34760f579274385bb167273",
+  "experiments/R4B0/r4b0_1/a1/a1_comparison.json": "09f98a9c9751dee09c2a9e82dcac9f41a62b7306a41ba2c29afe238c918c6a57",
+  "experiments/R4B0/r4b0_1/c1/c1_validation.json": "be523117f5a24878d58be61d31acdac0a0fc6eebb42e9cab6c1a37d68e51d7b9",
+  "experiments/R4B0/r4b0_1_preregistration.json": "b6cc6cacc74e3aea61018fd35923afb47671c635b5ce144a51de6a23157cd169",
+  "docs/research/r4b0/r4b0_1_decision.md": "fa866c35ccec2a0ac429caf61367f0794aab058f468f14fcf726660043c6f7d2"
+ }
+}
