@@ -1,0 +1,41 @@
+{
+ "cause": "R4-A2.2 post-processed the float32 network output in memory; only float16 copies (prob.npy, dist_px.npy) were saved. Gate 2 re-runs post-processing from the float16 files, so watershed ties/thresholds differ at a few pixels and label ids can shift.",
+ "checks": {
+  "15023|M1": {
+   "pixel_equal_ids": 0.99966,
+   "partition_agreement": 0.99966,
+   "regions_saved": 1422,
+   "regions_now": 1422
+  },
+  "15023|M2_oldseed": {
+   "pixel_equal_ids": 0.99971,
+   "partition_agreement": 0.99998,
+   "regions_saved": 1326,
+   "regions_now": 1326
+  },
+  "15023|M2_hybrid": {
+   "pixel_equal_ids": 0.9997,
+   "partition_agreement": 0.99998,
+   "regions_saved": 1716,
+   "regions_now": 1716
+  },
+  "15041|M1": {
+   "pixel_equal_ids": 0.72967,
+   "partition_agreement": 0.9996,
+   "regions_saved": 1651,
+   "regions_now": 1650
+  },
+  "15041|M2_oldseed": {
+   "pixel_equal_ids": 0.99987,
+   "partition_agreement": 0.99987,
+   "regions_saved": 1577,
+   "regions_now": 1577
+  },
+  "15041|M2_hybrid": {
+   "pixel_equal_ids": 0.99997,
+   "partition_agreement": 0.99997,
+   "regions_saved": 1865,
+   "regions_now": 1865
+  }
+ }
+}
