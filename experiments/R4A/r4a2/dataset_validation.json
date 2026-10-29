@@ -1,0 +1,135 @@
+{
+ "role": "validation",
+ "target": 2,
+ "accepted": [
+  "15023",
+  "15041"
+ ],
+ "reached_target": true,
+ "visited": 6,
+ "draw_seed": 20261028,
+ "exclusions": {
+  "05030": "development sheet",
+  "06061": "development sheet",
+  "08004": "development sheet",
+  "08001": "development sheet",
+  "15061": "inspected in registration diagnosis",
+  "13068": "inspected in registration diagnosis",
+  "08011": "sealed holdout",
+  "08021": "sealed holdout"
+ },
+ "log": [
+  {
+   "order": 0,
+   "code": "15061",
+   "status": "SKIP_EXCLUDED",
+   "reason": "inspected in registration diagnosis"
+  },
+  {
+   "order": 1,
+   "code": "13068",
+   "status": "SKIP_EXCLUDED",
+   "reason": "inspected in registration diagnosis"
+  },
+  {
+   "code": "13025",
+   "year": "1997",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "7f3791e5b6da4fcab6b5b8b6df123795acbee7795bcffc3d23f9a43d078598fa",
+    "vct_zip": "0ffd4872796ee2cf5ff87f42d6fb6e68a29326b80681fe3fe4945a17c21332bb"
+   },
+   "quadrangle_deg": [
+    0.5,
+    0.1667
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 2,
+   "seconds": 7.0
+  },
+  {
+   "code": "13011",
+   "year": "1992",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "94ea911ce9c62202f190d559408dda4da708c62fde4d21eef2c866e8a046112d",
+    "vct_zip": "4b192325b42a804c4a7c2a814bee77d938c364944d77d1aaf85e34af450e2fd6"
+   },
+   "quadrangle_deg": [
+    0.2667,
+    0.1668
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 3,
+   "seconds": 8.4
+  },
+  {
+   "code": "15023",
+   "year": "1977",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "af645e4d42705c46895573a0713e71e8f05457d0e6f456fe7cff9d20ed6575a9",
+    "vct_zip": "643efa0561d69f65a09512583383e3c299505cd73e9c302b65ce1fefbc023ac5"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_15023_1977_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 7.550871433181783e-05,
+   "q3": {
+    "dx": -0.7346898996961803,
+    "dy": -1.6927459080562215,
+    "residual_px": 1.8453070091333488,
+    "z": 17.50786266250118,
+    "cells_trusted": 16,
+    "cell_median_px": 1.942435164873476,
+    "cell_max_px": 2.1872904701241414
+   },
+   "status": "PASS",
+   "order": 4,
+   "seconds": 14.2
+  },
+  {
+   "code": "15041",
+   "year": "2005",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "37aa9f4370ef98adbe7471db69953df8094909a09296e89ab6fe10be176fe6c5",
+    "vct_zip": "d412cadb15313182eb3e7cabdd218d031240d45b271fbc6ddeafd674fa32c527"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_15041_2005_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 9.147654373009573e-05,
+   "q3": {
+    "dx": -0.8635818071780579,
+    "dy": -0.5329093683544097,
+    "residual_px": 1.0147738332105416,
+    "z": 16.31996150152319,
+    "cells_trusted": 16,
+    "cell_median_px": 1.1071905284858654,
+    "cell_max_px": 1.7897737001835423
+   },
+   "status": "PASS",
+   "order": 5,
+   "seconds": 16.7
+  }
+ ]
+}

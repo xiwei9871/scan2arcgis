@@ -1,0 +1,66 @@
+{
+ "freeze": "R4-A2 training-time freeze. Written before any model was built or trained. Changes after this commit must be separate commits with before/after results.",
+ "licence_status": "INTERNAL_RESEARCH_APPROVED_BY_PROJECT_OWNER / THIRD_PARTY_LICENSE_UNCONFIRMED",
+ "data_roles": {
+  "train": ["05016", "06054", "05021", "06090", "07089", "06005", "06020", "05015", "07038", "06055"],
+  "validation_model_selection": ["15023", "15041"],
+  "development_reference_not_independent": ["05030", "06061", "08004", "08001"],
+  "sealed_holdout_not_read": ["08011", "08021"],
+  "china_qualitative": ["gm2_roi", "u1", "u2", "u3"],
+  "draw_logs": ["experiments/R4A/r4a2/dataset_train.json", "experiments/R4A/r4a2/dataset_validation.json"],
+  "rule": "sheet-level split; no tile from one sheet in two roles; regions 05/06/07 train, 13/14/15 validation, region 08 dev/holdout only",
+  "08001_note": "no GeoTIFF check run for 08001 in R4-A; used only through existing R1/R3 results"
+ },
+ "grid": "each sheet's own GSJ GeoTIFF pixel grid (~200 dpi); affine as published, array-index convention (AREA_OR_POINT=Area -> -0.5 px); no fitting",
+ "labels": {
+  "builder": "experiments/R4A/r4a2_labels.py",
+  "UNIT_BOUNDARY": "1 px boundary between two different labelled geo_A units (unit_boundary.npy) - evaluation truth",
+  "PRINTED_CONTACT": "1 px geo_L contacts (printed_contact.npy) - evaluated separately",
+  "LOW_INK_BOUNDARY": "UNIT_BOUNDARY pixels with no black-hat(9px)>40 ink within 2 px (low_ink_boundary.npy) - candidate set, reported separately; a 12-sample review sheet (seed 20261029) is at runs/r4a2/audit_vis/low_ink_sample_v2.jpg (local), per-sample judgement pending human review - not treated as confirmed ink-free boundaries",
+  "FAULT": "1 px geo_L faults (fault.npy) - kept, no output head",
+  "REGION_INTERIOR": "unit >= 0 and not within 2 px of UNIT_BOUNDARY",
+  "IGNORE_EVAL": "outside geo_A coverage and a 2 px image-edge band (ignore.npy)",
+  "train_boundary_target": "soft exp(-d^2/2) of distance to UNIT_BOUNDARY, d<=2 px; 2<d<=8 px IGNORE_TRAIN; d>8 px negative",
+  "neg_candidate": "printed ink >8 px from any geo_A boundary and geo_L line (neg_candidate.npy) - counted as negatives in training (they are inside the >8 px negative zone); used in evaluation for the false-positive rate",
+  "m2_distance_target": "distance to UNIT_BOUNDARY in px, clipped at 32, divided by 32",
+  "raw_thin_labels_unchanged": true
+ },
+ "sampling": {
+  "tile": 512, "batch": 8, "seed": 20261029,
+  "mix": {"small_instance_centre": 0.4, "unit_boundary_pixel": 0.25, "neg_candidate_ink": 0.2, "uniform_valid": 0.15},
+  "small_instance_definition_for_sampling": "geo_A instance with 200 <= area < 20000 px",
+  "augmentation": ["random horizontal/vertical flip", "random 90-degree rotation", "brightness/contrast jitter +-10%", "hue shift +-3 deg"],
+  "no_scale_augmentation": true
+ },
+ "models": {
+  "M0": "R1 legend_rf_selftrain unchanged; legend swatches auto-detected on the sheet's 200 dpi JPEG (R1 detect_swatches), classification on a composite of the GeoTIFF map (0.5x) + JPEG legend strip (0.5x), labels upsampled (nearest) to the GeoTIFF grid. Semantic naming is NOT scored with any GT mapping.",
+  "M1": {"arch": "U-Net, 4 down/4 up, base 24 channels, BatchNorm, ReLU, 3x3 convs, bilinear upsampling", "outputs": ["boundary_logit"], "loss": "BCE with logits on soft target, masked by IGNORE_TRAIN, pos_weight 4.0"},
+  "M2": {"arch": "same encoder/decoder as M1", "outputs": ["boundary_logit", "dist (sigmoid)"], "loss": "M1 loss + 1.0 * L1(dist_pred, dist_target) on non-IGNORE_TRAIN pixels"},
+  "param_limit": 8000000, "pretrained_weights": "none (random init, seed 20261029)"
+ },
+ "optimisation": {"optimizer": "AdamW", "lr": 0.001, "weight_decay": 0.0001, "schedule": "cosine to 1e-5 over max_steps",
+                  "max_steps": 20000, "wall_clock_cap_minutes": 110,
+                  "validation": "every 1000 steps on 64 fixed validation tiles (seeded) from 15023/15041; keep the checkpoint with the lowest validation loss (early stopping: stop if no improvement for 5 consecutive validations)",
+                  "device": "mps, fall back to cpu (logged)",
+                  "overfit_test": "one tile, 300 steps, <=10 minutes; pass if training boundary F1@1px on that tile >= 0.9"},
+ "postprocess_fixed": {
+  "M1": "watershed on boundary probability; markers = connected components of (p < 0.3) with area >= 50 px; result = region id map",
+  "M2": "watershed on -dist_pred; markers = connected components of (dist_pred_px >= 3) with area >= 50 px",
+  "M0": "4-connected components of the R1 class map",
+  "vector_export": "experiments/R4A/export_pixel_vectors.py conventions (X=col, Y=-row, no CRS)"
+ },
+ "metrics": {
+  "primary": "small-instance recall: geo_A instances with 200 <= area < 20000 px (GeoTIFF px) that have a predicted region with IoU >= 0.5 (class-agnostic)",
+  "secondary_instances": ["small under-segmentation: best-overlap region covers >=50% of the instance but IoU < 0.5 because the region is >2x the instance",
+                          "small over-segmentation: no single region covers >=50% of the instance",
+                          "absorption by a larger neighbour: best-overlap region's majority geo_A unit is a different, larger, adjacent instance",
+                          "all-instance recall and >=20000 px instance recall",
+                          "tiny instances (<200 px) reported separately"],
+  "boundary": "precision/recall/F1 of predicted region boundaries vs UNIT_BOUNDARY at 1, 2 and 3 px tolerance; recall vs PRINTED_CONTACT and vs LOW_INK_BOUNDARY separately; false-positive share = predicted boundary px within 1 px of neg_candidate ink",
+  "topology": "valid polygon fraction after export, number of regions, regions < 50 px",
+  "region_quality": "region upper-bound mIoU (Hungarian, evaluation only) reported separately; S1 autonomous semantics not part of R4-A2",
+  "decision_rule": "M1/M2 improves over M0 only if small-instance recall on BOTH validation sheets rises and boundary-F1 changes alone are never sufficient"
+ },
+ "budget": {"env": ".venv-ml (separate)", "max_params": 8000000, "max_train_minutes_per_model": 120, "overfit_minutes_per_model": 10,
+            "formal_runs": "one M1 and one M2 run; reruns only for a documented implementation bug, original run kept"}
+}

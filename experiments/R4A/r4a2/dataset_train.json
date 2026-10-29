@@ -1,0 +1,838 @@
+{
+ "role": "train",
+ "target": 10,
+ "accepted": [
+  "05016",
+  "06054",
+  "05021",
+  "06090",
+  "07089",
+  "06005",
+  "06020",
+  "05015",
+  "07038",
+  "06055"
+ ],
+ "reached_target": true,
+ "visited": 30,
+ "draw_seed": 20261028,
+ "exclusions": {
+  "05030": "development sheet",
+  "06061": "development sheet",
+  "08004": "development sheet",
+  "08001": "development sheet",
+  "15061": "inspected in registration diagnosis",
+  "13068": "inspected in registration diagnosis",
+  "08011": "sealed holdout",
+  "08021": "sealed holdout"
+ },
+ "log": [
+  {
+   "code": "05016",
+   "year": "1983",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "5ab736395f42e517959fb73696ed7f75837232af92e3eeadad45fb1a2f1314c8",
+    "vct_zip": "3b1dbff2ae421218e956d3c31a3f6332f7f9830d0be081eadd4919bf2225390b"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05016_1983_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.00011191601507221094,
+   "q3": {
+    "dx": -0.19952170127461652,
+    "dy": -0.9772094087957612,
+    "residual_px": 0.9973701108006388,
+    "z": 18.04010152823264,
+    "cells_trusted": 13,
+    "cell_median_px": 1.239824997792418,
+    "cell_max_px": 2.021811685071807
+   },
+   "status": "PASS",
+   "order": 0,
+   "seconds": 7.9
+  },
+  {
+   "code": "05011",
+   "year": "1959",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "e56d3be2e711f8ca3cd2ccf06790d3f61e04cf09533768364962820584aac308",
+    "vct_zip": "9af766e799386a52be540e17a2d8f6e2ac6c93926403a55599a8a97072741406"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05011_1959_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 7.866410925316814e-05,
+   "q3": {
+    "dx": -1.0009331674369,
+    "dy": -2.5446494285595254,
+    "residual_px": 2.734430090520433,
+    "z": 15.807420172994492,
+    "cells_trusted": 16,
+    "cell_median_px": 2.646098305981643,
+    "cell_max_px": 3.2122112775966882
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 1,
+   "seconds": 5.9
+  },
+  {
+   "code": "06081",
+   "year": "1981",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "8cc9c70d1123bf4e3feb2431f854c50e351ed6cdcf6ff42bf9b8c6eced5ba4c9",
+    "vct_zip": "09727c29c3ee87f44f5591b7065b47114584959083bddd705bdd6dd2a7f19aed"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06081_1981_F1_geotiff.tif",
+   "size": [
+    3931,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.026775188296966235,
+   "q3": {
+    "dx": 1.0256744920915695,
+    "dy": 0.12641828243146197,
+    "residual_px": 1.0334358934448813,
+    "z": 14.06756035869134,
+    "cells_trusted": 9,
+    "cell_median_px": 1.0334593302187103,
+    "cell_max_px": 1.872486062593996
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 2,
+   "seconds": 4.9
+  },
+  {
+   "code": "06006",
+   "year": "1964",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "f7dbe765eb1a0f1dfe225aaaf803a56381cfca0ffe4705c29fe370698580b78e",
+    "vct_zip": "9eadf9a402b35ad89158e43319075ca6c0a91688a3bb5ff0fe144307701dd790"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06006_1964_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 7.990059216922418e-05,
+   "q3": {
+    "dx": -1.6413974486997374,
+    "dy": -2.0974918180792237,
+    "residual_px": 2.6633921062260613,
+    "z": 15.342922828571572,
+    "cells_trusted": 15,
+    "cell_median_px": 2.690993240746949,
+    "cell_max_px": 3.6390805549858993
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 3,
+   "seconds": 8.2
+  },
+  {
+   "code": "06054",
+   "year": "2004",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "7acca3a09aefea0d0bd1f96f8fa555c188655c87bcf9bd0287e688be409b63a3",
+    "vct_zip": "74b6692ea38fd065e6848eec49902b9249ea55d1d67b0ac6b99bef1a89f3c353"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06054_2004_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 5.0310244773754675e-05,
+   "q3": {
+    "dx": -0.8835145702976583,
+    "dy": -1.4561005453782687,
+    "residual_px": 1.7031813744223332,
+    "z": 17.85650156813947,
+    "cells_trusted": 15,
+    "cell_median_px": 1.79257850216718,
+    "cell_max_px": 2.0894582623017652
+   },
+   "status": "PASS",
+   "order": 4,
+   "seconds": 7.7
+  },
+  {
+   "code": "07060",
+   "year": "1989",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "ee77640b8efb781cf208e924f3086eda3ad9e0e31979582799b2e36e04449e8f",
+    "vct_zip": "d66d35938f06c9421d0bf82d1a7f5f873fbcb4035a538de9a93d6a74569f1a36"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1783
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 5,
+   "seconds": 6.1
+  },
+  {
+   "order": 6,
+   "code": "05030",
+   "status": "SKIP_EXCLUDED",
+   "reason": "development sheet"
+  },
+  {
+   "code": "05021",
+   "year": "1970",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "17084626583f99ca607c71fd75cfa31e0cb4df9eb95fa18bf159c606430f44a1",
+    "vct_zip": "8c9c5f76e9f311983264b81d763b183d85a959f558dbe6e3177b8837ae7213ab"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05021_1970_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 7.14243915069801e-05,
+   "q3": {
+    "dx": -1.095982752995741,
+    "dy": -0.2493967535675671,
+    "residual_px": 1.1240004161717048,
+    "z": 17.926231287672994,
+    "cells_trusted": 15,
+    "cell_median_px": 1.2164517203834015,
+    "cell_max_px": 1.8581862703437322
+   },
+   "status": "PASS",
+   "order": 7,
+   "seconds": 7.2
+  },
+  {
+   "order": 8,
+   "code": "06061",
+   "status": "SKIP_EXCLUDED",
+   "reason": "development sheet"
+  },
+  {
+   "code": "06019",
+   "year": "1976",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "c8aca849ca90d784a166fc4c004f6947c6508deeaff385b2a125bc4cc120ba4b",
+    "vct_zip": "515209d814ccc6a3b4fd0fe22733fe59768dec8ff060b52dc6abd3e8edf070a6"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06019_1976_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.00010401071310184307,
+   "q3": {
+    "dx": 7.384287133921788,
+    "dy": -3.0578290982264025,
+    "residual_px": 7.992372318039428,
+    "z": 11.639637312785242,
+    "cells_trusted": 16,
+    "cell_median_px": 7.5373528635932345,
+    "cell_max_px": 8.83480826816785
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 9,
+   "seconds": 8.2
+  },
+  {
+   "code": "06090",
+   "year": "1984",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "cd3bf968291ac49e7d71f48d3979733163b49df36ebf09a7e6a654c00749494a",
+    "vct_zip": "9670f22398d0f38ebf12df957c374b85019464898e90fc27e9100cbb5493acdf"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1666
+   ],
+   "geotiff": "GSJ_MAP_G050_06090_1984_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 3.7280146614193654e-05,
+   "q3": {
+    "dx": -0.24192907545246975,
+    "dy": -1.2913320526636367,
+    "residual_px": 1.3137991276392933,
+    "z": 15.52630224640507,
+    "cells_trusted": 14,
+    "cell_median_px": 1.4517797790599432,
+    "cell_max_px": 2.0449302672274876
+   },
+   "status": "PASS",
+   "order": 10,
+   "seconds": 10.7
+  },
+  {
+   "code": "07046",
+   "year": "1994",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "40146cf7d0b25dc71d81a619662004b26f74145f8dae1d9ea963ef8c8d856651",
+    "vct_zip": "5d71a169106b2fe276928002f804acda8cacd64f68dc42f481ad87a2e4cb724b"
+   },
+   "quadrangle_deg": [
+    0.3,
+    0.1667
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 11,
+   "seconds": 5.9
+  },
+  {
+   "code": "05003",
+   "year": "1957",
+   "http_gtf": "200",
+   "http_vct": "cached",
+   "sha256": {
+    "gtf_zip": "35cedaab51ab3af12ccaafb5bcbaf431128962ffd28e1515909f86cf5ba062d4",
+    "vct_zip": "163db7ed718ff02f3f41275c5816e1a4cef075215d96855c5ebde746395f6447"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05003_1957_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.00011583826582750589,
+   "q3": {
+    "dx": -0.9323994485584928,
+    "dy": 2.335808847271553,
+    "residual_px": 2.515029165370502,
+    "z": 14.262760360101357,
+    "cells_trusted": 13,
+    "cell_median_px": 2.389572522686482,
+    "cell_max_px": 3.2657248904274527
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 12,
+   "seconds": 9.9
+  },
+  {
+   "code": "06012",
+   "year": "1981",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "551f315f63f47de936ab9ded356b2512bf6a2ce8c60d1afb115044b907bf6851",
+    "vct_zip": "436b496b0f1743cc9d9e33f2fe07449f9c579176564ae7df43acdc88504a46e1"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06012_1981_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.00011919658763304142,
+   "q3": {
+    "dx": 0.9729430515872838,
+    "dy": -1.8655777423509596,
+    "residual_px": 2.1040433679910877,
+    "z": 14.117879948743427,
+    "cells_trusted": 15,
+    "cell_median_px": 2.486894706940013,
+    "cell_max_px": 3.2363615190665325
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 13,
+   "seconds": 11.0
+  },
+  {
+   "code": "07089",
+   "year": "1956",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "aa6bf2d9a2ff5fe39528781c4748e78f7085a2bb98a3c9f2ce900fe1126650cb",
+    "vct_zip": "76800b8195f589edef650e50bb7ba8da4cf30e07d621f695587530e7d255290a"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_07089_1956_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 9.136397540032704e-05,
+   "q3": {
+    "dx": 0.1853936806309034,
+    "dy": -0.11341703744336765,
+    "residual_px": 0.21733439948683608,
+    "z": 17.32098678909744,
+    "cells_trusted": 16,
+    "cell_median_px": 0.6783531728737602,
+    "cell_max_px": 1.2509882721077716
+   },
+   "status": "PASS",
+   "order": 14,
+   "seconds": 15.2
+  },
+  {
+   "code": "06005",
+   "year": "1957",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "5811a1f0c7e4fb941a252c2af9f8e67cf0647ce203558763890cd32f4c41c0b6",
+    "vct_zip": "ea6b8466c86e618f38077efe5ec25e93fc5577af903e6ed27b681eab89d1d4f5"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06005_1957_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 6.246171119528299e-05,
+   "q3": {
+    "dx": -0.8509962978900464,
+    "dy": -1.3320992209218518,
+    "residual_px": 1.5807223138183282,
+    "z": 16.322439634968205,
+    "cells_trusted": 16,
+    "cell_median_px": 1.4139675403693701,
+    "cell_max_px": 2.1870530352724282
+   },
+   "status": "PASS",
+   "order": 15,
+   "seconds": 15.0
+  },
+  {
+   "code": "06037",
+   "year": "1982",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "2285350368b4cb68d03e2db0f06dd57101a0ae134a0ded7c721d1dbf7d472342",
+    "vct_zip": "21fddb2ece95a228d06efcb2dd5df03f63397b472604508d076e657966d9a225"
+   },
+   "quadrangle_deg": [
+    0.4833,
+    0.1667
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 16,
+   "seconds": 8.3
+  },
+  {
+   "code": "06020",
+   "year": "1994",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "5079c1e37abc95c6b1edbd67894bf494618521bd81561767c10b4260f6fb4f71",
+    "vct_zip": "837cd238cb15f2f9c58f588a0adee3f9601e59ec30b81f2be82aaf93bc9a44ab"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06020_1994_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.0001257438228776664,
+   "q3": {
+    "dx": -0.7116592997531609,
+    "dy": -1.3528397379645314,
+    "residual_px": 1.528605349833992,
+    "z": 14.199274606100548,
+    "cells_trusted": 16,
+    "cell_median_px": 1.582144275642856,
+    "cell_max_px": 2.2590432806087635
+   },
+   "status": "PASS",
+   "order": 17,
+   "seconds": 11.9
+  },
+  {
+   "code": "06004",
+   "year": "2012",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "1f964419d03ae57a7caaae354048fff874706705844d34301906047a25f9f2dd",
+    "vct_zip": "318d39a30131ca5f458538e1e4528b1236c4561aea4e6bb76d9809186f950b27"
+   },
+   "status": "FAIL_Q1_line_types",
+   "line_types": [
+    "図郭線",
+    "地層・岩体の境界（推定境界を含む）",
+    "地層・岩体の補助境界",
+    "実在断層",
+    "実在断層，伏在",
+    "推定断層",
+    "推定断層，伏在"
+   ],
+   "order": 18,
+   "seconds": 10.5
+  },
+  {
+   "code": "06065",
+   "year": "1986",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "status": "FAIL_Q1_data",
+   "error": "no *_geotiff.tif in GTF zip",
+   "order": 19,
+   "seconds": 12.7
+  },
+  {
+   "code": "05026",
+   "year": "1968",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "c410e4099947d995de1ba6a73e59f8badb08075c5330d5e761322d75a1215bdd",
+    "vct_zip": "0a4b960ab4d63779d9b9151655c754b1baea292d45984ef39027ffab04935347"
+   },
+   "quadrangle_deg": [
+    0.5167,
+    0.1667
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 20,
+   "seconds": 8.4
+  },
+  {
+   "code": "05015",
+   "year": "1981",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "6ae6434bdae13f591cfbce6882aab4d040d484ea543bd6c003835a36d30a17ce",
+    "vct_zip": "69bb0af66a86eb57e194ae679d59fa895b7dcc6a7a325c797075215618451584"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05015_1981_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 8.893013350075307e-05,
+   "q3": {
+    "dx": -1.1486320096678642,
+    "dy": -1.2842924711552306,
+    "residual_px": 1.7230097634951593,
+    "z": 17.81988075771113,
+    "cells_trusted": 14,
+    "cell_median_px": 1.8708111572291664,
+    "cell_max_px": 2.196275088451649
+   },
+   "status": "PASS",
+   "order": 21,
+   "seconds": 10.5
+  },
+  {
+   "code": "06047",
+   "year": "1992",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "422d2c87abfddd0e0071720bc9d946ae47f4b5245c7f52454f04e6ee3a054178",
+    "vct_zip": "4c66107761abb196d5f41a66919ab4c24d6ea05319f7e9c41590dfb52e1b5d5d"
+   },
+   "quadrangle_deg": [
+    0.4,
+    0.1667
+   ],
+   "status": "FAIL_Q2_nonstandard_quadrangle",
+   "order": 22,
+   "seconds": 11.2
+  },
+  {
+   "code": "05036",
+   "year": "1962",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "0ce52de5a4c5a3cfb92295e0340d334f29dca0c95a4bdc50a101822483bd20e1",
+    "vct_zip": "1a1e36b3a2bdf03521def7860afce55a796d4822168015636e42aa025c8babe0"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05036_1962_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 8.803096056908544e-05,
+   "q3": {
+    "dx": -0.9437401220196113,
+    "dy": -1.866000363438125,
+    "residual_px": 2.0910769412579744,
+    "z": 11.968015753691349,
+    "cells_trusted": 16,
+    "cell_median_px": 2.449199881771957,
+    "cell_max_px": 3.4934962346078224
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 23,
+   "seconds": 11.1
+  },
+  {
+   "code": "05051",
+   "year": "1985",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "39177f0cd595ed2ddba88966e84b518a783310ec6be1975aa8570a41b5260e24",
+    "vct_zip": "4b2b1621284f27442f1206373ce2bf5ad7c9f0622f6dc4443af2b4162230df9f"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05051_1985_F1_geotiff.tif",
+   "size": [
+    3682,
+    2912
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.009232698249803661,
+   "q3": {
+    "dx": -0.9001616713559715,
+    "dy": -2.2808563027419857,
+    "residual_px": 2.4520596461620214,
+    "z": 11.657692843578582,
+    "cells_trusted": 9,
+    "cell_median_px": 2.587697281128006,
+    "cell_max_px": 3.2331391411143375
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 24,
+   "seconds": 11.4
+  },
+  {
+   "code": "06108",
+   "year": "1975",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "c4bbd444a3cbc254ef92b9017b7a08273e031f6ea9e07ca7e70dabcc13110b04",
+    "vct_zip": "bc9ca1c871190ca58a427834b517e8c0c3fe0cc4513f5581b1f1d9158451adb3"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06108_1975_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 7.733375147722654e-05,
+   "q3": {
+    "dx": 0.017439045024125254,
+    "dy": -2.1757970426534983,
+    "residual_px": 2.175866928631221,
+    "z": 17.20546601321643,
+    "cells_trusted": 16,
+    "cell_median_px": 2.40411846739996,
+    "cell_max_px": 2.9994209061471415
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 25,
+   "seconds": 10.6
+  },
+  {
+   "code": "07038",
+   "year": "1991",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "10355793e4f4a728c9c1fda526e2a85635afe3b81c24cfb2e45bcc74e957e212",
+    "vct_zip": "10f525890d8bce9266e7a023291d52b4c88e7ab56889c4ddc51550ed437f45c6"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_07038_1991_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 8.331076435297291e-05,
+   "q3": {
+    "dx": -0.7777978572116145,
+    "dy": -1.04459209088036,
+    "residual_px": 1.3023602201437134,
+    "z": 15.719077220203866,
+    "cells_trusted": 16,
+    "cell_median_px": 1.3550742255616761,
+    "cell_max_px": 1.74876191127644
+   },
+   "status": "PASS",
+   "order": 26,
+   "seconds": 11.4
+  },
+  {
+   "code": "05035",
+   "year": "1983",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "c89ab6fa47bde43bd778d2611b4f3a2fc8325b5e91b1b82fd32c49f74a30246e",
+    "vct_zip": "0c8101daa50a3ba668fd5ca8c33893dcde75c028d0fc1ad41b144b7165691d4f"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_05035_1983_F1_geotiff.tif",
+   "size": [
+    3550,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 6.505497799480509e-05,
+   "q3": {
+    "dx": -0.3392523473972155,
+    "dy": -2.8796957048606435,
+    "residual_px": 2.8996102337740775,
+    "z": 14.564036775963064,
+    "cells_trusted": 16,
+    "cell_median_px": 2.9840067514378745,
+    "cell_max_px": 4.111980703159553
+   },
+   "status": "FAIL_Q3_registration",
+   "order": 27,
+   "seconds": 15.2
+  },
+  {
+   "code": "07098",
+   "year": "1957",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "ea3da4309abbae7762d96d60c91792a535bd7d27966ce5c8375a0adfc9b084b8",
+    "vct_zip": "56bab25345f49f2f52cb3bf20cafaae4bc95c9d0baf15bc90af9268d213cc8a2"
+   },
+   "status": "FAIL_Q1_line_types",
+   "line_types": [
+    "地質境界",
+    "岩相境界",
+    "断層"
+   ],
+   "order": 28,
+   "seconds": 9.1
+  },
+  {
+   "code": "06055",
+   "year": "1979",
+   "http_gtf": "200",
+   "http_vct": "200",
+   "sha256": {
+    "gtf_zip": "9f833fe407d0dd0a0075a64913737503bf253f03b2629457507d7b8a2bf6370f",
+    "vct_zip": "12a29a4bd5152658222ba70b8e360f7c0e4fdf671caf662d726977be8657aedc"
+   },
+   "quadrangle_deg": [
+    0.25,
+    0.1667
+   ],
+   "geotiff": "GSJ_MAP_G050_06055_1979_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "area_or_point": "Area",
+   "bounds_offset_vs_frame_deg": 0.00010308009967729959,
+   "q3": {
+    "dx": -0.9242574919132782,
+    "dy": -1.1561314467343382,
+    "residual_px": 1.4801661506350756,
+    "z": 17.56518474700676,
+    "cells_trusted": 16,
+    "cell_median_px": 1.8796657660099756,
+    "cell_max_px": 2.537334833206591
+   },
+   "status": "PASS",
+   "order": 29,
+   "seconds": 9.8
+  }
+ ]
+}
