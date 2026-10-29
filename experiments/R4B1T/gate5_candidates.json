@@ -1,0 +1,205 @@
+[
+ {
+  "order": 6,
+  "code": "13076",
+  "year": "1957",
+  "vct": "VCT/GSJ_MAP_G050_13076_1957_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [],
+  "mention_context": [],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 7,
+  "code": "14030",
+  "year": "1958",
+  "vct": "VCT/GSJ_MAP_G050_14030_1958_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R4B0/gate1/gate1_instances.csv"
+  ],
+  "mention_context": [
+   "3-6,3-6,9.46,0.0185,1.0,False,14030,,105,0.0,",
+   "ge20,17.67,0.8487,0.9004,True,14030,,1558,0.8"
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 8,
+  "code": "14071",
+  "year": "2010",
+  "vct": "VCT/GSJ_MAP_G050_14071_2010_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R1_auto_vectorization/results/mac_20261027/auto_retry_selection.json"
+  ],
+  "mention_context": [
+   "480201,    \"mean_margin\": 0.9014071822166443,"
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 9,
+  "code": "15094",
+  "year": "1964",
+  "vct": "VCT/GSJ_MAP_G050_15094_1964_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R3/results/08001/s1_meta.json",
+   "experiments/R3/results/08004/s1_meta.json",
+   "experiments/R3/review/same_colour_review_index.json"
+  ],
+  "mention_context": [
+   "6084905660377,     476.89622641509436    ]   ",
+   "ntroid_work\": [     746.5622641509434,     10"
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 10,
+  "code": "13015",
+  "year": "2001",
+  "vct": "VCT/GSJ_MAP_G050_13015_2001_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R1_auto_vectorization/results/auto_retry_selection.json",
+   "experiments/R1_auto_vectorization/results/mac_20261027/auto_retry_selection.json",
+   "experiments/R1_auto_vectorization/results/mac_20261027/synth_summary.json",
+   "experiments/R1_auto_vectorization/results/synth_summary.json"
+  ],
+  "mention_context": [
+   "ain\": {    \"miou\": 0.9741621551301591,    \"me",
+   "ain\": {    \"miou\": 0.9741621551301591,    \"me"
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 11,
+  "code": "15078",
+  "year": "1982",
+  "vct": "VCT/GSJ_MAP_G050_15078_1982_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R3/results/08004/s1_meta.json"
+  ],
+  "mention_context": [
+   "  1741.1390362265397,     486.15078282598665 "
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 12,
+  "code": "13014",
+  "year": "1985",
+  "vct": "VCT/GSJ_MAP_G050_13014_1985_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R1_auto_vectorization/results/mac_20261027/synth_summary.json",
+   "experiments/R1_auto_vectorization/results/synth_summary.json",
+   "experiments/R4B0/gate1/gate1_instances.csv"
+  ],
+  "mention_context": [
+   "07565394368944794,     0.17112130143250542,  ",
+   "07565394368944794,     0.17112130143250542,  "
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 13,
+  "code": "15076",
+  "year": "1984",
+  "vct": "VCT/GSJ_MAP_G050_15076_1984_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [],
+  "mention_context": [],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 14,
+  "code": "15042",
+  "year": "1958",
+  "vct": "VCT/GSJ_MAP_G050_15042_1958_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [],
+  "mention_context": [],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 15,
+  "code": "15096",
+  "year": "1965",
+  "vct": "VCT/GSJ_MAP_G050_15096_1965_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [],
+  "mention_context": [],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 16,
+  "code": "15059",
+  "year": "2009",
+  "vct": "VCT/GSJ_MAP_G050_15059_2009_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [],
+  "mention_context": [],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 17,
+  "code": "13087",
+  "year": "1988",
+  "vct": "VCT/GSJ_MAP_G050_13087_1988_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R1_auto_vectorization/results/mac_20261027/synth_summary.json",
+   "experiments/R1_auto_vectorization/results/synth_summary.json"
+  ],
+  "mention_context": [
+   "ll,     \"all_lines_f1\": 0.14871308799632232  ",
+   "ll,     \"all_lines_f1\": 0.14871308799632232  "
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 18,
+  "code": "13012",
+  "year": "1986",
+  "vct": "VCT/GSJ_MAP_G050_13012_1986_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [
+   "experiments/R1_auto_vectorization/results/mac_20261027/synth_summary.json",
+   "experiments/R1_auto_vectorization/results/synth_summary.json",
+   "experiments/R4A/r4a2_2/eval/15023_M0.json",
+   "experiments/R4B0/gate3/gate3_oracle.json"
+  ],
+  "mention_context": [
+   "1.0,    \"cap10\": 0.2584875418913012,    \"cap2",
+   "1.0,    \"cap10\": 0.2584875418913012,    \"cap2"
+  ],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ },
+ {
+  "order": 19,
+  "code": "14086",
+  "year": "1963",
+  "vct": "VCT/GSJ_MAP_G050_14086_1963_V01.zip",
+  "previously_used_or_local": false,
+  "repo_mentions_outside_catalog": [],
+  "mention_context": [],
+  "mentions_as_sheet_code": false,
+  "eligible_by_history": true
+ }
+]
