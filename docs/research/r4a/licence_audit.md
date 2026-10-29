@@ -29,9 +29,21 @@ c1976464239992de5d09876eb6044160b2e568b4002acbc4abc6f64bdeb266cf  license/docs/g
 3. **训练是否算"改编"：** 按 CC BY-ND，在内部训练模型、不发布改编作品是否允许，条款没有直接回答。
 4. **底图权利：** 原图中的地形底图可能来自国土地理院，权利人不是 GSJ。
 
-## 3. 训练许可状态：`PENDING_CLARIFICATION`
+## 3. 使用状态：`INTERNAL_RESEARCH_APPROVED_BY_PROJECT_OWNER / THIRD_PARTY_LICENSE_UNCONFIRMED`
 
-**状态：** `PENDING_CLARIFICATION`（2026-10-28 更正）。
+**当前状态（2026-10-28 更新）：** `INTERNAL_RESEARCH_APPROVED_BY_PROJECT_OWNER / THIRD_PARTY_LICENSE_UNCONFIRMED`
+
+- 项目负责人批准：GSJ 原图和官方矢量可以用于**内部测试**，包括生成标签和训练模型。
+- 这**不是** GSJ 的正式授权。第 2 节列出的问题都还没有解决，GSJ 没有给出书面答复。
+- 项目代码采用 MIT 许可，但 MIT 只约束本项目自己的代码，不改变 GSJ 数据的权利归属。
+- 原图、由它们生成的标签和图像、以及用这些数据训练的模型权重：只保存在本地，不提交，不推送，不发布。
+- 如果将来要公开发布模型或数据，必须先向 GSJ（`publish@gsj.jp`）取得书面确认。
+
+以下是本节早先的记录，保留原文作为历史：
+
+### 3.1 早先记录：`PENDING_CLARIFICATION`
+
+**状态：** `PENDING_CLARIFICATION`（2026-10-28 更正，已被上面的状态取代）。
 
 - 项目负责人说明：本项目目前没有任何商业用途。
 - 这只是对用途的说明，**不是**对 GSJ 数据训练许可的确认。第 2 节列出的问题都还没有解决，GSJ 也没有给出书面答复。

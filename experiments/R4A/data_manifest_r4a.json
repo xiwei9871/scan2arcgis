@@ -1,0 +1,249 @@
+{
+ "licence_status": "INTERNAL_RESEARCH_APPROVED_BY_PROJECT_OWNER / THIRD_PARTY_LICENSE_UNCONFIRMED",
+ "label_grade_rules": {
+  "VERIFIED": "label pixels placed by a registration that passed the frozen Q3 ink-line check with the adopted method",
+  "PROVISIONAL": "some non-adopted method passed Q3 (post-hoc selection) - usable only after an adopted method or GeoTIFF check confirms",
+  "UNUSABLE": "no method passed Q3, frame not found, non-standard quadrangle, or not downloaded"
+ },
+ "sheets": {
+  "08004": {
+   "source": "GSJ",
+   "role": "dev_tuned",
+   "label_grade": "VERIFIED",
+   "registration": "R2 colour-refined, independent ink check passed (R2 diagnostics)",
+   "note": "used for R1-R3 tuning: development only, not independent validation"
+  },
+  "08001": {
+   "source": "GSJ",
+   "role": "dev_tuned",
+   "label_grade": "VERIFIED",
+   "registration": "R2 colour-refined, independent ink check passed (R2 diagnostics)",
+   "note": "used for R1-R3 tuning: development only, not independent validation"
+  },
+  "08011": {
+   "source": "GSJ",
+   "role": "sealed_holdout",
+   "label_grade": "NOT_ASSESSED",
+   "note": "sealed; not read"
+  },
+  "08021": {
+   "source": "GSJ",
+   "role": "sealed_holdout",
+   "label_grade": "NOT_ASSESSED",
+   "note": "sealed; not read"
+  },
+  "05016": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1983",
+   "qc_status_old": "FAIL_Q3_frame_detection",
+   "label_grade": "PROVISIONAL",
+   "reason": "passes Q3 only with V3 (method not adopted)",
+   "role": "development_tuned"
+  },
+  "05011": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1959",
+   "qc_status_old": "FAIL_Q3_frame_detection",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "development_tuned"
+  },
+  "06081": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1981",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "development_tuned"
+  },
+  "06006": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1964",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "PROVISIONAL",
+   "reason": "passes Q3 only with V2 (method not adopted)",
+   "role": "development_tuned"
+  },
+  "06054": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "2004",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "PROVISIONAL",
+   "reason": "passes Q3 only with V3,V3B,V3C (method not adopted)",
+   "role": "candidate"
+  },
+  "07060": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1989",
+   "qc_status_old": "FAIL_Q2_nonstandard_quadrangle",
+   "label_grade": "UNUSABLE",
+   "reason": "non-standard quadrangle",
+   "role": "candidate"
+  },
+  "05030": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "2004",
+   "qc_status_old": "PASS",
+   "label_grade": "VERIFIED",
+   "reason": "OLD_R2 passes Q3",
+   "role": "development_tuned"
+  },
+  "05021": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1970",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "candidate"
+  },
+  "06061": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "2002",
+   "qc_status_old": "PASS",
+   "label_grade": "VERIFIED",
+   "reason": "OLD_R2 passes Q3",
+   "role": "development_tuned"
+  },
+  "06019": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1976",
+   "qc_status_old": "FAIL_Q3_frame_detection",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "development_tuned"
+  },
+  "06090": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1984",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "PROVISIONAL",
+   "reason": "passes Q3 only with V3,V3B,V3C (method not adopted)",
+   "role": "development_tuned"
+  },
+  "07046": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1994",
+   "qc_status_old": "FAIL_Q2_nonstandard_quadrangle",
+   "label_grade": "UNUSABLE",
+   "reason": "non-standard quadrangle",
+   "role": "candidate"
+  },
+  "05003": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "1957",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "candidate"
+  },
+  "06012": {
+   "source": "GSJ",
+   "pool": "train",
+   "year": "not_downloaded",
+   "qc_status_old": "not_downloaded",
+   "label_grade": "UNUSABLE",
+   "reason": "not downloaded",
+   "role": "candidate"
+  },
+  "15061": {
+   "source": "GSJ",
+   "pool": "val",
+   "year": "1956",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "development_tuned"
+  },
+  "13068": {
+   "source": "GSJ",
+   "pool": "val",
+   "year": "1957",
+   "qc_status_old": "FAIL_Q3_registration",
+   "label_grade": "UNUSABLE",
+   "reason": "no method passes Q3",
+   "role": "development_tuned"
+  },
+  "13025": {
+   "source": "GSJ",
+   "pool": "val",
+   "year": "1997",
+   "qc_status_old": "FAIL_Q2_nonstandard_quadrangle",
+   "label_grade": "UNUSABLE",
+   "reason": "non-standard quadrangle",
+   "role": "candidate"
+  },
+  "13011": {
+   "source": "GSJ",
+   "pool": "val",
+   "year": "1992",
+   "qc_status_old": "FAIL_Q2_nonstandard_quadrangle",
+   "label_grade": "UNUSABLE",
+   "reason": "non-standard quadrangle",
+   "role": "candidate"
+  },
+  "15023": {
+   "source": "GSJ",
+   "pool": "val",
+   "year": "not_downloaded",
+   "qc_status_old": "not_downloaded",
+   "label_grade": "UNUSABLE",
+   "reason": "not downloaded",
+   "role": "candidate"
+  },
+  "gm1": {
+   "source": "legacy repo docs/地质图1.jpg",
+   "role": "qualitative_china",
+   "label_grade": "NO_LABELS",
+   "licence": "unconfirmed",
+   "note": "no reference labels; qualitative only"
+  },
+  "gm2": {
+   "source": "legacy repo docs/地质图2.jpg",
+   "role": "qualitative_china",
+   "label_grade": "NO_LABELS",
+   "licence": "unconfirmed",
+   "note": "no reference labels; qualitative only"
+  },
+  "u1": {
+   "source": "provided by project owner 2026-10-27",
+   "role": "qualitative_china",
+   "label_grade": "NO_LABELS",
+   "licence": "unconfirmed",
+   "note": "no reference labels; qualitative only"
+  },
+  "u2": {
+   "source": "provided by project owner 2026-10-27",
+   "role": "qualitative_china",
+   "label_grade": "NO_LABELS",
+   "licence": "unconfirmed",
+   "note": "no reference labels; qualitative only"
+  },
+  "u3": {
+   "source": "provided by project owner 2026-10-27",
+   "role": "qualitative_china",
+   "label_grade": "NO_LABELS",
+   "licence": "unconfirmed",
+   "note": "no reference labels; qualitative only"
+  },
+  "inner_mongolia": {
+   "source": "journal article figure (html.rhhz.net)",
+   "role": "qualitative_china",
+   "label_grade": "NO_LABELS",
+   "licence": "unconfirmed",
+   "note": "local /tmp download only; not in data/"
+  }
+ }
+}
