@@ -1,0 +1,71 @@
+{
+ "title": "R4-B1T pre-registration: boundary-representation feasibility audit (no training). Committed before any Gate 1-5 run.",
+ "start_commit": "37b5f887577bde8cae41cc18e8e48c8badc11d46",
+ "gate0_commit": "45521d9852e786b35d2c3bf4126defa45e43e278",
+ "scope": "10 frozen training sheets only (freeze_config.json data_roles.train) for Gates 1-3; labels, GeoTIFF RGB and the R4-A2 Q3 log only; no model output, no validation-sheet data, no training",
+ "change_policy": "Each gate runs once. After this commit only crash / implementation-bug fixes, documented with reason; no change of sigma, thresholds, rules, sheet order. Results that miss a criterion are recorded, not re-run.",
+ "width": "experiments/R4B1T/r4b1t_width.canonical_widths (Gate 0); bins 3-6 / 6-10 / 10-20 px, lt3 and ge20 as extra rows",
+ "key_fact": "M2_hybrid regions use only the distance head (watershed on -dist, hybrid markers); the boundary head is not used. A boundary-target change (A) therefore acts on the boundary-probability path (M1-style watershed), not directly on M2_hybrid. The M2 distance target is unchanged under A.",
+ "gate1_A": {
+  "definition": "t_A = exp(-d^2 / (2 * 0.5^2)) for d <= 1 px, else 0; d = dist.npy (distance to UNIT_BOUNDARY); same UB, same v2 weights, pos_weight 4. Single fixed definition, no sigma sweep.",
+  "why_this_one": "sigma 0.5 / support 1 px is the narrowest soft target that still marks axial neighbours (t = 0.16 at d = 0.955, p* = 0.43 < 0.5): at the loss optimum exactly the UB pixels exceed 0.5. Chosen from the definition, before any statistic on training sheets.",
+  "compared": ["v2 (current)", "A"],
+  "metrics_per_small_instance": {
+   "flood_share": "share of instance pixels with p* > 0.5",
+   "flooded90": "flood_share >= 0.9",
+   "interior_px": "instance pixels with p* <= 0.5",
+   "interior_cc_max": "largest 4-connected component of interior pixels inside the instance",
+   "theoretical_recovery_M1_rule": "frozen M1 post-processing on the p* field (markers = 8-connected CC of p* < 0.3 with area >= 50, watershed on p*); recovered = IoU >= 0.5 with the instance",
+   "theoretical_recovery_M2_hybrid": "official dist.npy + hybrid markers (unchanged by A: identical for v2 and A)"
+  },
+  "structural_statement": "A is still two-sided (UB marks both sides); report the share of instance area that UB itself occupies per width bin"
+ },
+ "gate2_B": {
+  "definition": "edge_right / edge_down from unit.npy on V = (ignore == 0) & (unit >= 0); a pair is an edge iff both pixels are in V and their units differ (r4b1t_labels.edges_B). No edge against unlabelled or ignored area.",
+  "checks": {
+   "no_duplicate": "edge count == number of 4-adjacent valid pairs with different units; ratio of UB pixels to edges reported",
+   "keeps_pixels": "every valid pixel of every instance is a region pixel under B (no area consumed); reported per width bin",
+   "adjacency_complete": "set of adjacent instance pairs from instance.npy (4-neighbourhood, valid) == set of instance pairs separated by >= 1 B edge",
+   "reconstruction": "r4b1t_labels.reconstruct_B on V vs instance.npy restricted to V: partition equality (one-to-one label map); every mismatch listed with cause",
+   "topology": "count 2x2 checkerboard vertices (diagonal-only contacts of the same unit), single-pixel-wide necks (lt3 instances), instances split by the valid mask",
+   "vector_mapping": "for the first 2 training sheets in role order (05016, 06054): polygonise the B reconstruction with the stage-C convention (X = col, Y = -row, rasterio.features.shapes, 4-connectivity) and check that the set of unit-length polygon boundary segments between two different regions equals the B segment set (r4b1t_labels.segments_B) exactly"
+  },
+  "distance_target_B": "dist_to_edge (exact distance from pixel centre to the nearest edge segment, clip 32) reported per width bin (max inside instance), and theoretical recovery with hybrid markers on it",
+  "label": "reconstruction from official labels is a property of the representation, NOT a model result"
+ },
+ "gate3_reliability": {
+  "ink": "gray black-hat ellipse 9 px > 40 (label-builder definition); ink1 / ink2 = dilated to 1 / 2 px",
+  "per_sheet_registration": "Q3 dx, dy, residual from experiments/R4A/r4a2/dataset_train.json log; and a diagnostic best integer shift of UB within [-2, 2]^2 maximising the share of UB pixels on ink (diagnostic only, never applied to labels)",
+  "A": {"positive_support": "share of UB (A-positive) pixels on ink / within 1 px / within 2 px, at shift 0 and at the diagnostic best shift",
+        "negative_conflict": "share of narrow-instance (< 10 px) non-UB pixels within 1 px of ink, shift 0 and best shift"},
+  "B": {"positive_support": "share of B edges with at least one of its two pixels within 1 px of ink",
+        "negative_conflict": "share of within-instance pixel pairs (non-edges) inside narrow instances with at least one pixel on ink"},
+  "instance_classes": {
+   "INK_SUPPORTED": ">= 80% of the instance's UB pixels within 2 px of ink",
+   "COLOUR_SUPPORTED": "Lab dE76 between the instance median colour (pixels not within 1 px of ink; if fewer than 5, pixels not on ink) and the median colour of the dominant neighbouring instance's pixels within 3 px outside the instance (not on ink) >= 10",
+   "VISUALLY_SUPPORTED": "INK_SUPPORTED or COLOUR_SUPPORTED",
+   "UNCERTAIN": "otherwise; such instances should get no forced narrow-unit supervision",
+   "interior_visible": "share of instance pixels not within 1 px of ink"
+  },
+  "samples": "per width bin 3-6 / 6-10: 6 instances drawn with numpy default_rng(20261029) from the sorted (sheet, instance) list, local panels only"
+ },
+ "gate4_decision": {
+  "criteria": {
+   "C1_flooding": "theoretical share of 3-6 px instances flooded90 <= 0.30",
+   "C2_recovery": "theoretical 3-6 px recovery under the candidate's own post-processing >= 0.50 (A: M1 rule on p*_A; B: direct reconstruction from edges)",
+   "C3_reliability": "narrow-unit negative_conflict <= 0.30 at shift 0, and VISUALLY_SUPPORTED share of 3-6 px instances >= 0.50",
+   "C4_topology": "A: n/a (pixel labels); B: reconstruction partition-equal for >= 99.9% of instances, all mismatches explained",
+   "C5_m2_distance_head": "distance target exists and is unchanged or exactly derivable",
+   "C6_engineering": "changes to model head, loss, post-processing, vector export listed with estimated effort",
+   "C7_hardware": "fits Apple M4 16 GB (output channels and memory at batch 8, tile 512)"
+  },
+  "rule": "a candidate is eligible iff C1, C2, C3, C4 hold; if both eligible prefer the smaller engineering change; if none eligible: STOP, no training proposal, report which criterion failed",
+  "sampling_fix": "Gate 1 of R4-B1 interior anchor evaluated separately; included only as a marked combination experiment",
+  "output": "one minimal falsifiable training plan, not started"
+ },
+ "gate5_test_sheets": {
+  "rule": "walk experiments/R4A/sheet_draw.json validation_order (seed 20261028, frozen 2026-10-28) from order 6 onward; skip any code already visited in any role (training, validation, development 05030/06061/08004/08001, registration-diagnosis 15061/13068, sealed 08011/08021, and every code in dataset_train.json / dataset_validation.json logs); apply the unchanged Q1/Q2/Q3 rules of experiments/R4A/gtf_dataset.py (download if needed); stop at 2 PASS",
+  "recorded": "order, status, download sha256, Q3 numbers, licence status (same as other GSJ sheets: INTERNAL_RESEARCH_APPROVED_BY_PROJECT_OWNER / THIRD_PARTY_LICENSE_UNCONFIRMED)",
+  "forbidden": "no model inference, no instance or recovery statistics on these sheets before a checkpoint is frozen; labels may be built only after the B1 freeze"
+ }
+}
