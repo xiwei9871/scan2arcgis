@@ -1,0 +1,87 @@
+{
+ "label": "official labels: pipeline check and robustness, NOT a model result",
+ "gt_check": {
+  "05016": {
+   "valid_components": 293,
+   "reconstructed_regions_in_valid": 200,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 56,
+   "valid_components_lt50px": 56
+  },
+  "06054": {
+   "valid_components": 608,
+   "reconstructed_regions_in_valid": 304,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 289,
+   "valid_components_lt50px": 289
+  },
+  "05021": {
+   "valid_components": 342,
+   "reconstructed_regions_in_valid": 261,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 41,
+   "valid_components_lt50px": 41
+  },
+  "06090": {
+   "valid_components": 663,
+   "reconstructed_regions_in_valid": 345,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 231,
+   "valid_components_lt50px": 237
+  },
+  "07089": {
+   "valid_components": 244,
+   "reconstructed_regions_in_valid": 167,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 32,
+   "valid_components_lt50px": 36
+  },
+  "06005": {
+   "valid_components": 355,
+   "reconstructed_regions_in_valid": 238,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 66,
+   "valid_components_lt50px": 68
+  },
+  "06020": {
+   "valid_components": 840,
+   "reconstructed_regions_in_valid": 657,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 98,
+   "valid_components_lt50px": 99
+  },
+  "05015": {
+   "valid_components": 272,
+   "reconstructed_regions_in_valid": 182,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 47,
+   "valid_components_lt50px": 47
+  },
+  "07038": {
+   "valid_components": 846,
+   "reconstructed_regions_in_valid": 605,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 133,
+   "valid_components_lt50px": 134
+  },
+  "06055": {
+   "valid_components": 216,
+   "reconstructed_regions_in_valid": 154,
+   "partition_equal": false,
+   "implied_edges_equal_official": false,
+   "cleanup_merges": 24,
+   "valid_components_lt50px": 24
+  }
+ },
+ "perturbation": {},
+ "gt_check_all_exact": false
+}
