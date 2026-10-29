@@ -1,0 +1,1064 @@
+{
+ "sheets": [
+  "05016",
+  "06054",
+  "05021",
+  "06090",
+  "07089",
+  "06005",
+  "06020",
+  "05015",
+  "07038",
+  "06055"
+ ],
+ "n_small_instances": 2505,
+ "draws_per_instance_and_anchor": 20,
+ "seed": 20261029,
+ "frozen_anchor_definition": "np.unique(inst, return_index=True) -> first pixel in row-major order (r4a2_train.load_sheet)",
+ "interior_anchor_definition": "argmax of own-mask inscribed distance (r4b1_sampling.interior_anchors)",
+ "share_frozen_anchor_on_outline_edt_le_1": 1.0,
+ "by_width_bin_pooled": {
+  "3-6": {
+   "n": 43,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.3479,
+    "at_end": 0.907,
+    "mean_inst_cov": 0.9324,
+    "mean_skel_cov": 0.9321,
+    "crops_ge90": 0.843,
+    "crops_full": 0.8186
+   },
+   "interior": {
+    "anchor_edt_px": 2.9197,
+    "rel_depth": 1.0,
+    "at_end": 0.1628,
+    "mean_inst_cov": 0.9595,
+    "mean_skel_cov": 0.9583,
+    "crops_ge90": 0.893,
+    "crops_full": 0.8744
+   }
+  },
+  "6-10": {
+   "n": 256,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.2208,
+    "at_end": 0.8555,
+    "mean_inst_cov": 0.9903,
+    "mean_skel_cov": 0.9903,
+    "crops_ge90": 0.9707,
+    "crops_full": 0.9588
+   },
+   "interior": {
+    "anchor_edt_px": 4.6043,
+    "rel_depth": 1.0,
+    "at_end": 0.0859,
+    "mean_inst_cov": 0.9934,
+    "mean_skel_cov": 0.9931,
+    "crops_ge90": 0.9793,
+    "crops_full": 0.9709
+   }
+  },
+  "10-20": {
+   "n": 737,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.1315,
+    "at_end": 0.7666,
+    "mean_inst_cov": 0.99,
+    "mean_skel_cov": 0.9901,
+    "crops_ge90": 0.9729,
+    "crops_full": 0.9646
+   },
+   "interior": {
+    "anchor_edt_px": 7.8573,
+    "rel_depth": 1.0,
+    "at_end": 0.0366,
+    "mean_inst_cov": 0.9931,
+    "mean_skel_cov": 0.9924,
+    "crops_ge90": 0.9789,
+    "crops_full": 0.9726
+   }
+  },
+  "ge20": {
+   "n": 1469,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.0555,
+    "at_end": 0.7175,
+    "mean_inst_cov": 0.9635,
+    "mean_skel_cov": 0.9626,
+    "crops_ge90": 0.9043,
+    "crops_full": 0.8564
+   },
+   "interior": {
+    "anchor_edt_px": 21.2064,
+    "rel_depth": 1.0,
+    "at_end": 0.0225,
+    "mean_inst_cov": 0.9883,
+    "mean_skel_cov": 0.9851,
+    "crops_ge90": 0.9597,
+    "crops_full": 0.9222
+   }
+  }
+ },
+ "by_sheet": {
+  "05016": {
+   "6-10": {
+    "n": 8,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2064,
+     "at_end": 0.75,
+     "mean_inst_cov": 0.9988,
+     "mean_skel_cov": 0.9987,
+     "crops_ge90": 0.9938,
+     "crops_full": 0.9875
+    },
+    "interior": {
+     "anchor_edt_px": 4.872,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    }
+   },
+   "10-20": {
+    "n": 44,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1334,
+     "at_end": 0.6364,
+     "mean_inst_cov": 0.9889,
+     "mean_skel_cov": 0.9886,
+     "crops_ge90": 0.967,
+     "crops_full": 0.9648
+    },
+    "interior": {
+     "anchor_edt_px": 7.7318,
+     "rel_depth": 1.0,
+     "at_end": 0.0909,
+     "mean_inst_cov": 0.9879,
+     "mean_skel_cov": 0.9878,
+     "crops_ge90": 0.967,
+     "crops_full": 0.9625
+    }
+   },
+   "ge20": {
+    "n": 95,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0521,
+     "at_end": 0.6316,
+     "mean_inst_cov": 0.9447,
+     "mean_skel_cov": 0.9434,
+     "crops_ge90": 0.8679,
+     "crops_full": 0.8126
+    },
+    "interior": {
+     "anchor_edt_px": 22.6094,
+     "rel_depth": 1.0,
+     "at_end": 0.0211,
+     "mean_inst_cov": 0.9759,
+     "mean_skel_cov": 0.972,
+     "crops_ge90": 0.9289,
+     "crops_full": 0.8932
+    }
+   }
+  },
+  "06054": {
+   "3-6": {
+    "n": 8,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3205,
+     "at_end": 1.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    },
+    "interior": {
+     "anchor_edt_px": 3.1231,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    }
+   },
+   "6-10": {
+    "n": 39,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2263,
+     "at_end": 0.9231,
+     "mean_inst_cov": 0.9992,
+     "mean_skel_cov": 0.9994,
+     "crops_ge90": 0.9949,
+     "crops_full": 0.9936
+    },
+    "interior": {
+     "anchor_edt_px": 4.4948,
+     "rel_depth": 1.0,
+     "at_end": 0.0256,
+     "mean_inst_cov": 0.9999,
+     "mean_skel_cov": 0.9999,
+     "crops_ge90": 1.0,
+     "crops_full": 0.9987
+    }
+   },
+   "10-20": {
+    "n": 97,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1329,
+     "at_end": 0.8247,
+     "mean_inst_cov": 0.9994,
+     "mean_skel_cov": 0.9989,
+     "crops_ge90": 0.9964,
+     "crops_full": 0.9948
+    },
+    "interior": {
+     "anchor_edt_px": 7.7232,
+     "rel_depth": 1.0,
+     "at_end": 0.0309,
+     "mean_inst_cov": 0.9993,
+     "mean_skel_cov": 0.9986,
+     "crops_ge90": 0.9964,
+     "crops_full": 0.9938
+    }
+   },
+   "ge20": {
+    "n": 79,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0552,
+     "at_end": 0.7848,
+     "mean_inst_cov": 0.975,
+     "mean_skel_cov": 0.9727,
+     "crops_ge90": 0.9285,
+     "crops_full": 0.881
+    },
+    "interior": {
+     "anchor_edt_px": 21.6353,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9945,
+     "mean_skel_cov": 0.9932,
+     "crops_ge90": 0.9835,
+     "crops_full": 0.9614
+    }
+   }
+  },
+  "05021": {
+   "3-6": {
+    "n": 1,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.4552,
+     "at_end": 1.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    },
+    "interior": {
+     "anchor_edt_px": 2.197,
+     "rel_depth": 1.0,
+     "at_end": 1.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    }
+   },
+   "6-10": {
+    "n": 17,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2137,
+     "at_end": 0.5882,
+     "mean_inst_cov": 0.9944,
+     "mean_skel_cov": 0.9932,
+     "crops_ge90": 0.9912,
+     "crops_full": 0.9441
+    },
+    "interior": {
+     "anchor_edt_px": 4.7617,
+     "rel_depth": 1.0,
+     "at_end": 0.0588,
+     "mean_inst_cov": 0.9964,
+     "mean_skel_cov": 0.9956,
+     "crops_ge90": 0.9882,
+     "crops_full": 0.9735
+    }
+   },
+   "10-20": {
+    "n": 69,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1354,
+     "at_end": 0.6087,
+     "mean_inst_cov": 0.9968,
+     "mean_skel_cov": 0.9965,
+     "crops_ge90": 0.9891,
+     "crops_full": 0.9812
+    },
+    "interior": {
+     "anchor_edt_px": 7.5802,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 0.9999,
+     "crops_ge90": 1.0,
+     "crops_full": 0.9978
+    }
+   },
+   "ge20": {
+    "n": 113,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0581,
+     "at_end": 0.5487,
+     "mean_inst_cov": 0.9851,
+     "mean_skel_cov": 0.9845,
+     "crops_ge90": 0.9531,
+     "crops_full": 0.9265
+    },
+    "interior": {
+     "anchor_edt_px": 20.1446,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9959,
+     "mean_skel_cov": 0.9948,
+     "crops_ge90": 0.9841,
+     "crops_full": 0.9535
+    }
+   }
+  },
+  "06090": {
+   "3-6": {
+    "n": 5,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3217,
+     "at_end": 0.8,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    },
+    "interior": {
+     "anchor_edt_px": 3.1176,
+     "rel_depth": 1.0,
+     "at_end": 0.2,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    }
+   },
+   "6-10": {
+    "n": 47,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2218,
+     "at_end": 0.9362,
+     "mean_inst_cov": 0.9803,
+     "mean_skel_cov": 0.9803,
+     "crops_ge90": 0.9309,
+     "crops_full": 0.9043
+    },
+    "interior": {
+     "anchor_edt_px": 4.5757,
+     "rel_depth": 1.0,
+     "at_end": 0.1915,
+     "mean_inst_cov": 0.9819,
+     "mean_skel_cov": 0.982,
+     "crops_ge90": 0.9489,
+     "crops_full": 0.9404
+    }
+   },
+   "10-20": {
+    "n": 115,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1324,
+     "at_end": 0.8174,
+     "mean_inst_cov": 0.9703,
+     "mean_skel_cov": 0.9718,
+     "crops_ge90": 0.9148,
+     "crops_full": 0.8917
+    },
+    "interior": {
+     "anchor_edt_px": 7.8102,
+     "rel_depth": 1.0,
+     "at_end": 0.0957,
+     "mean_inst_cov": 0.9769,
+     "mean_skel_cov": 0.9756,
+     "crops_ge90": 0.9322,
+     "crops_full": 0.913
+    }
+   },
+   "ge20": {
+    "n": 160,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0576,
+     "at_end": 0.8125,
+     "mean_inst_cov": 0.9291,
+     "mean_skel_cov": 0.9252,
+     "crops_ge90": 0.8091,
+     "crops_full": 0.7369
+    },
+    "interior": {
+     "anchor_edt_px": 19.9454,
+     "rel_depth": 1.0,
+     "at_end": 0.0688,
+     "mean_inst_cov": 0.9684,
+     "mean_skel_cov": 0.9611,
+     "crops_ge90": 0.8947,
+     "crops_full": 0.8363
+    }
+   }
+  },
+  "07089": {
+   "3-6": {
+    "n": 9,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3521,
+     "at_end": 0.8889,
+     "mean_inst_cov": 0.8573,
+     "mean_skel_cov": 0.8592,
+     "crops_ge90": 0.7389,
+     "crops_full": 0.6889
+    },
+    "interior": {
+     "anchor_edt_px": 2.8663,
+     "rel_depth": 1.0,
+     "at_end": 0.1111,
+     "mean_inst_cov": 0.9517,
+     "mean_skel_cov": 0.9493,
+     "crops_ge90": 0.8722,
+     "crops_full": 0.8056
+    }
+   },
+   "6-10": {
+    "n": 17,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2226,
+     "at_end": 0.9412,
+     "mean_inst_cov": 0.994,
+     "mean_skel_cov": 0.9934,
+     "crops_ge90": 0.9676,
+     "crops_full": 0.9529
+    },
+    "interior": {
+     "anchor_edt_px": 4.597,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9997,
+     "mean_skel_cov": 0.9994,
+     "crops_ge90": 1.0,
+     "crops_full": 0.9882
+    }
+   },
+   "10-20": {
+    "n": 28,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1299,
+     "at_end": 0.6429,
+     "mean_inst_cov": 0.9945,
+     "mean_skel_cov": 0.9931,
+     "crops_ge90": 0.9821,
+     "crops_full": 0.9625
+    },
+    "interior": {
+     "anchor_edt_px": 8.0097,
+     "rel_depth": 1.0,
+     "at_end": 0.1071,
+     "mean_inst_cov": 0.9924,
+     "mean_skel_cov": 0.991,
+     "crops_ge90": 0.9679,
+     "crops_full": 0.9536
+    }
+   },
+   "ge20": {
+    "n": 85,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.055,
+     "at_end": 0.6706,
+     "mean_inst_cov": 0.9723,
+     "mean_skel_cov": 0.9727,
+     "crops_ge90": 0.9288,
+     "crops_full": 0.8841
+    },
+    "interior": {
+     "anchor_edt_px": 21.6448,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9869,
+     "mean_skel_cov": 0.9861,
+     "crops_ge90": 0.9471,
+     "crops_full": 0.9071
+    }
+   }
+  },
+  "06005": {
+   "3-6": {
+    "n": 6,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3384,
+     "at_end": 0.8333,
+     "mean_inst_cov": 0.8596,
+     "mean_skel_cov": 0.8606,
+     "crops_ge90": 0.7167,
+     "crops_full": 0.675
+    },
+    "interior": {
+     "anchor_edt_px": 2.9657,
+     "rel_depth": 1.0,
+     "at_end": 0.1667,
+     "mean_inst_cov": 0.9154,
+     "mean_skel_cov": 0.9153,
+     "crops_ge90": 0.8333,
+     "crops_full": 0.8333
+    }
+   },
+   "6-10": {
+    "n": 20,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2347,
+     "at_end": 0.85,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    },
+    "interior": {
+     "anchor_edt_px": 4.3273,
+     "rel_depth": 1.0,
+     "at_end": 0.1,
+     "mean_inst_cov": 0.999,
+     "mean_skel_cov": 0.9989,
+     "crops_ge90": 0.995,
+     "crops_full": 0.9875
+    }
+   },
+   "10-20": {
+    "n": 42,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1346,
+     "at_end": 0.8333,
+     "mean_inst_cov": 0.9923,
+     "mean_skel_cov": 0.9932,
+     "crops_ge90": 0.9679,
+     "crops_full": 0.9631
+    },
+    "interior": {
+     "anchor_edt_px": 7.6759,
+     "rel_depth": 1.0,
+     "at_end": 0.0238,
+     "mean_inst_cov": 0.994,
+     "mean_skel_cov": 0.9918,
+     "crops_ge90": 0.9774,
+     "crops_full": 0.9726
+    }
+   },
+   "ge20": {
+    "n": 99,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0546,
+     "at_end": 0.7576,
+     "mean_inst_cov": 0.9595,
+     "mean_skel_cov": 0.9574,
+     "crops_ge90": 0.8929,
+     "crops_full": 0.8258
+    },
+    "interior": {
+     "anchor_edt_px": 22.0007,
+     "rel_depth": 1.0,
+     "at_end": 0.0101,
+     "mean_inst_cov": 0.9909,
+     "mean_skel_cov": 0.989,
+     "crops_ge90": 0.9652,
+     "crops_full": 0.9283
+    }
+   }
+  },
+  "06020": {
+   "3-6": {
+    "n": 6,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3622,
+     "at_end": 0.8333,
+     "mean_inst_cov": 0.9504,
+     "mean_skel_cov": 0.9474,
+     "crops_ge90": 0.8083,
+     "crops_full": 0.7667
+    },
+    "interior": {
+     "anchor_edt_px": 2.8323,
+     "rel_depth": 1.0,
+     "at_end": 0.1667,
+     "mean_inst_cov": 0.9491,
+     "mean_skel_cov": 0.9466,
+     "crops_ge90": 0.8333,
+     "crops_full": 0.8333
+    }
+   },
+   "6-10": {
+    "n": 42,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2154,
+     "at_end": 0.8333,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    },
+    "interior": {
+     "anchor_edt_px": 4.6975,
+     "rel_depth": 1.0,
+     "at_end": 0.0476,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    }
+   },
+   "10-20": {
+    "n": 145,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1278,
+     "at_end": 0.6828,
+     "mean_inst_cov": 0.9979,
+     "mean_skel_cov": 0.9979,
+     "crops_ge90": 0.9934,
+     "crops_full": 0.9883
+    },
+    "interior": {
+     "anchor_edt_px": 8.1183,
+     "rel_depth": 1.0,
+     "at_end": 0.0069,
+     "mean_inst_cov": 0.9987,
+     "mean_skel_cov": 0.9987,
+     "crops_ge90": 0.9952,
+     "crops_full": 0.9931
+    }
+   },
+   "ge20": {
+    "n": 348,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0553,
+     "at_end": 0.6552,
+     "mean_inst_cov": 0.971,
+     "mean_skel_cov": 0.9714,
+     "crops_ge90": 0.9237,
+     "crops_full": 0.8828
+    },
+    "interior": {
+     "anchor_edt_px": 21.4314,
+     "rel_depth": 1.0,
+     "at_end": 0.0345,
+     "mean_inst_cov": 0.9924,
+     "mean_skel_cov": 0.9903,
+     "crops_ge90": 0.9701,
+     "crops_full": 0.9394
+    }
+   }
+  },
+  "05015": {
+   "6-10": {
+    "n": 26,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2176,
+     "at_end": 0.7308,
+     "mean_inst_cov": 0.9651,
+     "mean_skel_cov": 0.9656,
+     "crops_ge90": 0.9346,
+     "crops_full": 0.9154
+    },
+    "interior": {
+     "anchor_edt_px": 4.6432,
+     "rel_depth": 1.0,
+     "at_end": 0.1538,
+     "mean_inst_cov": 0.9766,
+     "mean_skel_cov": 0.9752,
+     "crops_ge90": 0.9288,
+     "crops_full": 0.9096
+    }
+   },
+   "10-20": {
+    "n": 36,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1375,
+     "at_end": 0.8333,
+     "mean_inst_cov": 0.9651,
+     "mean_skel_cov": 0.9638,
+     "crops_ge90": 0.9444,
+     "crops_full": 0.9431
+    },
+    "interior": {
+     "anchor_edt_px": 7.512,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9816,
+     "mean_skel_cov": 0.9796,
+     "crops_ge90": 0.9556,
+     "crops_full": 0.9444
+    }
+   },
+   "ge20": {
+    "n": 70,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0542,
+     "at_end": 0.7286,
+     "mean_inst_cov": 0.9368,
+     "mean_skel_cov": 0.9404,
+     "crops_ge90": 0.8557,
+     "crops_full": 0.7879
+    },
+    "interior": {
+     "anchor_edt_px": 21.9341,
+     "rel_depth": 1.0,
+     "at_end": 0.0429,
+     "mean_inst_cov": 0.9806,
+     "mean_skel_cov": 0.9684,
+     "crops_ge90": 0.93,
+     "crops_full": 0.8514
+    }
+   }
+  },
+  "07038": {
+   "3-6": {
+    "n": 7,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3784,
+     "at_end": 1.0,
+     "mean_inst_cov": 0.9311,
+     "mean_skel_cov": 0.9285,
+     "crops_ge90": 0.7786,
+     "crops_full": 0.7643
+    },
+    "interior": {
+     "anchor_edt_px": 2.7134,
+     "rel_depth": 1.0,
+     "at_end": 0.2857,
+     "mean_inst_cov": 0.9294,
+     "mean_skel_cov": 0.9273,
+     "crops_ge90": 0.7929,
+     "crops_full": 0.7643
+    }
+   },
+   "6-10": {
+    "n": 21,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2165,
+     "at_end": 0.9048,
+     "mean_inst_cov": 0.9894,
+     "mean_skel_cov": 0.9899,
+     "crops_ge90": 0.9595,
+     "crops_full": 0.9571
+    },
+    "interior": {
+     "anchor_edt_px": 4.6925,
+     "rel_depth": 1.0,
+     "at_end": 0.0952,
+     "mean_inst_cov": 0.9976,
+     "mean_skel_cov": 0.9976,
+     "crops_ge90": 0.9833,
+     "crops_full": 0.9738
+    }
+   },
+   "10-20": {
+    "n": 140,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.1292,
+     "at_end": 0.8786,
+     "mean_inst_cov": 0.9927,
+     "mean_skel_cov": 0.9929,
+     "crops_ge90": 0.9832,
+     "crops_full": 0.9768
+    },
+    "interior": {
+     "anchor_edt_px": 7.9996,
+     "rel_depth": 1.0,
+     "at_end": 0.0286,
+     "mean_inst_cov": 0.997,
+     "mean_skel_cov": 0.9965,
+     "crops_ge90": 0.9896,
+     "crops_full": 0.9879
+    }
+   },
+   "ge20": {
+    "n": 334,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0557,
+     "at_end": 0.7964,
+     "mean_inst_cov": 0.97,
+     "mean_skel_cov": 0.9682,
+     "crops_ge90": 0.9225,
+     "crops_full": 0.8822
+    },
+    "interior": {
+     "anchor_edt_px": 20.8658,
+     "rel_depth": 1.0,
+     "at_end": 0.012,
+     "mean_inst_cov": 0.9925,
+     "mean_skel_cov": 0.9897,
+     "crops_ge90": 0.9751,
+     "crops_full": 0.9467
+    }
+   }
+  },
+  "06055": {
+   "3-6": {
+    "n": 1,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.3128,
+     "at_end": 1.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    },
+    "interior": {
+     "anchor_edt_px": 3.197,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 1.0,
+     "mean_skel_cov": 1.0,
+     "crops_ge90": 1.0,
+     "crops_full": 1.0
+    }
+   },
+   "6-10": {
+    "n": 19,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.2239,
+     "at_end": 0.8947,
+     "mean_inst_cov": 0.9894,
+     "mean_skel_cov": 0.9901,
+     "crops_ge90": 0.9605,
+     "crops_full": 0.9553
+    },
+    "interior": {
+     "anchor_edt_px": 4.5869,
+     "rel_depth": 1.0,
+     "at_end": 0.0526,
+     "mean_inst_cov": 0.995,
+     "mean_skel_cov": 0.994,
+     "crops_ge90": 0.9789,
+     "crops_full": 0.9579
+    }
+   },
+   "10-20": {
+    "n": 21,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.131,
+     "at_end": 0.7619,
+     "mean_inst_cov": 0.9931,
+     "mean_skel_cov": 0.9932,
+     "crops_ge90": 0.9786,
+     "crops_full": 0.9667
+    },
+    "interior": {
+     "anchor_edt_px": 7.909,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9963,
+     "mean_skel_cov": 0.9963,
+     "crops_ge90": 0.9833,
+     "crops_full": 0.969
+    }
+   },
+   "ge20": {
+    "n": 86,
+    "frozen": {
+     "anchor_edt_px": 1.0,
+     "rel_depth": 0.0544,
+     "at_end": 0.7326,
+     "mean_inst_cov": 0.9706,
+     "mean_skel_cov": 0.9716,
+     "crops_ge90": 0.9151,
+     "crops_full": 0.8686
+    },
+    "interior": {
+     "anchor_edt_px": 21.4762,
+     "rel_depth": 1.0,
+     "at_end": 0.0,
+     "mean_inst_cov": 0.9957,
+     "mean_skel_cov": 0.9927,
+     "crops_ge90": 0.989,
+     "crops_full": 0.9378
+    }
+   }
+  }
+ },
+ "visuals_local": "runs/r4b1/gate1/anchors",
+ "elongated_ge4_by_width_bin": {
+  "3-6": {
+   "n": 43,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.3479,
+    "at_end": 0.907,
+    "mean_inst_cov": 0.9324,
+    "mean_skel_cov": 0.9321,
+    "crops_ge90": 0.843,
+    "crops_full": 0.8186
+   },
+   "interior": {
+    "anchor_edt_px": 2.9197,
+    "rel_depth": 1.0,
+    "at_end": 0.1628,
+    "mean_inst_cov": 0.9595,
+    "mean_skel_cov": 0.9583,
+    "crops_ge90": 0.893,
+    "crops_full": 0.8744
+   }
+  },
+  "6-10": {
+   "n": 204,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.2253,
+    "at_end": 0.8824,
+    "mean_inst_cov": 0.9878,
+    "mean_skel_cov": 0.9879,
+    "crops_ge90": 0.9632,
+    "crops_full": 0.9483
+   },
+   "interior": {
+    "anchor_edt_px": 4.514,
+    "rel_depth": 1.0,
+    "at_end": 0.1078,
+    "mean_inst_cov": 0.9917,
+    "mean_skel_cov": 0.9913,
+    "crops_ge90": 0.974,
+    "crops_full": 0.9635
+   }
+  },
+  "10-20": {
+   "n": 356,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.1332,
+    "at_end": 0.8174,
+    "mean_inst_cov": 0.9792,
+    "mean_skel_cov": 0.9795,
+    "crops_ge90": 0.944,
+    "crops_full": 0.9267
+   },
+   "interior": {
+    "anchor_edt_px": 7.7601,
+    "rel_depth": 1.0,
+    "at_end": 0.0758,
+    "mean_inst_cov": 0.9857,
+    "mean_skel_cov": 0.9844,
+    "crops_ge90": 0.9563,
+    "crops_full": 0.9433
+   }
+  },
+  "ge20": {
+   "n": 661,
+   "frozen": {
+    "anchor_edt_px": 1.0,
+    "rel_depth": 0.0545,
+    "at_end": 0.7534,
+    "mean_inst_cov": 0.9224,
+    "mean_skel_cov": 0.9206,
+    "crops_ge90": 0.7995,
+    "crops_full": 0.7085
+   },
+   "interior": {
+    "anchor_edt_px": 21.3673,
+    "rel_depth": 1.0,
+    "at_end": 0.0499,
+    "mean_inst_cov": 0.9743,
+    "mean_skel_cov": 0.9672,
+    "crops_ge90": 0.911,
+    "crops_full": 0.8323
+   }
+  }
+ },
+ "n_elongated_ge4": 1264,
+ "tail_and_large_bbox": {
+  "3-6": {
+   "n": 43,
+   "instances_ge90_in_lt_half_of_crops": {
+    "frozen": 8,
+    "interior": 5
+   },
+   "bbox_gt_256px": {
+    "n": 8,
+    "frozen_crops_ge90": 0.1875,
+    "interior_crops_ge90": 0.425
+   }
+  },
+  "6-10": {
+   "n": 256,
+   "instances_ge90_in_lt_half_of_crops": {
+    "frozen": 4,
+    "interior": 4
+   },
+   "bbox_gt_256px": {
+    "n": 10,
+    "frozen_crops_ge90": 0.615,
+    "interior_crops_ge90": 0.57
+   }
+  },
+  "10-20": {
+   "n": 737,
+   "instances_ge90_in_lt_half_of_crops": {
+    "frozen": 15,
+    "interior": 12
+   },
+   "bbox_gt_256px": {
+    "n": 26,
+    "frozen_crops_ge90": 0.3962,
+    "interior_crops_ge90": 0.4827
+   }
+  },
+  "ge20": {
+   "n": 1469,
+   "instances_ge90_in_lt_half_of_crops": {
+    "frozen": 98,
+    "interior": 41
+   },
+   "bbox_gt_256px": {
+    "n": 187,
+    "frozen_crops_ge90": 0.4535,
+    "interior_crops_ge90": 0.7032
+   }
+  }
+ }
+}
