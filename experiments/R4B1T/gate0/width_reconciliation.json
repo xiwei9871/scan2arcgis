@@ -1,0 +1,545 @@
+{
+ "definition": "R4-B1T canonical instance / width definitions (single implementation from here on; history unchanged).\n\nInstance   official instance.npy (4-connected component of one geo_A unit on the GeoTIFF grid), id = value + 1.\nValid      evaluation valid mask: ignore.npy == 0 and unit.npy >= 0 (same as experiments/R4A/r4a2_2_eval.load_ref).\nArea       number of instance pixels inside Valid.\nSmall      200 <= Area < 20000.\nWidth      inscribed edge-to-edge width of the instance's own mask restricted to Valid:\n           2 * (max DIST_L2-mask-5 distance inside the 1-px-padded mask - 0.5).\n           A pixel strip k px wide has width k (centre pixel distance = (k+1)/2).\nBins       [3, 6), [6, 10), [10, 20); lt3 and ge20 kept as extra rows.\n\nHistorical definitions reconciled in Gate 0 (not used further):\n  H1 pre-check (R4-B0 discussion):      2 * max EDT (no -0.5), full grid       -> +1 px vs canonical\n  H2 R4-A2.2 width_old:                  2 * max(official dist to UB) + 1, valid area\n  H3 R4-B0 Gate 1/2/3 width_own:         canonical formula, valid area            -> identical to canonical\n  H4 R4-B1 Gate 1/2 width_own:           canonical formula, FULL grid (no valid mask)\n",
+ "sheets": {
+  "05016": {
+   "role": "train",
+   "instances_total_full_grid": 290,
+   "instances_with_valid_px": 290,
+   "small_full_grid": 147,
+   "small_valid": 147,
+   "small_ids_only_in_full": 0,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 8,
+     "10-20": 44,
+     "ge20": 95
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 6,
+     "10-20": 42,
+     "ge20": 99
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 8,
+     "10-20": 44,
+     "ge20": 95
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 7,
+     "10-20": 43,
+     "ge20": 97
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 1.0
+  },
+  "06054": {
+   "role": "train",
+   "instances_total_full_grid": 608,
+   "instances_with_valid_px": 608,
+   "small_full_grid": 223,
+   "small_valid": 223,
+   "small_ids_only_in_full": 0,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 8,
+     "6-10": 39,
+     "10-20": 97,
+     "ge20": 79
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 34,
+     "10-20": 104,
+     "ge20": 85
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 8,
+     "6-10": 39,
+     "10-20": 97,
+     "ge20": 79
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 8,
+     "6-10": 36,
+     "10-20": 97,
+     "ge20": 82
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 1.0
+  },
+  "05021": {
+   "role": "train",
+   "instances_total_full_grid": 341,
+   "instances_with_valid_px": 341,
+   "small_full_grid": 200,
+   "small_valid": 199,
+   "small_ids_only_in_full": 1,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 16,
+     "10-20": 69,
+     "ge20": 113
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 11,
+     "10-20": 71,
+     "ge20": 117
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 17,
+     "10-20": 69,
+     "ge20": 113
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 12,
+     "10-20": 71,
+     "ge20": 115
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 1.0
+  },
+  "06090": {
+   "role": "train",
+   "instances_total_full_grid": 663,
+   "instances_with_valid_px": 663,
+   "small_full_grid": 327,
+   "small_valid": 325,
+   "small_ids_only_in_full": 2,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 5,
+     "6-10": 46,
+     "10-20": 114,
+     "ge20": 160
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 38,
+     "10-20": 119,
+     "ge20": 169
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 5,
+     "6-10": 47,
+     "10-20": 115,
+     "ge20": 160
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 5,
+     "6-10": 42,
+     "10-20": 113,
+     "ge20": 165
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 1.0
+  },
+  "07089": {
+   "role": "train",
+   "instances_total_full_grid": 245,
+   "instances_with_valid_px": 244,
+   "small_full_grid": 139,
+   "small_valid": 139,
+   "small_ids_only_in_full": 0,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 9,
+     "6-10": 17,
+     "10-20": 29,
+     "ge20": 84
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 3,
+     "6-10": 16,
+     "10-20": 31,
+     "ge20": 89
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 9,
+     "6-10": 17,
+     "10-20": 28,
+     "ge20": 85
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 9,
+     "6-10": 13,
+     "10-20": 26,
+     "ge20": 91
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 0.9928
+  },
+  "06005": {
+   "role": "train",
+   "instances_total_full_grid": 355,
+   "instances_with_valid_px": 355,
+   "small_full_grid": 167,
+   "small_valid": 166,
+   "small_ids_only_in_full": 1,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 6,
+     "6-10": 20,
+     "10-20": 42,
+     "ge20": 98
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 3,
+     "6-10": 21,
+     "10-20": 43,
+     "ge20": 100
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 6,
+     "6-10": 20,
+     "10-20": 42,
+     "ge20": 99
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 6,
+     "6-10": 18,
+     "10-20": 42,
+     "ge20": 100
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 0.994
+  },
+  "06020": {
+   "role": "train",
+   "instances_total_full_grid": 838,
+   "instances_with_valid_px": 838,
+   "small_full_grid": 541,
+   "small_valid": 540,
+   "small_ids_only_in_full": 1,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 7,
+     "6-10": 41,
+     "10-20": 144,
+     "ge20": 348
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 3,
+     "6-10": 32,
+     "10-20": 135,
+     "ge20": 371
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 6,
+     "6-10": 42,
+     "10-20": 145,
+     "ge20": 348
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 1,
+     "3-6": 5,
+     "6-10": 36,
+     "10-20": 144,
+     "ge20": 354
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 0.9981
+  },
+  "05015": {
+   "role": "train",
+   "instances_total_full_grid": 272,
+   "instances_with_valid_px": 272,
+   "small_full_grid": 132,
+   "small_valid": 132,
+   "small_ids_only_in_full": 0,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 26,
+     "10-20": 36,
+     "ge20": 70
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 17,
+     "10-20": 41,
+     "ge20": 74
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 26,
+     "10-20": 36,
+     "ge20": 70
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 23,
+     "10-20": 35,
+     "ge20": 74
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 1.0
+  },
+  "07038": {
+   "role": "train",
+   "instances_total_full_grid": 845,
+   "instances_with_valid_px": 845,
+   "small_full_grid": 502,
+   "small_valid": 501,
+   "small_ids_only_in_full": 1,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 7,
+     "6-10": 20,
+     "10-20": 140,
+     "ge20": 334
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 4,
+     "6-10": 15,
+     "10-20": 135,
+     "ge20": 348
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 7,
+     "6-10": 21,
+     "10-20": 140,
+     "ge20": 334
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 1,
+     "3-6": 6,
+     "6-10": 16,
+     "10-20": 136,
+     "ge20": 342
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 1.0
+  },
+  "06055": {
+   "role": "train",
+   "instances_total_full_grid": 215,
+   "instances_with_valid_px": 215,
+   "small_full_grid": 127,
+   "small_valid": 126,
+   "small_ids_only_in_full": 1,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 19,
+     "10-20": 20,
+     "ge20": 86
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 9,
+     "10-20": 30,
+     "ge20": 88
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 1,
+     "6-10": 19,
+     "10-20": 21,
+     "ge20": 86
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 0,
+     "3-6": 0,
+     "6-10": 15,
+     "10-20": 23,
+     "ge20": 88
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 0.9921
+  },
+  "15023": {
+   "role": "validation_model_selection",
+   "instances_total_full_grid": 1754,
+   "instances_with_valid_px": 1754,
+   "small_full_grid": 1043,
+   "small_valid": 1042,
+   "small_ids_only_in_full": 1,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 0,
+     "3-6": 34,
+     "6-10": 184,
+     "10-20": 407,
+     "ge20": 417
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 0,
+     "3-6": 16,
+     "6-10": 131,
+     "10-20": 456,
+     "ge20": 440
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 0,
+     "3-6": 33,
+     "6-10": 186,
+     "10-20": 404,
+     "ge20": 420
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 3,
+     "3-6": 30,
+     "6-10": 154,
+     "10-20": 419,
+     "ge20": 436
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 0.9962
+  },
+  "15041": {
+   "role": "validation_model_selection",
+   "instances_total_full_grid": 2420,
+   "instances_with_valid_px": 2420,
+   "small_full_grid": 1543,
+   "small_valid": 1537,
+   "small_ids_only_in_full": 6,
+   "small_ids_only_in_valid": 0,
+   "bins": {
+    "canonical_valid": {
+     "lt3": 2,
+     "3-6": 81,
+     "6-10": 322,
+     "10-20": 665,
+     "ge20": 467
+    },
+    "H1_precheck_2edt_full": {
+     "lt3": 2,
+     "3-6": 37,
+     "6-10": 264,
+     "10-20": 741,
+     "ge20": 499
+    },
+    "H4_rb1_full_grid": {
+     "lt3": 2,
+     "3-6": 80,
+     "6-10": 322,
+     "10-20": 671,
+     "ge20": 468
+    },
+    "H2_r4a22_old_2maxdist_plus1": {
+     "lt3": 8,
+     "3-6": 73,
+     "6-10": 279,
+     "10-20": 689,
+     "ge20": 488
+    }
+   },
+   "canonical_vs_H4_same_bin_on_common_ids": 0.9967
+  }
+ },
+ "pooled_train": {
+  "canonical_valid": {
+   "lt3": 0,
+   "3-6": 44,
+   "6-10": 252,
+   "10-20": 735,
+   "ge20": 1467
+  },
+  "H1_precheck_2edt_full": {
+   "lt3": 0,
+   "3-6": 15,
+   "6-10": 199,
+   "10-20": 751,
+   "ge20": 1540
+  },
+  "H4_rb1_full_grid": {
+   "lt3": 0,
+   "3-6": 43,
+   "6-10": 256,
+   "10-20": 737,
+   "ge20": 1469
+  },
+  "H2_r4a22_old_2maxdist_plus1": {
+   "lt3": 2,
+   "3-6": 40,
+   "6-10": 218,
+   "10-20": 730,
+   "ge20": 1508
+  }
+ },
+ "pooled_validation_model_selection": {
+  "canonical_valid": {
+   "lt3": 2,
+   "3-6": 115,
+   "6-10": 506,
+   "10-20": 1072,
+   "ge20": 884
+  },
+  "H1_precheck_2edt_full": {
+   "lt3": 2,
+   "3-6": 53,
+   "6-10": 395,
+   "10-20": 1197,
+   "ge20": 939
+  },
+  "H4_rb1_full_grid": {
+   "lt3": 2,
+   "3-6": 113,
+   "6-10": 508,
+   "10-20": 1075,
+   "ge20": 888
+  },
+  "H2_r4a22_old_2maxdist_plus1": {
+   "lt3": 11,
+   "3-6": 103,
+   "6-10": 433,
+   "10-20": 1108,
+   "ge20": 924
+  }
+ }
+}
