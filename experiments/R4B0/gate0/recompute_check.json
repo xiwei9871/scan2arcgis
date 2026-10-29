@@ -1,0 +1,46 @@
+{
+ "recomputed_with": "experiments/R4A/r4a2_2_eval.py (unchanged) on local predictions, compared key-by-key with experiments/R4A/r4a2_2/eval/*.json (regions_file path excluded)",
+ "result": [
+  {
+   "sheet": "15023",
+   "method": "M0",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15023",
+   "method": "M1",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15023",
+   "method": "M2_oldseed",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15023",
+   "method": "M2_hybrid",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15041",
+   "method": "M0",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15041",
+   "method": "M1",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15041",
+   "method": "M2_oldseed",
+   "recompute_identical": true
+  },
+  {
+   "sheet": "15041",
+   "method": "M2_hybrid",
+   "recompute_identical": true
+  }
+ ],
+ "differences": 0
+}
