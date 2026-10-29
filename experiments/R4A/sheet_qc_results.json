@@ -217,5 +217,65 @@
    "year": "not_downloaded",
    "status": "not_downloaded"
   }
- }
+ },
+ "tally_by_pool": {
+  "train": {
+   "PASS": 2,
+   "FAIL_Q2_nonstandard_quadrangle": 2,
+   "FAIL_Q3_frame_detection": 3,
+   "FAIL_Q3_registration": 6,
+   "not_downloaded": 1,
+   "total": 14,
+   "sheets": {
+    "PASS": [
+     "05030",
+     "06061"
+    ],
+    "FAIL_Q2_nonstandard_quadrangle": [
+     "07046",
+     "07060"
+    ],
+    "FAIL_Q3_frame_detection": [
+     "05011",
+     "05016",
+     "06019"
+    ],
+    "FAIL_Q3_registration": [
+     "05003",
+     "05021",
+     "06006",
+     "06054",
+     "06081",
+     "06090"
+    ],
+    "not_downloaded": [
+     "06012"
+    ]
+   }
+  },
+  "val": {
+   "PASS": 0,
+   "FAIL_Q2_nonstandard_quadrangle": 2,
+   "FAIL_Q3_frame_detection": 0,
+   "FAIL_Q3_registration": 2,
+   "not_downloaded": 1,
+   "total": 5,
+   "sheets": {
+    "PASS": [],
+    "FAIL_Q2_nonstandard_quadrangle": [
+     "13011",
+     "13025"
+    ],
+    "FAIL_Q3_frame_detection": [],
+    "FAIL_Q3_registration": [
+     "13068",
+     "15061"
+    ],
+    "not_downloaded": [
+     "15023"
+    ]
+   }
+  }
+ },
+ "note": "Q1/Q2/Q3 thresholds unchanged. Draw order covered: first 14 train / first 5 validation candidates."
 }
