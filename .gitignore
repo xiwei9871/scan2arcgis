@@ -42,3 +42,4 @@ Thumbs.db
 runs/
 *.egg-info/
 .venv-ocr/
+.venv-ml/
