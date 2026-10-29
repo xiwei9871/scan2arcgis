@@ -1,0 +1,28 @@
+Pixel coordinates, NOT geographic. X = column, Y = -row of the original image; origin = top-left corner of pixel (0,0).
+No CRS / no .prj on purpose. Do not assign EPSG:4326.
+{
+ "coord_space": "image_px_unreferenced",
+ "x": "column",
+ "y": "-row",
+ "origin": "top-left corner of pixel (0,0)",
+ "pixel_centre": "(c+0.5, -(r+0.5))",
+ "gdal_geotransform": [
+  0,
+  1,
+  0,
+  0,
+  0,
+  -1
+ ],
+ "crs": "none",
+ "image": "synthetic clean_s0/image.png",
+ "image_sha256": "6bad2add264a29618912913c37b56208d1e398dd283b3326db3f2ca7a9cd3bad",
+ "image_size_px": [
+  1284,
+  1024
+ ],
+ "work_scale": 1.0,
+ "generator": "experiments/R4A/export_pixel_vectors.py synth",
+ "licence": "synthetic, MIT (this repository)",
+ "scores": "UNCALIBRATED"
+}

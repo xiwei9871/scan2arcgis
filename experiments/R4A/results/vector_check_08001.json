@@ -1,0 +1,32 @@
+{
+ "sheet": "08001",
+ "checks": {
+  "crs_undefined": true,
+  "y_negative": true,
+  "extent_within_image": true,
+  "half_pixel": true,
+  "validity": true,
+  "count_match": true,
+  "area_match": true,
+  "rasterise_back": true,
+  "roundtrip": true
+ },
+ "summary": {
+  "units": 897,
+  "contacts": 2281,
+  "review_status": {
+   "REVIEW": 583,
+   "LOW_CONFIDENCE": 275,
+   "CONFIRMED": 39
+  },
+  "contacts_kind": {
+   "contact": 1576,
+   "same_code_boundary": 705
+  },
+  "units_with_code": 493,
+  "units_with_candidates": 378,
+  "gdal": "3.12.4",
+  "all_pass": true
+ },
+ "note": "GSJ-derived vectors stay local: runs/r4a_vec/08001/"
+}
