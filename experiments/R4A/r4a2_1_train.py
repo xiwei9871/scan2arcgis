@@ -23,13 +23,14 @@ from r4a2_1_labels import sup_weight, pstar as _pstar  # noqa: E402
 
 ROOT = base.ROOT
 CFG2 = json.load(open(ROOT / "experiments/R4A/r4a2_1/freeze_config_v2.json"))
+_frozen_load_sheet = base.load_sheet       # kept before formal() patches base.load_sheet (else infinite recursion)
 SUP = CFG2["supervision"]; GATE = {**CFG2["overfit_gate"], **CFG2["overfit_gate"]["criteria_all_required"]}
 
 
 def load_sheet(code, rng):
     """Frozen loader (same sampling points and rng use), then S["ign"] is replaced by the v2 weight map, so the
     frozen crop()/augment()/to_batch() carry the weight in the slot that held IGNORE_TRAIN."""
-    S = base.load_sheet(code, rng)
+    S = _frozen_load_sheet(code, rng)
     d = ROOT / "runs/r4a2" / code
     S["ign"] = sup_weight(np.load(d / "dist.npy"), np.load(d / "ignore.npy"), SUP["weight_2_4px"], SUP["weight_4_8px"]).astype(np.float16)
     return S
