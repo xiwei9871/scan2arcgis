@@ -1,0 +1,164 @@
+{
+ "q3_rule": "unchanged: residual<=2 px, z>=5, trusted cells>=12, cell median<=2 px (GeoTIFF px)",
+ "sheets": {
+  "05030": {
+   "geotiff": "GSJ_MAP_G050_05030_2004_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "crs": "JGD2000 geographic (WKT; no EPSG code in file)",
+   "gcps": 0,
+   "affine": [
+    7.041e-05,
+    0.0,
+    140.746456755,
+    0.0,
+    -5.723e-05,
+    40.669383515
+   ],
+   "area_or_point": "Area",
+   "ink_check": {
+    "gtf": {
+     "dx": -1.377650844600725,
+     "dy": -2.1156305832682376,
+     "residual_px": 2.524641482367149,
+     "z": 17.98474475867149,
+     "cells_trusted": 16,
+     "cell_median_px": 2.541409643330283,
+     "cell_max_px": 3.191739768761128,
+     "Q3_pass": false
+    },
+    "gtf_idx": {
+     "dx": -0.9225853392782898,
+     "dy": -1.702100130094057,
+     "residual_px": 1.9360548962045065,
+     "z": 17.993861954094402,
+     "cells_trusted": 16,
+     "cell_median_px": 1.9629783821822884,
+     "cell_max_px": 2.2576276736042784,
+     "Q3_pass": true
+    },
+    "note": "gtf = pixel-corner affine as published; gtf_idx = same affine in array-index convention. Q3 thresholds unchanged, in GeoTIFF px"
+   },
+   "jpeg_vs_geotiff_via_old_R2": {
+    "tile_shift_median_px": 3.0159738385207406,
+    "tile_shift_max_px": 5.800262130730246,
+    "ncc_median": 0.7459394685301738
+   },
+   "labels": {
+    "units": 66,
+    "instances": 821,
+    "labelled_px_frac": 0.9999978705155356,
+    "contact_px": 234716,
+    "fault_px": 2459
+   }
+  },
+  "06061": {
+   "geotiff": "GSJ_MAP_G050_06061_2002_F1_geotiff.tif",
+   "size": [
+    3549,
+    2911
+   ],
+   "crs": "JGD2000 geographic (WKT; no EPSG code in file)",
+   "gcps": 0,
+   "affine": [
+    7.041e-05,
+    0.0,
+    141.246508575,
+    0.0,
+    -5.723e-05,
+    39.002903145
+   ],
+   "area_or_point": "Area",
+   "ink_check": {
+    "gtf": {
+     "dx": -0.9930492931225763,
+     "dy": -2.1005198264036515,
+     "residual_px": 2.3234307477706486,
+     "z": 19.127502847834474,
+     "cells_trusted": 16,
+     "cell_median_px": 2.310653212136116,
+     "cell_max_px": 3.0445972506277497,
+     "Q3_pass": false
+    },
+    "gtf_idx": {
+     "dx": -0.5202135106755337,
+     "dy": -1.7250092011971971,
+     "residual_px": 1.801743278301422,
+     "z": 16.00119999836983,
+     "cells_trusted": 16,
+     "cell_median_px": 1.7431245464561904,
+     "cell_max_px": 2.4418321150582467,
+     "Q3_pass": true
+    },
+    "note": "gtf = pixel-corner affine as published; gtf_idx = same affine in array-index convention. Q3 thresholds unchanged, in GeoTIFF px"
+   },
+   "jpeg_vs_geotiff_via_old_R2": {
+    "tile_shift_median_px": 3.179156107475446,
+    "tile_shift_max_px": 3.8131679544705706,
+    "ncc_median": 0.6819711226844216
+   },
+   "labels": {
+    "units": 54,
+    "instances": 597,
+    "labelled_px_frac": 1.0,
+    "contact_px": 145500,
+    "fault_px": 18698
+   }
+  },
+  "08004": {
+   "geotiff": "GSJ_MAP_G050_08004_2012_F1_geotiff.tif",
+   "size": [
+    3550,
+    2912
+   ],
+   "crs": "JGD2000 geographic (WKT; no EPSG code in file)",
+   "gcps": 0,
+   "affine": [
+    7.041e-05,
+    0.0,
+    138.746812755,
+    0.0,
+    -5.723e-05,
+    36.503153975
+   ],
+   "area_or_point": "Area",
+   "ink_check": {
+    "gtf": {
+     "dx": -1.495228717507332,
+     "dy": -1.6922702574281707,
+     "residual_px": 2.258204495132057,
+     "z": 16.76239318159333,
+     "cells_trusted": 16,
+     "cell_median_px": 2.315385373647553,
+     "cell_max_px": 2.682496923799722,
+     "Q3_pass": false
+    },
+    "gtf_idx": {
+     "dx": -0.8813799576511441,
+     "dy": -1.238530319808857,
+     "residual_px": 1.5201276205749839,
+     "z": 18.731937810183982,
+     "cells_trusted": 16,
+     "cell_median_px": 1.5119020338174496,
+     "cell_max_px": 1.9612009078241712,
+     "Q3_pass": true
+    },
+    "note": "gtf = pixel-corner affine as published; gtf_idx = same affine in array-index convention. Q3 thresholds unchanged, in GeoTIFF px"
+   },
+   "jpeg_vs_geotiff_via_old_R2": {
+    "tile_shift_median_px": 2.347240538212171,
+    "tile_shift_max_px": 9.038296821497354,
+    "ncc_median": 0.8493908748626933
+   },
+   "labels": {
+    "units": 42,
+    "instances": 405,
+    "labelled_px_frac": 0.9996565934065934,
+    "contact_px": 128679,
+    "fault_px": 822
+   }
+  }
+ }
+}
