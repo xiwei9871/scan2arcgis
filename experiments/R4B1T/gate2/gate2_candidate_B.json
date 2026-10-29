@@ -1,0 +1,397 @@
+{
+ "label": "reconstruction from official labels: property of the representation, NOT a model result",
+ "per_sheet": {
+  "05016": {
+   "edges": 161613,
+   "differing_valid_pairs": 161613,
+   "ub_px_valid": 228199,
+   "ub_px_per_edge": 1.412,
+   "adjacency": {
+    "instance_pairs": 540,
+    "edge_separated_pairs": 540,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 290,
+    "regions": 293,
+    "instances_split": 2,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 0.993103,
+    "split_causes": [
+     {
+      "instance": 102,
+      "pieces_in_valid": 2,
+      "cause": "valid mask splits the instance"
+     },
+     {
+      "instance": 205,
+      "pieces_in_valid": 3,
+      "cause": "valid mask splits the instance"
+     }
+    ]
+   },
+   "topology": {
+    "checkerboard_vertices": 4,
+    "diagonal_same_unit_contacts": 36,
+    "small_lt3": 0
+   },
+   "vector_mapping": {
+    "polygon_shared_segments": 161613,
+    "edge_segments": 161613,
+    "identical": true,
+    "only_in_polygons": 0,
+    "only_in_edges": 0
+   }
+  },
+  "06054": {
+   "edges": 92425,
+   "differing_valid_pairs": 92425,
+   "ub_px_valid": 130743,
+   "ub_px_per_edge": 1.4146,
+   "adjacency": {
+    "instance_pairs": 844,
+    "edge_separated_pairs": 844,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 608,
+    "regions": 608,
+    "instances_split": 0,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 1.0,
+    "split_causes": []
+   },
+   "topology": {
+    "checkerboard_vertices": 11,
+    "diagonal_same_unit_contacts": 23,
+    "small_lt3": 0
+   },
+   "vector_mapping": {
+    "polygon_shared_segments": 92425,
+    "edge_segments": 92425,
+    "identical": true,
+    "only_in_polygons": 0,
+    "only_in_edges": 0
+   }
+  },
+  "05021": {
+   "edges": 111420,
+   "differing_valid_pairs": 111420,
+   "ub_px_valid": 158964,
+   "ub_px_per_edge": 1.4267,
+   "adjacency": {
+    "instance_pairs": 519,
+    "edge_separated_pairs": 519,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 341,
+    "regions": 342,
+    "instances_split": 1,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 0.997067,
+    "split_causes": [
+     {
+      "instance": 194,
+      "pieces_in_valid": 2,
+      "cause": "valid mask splits the instance"
+     }
+    ]
+   },
+   "topology": {
+    "checkerboard_vertices": 0,
+    "diagonal_same_unit_contacts": 26,
+    "small_lt3": 0
+   }
+  },
+  "06090": {
+   "edges": 212088,
+   "differing_valid_pairs": 212088,
+   "ub_px_valid": 302503,
+   "ub_px_per_edge": 1.4263,
+   "adjacency": {
+    "instance_pairs": 1154,
+    "edge_separated_pairs": 1154,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 663,
+    "regions": 663,
+    "instances_split": 0,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 1.0,
+    "split_causes": []
+   },
+   "topology": {
+    "checkerboard_vertices": 37,
+    "diagonal_same_unit_contacts": 101,
+    "small_lt3": 0
+   }
+  },
+  "07089": {
+   "edges": 126503,
+   "differing_valid_pairs": 126503,
+   "ub_px_valid": 179065,
+   "ub_px_per_edge": 1.4155,
+   "adjacency": {
+    "instance_pairs": 438,
+    "edge_separated_pairs": 438,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 244,
+    "regions": 244,
+    "instances_split": 0,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 1.0,
+    "split_causes": []
+   },
+   "topology": {
+    "checkerboard_vertices": 8,
+    "diagonal_same_unit_contacts": 29,
+    "small_lt3": 0
+   }
+  },
+  "06005": {
+   "edges": 132218,
+   "differing_valid_pairs": 132218,
+   "ub_px_valid": 187451,
+   "ub_px_per_edge": 1.4177,
+   "adjacency": {
+    "instance_pairs": 688,
+    "edge_separated_pairs": 688,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 355,
+    "regions": 355,
+    "instances_split": 0,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 1.0,
+    "split_causes": []
+   },
+   "topology": {
+    "checkerboard_vertices": 2,
+    "diagonal_same_unit_contacts": 51,
+    "small_lt3": 0
+   }
+  },
+  "06020": {
+   "edges": 299323,
+   "differing_valid_pairs": 299323,
+   "ub_px_valid": 422794,
+   "ub_px_per_edge": 1.4125,
+   "adjacency": {
+    "instance_pairs": 1651,
+    "edge_separated_pairs": 1651,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 838,
+    "regions": 840,
+    "instances_split": 2,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 0.997613,
+    "split_causes": [
+     {
+      "instance": 190,
+      "pieces_in_valid": 2,
+      "cause": "valid mask splits the instance"
+     },
+     {
+      "instance": 199,
+      "pieces_in_valid": 2,
+      "cause": "valid mask splits the instance"
+     }
+    ]
+   },
+   "topology": {
+    "checkerboard_vertices": 1,
+    "diagonal_same_unit_contacts": 52,
+    "small_lt3": 0
+   }
+  },
+  "05015": {
+   "edges": 126080,
+   "differing_valid_pairs": 126080,
+   "ub_px_valid": 183850,
+   "ub_px_per_edge": 1.4582,
+   "adjacency": {
+    "instance_pairs": 426,
+    "edge_separated_pairs": 426,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 272,
+    "regions": 272,
+    "instances_split": 0,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 1.0,
+    "split_causes": []
+   },
+   "topology": {
+    "checkerboard_vertices": 5,
+    "diagonal_same_unit_contacts": 27,
+    "small_lt3": 0
+   }
+  },
+  "07038": {
+   "edges": 294731,
+   "differing_valid_pairs": 294731,
+   "ub_px_valid": 419108,
+   "ub_px_per_edge": 1.422,
+   "adjacency": {
+    "instance_pairs": 1533,
+    "edge_separated_pairs": 1533,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 845,
+    "regions": 846,
+    "instances_split": 1,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 0.998817,
+    "split_causes": [
+     {
+      "instance": 216,
+      "pieces_in_valid": 2,
+      "cause": "valid mask splits the instance"
+     }
+    ]
+   },
+   "topology": {
+    "checkerboard_vertices": 8,
+    "diagonal_same_unit_contacts": 98,
+    "small_lt3": 0
+   }
+  },
+  "06055": {
+   "edges": 103693,
+   "differing_valid_pairs": 103693,
+   "ub_px_valid": 150250,
+   "ub_px_per_edge": 1.449,
+   "adjacency": {
+    "instance_pairs": 374,
+    "edge_separated_pairs": 374,
+    "identical": true
+   },
+   "reconstruction": {
+    "instances_in_valid": 215,
+    "regions": 216,
+    "instances_split": 1,
+    "regions_merging_instances": 0,
+    "partition_equal_share": 0.995349,
+    "split_causes": [
+     {
+      "instance": 152,
+      "pieces_in_valid": 2,
+      "cause": "valid mask splits the instance"
+     }
+    ]
+   },
+   "topology": {
+    "checkerboard_vertices": 2,
+    "diagonal_same_unit_contacts": 21,
+    "small_lt3": 0
+   }
+  }
+ },
+ "by_width_bin": {
+  "3-6": {
+   "n": 44,
+   "rec_B_direct": 1.0,
+   "pixels_kept_share": 1.0,
+   "max_dist_to_edge_median": 2.5,
+   "rec_B_dist_hybrid_markers": 0.0455
+  },
+  "6-10": {
+   "n": 252,
+   "rec_B_direct": 1.0,
+   "pixels_kept_share": 1.0,
+   "max_dist_to_edge_median": 4.301,
+   "rec_B_dist_hybrid_markers": 0.7579
+  },
+  "10-20": {
+   "n": 735,
+   "rec_B_direct": 1.0,
+   "pixels_kept_share": 1.0,
+   "max_dist_to_edge_median": 7.382,
+   "rec_B_dist_hybrid_markers": 0.981
+  },
+  "ge20": {
+   "n": 1467,
+   "rec_B_direct": 1.0,
+   "pixels_kept_share": 1.0,
+   "max_dist_to_edge_median": 18.398,
+   "rec_B_dist_hybrid_markers": 0.9939
+  }
+ },
+ "totals": {
+  "instances_in_valid": 4671,
+  "partition_mismatches": 7,
+  "partition_equal_share": 0.998501,
+  "unexplained_mismatches": 0,
+  "adjacency_identical_all": true,
+  "edges_equal_pairs_all": true,
+  "ub_px_per_edge_pooled": 1.4234,
+  "vector_mapping_identical": {
+   "05016": true,
+   "06054": true
+  }
+ },
+ "posthoc_valid_restricted_components": {
+  "note": "POST-HOC diagnostic added after the run; does not replace the pre-registered metric",
+  "per_sheet": {
+   "05016": {
+    "valid_components": 293,
+    "pairs": 293,
+    "partition_equal": true
+   },
+   "06054": {
+    "valid_components": 608,
+    "pairs": 608,
+    "partition_equal": true
+   },
+   "05021": {
+    "valid_components": 342,
+    "pairs": 342,
+    "partition_equal": true
+   },
+   "06090": {
+    "valid_components": 663,
+    "pairs": 663,
+    "partition_equal": true
+   },
+   "07089": {
+    "valid_components": 244,
+    "pairs": 244,
+    "partition_equal": true
+   },
+   "06005": {
+    "valid_components": 355,
+    "pairs": 355,
+    "partition_equal": true
+   },
+   "06020": {
+    "valid_components": 840,
+    "pairs": 840,
+    "partition_equal": true
+   },
+   "05015": {
+    "valid_components": 272,
+    "pairs": 272,
+    "partition_equal": true
+   },
+   "07038": {
+    "valid_components": 846,
+    "pairs": 846,
+    "partition_equal": true
+   },
+   "06055": {
+    "valid_components": 216,
+    "pairs": 216,
+    "partition_equal": true
+   }
+  }
+ }
+}
