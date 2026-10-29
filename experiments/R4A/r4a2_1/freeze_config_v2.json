@@ -1,0 +1,54 @@
+{
+ "freeze": "R4-A2.1 training-time freeze v2. Written and committed BEFORE the v2 overfit test and before any v2 training. Original freeze 0083d281ec8b4a089504519de450a03f415aa219 and the failed R4-A2 overfit logs (experiments/R4A/r4a2/M*_overfit_log.json, commit 599cf74cd783cba3ecbecf41d36bc02068bdf1c4) are kept unchanged.",
+ "base_freeze": "experiments/R4A/r4a2/freeze_config.json @ 0083d281ec8b4a089504519de450a03f415aa219 (sha256 f30207831b2580078fa979c8f595c382fca892e3ace3ebfda1cfa9a723eeaf08); every key not listed under 'changes' is inherited unchanged",
+ "evidence": {"p0_report": "docs/research/r4a/r4a2_1_p0_diagnosis.md", "p0_json": ["experiments/R4A/r4a2_1/p0_diag.json", "experiments/R4A/r4a2_1/p0_attrib.json"],
+              "seed_diag": ["experiments/R4A/r4a2_1/seed_diag_train.json", "experiments/R4A/r4a2_1/seed_diag_train_hybrid_v1.json"]},
+ "changes": [
+  {"item": "labels.train_boundary_target / IGNORE_TRAIN", "v1": "soft exp(-d^2/2) for d<=2 px (weight 1); 2<d<=8 px IGNORE_TRAIN (weight 0); d>8 px negative (weight 1)",
+   "v2": "soft exp(-d^2/2) for d<=2 px (weight 1, unchanged); 2<d<=4 px negative with weight 0.1; 4<d<=8 px negative with weight 0.3; d>8 px negative (weight 1); IGNORE_EVAL weight 0",
+   "why": "P0: 72-73% of the 1 px failures were in the unsupervised 2-8 px band, where the output (median p ~0.45) was unconstrained"},
+  {"item": "models.M2.loss distance term", "v1": "L1 on non-IGNORE_TRAIN pixels", "v2": "L1 weighted by the same v2 per-pixel weight"},
+  {"item": "optimisation.overfit_test", "v1": "pass if F1@1px (p>0.5) >= 0.9", "v2": "see overfit_gate (multi-criterion, p>0.8)"},
+  {"item": "postprocess_fixed.M2", "v1": "markers = CC of (dist_pred_px >= 3) with area >= 50 px", "v2": "hybrid markers (see postprocess_v2.M2); v1 rule is still run and reported as the A/B baseline"}
+ ],
+ "supervision": {
+  "code": ["experiments/R4A/r4a2_1_labels.py", "experiments/R4A/r4a2_1_train.py"],
+  "soft_target": "train_boundary.npy unchanged (sigma 1.0 px, d<=2 px)",
+  "pos_weight": 4.0, "weight_2_4px": 0.1, "weight_4_8px": 0.3, "m2_dist_l1_weight": 1.0,
+  "distance_source": "official dist.npy (DIST_L2 mask 3), same as the frozen labels",
+  "weight_rationale": "Chosen once from P0 and the registration evidence, not searched. A positive weight of any size makes the pointwise optimum in 2-8 px equal 0, which removes the unconstrained band (P0 cause 1). The weights are kept low because the GeoTIFF check measured a residual offset of 1-2 px (grid residual max 2.26 px, docs/research/r4a/geotiff_check.md): printed ink can sit 2-4 px from the vector boundary, so that band gets the lowest weight (0.1); 4-8 px is beyond every measured residual, so it gets more (0.3) but still below 1 to keep part of the uncertainty allowance the approved v1 rule intended. Effect of the 4-8 px weight on output width is reported (band width and per-zone probability) in P5.",
+  "evaluation_truth": "unit_boundary.npy, 1 px rule, NOT moved or widened (actual width 2.03 px: both sides of each unit transition)"
+ },
+ "overfit_gate": {
+  "tile": ["05016", 292, 2120], "seed": 20261029, "steps": 300, "minutes_max": 10, "eval_every_steps": 50,
+  "threshold": 0.8,
+  "threshold_rationale": "p* = 4t/(3t+1) is the loss optimum; 0.8 = p*(t = 0.5), i.e. the soft target's half maximum mapped through pos_weight 4. p* > 0.8 iff d < 1.18 px, so axial neighbours (d = 0.955) are in and diagonal / 2 px pixels are out, matching the 1 px tolerance. Theoretical optimum on this tile at 0.8: F1@1/2/3 = 0.9997/0.9998/0.9999, band 4.04, centreline 0.18 px (at 0.5 it was 0.904). Derived from the loss. Disclosure: chosen after the P0 outputs at thresholds 0.3/0.5/0.7/0.9 had been seen. Re-scoring the v1 P0 probability maps at 0.8 gives F1@1 0.982 (M1) / 0.995 (M2), so F1 alone would already pass at 0.8; the gate is made binding by the added criteria (fit to the v2 target, where the v1 maps score 0.141 / 0.131 against a 0.05 limit, band width and centreline), which the v1 models fail.",
+  "criteria_all_required": {
+   "fit_mae_supervised_max": 0.05, "fit_mae_note": "mean |p - p*| on weight>0 pixels (target fit, P2 item 1)",
+   "centreline_mean_px_max": 1.0, "centreline_note": "skeleton(p>0.8) vs skeleton(UNIT_BOUNDARY), both directions (P2 item 2)",
+   "F1_tol1_min": 0.9, "F1_tol2_min": 0.95, "F1_tol3_min": 0.95, "F1_note": "p>0.8 vs raw UNIT_BOUNDARY, all pixels incl. the former IGNORE_TRAIN band; no pixel is excluded from F1 except IGNORE_EVAL (P2 item 3)",
+   "band_width_max": 5.0, "band_note": "predicted px per truth-skeleton px; optimum 4.04 at thr 0.8, limit = 1.25x optimum (P2 item 4)",
+   "degradation_F1_drop_max": 0.05, "degradation_note": "final F1@1 >= peak F1@1 over checkpoints - 0.05, and final loss <= loss at the middle checkpoint (P2 item 5)",
+   "m2_dist_mae_px_max": 1.0, "m2_note": "M2 only: mean |dist_pred - dist| in px on weight>0 pixels"},
+  "also_reported_not_gated": ["thr 0.5 F1@1/2/3, band width, centreline", "loss curve every 25 steps", "local visualisation runs/r4a2/models/M*_overfit_v2/overfit_vis.png",
+                              "v1 P0 probability maps re-scored under the v2 gate for reference ONLY (not a pass)"],
+  "on_failure": "stop; no formal training; no further trial runs"
+ },
+ "postprocess_v2": {
+  "code": "experiments/R4A/r4a2_1_seeds.py",
+  "M1": "unchanged (watershed on probability, markers = CC of p<0.3 with area >= 50 px)",
+  "M2": "hybrid_markers: v1 markers (dist>=3 px, area>=50 px) + every h-maxima component of log1p(GaussianBlur(dist, 1 px)) with h = log 2 and dist >= 0.9 px that touches no v1 marker; watershed on -dist_pred",
+  "M2_baseline_ab": "v1 rule, run on the same predictions and reported side by side",
+  "selection_history": "pure h-maxima (new_markers) tried first on 05016 then all 10 training sheets: small recall 0.949 but large-instance recall 0.772; hybrid v1 (add only maxima with peak < 3 px) missed area-threshold failures; hybrid v2 adopted. Selected on the 10 TRAINING sheets with the official distance map only; validation sheets 15023/15041 not used for the choice (their seed diagnosis is run after this commit and reported only).",
+  "known_limit": "with the frozen parameters (smooth 1 px, ratio 2, min dist 0.9 px) a straight strip is seeded only from 7 px width; 3-6 px strips get no new seed (unit test test_documented_width_limit). On the 10 training sheets 2.6% of small instances stay unseeded with the official distance map. Found before this freeze; parameters not changed.",
+  "seed_input_rule": "prediction-time markers use dist_pred only; geo_A is never read for seeds",
+  "official_dist_ceiling_train": {"small_recall_iou50": {"v1": 0.859, "hybrid": 0.958}, "large_recall_iou50": {"v1": 0.981, "hybrid": 0.981}, "small_duplicate": {"v1": 0.089, "hybrid": 0.111}, "note": "capability ceiling with the OFFICIAL distance map; not a model result"}
+ },
+ "evaluation": "unchanged from v1 metrics (primary: small-instance class-agnostic IoU>=0.5 recall per validation sheet; decision rule unchanged); M2 reported with both seed rules",
+ "data": {"sheets_and_roles": "unchanged (train 10, validation 15023/15041, sealed 08011/08021 not read)",
+          "image_and_label_hashes": "experiments/R4A/r4a2_1/label_sha256.txt (96 files: 12 sheets x rgb + 7 label arrays, sha256 at this freeze); originals data_sha256.txt sha256 1400a5cd616802664c17a1ddba5350a3018699ee745581c3f471078cd32881a4 unchanged",
+          "draw_logs": "unchanged (dataset_train.json sha256 ac32f627..., dataset_validation.json sha256 9b3c1fb4...)"},
+ "budget": {"unchanged": true, "max_params": 8000000, "max_train_minutes_per_model": 120, "overfit_minutes_per_model": 10, "device": "mps, fall back to cpu (logged)"},
+ "seeds": {"torch_and_numpy": 20261029, "validation_tiles": "20261030 / 20261031 (as in r4a2_train.py)"},
+ "allowed_runs": {"overfit_v2": "one per model (M1, M2)", "formal": "one per model, only for a model that passed its v2 gate", "rule": "a model enters formal training only if it passes the v2 gate; reruns only for a documented implementation bug, with the failed run kept", "no_parameter_search": true}
+}
