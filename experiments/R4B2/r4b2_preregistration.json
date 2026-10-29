@@ -1,0 +1,70 @@
+{
+ "title": "R4-B2 pre-registration: pixel-adjacency edge learning POC. Committed before Stage 1-4 runs and before any training.",
+ "start_commit": "297e3e10043665aca6a56c032982720e5f6adf78",
+ "basis": "R4-B1T closed as pre-registered FAIL (A: C2, C3; B: C3, C4 literal). Owner approved one B-based training run. Historical results unchanged.",
+ "baseline": "M2_hybrid (R4-A2.2 M2 best.pt, sha256 in experiments/R4B0/gate0/baseline_manifest_r4a2_2.json; hybrid_markers post-processing)",
+ "change_policy": "One formal training. After this commit only crash / implementation-bug fixes, documented with reason. No change to loss, weights, threshold, reconstruction, sheets or metrics after seeing any validation or test result. No second training.",
+ "model": {
+  "backbone": "experiments/R4A/r4a2_train.UNet (4 down / 4 up, base 24, BatchNorm, bilinear), random init seed 20261029",
+  "outputs": ["edge_right logit", "edge_down logit", "auxiliary distance (sigmoid, dist.npy / 32)"],
+  "params_limit": 8000000
+ },
+ "training": {
+  "code": "experiments/R4B2/r4b2_train.py",
+  "data": "freeze_config.json data_roles: train = 10 frozen sheets, validation_model_selection = 15023 / 15041 (checkpoint selection only)",
+  "frozen_from_r4a2": "tile 512, batch 8, sampling mix and anchors (r4a2_train.load_sheet, INCLUDING the first-pixel small_instance_centre anchor, unchanged), augmentation, AdamW lr 1e-3 wd 1e-4, cosine to 1e-5 over 20000 steps, validation every 1000 steps on 64 fixed tiles, early stop after 5 non-improving validations, wall-clock cap 110 min, device MPS",
+  "sampling_anchor_fix": "NOT included (keeps the run single-factor: only the boundary representation and its loss change)",
+  "targets": "edge_right / edge_down recomputed from the augmented unit crop; supervised only where both pixels are valid (ignore == 0, unit >= 0)",
+  "loss": {
+   "pos_weight": 4.0,
+   "near_edge_negative_weight": 0.3,
+   "near_edge_rule": "a supervised non-edge pair of one orientation within the 3x3 neighbourhood of a true edge of the same orientation (1 px registration uncertainty, R4-B1T Gate 3: 9/10 training sheets offset ~1 px)",
+   "other_pairs_weight": 1.0,
+   "dist_l1_weight": 1.0,
+   "rationale": "chosen from training-sheet evidence and the pos_weight of earlier runs; no validation result used. pos_weight 4: with a 1 px ambiguity the per-position optimum of two candidate positions is ~0.8 > 0.5, which favours closed (thick) separations over gaps that would merge units"
+  },
+  "checkpoint": "best validation loss (frozen rule); weights local only, sha256 committed"
+ },
+ "reconstruction": {
+  "code": "experiments/R4B2/r4b2_edges.regions_from_probs",
+  "threshold": 0.5,
+  "rule": "pair separated iff edge probability > 0.5; 4-connected components of all pixels over non-separated pairs; regions < 50 px merged into the neighbour with the lowest mean edge probability on their shared border (smallest first)",
+  "no_watershed_no_seeds": true,
+  "dist_channel_use": "auxiliary supervision only; not used for regions"
+ },
+ "stage1": {
+  "gt_check": "on the 10 training sheets: reconstruction from official edges (probabilities 0/1) must equal the valid-restricted 4-connected unit components exactly, and the edges implied by the reconstructed regions must equal the official edges; any mismatch stops training",
+  "synthetic": "tests/r4b2/test_r4b2_edges.py (thin strip, pinch-out, bend, checkerboard, invalid band, single-pixel connection, cleanup, edge metrics)",
+  "perturbation": {
+   "sheets": ["05016", "06054"],
+   "draws": 3, "seed": 20261029,
+   "cases": {"drop_edges": [0.001, 0.01, 0.05], "add_false_edges": [0.001, 0.01], "shift_1px": "all edges moved by one pair in a random direction per sheet"},
+   "metrics": ["small-instance recall (IoU >= 0.5)", "number of regions", "instances absorbed (best-overlap region holds >= 2 instances with >= 50% of their area)"],
+   "note": "robustness of the reconstruction only, not a model result"
+  }
+ },
+ "stage3_test_sheets": {
+  "rule": "walk experiments/R4B1T/gate5_candidates.json in order (13076, 14030, 14071, 15094, 13015, ...); download and apply the unchanged Q1/Q2/Q3 rules of experiments/R4A/gtf_dataset.process; stop at 2 PASS; record every visited sheet",
+  "timing": "after the B2 checkpoint is frozen; labels (r4a2_labels.build) are built only after the inference code and evaluation rules are committed",
+  "first_evaluation": "one run of M2_hybrid and B2 on the two test sheets, with the frozen code; no re-run"
+ },
+ "stage4_metrics": {
+  "sheets_reported_separately": ["15023", "15041", "test_1", "test_2"],
+  "status": {"15023/15041": "DEVELOPMENT_VALIDATION (also used for checkpoint selection)", "test sheets": "INDEPENDENT_TEST"},
+  "instance": "experiments/R4A/r4a2_2_eval.instance_metrics (unchanged): small recall, under/over-seg, absorbed, large recall, regions; per width bin 3-6 / 6-10 / 10-20 px with experiments/R4B1T/r4b1t_width",
+  "edges": "pair-level P / R / F1, strict and 1-pair tolerance (r4b2_edges.edge_metrics), on supervised pairs",
+  "thin_units": "for 3-6 / 6-10 px instances: share whose best-overlap region contains no other instance's majority (kept separate), and recall",
+  "merge_sensitivity": "regions that hold the majority of >= 2 small instances; number of instances in such regions; share of small-instance failures caused by such merges",
+  "shared_boundary": "share of true adjacent instance pairs that are separated in the prediction (both instances' best regions differ)",
+  "boundary_F1": "region boundaries vs UNIT_BOUNDARY at 1 / 2 / 3 px (r4a2_2_eval.boundary_metrics, unchanged)",
+  "vector": "export with experiments/R4A/r4a2_2_export.py and validate_pixel_vectors.py (9 checks)",
+  "cost": "training minutes, inference seconds, peak memory"
+ },
+ "stage5_decision": {
+  "A_keep_as_candidate": "B2 small recall >= M2_hybrid + 0.02 on BOTH independent test sheets and over-seg increase <= 0.03",
+  "B_learning_insufficient": "official-edge reconstruction exact (Stage 1) but B2 edge recall (tol1) < 0.85 on test sheets, or 3-6 / 6-10 px recall not above M2_hybrid",
+  "C_merge_errors": "share of small-instance failures caused by multi-instance merges >= 0.5 on test sheets",
+  "D_not_better": "otherwise: keep M2_hybrid",
+  "multiple": "report every condition that holds; primary choice in order A, C, B, D"
+ }
+}
