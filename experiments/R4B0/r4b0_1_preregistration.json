@@ -1,0 +1,74 @@
+{
+ "title": "R4-B0.1 pre-registration: A1 (M2 distance seeds + boundary-probability terrain) and C1/C2 (sub-pixel line width, China scale). Committed before any A1/C1/C2 run.",
+ "start_commit": "d2c0d73fe71c1fec024bfa00ad216643a21dc07c",
+ "gate0_checks": {
+  "weights_sha256": "both best.pt match experiments/R4B0/gate0/baseline_manifest_r4a2_2.json",
+  "prediction_files": "56/56 local prediction files match the manifest",
+  "committed_files": "32/32 committed baseline files match the manifest",
+  "m2_hybrid_small_recall": {"15023": 0.5959692898272553, "15041": 0.5543266102797658, "source": "R4-A2.2 eval JSON and R4-B0 Gate 2 recompute (identical)"},
+  "china_windows": "the 12 windows of experiments/R4B0/preregistration.json gate4.windows, unchanged",
+  "china_scales": {"gm2_roi": 0.5, "u1": 1.0, "u2": 1.0, "u3": 0.5, "source": "runs/real/<work>/work.json"}
+ },
+ "change_policy": "Each experiment runs once. After this commit only crash / implementation-bug fixes are allowed, documented in the gate report; no algorithm, parameter, threshold or window changes. A failed criterion is recorded as FAIL with its evidence and is not re-run.",
+ "a1": {
+  "name": "M2_DISTANCE_SEEDS_BOUNDARY_TERRAIN",
+  "inputs": "runs/r4a2/r4a22/<sheet>/M2/prob.npy (boundary_probability) and dist_px.npy (distance_prediction), float16 as saved; valid area = R4-A2.2 evaluation valid mask",
+  "seeds": "experiments/R4A/r4a2_1_seeds.hybrid_markers(distance_prediction), unchanged (same count, positions, filters as M2_hybrid)",
+  "terrain": "skimage watershed elevation = boundary_probability (float32); high probability = high elevation = barrier between basins. Direction verified on a synthetic map (unit test) before the run.",
+  "topology": "same as M2_hybrid: watershed labels over the whole image, evaluation inside the valid area, no extra merging or filtering",
+  "baseline": "M2_hybrid re-run from the same float16 files (R4-B0 Gate 2 method; recall identical to R4-A2.2), so the ONLY difference is the terrain",
+  "metrics": ["small-instance recall (IoU >= 0.5)", "recall by own-mask width 3-6 / 6-10 / 10-20 px (and old width)", "under-seg, over-seg, absorbed", "regions, regions < 50 px", "large recall", "boundary F1@1/2/3", "valid polygon fraction (shapely, exported with experiments/R4A/r4a2_2_export.py rules)", "post-processing seconds"],
+  "success": "on BOTH sheets: small recall(A1) - small recall(M2_hybrid) >= 0.02 AND small over-seg(A1) - small over-seg(M2_hybrid) <= 0.03",
+  "sheets": ["15023", "15041"]
+ },
+ "c1": {
+  "estimator": {
+   "name": "ink-mass sub-pixel line width",
+   "definition": "see experiments/R4B0/r4b0_1_common.py docstring: w_j = sum(max(blackhat - local background, 0) within 1.5 px of component j) / (255 * orientation-corrected skeleton length L_j); estimate = length-weighted median over accepted line components",
+   "blackhat_kernel": "ellipse 15 px",
+   "cand_threshold": 15,
+   "contrast_constant": 255,
+   "contrast_note": "fixed full gray range, so w is a darkness-weighted width in px that scales linearly under area-averaging resampling; lighter ink reads as narrower (reported as a caveat in C2). Design history: an image-derived contrast (99th percentile of black-hat) was tried first on SYNTHETIC lines only and cancelled the scale signal; replaced before this commit. No GSJ or China image was used for any estimator choice.",
+   "local_background": "median black-hat over the ring 1.5 < d <= 3.5 px",
+   "mass_radius_px": 1.5,
+   "length": "sum over skeleton pixels of 1 / max(|cos t|, |sin t|), t from the structure tensor (Gaussian 1 px mask smoothing, 2 px tensor smoothing)",
+   "min_length_px": 40,
+   "min_elongation": 8,
+   "min_coherence": 0.6,
+   "max_junctions_per_100px": 3,
+   "max_footprint_px": 6,
+   "text_and_pattern_exclusion": "short components (< 40 px), non-elongated (L / w < 8), low mean orientation coherence (< 0.6: glyphs, curls, hatch blobs), many junctions (> 3 per 100 px: hatch / mesh patterns), wide footprint (area / L > 6 px: filled symbols, dense pattern areas)",
+   "min_components": 50, "min_total_length_px": 5000,
+   "cell_min_length_px": 500, "min_cells": 5, "max_cell_cv": 0.25
+  },
+  "validation": {
+   "image": "runs/r4a2/15023/geotiff_rgb.png (GSJ validation sheet; already used for C-type diagnostics in R4-B0)",
+   "scales": [0.5, 0.75, 1.0, 1.5],
+   "resampling": "INTER_AREA for scale < 1, INTER_CUBIC for scale > 1, none for 1.0",
+   "pass_all": {
+    "enough_samples": "enough_samples true at every scale",
+    "scale_error": "for 0.5, 0.75 and 1.5: |(w_s / w_1.0) / s - 1| <= 0.15",
+    "direction_bias": "at every scale: 0.85 <= median(diagonal) / median(axial) <= 1.18 (diagonal = orientation >= 30 deg from the axes, axial <= 15 deg)",
+    "text_contamination": "at every scale: |median over components with L >= 60 px / overall median - 1| <= 0.15",
+    "repeatability": "two runs on the same image give identical results"
+   },
+   "on_fail": "SCALE_ESTIMATOR_FAILED; no second estimator; C2 not run"
+  }
+ },
+ "c2": {
+  "run_only_if": "C1 PASS",
+  "gsj_reference": "length-weighted median of accepted w_j pooled over the 10 frozen training sheets (geotiff_rgb.png)",
+  "work_input": "runs/real/<work>/work.png map box, as in R4-A2.2 / R4-B0 Gate 4",
+  "work_reliable_if": "enough_samples and spatially_consistent (>= 5 cells with >= 500 px accepted length, CV of cell medians <= 0.25)",
+  "factor": "f = w_gsj / w_work; NORMALISED iff reliable and 0.5 <= f <= 2.0; else SCALE_UNCERTAIN (original size, no clipping)",
+  "resampling": "INTER_AREA if f < 1, INTER_CUBIC if f > 1; no colour, saturation or contrast change",
+  "inference": "M1 and M2 best.pt unchanged, R4-A2.2 tiling and thresholds; one normalised run per NORMALISED work; outputs resized back (nearest) to the original size for comparison; original-size run kept as control",
+  "report": ["boundary probability quantiles 50/90/99", "share p > 0.5 and p > 0.8", "composition of p > 0.5: ink / colour edge without ink / other (R4-B0 Gate 4 definitions, unchanged)", "12 fixed windows, before / after", "u1: is the median probability still >= 0.2", "new anomalies: change in region count, share p > 0.5 change > 2x either way"],
+  "no_accuracy": "no reference labels: no precision / recall / F1; a higher on-ink share is NOT reported as higher accuracy"
+ },
+ "d": {"questions": ["A1 improves small recall without training?", "keep M2 distance seeds + boundary terrain?", "China anomaly mainly explained by scale?", "next training still on narrow-unit interior supervision?", "need small China manual truth?"],
+       "rules": {"A_success": "A1 becomes a fixed R4-B1 post-processing candidate (development validation only)", "A_fail": "keep M2_hybrid",
+                 "C_success_and_reduced": "u1 median p < 0.2 and China on-ink share rises to >= 0.6 after normalisation -> study input-scale stability first",
+                 "C_pass_but_persists": "prepare small China manual truth and cross-style data study", "C1_fail": "scale question unresolved; no claim that China needs retraining"},
+       "output": "a minimal R4-B1 training proposal only; no training is started"}
+}
