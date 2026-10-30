@@ -23,8 +23,8 @@ def test_crossing_is_flagged_unreliable():
 
 
 def test_known_limit_one_pixel_line_overestimated():
-    # documented failure (Gate 3): 1 px lines read about 1.4 px
-    assert _median_width(LW.synthetic(1.0, 30)) > 1.3
+    # documented failure (Gate 3): 1 px lines are overestimated at every angle (1.23-1.80 px, pooled median 1.39)
+    assert all(_median_width(LW.synthetic(1.0, a)) > 1.2 for a in (0, 30, 45, 90))
 
 
 def test_repeatable():
