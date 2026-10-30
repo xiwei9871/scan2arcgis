@@ -1,0 +1,42 @@
+{
+ "13014|M2_hybrid": {
+  "region_map_unchanged": true,
+  "exported_px_share": 1.0,
+  "px_previously_clipped_by_ignore": 176018,
+  "share_previously_clipped": 0.01677,
+  "margin_candidates": 0,
+  "margin_candidate_px": 0,
+  "all_9_checks": true,
+  "units": 1027
+ },
+ "13014|RAG_BOUNDARY_ONLY": {
+  "region_map_unchanged": true,
+  "exported_px_share": 1.0,
+  "px_previously_clipped_by_ignore": 176018,
+  "share_previously_clipped": 0.01677,
+  "margin_candidates": 1,
+  "margin_candidate_px": 160450,
+  "all_9_checks": true,
+  "units": 1777
+ },
+ "15076|M2_hybrid": {
+  "region_map_unchanged": true,
+  "exported_px_share": 1.0,
+  "px_previously_clipped_by_ignore": 25824,
+  "share_previously_clipped": 0.0025,
+  "margin_candidates": 0,
+  "margin_candidate_px": 0,
+  "all_9_checks": true,
+  "units": 1795
+ },
+ "15076|RAG_BOUNDARY_ONLY": {
+  "region_map_unchanged": true,
+  "exported_px_share": 1.0,
+  "px_previously_clipped_by_ignore": 25824,
+  "share_previously_clipped": 0.0025,
+  "margin_candidates": 0,
+  "margin_candidate_px": 0,
+  "all_9_checks": true,
+  "units": 3030
+ }
+}
