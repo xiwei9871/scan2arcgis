@@ -1,0 +1,31 @@
+{
+ "title": "ARCH-2 pre-registration amendment 1 (owner-requested P0 fixes), committed before any ARCH-2 experiment",
+ "amends": "experiments/ARCH2/arch2_preregistration.json @ ad78e1dd5fa71be83d156e0c3482d6304ab7b3c7 (kept unchanged; this file takes precedence where they differ)",
+ "status": "ARCH2_PREREG_READY (amended) - no ARCH-2 experiment has been run",
+ "P0_1_no_exposed_algorithm_selection": {
+  "replaces": "gate2_discrimination.stop_or_degrade and overall_success of the original",
+  "rule": "Whether PROTECT_SOFT is enabled is decided ONLY on the 10 training sheets by the selection rule and frozen in experiments/ARCH2/arch2_freeze.json before any exposed run. On 13014 / 15076 Gate 2 only grades PASS / FAIL; it never disables, enables or switches V3. If Gate 2 fails on exposed, the frozen V3 still runs (for failure attribution) and the overall ARCH-2 result is FAIL.",
+  "overall_success": "PASS only if Gates 1, 2, 3 and 4 all pass on the exposed sheets with the frozen configuration; no weaker 'protection disabled' pass exists"
+ },
+ "P0_2_gate1_thresholds": {
+  "replaces": "gate1_candidate_generation.pass",
+  "b2_only_oracleA_3_6": {"training_pooled": 0.4545, "13014": 0.6623, "15076": 0.6265, "exposed_pooled": 0.6438},
+  "pass_all": ["training pooled 3-6 px Oracle A >= 0.65 (and >= 0.4545 + 0.10)",
+               "exposed pooled 3-6 px Oracle A >= 0.74 (and >= 0.6438 + 0.10)",
+               "13014 3-6 px Oracle A >= max(0.65, 0.6623 + 0.10) = 0.7623",
+               "15076 3-6 px Oracle A >= max(0.65, 0.6265 + 0.10) = 0.7265",
+               "regions <= 3x B2-only on EVERY sheet"],
+  "training_per_sheet": "training sheets hold 0-9 instances of 3-6 px each; per-sheet values are reported but judged only pooled",
+  "stop": "if any condition fails, STOP after Gate 1: no threshold selection, no Gate 2-4 algorithm runs"
+ },
+ "P0_3_discrimination_and_metrics": {
+  "missing_colour": "s_colour is computed from centre-line pixels (+-1 px) not on ink (1 px dilated black-hat ink). If fewer than 5 such pixels on the candidate, or fewer than 5 non-ink pixels in the 3-px ring of either neighbour side, s_colour is MISSING; a candidate with any MISSING feature is UNCERTAIN (never PROTECT_SOFT, never MERGE); missing is never treated as 0",
+  "selection_constraints_training": ["false_protection_ink_band_share <= 0.30", "ADDED by the agent: overall FDR of protected candidates (INK_BAND + INCIDENTAL) <= 0.50"],
+  "gate2_pass_exposed": "on EACH exposed sheet AND pooled: ink-band false protection <= 0.30, overall FDR <= 0.50, protected TRUE_NARROW recall >= 0.30 (point estimates)",
+  "report_separately": ["candidate detection (one-to-one, per width group)", "classification: precision / recall / FPR / FDR, false protection by INK_BAND and by INCIDENTAL, base rates", "final geological-face recall after merging (Gate 3)", "survival of protected TRUE_NARROW candidates"],
+  "per_sheet": "13014 and 15076 are always reported and judged separately; a pooled value never overrides a failing sheet",
+  "uncertainty_note": "Wilson intervals and paired bootstrap treat instances as independent; instances within a map are spatially correlated and only two exposed sheets exist, so intervals understate the true uncertainty and no claim about other GSJ map styles is made"
+ },
+ "V2_definition_fix": "original text said 'soft protection on ALL non-MERGE candidates (no discrimination)', which uses MERGE from discrimination; corrected: V2 = soft protection on ALL candidates, no discrimination at all",
+ "gate3_pass_per_sheet": "Gate 3 conditions apply on the training pool AND on each exposed sheet separately; the paired-bootstrap lower bound > 0 is required for exposed pooled and reported per sheet"
+}
