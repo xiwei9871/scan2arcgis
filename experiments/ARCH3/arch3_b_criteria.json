@@ -1,0 +1,28 @@
+{
+ "title": "ARCH-3 B feasibility diagnostic: decision rule written BEFORE the diagnostic runs",
+ "status": "ORACLE_DIAGNOSTIC_ONLY (official labels; not an algorithm result)",
+ "data": {"decide_on": "10 training sheets", "cross_check_only": ["13014", "15076"],
+          "excluded": ["6-sheet test pool", "08011", "08021"]},
+ "width": "canonical instance inscribed width (R4-B1T Gate 0), valid area D_gt",
+ "target_set": "3-6 px instances that FAIL B2 initial-region Oracle A (IoU < 0.5); expected 24 on training sheets",
+ "B1_within_instance": {
+  "population": "instances with canonical width 6-20 px",
+  "narrow_part": "skeleton pixels whose local inscribed width (2*EDT-0.5 at the skeleton pixel) < 6 px",
+  "report": ["instances with any narrow part", "share of skeleton length that is narrow", "of these, instances that fail B2 initial Oracle A"],
+  "counts_toward_3_6_recall": false
+ },
+ "B2_cross_instance_tiers": {
+  "T0_same_code_near": "another instance of the same official unit (unit.npy majority), canonical width >= 6 px, minimum pixel distance <= 60 px",
+  "T1_continuable": "T0 AND endpoint gap <= 60 px AND |angle(axis_narrow, axis_wide_local)| <= 30 deg AND |angle(axis_narrow, gap vector)| <= 30 deg; axes by PCA of the narrow instance and of the wide instance pixels within 40 px of the gap point",
+  "T2_geological_support": "T1 AND Jaccard(neighbouring official units of the narrow instance, neighbouring units of the wide instance within 40 px of the gap point) >= 0.5 (same flanking units = same stratigraphic band)",
+  "note": "same code is not the same continuous layer; only T2 is treated as plausible continuity, T0/T1 as opportunity only"
+ },
+ "decision_rule": {
+  "B_main_route_for_3_6_if": "training-sheet T2 opportunity covers >= 0.30 of the target set (>= 8 of 24)",
+  "else": "B becomes an auxiliary module (pinch-out geometry and local continuity); ARCH-3 main hypothesis = A + candidate pool + selective subdivision",
+  "exposed_sheets": "reported as cross-check; they cannot change this rule or the decision"
+ },
+ "also_report": ["T0/T1/T2 counts for all 3-6 px instances and for the target set",
+                 "the same for instances missed by the final RAG_BOUNDARY_ONLY (IoU < 0.5)",
+                 "per sheet counts and Wilson 95% intervals"]
+}
