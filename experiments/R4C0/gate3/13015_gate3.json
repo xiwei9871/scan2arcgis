@@ -1,0 +1,250 @@
+{
+ "sheet": "13015",
+ "status": "RETROSPECTIVE_CONTROL",
+ "frozen": {
+  "title": "R4-C0 Gate 2 freeze: committed before Gate 3",
+  "candidate": "B2",
+  "RAG_BOUNDARY_ONLY": {
+   "tau": 0.45,
+   "lambda": 0.0
+  },
+  "RAG_BOUNDARY_APPEARANCE": {
+   "tau": 0.5,
+   "lambda": 0.25
+  },
+  "training_in_sample_small_recall": {
+   "RAG_BOUNDARY_ONLY": 0.8923,
+   "RAG_BOUNDARY_APPEARANCE": 0.9015
+  },
+  "training_in_sample_small_over_seg": {
+   "RAG_BOUNDARY_ONLY": 0.0336,
+   "RAG_BOUNDARY_APPEARANCE": 0.0336
+  },
+  "note": "BOUNDARY_ONLY: tau 0.50 had 0.0004 higher recall than 0.45; the pre-registered tie rule (< 0.002 -> lower tau) selects 0.45. Values are in-sample and optimistic."
+ },
+ "initial_regions": 4889,
+ "prediction_seconds": 6.4,
+ "initial_oracle_A_small_recall": 0.9718934911242604,
+ "M2_hybrid": {
+  "method": "M2_hybrid",
+  "small": {
+   "n": 676,
+   "recall_iou50": 0.6937869822485208,
+   "under_seg": 0.22781065088757396,
+   "over_seg": 0.05029585798816568,
+   "absorbed_by_larger_neighbour": 0.22485207100591717,
+   "mean_best_iou": 0.6234879385315188
+  },
+  "large": {
+   "n": 35,
+   "recall_iou50": 0.9142857142857143
+  },
+  "all": {
+   "n": 1144,
+   "recall_iou50": 0.44493006993006995
+  },
+  "regions": {
+   "n_pred": 733,
+   "n_truth_instances": 1144,
+   "n_pred_lt_50px": 1
+  },
+  "by_width": {
+   "3-6": {
+    "n": 14,
+    "recall": 0.0
+   },
+   "6-10": {
+    "n": 96,
+    "recall": 0.125
+   },
+   "10-20": {
+    "n": 256,
+    "recall": 0.75
+   },
+   "ge20": {
+    "n": 310,
+    "recall": 0.8548387096774194
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.7997987173727932,
+   "tol2": 0.9046309300965952,
+   "tol3": 0.9253717641154193
+  },
+  "false_boundary_share": 0.00019531758639547905,
+  "regions_holding_ge2_instances": 155,
+  "largest_region_px": 6573944,
+  "largest_official_instance_px": 6475981,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 19,
+   "MERGE_ERROR": 144,
+   "UNDER_MERGE_FRAGMENTS": 28,
+   "OTHER": 16
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.0918,
+   "MERGE_ERROR": 0.6957,
+   "UNDER_MERGE_FRAGMENTS": 0.1353,
+   "OTHER": 0.0773
+  }
+ },
+ "RAG_BOUNDARY_ONLY": {
+  "method": "RAG_BOUNDARY_ONLY",
+  "small": {
+   "n": 676,
+   "recall_iou50": 0.8313609467455622,
+   "under_seg": 0.08875739644970414,
+   "over_seg": 0.05029585798816568,
+   "absorbed_by_larger_neighbour": 0.08727810650887574,
+   "mean_best_iou": 0.7286442508129812
+  },
+  "large": {
+   "n": 35,
+   "recall_iou50": 0.9142857142857143
+  },
+  "all": {
+   "n": 1144,
+   "recall_iou50": 0.6136363636363636
+  },
+  "regions": {
+   "n_pred": 1177,
+   "n_truth_instances": 1144,
+   "n_pred_lt_50px": 152
+  },
+  "by_width": {
+   "3-6": {
+    "n": 14,
+    "recall": 0.21428571428571427
+   },
+   "6-10": {
+    "n": 96,
+    "recall": 0.65625
+   },
+   "10-20": {
+    "n": 256,
+    "recall": 0.82421875
+   },
+   "ge20": {
+    "n": 310,
+    "recall": 0.9193548387096774
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8435504064951302,
+   "tol2": 0.95157249097873,
+   "tol3": 0.9718965112135433
+  },
+  "false_boundary_share": 0.0027677591343892114,
+  "regions_holding_ge2_instances": 115,
+  "largest_region_px": 6488758,
+  "largest_official_instance_px": 6475981,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 19,
+   "MERGE_ERROR": 57,
+   "UNDER_MERGE_FRAGMENTS": 28,
+   "OTHER": 10
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.1667,
+   "MERGE_ERROR": 0.5,
+   "UNDER_MERGE_FRAGMENTS": 0.2456,
+   "OTHER": 0.0877
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.1375739644970414,
+   "small_over_seg": 0.0,
+   "large_recall": 0.0
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "RAG_BOUNDARY_APPEARANCE": {
+  "method": "RAG_BOUNDARY_APPEARANCE",
+  "small": {
+   "n": 676,
+   "recall_iou50": 0.849112426035503,
+   "under_seg": 0.07248520710059171,
+   "over_seg": 0.05029585798816568,
+   "absorbed_by_larger_neighbour": 0.07100591715976332,
+   "mean_best_iou": 0.7365973131136552
+  },
+  "large": {
+   "n": 35,
+   "recall_iou50": 0.9142857142857143
+  },
+  "all": {
+   "n": 1144,
+   "recall_iou50": 0.6293706293706294
+  },
+  "regions": {
+   "n_pred": 1312,
+   "n_truth_instances": 1144,
+   "n_pred_lt_50px": 222
+  },
+  "by_width": {
+   "3-6": {
+    "n": 14,
+    "recall": 0.21428571428571427
+   },
+   "6-10": {
+    "n": 96,
+    "recall": 0.6458333333333334
+   },
+   "10-20": {
+    "n": 256,
+    "recall": 0.87109375
+   },
+   "ge20": {
+    "n": 310,
+    "recall": 0.9225806451612903
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8433389231593938,
+   "tol2": 0.9511445097408506,
+   "tol3": 0.9716572759922704
+  },
+  "false_boundary_share": 0.004722857153944963,
+  "regions_holding_ge2_instances": 111,
+  "largest_region_px": 6489559,
+  "largest_official_instance_px": 6475981,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 19,
+   "MERGE_ERROR": 46,
+   "UNDER_MERGE_FRAGMENTS": 28,
+   "OTHER": 9
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.1863,
+   "MERGE_ERROR": 0.451,
+   "UNDER_MERGE_FRAGMENTS": 0.2745,
+   "OTHER": 0.0882
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.1553254437869822,
+   "small_over_seg": 0.0,
+   "large_recall": 0.0
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "appearance_effect": {
+  "PREVENTED_MERGE": 15,
+  "CAUSED_SPLIT": 3,
+  "recovered_only_by_appearance": 18,
+  "recovered_only_by_boundary_only": 6
+ }
+}

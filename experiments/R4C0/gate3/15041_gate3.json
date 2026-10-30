@@ -1,0 +1,262 @@
+{
+ "sheet": "15041",
+ "status": "DEVELOPMENT_VALIDATION",
+ "frozen": {
+  "title": "R4-C0 Gate 2 freeze: committed before Gate 3",
+  "candidate": "B2",
+  "RAG_BOUNDARY_ONLY": {
+   "tau": 0.45,
+   "lambda": 0.0
+  },
+  "RAG_BOUNDARY_APPEARANCE": {
+   "tau": 0.5,
+   "lambda": 0.25
+  },
+  "training_in_sample_small_recall": {
+   "RAG_BOUNDARY_ONLY": 0.8923,
+   "RAG_BOUNDARY_APPEARANCE": 0.9015
+  },
+  "training_in_sample_small_over_seg": {
+   "RAG_BOUNDARY_ONLY": 0.0336,
+   "RAG_BOUNDARY_APPEARANCE": 0.0336
+  },
+  "note": "BOUNDARY_ONLY: tau 0.50 had 0.0004 higher recall than 0.45; the pre-registered tie rule (< 0.002 -> lower tau) selects 0.45. Values are in-sample and optimistic."
+ },
+ "initial_regions": 17321,
+ "prediction_seconds": 6.1,
+ "initial_oracle_A_small_recall": 0.9238776837996097,
+ "M2_hybrid": {
+  "method": "M2_hybrid",
+  "small": {
+   "n": 1537,
+   "recall_iou50": 0.5543266102797658,
+   "under_seg": 0.3435263500325309,
+   "over_seg": 0.06376057254391672,
+   "absorbed_by_larger_neighbour": 0.2810670136629798,
+   "mean_best_iou": 0.512859210555077
+  },
+  "large": {
+   "n": 95,
+   "recall_iou50": 0.7473684210526316
+  },
+  "all": {
+   "n": 2420,
+   "recall_iou50": 0.3950413223140496
+  },
+  "regions": {
+   "n_pred": 1865,
+   "n_truth_instances": 2420,
+   "n_pred_lt_50px": 0
+  },
+  "by_width": {
+   "lt3": {
+    "n": 2,
+    "recall": 0.0
+   },
+   "3-6": {
+    "n": 81,
+    "recall": 0.0
+   },
+   "6-10": {
+    "n": 322,
+    "recall": 0.13664596273291926
+   },
+   "10-20": {
+    "n": 665,
+    "recall": 0.6571428571428571
+   },
+   "ge20": {
+    "n": 467,
+    "recall": 0.7944325481798715
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.7375353443999297,
+   "tol2": 0.8577871468131107,
+   "tol3": 0.8931315655081333
+  },
+  "false_boundary_share": 0.00038280240188486134,
+  "regions_holding_ge2_instances": 392,
+  "largest_region_px": 621608,
+  "largest_official_instance_px": 608832,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 114,
+   "MERGE_ERROR": 430,
+   "UNDER_MERGE_FRAGMENTS": 71,
+   "OTHER": 70
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.1664,
+   "MERGE_ERROR": 0.6277,
+   "UNDER_MERGE_FRAGMENTS": 0.1036,
+   "OTHER": 0.1022
+  }
+ },
+ "RAG_BOUNDARY_ONLY": {
+  "method": "RAG_BOUNDARY_ONLY",
+  "small": {
+   "n": 1537,
+   "recall_iou50": 0.7280416395575797,
+   "under_seg": 0.1509433962264151,
+   "over_seg": 0.07612231620039037,
+   "absorbed_by_larger_neighbour": 0.13597918022121014,
+   "mean_best_iou": 0.6509239568436591
+  },
+  "large": {
+   "n": 95,
+   "recall_iou50": 0.8210526315789474
+  },
+  "all": {
+   "n": 2420,
+   "recall_iou50": 0.5760330578512397
+  },
+  "regions": {
+   "n_pred": 3065,
+   "n_truth_instances": 2420,
+   "n_pred_lt_50px": 445
+  },
+  "by_width": {
+   "lt3": {
+    "n": 2,
+    "recall": 0.0
+   },
+   "3-6": {
+    "n": 81,
+    "recall": 0.18518518518518517
+   },
+   "6-10": {
+    "n": 322,
+    "recall": 0.6149068322981367
+   },
+   "10-20": {
+    "n": 665,
+    "recall": 0.7609022556390977
+   },
+   "ge20": {
+    "n": 467,
+    "recall": 0.8565310492505354
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8316932018532387,
+   "tol2": 0.9411429318238148,
+   "tol3": 0.96581684902289
+  },
+  "false_boundary_share": 0.0022793993980854137,
+  "regions_holding_ge2_instances": 321,
+  "largest_region_px": 584106,
+  "largest_official_instance_px": 608832,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 117,
+   "MERGE_ERROR": 182,
+   "UNDER_MERGE_FRAGMENTS": 73,
+   "OTHER": 46
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.2799,
+   "MERGE_ERROR": 0.4354,
+   "UNDER_MERGE_FRAGMENTS": 0.1746,
+   "OTHER": 0.11
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.1737150292778139,
+   "small_over_seg": 0.012361743656473648,
+   "large_recall": 0.0736842105263158
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "RAG_BOUNDARY_APPEARANCE": {
+  "method": "RAG_BOUNDARY_APPEARANCE",
+  "small": {
+   "n": 1537,
+   "recall_iou50": 0.7547169811320755,
+   "under_seg": 0.12491867273910215,
+   "over_seg": 0.07937540663630449,
+   "absorbed_by_larger_neighbour": 0.11320754716981132,
+   "mean_best_iou": 0.6677219742680608
+  },
+  "large": {
+   "n": 95,
+   "recall_iou50": 0.8526315789473684
+  },
+  "all": {
+   "n": 2420,
+   "recall_iou50": 0.6012396694214877
+  },
+  "regions": {
+   "n_pred": 3411,
+   "n_truth_instances": 2420,
+   "n_pred_lt_50px": 593
+  },
+  "by_width": {
+   "lt3": {
+    "n": 2,
+    "recall": 0.0
+   },
+   "3-6": {
+    "n": 81,
+    "recall": 0.2222222222222222
+   },
+   "6-10": {
+    "n": 322,
+    "recall": 0.6211180124223602
+   },
+   "10-20": {
+    "n": 665,
+    "recall": 0.8090225563909774
+   },
+   "ge20": {
+    "n": 467,
+    "recall": 0.8650963597430407
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8336875274111671,
+   "tol2": 0.9433222061850858,
+   "tol3": 0.9679261574328393
+  },
+  "false_boundary_share": 0.0019119421070986108,
+  "regions_holding_ge2_instances": 280,
+  "largest_region_px": 589577,
+  "largest_official_instance_px": 608832,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 117,
+   "MERGE_ERROR": 135,
+   "UNDER_MERGE_FRAGMENTS": 79,
+   "OTHER": 46
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.3103,
+   "MERGE_ERROR": 0.3581,
+   "UNDER_MERGE_FRAGMENTS": 0.2095,
+   "OTHER": 0.122
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.2003903708523097,
+   "small_over_seg": 0.015614834092387772,
+   "large_recall": 0.10526315789473684
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "appearance_effect": {
+  "PREVENTED_MERGE": 45,
+  "CAUSED_SPLIT": 7,
+  "recovered_only_by_appearance": 63,
+  "recovered_only_by_boundary_only": 22
+ }
+}

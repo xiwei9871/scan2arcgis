@@ -1,0 +1,238 @@
+{
+ "sheet": "14030",
+ "status": "RETROSPECTIVE_CONTROL",
+ "frozen": {
+  "title": "R4-C0 Gate 2 freeze: committed before Gate 3",
+  "candidate": "B2",
+  "RAG_BOUNDARY_ONLY": {
+   "tau": 0.45,
+   "lambda": 0.0
+  },
+  "RAG_BOUNDARY_APPEARANCE": {
+   "tau": 0.5,
+   "lambda": 0.25
+  },
+  "training_in_sample_small_recall": {
+   "RAG_BOUNDARY_ONLY": 0.8923,
+   "RAG_BOUNDARY_APPEARANCE": 0.9015
+  },
+  "training_in_sample_small_over_seg": {
+   "RAG_BOUNDARY_ONLY": 0.0336,
+   "RAG_BOUNDARY_APPEARANCE": 0.0336
+  },
+  "note": "BOUNDARY_ONLY: tau 0.50 had 0.0004 higher recall than 0.45; the pre-registered tie rule (< 0.002 -> lower tau) selects 0.45. Values are in-sample and optimistic."
+ },
+ "initial_regions": 620,
+ "prediction_seconds": 1.9,
+ "initial_oracle_A_small_recall": 1.0,
+ "M2_hybrid": {
+  "method": "M2_hybrid",
+  "small": {
+   "n": 18,
+   "recall_iou50": 0.8333333333333334,
+   "under_seg": 0.05555555555555555,
+   "over_seg": 0.05555555555555555,
+   "absorbed_by_larger_neighbour": 0.05555555555555555,
+   "mean_best_iou": 0.69594943472956
+  },
+  "large": {
+   "n": 7,
+   "recall_iou50": 1.0
+  },
+  "all": {
+   "n": 60,
+   "recall_iou50": 0.36666666666666664
+  },
+  "regions": {
+   "n_pred": 66,
+   "n_truth_instances": 60,
+   "n_pred_lt_50px": 0
+  },
+  "by_width": {
+   "6-10": {
+    "n": 1,
+    "recall": 1.0
+   },
+   "10-20": {
+    "n": 5,
+    "recall": 0.8
+   },
+   "ge20": {
+    "n": 12,
+    "recall": 0.8333333333333334
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8348388900817986,
+   "tol2": 0.9258068147063296,
+   "tol3": 0.9489598810570556
+  },
+  "false_boundary_share": 0.0009786651008025053,
+  "regions_holding_ge2_instances": 9,
+  "largest_region_px": 9969206,
+  "largest_official_instance_px": 9977522,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 0,
+   "MERGE_ERROR": 1,
+   "UNDER_MERGE_FRAGMENTS": 1,
+   "OTHER": 1
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.0,
+   "MERGE_ERROR": 0.3333,
+   "UNDER_MERGE_FRAGMENTS": 0.3333,
+   "OTHER": 0.3333
+  }
+ },
+ "RAG_BOUNDARY_ONLY": {
+  "method": "RAG_BOUNDARY_ONLY",
+  "small": {
+   "n": 18,
+   "recall_iou50": 0.9444444444444444,
+   "under_seg": 0.0,
+   "over_seg": 0.0,
+   "absorbed_by_larger_neighbour": 0.0,
+   "mean_best_iou": 0.8385994264745726
+  },
+  "large": {
+   "n": 7,
+   "recall_iou50": 1.0
+  },
+  "all": {
+   "n": 60,
+   "recall_iou50": 0.48333333333333334
+  },
+  "regions": {
+   "n_pred": 180,
+   "n_truth_instances": 60,
+   "n_pred_lt_50px": 29
+  },
+  "by_width": {
+   "6-10": {
+    "n": 1,
+    "recall": 1.0
+   },
+   "10-20": {
+    "n": 5,
+    "recall": 1.0
+   },
+   "ge20": {
+    "n": 12,
+    "recall": 0.9166666666666666
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8115769004515673,
+   "tol2": 0.8862620492314558,
+   "tol3": 0.9168389078169201
+  },
+  "false_boundary_share": 0.015403259240361004,
+  "regions_holding_ge2_instances": 7,
+  "largest_region_px": 9955933,
+  "largest_official_instance_px": 9977522,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 0,
+   "MERGE_ERROR": 0,
+   "UNDER_MERGE_FRAGMENTS": 0,
+   "OTHER": 1
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.0,
+   "MERGE_ERROR": 0.0,
+   "UNDER_MERGE_FRAGMENTS": 0.0,
+   "OTHER": 1.0
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.11111111111111105,
+   "small_over_seg": -0.05555555555555555,
+   "large_recall": 0.0
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "RAG_BOUNDARY_APPEARANCE": {
+  "method": "RAG_BOUNDARY_APPEARANCE",
+  "small": {
+   "n": 18,
+   "recall_iou50": 0.9444444444444444,
+   "under_seg": 0.0,
+   "over_seg": 0.0,
+   "absorbed_by_larger_neighbour": 0.0,
+   "mean_best_iou": 0.8385780067254589
+  },
+  "large": {
+   "n": 7,
+   "recall_iou50": 1.0
+  },
+  "all": {
+   "n": 60,
+   "recall_iou50": 0.5333333333333333
+  },
+  "regions": {
+   "n_pred": 209,
+   "n_truth_instances": 60,
+   "n_pred_lt_50px": 38
+  },
+  "by_width": {
+   "6-10": {
+    "n": 1,
+    "recall": 1.0
+   },
+   "10-20": {
+    "n": 5,
+    "recall": 1.0
+   },
+   "ge20": {
+    "n": 12,
+    "recall": 0.9166666666666666
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8055384068798163,
+   "tol2": 0.8803691368964023,
+   "tol3": 0.9121533184305088
+  },
+  "false_boundary_share": 0.01594009259546966,
+  "regions_holding_ge2_instances": 8,
+  "largest_region_px": 9953885,
+  "largest_official_instance_px": 9977522,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 0,
+   "MERGE_ERROR": 0,
+   "UNDER_MERGE_FRAGMENTS": 0,
+   "OTHER": 1
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.0,
+   "MERGE_ERROR": 0.0,
+   "UNDER_MERGE_FRAGMENTS": 0.0,
+   "OTHER": 1.0
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.11111111111111105,
+   "small_over_seg": -0.05555555555555555,
+   "large_recall": 0.0
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "appearance_effect": {
+  "PREVENTED_MERGE": 0,
+  "CAUSED_SPLIT": 0,
+  "recovered_only_by_appearance": 0,
+  "recovered_only_by_boundary_only": 0
+ }
+}
