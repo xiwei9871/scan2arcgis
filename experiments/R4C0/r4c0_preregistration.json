@@ -1,0 +1,81 @@
+{
+ "title": "R4-C0 pre-registration: region over-segmentation + region adjacency graph + hierarchical merging (training-free POC). Committed before any Gate 1-4 run.",
+ "start_commit": "f35bd10d85a33ebea6bf85aff3860f9cf51c95e7",
+ "status": "R4-C0_RESEARCH_POC",
+ "no_training": "no new model, no change to M1 / M2 / B2 weights; the frozen weights are only run in inference",
+ "change_policy": "Each gate runs once. After this commit only crash / implementation-bug fixes are allowed, documented with the reason. No change of over-segmentation, strength definitions, grids, selection rules, thresholds, sheets or metrics after seeing any result. If RAG fails, M2_hybrid is kept and no second region-graph algorithm is tried in R4-C0.",
+ "corrections_of_earlier_wording": [
+  "R4-B0 Gate 3 values 0.823 / 0.783 (M1 probability terrain) and 0.740 / 0.714 (M2 distance) use ideal seeds derived from the official instances: they are ORACLE upper bounds, not deployable autonomous results. The route review sentence that only changing seeds could raise 0.596 to about 0.82 overstated this; it shows headroom, not an achievable autonomous gain.",
+  "Superpixel ASA, under-segmentation error and majority-label assignment are not the small-instance IoU >= 0.5 recall and are never reported as such."
+ ],
+ "literature_basis": {
+  "owt_ucm": "Arbeláez et al. 2011: contours -> initial regions (oriented watershed) -> hierarchy by boundary strength (UCM). R4-C0 uses a simplified, non-oriented version: watershed on a boundary map + greedy merging by the MEDIAN pair strength of the shared border. It is NOT a reimplementation of OWT-UCM; the median (not mean) is chosen to limit contamination by a few strong or weak pixels along the border.",
+  "superpixel_benchmark": "ASA (achievable segmentation accuracy) and under-segmentation error (UE, Neubert / Achanta style, min(inside, outside) per region-instance overlap) as defined in the Stutz et al. superpixel benchmark; reported only as region-quality measures"
+ },
+ "inputs": {
+  "training_sheets": "freeze_config.json data_roles.train (10 sheets): Gate 1 and Gate 2 only",
+  "training_sheet_predictions": "the frozen M1 / M2 / B2 best.pt are run in inference on the 10 training sheets (experiments/R4A/r4a2_2_infer.py for M1 and M2, experiments/R4B2/r4b2_infer.py for B2). These are IN-SAMPLE predictions: they are cleaner than on unseen sheets, so oracles and selected thresholds may be optimistic; Gate 3 checks this on held-out sheets.",
+  "dev_sheets": "15023, 15041 (DEVELOPMENT_VALIDATION; also used for checkpoint selection of all three models); existing R4-A2.2 / R4-B2 predictions",
+  "retrospective": "14030, 13015 (already exposed to M2_hybrid and B2 results): reported as retrospective controls only, never as independent tests",
+  "image_only_at_prediction": "prediction uses model outputs and the RGB image only; labels are read only by oracle and metric code"
+ },
+ "candidates": {
+  "M1": "pixel strength b = M1 boundary probability; pair strength = max(b_p, b_q)",
+  "M2": "pixel strength b = M2 boundary-head probability; pair strength = max(b_p, b_q) (the distance head is not used)",
+  "B2": "pixel strength b = max of the edge probabilities of the pixel's incident pairs; pair strength = the pair's own edge probability"
+ },
+ "over_segmentation": "one method for all candidates (experiments/R4C0/r4c0_rag.overseg): q = round(255 b) as uint8; markers = 4-connected components of the h-minima of q with h = 13 (0.05 in probability); watershed of q from those markers with 4-connectivity over the full image. No area threshold, no other parameter.",
+ "rag": "node = initial region; edge = regions sharing >= 1 4-adjacent pixel pair; edge stores a 64-bin histogram of pair strengths over all shared pairs; region stores area and Lab colour sum / count over non-ink pixels (fallback all pixels if < 5 non-ink pixels)",
+ "merge": {
+  "rule": "greedy, deterministic: repeatedly merge the adjacent pair with the lowest cost; on merge, histograms and colour sums add and costs of touched edges are recomputed; ties by cost then (i, j)",
+  "RAG_BOUNDARY_ONLY": "cost = median pair strength on the shared border (64-bin resolution)",
+  "RAG_BOUNDARY_APPEARANCE": "cost = median pair strength + lambda * min(dE76(mean Lab_i, mean Lab_j) / 30, 1); same initial regions",
+  "colour": "Lab from the RGB image (cv2, L 0-100); ink = gray black-hat ellipse 9 px > 40, dilated 1 px (image-only, same rule as the label builder's ink); no official class, legend-unit mapping or test label",
+  "stop": "merging stops at the first popped cost > tau"
+ },
+ "gate1": {
+  "per_candidate_and_sheet": ["initial regions (count, mean / median area in valid px)", "RAG nodes and edges", "over-segmentation + RAG build + full merge-sequence time, peak RSS", "ASA", "UE", "Oracle A and Oracle B small-instance IoU >= 0.5 recall per width bin (canonical width, experiments/R4B1T/r4b1t_width)", "share of small instances already MIXED in the initial regions", "large-instance fragmentation: median and 90th percentile of the number of initial regions holding >= 1% of a >= 20000 px instance"],
+  "oracle_A": "OPTIMISTIC: for each instance alone, the best IoU of any union of initial regions (purity-sorted prefixes, which is optimal for a single target); IGNORES exclusivity (a region may be used for several instances) and connectivity of the union",
+  "oracle_B": "ACHIEVABLE truth-assisted merge: every initial region takes its majority instance (valid pixels), adjacent regions with the same majority are merged; regions stay indivisible, each is used once, unions are connected through the region graph",
+  "mixed_definition": "a small instance is MIXED if Oracle A best IoU < 0.5 (no union of initial regions reaches IoU 0.5)",
+  "pooling": "all small instances of the 10 training sheets pooled; per-sheet values reported",
+  "qualification": "a candidate qualifies iff Oracle A recall in the pooled 6-20 px group (bins 6-10 and 10-20 together) >= 0.90 AND per-sheet peak RSS <= 12 GB AND per-sheet time (over-segmentation + RAG + full merge) <= 15 min AND initial regions <= 400000 per sheet",
+  "stop": ["no candidate qualifies -> STOP route one, report the limits", "a candidate is computationally infeasible on M4 16 GB -> it is disqualified (no re-tuning)", "even if Oracle A >= 0.90, if Oracle B for every qualified candidate is < 0.80 in the 6-20 px group, STOP: the effective merge is not approachable"],
+  "3-6px": "reported separately; never a reason to stop or to pass"
+ },
+ "gate2": {
+  "candidate_selection": "among qualified candidates: highest pooled Oracle B recall in the 6-20 px group on the 10 training sheets; tie (< 0.005) -> fewer initial regions",
+  "tau_grid": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95],
+  "lambda_grid": [0.1, 0.25, 0.5, 1.0],
+  "objective": "pooled small-instance IoU >= 0.5 recall on the 10 training sheets (r4a2_2_eval.instance_metrics per sheet, pooled by counts), subject to pooled small over-segmentation <= 0.10; ties (< 0.002) -> lower tau, then lower lambda",
+  "RAG_BOUNDARY_ONLY": "tau chosen on tau_grid",
+  "RAG_BOUNDARY_APPEARANCE": "(tau, lambda) chosen jointly on tau_grid x lambda_grid with the same objective",
+  "freeze": "selected candidate, tau and lambda are committed before Gate 3"
+ },
+ "gate3": {
+  "sheets": ["15023", "15041"], "retrospective": ["14030", "13015"],
+  "compared": ["M2_hybrid", "RAG_BOUNDARY_ONLY", "RAG_BOUNDARY_APPEARANCE"],
+  "metrics": "small recall, 6-10 / 10-20 px recall (and 3-6 separately), multi-instance merges, over-seg, under-seg, regions, large recall, boundary F1@1/2/3, GIS export 9 checks",
+  "failure_decomposition_per_failed_small_instance": {
+   "INITIAL_MIXED": "Oracle A < 0.5 on this sheet's initial regions",
+   "MERGE_ERROR": "not INITIAL_MIXED, and the best-overlap final region also holds >= 50% of another instance",
+   "UNDER_MERGE_FRAGMENTS": "not INITIAL_MIXED, and no final region holds >= 50% of the instance",
+   "OTHER": "otherwise"
+  },
+  "appearance_effect": "PREVENTED_MERGE = recovered by APPEARANCE but MERGE_ERROR in BOUNDARY_ONLY; CAUSED_SPLIT = recovered by BOUNDARY_ONLY but UNDER_MERGE_FRAGMENTS in APPEARANCE",
+  "catastrophic_merge": "largest predicted region area > 1.5 x the largest official instance area (valid px)",
+  "pass": "at least one RAG variant on BOTH dev sheets: small recall >= M2_hybrid + 0.03, small over-seg increase <= 0.03, large recall drop <= 0.05, no catastrophic merge. Otherwise STOP: no new independent sheet is consumed."
+ },
+ "gate4": {
+  "run_only_if": "Gate 3 pass",
+  "sheet_walk": "experiments/R4B1T/gate5_candidates.json from order 11 (15078) onward, skipping every code already visited (13076, 14030, 14071, 15094, 13015) and any code used in any role; unchanged Q1/Q2/Q3 (experiments/R4A/gtf_dataset.process)",
+  "sample_size_rule": "after a sheet PASSES Q3 its labels are built and ONLY the number of small instances is counted (no model is run); a PASS sheet with < 100 small instances is logged as INSUFFICIENT_SAMPLE and the walk continues; stop at 2 sheets with >= 100 small instances or after 8 visited candidates (then report what was found)",
+  "frozen_before": "inference, merge rule, tau, lambda, evaluation code committed before the first download",
+  "success": "at least one RAG variant on BOTH new sheets: small recall >= M2_hybrid + 0.03; small over-seg increase <= 0.03; large recall drop <= 0.05; no catastrophic merge; GIS export 9 checks pass",
+  "appearance_report": "paired gain APPEARANCE - BOUNDARY_ONLY per sheet with a 95% paired bootstrap CI over small instances (2000 resamples, seed 20261029); if the CI contains 0 -> 'no evidence of independent value yet' (not 'colour is useless')",
+  "uncertainty": "per sheet: number of small instances, absolute recall change vs M2_hybrid, 95% paired bootstrap CI"
+ },
+ "gate5": {"questions": ["is training-free region-level reconstruction better than M2_hybrid?", "is the gain from better initial regions or better merging?", "which 6-20 px narrow units are protected?", "does appearance add information beyond the boundary model?", "next: more GSJ data, a learned region-appearance model, or topology-aware learning?"],
+           "if_fail": "keep M2_hybrid; no second region-graph algorithm in R4-C0"},
+ "limits": {"sealed": ["08011", "08021"], "no_upload": "GSJ rasters, official vectors, weights, restricted visuals stay local"}
+}
