@@ -1,0 +1,52 @@
+{
+ "title": "ARCH-1 pre-registered criteria, committed before any Gate 1-5 run",
+ "start_commit": "0a570f9c45595bfc35c877fc79ddf7bc66a03a52",
+ "status_target": "ARCH1_READY_FOR_HUMAN_REVIEW",
+ "sheets": {"training": "freeze_config.json data_roles.train (10, in-sample B2/M1/M2 predictions)", "exposed": ["13014", "15076"],
+            "never": ["test pool (experiments/ARCH0/test_pool_protocol.json)", "08011", "08021"]},
+ "no": ["training", "RAG tau change", "M2_hybrid change", "new sheet access", "formal GIS output change", "merge to main"],
+ "candidate_set": "RAG_BOUNDARY_ONLY final regions (tau 0.45) < 200 px, plus all canonical small instances for the merge-protection task",
+ "class_definitions_eval_only": {
+  "PSEUDO": "region < 200 px whose majority official instance is >= 5x its area",
+  "TRUE_SMALL": "region < 200 px with IoU >= 0.5 to an official instance",
+  "INK_BAND_PROXY": "PSEUDO with >= 80% of pixels within 1.5 px of UNIT_BOUNDARY and >= 60% on image ink (1 px) - a pre-defined proxy, not an independent ink-band annotation"
+ },
+ "gate1": {
+  "tasks": {
+   "T1_narrow_vs_ink_band": "TRUE_SMALL vs PSEUDO, regions with predicted width < 10 px",
+   "T2_protect_from_merge": "for canonical small instances whose best initial-region set is not mixed (Oracle A >= 0.5): separation evidence on the border to the absorbing neighbour vs borders between initial regions of the same instance",
+   "T3_absorb_fragments": "PSEUDO vs TRUE_SMALL, all regions < 200 px",
+   "T4_large_integrity": "RAG region borders inside one official instance >= 20000 px (false internal borders) vs borders between different instances (true contacts), for borders of regions >= 2000 px"
+  },
+  "width_groups": "predicted width (own-mask inscribed width of the candidate region) <= 6, 6-10, 10-20, > 20 px; T2 / T4 use the canonical width of the instance only to GROUP results (evaluation), never as a feature",
+  "metrics": ["AUC (direction reported)", "precision / recall / false-positive rate at the threshold that keeps 95% of the positive class (threshold set on training sheets)", "class base rate in the candidate set", "per-sheet AUC spread (min / max)"],
+  "base_rate_note": "base rates are of the RAG candidate set on these sheets, not of geological units on GSJ maps",
+  "independence": "Spearman correlation between features over the candidate set, and correlation of ERRORS: for each feature the set of misclassified items at its 95%-recall threshold; Jaccard overlap and phi coefficient between error sets of different features; a pair counts as 'practically independent' only if error phi < 0.3"
+ },
+ "gate2": {
+  "single_replacement": {
+   "O_CONTACT": "B2 pair strength replaced by official edges (1 on edges, 0 elsewhere) in BOTH over-segmentation and merge",
+   "O_NARROW_CANDIDATES": "B2 over-segmentation + official instance masks of canonical width < 10 px inserted as hard cuts (their boundaries added to the initial partition); merge unchanged",
+   "O_INK_BAND": "after the frozen merge, every PSEUDO region < 200 px is merged into its majority-instance neighbour region (perfect fragment discrimination)",
+   "O_MERGE_RELATION": "frozen initial regions; merge only adjacent regions whose majority official instance is the same (Oracle B)",
+   "O_UNIT_CODE": "merge cost +1 (forbid) between regions whose majority official UNIT (geo_A class) differs, and -1 (force) between same-unit adjacent regions sharing >= 50% majority instance; i.e. perfect class / code evidence"
+  },
+  "combinations": ["O_NARROW_CANDIDATES + O_INK_BAND", "O_NARROW_CANDIDATES + O_MERGE_RELATION", "O_CONTACT + O_INK_BAND"],
+  "metrics": "small recall per width group, merge errors, under-merge fragments, initial-mixed, pseudo-fragment count, large recall, Oracle A / B of the initial partition",
+  "keep_rule": "an evidence type stays a candidate if its oracle improves recall by >= 0.03 in the <= 6 or 6-10 px group OR overall small recall by >= 0.01 OR removes >= 30% of pseudo fragments; never dropped on overall recall alone"
+ },
+ "gate3": {
+  "synthetic_pass": "on synthetic lines of known width 1.0-6.0 px (anti-aliased, angles 0-90 deg, curved, crossing, dashed), median absolute width error <= 0.35 px for widths 1-3 px and <= 12% above 3 px, and >= 90% of crossing / junction samples flagged as unreliable",
+  "gsj_pass": "on the 10 training sheets + 13014 / 15076: (a) estimates on official contact lines (eval only) have per-sheet median within [0.8, 3.5] px and inter-sheet CV <= 0.35; (b) repeatability: same image twice identical; (c) scale check: on 15023 rescaled 0.75 / 1.5 the median width ratio within 15% of the factor; (d) discrimination: AUC >= 0.80 between ink-band-proxy pseudo fragments (single printed line) and TRUE_SMALL regions < 6 px wide (strip between two lines) using 'region width / local line width'",
+  "on_fail": "LINE_WIDTH_ESTIMATOR_NOT_QUALIFIED; no threshold re-tuning; report which criterion failed",
+  "official_lines": "used only for evaluation; never as input to the estimator"
+ },
+ "gate4": {
+  "hard_cut_eligibility": "only candidate boundaries from a generator whose PROTECT evidence has a measured false-protection rate <= 0.10 on training sheets may become hard cuts; in ARCH-1 no generator qualifies yet, so the study simulates with O_NARROW_CANDIDATES only",
+  "dedup": "candidate boundary pixels within 1 pair of an existing B2 over-segmentation boundary are not added",
+  "limits_for_admission": "regions <= 3x the B2-only over-segmentation; merge time and peak RSS reported; full uncertain-candidate geometry and evidence preserved after merging"
+ },
+ "gate5_admission": {
+  "admit_C_PAIR_V0_1_if": "Gate 2 shows O_NARROW_CANDIDATES raises 3-6 px Oracle A to >= 0.65 with Oracle B reported, region count <= 3x B2-only, AND Gate 1 T1 finds at least one feature or pair with AUC >= 0.80 (or <= 0.20) on both training and exposed sheets with error phi < 0.3 against B2 strength; otherwise 'not admitted' with the failed condition"
+ }
+}

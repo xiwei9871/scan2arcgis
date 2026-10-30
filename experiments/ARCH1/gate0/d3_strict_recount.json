@@ -1,0 +1,35 @@
+{
+ "note": "two-sided grouping is truth-assisted (official neighbour instances); not autonomous line-pair detection",
+ "train|tol1_pair": {
+  "narrow_3_6": 44,
+  "median_overall_cov": 0.8703703703703703,
+  "share_overall_ge_0_8": 0.75,
+  "two_sided_identifiable": 15,
+  "both_sides_ge_0_8": 10,
+  "both_sides_ge_0_8_share_of_all_narrow": 0.2273
+ },
+ "train|strict": {
+  "narrow_3_6": 44,
+  "median_overall_cov": 0.6723458210799983,
+  "share_overall_ge_0_8": 0.29545454545454547,
+  "two_sided_identifiable": 15,
+  "both_sides_ge_0_8": 3,
+  "both_sides_ge_0_8_share_of_all_narrow": 0.0682
+ },
+ "exposed|tol1_pair": {
+  "narrow_3_6": 160,
+  "median_overall_cov": 0.8981716295811518,
+  "share_overall_ge_0_8": 0.85625,
+  "two_sided_identifiable": 66,
+  "both_sides_ge_0_8": 49,
+  "both_sides_ge_0_8_share_of_all_narrow": 0.3063
+ },
+ "exposed|strict": {
+  "narrow_3_6": 160,
+  "median_overall_cov": 0.7890040106951872,
+  "share_overall_ge_0_8": 0.45,
+  "two_sided_identifiable": 66,
+  "both_sides_ge_0_8": 28,
+  "both_sides_ge_0_8_share_of_all_narrow": 0.175
+ }
+}
