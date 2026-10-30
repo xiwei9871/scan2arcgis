@@ -62,3 +62,15 @@ def test_edge_metrics_strict_and_tolerance():
     m = E.edge_metrics(er.astype(np.float32), ed.astype(np.float32), er, ed, mr, md); assert m["strict"]["F1"] == 1.0
     sh = np.roll(er, 1, 1).astype(np.float32)                               # shifted by one pair
     m = E.edge_metrics(sh, ed.astype(np.float32), er, ed, mr, md); assert m["strict"]["F1"] == 0.0 and m["tol1"]["F1"] == 1.0
+
+
+def test_explicit_domain_blocks_links_through_invalid_pixels():
+    # two different units touch only through an invalid band; official edges are undefined there
+    u = np.zeros((30, 40), np.int32); u[:, 20:] = 1; u[:, 18:22] = -1
+    valid = u >= 0
+    er, ed, _, _ = E.edges_from_labels(u, valid)
+    assert not er.any()                                           # no supervised pair crosses the band
+    lab_all, _ = E.regions_from_probs(er.astype(np.float32), ed.astype(np.float32))           # frozen inference rule
+    assert lab_all[5, 5] == lab_all[5, 35]                        # full-image rule links them through the band (risk)
+    lab_dom, _ = E.regions_from_probs(er.astype(np.float32), ed.astype(np.float32), domain=valid)
+    assert lab_dom[5, 5] != lab_dom[5, 35] and (lab_dom[~valid] == 0).all()

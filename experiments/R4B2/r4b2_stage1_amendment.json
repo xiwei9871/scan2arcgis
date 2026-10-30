@@ -1,0 +1,20 @@
+{
+ "title": "R4-B2 Stage 1 amendment (owner-approved), committed before the revised Stage 1 run",
+ "amends": "experiments/R4B2/r4b2_preregistration.json stage1 (commit cf170ab88ad57cc0ea67fefc4115e21a4a21b749)",
+ "history_kept": "original pre-registration cf170ab and the Stage 1 STOP report 7c985762145487e78e207356d32ae6ef8c99dfa9 stay unchanged; the original 10/10 FAIL remains the recorded result of the original check",
+ "reason": [
+  "the original check reconstructed over ALL pixels, so invalid pixels (no official edge supervision) linked different units",
+  "the < 50 px cleanup and exact partition equality are different requirements; the cleanup by design rewrites tiny official components"
+ ],
+ "nature": "correction of the check domain and of the assertion definitions; no training hyper-parameter, loss, threshold, cleanup size, sampling, data role or budget changes",
+ "domains": {
+  "D_gt": "(ignore == 0) & (unit >= 0): label-derived; used ONLY for training targets, offline label checks, evaluation and separately marked oracle diagnostics",
+  "D_pred": "image-derived inference domain (alpha / NoData / reliable frame). None is used in B2: the frozen autonomous inference reconstructs over the full image (domain=None). No official-label-derived mask is ever passed at autonomous inference"
+ },
+ "code_change": "r4b2_edges.regions_from_probs gains an optional domain argument (default None = frozen full-image rule, unchanged behaviour); new synthetic test test_explicit_domain_blocks_links_through_invalid_pixels",
+ "check_a": "on D_gt, official edges as probabilities 0/1, components only (no cleanup): partition equal to the D_gt-restricted 4-connected unit components AND the edges implied by the regions equal the official edges, on all 10 training sheets",
+ "check_b": "on D_gt with the frozen < 50 px cleanup: small-instance (200 <= area < 20000) recall must be 1.000 on all 10 sheets; report merged tiny components (count, pixels) and region count change; no partition-equality requirement",
+ "perturbation": "unchanged cases (drop 0.1 / 1 / 5 %, add 0.1 / 1 %, shift 1 px; 05016, 06054; 3 draws; seed 20261029), started from the check-a edge graph and reconstructed on D_gt with cleanup; reported also with the frozen full-image rule for comparison; robustness only, not a model result",
+ "inference_domain_risk": "Stage 4 reports separately: (i) the frozen full-image result (official autonomous score); (ii) a D_gt-domain reconstruction of the same predictions, marked ORACLE_DOMAIN diagnostic; (iii) merges whose region crosses invalid pixels of D_gt; the residual risk of full-image inference is stated, not claimed solved",
+ "training_condition": "the single formal training starts only if check a and check b pass on 10/10 sheets and the perturbation test has run; if continuing would require changing the inference algorithm or training definition, stop and report"
+}

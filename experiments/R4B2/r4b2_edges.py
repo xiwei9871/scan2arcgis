@@ -75,8 +75,10 @@ def cleanup(lab, pr, pd, min_area=MIN_AREA):
     return inv[lab].astype(np.int32), merged
 
 
-def regions_from_probs(pr, pd, thr=THR, min_area=MIN_AREA):
-    lab = components(pr > thr, pd > thr)
+def regions_from_probs(pr, pd, thr=THR, min_area=MIN_AREA, domain=None):
+    """domain=None is the frozen B2 inference rule (all pixels). An explicit domain is for the Stage 1 label check
+    (D_gt) and separately marked diagnostics only; official autonomous results never pass a label-derived domain."""
+    lab = components(pr > thr, pd > thr, domain)
     return cleanup(lab, pr, pd, min_area)
 
 
