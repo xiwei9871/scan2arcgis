@@ -1,0 +1,264 @@
+{
+ "criteria": {
+  "synthetic_pass": "on synthetic lines of known width 1.0-6.0 px (anti-aliased, angles 0-90 deg, curved, crossing, dashed), median absolute width error <= 0.35 px for widths 1-3 px and <= 12% above 3 px, and >= 90% of crossing / junction samples flagged as unreliable",
+  "gsj_pass": "on the 10 training sheets + 13014 / 15076: (a) estimates on official contact lines (eval only) have per-sheet median within [0.8, 3.5] px and inter-sheet CV <= 0.35; (b) repeatability: same image twice identical; (c) scale check: on 15023 rescaled 0.75 / 1.5 the median width ratio within 15% of the factor; (d) discrimination: AUC >= 0.80 between ink-band-proxy pseudo fragments (single printed line) and TRUE_SMALL regions < 6 px wide (strip between two lines) using 'region width / local line width'",
+  "on_fail": "LINE_WIDTH_ESTIMATOR_NOT_QUALIFIED; no threshold re-tuning; report which criterion failed",
+  "official_lines": "used only for evaluation; never as input to the estimator"
+ },
+ "synthetic": {
+  "per_width": {
+   "1.0": {
+    "n_reliable": 1575,
+    "median_abs_err": 0.39124631881713867,
+    "median_signed_err": 0.39124631881713867,
+    "ok": false
+   },
+   "1.5": {
+    "n_reliable": 1608,
+    "median_abs_err": 0.1625978946685791,
+    "median_signed_err": 0.1625978946685791,
+    "ok": true
+   },
+   "2.0": {
+    "n_reliable": 1596,
+    "median_abs_err": 0.07692313194274902,
+    "median_signed_err": 0.07692313194274902,
+    "ok": true
+   },
+   "2.5": {
+    "n_reliable": 1597,
+    "median_abs_err": 0.08653831481933594,
+    "median_signed_err": 0.08653831481933594,
+    "ok": true
+   },
+   "3.0": {
+    "n_reliable": 1633,
+    "median_abs_err": 0.11012935638427734,
+    "median_signed_err": 0.10584831237792969,
+    "ok": true
+   },
+   "4.0": {
+    "n_reliable": 1551,
+    "median_abs_err": 0.07692337036132812,
+    "median_signed_err": 0.07692337036132812,
+    "ok": true
+   },
+   "5.0": {
+    "n_reliable": 1637,
+    "median_abs_err": 0.1230764389038086,
+    "median_signed_err": 0.0971980094909668,
+    "ok": true
+   },
+   "6.0": {
+    "n_reliable": 1606,
+    "median_abs_err": 0.07692337036132812,
+    "median_signed_err": 0.07692337036132812,
+    "ok": true
+   }
+  },
+  "junction_samples": 39,
+  "junction_flagged_share": 1.0,
+  "pass": false
+ },
+ "gsj_a_contact_widths": {
+  "per_sheet": {
+   "05016": {
+    "reliable_contact_samples": 1124,
+    "median_width": 1.664217472076416,
+    "reliable_share_all": 0.017885,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.62274,
+     "JUNCTION": 0.92673,
+     "SHORT": 0.308155,
+     "DOUBLE_LINE": 0.63935,
+     "ASYMMETRIC": 0.28964,
+     "DARK_SIDE": 0.19971
+    }
+   },
+   "06054": {
+    "reliable_contact_samples": 1118,
+    "median_width": 1.695930004119873,
+    "reliable_share_all": 0.2244,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.348375,
+     "JUNCTION": 0.540845,
+     "SHORT": 0.24308,
+     "DOUBLE_LINE": 0.422905,
+     "ASYMMETRIC": 0.25603,
+     "DARK_SIDE": 0.238825
+    }
+   },
+   "05021": {
+    "reliable_contact_samples": 230,
+    "median_width": 1.753660798072815,
+    "reliable_share_all": 0.03308,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.624745,
+     "JUNCTION": 0.907495,
+     "SHORT": 0.160335,
+     "DOUBLE_LINE": 0.654675,
+     "ASYMMETRIC": 0.37683,
+     "DARK_SIDE": 0.192205
+    }
+   },
+   "06090": {
+    "reliable_contact_samples": 5189,
+    "median_width": 1.9120327234268188,
+    "reliable_share_all": 0.091255,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.39402,
+     "JUNCTION": 0.74809,
+     "SHORT": 0.357925,
+     "DOUBLE_LINE": 0.377055,
+     "ASYMMETRIC": 0.41612,
+     "DARK_SIDE": 0.29124
+    }
+   },
+   "07089": {
+    "reliable_contact_samples": 74,
+    "median_width": 2.022972822189331,
+    "reliable_share_all": 0.00707,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.6994,
+     "JUNCTION": 0.93053,
+     "SHORT": 0.045755,
+     "DOUBLE_LINE": 0.727125,
+     "ASYMMETRIC": 0.40249,
+     "DARK_SIDE": 0.255815
+    }
+   },
+   "06005": {
+    "reliable_contact_samples": 358,
+    "median_width": 2.229769706726074,
+    "reliable_share_all": 0.038905,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.610365,
+     "JUNCTION": 0.788845,
+     "SHORT": 0.13899,
+     "DOUBLE_LINE": 0.66903,
+     "ASYMMETRIC": 0.28039,
+     "DARK_SIDE": 0.20956
+    }
+   },
+   "06020": {
+    "reliable_contact_samples": 2083,
+    "median_width": 1.804075002670288,
+    "reliable_share_all": 0.074985,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.364675,
+     "JUNCTION": 0.704525,
+     "SHORT": 0.22141,
+     "DOUBLE_LINE": 0.494425,
+     "ASYMMETRIC": 0.352275,
+     "DARK_SIDE": 0.346585
+    }
+   },
+   "05015": {
+    "reliable_contact_samples": 2213,
+    "median_width": 1.5550117492675781,
+    "reliable_share_all": 0.05279,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.577995,
+     "JUNCTION": 0.789085,
+     "SHORT": 0.29745,
+     "DOUBLE_LINE": 0.56382,
+     "ASYMMETRIC": 0.29637,
+     "DARK_SIDE": 0.181485
+    }
+   },
+   "07038": {
+    "reliable_contact_samples": 3769,
+    "median_width": 1.9054028987884521,
+    "reliable_share_all": 0.07528,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.335465,
+     "JUNCTION": 0.70901,
+     "SHORT": 0.188215,
+     "DOUBLE_LINE": 0.42677,
+     "ASYMMETRIC": 0.387565,
+     "DARK_SIDE": 0.350895
+    }
+   },
+   "06055": {
+    "reliable_contact_samples": 753,
+    "median_width": 2.048661231994629,
+    "reliable_share_all": 0.16547,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.25347,
+     "JUNCTION": 0.624185,
+     "SHORT": 0.157755,
+     "DOUBLE_LINE": 0.322295,
+     "ASYMMETRIC": 0.405905,
+     "DARK_SIDE": 0.32492
+    }
+   },
+   "13014": {
+    "reliable_contact_samples": 2886,
+    "median_width": 1.4240758419036865,
+    "reliable_share_all": 0.040075,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.51288,
+     "JUNCTION": 0.8386,
+     "SHORT": 0.23083,
+     "DOUBLE_LINE": 0.592915,
+     "ASYMMETRIC": 0.29654,
+     "DARK_SIDE": 0.241725
+    }
+   },
+   "15076": {
+    "reliable_contact_samples": 3347,
+    "median_width": 1.8492236137390137,
+    "reliable_share_all": 0.035145,
+    "flag_shares": {
+     "LOW_CONTRAST": 0.44409,
+     "JUNCTION": 0.80479,
+     "SHORT": 0.275905,
+     "DOUBLE_LINE": 0.50569,
+     "ASYMMETRIC": 0.40345,
+     "DARK_SIDE": 0.340615
+    }
+   }
+  },
+  "inter_sheet_cv": 0.11741566608187982,
+  "pass": true
+ },
+ "gsj_b_repeatability": {
+  "pass": true
+ },
+ "gsj_c_scale": {
+  "original_median": 1.9796183109283447,
+  "factors": {
+   "0.75": {
+    "median_width": 1.8691184520721436,
+    "ratio": 0.9441812301663435,
+    "rel_error": 0.2589083068884579,
+    "ok": false
+   },
+   "1.5": {
+    "median_width": 2.9954566955566406,
+    "ratio": 1.513148610022665,
+    "rel_error": 0.00876574001510999,
+    "ok": true
+   }
+  },
+  "pass": false
+ },
+ "gsj_d_discrimination": {
+  "n_true_small_lt6": 237,
+  "n_ink_band_proxy_lt6": 1642,
+  "n_missing_local_width": 1733,
+  "auc_ratio": 0.6819047619047619,
+  "auc_width_alone_for_reference": 0.7770535572035749,
+  "median_ratio": {
+   "true_small": 2.480003069524538,
+   "ink_band": 1.9577030084026668
+  },
+  "pass": false
+ },
+ "verdict": "LINE_WIDTH_ESTIMATOR_NOT_QUALIFIED",
+ "failed": [
+  "synthetic",
+  "gsj_c_scale",
+  "gsj_d_discrimination"
+ ]
+}
