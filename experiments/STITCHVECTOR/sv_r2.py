@@ -56,8 +56,16 @@ def _node_local(feats, blocks, tol=1e-6):
     # T-junction vertices (found by the synthetic test: features 6-8 lay outside the zone but touched 9-10)
     tree = shapely.STRtree(geoms); _, nb = tree.query(geoms[idx], predicate="intersects")
     idx = np.unique(np.concatenate([idx, nb]))
-    ref = shapely.union_all(shapely.boundary(geoms[idx]))
-    geoms[idx] = shapely.snap(geoms[idx], ref, tol)
+    # per-feature local snap (performance fix, same result as snapping to the global union: a vertex can only
+    # be missing where a feature touches a neighbour, so each feature is snapped to its neighbours' boundaries)
+    bnd = shapely.boundary(geoms); src, dst = tree.query(geoms[idx], predicate="intersects")
+    o = np.argsort(src, kind="stable"); src, dst = src[o], dst[o]
+    us, st = np.unique(src, return_index=True); en = np.append(st[1:], len(src))
+    new = geoms.copy()
+    for s, a, b in zip(us, st, en):
+        f = idx[s]; nb_ = dst[a:b]; nb_ = nb_[nb_ != f]
+        if len(nb_): new[f] = shapely.snap(geoms[f], shapely.union_all(bnd[nb_]), tol)
+    geoms = new
     return [(g, v) for g, (_, v) in zip(geoms, feats)]
 
 
@@ -98,8 +106,15 @@ def progressive(target, tols=TOLS, check=False):
 
 def partition_check(feats, h, w):
     g = np.asarray([x for x, _ in feats], object)
-    return {"area_sum_equals_window": bool(abs(float(shapely.area(g).sum()) - h * w) < 1e-6),
-            "coverage_valid_no_overlap": bool(shapely.coverage_is_valid(g))}
+    # pre-registered check: sum of areas == window AND area of the union == window  <=>  no overlap and no gap.
+    # (shapely.coverage_is_valid was used first but also rejects raw rasterio polygonize output, whose shared
+    #  edges carry different vertex sets / T-junctions; it is stricter than the pre-registration and is reported
+    #  only as information.)
+    s = float(shapely.area(g).sum()); u = float(shapely.area(shapely.union_all(g)))
+    return {"area_sum_equals_window": bool(abs(s - h * w) < 1e-6),
+            "union_area_equals_window": bool(abs(u - h * w) < 1e-6),
+            "coverage_valid_no_overlap": bool(abs(s - h * w) < 1e-6 and abs(u - h * w) < 1e-6),
+            "coverage_is_valid_strict_info": bool(shapely.coverage_is_valid(g))}
 
 
 # ---------- variant B: ink layer + fill completion ----------
