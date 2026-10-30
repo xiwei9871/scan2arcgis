@@ -1,0 +1,7 @@
+sheet,window_id_or_area,method,operation (MERGE / SPLIT / REDRAW / DELETE / RELABEL / NONE),count,minutes,reason (fragment / missed unit / false boundary / wrong merge / other),operator,date,notes
+13014,,M2_hybrid,,,,,,,
+13014,,RAG_BOUNDARY_ONLY,,,,,,,
+13014,,RAG_BOUNDARY_APPEARANCE,,,,,,,
+15076,,M2_hybrid,,,,,,,
+15076,,RAG_BOUNDARY_ONLY,,,,,,,
+15076,,RAG_BOUNDARY_APPEARANCE,,,,,,,

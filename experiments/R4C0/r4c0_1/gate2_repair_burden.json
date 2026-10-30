@@ -1,0 +1,167 @@
+{
+ "note": "algorithm statistics only; they are NOT human repair times",
+ "sheets": {
+  "13014": {
+   "valid_Mpx": 10.318,
+   "small_instances": 938,
+   "methods": {
+    "M2_hybrid": {
+     "regions": 1027,
+     "regions_per_Mpx": 99.5,
+     "lt50": {
+      "count": 0,
+      "area_px": 0
+     },
+     "50_200": {
+      "count": 30,
+      "area_px": 4923
+     },
+     "pseudo_fragments_lt200": 3,
+     "pseudo_fragments_per_Mpx": 0.3,
+     "true_small_regions_lt200": 26,
+     "false_boundary_px": 3083,
+     "false_boundary_share_of_pred_boundary": 0.0149,
+     "false_boundary_on_ink_share": 0.8343,
+     "export_all_checks_pass": true,
+     "valid_polygon_frac": 1.0,
+     "shared_boundary_consistent": true
+    },
+    "RAG_BOUNDARY_ONLY": {
+     "regions": 1777,
+     "regions_per_Mpx": 172.2,
+     "lt50": {
+      "count": 311,
+      "area_px": 9019
+     },
+     "50_200": {
+      "count": 474,
+      "area_px": 51244
+     },
+     "pseudo_fragments_lt200": 391,
+     "pseudo_fragments_per_Mpx": 37.9,
+     "true_small_regions_lt200": 199,
+     "false_boundary_px": 5460,
+     "false_boundary_share_of_pred_boundary": 0.0219,
+     "false_boundary_on_ink_share": 0.9211,
+     "export_all_checks_pass": true,
+     "valid_polygon_frac": 1.0,
+     "shared_boundary_consistent": true,
+     "vs_M2_hybrid": {
+      "newly_recovered_small": 229,
+      "newly_lost_small": 45,
+      "extra_pseudo_fragments": 388,
+      "extra_false_boundary_px": 2377
+     }
+    },
+    "RAG_BOUNDARY_APPEARANCE": {
+     "regions": 1947,
+     "regions_per_Mpx": 188.7,
+     "lt50": {
+      "count": 437,
+      "area_px": 12456
+     },
+     "50_200": {
+      "count": 520,
+      "area_px": 53888
+     },
+     "pseudo_fragments_lt200": 525,
+     "pseudo_fragments_per_Mpx": 50.9,
+     "true_small_regions_lt200": 195,
+     "false_boundary_px": 5573,
+     "false_boundary_share_of_pred_boundary": 0.0223,
+     "false_boundary_on_ink_share": 0.9237,
+     "export_all_checks_pass": true,
+     "valid_polygon_frac": 1.0,
+     "shared_boundary_consistent": true,
+     "vs_M2_hybrid": {
+      "newly_recovered_small": 223,
+      "newly_lost_small": 46,
+      "extra_pseudo_fragments": 522,
+      "extra_false_boundary_px": 2490
+     }
+    }
+   }
+  },
+  "15076": {
+   "valid_Mpx": 10.305,
+   "small_instances": 1466,
+   "methods": {
+    "M2_hybrid": {
+     "regions": 1795,
+     "regions_per_Mpx": 174.2,
+     "lt50": {
+      "count": 0,
+      "area_px": 0
+     },
+     "50_200": {
+      "count": 49,
+      "area_px": 8189
+     },
+     "pseudo_fragments_lt200": 12,
+     "pseudo_fragments_per_Mpx": 1.2,
+     "true_small_regions_lt200": 30,
+     "false_boundary_px": 4135,
+     "false_boundary_share_of_pred_boundary": 0.0133,
+     "false_boundary_on_ink_share": 0.7444,
+     "export_all_checks_pass": true,
+     "valid_polygon_frac": 1.0,
+     "shared_boundary_consistent": true
+    },
+    "RAG_BOUNDARY_ONLY": {
+     "regions": 3030,
+     "regions_per_Mpx": 294.0,
+     "lt50": {
+      "count": 466,
+      "area_px": 14222
+     },
+     "50_200": {
+      "count": 965,
+      "area_px": 105784
+     },
+     "pseudo_fragments_lt200": 802,
+     "pseudo_fragments_per_Mpx": 77.8,
+     "true_small_regions_lt200": 284,
+     "false_boundary_px": 4520,
+     "false_boundary_share_of_pred_boundary": 0.0124,
+     "false_boundary_on_ink_share": 0.871,
+     "export_all_checks_pass": true,
+     "valid_polygon_frac": 1.0,
+     "shared_boundary_consistent": true,
+     "vs_M2_hybrid": {
+      "newly_recovered_small": 297,
+      "newly_lost_small": 57,
+      "extra_pseudo_fragments": 790,
+      "extra_false_boundary_px": 385
+     }
+    },
+    "RAG_BOUNDARY_APPEARANCE": {
+     "regions": 3294,
+     "regions_per_Mpx": 319.6,
+     "lt50": {
+      "count": 619,
+      "area_px": 18561
+     },
+     "50_200": {
+      "count": 1061,
+      "area_px": 113318
+     },
+     "pseudo_fragments_lt200": 988,
+     "pseudo_fragments_per_Mpx": 95.9,
+     "true_small_regions_lt200": 301,
+     "false_boundary_px": 4685,
+     "false_boundary_share_of_pred_boundary": 0.0128,
+     "false_boundary_on_ink_share": 0.8796,
+     "export_all_checks_pass": true,
+     "valid_polygon_frac": 1.0,
+     "shared_boundary_consistent": true,
+     "vs_M2_hybrid": {
+      "newly_recovered_small": 314,
+      "newly_lost_small": 38,
+      "extra_pseudo_fragments": 976,
+      "extra_false_boundary_px": 550
+     }
+    }
+   }
+  }
+ }
+}
