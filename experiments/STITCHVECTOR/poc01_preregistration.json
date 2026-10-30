@@ -1,0 +1,84 @@
+{
+ "title": "StitchVector POC-01 pre-registration (written and pushed BEFORE any experiment run)",
+ "status": "STITCHVECTOR_POC01",
+ "environment": {"venv": ".venv-sv (isolated; Scan2ArcGIS envs untouched)", "python": "3.11.15",
+                 "vtracer": "1.0.0a4", "numpy": "2.4.6", "rasterio": "1.4.4", "pyogrio": "0.13.0",
+                 "shapely": "2.2.0", "scikit-image": "0.26.0", "pillow": "13.0.0", "potrace": "not installed (optional)",
+                 "qgis": "not installed; P3 deferred"},
+ "inputs": {
+  "rule": "deterministic centre crop; images read as decoded 8-bit RGB; no labels used for generation, quantization or repair",
+  "R0_small": {"u2": [256, 512], "u3": [256, 512], "13014": [256, 512]},
+  "R1_R2_window": "centre crop of min(1000, H) x min(1000, W): u2 780x1000, u3 1000x1000, 13014 1000x1000",
+  "labels": "13014 official labels may be used ONLY in a separate offline diagnostic after all runs; never inside generation"
+ },
+ "rendering_for_evaluation": {
+  "raster_back": "rasterio.features.rasterize, all_touched=False (pixel-centre rule), identity affine in pixel coordinates (x right, y down), no anti-aliasing",
+  "paint_order": "features drawn in ascending z (z stored as attribute); later overwrites earlier",
+  "svg_route": "SVG paths are flattened to polygons (cubics sampled, 8 points per segment), transforms applied, then rasterized by the same rule; this is our measured renderer, not a browser renderer"
+ },
+ "fidelity_definitions": {
+  "vs_quantized": "pixel match against the quantized image the method was given (intermediate target)",
+  "vs_original": "pixel match against the original decoded RGB crop (final target)",
+  "metrics": ["exact RGB match share", "MAE (RGB)", "CIE76 dE quantiles (50/90/99)", "PSNR", "SSIM (grey)",
+              "boundary distance: symmetric mean distance between Canny edges of original and render",
+              "thin-structure match: share of pixels in the thin mask that are within dE<=10 after rendering"],
+  "thin_mask": "pixels whose local inscribed width in their same-quantized-colour component is <= 3 px (EDT <= 1.5) using the 32-colour quantization; label-free, fixed before runs",
+  "rule": "vs_quantized success is never reported as lossless vs the original"
+ },
+ "R0": {
+  "method": "joint RGB key = R*65536+G*256+B; rasterio.features.shapes (4-connectivity) -> one polygon per same-colour component; written to GPKG",
+  "pass": "rasterise_back equals original exactly (100% of pixels) on all 6 small samples",
+  "resource_guard": "abort a sample if > 4 GB RSS or > 600 s; report and continue",
+  "not_scaled_up": "full 1000x1000 R0 is not run; GSJ object count is already known (~997k per Mpx)"
+ },
+ "R1": {
+  "engine": "vtracer 1.0.0a4, single pass",
+  "inputs": ["raw RGB", "quantized 16", "quantized 32", "quantized 64"],
+  "quantization": "PIL Image.quantize(method=MEDIANCUT, dither=NONE); palette passed to vtracer as fixed --palette",
+  "configs": [
+   {"name": "pixel",      "mode": "pixel",   "hierarchical": "cutout", "filter_speckle": 0, "color_precision": 8},
+   {"name": "polygon",    "mode": "polygon", "hierarchical": "cutout", "filter_speckle": 0, "color_precision": 8},
+   {"name": "spline_s1",  "mode": "spline",  "hierarchical": "cutout", "filter_speckle": 0, "color_precision": 8, "simplify": 1.0},
+   {"name": "spline_s2",  "mode": "spline",  "hierarchical": "cutout", "filter_speckle": 0, "color_precision": 8, "simplify": 2.0},
+   {"name": "default",    "note": "vtracer defaults (stacked, speckle 4, precision 6) as the out-of-the-box reference"}
+  ],
+  "raw_RGB_only_extra": "the 'default' and 'watershed' (clustering=watershed, watershed_detail=128) configs are also run on raw RGB",
+  "grid": "every input x every config, each once"
+ },
+ "R2": {
+  "base": "quantized label image (16/32/64, same quantization as R1)",
+  "layers": {
+   "variant_A_direct": "no line/fill separation: all colours traced as a planar mosaic",
+   "variant_B_layered": "dark ink class (palette colour with L* < 35 in CIELab) separated; ink pixels reassigned to the majority non-ink colour among 8-neighbours iteratively (fill completion); reassigned pixels flagged inferred=1; ink drawn as a separate upper layer (z above fills)"
+  },
+  "progressive": {
+   "stage_tolerances_px": [4, 2, 1],
+   "stage_1": "polygonize the label image (rasterio shapes), simplify every ring with shared-boundary-preserving simplification (topology preserved on the edge graph: shared arcs simplified once) at tolerance 4 px",
+   "residual": "rasterize the current planar partition; residual = pixels whose label differs from the target label image; 4-connected residual blocks",
+   "repair": "for each residual block: take the union of the features it overlaps, cut the block mask out of them (geometric difference), re-polygonize the target labels inside the block, simplify at the next tolerance, and insert; result must remain a non-overlapping planar partition",
+   "accept": "a repair is kept only if exact label error inside the block strictly decreases; otherwise reverted",
+   "fallback": "after stage 1 px, remaining residual blocks are inserted as exact pixel polygons (tolerance 0)",
+   "no_size_filter": "no residual block is discarded for being small; no edge-zone exclusion"
+  },
+  "fair_comparison": "R2 is compared with R1 and with single-pass tolerance-1 and tolerance-0 traces of the same label image (same input, same palette, same evaluation)"
+ },
+ "automatic_tests_before_runs": [
+  "R0 synthetic: random 8-colour 64x64 image -> polygons -> raster equals input",
+  "planar partition: after every repair step, union area == window area, pairwise overlap area == 0 (shapely), no gaps",
+  "repair replaces: feature count after repair == count before - removed + inserted (traceable ids)",
+  "holes and paint order: synthetic ring-with-hole and nested colours round-trip exactly",
+  "GPKG round trip: write -> read -> rasterize equals in-memory rasterization"
+ ],
+ "reporting": {
+  "per_sample": ["objects", "vertices", "GPKG bytes", "SVG bytes (R1)", "wall seconds", "peak RSS"],
+  "pareto": "fidelity_vs_original (exact share and dE90) against vertices, per sample",
+  "thin_structures": "thin-mask match reported separately for every run"
+ },
+ "decision_rules": {
+  "R0": "PASS iff 100% exact round trip on all 6 small samples",
+  "R2_worth_building": "R2 is worth further development iff, on at least 2 of 3 samples, at equal or better vs_original exact share AND equal or better thin-mask match, R2 uses <= 0.75x the vertices of the best R1 run at that fidelity (Pareto comparison). Otherwise report that single-pass tracing is sufficient.",
+  "engineering_targets_not_veto": ["<= 20k objects per Mpx", "<= 50 MB GPKG per Mpx", "thin-mask match >= 0.95"],
+  "no_threshold_change_after_results": true
+ },
+ "limits": "no training; no M1/M2/B2/RAG change; no sealed test pool; no 08011/08021; no main merge; QGIS editing (P3) not in this run"
+}
