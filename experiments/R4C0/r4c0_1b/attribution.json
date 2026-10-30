@@ -1,0 +1,161 @@
+{
+ "note": "same B2 prediction for all B2-based rows; sheets already exposed - attribution only",
+ "sheets": {
+  "13014": {
+   "M2_hybrid": {
+    "small_recall": 0.6034,
+    "over_seg": 0.0352,
+    "under_seg": 0.3316,
+    "large_recall": 0.9455,
+    "regions": 1027,
+    "by_width": {
+     "3-6": 0.0,
+     "6-10": 0.0955,
+     "10-20": 0.7377,
+     "ge20": 0.8635
+    },
+    "small_failures_in_multi_instance_regions": 324
+   },
+   "B2_HARD_CC": {
+    "small_recall": 0.1173,
+    "over_seg": 0.0064,
+    "under_seg": 0.8721,
+    "large_recall": 0.0,
+    "regions": 28531,
+    "by_width": {
+     "3-6": 0.039,
+     "6-10": 0.1854,
+     "10-20": 0.1821,
+     "ge20": 0.0418
+    },
+    "small_failures_in_multi_instance_regions": 820
+   },
+   "B2_TERRAIN_M2SEEDS": {
+    "small_recall": 0.6023,
+    "over_seg": 0.0309,
+    "under_seg": 0.3337,
+    "large_recall": 0.9455,
+    "regions": 1027,
+    "by_width": {
+     "3-6": 0.0,
+     "6-10": 0.0955,
+     "10-20": 0.7438,
+     "ge20": 0.8552
+    },
+    "small_failures_in_multi_instance_regions": 327
+   },
+   "B2_OVERSEG_NO_MERGE": {
+    "small_recall": 0.4979,
+    "over_seg": 0.4574,
+    "under_seg": 0.0096,
+    "large_recall": 0.8182,
+    "regions": 8888,
+    "by_width": {
+     "3-6": 0.0,
+     "6-10": 0.1348,
+     "10-20": 0.5895,
+     "ge20": 0.7019
+    },
+    "small_failures_in_multi_instance_regions": 74
+   },
+   "RAG_BOUNDARY_ONLY": {
+    "small_recall": 0.7996,
+    "over_seg": 0.0533,
+    "under_seg": 0.113,
+    "large_recall": 0.9091,
+    "regions": 1777,
+    "by_width": {
+     "3-6": 0.4805,
+     "6-10": 0.7978,
+     "10-20": 0.7994,
+     "ge20": 0.8691
+    },
+    "small_failures_in_multi_instance_regions": 130
+   },
+   "decomposition": {
+    "terrain_source_same_seeds (B2_TERRAIN_M2SEEDS - M2_hybrid)": -0.0011,
+    "reconstruction_same_B2 (RAG - B2_TERRAIN_M2SEEDS)": 0.1973,
+    "total (RAG - M2_hybrid)": 0.1962,
+    "RAG vs hard connectivity, same B2": 0.6823
+   }
+  },
+  "15076": {
+   "M2_hybrid": {
+    "small_recall": 0.5518,
+    "over_seg": 0.0805,
+    "under_seg": 0.3076,
+    "large_recall": 0.7073,
+    "regions": 1795,
+    "by_width": {
+     "3-6": 0.0,
+     "6-10": 0.0848,
+     "10-20": 0.6268,
+     "ge20": 0.8037
+    },
+    "small_failures_in_multi_instance_regions": 500
+   },
+   "B2_HARD_CC": {
+    "small_recall": 0.0723,
+    "over_seg": 0.0252,
+    "under_seg": 0.8977,
+    "large_recall": 0.0,
+    "regions": 35615,
+    "by_width": {
+     "3-6": 0.0482,
+     "6-10": 0.0601,
+     "10-20": 0.1268,
+     "ge20": 0.0259
+    },
+    "small_failures_in_multi_instance_regions": 1341
+   },
+   "B2_TERRAIN_M2SEEDS": {
+    "small_recall": 0.5614,
+    "over_seg": 0.0819,
+    "under_seg": 0.3063,
+    "large_recall": 0.7073,
+    "regions": 1795,
+    "by_width": {
+     "3-6": 0.0,
+     "6-10": 0.0919,
+     "10-20": 0.6429,
+     "ge20": 0.8093
+    },
+    "small_failures_in_multi_instance_regions": 501
+   },
+   "B2_OVERSEG_NO_MERGE": {
+    "small_recall": 0.485,
+    "over_seg": 0.4488,
+    "under_seg": 0.0205,
+    "large_recall": 0.7683,
+    "regions": 12015,
+    "by_width": {
+     "3-6": 0.012,
+     "6-10": 0.1696,
+     "10-20": 0.4786,
+     "ge20": 0.7296
+    },
+    "small_failures_in_multi_instance_regions": 67
+   },
+   "RAG_BOUNDARY_ONLY": {
+    "small_recall": 0.7156,
+    "over_seg": 0.1139,
+    "under_seg": 0.1351,
+    "large_recall": 0.878,
+    "regions": 3030,
+    "by_width": {
+     "3-6": 0.1446,
+     "6-10": 0.4594,
+     "10-20": 0.7571,
+     "ge20": 0.8944
+    },
+    "small_failures_in_multi_instance_regions": 242
+   },
+   "decomposition": {
+    "terrain_source_same_seeds (B2_TERRAIN_M2SEEDS - M2_hybrid)": 0.0096,
+    "reconstruction_same_B2 (RAG - B2_TERRAIN_M2SEEDS)": 0.1542,
+    "total (RAG - M2_hybrid)": 0.1638,
+    "RAG vs hard connectivity, same B2": 0.6433
+   }
+  }
+ }
+}
