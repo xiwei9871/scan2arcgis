@@ -1,0 +1,1057 @@
+{
+ "invalid_configs": {
+  "polygon": "INVALID_OUTPUT: paths without leading moveto (u2 69%, u3 51%, 13014 75%)"
+ },
+ "samples": {
+  "13014": {
+   "runs": [
+    {
+     "input": "quantized 16",
+     "config": "default",
+     "objects": 14479,
+     "vertices": 2013474,
+     "gpkg_bytes": 39497728,
+     "exact_orig": 2.2e-05,
+     "dE90_orig": 25.98668049244809,
+     "thin_orig": 0.29010106663509455,
+     "exact_q": 0.431547,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "pixel",
+     "objects": 374800,
+     "vertices": 2471729,
+     "gpkg_bytes": 96800768,
+     "exact_orig": 3.8e-05,
+     "dE90_orig": 21.442773234336062,
+     "thin_orig": 0.4381459277357414,
+     "exact_q": 0.966653,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "polygon",
+     "objects": 38262,
+     "vertices": 278071,
+     "gpkg_bytes": 9936896,
+     "exact_orig": 2e-05,
+     "dE90_orig": 89.5912308627045,
+     "thin_orig": 0.18825517441797887,
+     "exact_q": 0.410092,
+     "valid": false
+    },
+    {
+     "input": "quantized 16",
+     "config": "spline_s1",
+     "objects": 347432,
+     "vertices": 2134079,
+     "gpkg_bytes": 83804160,
+     "exact_orig": 3.4e-05,
+     "dE90_orig": 22.105675848015863,
+     "thin_orig": 0.41445069907113413,
+     "exact_q": 0.854388,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "spline_s2",
+     "objects": 347432,
+     "vertices": 2133941,
+     "gpkg_bytes": 83795968,
+     "exact_orig": 3.4e-05,
+     "dE90_orig": 22.105241841427475,
+     "thin_orig": 0.4144485464271491,
+     "exact_q": 0.854331,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "default",
+     "objects": 14085,
+     "vertices": 1871342,
+     "gpkg_bytes": 36892672,
+     "exact_orig": 0.000322,
+     "dE90_orig": 21.41881535255849,
+     "thin_orig": 0.5191348523824387,
+     "exact_q": 0.395145,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "pixel",
+     "objects": 408564,
+     "vertices": 2591848,
+     "gpkg_bytes": 103591936,
+     "exact_orig": 0.00054,
+     "dE90_orig": 17.532592348933605,
+     "thin_orig": 0.6594700190508993,
+     "exact_q": 0.881747,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "polygon",
+     "objects": 31251,
+     "vertices": 232580,
+     "gpkg_bytes": 8232960,
+     "exact_orig": 0.000482,
+     "dE90_orig": 89.99958012264348,
+     "thin_orig": 0.31117760389198035,
+     "exact_q": 0.321703,
+     "valid": false
+    },
+    {
+     "input": "quantized 32",
+     "config": "spline_s1",
+     "objects": 383383,
+     "vertices": 2276324,
+     "gpkg_bytes": 90959872,
+     "exact_orig": 0.000537,
+     "dE90_orig": 17.845020860284833,
+     "thin_orig": 0.6470309657837239,
+     "exact_q": 0.784682,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "spline_s2",
+     "objects": 383383,
+     "vertices": 2276324,
+     "gpkg_bytes": 90959872,
+     "exact_orig": 0.000537,
+     "dE90_orig": 17.845020860284833,
+     "thin_orig": 0.6470298894617313,
+     "exact_q": 0.784681,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "default",
+     "objects": 15472,
+     "vertices": 1948499,
+     "gpkg_bytes": 38498304,
+     "exact_orig": 0.00017,
+     "dE90_orig": 17.29641112510139,
+     "thin_orig": 0.6141299551173729,
+     "exact_q": 0.251085,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "pixel",
+     "objects": 484097,
+     "vertices": 2863502,
+     "gpkg_bytes": 119799808,
+     "exact_orig": 0.000554,
+     "dE90_orig": 11.823127976232843,
+     "thin_orig": 0.8481460353679406,
+     "exact_q": 0.790555,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "polygon",
+     "objects": 27110,
+     "vertices": 182096,
+     "gpkg_bytes": 6873088,
+     "exact_orig": 0.000405,
+     "dE90_orig": 91.28359134835178,
+     "thin_orig": 0.25831512555296043,
+     "exact_q": 0.163056,
+     "valid": false
+    },
+    {
+     "input": "quantized 64",
+     "config": "spline_s1",
+     "objects": 469893,
+     "vertices": 2656988,
+     "gpkg_bytes": 109768704,
+     "exact_orig": 0.000542,
+     "dE90_orig": 12.504360616412445,
+     "thin_orig": 0.8237931739659237,
+     "exact_q": 0.715969,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "spline_s2",
+     "objects": 469893,
+     "vertices": 2656972,
+     "gpkg_bytes": 109768704,
+     "exact_orig": 0.000542,
+     "dE90_orig": 12.504457490797796,
+     "thin_orig": 0.8237910213219387,
+     "exact_q": 0.715963,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "default",
+     "objects": 17333,
+     "vertices": 2027185,
+     "gpkg_bytes": 40386560,
+     "exact_orig": 0.000258,
+     "dE90_orig": 13.698748561839261,
+     "thin_orig": 0.7719305987579245,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "pixel",
+     "objects": 565043,
+     "vertices": 3184457,
+     "gpkg_bytes": 137826304,
+     "exact_orig": 0.453284,
+     "dE90_orig": 4.201384336385836,
+     "thin_orig": 0.9975589017210389,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "polygon",
+     "objects": 21000,
+     "vertices": 137579,
+     "gpkg_bytes": 5300224,
+     "exact_orig": 0.000602,
+     "dE90_orig": 92.6384143561596,
+     "thin_orig": 0.226934957861994,
+     "exact_q": null,
+     "valid": false
+    },
+    {
+     "input": "raw RGB",
+     "config": "spline_s1",
+     "objects": 551815,
+     "vertices": 2979507,
+     "gpkg_bytes": 127664128,
+     "exact_orig": 0.408719,
+     "dE90_orig": 5.297164303007555,
+     "thin_orig": 0.9800191585314663,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "spline_s2",
+     "objects": 551815,
+     "vertices": 2979507,
+     "gpkg_bytes": 127664128,
+     "exact_orig": 0.408719,
+     "dE90_orig": 5.297164303007555,
+     "thin_orig": 0.9800191585314663,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "watershed",
+     "objects": 38,
+     "vertices": 56119,
+     "gpkg_bytes": 1028096,
+     "exact_orig": 2.2e-05,
+     "dE90_orig": 28.61539071361085,
+     "thin_orig": 0.41488015154613656,
+     "exact_q": null,
+     "valid": true
+    }
+   ],
+   "pareto_exact": [
+    [
+     "raw RGB",
+     "watershed",
+     56119,
+     2.2e-05
+    ],
+    [
+     "quantized 32",
+     "default",
+     1871342,
+     0.000322
+    ],
+    [
+     "quantized 32",
+     "spline_s1",
+     2276324,
+     0.000537
+    ],
+    [
+     "quantized 32",
+     "spline_s2",
+     2276324,
+     0.000537
+    ],
+    [
+     "quantized 32",
+     "pixel",
+     2591848,
+     0.00054
+    ],
+    [
+     "quantized 64",
+     "spline_s2",
+     2656972,
+     0.000542
+    ],
+    [
+     "quantized 64",
+     "pixel",
+     2863502,
+     0.000554
+    ],
+    [
+     "raw RGB",
+     "spline_s1",
+     2979507,
+     0.408719
+    ],
+    [
+     "raw RGB",
+     "spline_s2",
+     2979507,
+     0.408719
+    ],
+    [
+     "raw RGB",
+     "pixel",
+     3184457,
+     0.453284
+    ]
+   ],
+   "pareto_dE90": [
+    [
+     "raw RGB",
+     "watershed",
+     56119,
+     28.61539071361085
+    ],
+    [
+     "quantized 32",
+     "default",
+     1871342,
+     21.41881535255849
+    ],
+    [
+     "quantized 64",
+     "default",
+     1948499,
+     17.29641112510139
+    ],
+    [
+     "raw RGB",
+     "default",
+     2027185,
+     13.698748561839261
+    ],
+    [
+     "quantized 64",
+     "spline_s2",
+     2656972,
+     12.504457490797796
+    ],
+    [
+     "quantized 64",
+     "spline_s1",
+     2656988,
+     12.504360616412445
+    ],
+    [
+     "quantized 64",
+     "pixel",
+     2863502,
+     11.823127976232843
+    ],
+    [
+     "raw RGB",
+     "spline_s1",
+     2979507,
+     5.297164303007555
+    ],
+    [
+     "raw RGB",
+     "spline_s2",
+     2979507,
+     5.297164303007555
+    ],
+    [
+     "raw RGB",
+     "pixel",
+     3184457,
+     4.201384336385836
+    ]
+   ]
+  },
+  "u2": {
+   "runs": [
+    {
+     "input": "quantized 16",
+     "config": "default",
+     "objects": 1513,
+     "vertices": 205584,
+     "gpkg_bytes": 4169728,
+     "exact_orig": 0.45316666666666666,
+     "dE90_orig": 18.87015964744034,
+     "thin_orig": 0.635204805953644,
+     "exact_q": 0.8217128205128205,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "pixel",
+     "objects": 41001,
+     "vertices": 310592,
+     "gpkg_bytes": 11354112,
+     "exact_orig": 0.000617948717948718,
+     "dE90_orig": 17.585310004098876,
+     "thin_orig": 0.6874710462214385,
+     "exact_q": 0.3555333333333333,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "polygon",
+     "objects": 5399,
+     "vertices": 47405,
+     "gpkg_bytes": 1638400,
+     "exact_orig": 0.0006012820512820513,
+     "dE90_orig": 21.85755722355904,
+     "thin_orig": 0.6157441307888877,
+     "exact_q": 0.2709730769230769,
+     "valid": false
+    },
+    {
+     "input": "quantized 16",
+     "config": "spline_s1",
+     "objects": 35144,
+     "vertices": 297329,
+     "gpkg_bytes": 9961472,
+     "exact_orig": 0.0006153846153846154,
+     "dE90_orig": 17.859308042120524,
+     "thin_orig": 0.6813552609949639,
+     "exact_q": 0.3272807692307692,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "spline_s2",
+     "objects": 35144,
+     "vertices": 297140,
+     "gpkg_bytes": 9957376,
+     "exact_orig": 0.0006153846153846154,
+     "dE90_orig": 17.870105205312182,
+     "thin_orig": 0.6812506537949998,
+     "exact_q": 0.3270487179487179,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "default",
+     "objects": 2080,
+     "vertices": 262313,
+     "gpkg_bytes": 5369856,
+     "exact_orig": 0.5011961538461538,
+     "dE90_orig": 11.66874300641699,
+     "thin_orig": 0.6833577416799916,
+     "exact_q": 0.7894910256410257,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "pixel",
+     "objects": 46388,
+     "vertices": 334771,
+     "gpkg_bytes": 12447744,
+     "exact_orig": 0.0012012820512820512,
+     "dE90_orig": 9.150880160578065,
+     "thin_orig": 0.7627284546527788,
+     "exact_q": 0.24924615384615384,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "polygon",
+     "objects": 5884,
+     "vertices": 49284,
+     "gpkg_bytes": 1753088,
+     "exact_orig": 0.0011679487179487179,
+     "dE90_orig": 14.045161871469672,
+     "thin_orig": 0.6604525008592734,
+     "exact_q": 0.16227179487179488,
+     "valid": false
+    },
+    {
+     "input": "quantized 32",
+     "config": "spline_s1",
+     "objects": 41173,
+     "vertices": 319586,
+     "gpkg_bytes": 11177984,
+     "exact_orig": 0.0011948717948717948,
+     "dE90_orig": 9.433685591143977,
+     "thin_orig": 0.7515242763423345,
+     "exact_q": 0.22381666666666666,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "spline_s2",
+     "objects": 41173,
+     "vertices": 319002,
+     "gpkg_bytes": 11173888,
+     "exact_orig": 0.0011948717948717948,
+     "dE90_orig": 9.439946048322335,
+     "thin_orig": 0.7512889101424153,
+     "exact_q": 0.2234320512820513,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "default",
+     "objects": 2562,
+     "vertices": 311897,
+     "gpkg_bytes": 6307840,
+     "exact_orig": 0.4832897435897436,
+     "dE90_orig": 11.171934208012878,
+     "thin_orig": 0.6946739991332547,
+     "exact_q": 0.6669435897435897,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "pixel",
+     "objects": 54193,
+     "vertices": 376116,
+     "gpkg_bytes": 14278656,
+     "exact_orig": 0.0009538461538461539,
+     "dE90_orig": 7.54350738894131,
+     "thin_orig": 0.8176322907482404,
+     "exact_q": 0.17890128205128206,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "polygon",
+     "objects": 5711,
+     "vertices": 48298,
+     "gpkg_bytes": 1687552,
+     "exact_orig": 0.0009243589743589744,
+     "dE90_orig": 14.676478249614087,
+     "thin_orig": 0.6675396386568435,
+     "exact_q": 0.08059102564102565,
+     "valid": false
+    },
+    {
+     "input": "quantized 64",
+     "config": "spline_s1",
+     "objects": 48752,
+     "vertices": 359082,
+     "gpkg_bytes": 12828672,
+     "exact_orig": 0.0009487179487179487,
+     "dE90_orig": 7.826541217173084,
+     "thin_orig": 0.8051242584096717,
+     "exact_q": 0.15397307692307693,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "spline_s2",
+     "objects": 48752,
+     "vertices": 358671,
+     "gpkg_bytes": 12804096,
+     "exact_orig": 0.0009487179487179487,
+     "dE90_orig": 7.840634609142736,
+     "thin_orig": 0.8046983576669605,
+     "exact_q": 0.15389358974358974,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "default",
+     "objects": 3256,
+     "vertices": 350214,
+     "gpkg_bytes": 7151616,
+     "exact_orig": 0.0010666666666666667,
+     "dE90_orig": 8.88583142058053,
+     "thin_orig": 0.7571357054261248,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "pixel",
+     "objects": 82475,
+     "vertices": 496893,
+     "gpkg_bytes": 20348928,
+     "exact_orig": 0.08445897435897436,
+     "dE90_orig": 3.251317041928247,
+     "thin_orig": 0.9940411255734716,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "polygon",
+     "objects": 5367,
+     "vertices": 42945,
+     "gpkg_bytes": 1568768,
+     "exact_orig": 0.0011474358974358973,
+     "dE90_orig": 63.557370107163,
+     "thin_orig": 0.6129458881898471,
+     "exact_q": null,
+     "valid": false
+    },
+    {
+     "input": "raw RGB",
+     "config": "spline_s1",
+     "objects": 78412,
+     "vertices": 496082,
+     "gpkg_bytes": 19095552,
+     "exact_orig": 0.07301410256410257,
+     "dE90_orig": 3.673370161549638,
+     "thin_orig": 0.9811856478921649,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "spline_s2",
+     "objects": 78412,
+     "vertices": 496008,
+     "gpkg_bytes": 19095552,
+     "exact_orig": 0.07301410256410257,
+     "dE90_orig": 3.6749744290806277,
+     "thin_orig": 0.9811819119207377,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "watershed",
+     "objects": 37,
+     "vertices": 27575,
+     "gpkg_bytes": 569344,
+     "exact_orig": 0.0,
+     "dE90_orig": 25.304146656029463,
+     "thin_orig": 0.4660624355544929,
+     "exact_q": null,
+     "valid": true
+    }
+   ],
+   "pareto_exact": [
+    [
+     "raw RGB",
+     "watershed",
+     27575,
+     0.0
+    ],
+    [
+     "quantized 16",
+     "default",
+     205584,
+     0.45316666666666666
+    ],
+    [
+     "quantized 32",
+     "default",
+     262313,
+     0.5011961538461538
+    ]
+   ],
+   "pareto_dE90": [
+    [
+     "raw RGB",
+     "watershed",
+     27575,
+     25.304146656029463
+    ],
+    [
+     "quantized 16",
+     "default",
+     205584,
+     18.87015964744034
+    ],
+    [
+     "quantized 32",
+     "default",
+     262313,
+     11.66874300641699
+    ],
+    [
+     "quantized 64",
+     "default",
+     311897,
+     11.171934208012878
+    ],
+    [
+     "quantized 32",
+     "spline_s2",
+     319002,
+     9.439946048322335
+    ],
+    [
+     "quantized 32",
+     "spline_s1",
+     319586,
+     9.433685591143977
+    ],
+    [
+     "quantized 32",
+     "pixel",
+     334771,
+     9.150880160578065
+    ],
+    [
+     "raw RGB",
+     "default",
+     350214,
+     8.88583142058053
+    ],
+    [
+     "quantized 64",
+     "spline_s2",
+     358671,
+     7.840634609142736
+    ],
+    [
+     "quantized 64",
+     "spline_s1",
+     359082,
+     7.826541217173084
+    ],
+    [
+     "quantized 64",
+     "pixel",
+     376116,
+     7.54350738894131
+    ],
+    [
+     "raw RGB",
+     "spline_s2",
+     496008,
+     3.6749744290806277
+    ],
+    [
+     "raw RGB",
+     "spline_s1",
+     496082,
+     3.673370161549638
+    ],
+    [
+     "raw RGB",
+     "pixel",
+     496893,
+     3.251317041928247
+    ]
+   ]
+  },
+  "u3": {
+   "runs": [
+    {
+     "input": "quantized 16",
+     "config": "default",
+     "objects": 712,
+     "vertices": 86979,
+     "gpkg_bytes": 1839104,
+     "exact_orig": 0.000812,
+     "dE90_orig": 19.491660284357074,
+     "thin_orig": 0.7593597816309439,
+     "exact_q": 0.400114,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "pixel",
+     "objects": 9870,
+     "vertices": 112621,
+     "gpkg_bytes": 3420160,
+     "exact_orig": 0.399066,
+     "dE90_orig": 18.670119769249446,
+     "thin_orig": 0.7613837277831198,
+     "exact_q": 0.692751,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "polygon",
+     "objects": 2413,
+     "vertices": 29822,
+     "gpkg_bytes": 929792,
+     "exact_orig": 0.399057,
+     "dE90_orig": 19.59747119291446,
+     "thin_orig": 0.7581862547432199,
+     "exact_q": 0.672095,
+     "valid": false
+    },
+    {
+     "input": "quantized 16",
+     "config": "spline_s1",
+     "objects": 7575,
+     "vertices": 139405,
+     "gpkg_bytes": 3514368,
+     "exact_orig": 0.39906,
+     "dE90_orig": 18.9119931660754,
+     "thin_orig": 0.7617197597113228,
+     "exact_q": 0.678284,
+     "valid": true
+    },
+    {
+     "input": "quantized 16",
+     "config": "spline_s2",
+     "objects": 7575,
+     "vertices": 137607,
+     "gpkg_bytes": 3481600,
+     "exact_orig": 0.39906,
+     "dE90_orig": 18.91227392613986,
+     "thin_orig": 0.7615905166620139,
+     "exact_q": 0.677545,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "default",
+     "objects": 980,
+     "vertices": 118438,
+     "gpkg_bytes": 2527232,
+     "exact_orig": 0.011521,
+     "dE90_orig": 9.48018651081845,
+     "thin_orig": 0.8608052358944136,
+     "exact_q": 0.353876,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "pixel",
+     "objects": 14240,
+     "vertices": 159094,
+     "gpkg_bytes": 4833280,
+     "exact_orig": 0.012228,
+     "dE90_orig": 9.197792218126121,
+     "thin_orig": 0.8723492250586763,
+     "exact_q": 0.293387,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "polygon",
+     "objects": 4079,
+     "vertices": 45937,
+     "gpkg_bytes": 1441792,
+     "exact_orig": 0.012136,
+     "dE90_orig": 9.463606762952475,
+     "thin_orig": 0.8604459402173351,
+     "exact_q": 0.264725,
+     "valid": false
+    },
+    {
+     "input": "quantized 32",
+     "config": "spline_s1",
+     "objects": 11348,
+     "vertices": 224583,
+     "gpkg_bytes": 5496832,
+     "exact_orig": 0.012141,
+     "dE90_orig": 9.228964703923522,
+     "thin_orig": 0.8701159051666202,
+     "exact_q": 0.27496,
+     "valid": true
+    },
+    {
+     "input": "quantized 32",
+     "config": "spline_s2",
+     "objects": 11348,
+     "vertices": 223717,
+     "gpkg_bytes": 5492736,
+     "exact_orig": 0.012142,
+     "dE90_orig": 9.252222587903502,
+     "thin_orig": 0.8694748596420484,
+     "exact_q": 0.274573,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "default",
+     "objects": 1513,
+     "vertices": 178971,
+     "gpkg_bytes": 3686400,
+     "exact_orig": 0.012733,
+     "dE90_orig": 7.8028073036675965,
+     "thin_orig": 0.8888406381504803,
+     "exact_q": 0.192264,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "pixel",
+     "objects": 20418,
+     "vertices": 204908,
+     "gpkg_bytes": 6582272,
+     "exact_orig": 0.399573,
+     "dE90_orig": 6.826955784321622,
+     "thin_orig": 0.9173516548280034,
+     "exact_q": 0.600121,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "polygon",
+     "objects": 5447,
+     "vertices": 56106,
+     "gpkg_bytes": 1789952,
+     "exact_orig": 0.399337,
+     "dE90_orig": 7.573841450800297,
+     "thin_orig": 0.890538891818398,
+     "exact_q": 0.563557,
+     "valid": false
+    },
+    {
+     "input": "quantized 64",
+     "config": "spline_s1",
+     "objects": 17302,
+     "vertices": 274079,
+     "gpkg_bytes": 7204864,
+     "exact_orig": 0.399343,
+     "dE90_orig": 6.912206918535516,
+     "thin_orig": 0.91287209073896,
+     "exact_q": 0.580509,
+     "valid": true
+    },
+    {
+     "input": "quantized 64",
+     "config": "spline_s2",
+     "objects": 17302,
+     "vertices": 272460,
+     "gpkg_bytes": 7184384,
+     "exact_orig": 0.399343,
+     "dE90_orig": 6.945701411577744,
+     "thin_orig": 0.9122827424341119,
+     "exact_q": 0.579934,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "default",
+     "objects": 2384,
+     "vertices": 232586,
+     "gpkg_bytes": 4833280,
+     "exact_orig": 0.004502,
+     "dE90_orig": 3.704142234048611,
+     "thin_orig": 0.9374437792735507,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "pixel",
+     "objects": 29823,
+     "vertices": 232103,
+     "gpkg_bytes": 8298496,
+     "exact_orig": 0.039337,
+     "dE90_orig": 2.6276893886734576,
+     "thin_orig": 0.9981492395338979,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "polygon",
+     "objects": 6233,
+     "vertices": 58221,
+     "gpkg_bytes": 1929216,
+     "exact_orig": 0.01834,
+     "dE90_orig": 3.3076077618251802,
+     "thin_orig": 0.8959438361404923,
+     "exact_q": null,
+     "valid": false
+    },
+    {
+     "input": "raw RGB",
+     "config": "spline_s1",
+     "objects": 28619,
+     "vertices": 333850,
+     "gpkg_bytes": 9711616,
+     "exact_orig": 0.034916,
+     "dE90_orig": 2.7784500211680325,
+     "thin_orig": 0.9935068292027255,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "spline_s2",
+     "objects": 28619,
+     "vertices": 332822,
+     "gpkg_bytes": 9703424,
+     "exact_orig": 0.034906,
+     "dE90_orig": 2.7784500211680325,
+     "thin_orig": 0.9933284737946794,
+     "exact_q": null,
+     "valid": true
+    },
+    {
+     "input": "raw RGB",
+     "config": "watershed",
+     "objects": 51,
+     "vertices": 30201,
+     "gpkg_bytes": 618496,
+     "exact_orig": 6.3e-05,
+     "dE90_orig": 8.682834005649024,
+     "thin_orig": 0.8528309397520601,
+     "exact_q": null,
+     "valid": true
+    }
+   ],
+   "pareto_exact": [
+    [
+     "raw RGB",
+     "watershed",
+     30201,
+     6.3e-05
+    ],
+    [
+     "quantized 16",
+     "default",
+     86979,
+     0.000812
+    ],
+    [
+     "quantized 16",
+     "pixel",
+     112621,
+     0.399066
+    ],
+    [
+     "quantized 64",
+     "pixel",
+     204908,
+     0.399573
+    ]
+   ],
+   "pareto_dE90": [
+    [
+     "raw RGB",
+     "watershed",
+     30201,
+     8.682834005649024
+    ],
+    [
+     "quantized 64",
+     "default",
+     178971,
+     7.8028073036675965
+    ],
+    [
+     "quantized 64",
+     "pixel",
+     204908,
+     6.826955784321622
+    ],
+    [
+     "raw RGB",
+     "pixel",
+     232103,
+     2.6276893886734576
+    ]
+   ]
+  }
+ }
+}
