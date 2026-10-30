@@ -1,0 +1,61 @@
+{
+ "title": "ARCH-2 pre-registration: multi-scale narrow-unit candidate generation (C-PAIR V0.1) and RAG soft protection",
+ "status": "ARCH2_PREREG_READY - no ARCH-2 experiment has been run",
+ "start_commit": "29c1a9c87202a64fff694c2f6e4d603eab53d07b",
+ "design": "docs/research/arch2/cpair_v0_1_design.md",
+ "corrections_used": {"subdivision": "experiments/ARCH2/arch2_subdivision.graded_region (cover 0.9, size 1.5); ARCH-1 graded() defect documented in docs/research/arch2/subdivision_correction.md",
+                      "metrics": "experiments/ARCH2/arch2_metrics.py (one-to-one matching, classes, protection metrics, Wilson CIs)"},
+ "sheets": {"development": "10 frozen training sheets (in-sample B2 / M1 / M2 predictions in runs/r4c0/pred)",
+            "exposed": ["13014", "15076"],
+            "reporting": "training and exposed are ALWAYS reported separately and per sheet; never pooled together",
+            "forbidden": ["ARCH-0 test pool (experiments/ARCH0/test_pool_protocol.json)", "08011", "08021"]},
+ "frozen": ["all model weights", "RAG main merge tau = 0.45 and median cost", "M2_hybrid", "B2 over-segmentation rule (R4-C0)", "label-free export rule (R4-C0.1b)"],
+ "no": ["neural-network training", "new sheet access", "merge to main", "deployment"],
+ "change_policy": "Each gate runs once. Only crash / implementation-bug fixes are allowed afterwards, each documented with the reason and the re-run kept next to the first output. No parameter, threshold, grid, rule or metric changes after any ARCH-2 result has been seen. Parameters chosen on training sheets are frozen in a committed file before any exposed-sheet run.",
+ "parameters_fixed_now": {
+  "line_threshold_theta_line": 0.5,
+  "pair_distance_px": [2, 12],
+  "max_direction_difference_deg": 25,
+  "min_opposed_length_px": 15,
+  "max_gap_px": 4,
+  "gap_rules": {"spacing_change_across_gap_px_max": 2, "colour_change_across_gap_dE_max": 10},
+  "normal_tolerance_px": 1,
+  "pinch_out_spacing_px": 2,
+  "subdivision": {"rule": "graded_region", "cover": 0.9, "size": 1.5},
+  "note": "These values come from the design, not from any measurement; they are fixed here and NOT tuned in ARCH-2."
+ },
+ "parameters_selected_on_training": {
+  "features": ["s_edge (weaker-side median B2 strength)", "s_colour (smaller centre-line dE76 to the two neighbours, non-ink pixels)", "s_width (median spacing)"],
+  "thresholds": "per feature one PROTECT threshold and one INK-BAND threshold; PROTECT_SOFT iff all three exceed their PROTECT thresholds; MERGE iff s_colour and s_width are both below their INK-BAND thresholds; else UNCERTAIN",
+  "threshold_grid": "PROTECT thresholds at the training-sheet percentiles {10, 20, 30} of each feature over TRUE_NARROW candidates (joint grid 27 combinations); INK-BAND thresholds at percentiles {50, 70} over INK_BAND candidates (4 combinations)",
+  "selection_rule": "maximise training recall of protected TRUE_NARROW candidates subject to training false_protection_ink_band_share <= 0.30; ties -> fewer protected candidates. If no combination meets 0.30, PROTECT_SOFT is disabled (all such candidates become UNCERTAIN) and this is reported.",
+  "soft_protection_lambda_p_grid": [0.05, 0.10, 0.20, 0.30],
+  "lambda_selection_rule": "maximise training post-merge 3-6 px recall subject to training small-instance over-seg increase <= 0.03 vs RAG_BOUNDARY_ONLY; ties -> smaller lambda",
+  "freeze": "selected values committed as experiments/ARCH2/arch2_freeze.json before any exposed-sheet run"
+ },
+ "gates": {
+  "gate1_candidate_generation": {
+   "measure": ["detection rate of 3-6 and 6-10 px instances (one-to-one, IoU >= 0.3)", "localisation: IoU of matched pairs (median, quartiles)", "candidates per class (TRUE_NARROW / INK_BAND / INCIDENTAL) per sheet", "Oracle A and Oracle B of the 3-6 / 6-10 px instances on the graded subdivision", "regions vs B2-only, merge time, peak RSS"],
+   "pass": "on BOTH training and exposed: 3-6 px Oracle A >= 0.65 AND >= B2-only Oracle A + 0.10 (B2-only: training 0.45, exposed 0.64); regions <= 3x B2-only on every sheet",
+   "stop": "if not passed: STOP ARCH-2 after Gate 1, report whether detection or localisation failed; no parameter change"
+  },
+  "gate2_discrimination": {
+   "measure": ["base rates of the three classes", "for the selected joint rule: precision, recall, FPR, FDR, false_protection_ink_band_share, each with Wilson 95% CI, training and exposed, per sheet", "single-feature AUCs for reference only (never a gate)"],
+   "pass": "exposed false_protection_ink_band_share <= 0.30 (point estimate) and protected TRUE_NARROW recall >= 0.30 on exposed",
+   "stop_or_degrade": "if not passed, Gate 3 still runs but with PROTECT_SOFT disabled (all non-MERGE candidates UNCERTAIN); the failure is reported"
+  },
+  "gate3_rag_soft_protection": {
+   "variants": ["V0 RAG_BOUNDARY_ONLY (frozen)", "V1 C-PAIR candidates in the subdivision, no protection", "V2 C-PAIR + soft protection on ALL non-MERGE candidates (no discrimination)", "V3 C-PAIR + discrimination + soft protection on PROTECT_SOFT only"],
+   "measure": ["small-instance recall overall and per width group 3-6 / 6-10 / 10-20 / >20 px with instance counts and Wilson CIs", "paired bootstrap 95% CI (2000 resamples, seed 20261029) of the per-instance recall difference V3 - V0 in the 3-6 and 6-10 px groups, exposed sheets", "survival: protected TRUE_NARROW candidates whose instance is recovered", "merge errors, under-merge fragments, initial-mixed (r4c0_gate3 classification)", "large recall, small over-seg, pseudo-fragment count, regions", "catastrophic merge (largest region > 1.5 x largest official instance)"],
+   "pass_all_on_training_and_exposed": ["3-6 px recall V3 - V0 >= +0.10 (absolute)", "6-10 px recall V3 - V0 >= -0.02", "overall small recall V3 - V0 >= -0.01", "large recall V3 - V0 >= -0.02", "small over-seg increase <= 0.03", "pseudo fragments increase <= 25% vs V0", "no catastrophic merge"],
+   "uncertainty_rule": "with 44 training 3-6 px instances the training gate is judged on the point estimate and its CI is reported; on exposed (160 instances) the paired bootstrap lower bound of the 3-6 px difference must be > 0",
+   "stop": "if V3 fails, report which of V1 / V2 / V3 first loses the gain (generation, protection or discrimination); no re-tuning in ARCH-2"
+  },
+  "gate4_output_regression": {
+   "measure": ["9 export checks (validate_pixel_vectors) with the label-free exporter on 13014 / 15076 for V0 and V3", "uncertain-candidate review layer: every absorbed PROTECT_SOFT / UNCERTAIN candidate restorable pixel-exactly from the decision store", "no use of ignore.npy or any label-derived mask in prediction or export (code check + test)"],
+   "pass": "all checks pass"
+  }
+ },
+ "overall_success": "Gates 1, 3 and 4 pass and Gate 2 passes (or Gate 3 passes with protection disabled, reported as a weaker result)",
+ "reproduction_plan": "experiments/ARCH2/arch2_gate{1..4}.py to be written in the implementation step, each reading this file; outputs to experiments/ARCH2/gate{1..4}/ (non-restricted JSON/CSV) and runs/arch2/ (local only)"
+}
