@@ -1,0 +1,181 @@
+{
+ "sample": "u2",
+ "crop_offset_yx": [
+  240,
+  711
+ ],
+ "size": [
+  300,
+  300
+ ],
+ "palette": 32,
+ "runs": [
+  {
+   "method": "R2_progressive_4_2_1_0",
+   "faces": 8252,
+   "arcs": 19229,
+   "vertices": 45208,
+   "face_vertices": 59891,
+   "seconds": 6.61,
+   "peak_rss_gb": 0.159,
+   "final_mismatch_px_vs_labels": 0,
+   "topology": {
+    "area_sum_equals_window": true,
+    "union_area_equals_window": true,
+    "coverage_is_valid_strict": true
+   },
+   "vs_quantized": {
+    "exact_share": 1.0,
+    "mae": 0.0,
+    "dE50": 0.0,
+    "dE90": 0.0,
+    "dE99": 0.0,
+    "psnr": null,
+    "ssim": 1.0,
+    "boundary_dist": 0.0,
+    "thin_match_dE10": 1.0
+   },
+   "vs_original": {
+    "exact_share": 0.7641888888888889,
+    "mae": 1.224337037037037,
+    "dE50": 0.0,
+    "dE90": 3.1613046860687275,
+    "dE99": 21.5535511848317,
+    "psnr": 34.257918685451045,
+    "ssim": 0.9920528172932793,
+    "boundary_dist": 0.21299156546592712,
+    "thin_match_dE10": 0.860708782742681
+   },
+   "stage_log": [
+    {
+     "stage_tol": 4,
+     "arcs": 19229,
+     "arcs_at_tol": {
+      "0.0": 523,
+      "4.0": 18706
+     },
+     "faces": 8252,
+     "vertices": 39649,
+     "mismatch_px": 2116,
+     "arcs_lowered": 18354
+    },
+    {
+     "stage_tol": 2,
+     "arcs": 19229,
+     "arcs_at_tol": {
+      "0.0": 523,
+      "2.0": 18354,
+      "4.0": 352
+     },
+     "faces": 8252,
+     "vertices": 39650,
+     "mismatch_px": 1938,
+     "arcs_lowered": 15952
+    },
+    {
+     "stage_tol": 1,
+     "arcs": 19229,
+     "arcs_at_tol": {
+      "0.0": 523,
+      "1.0": 15952,
+      "2.0": 2402,
+      "4.0": 352
+     },
+     "faces": 8252,
+     "vertices": 39705,
+     "mismatch_px": 1351,
+     "arcs_lowered": 10809
+    },
+    {
+     "stage_tol": 0,
+     "arcs": 19229,
+     "arcs_at_tol": {
+      "0.0": 11332,
+      "1.0": 5154,
+      "2.0": 2391,
+      "4.0": 352
+     },
+     "faces": 8252,
+     "vertices": 45208,
+     "mismatch_px": 0
+    }
+   ]
+  },
+  {
+   "method": "single_pass_tol0",
+   "faces": 8252,
+   "arcs": 19229,
+   "vertices": 47756,
+   "face_vertices": 64165,
+   "seconds": 0.91,
+   "peak_rss_gb": 0.206,
+   "final_mismatch_px_vs_labels": 0,
+   "topology": {
+    "area_sum_equals_window": true,
+    "union_area_equals_window": true,
+    "coverage_is_valid_strict": true
+   },
+   "vs_quantized": {
+    "exact_share": 1.0,
+    "mae": 0.0,
+    "dE50": 0.0,
+    "dE90": 0.0,
+    "dE99": 0.0,
+    "psnr": null,
+    "ssim": 1.0,
+    "boundary_dist": 0.0,
+    "thin_match_dE10": 1.0
+   },
+   "vs_original": {
+    "exact_share": 0.7641888888888889,
+    "mae": 1.224337037037037,
+    "dE50": 0.0,
+    "dE90": 3.1613046860687275,
+    "dE99": 21.5535511848317,
+    "psnr": 34.257918685451045,
+    "ssim": 0.9920528172932793,
+    "boundary_dist": 0.21299156546592712,
+    "thin_match_dE10": 0.860708782742681
+   },
+   "arcs_forced_to_0": 0
+  },
+  {
+   "method": "single_pass_tol1",
+   "faces": 8252,
+   "arcs": 19229,
+   "vertices": 39357,
+   "face_vertices": 48346,
+   "seconds": 1.84,
+   "peak_rss_gb": 0.209,
+   "final_mismatch_px_vs_labels": 1431,
+   "topology": {
+    "area_sum_equals_window": true,
+    "union_area_equals_window": true,
+    "coverage_is_valid_strict": true
+   },
+   "vs_quantized": {
+    "exact_share": 0.9841,
+    "mae": 0.18425185185185186,
+    "dE50": 0.0,
+    "dE90": 0.0,
+    "dE99": 2.4937406923176133,
+    "psnr": 38.029155139483784,
+    "ssim": 0.9961782273031538,
+    "boundary_dist": 0.07020241022109985,
+    "thin_match_dE10": 0.9861765353290777
+   },
+   "vs_original": {
+    "exact_share": 0.7633222222222222,
+    "mae": 1.3342037037037038,
+    "dE50": 0.0,
+    "dE90": 3.281447255278473,
+    "dE99": 22.68052799362471,
+    "psnr": 33.04357316031341,
+    "ssim": 0.9889976933653924,
+    "boundary_dist": 0.23436641693115234,
+    "thin_match_dE10": 0.8569667620515078
+   },
+   "arcs_forced_to_0": 414
+  }
+ ]
+}
