@@ -1,0 +1,220 @@
+{
+ "title": "R2 float-geometry repair: frozen failure scene (recovery P2)",
+ "code_sha": "3391fa713b994fad8616423605a54a26e890118c",
+ "sample": "u2",
+ "crop_offset_yx": [
+  240,
+  711
+ ],
+ "size": [
+  300,
+  300
+ ],
+ "palette_colours": 32,
+ "seconds_progressive": 1.66,
+ "peak_rss_gb": 0.21,
+ "stage_log": [
+  {
+   "stage_tol": 4,
+   "features": 8252
+  },
+  {
+   "next_tol": 2,
+   "residual_px_before": 1293,
+   "blocks": 893,
+   "accepted_blocks": 893,
+   "rejected_blocks": 0,
+   "features_before": 8252,
+   "removed": 472,
+   "modified": 2255,
+   "inserted": 933,
+   "features_after": 8713,
+   "trace_ok": true,
+   "area_sum_equals_window": true,
+   "union_area_equals_window": true,
+   "coverage_valid_no_overlap": true,
+   "coverage_is_valid_strict_info": false
+  },
+  {
+   "next_tol": 1,
+   "residual_px_before": 7,
+   "blocks": 7,
+   "accepted_blocks": 7,
+   "rejected_blocks": 0,
+   "features_before": 8713,
+   "removed": 0,
+   "modified": 30,
+   "inserted": 7,
+   "features_after": 8720,
+   "trace_ok": true,
+   "area_sum_equals_window": true,
+   "union_area_equals_window": true,
+   "coverage_valid_no_overlap": true,
+   "coverage_is_valid_strict_info": false
+  },
+  {
+   "next_tol": 0,
+   "residual_px_before": 0
+  },
+  {
+   "final_residual_px": 0
+  }
+ ],
+ "final_label_mismatch_px": 0,
+ "raw_rasterio_polygonize_defects": {
+  "features": 8252,
+  "features_with_invalid_shared_edges": 6385,
+  "invalid_edge_total_length": 22850.0,
+  "invalid_edge_geom_types": [
+   1,
+   5
+  ],
+  "pairwise_overlap_area_total": 0.0,
+  "pairwise_overlap_pairs_gt_1e-9": 0,
+  "area_sum": 90000.0,
+  "union_area": 90000.0,
+  "invalid_edge_bbox_samples": [
+   [
+    15.0,
+    0.0,
+    15.0,
+    1.0
+   ],
+   [
+    19.0,
+    1.0,
+    20.0,
+    1.0
+   ],
+   [
+    20.0,
+    0.0,
+    21.0,
+    1.0
+   ],
+   [
+    54.0,
+    1.0,
+    56.0,
+    1.0
+   ],
+   [
+    56.0,
+    0.0,
+    57.0,
+    1.0
+   ],
+   [
+    58.0,
+    0.0,
+    58.0,
+    1.0
+   ],
+   [
+    62.0,
+    0.0,
+    62.0,
+    1.0
+   ],
+   [
+    70.0,
+    0.0,
+    71.0,
+    1.0
+   ],
+   [
+    13.0,
+    1.0,
+    13.0,
+    2.0
+   ],
+   [
+    15.0,
+    0.0,
+    15.0,
+    2.0
+   ]
+  ]
+ },
+ "final_r2_defects": {
+  "features": 8720,
+  "features_with_invalid_shared_edges": 1284,
+  "invalid_edge_total_length": 2684.0,
+  "invalid_edge_geom_types": [
+   1,
+   5
+  ],
+  "pairwise_overlap_area_total": 0.0,
+  "pairwise_overlap_pairs_gt_1e-9": 0,
+  "area_sum": 90000.0,
+  "union_area": 90000.0,
+  "invalid_edge_bbox_samples": [
+   [
+    62.0,
+    0.0,
+    62.0,
+    1.0
+   ],
+   [
+    62.0,
+    0.0,
+    65.0,
+    2.0
+   ],
+   [
+    62.0,
+    1.0,
+    62.0,
+    2.0
+   ],
+   [
+    64.0,
+    2.0,
+    65.0,
+    2.0
+   ],
+   [
+    62.0,
+    2.0,
+    64.0,
+    2.0
+   ],
+   [
+    51.0,
+    18.0,
+    51.0,
+    19.0
+   ],
+   [
+    52.0,
+    18.0,
+    52.0,
+    19.0
+   ],
+   [
+    51.0,
+    18.0,
+    52.0,
+    20.0
+   ],
+   [
+    51.0,
+    19.0,
+    51.0,
+    20.0
+   ],
+   [
+    52.0,
+    19.0,
+    53.0,
+    20.0
+   ]
+  ]
+ },
+ "classification": {
+  "pixel_partition": "correct iff final_label_mismatch_px == 0",
+  "area_rule_preregistered": "area_sum == union_area == window",
+  "gis_shared_edge_topology": "coverage_invalid_edges empty; FAILS when shared edges carry different vertex sets (T-junctions)",
+  "note": "raw polygonize already fails the GIS shared-edge test, so the defect is not only introduced by repair"
+ }
+}
