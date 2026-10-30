@@ -1,0 +1,111 @@
+{
+ "u2_256": {
+  "crop_offset_yx": [
+   262,
+   733
+  ],
+  "size": [
+   256,
+   256
+  ],
+  "objects": 10445,
+  "vertices": 52949,
+  "gpkg_bytes": 2416640,
+  "seconds": 0.7,
+  "peak_rss_gb": 0.17,
+  "exact_share": 1.0,
+  "objects_per_px": 0.1594,
+  "pass": true
+ },
+ "u2_512": {
+  "crop_offset_yx": [
+   134,
+   605
+  ],
+  "size": [
+   512,
+   512
+  ],
+  "objects": 75739,
+  "vertices": 383031,
+  "gpkg_bytes": 17149952,
+  "seconds": 1.37,
+  "peak_rss_gb": 0.347,
+  "exact_share": 1.0,
+  "objects_per_px": 0.2889,
+  "pass": true
+ },
+ "u3_256": {
+  "crop_offset_yx": [
+   416,
+   1554
+  ],
+  "size": [
+   256,
+   256
+  ],
+  "objects": 24089,
+  "vertices": 123511,
+  "gpkg_bytes": 5644288,
+  "seconds": 0.44,
+  "peak_rss_gb": 0.347,
+  "exact_share": 1.0,
+  "objects_per_px": 0.3676,
+  "pass": true
+ },
+ "u3_512": {
+  "crop_offset_yx": [
+   288,
+   1426
+  ],
+  "size": [
+   512,
+   512
+  ],
+  "objects": 104577,
+  "vertices": 532155,
+  "gpkg_bytes": 24158208,
+  "seconds": 1.92,
+  "peak_rss_gb": 0.436,
+  "exact_share": 1.0,
+  "objects_per_px": 0.3989,
+  "pass": true
+ },
+ "13014_256": {
+  "crop_offset_yx": [
+   1350,
+   1647
+  ],
+  "size": [
+   256,
+   256
+  ],
+  "objects": 65371,
+  "vertices": 326865,
+  "gpkg_bytes": 16461824,
+  "seconds": 3.42,
+  "peak_rss_gb": 0.51,
+  "exact_share": 1.0,
+  "objects_per_px": 0.9975,
+  "pass": true
+ },
+ "13014_512": {
+  "crop_offset_yx": [
+   1222,
+   1519
+  ],
+  "size": [
+   512,
+   512
+  ],
+  "objects": 261026,
+  "vertices": 1305398,
+  "gpkg_bytes": 66117632,
+  "seconds": 6.06,
+  "peak_rss_gb": 0.807,
+  "exact_share": 1.0,
+  "objects_per_px": 0.9957,
+  "pass": true
+ },
+ "R0_PASS": true
+}
