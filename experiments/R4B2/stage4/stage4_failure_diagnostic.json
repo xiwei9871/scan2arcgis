@@ -1,0 +1,53 @@
+{
+ "note": "POST-HOC diagnostic after the single Stage 4 evaluation; no rule, threshold or model changed",
+ "per_sheet": {
+  "15023": {
+   "regions_in_valid": 36447,
+   "largest_region_share_of_valid": 0.9811,
+   "top3_regions_share": 0.9817,
+   "share_valid_px_in_regions_lt50": 0.0124,
+   "regions_lt50": 36189,
+   "true_edge_pairs": 459022,
+   "true_edges_with_p_gt_0.5_strict": 0.5736,
+   "true_edges_with_no_separation_within_1_pair": 54544,
+   "gap_share": 0.1188,
+   "pred_edge_pairs_over_true": 3.34
+  },
+  "15041": {
+   "regions_in_valid": 48503,
+   "largest_region_share_of_valid": 0.9738,
+   "top3_regions_share": 0.9745,
+   "share_valid_px_in_regions_lt50": 0.0155,
+   "regions_lt50": 48171,
+   "true_edge_pairs": 562753,
+   "true_edges_with_p_gt_0.5_strict": 0.7232,
+   "true_edges_with_no_separation_within_1_pair": 68971,
+   "gap_share": 0.1226,
+   "pred_edge_pairs_over_true": 3.316
+  },
+  "14030": {
+   "regions_in_valid": 1959,
+   "largest_region_share_of_valid": 0.999,
+   "top3_regions_share": 0.9991,
+   "share_valid_px_in_regions_lt50": 0.0008,
+   "regions_lt50": 1943,
+   "true_edge_pairs": 18619,
+   "true_edges_with_p_gt_0.5_strict": 0.8082,
+   "true_edges_with_no_separation_within_1_pair": 1713,
+   "gap_share": 0.092,
+   "pred_edge_pairs_over_true": 4.461
+  },
+  "13015": {
+   "regions_in_valid": 15780,
+   "largest_region_share_of_valid": 0.992,
+   "top3_regions_share": 0.9924,
+   "share_valid_px_in_regions_lt50": 0.0054,
+   "regions_lt50": 15683,
+   "true_edge_pairs": 195273,
+   "true_edges_with_p_gt_0.5_strict": 0.7646,
+   "true_edges_with_no_separation_within_1_pair": 22689,
+   "gap_share": 0.1162,
+   "pred_edge_pairs_over_true": 3.398
+  }
+ }
+}

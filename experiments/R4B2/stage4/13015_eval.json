@@ -1,0 +1,263 @@
+{
+ "sheet": "13015",
+ "status": "INDEPENDENT_TEST",
+ "valid_px": 10305315,
+ "invalid_px_share_D_gt": 0.0025,
+ "B2": {
+  "method": "B2",
+  "small": {
+   "n": 676,
+   "recall_iou50": 0.057692307692307696,
+   "under_seg": 0.9319526627218935,
+   "over_seg": 0.0073964497041420114,
+   "absorbed_by_larger_neighbour": 0.606508875739645,
+   "mean_best_iou": 0.05762885544734473
+  },
+  "large": {
+   "n": 35,
+   "recall_iou50": 0.02857142857142857
+  },
+  "all": {
+   "n": 1144,
+   "recall_iou50": 0.06643356643356643
+  },
+  "regions": {
+   "n_pred": 15780,
+   "n_truth_instances": 1144,
+   "n_pred_lt_50px": 15683
+  },
+  "small_recall_canonical": 0.057692307692307696,
+  "n_small_canonical": 676,
+  "by_width": {
+   "3-6": {
+    "n": 14,
+    "recall": 0.0,
+    "kept_separate": 0.14285714285714285
+   },
+   "6-10": {
+    "n": 96,
+    "recall": 0.14583333333333334,
+    "kept_separate": 0.17708333333333334
+   },
+   "10-20": {
+    "n": 256,
+    "recall": 0.08203125,
+    "kept_separate": 0.08203125
+   },
+   "ge20": {
+    "n": 310,
+    "recall": 0.012903225806451613,
+    "kept_separate": 0.00967741935483871
+   }
+  },
+  "region_edges": {
+   "pred_edges": 129452,
+   "gt_edges": 195273,
+   "strict": {
+    "P": 0.23781015357043536,
+    "R": 0.15765108335509773,
+    "F1": 0.18960659019170065
+   },
+   "tol1": {
+    "P": 0.8252402434879338,
+    "R": 0.3724426828081711,
+    "F1": 0.5132488465814978
+   }
+  },
+  "merges": {
+   "regions_holding_ge2_instances": 4,
+   "small_instances_in_such_regions": 632,
+   "small_failures": 637,
+   "small_failures_caused_by_multi_instance_merge": 631,
+   "share_failures_caused_by_merge": 0.9906
+  },
+  "shared_boundary_pairs_separated": 0.09836769759450172,
+  "boundary_F1": {
+   "tol1": 0.509695634445668,
+   "tol2": 0.6036153214484202,
+   "tol3": 0.6804384783055054
+  },
+  "false_boundary_share": 0.0009708801125960292,
+  "prob_edges_p_gt_0.5": {
+   "pred_edges": 663560,
+   "gt_edges": 195273,
+   "strict": {
+    "P": 0.2250075351136295,
+    "R": 0.7646013529776262,
+    "F1": 0.34769506993792737
+   },
+   "tol1": {
+    "P": 0.7669223581891615,
+    "R": 0.8838088214960593,
+    "F1": 0.8212272887453355
+   }
+  }
+ },
+ "M2_hybrid": {
+  "method": "M2_hybrid",
+  "small": {
+   "n": 676,
+   "recall_iou50": 0.6937869822485208,
+   "under_seg": 0.22781065088757396,
+   "over_seg": 0.05029585798816568,
+   "absorbed_by_larger_neighbour": 0.22485207100591717,
+   "mean_best_iou": 0.6234879385315188
+  },
+  "large": {
+   "n": 35,
+   "recall_iou50": 0.9142857142857143
+  },
+  "all": {
+   "n": 1144,
+   "recall_iou50": 0.44493006993006995
+  },
+  "regions": {
+   "n_pred": 733,
+   "n_truth_instances": 1144,
+   "n_pred_lt_50px": 1
+  },
+  "small_recall_canonical": 0.6937869822485208,
+  "n_small_canonical": 676,
+  "by_width": {
+   "3-6": {
+    "n": 14,
+    "recall": 0.0,
+    "kept_separate": 0.0
+   },
+   "6-10": {
+    "n": 96,
+    "recall": 0.125,
+    "kept_separate": 0.20833333333333334
+   },
+   "10-20": {
+    "n": 256,
+    "recall": 0.75,
+    "kept_separate": 0.7734375
+   },
+   "ge20": {
+    "n": 310,
+    "recall": 0.8548387096774194,
+    "kept_separate": 0.6225806451612903
+   }
+  },
+  "region_edges": {
+   "pred_edges": 161147,
+   "gt_edges": 195273,
+   "strict": {
+    "P": 0.24042023742297405,
+    "R": 0.19840428528265555,
+    "F1": 0.21740081925817856
+   },
+   "tol1": {
+    "P": 0.8700813542914233,
+    "R": 0.7258863232500141,
+    "F1": 0.7914698575449011
+   }
+  },
+  "merges": {
+   "regions_holding_ge2_instances": 155,
+   "small_instances_in_such_regions": 260,
+   "small_failures": 207,
+   "small_failures_caused_by_multi_instance_merge": 161,
+   "share_failures_caused_by_merge": 0.7778
+  },
+  "shared_boundary_pairs_separated": 0.7512886597938144,
+  "boundary_F1": {
+   "tol1": 0.7997987173727932,
+   "tol2": 0.9046309300965952,
+   "tol3": 0.9253717641154193
+  },
+  "false_boundary_share": 0.00019531758639547905
+ },
+ "B2_ORACLE_DOMAIN": {
+  "method": "B2_ORACLE_DOMAIN (label-derived D_gt; diagnostic, NOT a score)",
+  "small": {
+   "n": 676,
+   "recall_iou50": 0.057692307692307696,
+   "under_seg": 0.9319526627218935,
+   "over_seg": 0.0073964497041420114,
+   "absorbed_by_larger_neighbour": 0.6079881656804734,
+   "mean_best_iou": 0.058130863126348464
+  },
+  "large": {
+   "n": 35,
+   "recall_iou50": 0.02857142857142857
+  },
+  "all": {
+   "n": 1144,
+   "recall_iou50": 0.06818181818181818
+  },
+  "regions": {
+   "n_pred": 15719,
+   "n_truth_instances": 1144,
+   "n_pred_lt_50px": 15622
+  },
+  "small_recall_canonical": 0.057692307692307696,
+  "n_small_canonical": 676,
+  "by_width": {
+   "3-6": {
+    "n": 14,
+    "recall": 0.0,
+    "kept_separate": 0.14285714285714285
+   },
+   "6-10": {
+    "n": 96,
+    "recall": 0.13541666666666666,
+    "kept_separate": 0.16666666666666666
+   },
+   "10-20": {
+    "n": 256,
+    "recall": 0.0859375,
+    "kept_separate": 0.0859375
+   },
+   "ge20": {
+    "n": 310,
+    "recall": 0.012903225806451613,
+    "kept_separate": 0.00967741935483871
+   }
+  },
+  "region_edges": {
+   "pred_edges": 129154,
+   "gt_edges": 195273,
+   "strict": {
+    "P": 0.23806463601591898,
+    "R": 0.15745648399932402,
+    "F1": 0.1895464927395069
+   },
+   "tol1": {
+    "P": 0.8255958003623581,
+    "R": 0.37219687309561483,
+    "F1": 0.5130840789810907
+   }
+  },
+  "merges": {
+   "regions_holding_ge2_instances": 4,
+   "small_instances_in_such_regions": 632,
+   "small_failures": 637,
+   "small_failures_caused_by_multi_instance_merge": 631,
+   "share_failures_caused_by_merge": 0.9906
+  },
+  "shared_boundary_pairs_separated": 0.09965635738831616,
+  "boundary_F1": {
+   "tol1": 0.5097879289629692,
+   "tol2": 0.6035224536344302,
+   "tol3": 0.6803414743418628
+  },
+  "false_boundary_share": 0.000972058219111056
+ },
+ "invalid_link_diagnostic": {
+  "small_lost_full_image_recovered_on_D_gt": 1,
+  "small_recovered_full_image_lost_on_D_gt": 1,
+  "regions_crossing_invalid_px_holding_ge2_instances": 1
+ },
+ "difference_B2_minus_M2_hybrid": {
+  "small_recall": -0.636094674556213,
+  "small_over_seg": -0.042899408284023666,
+  "by_width": {
+   "3-6": 0.0,
+   "6-10": 0.020833333333333343,
+   "10-20": -0.66796875,
+   "ge20": -0.8419354838709677
+  }
+ }
+}

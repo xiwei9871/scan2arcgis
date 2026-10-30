@@ -1,0 +1,76 @@
+{
+ "gpkg": "14030_M2_hybrid.gpkg",
+ "checks": {
+  "crs_undefined": {
+   "gpkg_units_crs": null,
+   "gpkg_contacts_crs": null,
+   "shp_units_crs": null,
+   "prj_files": [],
+   "pass": true
+  },
+  "y_negative": {
+   "bounds": [
+    2.0,
+    -2908.0,
+    3547.0,
+    -2.0
+   ],
+   "pass": true
+  },
+  "extent_within_image": {
+   "image_wh": [
+    3549,
+    2910
+   ],
+   "pass": true
+  },
+  "half_pixel": {
+   "max_vertex_fraction_work_px": 0.0,
+   "pass": true
+  },
+  "validity": {
+   "valid_frac": 1.0,
+   "contacts_valid_frac": 1.0,
+   "pass": true
+  },
+  "count_match": {
+   "units": 67,
+   "regions": 67,
+   "unique_ids": true,
+   "pass": true
+  },
+  "area_match": {
+   "labelled_work_px": 10301770,
+   "polygon_area_work_px": 10301770.0,
+   "max_abs_region_error_px": 0.0,
+   "pass": true
+  },
+  "rasterise_back": {
+   "pixel_agreement": 1.0,
+   "pass": true
+  },
+  "roundtrip": {
+   "gpkg_geometry_identical": true,
+   "gpkg_other_attrs_identical": true,
+   "edit_persisted": true,
+   "shp_units": 67,
+   "shp_reimport_units": 67,
+   "crs_after_reexport": null,
+   "pass": true
+  }
+ },
+ "summary": {
+  "units": 67,
+  "contacts": 163,
+  "review_status": {
+   "REVIEW": 67
+  },
+  "contacts_kind": {
+   "same_code_boundary": 163
+  },
+  "units_with_code": 0,
+  "units_with_candidates": 0,
+  "gdal": "3.12.4",
+  "all_pass": true
+ }
+}
