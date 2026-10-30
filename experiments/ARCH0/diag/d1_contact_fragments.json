@@ -1,0 +1,132 @@
+{
+ "train": {
+  "PSEUDO": {
+   "n": 1684,
+   "categories": {
+    "INK_BAND_ON_CONTACT": 978,
+    "STRIP_ALONG_CONTACT": 606,
+    "TOUCHING_CONTACT_ONLY": 88,
+    "AWAY_FROM_CONTACT": 12
+   },
+   "median_within_1_5px": 0.8947368421052632,
+   "median_on_ink": 0.7579796264855687,
+   "median_width": 4.5999755859375,
+   "elongated_with_angle": 944,
+   "share_parallel_le_20deg": 0.8463983050847458,
+   "width_lt6": 1380
+  },
+  "TRUE_SMALL": {
+   "n": 398,
+   "categories": {
+    "INK_BAND_ON_CONTACT": 62,
+    "STRIP_ALONG_CONTACT": 331,
+    "TOUCHING_CONTACT_ONLY": 5,
+    "AWAY_FROM_CONTACT": 0
+   },
+   "median_within_1_5px": 0.7073443797581729,
+   "median_on_ink": 0.5654811337786605,
+   "median_width": 7.0,
+   "elongated_with_angle": 136,
+   "share_parallel_le_20deg": 0.9338235294117647,
+   "width_lt6": 111
+  }
+ },
+ "exposed": {
+  "PSEUDO": {
+   "n": 1187,
+   "categories": {
+    "INK_BAND_ON_CONTACT": 807,
+    "STRIP_ALONG_CONTACT": 361,
+    "TOUCHING_CONTACT_ONLY": 16,
+    "AWAY_FROM_CONTACT": 3
+   },
+   "median_within_1_5px": 0.918918918918919,
+   "median_on_ink": 0.8125,
+   "median_width": 4.5999755859375,
+   "elongated_with_angle": 656,
+   "share_parallel_le_20deg": 0.7835365853658537,
+   "width_lt6": 939
+  },
+  "TRUE_SMALL": {
+   "n": 477,
+   "categories": {
+    "INK_BAND_ON_CONTACT": 125,
+    "STRIP_ALONG_CONTACT": 348,
+    "TOUCHING_CONTACT_ONLY": 4,
+    "AWAY_FROM_CONTACT": 0
+   },
+   "median_within_1_5px": 0.7315789473684211,
+   "median_on_ink": 0.7058823529411765,
+   "median_width": 7.0,
+   "elongated_with_angle": 211,
+   "share_parallel_le_20deg": 0.8720379146919431,
+   "width_lt6": 126
+  }
+ },
+ "exposed_per_sheet": {
+  "13014": {
+   "PSEUDO": {
+    "n": 390,
+    "categories": {
+     "INK_BAND_ON_CONTACT": 256,
+     "STRIP_ALONG_CONTACT": 125,
+     "TOUCHING_CONTACT_ONLY": 8,
+     "AWAY_FROM_CONTACT": 1
+    },
+    "median_within_1_5px": 0.9101010101010101,
+    "median_on_ink": 0.8043478260869565,
+    "median_width": 4.5999755859375,
+    "elongated_with_angle": 204,
+    "share_parallel_le_20deg": 0.75,
+    "width_lt6": 316
+   },
+   "TRUE_SMALL": {
+    "n": 196,
+    "categories": {
+     "INK_BAND_ON_CONTACT": 61,
+     "STRIP_ALONG_CONTACT": 133,
+     "TOUCHING_CONTACT_ONLY": 2,
+     "AWAY_FROM_CONTACT": 0
+    },
+    "median_within_1_5px": 0.7478813559322034,
+    "median_on_ink": 0.7339717244780536,
+    "median_width": 7.0,
+    "elongated_with_angle": 84,
+    "share_parallel_le_20deg": 0.8214285714285714,
+    "width_lt6": 61
+   }
+  },
+  "15076": {
+   "PSEUDO": {
+    "n": 797,
+    "categories": {
+     "INK_BAND_ON_CONTACT": 551,
+     "STRIP_ALONG_CONTACT": 236,
+     "TOUCHING_CONTACT_ONLY": 8,
+     "AWAY_FROM_CONTACT": 2
+    },
+    "median_within_1_5px": 0.9245283018867925,
+    "median_on_ink": 0.8181818181818182,
+    "median_width": 4.5999755859375,
+    "elongated_with_angle": 452,
+    "share_parallel_le_20deg": 0.7986725663716814,
+    "width_lt6": 623
+   },
+   "TRUE_SMALL": {
+    "n": 281,
+    "categories": {
+     "INK_BAND_ON_CONTACT": 64,
+     "STRIP_ALONG_CONTACT": 215,
+     "TOUCHING_CONTACT_ONLY": 2,
+     "AWAY_FROM_CONTACT": 0
+    },
+    "median_within_1_5px": 0.7236842105263158,
+    "median_on_ink": 0.6759259259259259,
+    "median_width": 7.393798828125,
+    "elongated_with_angle": 127,
+    "share_parallel_le_20deg": 0.905511811023622,
+    "width_lt6": 65
+   }
+  }
+ }
+}

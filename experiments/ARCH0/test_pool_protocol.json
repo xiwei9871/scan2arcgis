@@ -1,0 +1,155 @@
+{
+ "title": "ARCH-0 independent test pool protocol (identities and rules only; nothing downloaded, nothing read)",
+ "source_order": "experiments/R4A/sheet_draw.json validation_order (seed 20261028, frozen 2026-10-28), regions 13/14/15",
+ "excluded_already_used": [
+  "15061",
+  "13068",
+  "13025",
+  "13011",
+  "15023",
+  "15041",
+  "13076",
+  "14030",
+  "14071",
+  "15094",
+  "13015",
+  "15078",
+  "13014",
+  "15076"
+ ],
+ "sealed_never_in_pool": [
+  "08011",
+  "08021"
+ ],
+ "candidate_order": [
+  {
+   "order": 14,
+   "code": "15042",
+   "year": "1958",
+   "vct": "VCT/GSJ_MAP_G050_15042_1958_V01.zip"
+  },
+  {
+   "order": 15,
+   "code": "15096",
+   "year": "1965",
+   "vct": "VCT/GSJ_MAP_G050_15096_1965_V01.zip"
+  },
+  {
+   "order": 16,
+   "code": "15059",
+   "year": "2009",
+   "vct": "VCT/GSJ_MAP_G050_15059_2009_V01.zip"
+  },
+  {
+   "order": 17,
+   "code": "13087",
+   "year": "1988",
+   "vct": "VCT/GSJ_MAP_G050_13087_1988_V01.zip"
+  },
+  {
+   "order": 18,
+   "code": "13012",
+   "year": "1986",
+   "vct": "VCT/GSJ_MAP_G050_13012_1986_V01.zip"
+  },
+  {
+   "order": 19,
+   "code": "14086",
+   "year": "1963",
+   "vct": "VCT/GSJ_MAP_G050_14086_1963_V01.zip"
+  },
+  {
+   "order": 20,
+   "code": "15082",
+   "year": "1957",
+   "vct": "VCT/GSJ_MAP_G050_15082_1957_V01.zip"
+  },
+  {
+   "order": 21,
+   "code": "15034",
+   "year": "1998",
+   "vct": "VCT/GSJ_MAP_G050_15034_1998_V01.zip"
+  },
+  {
+   "order": 22,
+   "code": "13002",
+   "year": "1991",
+   "vct": "VCT/GSJ_MAP_G050_13002_1991_V01.zip"
+  },
+  {
+   "order": 23,
+   "code": "14080",
+   "year": "1982",
+   "vct": "VCT/GSJ_MAP_G050_14080_1982_V01.zip"
+  },
+  {
+   "order": 24,
+   "code": "15025",
+   "year": "1990",
+   "vct": "VCT/GSJ_MAP_G050_15025_1990_V01.zip"
+  },
+  {
+   "order": 25,
+   "code": "14015",
+   "year": "2005",
+   "vct": "VCT/GSJ_MAP_G050_14015_2005_V01.zip"
+  },
+  {
+   "order": 26,
+   "code": "14046",
+   "year": "1997",
+   "vct": "VCT/GSJ_MAP_G050_14046_1997_V01.zip"
+  },
+  {
+   "order": 27,
+   "code": "15017",
+   "year": "1966",
+   "vct": "VCT/GSJ_MAP_G050_15017_1966_V01.zip"
+  },
+  {
+   "order": 28,
+   "code": "14079",
+   "year": "1958",
+   "vct": "VCT/GSJ_MAP_G050_14079_1958_V01.zip"
+  },
+  {
+   "order": 29,
+   "code": "14003",
+   "year": "1961",
+   "vct": "VCT/GSJ_MAP_G050_14003_1961_V01.zip"
+  },
+  {
+   "order": 30,
+   "code": "15100",
+   "year": "2005",
+   "vct": "VCT/GSJ_MAP_G050_15100_2005_V01.zip"
+  },
+  {
+   "order": 31,
+   "code": "14068",
+   "year": "1989",
+   "vct": "VCT/GSJ_MAP_G050_14068_1989_V01.zip"
+  },
+  {
+   "order": 32,
+   "code": "14040",
+   "year": "1958",
+   "vct": "VCT/GSJ_MAP_G050_14040_1958_V01.zip"
+  },
+  {
+   "order": 33,
+   "code": "13089",
+   "year": "1980",
+   "vct": "VCT/GSJ_MAP_G050_13089_1980_V01.zip"
+  }
+ ],
+ "pool_size": 6,
+ "admission_rule": "walk candidate_order; unchanged Q1/Q2/Q3 (experiments/R4A/gtf_dataset.process); after Q3 PASS only the number of small instances (200-20000 px, canonical width code) may be counted; < 100 small -> INSUFFICIENT_SAMPLE, skip; stop at 6 admitted",
+ "when": "admission is run only at the first pre-registered stage gate that needs it, after that stage's code and parameters are committed",
+ "access": [
+  "no model output, no instance statistics beyond the small-instance count, no visual inspection before a stage gate",
+  "each sheet is used at most once for a decision; any result used to change the method downgrades the sheet to EXPOSED permanently",
+  "suggested split: 3 sheets for the stage-3 gate, 3 kept for the final frozen evaluation"
+ ],
+ "status": "PLANNED - not executed"
+}
