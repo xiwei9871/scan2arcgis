@@ -1,0 +1,21 @@
+{
+ "title": "R4-C0 Gate 2 freeze: committed before Gate 3",
+ "candidate": "B2",
+ "RAG_BOUNDARY_ONLY": {
+  "tau": 0.45,
+  "lambda": 0.0
+ },
+ "RAG_BOUNDARY_APPEARANCE": {
+  "tau": 0.5,
+  "lambda": 0.25
+ },
+ "training_in_sample_small_recall": {
+  "RAG_BOUNDARY_ONLY": 0.8923,
+  "RAG_BOUNDARY_APPEARANCE": 0.9015
+ },
+ "training_in_sample_small_over_seg": {
+  "RAG_BOUNDARY_ONLY": 0.0336,
+  "RAG_BOUNDARY_APPEARANCE": 0.0336
+ },
+ "note": "BOUNDARY_ONLY: tau 0.50 had 0.0004 higher recall than 0.45; the pre-registered tie rule (< 0.002 -> lower tau) selects 0.45. Values are in-sample and optimistic."
+}
