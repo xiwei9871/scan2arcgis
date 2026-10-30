@@ -1,0 +1,90 @@
+{
+ "b2_weights_sha256_match": true,
+ "sheets": {
+  "13014": {
+   "pred_files_sha256": {
+    "prob_right.npy": "81c30e826592bcc0980d9fdadbf9d4dde3f5ff8ceb63ac526dfd1539614a1fa6",
+    "prob_down.npy": "81f7b6aebc6e2ad0df5029b3df1e33dfb3834cbcc91776041028fb7a5f895f81"
+   },
+   "RAG_BOUNDARY_ONLY": {
+    "label_free_rerun_identical": true,
+    "metrics_identical": true,
+    "final_regions": 1777,
+    "all_regions_4connected": true,
+    "remaining_adjacent_pairs": 4068,
+    "min_remaining_cost": 0.4609375,
+    "no_mergeable_pair_left": true,
+    "pairs_at_or_below_tau": 0,
+    "export": {
+     "export_mask_equals_label_derived_ignore": true,
+     "labels_equal_saved_inside_mask": true,
+     "predicted_px_removed_by_label_mask_share": 0.01677
+    }
+   },
+   "RAG_BOUNDARY_APPEARANCE": {
+    "label_free_rerun_identical": true,
+    "metrics_identical": true,
+    "final_regions": 1948,
+    "all_regions_4connected": true,
+    "remaining_adjacent_pairs": 4509,
+    "min_remaining_cost": 0.33712243378076123,
+    "no_mergeable_pair_left": false,
+    "pairs_at_or_below_tau": 69,
+    "export": {
+     "export_mask_equals_label_derived_ignore": true,
+     "labels_equal_saved_inside_mask": true,
+     "predicted_px_removed_by_label_mask_share": 0.01677
+    }
+   }
+  },
+  "15076": {
+   "pred_files_sha256": {
+    "prob_right.npy": "dcecfd85ae9f18eb043049a2c559975eedde5a4d509152b4bc5a37d58cba134c",
+    "prob_down.npy": "95dbb049e3805a90acad8623b46a161356fc17d202a2da396eeac6d250e9a7db"
+   },
+   "RAG_BOUNDARY_ONLY": {
+    "label_free_rerun_identical": true,
+    "metrics_identical": true,
+    "final_regions": 3030,
+    "all_regions_4connected": true,
+    "remaining_adjacent_pairs": 7791,
+    "min_remaining_cost": 0.4609375,
+    "no_mergeable_pair_left": true,
+    "pairs_at_or_below_tau": 0,
+    "export": {
+     "export_mask_equals_label_derived_ignore": true,
+     "labels_equal_saved_inside_mask": true,
+     "predicted_px_removed_by_label_mask_share": 0.0025
+    }
+   },
+   "RAG_BOUNDARY_APPEARANCE": {
+    "label_free_rerun_identical": true,
+    "metrics_identical": true,
+    "final_regions": 3295,
+    "all_regions_4connected": true,
+    "remaining_adjacent_pairs": 8554,
+    "min_remaining_cost": 0.3215293231310323,
+    "no_mergeable_pair_left": false,
+    "pairs_at_or_below_tau": 72,
+    "export": {
+     "export_mask_equals_label_derived_ignore": true,
+     "labels_equal_saved_inside_mask": true,
+     "predicted_px_removed_by_label_mask_share": 0.0025
+    }
+   }
+  }
+ },
+ "appearance_recheck_with_accumulated_colour_stats": {
+  "note": "the merge accumulates per-initial-region colour sums (initial regions with < 5 non-ink px contribute all-pixel sums); recomputing colour directly on final regions uses a different estimate, which explains the first check",
+  "per_sheet": {
+   "13014": {
+    "pairs_at_or_below_tau_accumulated_stats": 0,
+    "min_cost": 0.5004264999829023
+   },
+   "15076": {
+    "pairs_at_or_below_tau_accumulated_stats": 0,
+    "min_cost": 0.5001008181168008
+   }
+  }
+ }
+}
