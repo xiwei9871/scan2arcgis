@@ -1,0 +1,577 @@
+{
+ "renderer": "rsvg-convert, shape-rendering=crispEdges",
+ "counts": {
+  "VALID": 43,
+  "INVALID_UPSTREAM_SVG": 12,
+  "CHECK": 8
+ },
+ "runs": [
+  {
+   "run": "13014_quantized16_default",
+   "paths": 14479,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.98382,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_quantized16_pixel",
+   "paths": 374800,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_quantized16_polygon",
+   "paths": 187929,
+   "paths_without_moveto": 127526,
+   "native_uncovered_share": 0.80921,
+   "ours_uncovered_share": 0.46508,
+   "agree_crisp_le2": 0.17684,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "13014_quantized16_spline_s1",
+   "paths": 371071,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 4e-05,
+   "agree_crisp_le2": 0.93999,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_quantized16_spline_s2",
+   "paths": 371071,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 4e-05,
+   "agree_crisp_le2": 0.93998,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_quantized32_default",
+   "paths": 14085,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.9851,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_quantized32_pixel",
+   "paths": 408564,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_quantized32_polygon",
+   "paths": 176512,
+   "paths_without_moveto": 123337,
+   "native_uncovered_share": 0.80733,
+   "ours_uncovered_share": 0.51353,
+   "agree_crisp_le2": 0.17757,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "13014_quantized32_spline_s1",
+   "paths": 404701,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 1e-05,
+   "ours_uncovered_share": 8e-05,
+   "agree_crisp_le2": 0.94417,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_quantized32_spline_s2",
+   "paths": 404701,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 1e-05,
+   "ours_uncovered_share": 8e-05,
+   "agree_crisp_le2": 0.94417,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_quantized64_default",
+   "paths": 15472,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.98293,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_quantized64_pixel",
+   "paths": 484097,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_quantized64_polygon",
+   "paths": 159057,
+   "paths_without_moveto": 116562,
+   "native_uncovered_share": 0.91218,
+   "ours_uncovered_share": 0.63864,
+   "agree_crisp_le2": 0.08123,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "13014_quantized64_spline_s1",
+   "paths": 482391,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 2e-05,
+   "agree_crisp_le2": 0.95095,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_quantized64_spline_s2",
+   "paths": 482391,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 2e-05,
+   "agree_crisp_le2": 0.95095,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_rawRGB_default",
+   "paths": 17333,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.98137,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_rawRGB_pixel",
+   "paths": 565043,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "13014_rawRGB_polygon",
+   "paths": 143804,
+   "paths_without_moveto": 108186,
+   "native_uncovered_share": 0.94795,
+   "ours_uncovered_share": 0.71453,
+   "agree_crisp_le2": 0.04804,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "13014_rawRGB_spline_s1",
+   "paths": 562706,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 1e-05,
+   "agree_crisp_le2": 0.95922,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_rawRGB_spline_s2",
+   "paths": 562706,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 1e-05,
+   "agree_crisp_le2": 0.95922,
+   "status": "CHECK"
+  },
+  {
+   "run": "13014_rawRGB_watershed",
+   "paths": 38,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99951,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized16_default",
+   "paths": 1513,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99748,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized16_pixel",
+   "paths": 41001,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized16_polygon",
+   "paths": 24530,
+   "paths_without_moveto": 15053,
+   "native_uncovered_share": 0.23488,
+   "ours_uncovered_share": 0.05894,
+   "agree_crisp_le2": 0.76137,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u2_quantized16_spline_s1",
+   "paths": 39782,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 6e-05,
+   "agree_crisp_le2": 0.99108,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized16_spline_s2",
+   "paths": 39782,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 6e-05,
+   "agree_crisp_le2": 0.9911,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized32_default",
+   "paths": 2080,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.997,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized32_pixel",
+   "paths": 46388,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized32_polygon",
+   "paths": 26434,
+   "paths_without_moveto": 16800,
+   "native_uncovered_share": 0.7688,
+   "ours_uncovered_share": 0.06959,
+   "agree_crisp_le2": 0.22742,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u2_quantized32_spline_s1",
+   "paths": 45418,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.00019,
+   "agree_crisp_le2": 0.99048,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized32_spline_s2",
+   "paths": 45418,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 7e-05,
+   "agree_crisp_le2": 0.99054,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized64_default",
+   "paths": 2562,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.9967,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized64_pixel",
+   "paths": 54193,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized64_polygon",
+   "paths": 27606,
+   "paths_without_moveto": 18156,
+   "native_uncovered_share": 0.83425,
+   "ours_uncovered_share": 0.08368,
+   "agree_crisp_le2": 0.16261,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u2_quantized64_spline_s1",
+   "paths": 53090,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 7e-05,
+   "agree_crisp_le2": 0.99089,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_quantized64_spline_s2",
+   "paths": 53090,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 7e-05,
+   "agree_crisp_le2": 0.99089,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_rawRGB_default",
+   "paths": 3256,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99632,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_rawRGB_pixel",
+   "paths": 82475,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_rawRGB_polygon",
+   "paths": 27598,
+   "paths_without_moveto": 19030,
+   "native_uncovered_share": 0.84926,
+   "ours_uncovered_share": 0.13132,
+   "agree_crisp_le2": 0.14827,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u2_rawRGB_spline_s1",
+   "paths": 81723,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 4e-05,
+   "agree_crisp_le2": 0.99177,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_rawRGB_spline_s2",
+   "paths": 81723,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 4e-05,
+   "agree_crisp_le2": 0.99178,
+   "status": "VALID"
+  },
+  {
+   "run": "u2_rawRGB_watershed",
+   "paths": 37,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99968,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized16_default",
+   "paths": 712,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99887,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized16_pixel",
+   "paths": 9870,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized16_polygon",
+   "paths": 8214,
+   "paths_without_moveto": 3147,
+   "native_uncovered_share": 0.10015,
+   "ours_uncovered_share": 0.00722,
+   "agree_crisp_le2": 0.89685,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u3_quantized16_spline_s1",
+   "paths": 9613,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.00012,
+   "agree_crisp_le2": 0.99584,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized16_spline_s2",
+   "paths": 9613,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 9e-05,
+   "agree_crisp_le2": 0.99587,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized32_default",
+   "paths": 980,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99861,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized32_pixel",
+   "paths": 14240,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized32_polygon",
+   "paths": 11820,
+   "paths_without_moveto": 4480,
+   "native_uncovered_share": 0.26017,
+   "ours_uncovered_share": 0.0112,
+   "agree_crisp_le2": 0.73625,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u3_quantized32_spline_s1",
+   "paths": 14010,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.00013,
+   "agree_crisp_le2": 0.99381,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized32_spline_s2",
+   "paths": 14010,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.00013,
+   "agree_crisp_le2": 0.99381,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized64_default",
+   "paths": 1513,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99806,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized64_pixel",
+   "paths": 20418,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized64_polygon",
+   "paths": 16395,
+   "paths_without_moveto": 7323,
+   "native_uncovered_share": 0.13775,
+   "ours_uncovered_share": 0.01839,
+   "agree_crisp_le2": 0.85731,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u3_quantized64_spline_s1",
+   "paths": 20130,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.00012,
+   "agree_crisp_le2": 0.99262,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_quantized64_spline_s2",
+   "paths": 20130,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.00012,
+   "agree_crisp_le2": 0.99257,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_rawRGB_default",
+   "paths": 2384,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99789,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_rawRGB_pixel",
+   "paths": 29823,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 1.0,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_rawRGB_polygon",
+   "paths": 15744,
+   "paths_without_moveto": 7957,
+   "native_uncovered_share": 0.1046,
+   "ours_uncovered_share": 0.04105,
+   "agree_crisp_le2": 0.89019,
+   "status": "INVALID_UPSTREAM_SVG"
+  },
+  {
+   "run": "u3_rawRGB_spline_s1",
+   "paths": 29784,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 6e-05,
+   "agree_crisp_le2": 0.99439,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_rawRGB_spline_s2",
+   "paths": 29784,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 6e-05,
+   "agree_crisp_le2": 0.99441,
+   "status": "VALID"
+  },
+  {
+   "run": "u3_rawRGB_watershed",
+   "paths": 51,
+   "paths_without_moveto": 0,
+   "native_uncovered_share": 0.0,
+   "ours_uncovered_share": 0.0,
+   "agree_crisp_le2": 0.99982,
+   "status": "VALID"
+  }
+ ]
+}
