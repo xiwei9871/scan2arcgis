@@ -1,0 +1,275 @@
+{
+ "sheet": "13014",
+ "status": "INDEPENDENT_TEST",
+ "frozen": {
+  "title": "R4-C0 Gate 2 freeze: committed before Gate 3",
+  "candidate": "B2",
+  "RAG_BOUNDARY_ONLY": {
+   "tau": 0.45,
+   "lambda": 0.0
+  },
+  "RAG_BOUNDARY_APPEARANCE": {
+   "tau": 0.5,
+   "lambda": 0.25
+  },
+  "training_in_sample_small_recall": {
+   "RAG_BOUNDARY_ONLY": 0.8923,
+   "RAG_BOUNDARY_APPEARANCE": 0.9015
+  },
+  "training_in_sample_small_over_seg": {
+   "RAG_BOUNDARY_ONLY": 0.0336,
+   "RAG_BOUNDARY_APPEARANCE": 0.0336
+  },
+  "note": "BOUNDARY_ONLY: tau 0.50 had 0.0004 higher recall than 0.45; the pre-registered tie rule (< 0.002 -> lower tau) selects 0.45. Values are in-sample and optimistic."
+ },
+ "initial_regions": 8890,
+ "prediction_seconds": 4.3,
+ "initial_oracle_A_small_recall": 0.9541577825159915,
+ "M2_hybrid": {
+  "method": "M2_hybrid",
+  "small": {
+   "n": 938,
+   "recall_iou50": 0.603411513859275,
+   "under_seg": 0.3315565031982942,
+   "over_seg": 0.035181236673773986,
+   "absorbed_by_larger_neighbour": 0.32409381663113007,
+   "mean_best_iou": 0.5450654356272268
+  },
+  "large": {
+   "n": 55,
+   "recall_iou50": 0.9454545454545454
+  },
+  "all": {
+   "n": 1704,
+   "recall_iou50": 0.37734741784037557
+  },
+  "regions": {
+   "n_pred": 1027,
+   "n_truth_instances": 1704,
+   "n_pred_lt_50px": 0
+  },
+  "by_width": {
+   "3-6": {
+    "n": 77,
+    "recall": 0.0
+   },
+   "6-10": {
+    "n": 178,
+    "recall": 0.09550561797752809
+   },
+   "10-20": {
+    "n": 324,
+    "recall": 0.7376543209876543
+   },
+   "ge20": {
+    "n": 359,
+    "recall": 0.8635097493036211
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.7686463564995664,
+   "tol2": 0.8665845206862363,
+   "tol3": 0.8896441306151682
+  },
+  "false_boundary_share": 0.002776453349769162,
+  "regions_holding_ge2_instances": 249,
+  "largest_region_px": 1883317,
+  "largest_official_instance_px": 2776825,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 43,
+   "MERGE_ERROR": 284,
+   "UNDER_MERGE_FRAGMENTS": 29,
+   "OTHER": 16
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.1156,
+   "MERGE_ERROR": 0.7634,
+   "UNDER_MERGE_FRAGMENTS": 0.078,
+   "OTHER": 0.043
+  }
+ },
+ "RAG_BOUNDARY_ONLY": {
+  "method": "RAG_BOUNDARY_ONLY",
+  "small": {
+   "n": 938,
+   "recall_iou50": 0.7995735607675906,
+   "under_seg": 0.11300639658848614,
+   "over_seg": 0.053304904051172705,
+   "absorbed_by_larger_neighbour": 0.11300639658848614,
+   "mean_best_iou": 0.7040605996899101
+  },
+  "large": {
+   "n": 55,
+   "recall_iou50": 0.9090909090909091
+  },
+  "all": {
+   "n": 1704,
+   "recall_iou50": 0.579225352112676
+  },
+  "regions": {
+   "n_pred": 1777,
+   "n_truth_instances": 1704,
+   "n_pred_lt_50px": 311
+  },
+  "by_width": {
+   "3-6": {
+    "n": 77,
+    "recall": 0.4805194805194805
+   },
+   "6-10": {
+    "n": 178,
+    "recall": 0.797752808988764
+   },
+   "10-20": {
+    "n": 324,
+    "recall": 0.7993827160493827
+   },
+   "ge20": {
+    "n": 359,
+    "recall": 0.8690807799442897
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8520886006962199,
+   "tol2": 0.9489989693194761,
+   "tol3": 0.9680916524510451
+  },
+  "false_boundary_share": 0.013410986935306155,
+  "regions_holding_ge2_instances": 187,
+  "largest_region_px": 1891651,
+  "largest_official_instance_px": 2776825,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 43,
+   "MERGE_ERROR": 102,
+   "UNDER_MERGE_FRAGMENTS": 29,
+   "OTHER": 14
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.2287,
+   "MERGE_ERROR": 0.5426,
+   "UNDER_MERGE_FRAGMENTS": 0.1543,
+   "OTHER": 0.0745
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.1961620469083155,
+   "small_over_seg": 0.01812366737739872,
+   "large_recall": -0.036363636363636376
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": true,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": true
+ },
+ "RAG_BOUNDARY_APPEARANCE": {
+  "method": "RAG_BOUNDARY_APPEARANCE",
+  "small": {
+   "n": 938,
+   "recall_iou50": 0.7921108742004265,
+   "under_seg": 0.10874200426439233,
+   "over_seg": 0.06609808102345416,
+   "absorbed_by_larger_neighbour": 0.11194029850746269,
+   "mean_best_iou": 0.7008554022401955
+  },
+  "large": {
+   "n": 55,
+   "recall_iou50": 0.9454545454545454
+  },
+  "all": {
+   "n": 1704,
+   "recall_iou50": 0.5751173708920188
+  },
+  "regions": {
+   "n_pred": 1947,
+   "n_truth_instances": 1704,
+   "n_pred_lt_50px": 437
+  },
+  "by_width": {
+   "3-6": {
+    "n": 77,
+    "recall": 0.45454545454545453
+   },
+   "6-10": {
+    "n": 178,
+    "recall": 0.7584269662921348
+   },
+   "10-20": {
+    "n": 324,
+    "recall": 0.808641975308642
+   },
+   "ge20": {
+    "n": 359,
+    "recall": 0.8662952646239555
+   }
+  },
+  "boundary_F1": {
+   "tol1": 0.8522094501551641,
+   "tol2": 0.9492057959010509,
+   "tol3": 0.9682779245522671
+  },
+  "false_boundary_share": 0.01351416562513572,
+  "regions_holding_ge2_instances": 182,
+  "largest_region_px": 1891347,
+  "largest_official_instance_px": 2776825,
+  "catastrophic_merge": false,
+  "failure_decomposition": {
+   "INITIAL_MIXED": 43,
+   "MERGE_ERROR": 98,
+   "UNDER_MERGE_FRAGMENTS": 40,
+   "OTHER": 14
+  },
+  "failure_share": {
+   "INITIAL_MIXED": 0.2205,
+   "MERGE_ERROR": 0.5026,
+   "UNDER_MERGE_FRAGMENTS": 0.2051,
+   "OTHER": 0.0718
+  },
+  "vs_M2_hybrid": {
+   "small_recall": 0.18869936034115142,
+   "small_over_seg": 0.030916844349680173,
+   "large_recall": 0.0
+  },
+  "gate3_criteria": {
+   "recall_gain_ge_0.03": true,
+   "over_seg_increase_le_0.03": false,
+   "large_drop_le_0.05": true,
+   "no_catastrophic_merge": true
+  },
+  "gate3_pass_on_sheet": false
+ },
+ "appearance_effect": {
+  "PREVENTED_MERGE": 8,
+  "CAUSED_SPLIT": 10,
+  "recovered_only_by_appearance": 10,
+  "recovered_only_by_boundary_only": 17
+ },
+ "paired_bootstrap": {
+  "n_small": 938,
+  "RAG_BOUNDARY_ONLY_minus_M2_hybrid": {
+   "mean": 0.19616204690831557,
+   "ci95": [
+    0.1652452025586354,
+    0.22707889125799574
+   ]
+  },
+  "RAG_BOUNDARY_APPEARANCE_minus_M2_hybrid": {
+   "mean": 0.1886993603411514,
+   "ci95": [
+    0.15884861407249468,
+    0.22068230277185502
+   ]
+  },
+  "APPEARANCE_minus_BOUNDARY_ONLY": {
+   "mean": -0.007462686567164179,
+   "ci95": [
+    -0.01812366737739872,
+    0.0042643923240938165
+   ]
+  }
+ },
+ "appearance_verdict": "no evidence of independent value yet"
+}
