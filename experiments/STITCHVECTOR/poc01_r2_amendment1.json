@@ -1,0 +1,29 @@
+{
+ "title": "StitchVector POC-01 R2 amendment 1 (pushed and remote-verified BEFORE the new R2 code runs)",
+ "supersedes": "R2.progressive.repair (geometric difference + snap). Old R2 results and the frozen failure scene (cae2e50) are kept as FAILED_V1; nothing is overwritten.",
+ "deviation_recorded": "PREREGISTRATION_REMOTE_FREEZE_DEVIATION: commits a9813b4..e1a0962 were local only until pushed on 2026-10-30 after the runs; see docs/research/stitchvector/recovery_report.md",
+ "scope": "ONE real sample only: u2 centre 300x300 (same crop as the failure scene), 32-colour quantization, variant A (direct mosaic). No matrix.",
+ "representation": {
+  "label_image": "quantized integer labels; every pixel has exactly one label; all repair decisions are made on this grid",
+  "arc_network": "unit pixel edges where the label differs (plus the window border) are chained into arcs between nodes (vertex degree != 2 or a change of the left/right label pair). Each arc is stored once and shared by its two faces.",
+  "simplification": "each arc is simplified independently with fixed endpoints (shapely simplify, preserve_topology=True) at its own tolerance; shared boundaries are therefore identical for both faces by construction",
+  "faces": "polygons are rebuilt from all arcs with shapely.polygonize; each face takes the label image value at its representative point"
+ },
+ "progressive": {
+  "tolerances_px": [4, 2, 1, 0],
+  "rule": "start with every arc at 4 px; rebuild faces and rasterize; residual = pixels whose rendered label != label image; arcs passing within 1.5 px of a residual pixel drop to the next tolerance; repeat until 0. Arcs with no nearby residual keep their larger tolerance (this is the progressive part; it is NOT a full re-polygonization at a finer tolerance).",
+  "validity_fallback": "if the rebuilt arc network is invalid (face count or area mismatch, crossing arcs), the arcs involved drop straight to tolerance 0; counted and reported"
+ },
+ "checks": {
+  "raster_partition": "rendered labels == label image on 100% of pixels at the end",
+  "vector_topology": "shapely.coverage_is_valid(faces) == True (strict shared-edge rule), area sum == union area == window",
+  "note": "these are reported separately: raster correctness does not imply GIS topology"
+ },
+ "comparison_same_input_same_final_accuracy": {
+  "single_pass_tol0": "all arcs at 0 (exact) - same final accuracy as progressive",
+  "single_pass_tol1": "all arcs at 1 px - reported with its residual",
+  "report": ["faces", "vertices", "seconds", "peak RSS", "final mismatch px", "vs-original exact share and dE90"],
+  "progressive_worth_it_if": "progressive reaches 0 mismatch with fewer vertices than single_pass_tol0; if not, say so"
+ },
+ "stop_rule": "if the one sample cannot reach both checks within 10 min CPU, report FAIL and propose R1 + local pixel fallback; no further patching"
+}
