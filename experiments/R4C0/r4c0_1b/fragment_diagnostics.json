@@ -1,0 +1,176 @@
+{
+ "note": "exploration on training (in-sample) and exposed sheets; no rule is adopted here",
+ "tau": 0.45,
+ "train": {
+  "regions_lt200": 2357,
+  "pseudo": 1684,
+  "true_small": 398,
+  "other": 275,
+  "pseudo_causes": {
+   "NEAR_CONTACT": 1672,
+   "ON_GEOL_LINE": 1,
+   "INK_LINEAR": 3,
+   "INK_COMPACT": 6,
+   "NON_INK": 2
+  },
+  "auc_pseudo_vs_true": {
+   "area": 0.24817749674739492,
+   "width": 0.14759814511989877,
+   "elongation": 0.6919029530073169,
+   "ink_share": 0.7055922426861146,
+   "n_neighbours": 0.8957181990713663,
+   "min_cost": 0.10492262380787548,
+   "closure": 0.42626956039102876,
+   "dE_best": 0.15762825409708878
+  },
+  "medians": {
+   "PSEUDO": {
+    "area": 50.0,
+    "width": 4.5999755859375,
+    "elongation": 2.1739245813762174,
+    "ink_share": 0.7579796264855687,
+    "n_neighbours": 3.0,
+    "min_cost": 0.5234375,
+    "closure": 0.85,
+    "dE_best": 5.4515185423510095
+   },
+   "TRUE_SMALL": {
+    "area": 101.0,
+    "width": 7.0,
+    "elongation": 1.4449443743185344,
+    "ink_share": 0.5654811337786605,
+    "n_neighbours": 1.0,
+    "min_cost": 0.6796875,
+    "closure": 0.8819659442724458,
+    "dE_best": 26.7951739571767
+   }
+  }
+ },
+ "exposed_13014_15076": {
+  "regions_lt200": 2209,
+  "pseudo": 1187,
+  "true_small": 477,
+  "other": 545,
+  "pseudo_causes": {
+   "NEAR_CONTACT": 1184,
+   "ON_GEOL_LINE": 0,
+   "INK_LINEAR": 0,
+   "INK_COMPACT": 2,
+   "NON_INK": 1
+  },
+  "auc_pseudo_vs_true": {
+   "area": 0.20617839310913655,
+   "width": 0.16105821451468477,
+   "elongation": 0.5897970501537445,
+   "ink_share": 0.6678535285297219,
+   "n_neighbours": 0.7180611410475822,
+   "min_cost": 0.14342395518183537,
+   "closure": 0.40953004155782685,
+   "dE_best": 0.1581043060831969
+  },
+  "medians": {
+   "PSEUDO": {
+    "area": 49.0,
+    "width": 4.5999755859375,
+    "elongation": 2.1739245813762174,
+    "ink_share": 0.8125,
+    "n_neighbours": 3.0,
+    "min_cost": 0.5078125,
+    "closure": 0.8448275862068966,
+    "dE_best": 7.18386567405631
+   },
+   "TRUE_SMALL": {
+    "area": 115.0,
+    "width": 7.0,
+    "elongation": 1.8571428571428572,
+    "ink_share": 0.7058823529411765,
+    "n_neighbours": 2.0,
+    "min_cost": 0.6640625,
+    "closure": 0.8846153846153846,
+    "dE_best": 30.237169546534243
+   }
+  },
+  "per_sheet_pseudo_causes": {
+   "13014": {
+    "NEAR_CONTACT": 389,
+    "ON_GEOL_LINE": 0,
+    "INK_LINEAR": 0,
+    "INK_COMPACT": 1,
+    "NON_INK": 0
+   },
+   "15076": {
+    "NEAR_CONTACT": 795,
+    "ON_GEOL_LINE": 0,
+    "INK_LINEAR": 0,
+    "INK_COMPACT": 1,
+    "NON_INK": 1
+   }
+  }
+ },
+ "transfer": {
+  "area": {
+   "direction": "low=pseudo",
+   "threshold_score": -37.85000000000002,
+   "train_pseudo_flagged": 0.3473871733966746,
+   "train_true_flagged": 0.05025125628140704,
+   "exposed_pseudo_flagged": 0.37236731255265376,
+   "exposed_true_flagged": 0.03563941299790356
+  },
+  "width": {
+   "direction": "low=pseudo",
+   "threshold_score": -4.5999755859375,
+   "train_pseudo_flagged": 0.3491686460807601,
+   "train_true_flagged": 0.022613065326633167,
+   "exposed_pseudo_flagged": 0.35636057287278855,
+   "exposed_true_flagged": 0.033542976939203356
+  },
+  "elongation": {
+   "direction": "high=pseudo",
+   "threshold_score": 4.036303077484011,
+   "train_pseudo_flagged": 0.11757719714964371,
+   "train_true_flagged": 0.04773869346733668,
+   "exposed_pseudo_flagged": 0.06571187868576242,
+   "exposed_true_flagged": 0.09224318658280922
+  },
+  "ink_share": {
+   "direction": "high=pseudo",
+   "threshold_score": 0.9637337662337662,
+   "train_pseudo_flagged": 0.13598574821852732,
+   "train_true_flagged": 0.05025125628140704,
+   "exposed_pseudo_flagged": 0.15754001684919966,
+   "exposed_true_flagged": 0.0440251572327044
+  },
+  "n_neighbours": {
+   "direction": "high=pseudo",
+   "threshold_score": 3.0,
+   "train_pseudo_flagged": 0.3996437054631829,
+   "train_true_flagged": 0.032663316582914576,
+   "exposed_pseudo_flagged": 0.44481887110362256,
+   "exposed_true_flagged": 0.20964360587002095
+  },
+  "min_cost": {
+   "direction": "low=pseudo",
+   "threshold_score": -0.5234375,
+   "train_pseudo_flagged": 0.44358669833729214,
+   "train_true_flagged": 0.04271356783919598,
+   "exposed_pseudo_flagged": 0.5054759898904801,
+   "exposed_true_flagged": 0.10272536687631027
+  },
+  "closure": {
+   "direction": "low=pseudo",
+   "threshold_score": -0.7106900452488689,
+   "train_pseudo_flagged": 0.15736342042755344,
+   "train_true_flagged": 0.05025125628140704,
+   "exposed_pseudo_flagged": 0.14153327716933445,
+   "exposed_true_flagged": 0.06289308176100629
+  },
+  "dE_best": {
+   "direction": "low=pseudo",
+   "threshold_score": -4.227993698412578,
+   "train_pseudo_flagged": 0.42874109263657956,
+   "train_true_flagged": 0.05025125628140704,
+   "exposed_pseudo_flagged": 0.34456613310867734,
+   "exposed_true_flagged": 0.03563941299790356
+  }
+ }
+}
