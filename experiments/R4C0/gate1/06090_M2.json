@@ -1,0 +1,55 @@
+{
+ "sheet": "06090",
+ "candidate": "M2",
+ "initial_regions": 2392,
+ "regions_in_valid": 2388,
+ "region_area_mean": 4316.675879396985,
+ "region_area_median": 249.0,
+ "rag_nodes": 2392,
+ "rag_edges": 6634,
+ "merges_in_full_sequence": 2391,
+ "seconds": {
+  "overseg": 2.4,
+  "rag": 0.0,
+  "merge_full": 0.1,
+  "total": 2.5
+ },
+ "peak_rss_gb": 1.944,
+ "ASA": 0.9840406037044992,
+ "UE": 0.03190676335841428,
+ "small_instances": 325,
+ "oracle_A_small_recall": 0.9938461538461538,
+ "oracle_B_small_recall": 0.9784615384615385,
+ "n_6_20": 160,
+ "oracle_A_6_20_hits": 159,
+ "oracle_B_6_20_hits": 155,
+ "by_width": {
+  "3-6": {
+   "n": 5,
+   "oracle_A_recall": 0.8,
+   "oracle_B_recall": 0.8,
+   "mixed_share": 0.2
+  },
+  "6-10": {
+   "n": 46,
+   "oracle_A_recall": 0.9782608695652174,
+   "oracle_B_recall": 0.9565217391304348,
+   "mixed_share": 0.021739130434782608
+  },
+  "10-20": {
+   "n": 114,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 0.9736842105263158,
+   "mixed_share": 0.0
+  },
+  "ge20": {
+   "n": 160,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 0.99375,
+   "mixed_share": 0.0
+  }
+ },
+ "large_instances": 58,
+ "large_fragments_median": 2.5,
+ "large_fragments_p90": 9.0
+}

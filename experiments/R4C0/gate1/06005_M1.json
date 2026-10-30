@@ -1,0 +1,55 @@
+{
+ "sheet": "06005",
+ "candidate": "M1",
+ "initial_regions": 1080,
+ "regions_in_valid": 1073,
+ "region_area_mean": 9606.917054986021,
+ "region_area_median": 258.0,
+ "rag_nodes": 1080,
+ "rag_edges": 2831,
+ "merges_in_full_sequence": 1079,
+ "seconds": {
+  "overseg": 3.9,
+  "rag": 0.1,
+  "merge_full": 0.1,
+  "total": 4.1
+ },
+ "peak_rss_gb": 1.894,
+ "ASA": 0.9835329506873252,
+ "UE": 0.03285988602108104,
+ "small_instances": 166,
+ "oracle_A_small_recall": 0.9036144578313253,
+ "oracle_B_small_recall": 0.8975903614457831,
+ "n_6_20": 62,
+ "oracle_A_6_20_hits": 52,
+ "oracle_B_6_20_hits": 52,
+ "by_width": {
+  "3-6": {
+   "n": 6,
+   "oracle_A_recall": 0.0,
+   "oracle_B_recall": 0.0,
+   "mixed_share": 1.0
+  },
+  "6-10": {
+   "n": 20,
+   "oracle_A_recall": 0.5,
+   "oracle_B_recall": 0.5,
+   "mixed_share": 0.5
+  },
+  "10-20": {
+   "n": 42,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 1.0,
+   "mixed_share": 0.0
+  },
+  "ge20": {
+   "n": 98,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 0.9897959183673469,
+   "mixed_share": 0.0
+  }
+ },
+ "large_instances": 56,
+ "large_fragments_median": 2.0,
+ "large_fragments_p90": 7.5
+}

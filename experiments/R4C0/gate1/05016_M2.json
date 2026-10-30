@@ -1,0 +1,49 @@
+{
+ "sheet": "05016",
+ "candidate": "M2",
+ "initial_regions": 1520,
+ "regions_in_valid": 1519,
+ "region_area_mean": 6784.275839368005,
+ "region_area_median": 241.0,
+ "rag_nodes": 1520,
+ "rag_edges": 4074,
+ "merges_in_full_sequence": 1519,
+ "seconds": {
+  "overseg": 2.1,
+  "rag": 0.1,
+  "merge_full": 0.0,
+  "total": 2.2
+ },
+ "peak_rss_gb": 1.783,
+ "ASA": 0.990472295121498,
+ "UE": 0.019052401600533318,
+ "small_instances": 147,
+ "oracle_A_small_recall": 1.0,
+ "oracle_B_small_recall": 0.9863945578231292,
+ "n_6_20": 52,
+ "oracle_A_6_20_hits": 52,
+ "oracle_B_6_20_hits": 50,
+ "by_width": {
+  "6-10": {
+   "n": 8,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 1.0,
+   "mixed_share": 0.0
+  },
+  "10-20": {
+   "n": 44,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 0.9545454545454546,
+   "mixed_share": 0.0
+  },
+  "ge20": {
+   "n": 95,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 1.0,
+   "mixed_share": 0.0
+  }
+ },
+ "large_instances": 41,
+ "large_fragments_median": 2.0,
+ "large_fragments_p90": 9.0
+}

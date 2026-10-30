@@ -1,0 +1,49 @@
+{
+ "sheet": "05015",
+ "candidate": "B2",
+ "initial_regions": 1806,
+ "regions_in_valid": 1805,
+ "region_area_mean": 5710.926315789474,
+ "region_area_median": 55.0,
+ "rag_nodes": 1806,
+ "rag_edges": 4600,
+ "merges_in_full_sequence": 1805,
+ "seconds": {
+  "overseg": 1.5,
+  "rag": 0.0,
+  "merge_full": 0.0,
+  "total": 1.5
+ },
+ "peak_rss_gb": 1.989,
+ "ASA": 0.9816002216483114,
+ "UE": 0.03679014673917578,
+ "small_instances": 132,
+ "oracle_A_small_recall": 0.9924242424242424,
+ "oracle_B_small_recall": 0.9696969696969697,
+ "n_6_20": 62,
+ "oracle_A_6_20_hits": 61,
+ "oracle_B_6_20_hits": 59,
+ "by_width": {
+  "6-10": {
+   "n": 26,
+   "oracle_A_recall": 0.9615384615384616,
+   "oracle_B_recall": 0.9230769230769231,
+   "mixed_share": 0.038461538461538464
+  },
+  "10-20": {
+   "n": 36,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 0.9722222222222222,
+   "mixed_share": 0.0
+  },
+  "ge20": {
+   "n": 70,
+   "oracle_A_recall": 1.0,
+   "oracle_B_recall": 0.9857142857142858,
+   "mixed_share": 0.0
+  }
+ },
+ "large_instances": 41,
+ "large_fragments_median": 2.0,
+ "large_fragments_p90": 4.0
+}
