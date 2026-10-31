@@ -1,0 +1,42 @@
+{
+ "title": "StitchVector 3.0 edit-cost calibration POC: plan, pushed and remote-verified before any existing GPKG is copied or edited",
+ "status_after_run": "STITCHVECTOR_V3_EDIT_COST_CALIBRATION_READY_FOR_REVIEW",
+ "nature": "DATA_LEVEL_ONLY: geometry operations scripted with shapely/geopandas on COPIES of existing GPKGs; no GUI, no user clicks verified, no new generation, no algorithm change",
+ "inputs": "B2c outputs: runs/stitchvector/v3_u2_real/gpkg/u2_B2c.gpkg (u2) and runs/stitchvector/v3_linefaces/gpkg/synth_{7001..7005}_B2c.gpkg (+ F0, B0 for the G3 boundary audit). SHA-256 checked before and after the run; edits go to runs/stitchvector/v3_editcost/ copies only.",
+ "part_1_G3_boundary_audit": {
+  "what": "on synthetic 7001-7005, for F0 / B0 / B2c",
+  "items": [
+   "per truth region: faces assigned (G3 'merge' = faces - 1), and the number of edge-connected components among those faces (one dissolve per component; non-adjacent pieces cannot be merged into one face without a multipart result)",
+   "ink faces (>= 60% of pixels in the ink footprint) excluded by G3: count, area, and how many are NOT within 1.5 px of any visual line (need cleanup: delete / merge / convert; this cost was missing from G3)",
+   "which G3 numbers needed truth: region membership (merge, face recolour), ink ownership (line recolour / rewidth)"
+  ]
+ },
+ "part_2_cases": {
+  "A_fragmented_fill": {
+   "case": "synthetic 7001 B2c: the non-background truth region with the most assigned faces (rule fixed here)",
+   "selections_without_truth": {
+    "S1_colour_grow": "user clicks the largest face in the region (truth used only to place the click, as a user would); console grows the selection through edge-adjacent faces whose colour is within 15 dE of the seed colour. Not a native QGIS tool; a console feature.",
+    "S2_rough_lasso": "user draws a rough polygon; simulated as the truth region eroded by 2 px (TRUTH_ASSISTED approximation of a hand lasso); faces whose representative point is inside are selected"
+   },
+   "check": "selected area inside / outside the truth region (precision, recall by area), number of parts after one dissolve, strict coverage validity of the edited face layer, eyedropper colour (median original pixels of the dissolved face) dE to the truth fill colour, op count"
+  },
+  "B_PN2": {
+   "case": "u2 B2c, logical group(s) on PN2",
+   "ops": "select group; set width 4 px (user-entered, read from the image); line-to-face = buffer by 2 px, subtract from the faces below, insert as a new face with eyedropper colour; then strict coverage check",
+   "check": "band core coverage, area outside the band, gaps still open (axis samples not covered), coverage validity, op count; truth band used only to score"
+  },
+  "C_PN1": {
+   "case": "u2 B2c, logical groups on PN1",
+   "ops": "split each group where it leaves the band (split points = crossings of the band + 1.5 px outline; TRUTH_ASSISTED: the user chooses split points by eye), keep in-band parts, redraw the uncovered axis gap, then the PN2 line-to-face steps",
+   "check": "split points, redraw length, core coverage before / after the redraw, coverage validity"
+  },
+  "D_lost_band": {
+   "case": "synthetic 7002 and 7003 yellow bands (colour lost in the face palette, line+face POC), B2c",
+   "check": "band-dedicated faces, centreline coverage along the axis, faces that could be recoloured to recover the band; if neither faces nor a centreline exist, the band must be redrawn as a polygon (both side lengths reported)"
+  }
+ },
+ "op_classes": ["attribute (recolour, rewidth)", "batch (select, grow, dissolve)", "geometry (split, line-to-face + difference, vertex edit)", "redraw (length)", "truth-assisted (only possible with truth; marked)"],
+ "no_composite_score": "no weighted proxy score is reported in this round",
+ "qgis": "NOT_VERIFIED",
+ "stop_rule": "one run; no change to definitions after the first number; no new merge algorithm"
+}
