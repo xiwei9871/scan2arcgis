@@ -1,0 +1,32 @@
+{
+ "title": "StitchVector 3.0 u2 real-sample line+face replication check: evaluation plan, pushed and remote-verified before the u2 run",
+ "status_after_run": "STITCHVECTOR_V3_U2_REAL_REPLICATION_READY_FOR_REVIEW",
+ "nature": "descriptive check on an already-used sample (u2 centre 300x300, same crop as R2, D71, Oracle v1/v2); not a blind test; no new algorithm, no parameter change",
+ "sample": {"image": "runs/real/u2/work.png (local)", "crop": "sv_common.centre_crop(load('u2'), 300, 300), offset y240 x711", "map_area": "x < 94 (Oracle v2 map_cols); columns 94-299 are white page"},
+ "methods": {
+  "F0": "automatic: colour faces only (sv_lf.build 'F0')",
+  "B0": "automatic: frozen 2.0 lines + faces (sv_lf.build 'B0')",
+  "B2c": "automatic: B2c lines + faces (sv_lf.build 'B2c')",
+  "Oracle_class_tol0": "reference: existing Oracle v2 GPKG runs/stitchvector/oracle_u2_300_v2/O1_class_tol0.gpkg (sha256 c499d548...), hand linework + protected bands; SAME face configuration as F0/B0/B2c (32-colour median cut merged at dE < 10, tol 0)",
+  "Oracle_32_tol0": "reference only, different face configuration (32 colours, no merge); reported in a separate table and never compared with the automatic methods",
+  "VTracer_spline_s1": "1.0 visual reference only: existing R1 output clipped to the same window (sv_oracle_run.r1_clip), not re-run"
+ },
+ "automatic_inputs_check": "F0/B0/B2c read only the image. Verified at run time: B2c is built twice, once normally and once with sv_oracle_v2.ORA replaced by an empty oracle and sv_oracle.protect_mask replaced by a function that raises; readback and line geometry must be identical. Also: Oracle B0_class_tol0 (faces only, same labels) readback must equal the automatic F0 readback.",
+ "metadata_fix": "sv_oracle_v2.write hard-codes visual_lines.source = 'oracle'. For this run only, sv_u2_run rewrites that field to auto_B0 / auto_B2c after writing and checks that the readback is unchanged. sv_oracle_v2.py and earlier results are not modified; the earlier line+face POC GPKGs (local) carry source='oracle' for automatic lines, recorded as a known metadata error.",
+ "regions": {
+  "full": "all 300x300",
+  "map": "x < 94",
+  "map_line_nbhd": "map pixels within 3 px of an Oracle trace (Oracle v2 definition; Oracle traces cover selected lines only, text and symbols are not traced)",
+  "map_rest": "map, not line neighbourhood, not Oracle protected bands",
+  "bands": "Oracle protected narrow bands PN1 (green lens, radius 2.5) and PN2 (green-grey strip, radius 2.0); evaluation only"
+ },
+ "metrics": {
+  "visual": "per region: dE50, dE90, share of pixels with dE <= 10, all on the GPKG readback vs the original crop",
+  "lines": "per Oracle line: presence = share of 1 px trace samples whose readback colour is within 15 dE of the original, and breaks; summarised by kind (red lines, red faults, red teeth, red curve, pale orange lines). No black linework exists in this crop (black is text only).",
+  "bands": "per band: colour_preserved (band core within 15 dE of the band colour), axis_under_line (band axis covered by visual_lines footprints = band represented as a line); band colour distance to the nearest 32-colour palette entry and to the nearest merged face class (where the colour is lost)",
+  "line_face": "inferred-only faces, inferred px; automatic line length farther than 3 px from every Oracle trace, inside and outside the map (not automatically an error: Oracle does not trace text and symbols)",
+  "edit": "layers, features, logical_id groups and nulls, source values, vertices; cross-line logical groups against Oracle traces (sv_v3_eval.mixed); data-level recolour / move of the largest group (sv_lf_eval.edit_checks). QGIS GUI: NOT_VERIFIED."
+ },
+ "images": "local only (pre-push hook): each panel as its own PNG at 1x (full 300x300) and 4x (map area); B2c error dE x6; B0 vs B2c difference; B0 / B2c lines over the original; zooms x6 of PN1, PN2, G1, G2, F1, text Ar2E, LOOP with original / F0 / B0 / B2c / Oracle / B2c error",
+ "stop_rule": "one run; findings are attributed (line detection / face layer / combination) and minimal fix ideas are only reported, not implemented"
+}
