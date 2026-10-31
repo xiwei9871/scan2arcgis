@@ -1,0 +1,1376 @@
+{
+ "rules": "sv_b2c_phaseA_rules.json",
+ "A1_pipeline_sv_synth": {
+  "band_edge": {
+   "segments": 2,
+   "length": 24.79990874288081,
+   "dL_pct_10_50_90": [
+    4.299649922479071,
+    6.2355524251083665,
+    8.171454927737662
+   ],
+   "kept_share": {
+    "-1": 0.0,
+    "-2": 0.0,
+    "-3": 0.0,
+    "-4": 0.0,
+    "-5": 0.0
+   }
+  },
+  "fill_edge": {
+   "segments": 7,
+   "length": 102.3886614048115,
+   "dL_pct_10_50_90": [
+    -3.100090855319178,
+    -2.2427825648471966,
+    0.0132470273551748
+   ],
+   "kept_share": {
+    "-1": 0.8556439323191644,
+    "-2": 0.711509592070273,
+    "-3": 0.11921784549436532,
+    "-4": 0.0,
+    "-5": 0.0
+   }
+  },
+  "other": {
+   "segments": 1,
+   "length": 12.665345501933109,
+   "dL_pct_10_50_90": [
+    0.26435856759908916,
+    0.26435856759908916,
+    0.26435856759908916
+   ],
+   "kept_share": {
+    "-1": 0.0,
+    "-2": 0.0,
+    "-3": 0.0,
+    "-4": 0.0,
+    "-5": 0.0
+   }
+  },
+  "true_line": {
+   "segments": 12,
+   "length": 185.57403764989286,
+   "dL_pct_10_50_90": [
+    -17.60857433401268,
+    -7.812211106576349,
+    1.650480774647351
+   ],
+   "kept_share": {
+    "-1": 0.8180255757989167,
+    "-2": 0.8180255757989167,
+    "-3": 0.8180255757989167,
+    "-4": 0.8180255757989167,
+    "-5": 0.7638699635786277
+   }
+  }
+ },
+ "A2_pipeline_scenes": {
+  "boundary_pale": {
+   "segments": 11,
+   "length": 335.22780323162465,
+   "dL_pct_10_50_90": [
+    -11.125048708722737,
+    -8.596574373937344,
+    -6.044793136916141
+   ],
+   "kept_share": {
+    "-1": 1.0,
+    "-2": 1.0,
+    "-3": 1.0,
+    "-4": 1.0,
+    "-5": 1.0
+   }
+  },
+  "other": {
+   "segments": 2,
+   "length": 27.0,
+   "dL_pct_10_50_90": [
+    -1.7010588497698471,
+    -1.164939496638663,
+    -0.628820143507479
+   ],
+   "kept_share": {
+    "-1": 0.37037037037037035,
+    "-2": 0.0,
+    "-3": 0.0,
+    "-4": 0.0,
+    "-5": 0.0
+   }
+  },
+  "pale_darker": {
+   "segments": 24,
+   "length": 671.1591504929272,
+   "dL_pct_10_50_90": [
+    -11.6269548402447,
+    -10.104090983190464,
+    -8.869333272828712
+   ],
+   "kept_share": {
+    "-1": 1.0,
+    "-2": 1.0,
+    "-3": 1.0,
+    "-4": 1.0,
+    "-5": 1.0
+   }
+  }
+ },
+ "A3_truth_axes": {
+  "band_edge_3px": {
+   "n": 24,
+   "dL_min_median_max": [
+    -1.1233901899348098,
+    -0.018051587416984205,
+    0.8271654867974974
+   ]
+  },
+  "band_edge_6px": {
+   "n": 24,
+   "dL_min_median_max": [
+    0.24413001370336218,
+    1.0505472126033268,
+    2.311443125267303
+   ]
+  },
+  "edge_only": {
+   "n": 6,
+   "dL_min_median_max": [
+    0.0045290642100326295,
+    0.7600122819062065,
+    1.5324394247469968
+   ]
+  },
+  "ink:boundary_dark": {
+   "n": 3,
+   "dL_min_median_max": [
+    -44.69187792304256,
+    -44.52824915433787,
+    -44.33797920682443
+   ]
+  },
+  "ink:boundary_pale": {
+   "n": 3,
+   "dL_min_median_max": [
+    -8.365819805632334,
+    -7.910987121973392,
+    -6.841060826936953
+   ]
+  },
+  "ink:dark": {
+   "n": 9,
+   "dL_min_median_max": [
+    -71.16416532635203,
+    -47.92624092602524,
+    -47.381791387249386
+   ]
+  },
+  "ink:mix_colour_on_boundary": {
+   "n": 3,
+   "dL_min_median_max": [
+    18.276811512021894,
+    18.33000478389682,
+    18.41155708804496
+   ]
+  },
+  "ink:pale_brighter_than_both_sides": {
+   "n": 3,
+   "dL_min_median_max": [
+    21.9381378891556,
+    22.219866940165108,
+    22.34794218876786
+   ]
+  },
+  "ink:pale_brighter_than_one_side": {
+   "n": 3,
+   "dL_min_median_max": [
+    22.529913811482402,
+    23.661932104320684,
+    23.835877527001276
+   ]
+  },
+  "ink:pale_darker": {
+   "n": 9,
+   "dL_min_median_max": [
+    -12.59533588723695,
+    -12.098611853261744,
+    -11.394705287027094
+   ]
+  }
+ },
+ "stop_check": {
+  "A1_thresholds_meeting_80_50": [
+   -3,
+   -4
+  ],
+  "A3_pale_ink_max_below_edge_only_min": true,
+  "pale_ink_max": -6.841060826936953,
+  "edge_only_min": 0.0045290642100326295,
+  "decision": "CONTINUE"
+ },
+ "impure_segments": {
+  "A1": 0,
+  "A2": 0
+ },
+ "segments_A1": [
+  {
+   "seed": 1201,
+   "label": "fill_edge",
+   "purity": 1.0,
+   "length": 10.740630467774336,
+   "dL": -2.3886252473859457,
+   "stable": 0.8181818181818182
+  },
+  {
+   "seed": 1201,
+   "label": "fill_edge",
+   "purity": 1.0,
+   "length": 16.899844042728652,
+   "dL": -2.8901659072656116,
+   "stable": 0.8235294117647058
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 14.035668847618199,
+   "dL": -11.788184334046989,
+   "stable": 0.7333333333333333
+  },
+  {
+   "seed": 1201,
+   "label": "band_edge",
+   "purity": 1.0,
+   "length": 10.794215073226635,
+   "dL": 8.655430553394986,
+   "stable": 0.6363636363636364
+  },
+  {
+   "seed": 1201,
+   "label": "band_edge",
+   "purity": 1.0,
+   "length": 14.005693669654175,
+   "dL": 3.815674296821747,
+   "stable": 0.8
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 0.8085338170929817,
+   "length": 10.0,
+   "dL": 8.178827477513266,
+   "stable": 0.36363636363636365
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 28.071623138687514,
+   "dL": -9.30233724082045,
+   "stable": 0.9655172413793104
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 22.55251832084341,
+   "dL": -6.322084972332249,
+   "stable": 0.9565217391304348
+  },
+  {
+   "seed": 1201,
+   "label": "fill_edge",
+   "purity": 0.915713033539264,
+   "length": 14.757722160549616,
+   "dL": -1.7928038905764865,
+   "stable": 0.8
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 10.822938462657117,
+   "dL": -18.155335650053352,
+   "stable": 0.18181818181818182
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 23.769728648009426,
+   "dL": 2.2992927241168957,
+   "stable": 0.5
+  },
+  {
+   "seed": 1201,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 13.370276010895909,
+   "dL": -9.349579214697478,
+   "stable": 0.7857142857142857
+  },
+  {
+   "seed": 1202,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 11.180339887498949,
+   "dL": -12.687722489646625,
+   "stable": 0.5
+  },
+  {
+   "seed": 1202,
+   "label": "other",
+   "purity": 0.853732530176109,
+   "length": 12.665345501933109,
+   "dL": 0.26435856759908916,
+   "stable": 0.38461538461538464
+  },
+  {
+   "seed": 1202,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 14.804294953585808,
+   "dL": -23.59963227168417,
+   "stable": 1.0
+  },
+  {
+   "seed": 1202,
+   "label": "fill_edge",
+   "purity": 1.0,
+   "length": 12.206555615733702,
+   "dL": -3.414978277399527,
+   "stable": 0.7692307692307693
+  },
+  {
+   "seed": 1203,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 12.041594578792296,
+   "dL": -5.139731115562434,
+   "stable": 0.7692307692307693
+  },
+  {
+   "seed": 1203,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 10.04987562112089,
+   "dL": -4.188826770578572,
+   "stable": 0.6363636363636364
+  },
+  {
+   "seed": 1203,
+   "label": "fill_edge",
+   "purity": 1.0,
+   "length": 14.780424535503135,
+   "dL": 2.7223234042526627,
+   "stable": 0.9333333333333333
+  },
+  {
+   "seed": 1203,
+   "label": "fill_edge",
+   "purity": 1.0,
+   "length": 23.003484582522056,
+   "dL": -2.239250791169326,
+   "stable": 0.875
+  },
+  {
+   "seed": 1203,
+   "label": "fill_edge",
+   "purity": 1.0,
+   "length": 10.0,
+   "dL": -2.2427825648471966,
+   "stable": 0.45454545454545453
+  },
+  {
+   "seed": 1203,
+   "label": "true_line",
+   "purity": 1.0,
+   "length": 14.875179180183343,
+   "dL": -5.4259401907341385,
+   "stable": 0.5333333333333333
+  }
+ ],
+ "segments_A2": [
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 109.38770903490962,
+   "dL": -11.531764306230514,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 48.15904516421142,
+   "dL": -7.054835312452809,
+   "stable": 0.9591836734693877
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 22.159714107293453,
+   "dL": -9.513622344200485,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 13.54835766235364,
+   "dL": -13.562282141234718,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 21.86944065003215,
+   "dL": -10.99427514343359,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_dark_fill",
+   "label": "other",
+   "sub": "other",
+   "purity": 1.0,
+   "length": 17.0,
+   "dL": -0.4947903052246829,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 29.154759474226502,
+   "dL": -6.156128830524466,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 123.24941053586778,
+   "dL": -11.125048708722737,
+   "stable": 0.9919354838709677
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 16.355510361352188,
+   "dL": -10.684243598746676,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 19.399453819312797,
+   "dL": -9.030593270161305,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 38.201512990418834,
+   "dL": -9.160465889078822,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 16.53226602324428,
+   "dL": -10.896696666044477,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 10.121901553671536,
+   "dL": -9.210860674524568,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 17.60285753969902,
+   "dL": -11.20513569293719,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 51.918516029816075,
+   "dL": -11.615864700939483,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 18.39748429516402,
+   "dL": -10.85776094233674,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 19.376439636329668,
+   "dL": -8.596574373937344,
+   "stable": 0.95
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 11.045361017187261,
+   "dL": -7.073850789456138,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 17.029386365926403,
+   "dL": -6.881157622845436,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 20.397650936219446,
+   "dL": -11.294996229374405,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 21.48022738027909,
+   "dL": -9.838032952509423,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 17.08124097924416,
+   "dL": -9.83468800276043,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 57.450753407695515,
+   "dL": -7.940866377944047,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 39.45883931389772,
+   "dL": -12.22406786912454,
+   "stable": 0.975
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 19.714971584113847,
+   "dL": -10.160888772145078,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 21.39097870127158,
+   "dL": -11.667750783393636,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 27.515033869776566,
+   "dL": -11.404939811093904,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 23.431025969505477,
+   "dL": -8.800221845400458,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 12.225483874646988,
+   "dL": -9.04491152850764,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 40.785980109216304,
+   "dL": -11.315820039236826,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_dark_fill",
+   "label": "other",
+   "sub": "other",
+   "purity": 0.8515316997155751,
+   "length": 10.0,
+   "dL": -1.8350886880526431,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 14.035668847618199,
+   "dL": -6.044793136916141,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 19.026297590440446,
+   "dL": -6.021630807771835,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 14.636963423964769,
+   "dL": -10.844780318616642,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_on_boundary",
+   "label": "true_line",
+   "sub": "boundary_pale",
+   "purity": 1.0,
+   "length": 17.357516015083533,
+   "dL": -10.247669261632211,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 20.504873107571928,
+   "dL": -10.047293194235849,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "label": "true_line",
+   "sub": "pale_darker",
+   "purity": 1.0,
+   "length": 16.384322352989585,
+   "dL": -9.453456974802066,
+   "stable": 0.9411764705882353
+  }
+ ],
+ "axes_A3": [
+  {
+   "seed": 1301,
+   "kind": "dark_ink_on_light",
+   "class": "ink:dark",
+   "dL": -67.70115860145938,
+   "stable": 0.9907407407407407
+  },
+  {
+   "seed": 1301,
+   "kind": "dark_ink_on_light",
+   "class": "ink:dark",
+   "dL": -47.88727658683801,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "class": "ink:pale_darker",
+   "dL": -11.852263092138614,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_light",
+   "class": "ink:pale_darker",
+   "dL": -12.515771591784471,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_dark_fill",
+   "class": "ink:pale_brighter_than_both_sides",
+   "dL": 22.34794218876786,
+   "stable": 0.9751243781094527
+  },
+  {
+   "seed": 1301,
+   "kind": "pale_ink_on_dark_fill",
+   "class": "ink:pale_brighter_than_one_side",
+   "dL": 23.835877527001276,
+   "stable": 0.9952380952380953
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_on_boundary",
+   "class": "ink:boundary_dark",
+   "dL": -44.33797920682443,
+   "stable": 0.8672985781990521
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_on_boundary",
+   "class": "ink:boundary_pale",
+   "dL": -7.910987121973392,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "edge_only",
+   "class": "edge_only",
+   "dL": 1.5324394247469968,
+   "stable": 0.9625
+  },
+  {
+   "seed": 1301,
+   "kind": "edge_only",
+   "class": "edge_only",
+   "dL": 0.01337064041405256,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": -0.8425810757784404,
+   "stable": 0.0
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": 0.5661301099885137,
+   "stable": 0.0
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 0.4073455626327558,
+   "stable": 0.9662447257383966
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 1.3117965212068867,
+   "stable": 0.9789029535864979
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 0.9696745561561357,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 1.8440545585445989,
+   "stable": 1.0
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": -0.2396723674510497,
+   "stable": 0.0
+  },
+  {
+   "seed": 1301,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": 0.20356919261708128,
+   "stable": 0.02109704641350211
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "ink:dark",
+   "dL": -47.55185696965121,
+   "stable": 0.8940677966101694
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "ink:pale_darker",
+   "dL": -11.82209990979458,
+   "stable": 0.9745762711864406
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": -0.7551984926943902,
+   "stable": 0.02109704641350211
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": 0.8206388592579259,
+   "stable": 0.004219409282700422
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 0.24413001370336218,
+   "stable": 0.9703389830508474
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 1.0669238725935344,
+   "stable": 0.9872881355932204
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 0.8743851326924101,
+   "stable": 0.9662447257383966
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 1.7677433454287694,
+   "stable": 0.9831223628691983
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": -0.48335764679035265,
+   "stable": 0.05063291139240506
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": 0.565559030815848,
+   "stable": 0.05485232067510549
+  },
+  {
+   "seed": 1301,
+   "kind": "ink_mix_colour",
+   "class": "ink:mix_colour_on_boundary",
+   "dL": 18.276811512021894,
+   "stable": 0.990521327014218
+  },
+  {
+   "seed": 1302,
+   "kind": "dark_ink_on_light",
+   "class": "ink:dark",
+   "dL": -71.16416532635203,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "dark_ink_on_light",
+   "class": "ink:dark",
+   "dL": -48.079919489627315,
+   "stable": 0.9814814814814815
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_light",
+   "class": "ink:pale_darker",
+   "dL": -12.098611853261744,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_light",
+   "class": "ink:pale_darker",
+   "dL": -12.448187607017687,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_dark_fill",
+   "class": "ink:pale_brighter_than_both_sides",
+   "dL": 22.219866940165108,
+   "stable": 0.98
+  },
+  {
+   "seed": 1302,
+   "kind": "pale_ink_on_dark_fill",
+   "class": "ink:pale_brighter_than_one_side",
+   "dL": 22.529913811482402,
+   "stable": 0.8341232227488151
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "class": "ink:boundary_dark",
+   "dL": -44.52824915433787,
+   "stable": 0.6682464454976303
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_on_boundary",
+   "class": "ink:boundary_pale",
+   "dL": -8.365819805632334,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "edge_only",
+   "class": "edge_only",
+   "dL": 1.4363474463545884,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "edge_only",
+   "class": "edge_only",
+   "dL": 0.0045290642100326295,
+   "stable": 1.0
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": -0.9168051551065162,
+   "stable": 0.029535864978902954
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": 0.6240368876672022,
+   "stable": 0.016877637130801686
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 0.6591886434966057,
+   "stable": 0.9873417721518988
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 1.331852181699034,
+   "stable": 0.9915611814345991
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 0.8364084450227338,
+   "stable": 0.9788135593220338
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 1.8824288702045493,
+   "stable": 0.9830508474576272
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": -0.8274053588712462,
+   "stable": 0.1271186440677966
+  },
+  {
+   "seed": 1302,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": 0.6461508605880653,
+   "stable": 0.2033898305084746
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "ink:dark",
+   "dL": -47.381791387249386,
+   "stable": 0.8945147679324894
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "ink:pale_darker",
+   "dL": -11.394705287027094,
+   "stable": 0.9831223628691983
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": -1.0161878728753493,
+   "stable": 0.0
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": 0.8271654867974974,
+   "stable": 0.00423728813559322
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 0.29545967980557464,
+   "stable": 0.9113924050632911
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 1.0994133869699567,
+   "stable": 0.9789029535864979
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 1.1169075598101443,
+   "stable": 0.9746835443037974
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 2.311443125267303,
+   "stable": 0.9493670886075949
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": -0.8663103928053317,
+   "stable": 0.05063291139240506
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": 0.7789509051402632,
+   "stable": 0.1518987341772152
+  },
+  {
+   "seed": 1302,
+   "kind": "ink_mix_colour",
+   "class": "ink:mix_colour_on_boundary",
+   "dL": 18.41155708804496,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "dark_ink_on_light",
+   "class": "ink:dark",
+   "dL": -68.58692498541252,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "dark_ink_on_light",
+   "class": "ink:dark",
+   "dL": -47.92624092602524,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "class": "ink:pale_darker",
+   "dL": -11.844010639815764,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_light",
+   "class": "ink:pale_darker",
+   "dL": -12.59533588723695,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_dark_fill",
+   "class": "ink:pale_brighter_than_both_sides",
+   "dL": 21.9381378891556,
+   "stable": 0.885
+  },
+  {
+   "seed": 1303,
+   "kind": "pale_ink_on_dark_fill",
+   "class": "ink:pale_brighter_than_one_side",
+   "dL": 23.661932104320684,
+   "stable": 0.919431279620853
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_on_boundary",
+   "class": "ink:boundary_dark",
+   "dL": -44.69187792304256,
+   "stable": 0.6587677725118484
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_on_boundary",
+   "class": "ink:boundary_pale",
+   "dL": -6.841060826936953,
+   "stable": 0.9875
+  },
+  {
+   "seed": 1303,
+   "kind": "edge_only",
+   "class": "edge_only",
+   "dL": 1.4483031981186372,
+   "stable": 0.9208333333333333
+  },
+  {
+   "seed": 1303,
+   "kind": "edge_only",
+   "class": "edge_only",
+   "dL": 0.08367711745782458,
+   "stable": 1.0
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": -1.1233901899348098,
+   "stable": 0.0
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": 0.8271654867974974,
+   "stable": 0.004219409282700422
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 0.5900547642888156,
+   "stable": 0.9067796610169492
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 1.0341705526131193,
+   "stable": 0.9830508474576272
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 0.805095069427523,
+   "stable": 0.9873417721518988
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_6px",
+   "dL": 1.5975311727461445,
+   "stable": 0.9831223628691983
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": -0.7882664358553484,
+   "stable": 0.18143459915611815
+  },
+  {
+   "seed": 1303,
+   "kind": "bands",
+   "class": "band_edge_3px",
+   "dL": 0.6274118812996647,
+   "stable": 0.19831223628691982
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "ink:dark",
+   "dL": -47.702534873156544,
+   "stable": 0.9662447257383966
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "ink:pale_darker",
+   "dL": -12.38236057697884,
+   "stable": 0.9789029535864979
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": -0.7848662014043128,
+   "stable": 0.00423728813559322
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": 0.6191293346062423,
+   "stable": 0.025423728813559324
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 0.4744107271120015,
+   "stable": 0.9746835443037974
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 1.142513742424498,
+   "stable": 0.9831223628691983
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 0.9898746453395404,
+   "stable": 0.9831223628691983
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_6px",
+   "dL": 1.6445101037419647,
+   "stable": 0.9620253164556962
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": -0.8533045732112541,
+   "stable": 0.025423728813559324
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_crosses_band",
+   "class": "band_edge_3px",
+   "dL": 0.7910257132718215,
+   "stable": 0.06779661016949153
+  },
+  {
+   "seed": 1303,
+   "kind": "ink_mix_colour",
+   "class": "ink:mix_colour_on_boundary",
+   "dL": 18.33000478389682,
+   "stable": 1.0
+  }
+ ]
+}

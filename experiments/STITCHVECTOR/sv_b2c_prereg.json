@@ -1,0 +1,108 @@
+{
+ "title": "StitchVector 3.0 B2c luminance check: pre-registration (pushed and remote-verified before test seeds 6001-6005 / 6101-6105 are generated)",
+ "status_after_run": "STITCHVECTOR_V3_B2C_LUMINANCE_REVIEW_READY",
+ "question": "Among the segments B2a adds, does keeping only those whose centre is darker than both sides (dL <= dL_max) remove most fill-edge false lines while keeping most recovered pale ink?",
+ "methods": {
+  "B0": "frozen 2.0 (sv_autoline.extract)",
+  "B2a": "B0 + additive hysteresis (sv_ld_fix.b2a, c_low 8, add_r 1.5), unchanged",
+  "B2c": "B0 + only those B2a-added segments with dL <= dL_max, or with unmeasurable sides (stable share < min_stable, kept). B0 geometry never touched; no change to grouping or faces."
+ },
+ "params": {
+  "dL_max": -3.0,
+  "min_stable": 0.3
+ },
+ "threshold_choice": "dL_max = -3 is the value stated as the hypothesis (post-hoc, viewed seeds) and was NOT tuned: on the new dev data (phaseA_dev.json) -3 and -4 both met the 80/50 check; -3 was kept as written. Phase A rules were pushed at d6f67ce before the dev data existed.",
+ "phaseA_dev_summary": {
+  "A1_true_line_kept_at_-3": 0.8180255757989167,
+  "A1_fill_edge_kept_at_-3": 0.11921784549436532,
+  "A3_truth_axes_dL_median": {
+   "band_edge_3px": -0.018051587416984205,
+   "band_edge_6px": 1.0505472126033268,
+   "edge_only": 0.7600122819062065,
+   "ink:boundary_dark": -44.52824915433787,
+   "ink:boundary_pale": -7.910987121973392,
+   "ink:dark": -47.92624092602524,
+   "ink:mix_colour_on_boundary": 18.33000478389682,
+   "ink:pale_brighter_than_both_sides": 22.219866940165108,
+   "ink:pale_brighter_than_one_side": 23.661932104320684,
+   "ink:pale_darker": -12.098611853261744
+  },
+  "stop_check": {
+   "A1_thresholds_meeting_80_50": [
+    -3,
+    -4
+   ],
+   "A3_pale_ink_max_below_edge_only_min": true,
+   "pale_ink_max": -6.841060826936953,
+   "edge_only_min": 0.0045290642100326295,
+   "decision": "CONTINUE"
+  }
+ },
+ "known_scope_limit": "by construction ink that is brighter than one or both sides is deleted (Phase A dev: pale ink on red fill dL +22, mix-colour ink on a red/pink boundary dL +18). This is measured on the test scenes and reported; it decides whether B2c may become a default, not whether the test runs.",
+ "seeds": {
+  "dev": {
+   "sv_synth": [
+    1201,
+    1202,
+    1203
+   ],
+   "scenes": [
+    1301,
+    1302,
+    1303
+   ]
+  },
+  "test": {
+   "sv_synth": [
+    6001,
+    6002,
+    6003,
+    6004,
+    6005
+   ],
+   "scenes": [
+    6101,
+    6102,
+    6103,
+    6104,
+    6105
+   ]
+  }
+ },
+ "viewed_not_blind": [
+  1001,
+  1002,
+  1003,
+  2001,
+  2002,
+  2003,
+  2004,
+  2005,
+  4001,
+  4002,
+  4003,
+  4004,
+  4005,
+  5001,
+  5002,
+  5003,
+  5004,
+  5005
+ ],
+ "metrics": {
+  "gain": "per line type, visible-sample hits added over B0 by B2a and by B2c (sv_ld_compare.score, owner-credited); retained share = B2c added hits / B2a added hits",
+  "false": "false length (> 3 px from every truth line) split into fill edge (2.5 px of a fill polygon boundary), band (fill-coloured band + 2 px), other; removed share = 1 - (B2c - B0) / (B2a - B0), per place and total",
+  "segments": "B2a-added segments by truth label, kept by B2c, impure segments (largest label share < 0.8)",
+  "non_degradation": "B0 length not present in the output (must be 0); mixed cross-line objects; objects",
+  "bands": "per band (seed, colour, width): axis share with a line on it, B0 vs B2a vs B2c",
+  "scenes": "ink recall per sub-type (dark, pale_darker, boundary_dark, boundary_pale, pale_brighter_than_both_sides, pale_brighter_than_one_side, mix_colour_on_boundary) for B0 / B2a / B2c, and false length by place"
+ },
+ "reference_targets": {
+  "retain_pale_added_hits_ge": 0.8,
+  "remove_added_false_length_ge": 0.5,
+  "note": "reference only; adoption also needs: B0 fully kept, boundary ink not clearly worse than B2a, no band worse than B0, images better, no new cross-line objects. Brighter-than-side ink deleted systematically => B2c cannot be the full-map default, whatever the totals."
+ },
+ "stop_rule": "one run on test seeds, <= 10 min CPU; no code or parameter change after the first number; no B2d",
+ "dependencies": "none new",
+ "images": "per synth test tile: original / B0 / B2a / B2c / B2a added (true vs false) / B2c kept vs deleted; per scene seed one sheet with all scene kinds; local only (pre-push hook)"
+}
