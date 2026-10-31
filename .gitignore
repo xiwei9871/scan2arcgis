@@ -32,7 +32,8 @@ venv/
 node_modules/
 .env
 .env.*
-.claude/
+.claude/*
+!.claude/skills/
 .DS_Store
 Thumbs.db
 .vscode/
