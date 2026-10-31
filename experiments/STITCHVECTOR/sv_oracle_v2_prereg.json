@@ -1,0 +1,25 @@
+{
+ "title": "StitchVector Oracle v2 (P0 amendment) pre-registration - pushed and remote-verified before the v2 run",
+ "supersedes": "nothing; v1 (b5f03ef / 9267077 / 611ab80) and its results stay unchanged in oracle/u2_300_result/",
+ "status_after_run": "part of STITCHVECTOR_ORACLE_P0_CLOSED_AUTO_LINE_SYNTH_REVIEW",
+ "disclosure": "The P0 diagnosis was run on u2 with the v1 code before writing this file. Seen: (A) 23 protected px painted by lines LOOP (3) and G2 (20); (B) per-line presence when the line colour is taken from the dense trace instead of the corridor core, presence of teeth drawn as ink polygons, presence of G1-G3 when shifted by 1 px or split by underlying colour; (C) tol0 readback difference = width rounding to 2 decimals in B, C, LOOP, F3 (9 px), face readback exact; (D) map content in x < 94. The v2 rules below were chosen from that diagnosis, so v2 numbers on u2 are a check of the fixes, not an independent test.",
+ "sample": "same as v1: u2 centre 300x300, 32-colour median cut; same oracle file (oracle/u2_300_oracle.json, unchanged)",
+ "changes": {
+  "A_protection": "lines and symbols are never painted on protected pixels (P > L also in the composite)",
+  "B_colour": "line colour = median ORIGINAL colour over the trace sampled every 1 px (v1: median of the contrast core inside the corridor, which picked lighter anti-aliased edge pixels)",
+  "B_symbols": "closed traces (red_tooth) are written as small polygons = ink pixels within symbol_r of the trace, simplified at eps_geom, layer small_symbols; colour = median original inside the polygon",
+  "B_not_fixed": "G1/G2 are pale lines lying ON colour boundaries (G1 between green and pink, G2 between white page and pink); one colour per line cannot match both sides. Not repaired in v2; reported.",
+  "C_readback": "width_px stored at full precision; ALL fidelity and presence numbers are computed on the composite re-rendered from the written GPKG (faces + lines + symbols), for every config including tol 1",
+  "D_regions": "full crop; map (x < map_cols); line_nbhd (map pixels <= 3 px from any oracle trace); map_rest (map, not line_nbhd, not protected); protected",
+  "presence_sampling": "every 1 px along the trace (v1 sampled the stored trace points, i.e. 2 samples for each fixed straight G line)"
+ },
+ "map_cols": 94,
+ "configs": [["32", 0], ["32", 1], ["class", 0], ["class", 1]],
+ "primary": "32_tol0",
+ "params": {"bg_median": 15, "snap_r": 3, "smooth_win": 5, "eps_geom": 1.0, "halo": 1.0, "corridor": 3.0, "c_ink": 12.0, "w_min": 1.0, "w_max": 6.0, "r_min": 0.71, "merge_dE": 10.0, "frag_dE": 15.0, "symbol_r": 2.0},
+ "edit_tasks": {"C1_group": "F2", "C1_dy": 3},
+ "checks_expected": ["lines/symbols paint 0 protected px (construction)", "protected_exact_vs_labels == 1.0 for O1 at tol 0; at tol 1 face simplification itself moves protected px (B0 too), so O1 is compared with B0 of the same config, not with 1.0", "uncovered_px == 0", "strict coverage valid", "no non-simple line"],
+ "smoke_note": "a synthetic smoke run before freeze (not u2) showed B0 tol1 protected_exact 0.95-0.96 from face simplification alone, which is why the tol 1 check is relative to B0",
+ "stop_rule": "one run, <= 10 min CPU; no change after the first number",
+ "binary_artifacts": "GPKG/PNG stay local under runs/stitchvector/oracle_u2_300_v2/ (pre-push hook blocks them; repository is public); report lists SHA-256 and reproduce command"
+}
