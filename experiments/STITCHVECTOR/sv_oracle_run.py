@@ -128,7 +128,7 @@ def main(out_dir, prev=False):
         rb, holes, srb = readback(gp, shape, P_, p); r["O1"]["readback"] = {"seconds": srb, "uncovered_px": holes, "px_differs_from_memory": int((rb != rgbO).any(-1).sum())}
         gb = out / f"B0_{tag}.gpkg"; write_gpkg(gb, fb, X, P_, lutX, np.ones(len(fb["polys"])), np.zeros(len(fb["polys"])), [], [])
         r["B0"]["gpkg_bytes"] = gb.stat().st_size
-        g0 = PRE["edit_tasks"]["C1_group"]; _, c1 = E.c1_move_line(X, a, P_, lines, g0, PRE["edit_tasks"]["C1_dy"], tol, fb); r["C1"] = c1
+        g0 = PRE["edit_tasks"]["C1_group"]; _, c1 = E.c1_move_line(X, a, P_, lines, g0, PRE["edit_tasks"]["C1_dy"], tol, p, fb); r["C1"] = c1
         pair = PRE["edit_tasks"]["C3_classes_rgb"]; cls = [int(lut[O.nearest_pal(c, pal)]) for c in pair]
         r["C3_B0"] = E.c3_shared_boundary(fb, X, lutX, cls, PRE["edit_tasks"]["C3_shift"])
         r["C3_O1"] = E.c3_shared_boundary(fo, F, lutX, cls, PRE["edit_tasks"]["C3_shift"])
