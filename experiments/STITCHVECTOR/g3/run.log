@@ -1,0 +1,31 @@
+== summary_synthetic
+  F0                 ink G1a/b/c 0.97 0.0 0.97 | fill (0.95, 0.93, 0.0) | band (0.92, 0.69, 0.0) | cost 3685.2
+  B0                 ink G1a/b/c 0.98 0.76 0.21 | fill (0.95, 0.92, 0.0) | band (0.91, 0.66, 0.0) | cost 2296.8
+  B2c                ink G1a/b/c 0.98 0.82 0.15 | fill (0.95, 0.92, 0.0) | band (0.91, 0.66, 0.0) | cost 2198.2
+== summary_scenes
+  F0                 ink G1a/b/c 0.63 0.0 0.62 | fill (0.76, 0.75, 0.0) | band (1.0, 1.0, 0.0) | cost 738.7
+  B0                 ink G1a/b/c 0.85 0.63 0.2 | fill (0.76, 0.75, 0.0) | band (1.0, 0.03, 0.96) | cost 486.1
+  B2c                ink G1a/b/c 0.98 0.89 0.08 | fill (0.76, 0.75, 0.0) | band (1.0, 0.03, 0.96) | cost 304.0
+== summary_u2
+  F0                 ink G1a/b/c 0.85 0.0 0.81 | fill None | band (1.0, 0.58, 0.0) | cost 85.2
+  B0                 ink G1a/b/c 0.86 0.65 0.17 | fill None | band (1.0, 0.04, 0.71) | cost 51.6
+  B2c                ink G1a/b/c 0.86 0.65 0.17 | fill None | band (1.0, 0.04, 0.71) | cost 55.6
+  Oracle_class_tol0  ink G1a/b/c 0.97 0.93 0.01 | fill None | band (1.0, 0.55, 0.0) | cost 11.0
+       12.40 real        11.48 user         0.29 sys
+           243236864  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               36024  page reclaims
+                4965  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1713  voluntary context switches
+                7750  involuntary context switches
+        230831069936  instructions retired
+         50101715245  cycles elapsed
+           183288768  peak memory footprint
