@@ -1,0 +1,71 @@
+{
+ "classes": {
+  "L_core": {
+   "units": 1,
+   "px": 114
+  },
+  "P": {
+   "units": 285,
+   "px": 1624
+  },
+  "U": {
+   "units": 1012,
+   "px": 2459
+  },
+  "L_halo": {
+   "units": 42,
+   "px": 96
+  }
+ },
+ "checks": {
+  "composite_equals_labels": true,
+  "non_L_labels_unchanged": 0,
+  "P_pixels_unchanged_in_face_layer": 1.0
+ },
+ "face_change": {
+  "faces_before": 8252,
+  "faces_after": 8120,
+  "baseline_faces_fully_in_L": 106,
+  "after_faces_merging_2plus_baseline_faces": 18,
+  "baseline_faces_merged_into_those": 44,
+  "after_faces_inferred_only": 0,
+  "baseline_faces_split_after": 0
+ },
+ "totals": {
+  "baseline": {
+   "objects": 8252,
+   "vertices": 47756
+  },
+  "layered_pixel_faithful_lines": {
+   "objects": 8226,
+   "vertices": 48036
+  },
+  "layered_single_colour_units": {
+   "objects": 8225,
+   "vertices": 48031
+  },
+  "layered_centreline_estimate": {
+   "objects": 8130,
+   "vertices": 47376
+  }
+ },
+ "seconds": 3.4
+}
+        4.20 real         3.65 user         0.13 sys
+           222101504  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               28878  page reclaims
+                3414  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 908  voluntary context switches
+                3049  involuntary context switches
+         72708003696  instructions retired
+         16062327859  cycles elapsed
+           189088680  peak memory footprint
