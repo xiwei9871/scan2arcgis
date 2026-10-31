@@ -4,7 +4,7 @@
 仓库：`xiwei9871/scan2arcgis`，分支 `research/stitchvector`
 预注册：`experiments/STITCHVECTOR/sv_d71_prereg.json`，提交 `7582abe`，运行前已推送，并用 `git ls-remote` 核验远端一致。
 运行：一次，3.4 s，峰值内存 0.22 GB。没有改参数重跑。
-产物：`experiments/STITCHVECTOR/d71/`
+产物：`experiments/STITCHVECTOR/d71/`（JSON、CSV、像素分类 `.npy`、运行日志）。图片见第 7 节：仓库的 pre-push 钩子禁止推送二进制文件，所以图片只保存在本地。
 
 ## 0. 结论
 
@@ -68,7 +68,7 @@ U 中 934 个单元不超过 5 px。
 
 ## 2. 人工抽查（每类随机 30 个，seed 0）
 
-图：`d71/samples_L_core.png`、`samples_P.png`、`samples_U.png`，总览 `d71/lpu_overlay_x3.png`（蓝 L_core、青 L_halo、绿 P、品红 U）。
+图：`runs/stitchvector/d71_u2_300/samples_L_core.png`、`samples_P.png`、`samples_U.png`，总览 `lpu_overlay_x3.png`（本地，见第 7 节）（蓝 L_core、青 L_halo、绿 P、品红 U）。
 
 | 类别 | 看到的 | 误分案例 |
 |---|---|---|
@@ -107,3 +107,34 @@ U 中 934 个单元不超过 5 px。
 ## 6. 遵守的约束
 
 只用 u2 中心 300×300、32 色；没有扩展到 13014，没有研究自校准 T，没有安装新工具；没有修改 M1/M2/B2/RAG；没有访问封存测试池；POC-01 历史记录未改动。`runs/` 只在本地，没有提交。
+
+## 7. 图片产物（本地，未推送）
+
+仓库的 pre-push 钩子禁止推送二进制文件。我没有绕过它，11 张图片只保存在本地 `runs/stitchvector/d71_u2_300/`（`runs/` 被 git 忽略）。它们可以用 `.venv-sv/bin/python experiments/STITCHVECTOR/sv_d71_run.py <out_dir>` 由同一份代码确定地重新生成。下面的 SHA-256 用于核对：
+
+```
+02b22249fefaef757537a4109149660c582dcea3341b9aed0502225b90a4ba81  runs/stitchvector/d71_u2_300/compare_original_face_composite_x3.png
+f47c1c312c4cefbc989a3d04bbf8916d2d50ccdd8c56b7fa8933439f6431ad89  runs/stitchvector/d71_u2_300/composite_exact_x3.png
+f5b236c555869eafd6517782effd6d64713ea6bca939dc2a71c122f9c17d56ce  runs/stitchvector/d71_u2_300/composite_single_colour_x3.png
+53783b85be25090667837bd28de5a072e6762a84eb1fb8d52c8e0a868604a714  runs/stitchvector/d71_u2_300/face_layer_x3.png
+f47c1c312c4cefbc989a3d04bbf8916d2d50ccdd8c56b7fa8933439f6431ad89  runs/stitchvector/d71_u2_300/labels_x3.png
+8ad0f006b68927d9c95b1592df818c6d6af8ce866ba5094f16e3466ae62f073b  runs/stitchvector/d71_u2_300/line_layer_x3.png
+07751c330b6790b42bf453d712115e28e197a80915c8fff5cd0eb2c59ef9558d  runs/stitchvector/d71_u2_300/lpu_overlay_x3.png
+a53542b8c4de8b42b7c97838eff3a76946cb18b91cfdd8b92bfc44a5d31dfa6b  runs/stitchvector/d71_u2_300/original_x3.png
+691f54f5313b865e24e439ddd5888801576a80b51590d8a7ccb4c20a2dc7f07f  runs/stitchvector/d71_u2_300/samples_L_core.png
+d58a42b78c651d60a254e1f26074322fb6157561a34ba8e18f5c81f1d6ef5098  runs/stitchvector/d71_u2_300/samples_P.png
+aa451419cc6e7e3e23ad873dee81ac569dc1c58dd050304078a719f1ab97e65b  runs/stitchvector/d71_u2_300/samples_U.png
+```
+
+`composite_exact_x3.png` 与 `labels_x3.png` 的哈希相同，这就是"完整合成图与标签图逐像素一致"的直接证据。
+
+| 文件 | 内容 |
+|---|---|
+| `original_x3.png` / `labels_x3.png` | 原图 / 32 色标签图（放大 3 倍） |
+| `lpu_overlay_x3.png` | L/P/U 分类掩膜叠加在原图上 |
+| `line_layer_x3.png` | 线层 L（中间结果，像素掩膜） |
+| `face_layer_x3.png` | 移走 L 后的面层（线下为推断填色） |
+| `composite_exact_x3.png`、`composite_single_colour_x3.png` | 线层叠回后的完整合成图（两种线颜色方案） |
+| `compare_original_face_composite_x3.png` | 原图 / 面层 / 合成图并排 |
+| `samples_L_core.png`、`samples_P.png`、`samples_U.png` | 人工抽查用的样本图 |
+
