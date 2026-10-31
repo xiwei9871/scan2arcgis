@@ -1,0 +1,9931 @@
+{
+ "source": "frozen P1 (32e8a41) on test seeds",
+ "tol_px": 2.0,
+ "tiles": {
+  "2001": {
+   "detected_objects": 42,
+   "false_length_px": 157.5916117217641,
+   "detected_length_px": 1167.869106539817,
+   "objects_spanning_2plus_truth_lines": {
+    "3": [
+     [
+      "red_aa_2",
+      10
+     ],
+     [
+      "red_aa_3",
+      10
+     ]
+    ],
+    "25": [
+     [
+      "black_1",
+      27
+     ],
+     [
+      "black_5",
+      15
+     ]
+    ]
+   },
+   "bands": {
+    "band_green": {
+     "width": 6.0,
+     "detected_length_inside_band": 54.36020612925538,
+     "band_length": 293.8304475664532
+    },
+    "band_yellow": {
+     "width": 3.0,
+     "detected_length_inside_band": 122.53722975520039,
+     "band_length": 161.4129509880602
+    }
+   },
+   "endpoints": 84,
+   "lines": [
+    {
+     "id": "red_aa_2",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 357,
+     "occluded_share": 0.22969187675070027,
+     "recall_all": 0.8291316526610645,
+     "recall_visible": 0.8836363636363637,
+     "visual_gaps": [
+      {
+       "start": 152,
+       "len": 1
+      },
+      {
+       "start": 156,
+       "len": 3
+      },
+      {
+       "start": 184,
+       "len": 20
+      },
+      {
+       "start": 223,
+       "len": 1
+      },
+      {
+       "start": 253,
+       "len": 1
+      },
+      {
+       "start": 266,
+       "len": 4
+      },
+      {
+       "start": 330,
+       "len": 2
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      2.0,
+      3.0,
+      6.0,
+      8.0,
+      12.0,
+      13.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0,
+      23.0,
+      28.0,
+      29.0,
+      30.0
+     ],
+     "owner_runs": 18,
+     "splits": [
+      {
+       "from": 2,
+       "to": 8,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 131.38374644081753,
+       "at": [
+        107.7,
+        96.8
+       ],
+       "end1": [
+        108.5,
+        97.5,
+        1
+       ],
+       "end2": [
+        109.5,
+        97.5,
+        1
+       ]
+      },
+      {
+       "from": 8,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 47.86240522611182,
+       "at": [
+        109.1,
+        98.2
+       ],
+       "end1": [
+        109.5,
+        97.5,
+        1
+       ],
+       "end2": [
+        108.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 13,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 7.615773105863909,
+       "both_at_object_ends": false,
+       "turn_deg": 68.19859051364813,
+       "at": [
+        123.9,
+        113.1
+       ],
+       "end1": [
+        125.5,
+        113.5,
+        1
+       ],
+       "end2": [
+        128.5,
+        106.5,
+        0
+       ]
+      },
+      {
+       "from": 15,
+       "to": 18,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 10.44030650891055,
+       "both_at_object_ends": false,
+       "turn_deg": 107.03776779562568,
+       "at": [
+        126.1,
+        115.3
+       ],
+       "end1": [
+        128.5,
+        106.5,
+        0
+       ],
+       "end2": [
+        125.5,
+        116.5,
+        0
+       ]
+      },
+      {
+       "from": 18,
+       "to": 21,
+       "truth_gap_px": 2,
+       "visible_missing_px": 1,
+       "occluded_px": 1,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 5.830951894845301,
+       "both_at_object_ends": true,
+       "turn_deg": 88.05191499348507,
+       "at": [
+        139.6,
+        128.6
+       ],
+       "end1": [
+        138.5,
+        127.5,
+        1
+       ],
+       "end2": [
+        143.5,
+        130.5,
+        0
+       ]
+      },
+      {
+       "from": 21,
+       "to": 19,
+       "truth_gap_px": 6,
+       "visible_missing_px": 3,
+       "occluded_px": 3,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 10.0,
+       "both_at_object_ends": true,
+       "turn_deg": 156.84116272177968,
+       "at": [
+        143.2,
+        132.1
+       ],
+       "end1": [
+        143.5,
+        130.5,
+        0
+       ],
+       "end2": [
+        149.5,
+        138.5,
+        1
+       ]
+      },
+      {
+       "from": 19,
+       "to": 28,
+       "truth_gap_px": 2,
+       "visible_missing_px": 0,
+       "occluded_px": 2,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 6.324555320336759,
+       "both_at_object_ends": true,
+       "turn_deg": 25.974393962431563,
+       "at": [
+        150.5,
+        139.0
+       ],
+       "end1": [
+        149.5,
+        138.5,
+        1
+       ],
+       "end2": [
+        155.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 30,
+       "truth_gap_px": 8,
+       "visible_missing_px": 0,
+       "occluded_px": 8,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 16.278820596099706,
+       "both_at_object_ends": false,
+       "turn_deg": 10.304846468765938,
+       "at": [
+        154.9,
+        143.1
+       ],
+       "end1": [
+        155.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        158.5,
+        156.5,
+        1
+       ]
+      },
+      {
+       "from": 30,
+       "to": 29,
+       "truth_gap_px": 20,
+       "visible_missing_px": 20,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 21.213203435596427,
+       "both_at_object_ends": false,
+       "turn_deg": 117.83041484248908,
+       "at": [
+        163.9,
+        151.1
+       ],
+       "end1": [
+        158.5,
+        156.5,
+        1
+       ],
+       "end2": [
+        179.5,
+        153.5,
+        1
+       ]
+      },
+      {
+       "from": 29,
+       "to": 23,
+       "truth_gap_px": 1,
+       "visible_missing_px": 0,
+       "occluded_px": 1,
+       "kind": "seamless",
+       "endpoint_dist": 22.0,
+       "both_at_object_ends": false,
+       "turn_deg": 93.66182933942905,
+       "at": [
+        174.8,
+        143.8
+       ],
+       "end1": [
+        176.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        154.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 20,
+       "truth_gap_px": 2,
+       "visible_missing_px": 1,
+       "occluded_px": 1,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 18.027756377319946,
+       "both_at_object_ends": false,
+       "turn_deg": 71.7533874634004,
+       "at": [
+        172.8,
+        139.2
+       ],
+       "end1": [
+        154.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        171.5,
+        134.5,
+        1
+       ]
+      },
+      {
+       "from": 20,
+       "to": 17,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": false,
+       "turn_deg": 60.171353003216396,
+       "at": [
+        165.6,
+        123.7
+       ],
+       "end1": [
+        163.5,
+        123.5,
+        0
+       ],
+       "end2": [
+        163.5,
+        125.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.385164807134504,
+       "both_at_object_ends": false,
+       "turn_deg": 47.84814509605318,
+       "at": [
+        163.4,
+        119.2
+       ],
+       "end1": [
+        164.5,
+        113.5,
+        0
+       ],
+       "end2": [
+        162.5,
+        118.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 12,
+       "truth_gap_px": 18,
+       "visible_missing_px": 5,
+       "occluded_px": 13,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 21.095023109728988,
+       "both_at_object_ends": true,
+       "turn_deg": 121.35159896180504,
+       "at": [
+        159.4,
+        111.1
+       ],
+       "end1": [
+        161.5,
+        110.5,
+        0
+       ],
+       "end2": [
+        150.5,
+        92.5,
+        0
+       ]
+      },
+      {
+       "from": 12,
+       "to": 6,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 112.8998665284655,
+       "at": [
+        150.0,
+        92.3
+       ],
+       "end1": [
+        150.5,
+        92.5,
+        0
+       ],
+       "end2": [
+        150.5,
+        91.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 3,
+       "truth_gap_px": 2,
+       "visible_missing_px": 2,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": true,
+       "turn_deg": 45.0,
+       "at": [
+        125.0,
+        42.0
+       ],
+       "end1": [
+        126.5,
+        42.5,
+        0
+       ],
+       "end2": [
+        126.5,
+        39.5,
+        1
+       ]
+      },
+      {
+       "from": 3,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 25.346175941946736,
+       "at": [
+        119.8,
+        31.2
+       ],
+       "end1": [
+        118.5,
+        31.5,
+        0
+       ],
+       "end2": [
+        118.5,
+        31.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_aa_3",
+     "ink": "red",
+     "width": 3.0,
+     "samples": 271,
+     "occluded_share": 0.11808118081180811,
+     "recall_all": 0.7121771217712177,
+     "recall_visible": 0.7405857740585774,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 25
+      },
+      {
+       "start": 30,
+       "len": 18
+      },
+      {
+       "start": 65,
+       "len": 10
+      },
+      {
+       "start": 81,
+       "len": 9
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      1.0,
+      3.0,
+      4.0,
+      9.0,
+      17.0,
+      23.0,
+      30.0,
+      31.0,
+      32.0
+     ],
+     "owner_runs": 10,
+     "splits": [
+      {
+       "from": 32,
+       "to": 31,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.8284271247461903,
+       "both_at_object_ends": false,
+       "turn_deg": 38.027230713973644,
+       "at": [
+        153.5,
+        164.1
+       ],
+       "end1": [
+        157.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        155.5,
+        163.5,
+        0
+       ]
+      },
+      {
+       "from": 31,
+       "to": 30,
+       "truth_gap_px": 6,
+       "visible_missing_px": 0,
+       "occluded_px": 6,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 7.615773105863909,
+       "both_at_object_ends": true,
+       "turn_deg": 89.15747573925947,
+       "at": [
+        154.3,
+        162.2
+       ],
+       "end1": [
+        155.5,
+        163.5,
+        0
+       ],
+       "end2": [
+        158.5,
+        156.5,
+        1
+       ]
+      },
+      {
+       "from": 30,
+       "to": 23,
+       "truth_gap_px": 13,
+       "visible_missing_px": 10,
+       "occluded_px": 3,
+       "kind": "visual_gap",
+       "endpoint_dist": 16.492422502470642,
+       "both_at_object_ends": false,
+       "turn_deg": 123.8957294179166,
+       "at": [
+        156.8,
+        155.7
+       ],
+       "end1": [
+        158.5,
+        156.5,
+        1
+       ],
+       "end2": [
+        154.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 17,
+       "truth_gap_px": 11,
+       "visible_missing_px": 9,
+       "occluded_px": 2,
+       "kind": "visual_gap",
+       "endpoint_dist": 17.4928556845359,
+       "both_at_object_ends": false,
+       "turn_deg": 93.96421757740877,
+       "at": [
+        161.5,
+        139.3
+       ],
+       "end1": [
+        154.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        163.5,
+        125.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 2.681076410995201,
+       "at": [
+        164.3,
+        113.5
+       ],
+       "end1": [
+        164.5,
+        113.5,
+        0
+       ],
+       "end2": [
+        163.5,
+        112.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 20.377636005610714,
+       "at": [
+        157.5,
+        76.3
+       ],
+       "end1": [
+        155.5,
+        75.5,
+        0
+       ],
+       "end2": [
+        156.5,
+        77.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 3,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 2.5528981471718595,
+       "at": [
+        126.6,
+        37.9
+       ],
+       "end1": [
+        127.5,
+        38.5,
+        0
+       ],
+       "end2": [
+        126.5,
+        39.5,
+        1
+       ]
+      },
+      {
+       "from": 3,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 25.346175941946736,
+       "at": [
+        118.0,
+        32.7
+       ],
+       "end1": [
+        118.5,
+        31.5,
+        0
+       ],
+       "end2": [
+        118.5,
+        31.5,
+        1
+       ]
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.0,
+       "both_at_object_ends": true,
+       "turn_deg": 130.62731747937403,
+       "at": [
+        117.1,
+        32.2
+       ],
+       "end1": [
+        118.5,
+        31.5,
+        1
+       ],
+       "end2": [
+        114.5,
+        31.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_1",
+     "ink": "black",
+     "width": 1.0,
+     "samples": 242,
+     "occluded_share": 0.19834710743801653,
+     "recall_all": 0.859504132231405,
+     "recall_visible": 0.9020618556701031,
+     "visual_gaps": [
+      {
+       "start": 24,
+       "len": 4
+      },
+      {
+       "start": 48,
+       "len": 7
+      },
+      {
+       "start": 79,
+       "len": 5
+      },
+      {
+       "start": 148,
+       "len": 3
+      }
+     ],
+     "objects_on_line": [
+      8.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0,
+      22.0,
+      25.0
+     ],
+     "owner_runs": 15,
+     "splits": [
+      {
+       "from": 25,
+       "to": 22,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 25.551072454292395,
+       "at": [
+        111.6,
+        135.8
+       ],
+       "end1": [
+        112.5,
+        135.5,
+        0
+       ],
+       "end2": [
+        112.5,
+        135.5,
+        1
+       ]
+      },
+      {
+       "from": 22,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": false,
+       "turn_deg": 47.97373108248016,
+       "at": [
+        123.2,
+        132.6
+       ],
+       "end1": [
+        124.5,
+        129.5,
+        0
+       ],
+       "end2": [
+        124.5,
+        130.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 18,
+       "truth_gap_px": 12,
+       "visible_missing_px": 7,
+       "occluded_px": 5,
+       "kind": "visual_gap",
+       "endpoint_dist": 14.317821063276353,
+       "both_at_object_ends": true,
+       "turn_deg": 126.86989764584399,
+       "at": [
+        125.2,
+        132.1
+       ],
+       "end1": [
+        124.5,
+        130.5,
+        1
+       ],
+       "end2": [
+        138.5,
+        127.5,
+        1
+       ]
+      },
+      {
+       "from": 18,
+       "to": 21,
+       "truth_gap_px": 3,
+       "visible_missing_px": 0,
+       "occluded_px": 3,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 5.830951894845301,
+       "both_at_object_ends": true,
+       "turn_deg": 88.05191499348507,
+       "at": [
+        139.9,
+        128.7
+       ],
+       "end1": [
+        138.5,
+        127.5,
+        1
+       ],
+       "end2": [
+        143.5,
+        130.5,
+        0
+       ]
+      },
+      {
+       "from": 21,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 11.40175425099138,
+       "both_at_object_ends": false,
+       "turn_deg": 5.314545669944662,
+       "at": [
+        147.7,
+        127.1
+       ],
+       "end1": [
+        143.5,
+        130.5,
+        0
+       ],
+       "end2": [
+        152.5,
+        123.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 21,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": false,
+       "turn_deg": 90.0,
+       "at": [
+        151.6,
+        126.3
+       ],
+       "end1": [
+        152.5,
+        123.5,
+        0
+       ],
+       "end2": [
+        156.5,
+        127.5,
+        1
+       ]
+      },
+      {
+       "from": 21,
+       "to": 20,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 8.06225774829855,
+       "both_at_object_ends": true,
+       "turn_deg": 2.2776089583340773,
+       "at": [
+        156.5,
+        125.2
+       ],
+       "end1": [
+        156.5,
+        127.5,
+        1
+       ],
+       "end2": [
+        163.5,
+        123.5,
+        0
+       ]
+      },
+      {
+       "from": 20,
+       "to": 17,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 60.171353003216396,
+       "at": [
+        163.3,
+        123.2
+       ],
+       "end1": [
+        163.5,
+        123.5,
+        0
+       ],
+       "end2": [
+        163.5,
+        125.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 7.0710678118654755,
+       "both_at_object_ends": false,
+       "turn_deg": 132.15185490394683,
+       "at": [
+        163.9,
+        119.6
+       ],
+       "end1": [
+        163.5,
+        125.5,
+        1
+       ],
+       "end2": [
+        162.5,
+        118.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 14,
+       "truth_gap_px": 5,
+       "visible_missing_px": 0,
+       "occluded_px": 5,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 13.0,
+       "both_at_object_ends": false,
+       "turn_deg": 151.64214107608817,
+       "at": [
+        157.6,
+        116.4
+       ],
+       "end1": [
+        162.5,
+        118.5,
+        1
+       ],
+       "end2": [
+        150.5,
+        113.5,
+        1
+       ]
+      },
+      {
+       "from": 14,
+       "to": 12,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 13.601470508735444,
+       "both_at_object_ends": false,
+       "turn_deg": 126.35791925052509,
+       "at": [
+        130.1,
+        106.9
+       ],
+       "end1": [
+        115.5,
+        103.5,
+        0
+       ],
+       "end2": [
+        128.5,
+        107.5,
+        1
+       ]
+      },
+      {
+       "from": 12,
+       "to": 14,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 13.601470508735444,
+       "both_at_object_ends": false,
+       "turn_deg": 126.35791925052509,
+       "at": [
+        129.2,
+        106.6
+       ],
+       "end1": [
+        128.5,
+        107.5,
+        1
+       ],
+       "end2": [
+        115.5,
+        103.5,
+        0
+       ]
+      },
+      {
+       "from": 14,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 9.899494936611665,
+       "both_at_object_ends": false,
+       "turn_deg": 139.89909245378772,
+       "at": [
+        116.7,
+        102.7
+       ],
+       "end1": [
+        115.5,
+        103.5,
+        0
+       ],
+       "end2": [
+        108.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 13,
+       "to": 8,
+       "truth_gap_px": 3,
+       "visible_missing_px": 3,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": false,
+       "turn_deg": 47.86240522611182,
+       "at": [
+        110.0,
+        100.6
+       ],
+       "end1": [
+        108.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        109.5,
+        97.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_3",
+     "ink": "black",
+     "width": 3.0,
+     "samples": 196,
+     "occluded_share": 0.10204081632653061,
+     "recall_all": 0.923469387755102,
+     "recall_visible": 0.9488636363636364,
+     "visual_gaps": [
+      {
+       "start": 63,
+       "len": 1
+      },
+      {
+       "start": 68,
+       "len": 3
+      },
+      {
+       "start": 83,
+       "len": 4
+      },
+      {
+       "start": 110,
+       "len": 1
+      }
+     ],
+     "objects_on_line": [
+      9.0,
+      11.0,
+      16.0,
+      19.0,
+      21.0,
+      26.0,
+      27.0,
+      28.0,
+      31.0,
+      37.0,
+      38.0
+     ],
+     "owner_runs": 13,
+     "splits": [
+      {
+       "from": 11,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 6.082762530298219,
+       "both_at_object_ends": false,
+       "turn_deg": 117.09945875783087,
+       "at": [
+        165.9,
+        107.4
+       ],
+       "end1": [
+        164.5,
+        106.5,
+        1
+       ],
+       "end2": [
+        163.5,
+        112.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.8284271247461903,
+       "both_at_object_ends": true,
+       "turn_deg": 23.558440544574495,
+       "at": [
+        162.8,
+        109.9
+       ],
+       "end1": [
+        163.5,
+        112.5,
+        1
+       ],
+       "end2": [
+        161.5,
+        110.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 19,
+       "truth_gap_px": 8,
+       "visible_missing_px": 4,
+       "occluded_px": 4,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 15.811388300841896,
+       "both_at_object_ends": false,
+       "turn_deg": 168.77110817846142,
+       "at": [
+        157.7,
+        114.8
+       ],
+       "end1": [
+        161.5,
+        110.5,
+        0
+       ],
+       "end2": [
+        152.5,
+        123.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 21,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": false,
+       "turn_deg": 90.0,
+       "at": [
+        151.9,
+        122.9
+       ],
+       "end1": [
+        152.5,
+        123.5,
+        0
+       ],
+       "end2": [
+        156.5,
+        127.5,
+        1
+       ]
+      },
+      {
+       "from": 21,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": false,
+       "turn_deg": 90.0,
+       "at": [
+        151.0,
+        124.6
+       ],
+       "end1": [
+        156.5,
+        127.5,
+        1
+       ],
+       "end2": [
+        152.5,
+        123.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 26,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 70.97439396243155,
+       "at": [
+        147.9,
+        137.2
+       ],
+       "end1": [
+        149.5,
+        138.5,
+        1
+       ],
+       "end2": [
+        148.5,
+        139.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 90.0,
+       "at": [
+        148.0,
+        139.2
+       ],
+       "end1": [
+        148.5,
+        139.5,
+        1
+       ],
+       "end2": [
+        148.5,
+        139.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 8.0,
+       "both_at_object_ends": false,
+       "turn_deg": 45.0,
+       "at": [
+        148.9,
+        146.1
+       ],
+       "end1": [
+        148.5,
+        139.5,
+        0
+       ],
+       "end2": [
+        148.5,
+        147.5,
+        1
+       ]
+      },
+      {
+       "from": 28,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 8.0,
+       "both_at_object_ends": false,
+       "turn_deg": 45.0,
+       "at": [
+        149.1,
+        147.1
+       ],
+       "end1": [
+        148.5,
+        147.5,
+        1
+       ],
+       "end2": [
+        148.5,
+        139.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 31,
+       "truth_gap_px": 3,
+       "visible_missing_px": 1,
+       "occluded_px": 2,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 6.708203932499369,
+       "both_at_object_ends": true,
+       "turn_deg": 32.6609127216736,
+       "at": [
+        153.7,
+        158.1
+       ],
+       "end1": [
+        152.5,
+        157.5,
+        1
+       ],
+       "end2": [
+        155.5,
+        163.5,
+        0
+       ]
+      },
+      {
+       "from": 31,
+       "to": 37,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.0,
+       "both_at_object_ends": true,
+       "turn_deg": 104.86778434013819,
+       "at": [
+        186.1,
+        191.8
+       ],
+       "end1": [
+        184.5,
+        191.5,
+        1
+       ],
+       "end2": [
+        188.5,
+        191.5,
+        1
+       ]
+      },
+      {
+       "from": 37,
+       "to": 38,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 72.7883192497007,
+       "at": [
+        186.9,
+        192.4
+       ],
+       "end1": [
+        188.5,
+        191.5,
+        1
+       ],
+       "end2": [
+        188.5,
+        191.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_5",
+     "ink": "black",
+     "width": 5.0,
+     "samples": 118,
+     "occluded_share": 0.11864406779661017,
+     "recall_all": 0.8305084745762712,
+     "recall_visible": 0.8942307692307693,
+     "visual_gaps": [
+      {
+       "start": 15,
+       "len": 9
+      },
+      {
+       "start": 56,
+       "len": 2
+      }
+     ],
+     "objects_on_line": [
+      19.0,
+      23.0,
+      25.0,
+      26.0,
+      27.0
+     ],
+     "owner_runs": 5,
+     "splits": [
+      {
+       "from": 25,
+       "to": 26,
+       "truth_gap_px": 18,
+       "visible_missing_px": 9,
+       "occluded_px": 9,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 16.15549442140351,
+       "both_at_object_ends": false,
+       "turn_deg": 18.876603407175082,
+       "at": [
+        109.1,
+        140.7
+       ],
+       "end1": [
+        112.5,
+        135.5,
+        0
+       ],
+       "end2": [
+        127.5,
+        141.5,
+        0
+       ]
+      },
+      {
+       "from": 26,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 90.0,
+       "at": [
+        148.2,
+        139.5
+       ],
+       "end1": [
+        148.5,
+        139.5,
+        1
+       ],
+       "end2": [
+        148.5,
+        139.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 19.025606037568473,
+       "at": [
+        149.2,
+        139.6
+       ],
+       "end1": [
+        148.5,
+        139.5,
+        0
+       ],
+       "end2": [
+        149.5,
+        138.5,
+        1
+       ]
+      },
+      {
+       "from": 19,
+       "to": 23,
+       "truth_gap_px": 2,
+       "visible_missing_px": 2,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 5.385164807134504,
+       "both_at_object_ends": true,
+       "turn_deg": 108.22618192425104,
+       "at": [
+        150.2,
+        139.6
+       ],
+       "end1": [
+        149.5,
+        138.5,
+        1
+       ],
+       "end2": [
+        154.5,
+        140.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pale_1",
+     "ink": "pale",
+     "width": 1.0,
+     "samples": 181,
+     "occluded_share": 0.027624309392265192,
+     "recall_all": 0.39226519337016574,
+     "recall_visible": 0.39204545454545453,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 20
+      },
+      {
+       "start": 34,
+       "len": 23
+      },
+      {
+       "start": 79,
+       "len": 15
+      },
+      {
+       "start": 99,
+       "len": 41
+      },
+      {
+       "start": 144,
+       "len": 3
+      },
+      {
+       "start": 172,
+       "len": 5
+      }
+     ],
+     "objects_on_line": [
+      5.0,
+      7.0,
+      11.0,
+      20.0,
+      23.0,
+      30.0,
+      32.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 5,
+       "to": 7,
+       "truth_gap_px": 23,
+       "visible_missing_px": 23,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 25.45584412271571,
+       "both_at_object_ends": true,
+       "turn_deg": 92.69780563331618,
+       "at": [
+        179.1,
+        38.9
+       ],
+       "end1": [
+        177.5,
+        38.5,
+        0
+       ],
+       "end2": [
+        195.5,
+        56.5,
+        0
+       ]
+      },
+      {
+       "from": 7,
+       "to": 11,
+       "truth_gap_px": 15,
+       "visible_missing_px": 15,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 21.2602916254693,
+       "both_at_object_ends": false,
+       "turn_deg": 83.55046529615775,
+       "at": [
+        195.9,
+        76.5
+       ],
+       "end1": [
+        196.5,
+        75.5,
+        1
+       ],
+       "end2": [
+        212.5,
+        89.5,
+        0
+       ]
+      },
+      {
+       "from": 11,
+       "to": 20,
+       "truth_gap_px": 41,
+       "visible_missing_px": 41,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 60.876925020897694,
+       "both_at_object_ends": false,
+       "turn_deg": 97.9848662152565,
+       "at": [
+        191.1,
+        95.9
+       ],
+       "end1": [
+        212.5,
+        89.5,
+        0
+       ],
+       "end2": [
+        171.5,
+        134.5,
+        1
+       ]
+      },
+      {
+       "from": 20,
+       "to": 23,
+       "truth_gap_px": 3,
+       "visible_missing_px": 3,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 18.027756377319946,
+       "both_at_object_ends": false,
+       "turn_deg": 71.7533874634004,
+       "at": [
+        171.3,
+        136.2
+       ],
+       "end1": [
+        171.5,
+        134.5,
+        1
+       ],
+       "end2": [
+        154.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 30,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 13.341664064126334,
+       "both_at_object_ends": false,
+       "turn_deg": 56.10427058208341,
+       "at": [
+        167.5,
+        142.1
+       ],
+       "end1": [
+        154.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        167.5,
+        143.5,
+        0
+       ]
+      },
+      {
+       "from": 30,
+       "to": 32,
+       "truth_gap_px": 8,
+       "visible_missing_px": 5,
+       "occluded_px": 3,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.055385138137417,
+       "both_at_object_ends": false,
+       "turn_deg": 52.81529354676688,
+       "at": [
+        157.4,
+        156.9
+       ],
+       "end1": [
+        158.5,
+        156.5,
+        1
+       ],
+       "end2": [
+        157.5,
+        165.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_var_2to5",
+     "ink": "red",
+     "width": 3.5,
+     "samples": 225,
+     "occluded_share": 0.044444444444444446,
+     "recall_all": 0.28888888888888886,
+     "recall_visible": 0.3023255813953488,
+     "visual_gaps": [
+      {
+       "start": 2,
+       "len": 46
+      },
+      {
+       "start": 52,
+       "len": 34
+      },
+      {
+       "start": 141,
+       "len": 1
+      },
+      {
+       "start": 146,
+       "len": 13
+      },
+      {
+       "start": 165,
+       "len": 19
+      },
+      {
+       "start": 188,
+       "len": 37
+      }
+     ],
+     "objects_on_line": [
+      12.0,
+      15.0,
+      18.0,
+      22.0,
+      34.0,
+      39.0
+     ],
+     "owner_runs": 9,
+     "splits": [
+      {
+       "from": 39,
+       "to": 34,
+       "truth_gap_px": 46,
+       "visible_missing_px": 46,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 49.73932046178355,
+       "both_at_object_ends": true,
+       "turn_deg": 171.08507304285223,
+       "at": [
+        154.5,
+        210.4
+       ],
+       "end1": [
+        156.5,
+        210.5,
+        0
+       ],
+       "end2": [
+        131.5,
+        167.5,
+        0
+       ]
+      },
+      {
+       "from": 34,
+       "to": 15,
+       "truth_gap_px": 34,
+       "visible_missing_px": 34,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 37.656340767525464,
+       "both_at_object_ends": true,
+       "turn_deg": 47.97373108248016,
+       "at": [
+        131.8,
+        165.8
+       ],
+       "end1": [
+        131.5,
+        167.5,
+        0
+       ],
+       "end2": [
+        124.5,
+        130.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 22,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 47.97373108248016,
+       "at": [
+        124.3,
+        130.6
+       ],
+       "end1": [
+        124.5,
+        130.5,
+        1
+       ],
+       "end2": [
+        124.5,
+        129.5,
+        0
+       ]
+      },
+      {
+       "from": 22,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 47.97373108248016,
+       "at": [
+        124.3,
+        129.6
+       ],
+       "end1": [
+        124.5,
+        129.5,
+        0
+       ],
+       "end2": [
+        124.5,
+        130.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 18,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 10.44030650891055,
+       "both_at_object_ends": false,
+       "turn_deg": 107.03776779562568,
+       "at": [
+        125.4,
+        117.6
+       ],
+       "end1": [
+        128.5,
+        106.5,
+        0
+       ],
+       "end2": [
+        125.5,
+        116.5,
+        0
+       ]
+      },
+      {
+       "from": 18,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 10.44030650891055,
+       "both_at_object_ends": false,
+       "turn_deg": 107.03776779562568,
+       "at": [
+        125.6,
+        116.6
+       ],
+       "end1": [
+        125.5,
+        116.5,
+        0
+       ],
+       "end2": [
+        128.5,
+        106.5,
+        0
+       ]
+      },
+      {
+       "from": 15,
+       "to": 12,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 18.058421190664674,
+       "at": [
+        128.1,
+        109.0
+       ],
+       "end1": [
+        128.5,
+        106.5,
+        0
+       ],
+       "end2": [
+        128.5,
+        107.5,
+        1
+       ]
+      },
+      {
+       "from": 12,
+       "to": 18,
+       "truth_gap_px": 43,
+       "visible_missing_px": 33,
+       "occluded_px": 10,
+       "kind": "visual_gap",
+       "endpoint_dist": 37.0,
+       "both_at_object_ends": true,
+       "turn_deg": 134.0530485532266,
+       "at": [
+        152.0,
+        93.0
+       ],
+       "end1": [
+        150.5,
+        92.5,
+        0
+       ],
+       "end2": [
+        138.5,
+        127.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_touch_fill",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 91,
+     "occluded_share": 0.0,
+     "recall_all": 0.34065934065934067,
+     "recall_visible": 0.34065934065934067,
+     "visual_gaps": [
+      {
+       "start": 6,
+       "len": 5
+      },
+      {
+       "start": 12,
+       "len": 13
+      },
+      {
+       "start": 30,
+       "len": 9
+      },
+      {
+       "start": 44,
+       "len": 33
+      }
+     ],
+     "objects_on_line": [
+      10.0,
+      21.0,
+      23.0,
+      28.0,
+      30.0,
+      31.0,
+      32.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 32,
+       "to": 31,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.8284271247461903,
+       "both_at_object_ends": true,
+       "turn_deg": 38.027230713973644,
+       "at": [
+        156.7,
+        165.5
+       ],
+       "end1": [
+        157.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        155.5,
+        163.5,
+        0
+       ]
+      },
+      {
+       "from": 31,
+       "to": 30,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 7.615773105863909,
+       "both_at_object_ends": true,
+       "turn_deg": 89.15747573925947,
+       "at": [
+        156.7,
+        162.5
+       ],
+       "end1": [
+        155.5,
+        163.5,
+        0
+       ],
+       "end2": [
+        158.5,
+        156.5,
+        1
+       ]
+      },
+      {
+       "from": 30,
+       "to": 28,
+       "truth_gap_px": 13,
+       "visible_missing_px": 13,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 16.278820596099706,
+       "both_at_object_ends": true,
+       "turn_deg": 10.304846468765938,
+       "at": [
+        156.5,
+        156.5
+       ],
+       "end1": [
+        158.5,
+        156.5,
+        1
+       ],
+       "end2": [
+        155.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 23,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 45.7994241133174,
+       "at": [
+        156.2,
+        142.5
+       ],
+       "end1": [
+        155.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        154.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 21,
+       "truth_gap_px": 9,
+       "visible_missing_px": 9,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 13.152946437965905,
+       "both_at_object_ends": true,
+       "turn_deg": 36.07047353252659,
+       "at": [
+        156.1,
+        138.5
+       ],
+       "end1": [
+        154.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        156.5,
+        127.5,
+        1
+       ]
+      },
+      {
+       "from": 21,
+       "to": 10,
+       "truth_gap_px": 33,
+       "visible_missing_px": 33,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 38.01315561749642,
+       "both_at_object_ends": false,
+       "turn_deg": 131.26860300083945,
+       "at": [
+        155.7,
+        124.5
+       ],
+       "end1": [
+        156.5,
+        127.5,
+        1
+       ],
+       "end2": [
+        155.5,
+        89.5,
+        1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2002": {
+   "detected_objects": 35,
+   "false_length_px": 103.58704323058585,
+   "detected_length_px": 1293.3505019233876,
+   "objects_spanning_2plus_truth_lines": {
+    "4": [
+     [
+      "red_aa_2",
+      61
+     ],
+     [
+      "black_1",
+      42
+     ]
+    ],
+    "23": [
+     [
+      "black_3",
+      12
+     ],
+     [
+      "black_5",
+      13
+     ]
+    ]
+   },
+   "bands": {
+    "band_green": {
+     "width": 4.0,
+     "detected_length_inside_band": 147.93071330954947,
+     "band_length": 166.77023024392602
+    },
+    "band_yellow": {
+     "width": 5.0,
+     "detected_length_inside_band": 21.46531276031509,
+     "band_length": 181.26096046129598
+    }
+   },
+   "endpoints": 70,
+   "lines": [
+    {
+     "id": "red_aa_2",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 176,
+     "occluded_share": 0.13068181818181818,
+     "recall_all": 0.9147727272727273,
+     "recall_visible": 0.9150326797385621,
+     "visual_gaps": [
+      {
+       "start": 156,
+       "len": 4
+      },
+      {
+       "start": 166,
+       "len": 9
+      }
+     ],
+     "objects_on_line": [
+      4.0,
+      5.0,
+      7.0,
+      19.0,
+      22.0,
+      28.0,
+      29.0,
+      31.0
+     ],
+     "owner_runs": 9,
+     "splits": [
+      {
+       "from": 4,
+       "to": 5,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 39.92492955535426,
+       "both_at_object_ends": false,
+       "turn_deg": 92.24679880015489,
+       "at": [
+        113.0,
+        78.1
+       ],
+       "end1": [
+        128.5,
+        116.5,
+        1
+       ],
+       "end2": [
+        113.5,
+        79.5,
+        1
+       ]
+      },
+      {
+       "from": 5,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 39.92492955535426,
+       "both_at_object_ends": false,
+       "turn_deg": 92.24679880015489,
+       "at": [
+        114.4,
+        79.5
+       ],
+       "end1": [
+        113.5,
+        79.5,
+        1
+       ],
+       "end2": [
+        128.5,
+        116.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 7,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 31.32091952673165,
+       "both_at_object_ends": false,
+       "turn_deg": 7.32640666016951,
+       "at": [
+        118.5,
+        86.3
+       ],
+       "end1": [
+        128.5,
+        116.5,
+        1
+       ],
+       "end2": [
+        119.5,
+        86.5,
+        0
+       ]
+      },
+      {
+       "from": 7,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 30.282918330419868,
+       "at": [
+        109.6,
+        126.7
+       ],
+       "end1": [
+        108.5,
+        126.5,
+        1
+       ],
+       "end2": [
+        108.5,
+        126.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 29,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 40.126103577795305,
+       "at": [
+        106.0,
+        158.0
+       ],
+       "end1": [
+        105.5,
+        157.5,
+        1
+       ],
+       "end2": [
+        107.5,
+        158.5,
+        0
+       ]
+      },
+      {
+       "from": 29,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.0,
+       "both_at_object_ends": false,
+       "turn_deg": 84.28940686250039,
+       "at": [
+        121.0,
+        162.6
+       ],
+       "end1": [
+        121.5,
+        162.5,
+        1
+       ],
+       "end2": [
+        121.5,
+        157.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 31,
+       "truth_gap_px": 6,
+       "visible_missing_px": 4,
+       "occluded_px": 2,
+       "kind": "visual_gap",
+       "endpoint_dist": 11.180339887498949,
+       "both_at_object_ends": false,
+       "turn_deg": 162.47443162627718,
+       "at": [
+        123.0,
+        162.6
+       ],
+       "end1": [
+        121.5,
+        157.5,
+        0
+       ],
+       "end2": [
+        131.5,
+        162.5,
+        0
+       ]
+      },
+      {
+       "from": 31,
+       "to": 22,
+       "truth_gap_px": 9,
+       "visible_missing_px": 9,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 13.152946437965905,
+       "both_at_object_ends": true,
+       "turn_deg": 0.9093804491997711,
+       "at": [
+        133.0,
+        161.8
+       ],
+       "end1": [
+        131.5,
+        162.5,
+        0
+       ],
+       "end2": [
+        144.5,
+        160.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_aa_3",
+     "ink": "red",
+     "width": 3.0,
+     "samples": 276,
+     "occluded_share": 0.14130434782608695,
+     "recall_all": 0.8079710144927537,
+     "recall_visible": 0.869198312236287,
+     "visual_gaps": [
+      {
+       "start": 79,
+       "len": 7
+      },
+      {
+       "start": 89,
+       "len": 3
+      },
+      {
+       "start": 119,
+       "len": 7
+      },
+      {
+       "start": 142,
+       "len": 7
+      },
+      {
+       "start": 158,
+       "len": 3
+      },
+      {
+       "start": 167,
+       "len": 4
+      }
+     ],
+     "objects_on_line": [
+      7.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      16.0,
+      18.0,
+      24.0
+     ],
+     "owner_runs": 9,
+     "splits": [
+      {
+       "from": 24,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 26.90724809414742,
+       "both_at_object_ends": false,
+       "turn_deg": 31.447934692554455,
+       "at": [
+        217.1,
+        140.2
+       ],
+       "end1": [
+        215.5,
+        139.5,
+        0
+       ],
+       "end2": [
+        195.5,
+        157.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 30.4138126514911,
+       "both_at_object_ends": false,
+       "turn_deg": 137.17646434697866,
+       "at": [
+        216.0,
+        137.5
+       ],
+       "end1": [
+        195.5,
+        157.5,
+        1
+       ],
+       "end2": [
+        217.5,
+        136.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 11,
+       "truth_gap_px": 13,
+       "visible_missing_px": 10,
+       "occluded_px": 3,
+       "kind": "visual_gap",
+       "endpoint_dist": 16.1245154965971,
+       "both_at_object_ends": true,
+       "turn_deg": 44.51169552007408,
+       "at": [
+        203.4,
+        120.9
+       ],
+       "end1": [
+        204.5,
+        121.5,
+        0
+       ],
+       "end2": [
+        190.5,
+        113.5,
+        1
+       ]
+      },
+      {
+       "from": 11,
+       "to": 10,
+       "truth_gap_px": 11,
+       "visible_missing_px": 7,
+       "occluded_px": 4,
+       "kind": "visual_gap",
+       "endpoint_dist": 13.038404810405298,
+       "both_at_object_ends": true,
+       "turn_deg": 134.0783015204054,
+       "at": [
+        165.0,
+        112.8
+       ],
+       "end1": [
+        165.5,
+        111.5,
+        0
+       ],
+       "end2": [
+        152.5,
+        112.5,
+        0
+       ]
+      },
+      {
+       "from": 10,
+       "to": 12,
+       "truth_gap_px": 4,
+       "visible_missing_px": 0,
+       "occluded_px": 4,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 7.615773105863909,
+       "both_at_object_ends": true,
+       "turn_deg": 0.18399352138811328,
+       "at": [
+        152.0,
+        114.4
+       ],
+       "end1": [
+        152.5,
+        112.5,
+        0
+       ],
+       "end2": [
+        145.5,
+        115.5,
+        1
+       ]
+      },
+      {
+       "from": 12,
+       "to": 13,
+       "truth_gap_px": 19,
+       "visible_missing_px": 10,
+       "occluded_px": 9,
+       "kind": "visual_gap",
+       "endpoint_dist": 25.019992006393608,
+       "both_at_object_ends": false,
+       "turn_deg": 127.71769590679251,
+       "at": [
+        142.2,
+        116.3
+       ],
+       "end1": [
+        145.5,
+        115.5,
+        1
+       ],
+       "end2": [
+        120.5,
+        116.5,
+        0
+       ]
+      },
+      {
+       "from": 13,
+       "to": 7,
+       "truth_gap_px": 6,
+       "visible_missing_px": 4,
+       "occluded_px": 2,
+       "kind": "visual_gap",
+       "endpoint_dist": 15.620499351813308,
+       "both_at_object_ends": false,
+       "turn_deg": 49.621104161464466,
+       "at": [
+        119.8,
+        122.0
+       ],
+       "end1": [
+        120.5,
+        116.5,
+        0
+       ],
+       "end2": [
+        108.5,
+        126.5,
+        1
+       ]
+      },
+      {
+       "from": 7,
+       "to": 18,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 30.84424355953846,
+       "at": [
+        108.3,
+        125.4
+       ],
+       "end1": [
+        108.5,
+        126.5,
+        1
+       ],
+       "end2": [
+        108.5,
+        126.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_1",
+     "ink": "black",
+     "width": 1.0,
+     "samples": 248,
+     "occluded_share": 0.10887096774193548,
+     "recall_all": 0.9314516129032258,
+     "recall_visible": 0.9728506787330317,
+     "visual_gaps": [
+      {
+       "start": 102,
+       "len": 4
+      },
+      {
+       "start": 111,
+       "len": 2
+      }
+     ],
+     "objects_on_line": [
+      4.0,
+      5.0,
+      7.0,
+      20.0,
+      22.0,
+      25.0,
+      30.0
+     ],
+     "owner_runs": 8,
+     "splits": [
+      {
+       "from": 5,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 39.92492955535426,
+       "both_at_object_ends": false,
+       "turn_deg": 92.24679880015489,
+       "at": [
+        112.5,
+        80.2
+       ],
+       "end1": [
+        113.5,
+        79.5,
+        1
+       ],
+       "end2": [
+        128.5,
+        116.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 7,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 31.32091952673165,
+       "both_at_object_ends": false,
+       "turn_deg": 7.32640666016951,
+       "at": [
+        119.9,
+        85.1
+       ],
+       "end1": [
+        128.5,
+        116.5,
+        1
+       ],
+       "end2": [
+        119.5,
+        86.5,
+        0
+       ]
+      },
+      {
+       "from": 7,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 31.32091952673165,
+       "both_at_object_ends": false,
+       "turn_deg": 7.32640666016951,
+       "at": [
+        120.5,
+        85.9
+       ],
+       "end1": [
+        119.5,
+        86.5,
+        0
+       ],
+       "end2": [
+        128.5,
+        116.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 20,
+       "truth_gap_px": 10,
+       "visible_missing_px": 4,
+       "occluded_px": 6,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 13.0,
+       "both_at_object_ends": true,
+       "turn_deg": 46.6158135226697,
+       "at": [
+        129.9,
+        117.4
+       ],
+       "end1": [
+        128.5,
+        116.5,
+        1
+       ],
+       "end2": [
+        133.5,
+        128.5,
+        0
+       ]
+      },
+      {
+       "from": 20,
+       "to": 25,
+       "truth_gap_px": 7,
+       "visible_missing_px": 2,
+       "occluded_px": 5,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 12.041594578792296,
+       "both_at_object_ends": true,
+       "turn_deg": 108.23940084665121,
+       "at": [
+        133.0,
+        131.1
+       ],
+       "end1": [
+        133.5,
+        128.5,
+        0
+       ],
+       "end2": [
+        134.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 25,
+       "to": 22,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 9.486832980505138,
+       "both_at_object_ends": false,
+       "turn_deg": 165.96375653207346,
+       "at": [
+        140.4,
+        151.8
+       ],
+       "end1": [
+        141.5,
+        151.5,
+        1
+       ],
+       "end2": [
+        144.5,
+        160.5,
+        1
+       ]
+      },
+      {
+       "from": 22,
+       "to": 30,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 22.166345822082306,
+       "at": [
+        144.6,
+        159.8
+       ],
+       "end1": [
+        144.5,
+        160.5,
+        1
+       ],
+       "end2": [
+        144.5,
+        160.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_3",
+     "ink": "black",
+     "width": 3.0,
+     "samples": 199,
+     "occluded_share": 0.20100502512562815,
+     "recall_all": 0.8944723618090452,
+     "recall_visible": 0.9559748427672956,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 1
+      },
+      {
+       "start": 127,
+       "len": 1
+      },
+      {
+       "start": 143,
+       "len": 1
+      },
+      {
+       "start": 156,
+       "len": 4
+      }
+     ],
+     "objects_on_line": [
+      9.0,
+      12.0,
+      14.0,
+      15.0,
+      20.0,
+      23.0,
+      26.0,
+      28.0,
+      32.0,
+      34.0
+     ],
+     "owner_runs": 11,
+     "splits": [
+      {
+       "from": 32,
+       "to": 26,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": false,
+       "turn_deg": 20.121403605545236,
+       "at": [
+        200.1,
+        165.2
+       ],
+       "end1": [
+        200.5,
+        165.5,
+        0
+       ],
+       "end2": [
+        202.5,
+        165.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.830951894845301,
+       "both_at_object_ends": false,
+       "turn_deg": 39.477744461823754,
+       "at": [
+        196.6,
+        156.9
+       ],
+       "end1": [
+        192.5,
+        152.5,
+        0
+       ],
+       "end2": [
+        195.5,
+        157.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 15,
+       "truth_gap_px": 5,
+       "visible_missing_px": 0,
+       "occluded_px": 5,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 11.661903789690601,
+       "both_at_object_ends": false,
+       "turn_deg": 165.21584600739126,
+       "at": [
+        193.9,
+        151.4
+       ],
+       "end1": [
+        195.5,
+        157.5,
+        1
+       ],
+       "end2": [
+        189.5,
+        147.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 14,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 33.244079287865574,
+       "at": [
+        161.7,
+        117.2
+       ],
+       "end1": [
+        161.5,
+        116.5,
+        0
+       ],
+       "end2": [
+        162.5,
+        116.5,
+        1
+       ]
+      },
+      {
+       "from": 14,
+       "to": 12,
+       "truth_gap_px": 7,
+       "visible_missing_px": 0,
+       "occluded_px": 7,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 7.0710678118654755,
+       "both_at_object_ends": false,
+       "turn_deg": 4.296936759508202,
+       "at": [
+        153.8,
+        116.0
+       ],
+       "end1": [
+        150.5,
+        120.5,
+        0
+       ],
+       "end2": [
+        145.5,
+        115.5,
+        1
+       ]
+      },
+      {
+       "from": 12,
+       "to": 20,
+       "truth_gap_px": 3,
+       "visible_missing_px": 1,
+       "occluded_px": 2,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 6.0,
+       "both_at_object_ends": false,
+       "turn_deg": 41.62031621667752,
+       "at": [
+        136.9,
+        123.8
+       ],
+       "end1": [
+        133.5,
+        122.5,
+        0
+       ],
+       "end2": [
+        133.5,
+        128.5,
+        0
+       ]
+      },
+      {
+       "from": 20,
+       "to": 23,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": false,
+       "turn_deg": 42.302194366683565,
+       "at": [
+        127.3,
+        139.0
+       ],
+       "end1": [
+        124.5,
+        139.5,
+        1
+       ],
+       "end2": [
+        124.5,
+        136.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 28,
+       "truth_gap_px": 4,
+       "visible_missing_px": 4,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 4.47213595499958,
+       "both_at_object_ends": false,
+       "turn_deg": 3.0127875041834073,
+       "at": [
+        123.4,
+        151.4
+       ],
+       "end1": [
+        125.5,
+        155.5,
+        1
+       ],
+       "end2": [
+        121.5,
+        157.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 34,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 17.029386365926403,
+       "both_at_object_ends": false,
+       "turn_deg": 92.4895529219991,
+       "at": [
+        120.8,
+        173.3
+       ],
+       "end1": [
+        121.5,
+        157.5,
+        0
+       ],
+       "end2": [
+        120.5,
+        174.5,
+        1
+       ]
+      },
+      {
+       "from": 34,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 17.029386365926403,
+       "both_at_object_ends": false,
+       "turn_deg": 92.4895529219991,
+       "at": [
+        120.8,
+        174.3
+       ],
+       "end1": [
+        120.5,
+        174.5,
+        1
+       ],
+       "end2": [
+        121.5,
+        157.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_5",
+     "ink": "black",
+     "width": 5.0,
+     "samples": 211,
+     "occluded_share": 0.06635071090047394,
+     "recall_all": 0.8341232227488151,
+     "recall_visible": 0.8883248730964467,
+     "visual_gaps": [
+      {
+       "start": 22,
+       "len": 2
+      },
+      {
+       "start": 26,
+       "len": 5
+      },
+      {
+       "start": 68,
+       "len": 4
+      },
+      {
+       "start": 75,
+       "len": 5
+      },
+      {
+       "start": 86,
+       "len": 2
+      },
+      {
+       "start": 92,
+       "len": 3
+      },
+      {
+       "start": 145,
+       "len": 1
+      }
+     ],
+     "objects_on_line": [
+      4.0,
+      9.0,
+      12.0,
+      13.0,
+      15.0,
+      16.0,
+      20.0,
+      21.0,
+      23.0,
+      31.0
+     ],
+     "owner_runs": 12,
+     "splits": [
+      {
+       "from": 31,
+       "to": 23,
+       "truth_gap_px": 9,
+       "visible_missing_px": 7,
+       "occluded_px": 2,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.219544457292887,
+       "both_at_object_ends": false,
+       "turn_deg": 14.512780869539599,
+       "at": [
+        130.4,
+        160.9
+       ],
+       "end1": [
+        131.5,
+        162.5,
+        0
+       ],
+       "end2": [
+        125.5,
+        155.5,
+        1
+       ]
+      },
+      {
+       "from": 23,
+       "to": 20,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": false,
+       "turn_deg": 42.302194366683565,
+       "at": [
+        123.9,
+        140.9
+       ],
+       "end1": [
+        124.5,
+        136.5,
+        0
+       ],
+       "end2": [
+        124.5,
+        139.5,
+        1
+       ]
+      },
+      {
+       "from": 20,
+       "to": 23,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": true,
+       "turn_deg": 42.302194366683565,
+       "at": [
+        123.7,
+        139.9
+       ],
+       "end1": [
+        124.5,
+        139.5,
+        1
+       ],
+       "end2": [
+        124.5,
+        136.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 40.51841178143083,
+       "at": [
+        123.4,
+        138.9
+       ],
+       "end1": [
+        124.5,
+        136.5,
+        0
+       ],
+       "end2": [
+        125.5,
+        138.5,
+        1
+       ]
+      },
+      {
+       "from": 13,
+       "to": 4,
+       "truth_gap_px": 4,
+       "visible_missing_px": 4,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 8.0,
+       "both_at_object_ends": true,
+       "turn_deg": 3.5123318258792904,
+       "at": [
+        122.1,
+        116.8
+       ],
+       "end1": [
+        120.5,
+        116.5,
+        0
+       ],
+       "end2": [
+        128.5,
+        116.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 12,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 7.810249675906654,
+       "both_at_object_ends": true,
+       "turn_deg": 91.7638702606528,
+       "at": [
+        128.7,
+        118.0
+       ],
+       "end1": [
+        128.5,
+        116.5,
+        1
+       ],
+       "end2": [
+        133.5,
+        122.5,
+        0
+       ]
+      },
+      {
+       "from": 12,
+       "to": 21,
+       "truth_gap_px": 13,
+       "visible_missing_px": 5,
+       "occluded_px": 8,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 20.591260281974,
+       "both_at_object_ends": false,
+       "turn_deg": 143.64384105183714,
+       "at": [
+        138.1,
+        123.7
+       ],
+       "end1": [
+        133.5,
+        122.5,
+        0
+       ],
+       "end2": [
+        151.5,
+        132.5,
+        0
+       ]
+      },
+      {
+       "from": 21,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 110.46964492820382,
+       "at": [
+        189.0,
+        148.1
+       ],
+       "end1": [
+        189.5,
+        147.5,
+        1
+       ],
+       "end2": [
+        189.5,
+        147.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 9,
+       "truth_gap_px": 4,
+       "visible_missing_px": 1,
+       "occluded_px": 3,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 11.661903789690601,
+       "both_at_object_ends": false,
+       "turn_deg": 165.21584600739126,
+       "at": [
+        191.0,
+        148.2
+       ],
+       "end1": [
+        189.5,
+        147.5,
+        1
+       ],
+       "end2": [
+        195.5,
+        157.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 30.4138126514911,
+       "both_at_object_ends": false,
+       "turn_deg": 137.17646434697866,
+       "at": [
+        216.8,
+        136.9
+       ],
+       "end1": [
+        195.5,
+        157.5,
+        1
+       ],
+       "end2": [
+        217.5,
+        136.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 30.4138126514911,
+       "both_at_object_ends": false,
+       "turn_deg": 137.17646434697866,
+       "at": [
+        217.5,
+        136.1
+       ],
+       "end1": [
+        217.5,
+        136.5,
+        1
+       ],
+       "end2": [
+        195.5,
+        157.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pale_1",
+     "ink": "pale",
+     "width": 1.0,
+     "samples": 210,
+     "occluded_share": 0.03333333333333333,
+     "recall_all": 0.19047619047619047,
+     "recall_visible": 0.18226600985221675,
+     "visual_gaps": [
+      {
+       "start": 5,
+       "len": 8
+      },
+      {
+       "start": 20,
+       "len": 53
+      },
+      {
+       "start": 79,
+       "len": 11
+      },
+      {
+       "start": 94,
+       "len": 1
+      },
+      {
+       "start": 96,
+       "len": 7
+      },
+      {
+       "start": 107,
+       "len": 5
+      },
+      {
+       "start": 116,
+       "len": 44
+      },
+      {
+       "start": 164,
+       "len": 5
+      },
+      {
+       "start": 174,
+       "len": 17
+      },
+      {
+       "start": 195,
+       "len": 15
+      }
+     ],
+     "objects_on_line": [
+      19.0,
+      22.0,
+      23.0,
+      24.0,
+      26.0,
+      27.0,
+      28.0,
+      29.0,
+      33.0
+     ],
+     "owner_runs": 9,
+     "splits": [
+      {
+       "from": 33,
+       "to": 19,
+       "truth_gap_px": 53,
+       "visible_missing_px": 53,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 83.02409288875127,
+       "both_at_object_ends": false,
+       "turn_deg": 77.66091272167365,
+       "at": [
+        50.7,
+        167.5
+       ],
+       "end1": [
+        23.5,
+        170.5,
+        0
+       ],
+       "end2": [
+        105.5,
+        157.5,
+        1
+       ]
+      },
+      {
+       "from": 19,
+       "to": 29,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 40.126103577795305,
+       "at": [
+        106.4,
+        157.1
+       ],
+       "end1": [
+        105.5,
+        157.5,
+        1
+       ],
+       "end2": [
+        107.5,
+        158.5,
+        0
+       ]
+      },
+      {
+       "from": 29,
+       "to": 28,
+       "truth_gap_px": 11,
+       "visible_missing_px": 11,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 14.035668847618199,
+       "both_at_object_ends": true,
+       "turn_deg": 118.07248693585281,
+       "at": [
+        108.4,
+        157.1
+       ],
+       "end1": [
+        107.5,
+        158.5,
+        0
+       ],
+       "end2": [
+        121.5,
+        157.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 23,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.47213595499958,
+       "both_at_object_ends": true,
+       "turn_deg": 3.0127875041834073,
+       "at": [
+        123.5,
+        157.3
+       ],
+       "end1": [
+        121.5,
+        157.5,
+        0
+       ],
+       "end2": [
+        125.5,
+        155.5,
+        1
+       ]
+      },
+      {
+       "from": 23,
+       "to": 22,
+       "truth_gap_px": 16,
+       "visible_missing_px": 12,
+       "occluded_px": 4,
+       "kind": "visual_gap",
+       "endpoint_dist": 19.6468827043885,
+       "both_at_object_ends": true,
+       "turn_deg": 164.5778386812611,
+       "at": [
+        125.5,
+        157.4
+       ],
+       "end1": [
+        125.5,
+        155.5,
+        1
+       ],
+       "end2": [
+        144.5,
+        160.5,
+        1
+       ]
+      },
+      {
+       "from": 22,
+       "to": 27,
+       "truth_gap_px": 44,
+       "visible_missing_px": 44,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 51.15662224971465,
+       "both_at_object_ends": false,
+       "turn_deg": 45.00000000000026,
+       "at": [
+        145.5,
+        158.5
+       ],
+       "end1": [
+        144.5,
+        160.5,
+        1
+       ],
+       "end2": [
+        195.5,
+        156.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 26,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 11.40175425099138,
+       "both_at_object_ends": false,
+       "turn_deg": 64.13364320590556,
+       "at": [
+        193.5,
+        163.3
+       ],
+       "end1": [
+        195.5,
+        156.5,
+        0
+       ],
+       "end2": [
+        202.5,
+        165.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 24,
+       "truth_gap_px": 17,
+       "visible_missing_px": 17,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 33.83784863137726,
+       "both_at_object_ends": false,
+       "turn_deg": 142.43140797117258,
+       "at": [
+        203.5,
+        164.6
+       ],
+       "end1": [
+        202.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        221.5,
+        193.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_var_2to5",
+     "ink": "red",
+     "width": 3.5,
+     "samples": 296,
+     "occluded_share": 0.0,
+     "recall_all": 0.6925675675675675,
+     "recall_visible": 0.6925675675675675,
+     "visual_gaps": [
+      {
+       "start": 102,
+       "len": 19
+      },
+      {
+       "start": 143,
+       "len": 23
+      },
+      {
+       "start": 168,
+       "len": 31
+      },
+      {
+       "start": 214,
+       "len": 5
+      },
+      {
+       "start": 258,
+       "len": 13
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      3.0,
+      6.0,
+      10.0,
+      22.0,
+      25.0
+     ],
+     "owner_runs": 6,
+     "splits": [
+      {
+       "from": 0,
+       "to": 22,
+       "truth_gap_px": 19,
+       "visible_missing_px": 19,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 21.37755832643195,
+       "both_at_object_ends": false,
+       "turn_deg": 49.93454152576261,
+       "at": [
+        147.9,
+        114.1
+       ],
+       "end1": [
+        147.5,
+        112.5,
+        1
+       ],
+       "end2": [
+        151.5,
+        133.5,
+        0
+       ]
+      },
+      {
+       "from": 22,
+       "to": 25,
+       "truth_gap_px": 23,
+       "visible_missing_px": 23,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 22.360679774997898,
+       "both_at_object_ends": false,
+       "turn_deg": 14.036243467926536,
+       "at": [
+        140.5,
+        153.5
+       ],
+       "end1": [
+        144.5,
+        160.5,
+        1
+       ],
+       "end2": [
+        134.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 25,
+       "to": 10,
+       "truth_gap_px": 31,
+       "visible_missing_px": 31,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 33.28663395418648,
+       "both_at_object_ends": true,
+       "turn_deg": 81.12341507115484,
+       "at": [
+        133.3,
+        139.3
+       ],
+       "end1": [
+        134.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        152.5,
+        112.5,
+        0
+       ]
+      },
+      {
+       "from": 10,
+       "to": 6,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.219544457292887,
+       "both_at_object_ends": true,
+       "turn_deg": 2.334307793605088,
+       "at": [
+        163.9,
+        105.6
+       ],
+       "end1": [
+        162.5,
+        106.5,
+        1
+       ],
+       "end2": [
+        169.5,
+        100.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 3,
+       "truth_gap_px": 13,
+       "visible_missing_px": 13,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 17.4928556845359,
+       "both_at_object_ends": true,
+       "turn_deg": 5.609274446445703,
+       "at": [
+        201.7,
+        83.1
+       ],
+       "end1": [
+        200.5,
+        84.5,
+        0
+       ],
+       "end2": [
+        215.5,
+        75.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_touch_fill",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 90,
+     "occluded_share": 0.0,
+     "recall_all": 0.8222222222222222,
+     "recall_visible": 0.8222222222222222,
+     "visual_gaps": [
+      {
+       "start": 13,
+       "len": 10
+      },
+      {
+       "start": 47,
+       "len": 6
+      }
+     ],
+     "objects_on_line": [
+      8.0,
+      17.0,
+      26.0,
+      27.0
+     ],
+     "owner_runs": 4,
+     "splits": [
+      {
+       "from": 8,
+       "to": 17,
+       "truth_gap_px": 10,
+       "visible_missing_px": 10,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 14.035668847618199,
+       "both_at_object_ends": true,
+       "turn_deg": 8.572998363611243,
+       "at": [
+        195.9,
+        109.5
+       ],
+       "end1": [
+        196.5,
+        108.5,
+        1
+       ],
+       "end2": [
+        195.5,
+        122.5,
+        0
+       ]
+      },
+      {
+       "from": 17,
+       "to": 26,
+       "truth_gap_px": 6,
+       "visible_missing_px": 6,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 10.198039027185569,
+       "both_at_object_ends": true,
+       "turn_deg": 40.43099725493906,
+       "at": [
+        194.0,
+        143.8
+       ],
+       "end1": [
+        194.5,
+        142.5,
+        1
+       ],
+       "end2": [
+        192.5,
+        152.5,
+        0
+       ]
+      },
+      {
+       "from": 26,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.0,
+       "both_at_object_ends": false,
+       "turn_deg": 115.86635679409447,
+       "at": [
+        193.3,
+        155.9
+       ],
+       "end1": [
+        192.5,
+        152.5,
+        0
+       ],
+       "end2": [
+        195.5,
+        156.5,
+        0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2003": {
+   "detected_objects": 39,
+   "false_length_px": 84.46260363132775,
+   "detected_length_px": 1098.3043624713387,
+   "objects_spanning_2plus_truth_lines": {
+    "16": [
+     [
+      "red_aa_3",
+      23
+     ],
+     [
+      "black_5",
+      11
+     ]
+    ],
+    "28": [
+     [
+      "black_3",
+      15
+     ],
+     [
+      "black_5",
+      11
+     ]
+    ]
+   },
+   "bands": {
+    "band_green": {
+     "width": 5.0,
+     "detected_length_inside_band": 20.089057120823647,
+     "band_length": 120.83787752892731
+    },
+    "band_yellow": {
+     "width": 6.0,
+     "detected_length_inside_band": 100.37664550159353,
+     "band_length": 317.1491505012038
+    }
+   },
+   "endpoints": 78,
+   "lines": [
+    {
+     "id": "red_aa_2",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 256,
+     "occluded_share": 0.09375,
+     "recall_all": 0.80859375,
+     "recall_visible": 0.7974137931034483,
+     "visual_gaps": [
+      {
+       "start": 77,
+       "len": 3
+      },
+      {
+       "start": 113,
+       "len": 40
+      },
+      {
+       "start": 252,
+       "len": 4
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      2.0,
+      3.0,
+      4.0,
+      19.0,
+      21.0,
+      31.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 31,
+       "to": 21,
+       "truth_gap_px": 3,
+       "visible_missing_px": 3,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 6.324555320336759,
+       "both_at_object_ends": true,
+       "turn_deg": 8.095449649154212,
+       "at": [
+        94.4,
+        175.0
+       ],
+       "end1": [
+        94.5,
+        176.5,
+        0
+       ],
+       "end2": [
+        96.5,
+        170.5,
+        1
+       ]
+      },
+      {
+       "from": 21,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 9.433981132056603,
+       "both_at_object_ends": false,
+       "turn_deg": 123.83511982245162,
+       "at": [
+        107.8,
+        150.4
+       ],
+       "end1": [
+        106.5,
+        149.5,
+        0
+       ],
+       "end2": [
+        114.5,
+        144.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 3,
+       "truth_gap_px": 42,
+       "visible_missing_px": 40,
+       "occluded_px": 2,
+       "kind": "visual_gap",
+       "endpoint_dist": 47.095647357266465,
+       "both_at_object_ends": false,
+       "turn_deg": 78.06199094574302,
+       "at": [
+        110.6,
+        143.9
+       ],
+       "end1": [
+        114.5,
+        144.5,
+        0
+       ],
+       "end2": [
+        117.5,
+        97.5,
+        1
+       ]
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 7.0710678118654755,
+       "both_at_object_ends": false,
+       "turn_deg": 43.83164248579413,
+       "at": [
+        123.5,
+        98.6
+       ],
+       "end1": [
+        117.5,
+        97.5,
+        1
+       ],
+       "end2": [
+        124.5,
+        98.5,
+        0
+       ]
+      },
+      {
+       "from": 2,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 96.52645152525274,
+       "at": [
+        173.9,
+        86.0
+       ],
+       "end1": [
+        175.5,
+        85.5,
+        1
+       ],
+       "end2": [
+        175.5,
+        87.5,
+        1
+       ]
+      },
+      {
+       "from": 0,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 82.26203584295683,
+       "at": [
+        175.7,
+        86.9
+       ],
+       "end1": [
+        175.5,
+        87.5,
+        1
+       ],
+       "end2": [
+        174.5,
+        87.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_aa_3",
+     "ink": "red",
+     "width": 3.0,
+     "samples": 231,
+     "occluded_share": 0.11255411255411256,
+     "recall_all": 0.9567099567099567,
+     "recall_visible": 0.9853658536585366,
+     "visual_gaps": [
+      {
+       "start": 105,
+       "len": 3
+      }
+     ],
+     "objects_on_line": [
+      16.0,
+      19.0,
+      20.0,
+      24.0,
+      25.0,
+      26.0,
+      27.0,
+      30.0,
+      36.0,
+      37.0
+     ],
+     "owner_runs": 12,
+     "splits": [
+      {
+       "from": 30,
+       "to": 25,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 8.865164931302749,
+       "at": [
+        77.5,
+        174.1
+       ],
+       "end1": [
+        77.5,
+        174.5,
+        0
+       ],
+       "end2": [
+        78.5,
+        174.5,
+        1
+       ]
+      },
+      {
+       "from": 25,
+       "to": 26,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 107.37302530804241,
+       "at": [
+        78.2,
+        173.4
+       ],
+       "end1": [
+        78.5,
+        174.5,
+        1
+       ],
+       "end2": [
+        79.5,
+        172.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 25,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": false,
+       "turn_deg": 107.37302530804241,
+       "at": [
+        79.7,
+        172.1
+       ],
+       "end1": [
+        79.5,
+        172.5,
+        1
+       ],
+       "end2": [
+        78.5,
+        174.5,
+        1
+       ]
+      },
+      {
+       "from": 25,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 9.07197813761679,
+       "at": [
+        96.8,
+        156.6
+       ],
+       "end1": [
+        96.5,
+        155.5,
+        0
+       ],
+       "end2": [
+        97.5,
+        155.5,
+        1
+       ]
+      },
+      {
+       "from": 19,
+       "to": 16,
+       "truth_gap_px": 3,
+       "visible_missing_px": 3,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": true,
+       "turn_deg": 9.399429505161082,
+       "at": [
+        113.9,
+        142.7
+       ],
+       "end1": [
+        114.5,
+        144.5,
+        0
+       ],
+       "end2": [
+        118.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 20,
+       "truth_gap_px": 7,
+       "visible_missing_px": 0,
+       "occluded_px": 7,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 9.848857801796104,
+       "both_at_object_ends": true,
+       "turn_deg": 118.42446770285044,
+       "at": [
+        135.2,
+        144.7
+       ],
+       "end1": [
+        133.5,
+        145.5,
+        1
+       ],
+       "end2": [
+        137.5,
+        154.5,
+        1
+       ]
+      },
+      {
+       "from": 20,
+       "to": 24,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 40.895187225671656,
+       "at": [
+        137.0,
+        153.5
+       ],
+       "end1": [
+        137.5,
+        154.5,
+        1
+       ],
+       "end2": [
+        137.5,
+        154.5,
+        0
+       ]
+      },
+      {
+       "from": 24,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 25.059928172283335,
+       "both_at_object_ends": false,
+       "turn_deg": 82.4904052936781,
+       "at": [
+        136.4,
+        182.5
+       ],
+       "end1": [
+        135.5,
+        193.5,
+        1
+       ],
+       "end2": [
+        157.5,
+        181.5,
+        1
+       ]
+      },
+      {
+       "from": 27,
+       "to": 24,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 25.059928172283335,
+       "both_at_object_ends": false,
+       "turn_deg": 82.4904052936781,
+       "at": [
+        136.3,
+        183.5
+       ],
+       "end1": [
+        157.5,
+        181.5,
+        1
+       ],
+       "end2": [
+        135.5,
+        193.5,
+        1
+       ]
+      },
+      {
+       "from": 24,
+       "to": 36,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 1.8279682443051597,
+       "at": [
+        135.2,
+        193.5
+       ],
+       "end1": [
+        135.5,
+        193.5,
+        1
+       ],
+       "end2": [
+        134.5,
+        193.5,
+        0
+       ]
+      },
+      {
+       "from": 36,
+       "to": 37,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 3.982520571829125,
+       "at": [
+        132.0,
+        216.3
+       ],
+       "end1": [
+        132.5,
+        217.5,
+        1
+       ],
+       "end2": [
+        131.5,
+        217.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_1",
+     "ink": "black",
+     "width": 1.0,
+     "samples": 198,
+     "occluded_share": 0.1414141414141414,
+     "recall_all": 0.9696969696969697,
+     "recall_visible": 0.9823529411764705,
+     "visual_gaps": [
+      {
+       "start": 91,
+       "len": 1
+      },
+      {
+       "start": 141,
+       "len": 2
+      }
+     ],
+     "objects_on_line": [
+      6.0,
+      15.0,
+      28.0,
+      32.0,
+      34.0,
+      35.0,
+      37.0,
+      38.0
+     ],
+     "owner_runs": 8,
+     "splits": [
+      {
+       "from": 38,
+       "to": 37,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": true,
+       "turn_deg": 121.12629731451486,
+       "at": [
+        129.8,
+        220.6
+       ],
+       "end1": [
+        130.5,
+        221.5,
+        1
+       ],
+       "end2": [
+        131.5,
+        217.5,
+        0
+       ]
+      },
+      {
+       "from": 37,
+       "to": 35,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 38.98014873135112,
+       "at": [
+        132.2,
+        218.9
+       ],
+       "end1": [
+        131.5,
+        217.5,
+        0
+       ],
+       "end2": [
+        133.5,
+        217.5,
+        1
+       ]
+      },
+      {
+       "from": 35,
+       "to": 34,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 11.0,
+       "both_at_object_ends": false,
+       "turn_deg": 124.2868769772089,
+       "at": [
+        155.4,
+        191.6
+       ],
+       "end1": [
+        157.5,
+        192.5,
+        0
+       ],
+       "end2": [
+        157.5,
+        181.5,
+        0
+       ]
+      },
+      {
+       "from": 34,
+       "to": 28,
+       "truth_gap_px": 2,
+       "visible_missing_px": 1,
+       "occluded_px": 1,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": false,
+       "turn_deg": 4.398705354995426,
+       "at": [
+        159.2,
+        184.6
+       ],
+       "end1": [
+        157.5,
+        181.5,
+        0
+       ],
+       "end2": [
+        159.5,
+        180.5,
+        1
+       ]
+      },
+      {
+       "from": 28,
+       "to": 32,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 102.30053887899815,
+       "at": [
+        160.5,
+        181.9
+       ],
+       "end1": [
+        159.5,
+        180.5,
+        1
+       ],
+       "end2": [
+        158.5,
+        180.5,
+        0
+       ]
+      },
+      {
+       "from": 32,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.1622776601683795,
+       "both_at_object_ends": false,
+       "turn_deg": 158.21904598565058,
+       "at": [
+        162.7,
+        177.4
+       ],
+       "end1": [
+        158.5,
+        180.5,
+        0
+       ],
+       "end2": [
+        159.5,
+        177.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 6,
+       "truth_gap_px": 2,
+       "visible_missing_px": 2,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": true,
+       "turn_deg": 7.402032218043306,
+       "at": [
+        179.7,
+        137.9
+       ],
+       "end1": [
+        178.5,
+        138.5,
+        0
+       ],
+       "end2": [
+        182.5,
+        134.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_3",
+     "ink": "black",
+     "width": 3.0,
+     "samples": 178,
+     "occluded_share": 0.08426966292134831,
+     "recall_all": 0.9213483146067416,
+     "recall_visible": 0.9263803680981595,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 12
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      2.0,
+      4.0,
+      5.0,
+      18.0,
+      28.0,
+      32.0,
+      34.0
+     ],
+     "owner_runs": 9,
+     "splits": [
+      {
+       "from": 34,
+       "to": 32,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 73.30075576600645,
+       "at": [
+        158.1,
+        181.6
+       ],
+       "end1": [
+        157.5,
+        181.5,
+        0
+       ],
+       "end2": [
+        158.5,
+        180.5,
+        0
+       ]
+      },
+      {
+       "from": 32,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 102.30053887899815,
+       "at": [
+        158.2,
+        179.6
+       ],
+       "end1": [
+        158.5,
+        180.5,
+        0
+       ],
+       "end2": [
+        159.5,
+        180.5,
+        1
+       ]
+      },
+      {
+       "from": 28,
+       "to": 18,
+       "truth_gap_px": 2,
+       "visible_missing_px": 0,
+       "occluded_px": 2,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": false,
+       "turn_deg": 24.145541960421735,
+       "at": [
+        159.5,
+        164.7
+       ],
+       "end1": [
+        156.5,
+        161.5,
+        0
+       ],
+       "end2": [
+        160.5,
+        160.5,
+        1
+       ]
+      },
+      {
+       "from": 18,
+       "to": 5,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 6.2335840509465665,
+       "at": [
+        162.9,
+        140.9
+       ],
+       "end1": [
+        162.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        163.5,
+        139.5,
+        1
+       ]
+      },
+      {
+       "from": 5,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 100.30484646876614,
+       "at": [
+        174.4,
+        88.2
+       ],
+       "end1": [
+        174.5,
+        87.5,
+        0
+       ],
+       "end2": [
+        174.5,
+        87.5,
+        0
+       ]
+      },
+      {
+       "from": 4,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 82.26203584295683,
+       "at": [
+        174.7,
+        87.2
+       ],
+       "end1": [
+        174.5,
+        87.5,
+        0
+       ],
+       "end2": [
+        175.5,
+        87.5,
+        1
+       ]
+      },
+      {
+       "from": 0,
+       "to": 2,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 96.52645152525274,
+       "at": [
+        175.0,
+        86.3
+       ],
+       "end1": [
+        175.5,
+        87.5,
+        1
+       ],
+       "end2": [
+        175.5,
+        85.5,
+        1
+       ]
+      },
+      {
+       "from": 2,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": false,
+       "turn_deg": 96.52645152525274,
+       "at": [
+        175.2,
+        85.3
+       ],
+       "end1": [
+        175.5,
+        85.5,
+        1
+       ],
+       "end2": [
+        175.5,
+        87.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_5",
+     "ink": "black",
+     "width": 5.0,
+     "samples": 139,
+     "occluded_share": 0.03597122302158273,
+     "recall_all": 0.6330935251798561,
+     "recall_visible": 0.6567164179104478,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 15
+      },
+      {
+       "start": 19,
+       "len": 9
+      },
+      {
+       "start": 52,
+       "len": 6
+      },
+      {
+       "start": 69,
+       "len": 5
+      },
+      {
+       "start": 78,
+       "len": 1
+      },
+      {
+       "start": 99,
+       "len": 8
+      },
+      {
+       "start": 111,
+       "len": 1
+      },
+      {
+       "start": 138,
+       "len": 1
+      }
+     ],
+     "objects_on_line": [
+      15.0,
+      16.0,
+      20.0,
+      22.0,
+      23.0,
+      28.0,
+      32.0,
+      33.0
+     ],
+     "owner_runs": 12,
+     "splits": [
+      {
+       "from": 15,
+       "to": 28,
+       "truth_gap_px": 9,
+       "visible_missing_px": 9,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 16.278820596099706,
+       "both_at_object_ends": false,
+       "turn_deg": 69.95475057457912,
+       "at": [
+        168.2,
+        167.2
+       ],
+       "end1": [
+        159.5,
+        177.5,
+        1
+       ],
+       "end2": [
+        156.5,
+        161.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 22,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": true,
+       "turn_deg": 30.963756532073496,
+       "at": [
+        155.5,
+        161.3
+       ],
+       "end1": [
+        156.5,
+        161.5,
+        0
+       ],
+       "end2": [
+        153.5,
+        161.5,
+        1
+       ]
+      },
+      {
+       "from": 22,
+       "to": 23,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.0,
+       "both_at_object_ends": false,
+       "turn_deg": 173.72254824125363,
+       "at": [
+        144.4,
+        154.3
+       ],
+       "end1": [
+        145.5,
+        150.5,
+        0
+       ],
+       "end2": [
+        141.5,
+        153.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 20,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": false,
+       "turn_deg": 61.41824490485934,
+       "at": [
+        142.0,
+        152.6
+       ],
+       "end1": [
+        141.5,
+        153.5,
+        0
+       ],
+       "end2": [
+        137.5,
+        154.5,
+        1
+       ]
+      },
+      {
+       "from": 20,
+       "to": 16,
+       "truth_gap_px": 6,
+       "visible_missing_px": 6,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.848857801796104,
+       "both_at_object_ends": false,
+       "turn_deg": 118.42446770285044,
+       "at": [
+        139.5,
+        150.8
+       ],
+       "end1": [
+        137.5,
+        154.5,
+        1
+       ],
+       "end2": [
+        133.5,
+        145.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 20,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.848857801796104,
+       "both_at_object_ends": false,
+       "turn_deg": 118.42446770285044,
+       "at": [
+        135.3,
+        146.3
+       ],
+       "end1": [
+        133.5,
+        145.5,
+        1
+       ],
+       "end2": [
+        137.5,
+        154.5,
+        1
+       ]
+      },
+      {
+       "from": 20,
+       "to": 22,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 8.94427190999916,
+       "both_at_object_ends": false,
+       "turn_deg": 55.1407931461131,
+       "at": [
+        142.7,
+        151.6
+       ],
+       "end1": [
+        137.5,
+        154.5,
+        1
+       ],
+       "end2": [
+        145.5,
+        150.5,
+        0
+       ]
+      },
+      {
+       "from": 22,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": true,
+       "turn_deg": 30.963756532073496,
+       "at": [
+        154.7,
+        160.6
+       ],
+       "end1": [
+        153.5,
+        161.5,
+        1
+       ],
+       "end2": [
+        156.5,
+        161.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 15,
+       "truth_gap_px": 8,
+       "visible_missing_px": 8,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 16.278820596099706,
+       "both_at_object_ends": false,
+       "turn_deg": 69.95475057457912,
+       "at": [
+        159.5,
+        164.3
+       ],
+       "end1": [
+        156.5,
+        161.5,
+        0
+       ],
+       "end2": [
+        159.5,
+        177.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 32,
+       "truth_gap_px": 6,
+       "visible_missing_px": 1,
+       "occluded_px": 5,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 18.0,
+       "both_at_object_ends": false,
+       "turn_deg": 38.48019824834298,
+       "at": [
+        169.1,
+        171.7
+       ],
+       "end1": [
+        159.5,
+        177.5,
+        1
+       ],
+       "end2": [
+        177.5,
+        177.5,
+        1
+       ]
+      },
+      {
+       "from": 32,
+       "to": 33,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 39.80557109226512,
+       "at": [
+        177.0,
+        177.9
+       ],
+       "end1": [
+        177.5,
+        177.5,
+        1
+       ],
+       "end2": [
+        177.5,
+        177.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pale_1",
+     "ink": "pale",
+     "width": 1.0,
+     "samples": 211,
+     "occluded_share": 0.0,
+     "recall_all": 0.2985781990521327,
+     "recall_visible": 0.2985781990521327,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 12
+      },
+      {
+       "start": 16,
+       "len": 46
+      },
+      {
+       "start": 66,
+       "len": 10
+      },
+      {
+       "start": 96,
+       "len": 21
+      },
+      {
+       "start": 122,
+       "len": 11
+      },
+      {
+       "start": 139,
+       "len": 14
+      },
+      {
+       "start": 157,
+       "len": 15
+      },
+      {
+       "start": 188,
+       "len": 11
+      },
+      {
+       "start": 203,
+       "len": 8
+      }
+     ],
+     "objects_on_line": [
+      5.0,
+      13.0,
+      15.0,
+      16.0,
+      17.0,
+      19.0,
+      25.0,
+      26.0,
+      31.0,
+      38.0
+     ],
+     "owner_runs": 10,
+     "splits": [
+      {
+       "from": 38,
+       "to": 31,
+       "truth_gap_px": 46,
+       "visible_missing_px": 46,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 57.62811813689564,
+       "both_at_object_ends": false,
+       "turn_deg": 152.08308694736266,
+       "at": [
+        112.6,
+        227.4
+       ],
+       "end1": [
+        130.5,
+        221.5,
+        1
+       ],
+       "end2": [
+        94.5,
+        176.5,
+        0
+       ]
+      },
+      {
+       "from": 31,
+       "to": 25,
+       "truth_gap_px": 10,
+       "visible_missing_px": 10,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 16.1245154965971,
+       "both_at_object_ends": false,
+       "turn_deg": 3.7488904056191528,
+       "at": [
+        84.6,
+        185.7
+       ],
+       "end1": [
+        94.5,
+        176.5,
+        0
+       ],
+       "end2": [
+        78.5,
+        174.5,
+        1
+       ]
+      },
+      {
+       "from": 25,
+       "to": 26,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 107.37302530804241,
+       "at": [
+        78.5,
+        173.1
+       ],
+       "end1": [
+        78.5,
+        174.5,
+        1
+       ],
+       "end2": [
+        79.5,
+        172.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 13,
+       "truth_gap_px": 21,
+       "visible_missing_px": 21,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 23.323807579381203,
+       "both_at_object_ends": true,
+       "turn_deg": 42.09343861654072,
+       "at": [
+        77.0,
+        157.4
+       ],
+       "end1": [
+        76.5,
+        158.5,
+        0
+       ],
+       "end2": [
+        96.5,
+        146.5,
+        1
+       ]
+      },
+      {
+       "from": 13,
+       "to": 19,
+       "truth_gap_px": 11,
+       "visible_missing_px": 11,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 18.110770276274835,
+       "both_at_object_ends": false,
+       "turn_deg": 31.541315391384703,
+       "at": [
+        99.0,
+        145.6
+       ],
+       "end1": [
+        96.5,
+        146.5,
+        1
+       ],
+       "end2": [
+        114.5,
+        144.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 16,
+       "truth_gap_px": 14,
+       "visible_missing_px": 14,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 19.026297590440446,
+       "both_at_object_ends": false,
+       "turn_deg": 87.94579527053169,
+       "at": [
+        115.9,
+        143.3
+       ],
+       "end1": [
+        114.5,
+        144.5,
+        0
+       ],
+       "end2": [
+        133.5,
+        145.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 17,
+       "truth_gap_px": 15,
+       "visible_missing_px": 15,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 18.681541692269406,
+       "both_at_object_ends": false,
+       "turn_deg": 72.25532837494319,
+       "at": [
+        134.0,
+        141.8
+       ],
+       "end1": [
+        133.5,
+        145.5,
+        1
+       ],
+       "end2": [
+        151.5,
+        140.5,
+        0
+       ]
+      },
+      {
+       "from": 17,
+       "to": 5,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 78.05582281155381,
+       "at": [
+        162.0,
+        139.7
+       ],
+       "end1": [
+        162.5,
+        140.5,
+        1
+       ],
+       "end2": [
+        163.5,
+        139.5,
+        1
+       ]
+      },
+      {
+       "from": 5,
+       "to": 15,
+       "truth_gap_px": 11,
+       "visible_missing_px": 11,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 15.033296378372908,
+       "both_at_object_ends": true,
+       "turn_deg": 8.953588310392771,
+       "at": [
+        165.0,
+        139.4
+       ],
+       "end1": [
+        163.5,
+        139.5,
+        1
+       ],
+       "end2": [
+        178.5,
+        138.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_var_2to5",
+     "ink": "red",
+     "width": 3.5,
+     "samples": 149,
+     "occluded_share": 0.0,
+     "recall_all": 0.6174496644295302,
+     "recall_visible": 0.6174496644295302,
+     "visual_gaps": [
+      {
+       "start": 70,
+       "len": 57
+      }
+     ],
+     "objects_on_line": [
+      12.0,
+      24.0,
+      27.0,
+      28.0,
+      32.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 27,
+       "to": 24,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 25.059928172283335,
+       "both_at_object_ends": false,
+       "turn_deg": 82.4904052936781,
+       "at": [
+        134.5,
+        183.8
+       ],
+       "end1": [
+        157.5,
+        181.5,
+        1
+       ],
+       "end2": [
+        135.5,
+        193.5,
+        1
+       ]
+      },
+      {
+       "from": 24,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 25.059928172283335,
+       "both_at_object_ends": false,
+       "turn_deg": 82.4904052936781,
+       "at": [
+        136.5,
+        183.9
+       ],
+       "end1": [
+        135.5,
+        193.5,
+        1
+       ],
+       "end2": [
+        157.5,
+        181.5,
+        1
+       ]
+      },
+      {
+       "from": 27,
+       "to": 32,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 12.125322974092711,
+       "at": [
+        157.0,
+        180.2
+       ],
+       "end1": [
+        157.5,
+        181.5,
+        1
+       ],
+       "end2": [
+        158.5,
+        180.5,
+        0
+       ]
+      },
+      {
+       "from": 32,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 102.30053887899815,
+       "at": [
+        158.0,
+        179.9
+       ],
+       "end1": [
+        158.5,
+        180.5,
+        0
+       ],
+       "end2": [
+        159.5,
+        180.5,
+        1
+       ]
+      },
+      {
+       "from": 28,
+       "to": 32,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 102.30053887899815,
+       "at": [
+        159.8,
+        179.2
+       ],
+       "end1": [
+        159.5,
+        180.5,
+        1
+       ],
+       "end2": [
+        158.5,
+        180.5,
+        0
+       ]
+      },
+      {
+       "from": 32,
+       "to": 12,
+       "truth_gap_px": 57,
+       "visible_missing_px": 57,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 52.630789467763066,
+       "both_at_object_ends": false,
+       "turn_deg": 43.15238973400521,
+       "at": [
+        168.1,
+        175.7
+       ],
+       "end1": [
+        177.5,
+        177.5,
+        1
+       ],
+       "end2": [
+        218.5,
+        144.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_touch_fill",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 91,
+     "occluded_share": 0.0,
+     "recall_all": 0.8351648351648352,
+     "recall_visible": 0.8351648351648352,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 1
+      },
+      {
+       "start": 15,
+       "len": 14
+      }
+     ],
+     "objects_on_line": [
+      1.0,
+      2.0,
+      3.0,
+      9.0,
+      10.0
+     ],
+     "owner_runs": 5,
+     "splits": [
+      {
+       "from": 10,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 55.9050220452344,
+       "at": [
+        104.9,
+        120.0
+       ],
+       "end1": [
+        103.5,
+        117.5,
+        0
+       ],
+       "end2": [
+        103.5,
+        119.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 3,
+       "truth_gap_px": 14,
+       "visible_missing_px": 14,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 10.816653826391969,
+       "both_at_object_ends": false,
+       "turn_deg": 128.68998876080775,
+       "at": [
+        111.1,
+        113.5
+       ],
+       "end1": [
+        111.5,
+        106.5,
+        0
+       ],
+       "end2": [
+        117.5,
+        97.5,
+        1
+       ]
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 30.675723300355934,
+       "both_at_object_ends": false,
+       "turn_deg": 107.62229722866813,
+       "at": [
+        146.2,
+        76.5
+       ],
+       "end1": [
+        146.5,
+        75.5,
+        0
+       ],
+       "end2": [
+        175.5,
+        85.5,
+        1
+       ]
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 28.792360097775937,
+       "both_at_object_ends": false,
+       "turn_deg": 69.4039716888516,
+       "at": [
+        147.6,
+        75.0
+       ],
+       "end1": [
+        175.5,
+        85.5,
+        1
+       ],
+       "end2": [
+        148.5,
+        75.5,
+        1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2004": {
+   "detected_objects": 42,
+   "false_length_px": 42.310881859245356,
+   "detected_length_px": 1223.8113745826377,
+   "objects_spanning_2plus_truth_lines": {
+    "17": [
+     [
+      "red_aa_2",
+      12
+     ],
+     [
+      "black_3",
+      22
+     ]
+    ],
+    "28": [
+     [
+      "black_1",
+      13
+     ],
+     [
+      "black_5",
+      24
+     ]
+    ],
+    "11": [
+     [
+      "black_3",
+      13
+     ],
+     [
+      "red_var_2to5",
+      46
+     ]
+    ],
+    "16": [
+     [
+      "black_3",
+      17
+     ],
+     [
+      "red_var_2to5",
+      12
+     ]
+    ],
+    "21": [
+     [
+      "black_3",
+      10
+     ],
+     [
+      "red_var_2to5",
+      12
+     ]
+    ]
+   },
+   "bands": {
+    "band_green": {
+     "width": 3.0,
+     "detected_length_inside_band": 54.7010806230516,
+     "band_length": 243.80214774850484
+    },
+    "band_yellow": {
+     "width": 3.0,
+     "detected_length_inside_band": 62.43048797431477,
+     "band_length": 199.4733030207385
+    }
+   },
+   "endpoints": 84,
+   "lines": [
+    {
+     "id": "red_aa_2",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 277,
+     "occluded_share": 0.1624548736462094,
+     "recall_all": 0.8447653429602888,
+     "recall_visible": 0.9094827586206896,
+     "visual_gaps": [
+      {
+       "start": 32,
+       "len": 3
+      },
+      {
+       "start": 41,
+       "len": 6
+      },
+      {
+       "start": 49,
+       "len": 1
+      },
+      {
+       "start": 87,
+       "len": 6
+      },
+      {
+       "start": 105,
+       "len": 3
+      },
+      {
+       "start": 199,
+       "len": 2
+      }
+     ],
+     "objects_on_line": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      8.0,
+      9.0,
+      10.0,
+      14.0,
+      17.0,
+      20.0,
+      23.0
+     ],
+     "owner_runs": 13,
+     "splits": [
+      {
+       "from": 14,
+       "to": 10,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 15.0,
+       "both_at_object_ends": false,
+       "turn_deg": 106.6992442339936,
+       "at": [
+        59.0,
+        119.4
+       ],
+       "end1": [
+        60.5,
+        118.5,
+        1
+       ],
+       "end2": [
+        60.5,
+        133.5,
+        1
+       ]
+      },
+      {
+       "from": 10,
+       "to": 20,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 11.0,
+       "both_at_object_ends": false,
+       "turn_deg": 78.69006752597981,
+       "at": [
+        61.5,
+        120.9
+       ],
+       "end1": [
+        60.5,
+        133.5,
+        1
+       ],
+       "end2": [
+        60.5,
+        122.5,
+        0
+       ]
+      },
+      {
+       "from": 20,
+       "to": 5,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 10.04987562112089,
+       "both_at_object_ends": false,
+       "turn_deg": 95.59933933652057,
+       "at": [
+        69.5,
+        125.2
+       ],
+       "end1": [
+        70.5,
+        124.5,
+        1
+       ],
+       "end2": [
+        69.5,
+        134.5,
+        1
+       ]
+      },
+      {
+       "from": 5,
+       "to": 8,
+       "truth_gap_px": 4,
+       "visible_missing_px": 3,
+       "occluded_px": 1,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.486832980505138,
+       "both_at_object_ends": false,
+       "turn_deg": 174.28940686250044,
+       "at": [
+        72.2,
+        126.5
+       ],
+       "end1": [
+        69.5,
+        134.5,
+        1
+       ],
+       "end2": [
+        78.5,
+        131.5,
+        1
+       ]
+      },
+      {
+       "from": 8,
+       "to": 23,
+       "truth_gap_px": 22,
+       "visible_missing_px": 7,
+       "occluded_px": 15,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 24.020824298928627,
+       "both_at_object_ends": true,
+       "turn_deg": 66.74291510770672,
+       "at": [
+        80.5,
+        130.0
+       ],
+       "end1": [
+        78.5,
+        131.5,
+        1
+       ],
+       "end2": [
+        102.5,
+        132.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 17,
+       "truth_gap_px": 6,
+       "visible_missing_px": 6,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": false,
+       "turn_deg": 40.838604308500194,
+       "at": [
+        125.3,
+        130.6
+       ],
+       "end1": [
+        125.5,
+        132.5,
+        1
+       ],
+       "end2": [
+        129.5,
+        131.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 9,
+       "truth_gap_px": 9,
+       "visible_missing_px": 3,
+       "occluded_px": 6,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 6.0,
+       "both_at_object_ends": false,
+       "turn_deg": 39.3383148997152,
+       "at": [
+        138.7,
+        118.9
+       ],
+       "end1": [
+        144.5,
+        115.5,
+        0
+       ],
+       "end2": [
+        144.5,
+        109.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 6,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 1.6846843178964963,
+       "at": [
+        141.9,
+        81.5
+       ],
+       "end1": [
+        142.5,
+        81.5,
+        0
+       ],
+       "end2": [
+        140.5,
+        82.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.1622776601683795,
+       "both_at_object_ends": true,
+       "turn_deg": 5.340740590501681,
+       "at": [
+        114.4,
+        50.7
+       ],
+       "end1": [
+        115.5,
+        50.5,
+        0
+       ],
+       "end2": [
+        112.5,
+        49.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 3,
+       "truth_gap_px": 2,
+       "visible_missing_px": 2,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": true,
+       "turn_deg": 12.994616791916542,
+       "at": [
+        102.7,
+        44.9
+       ],
+       "end1": [
+        102.5,
+        46.5,
+        0
+       ],
+       "end2": [
+        98.5,
+        42.5,
+        1
+       ]
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 12.994616791916542,
+       "at": [
+        85.5,
+        39.6
+       ],
+       "end1": [
+        85.5,
+        39.5,
+        0
+       ],
+       "end2": [
+        86.5,
+        38.5,
+        1
+       ]
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 6.044092162241019,
+       "at": [
+        72.7,
+        37.3
+       ],
+       "end1": [
+        70.5,
+        38.5,
+        0
+       ],
+       "end2": [
+        71.5,
+        37.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_aa_3",
+     "ink": "red",
+     "width": 3.0,
+     "samples": 255,
+     "occluded_share": 0.1607843137254902,
+     "recall_all": 0.7058823529411765,
+     "recall_visible": 0.6915887850467289,
+     "visual_gaps": [
+      {
+       "start": 61,
+       "len": 1
+      },
+      {
+       "start": 74,
+       "len": 1
+      },
+      {
+       "start": 138,
+       "len": 12
+      },
+      {
+       "start": 154,
+       "len": 13
+      },
+      {
+       "start": 170,
+       "len": 15
+      },
+      {
+       "start": 190,
+       "len": 19
+      },
+      {
+       "start": 250,
+       "len": 5
+      }
+     ],
+     "objects_on_line": [
+      12.0,
+      15.0,
+      18.0,
+      22.0,
+      24.0,
+      27.0,
+      29.0,
+      31.0,
+      32.0,
+      33.0,
+      34.0,
+      35.0,
+      36.0,
+      37.0,
+      38.0,
+      39.0
+     ],
+     "owner_runs": 16,
+     "splits": [
+      {
+       "from": 12,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": false,
+       "turn_deg": 35.10279362407529,
+       "at": [
+        27.5,
+        114.2
+       ],
+       "end1": [
+        30.5,
+        113.5,
+        1
+       ],
+       "end2": [
+        28.5,
+        113.5,
+        0
+       ]
+      },
+      {
+       "from": 15,
+       "to": 18,
+       "truth_gap_px": 1,
+       "visible_missing_px": 0,
+       "occluded_px": 1,
+       "kind": "seamless",
+       "endpoint_dist": 2.8284271247461903,
+       "both_at_object_ends": false,
+       "turn_deg": 55.918565132620685,
+       "at": [
+        39.0,
+        122.3
+       ],
+       "end1": [
+        41.5,
+        120.5,
+        1
+       ],
+       "end2": [
+        39.5,
+        118.5,
+        0
+       ]
+      },
+      {
+       "from": 18,
+       "to": 22,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 12.041594578792296,
+       "both_at_object_ends": false,
+       "turn_deg": 162.7412431214693,
+       "at": [
+        44.8,
+        126.3
+       ],
+       "end1": [
+        39.5,
+        118.5,
+        0
+       ],
+       "end2": [
+        47.5,
+        127.5,
+        0
+       ]
+      },
+      {
+       "from": 22,
+       "to": 27,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.605551275463989,
+       "both_at_object_ends": true,
+       "turn_deg": 12.094757077011876,
+       "at": [
+        63.6,
+        139.7
+       ],
+       "end1": [
+        62.5,
+        139.5,
+        1
+       ],
+       "end2": [
+        64.5,
+        142.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 29,
+       "truth_gap_px": 2,
+       "visible_missing_px": 1,
+       "occluded_px": 1,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 5.0,
+       "both_at_object_ends": false,
+       "turn_deg": 31.63335187157428,
+       "at": [
+        73.4,
+        146.8
+       ],
+       "end1": [
+        76.5,
+        144.5,
+        1
+       ],
+       "end2": [
+        76.5,
+        149.5,
+        0
+       ]
+      },
+      {
+       "from": 29,
+       "to": 24,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 86.59225066776304,
+       "at": [
+        97.7,
+        164.6
+       ],
+       "end1": [
+        97.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        98.5,
+        165.5,
+        1
+       ]
+      },
+      {
+       "from": 24,
+       "to": 32,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 95.82843281117495,
+       "at": [
+        98.5,
+        165.2
+       ],
+       "end1": [
+        98.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        99.5,
+        165.5,
+        0
+       ]
+      },
+      {
+       "from": 32,
+       "to": 37,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 56.90426571549192,
+       "at": [
+        118.3,
+        180.5
+       ],
+       "end1": [
+        118.5,
+        180.5,
+        1
+       ],
+       "end2": [
+        118.5,
+        180.5,
+        0
+       ]
+      },
+      {
+       "from": 37,
+       "to": 38,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 98.84181456019165,
+       "at": [
+        119.1,
+        181.1
+       ],
+       "end1": [
+        118.5,
+        180.5,
+        0
+       ],
+       "end2": [
+        118.5,
+        182.5,
+        0
+       ]
+      },
+      {
+       "from": 38,
+       "to": 39,
+       "truth_gap_px": 47,
+       "visible_missing_px": 40,
+       "occluded_px": 7,
+       "kind": "visual_gap",
+       "endpoint_dist": 20.518284528683193,
+       "both_at_object_ends": false,
+       "turn_deg": 116.56505117707809,
+       "at": [
+        125.4,
+        186.2
+       ],
+       "end1": [
+        130.5,
+        185.5,
+        1
+       ],
+       "end2": [
+        116.5,
+        200.5,
+        1
+       ]
+      },
+      {
+       "from": 39,
+       "to": 36,
+       "truth_gap_px": 19,
+       "visible_missing_px": 19,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 21.93171219946131,
+       "both_at_object_ends": false,
+       "turn_deg": 104.81941775179008,
+       "at": [
+        113.5,
+        194.6
+       ],
+       "end1": [
+        116.5,
+        200.5,
+        1
+       ],
+       "end2": [
+        101.5,
+        184.5,
+        1
+       ]
+      },
+      {
+       "from": 36,
+       "to": 31,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 105.10109816138545,
+       "at": [
+        83.6,
+        180.4
+       ],
+       "end1": [
+        83.5,
+        179.5,
+        0
+       ],
+       "end2": [
+        83.5,
+        179.5,
+        1
+       ]
+      },
+      {
+       "from": 31,
+       "to": 35,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 9.462322208025574,
+       "at": [
+        82.7,
+        179.9
+       ],
+       "end1": [
+        83.5,
+        179.5,
+        1
+       ],
+       "end2": [
+        81.5,
+        179.5,
+        0
+       ]
+      },
+      {
+       "from": 35,
+       "to": 34,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": false,
+       "turn_deg": 108.18365315571303,
+       "at": [
+        81.8,
+        179.5
+       ],
+       "end1": [
+        81.5,
+        179.5,
+        0
+       ],
+       "end2": [
+        84.5,
+        179.5,
+        1
+       ]
+      },
+      {
+       "from": 34,
+       "to": 33,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": false,
+       "turn_deg": 14.65135857182211,
+       "at": [
+        71.9,
+        174.5
+       ],
+       "end1": [
+        68.5,
+        174.5,
+        0
+       ],
+       "end2": [
+        70.5,
+        174.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_1",
+     "ink": "black",
+     "width": 1.0,
+     "samples": 270,
+     "occluded_share": 0.1111111111111111,
+     "recall_all": 0.9222222222222223,
+     "recall_visible": 0.9708333333333333,
+     "visual_gaps": [
+      {
+       "start": 26,
+       "len": 5
+      },
+      {
+       "start": 35,
+       "len": 2
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      4.0,
+      5.0,
+      27.0,
+      28.0,
+      33.0
+     ],
+     "owner_runs": 6,
+     "splits": [
+      {
+       "from": 33,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 105.35264087770372,
+       "at": [
+        60.5,
+        169.1
+       ],
+       "end1": [
+        59.5,
+        169.5,
+        0
+       ],
+       "end2": [
+        61.5,
+        169.5,
+        1
+       ]
+      },
+      {
+       "from": 28,
+       "to": 27,
+       "truth_gap_px": 11,
+       "visible_missing_px": 5,
+       "occluded_px": 6,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 6.708203932499369,
+       "both_at_object_ends": false,
+       "turn_deg": 104.3399285013424,
+       "at": [
+        65.8,
+        157.3
+       ],
+       "end1": [
+        70.5,
+        145.5,
+        0
+       ],
+       "end2": [
+        64.5,
+        142.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 5,
+       "truth_gap_px": 6,
+       "visible_missing_px": 2,
+       "occluded_px": 4,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 9.433981132056603,
+       "both_at_object_ends": false,
+       "turn_deg": 69.14554196042147,
+       "at": [
+        68.5,
+        142.6
+       ],
+       "end1": [
+        64.5,
+        142.5,
+        0
+       ],
+       "end2": [
+        69.5,
+        134.5,
+        1
+       ]
+      },
+      {
+       "from": 5,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 53.6334198273638,
+       "at": [
+        102.6,
+        48.0
+       ],
+       "end1": [
+        102.5,
+        46.5,
+        0
+       ],
+       "end2": [
+        102.5,
+        46.5,
+        0
+       ]
+      },
+      {
+       "from": 4,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.0,
+       "both_at_object_ends": false,
+       "turn_deg": 130.6012946450044,
+       "at": [
+        105.6,
+        45.3
+       ],
+       "end1": [
+        102.5,
+        46.5,
+        0
+       ],
+       "end2": [
+        106.5,
+        46.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_3",
+     "ink": "black",
+     "width": 3.0,
+     "samples": 261,
+     "occluded_share": 0.09961685823754789,
+     "recall_all": 0.8314176245210728,
+     "recall_visible": 0.8127659574468085,
+     "visual_gaps": [
+      {
+       "start": 167,
+       "len": 16
+      },
+      {
+       "start": 188,
+       "len": 7
+      },
+      {
+       "start": 240,
+       "len": 21
+      }
+     ],
+     "objects_on_line": [
+      9.0,
+      11.0,
+      13.0,
+      16.0,
+      17.0,
+      21.0,
+      23.0,
+      24.0,
+      29.0,
+      31.0,
+      34.0,
+      35.0
+     ],
+     "owner_runs": 12,
+     "splits": [
+      {
+       "from": 35,
+       "to": 34,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": true,
+       "turn_deg": 108.18365315571303,
+       "at": [
+        81.9,
+        180.5
+       ],
+       "end1": [
+        81.5,
+        179.5,
+        0
+       ],
+       "end2": [
+        84.5,
+        179.5,
+        1
+       ]
+      },
+      {
+       "from": 34,
+       "to": 31,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 62.354024636261364,
+       "at": [
+        83.3,
+        179.1
+       ],
+       "end1": [
+        84.5,
+        179.5,
+        1
+       ],
+       "end2": [
+        83.5,
+        179.5,
+        1
+       ]
+      },
+      {
+       "from": 31,
+       "to": 29,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 94.28915332881905,
+       "at": [
+        97.0,
+        165.9
+       ],
+       "end1": [
+        97.5,
+        165.5,
+        0
+       ],
+       "end2": [
+        97.5,
+        165.5,
+        1
+       ]
+      },
+      {
+       "from": 29,
+       "to": 24,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 86.59225066776304,
+       "at": [
+        97.7,
+        165.2
+       ],
+       "end1": [
+        97.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        98.5,
+        165.5,
+        1
+       ]
+      },
+      {
+       "from": 24,
+       "to": 17,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 0.9662062694123218,
+       "at": [
+        130.8,
+        131.8
+       ],
+       "end1": [
+        130.5,
+        132.5,
+        0
+       ],
+       "end2": [
+        129.5,
+        131.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 11,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.0,
+       "both_at_object_ends": true,
+       "turn_deg": 24.717440911083457,
+       "at": [
+        145.4,
+        115.3
+       ],
+       "end1": [
+        144.5,
+        115.5,
+        0
+       ],
+       "end2": [
+        147.5,
+        115.5,
+        1
+       ]
+      },
+      {
+       "from": 11,
+       "to": 9,
+       "truth_gap_px": 16,
+       "visible_missing_px": 16,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 6.708203932499369,
+       "both_at_object_ends": false,
+       "turn_deg": 165.37912601136821,
+       "at": [
+        153.2,
+        105.0
+       ],
+       "end1": [
+        147.5,
+        115.5,
+        1
+       ],
+       "end2": [
+        144.5,
+        109.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 13,
+       "truth_gap_px": 7,
+       "visible_missing_px": 7,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 9.219544457292887,
+       "both_at_object_ends": false,
+       "turn_deg": 44.552385829139354,
+       "at": [
+        143.3,
+        102.8
+       ],
+       "end1": [
+        144.5,
+        109.5,
+        1
+       ],
+       "end2": [
+        135.5,
+        107.5,
+        0
+       ]
+      },
+      {
+       "from": 13,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 9.70665240933949,
+       "at": [
+        126.1,
+        114.8
+       ],
+       "end1": [
+        126.5,
+        115.5,
+        1
+       ],
+       "end2": [
+        125.5,
+        115.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 21,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 9.605204155012922,
+       "at": [
+        112.6,
+        125.2
+       ],
+       "end1": [
+        112.5,
+        125.5,
+        1
+       ],
+       "end2": [
+        112.5,
+        125.5,
+        0
+       ]
+      },
+      {
+       "from": 21,
+       "to": 23,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 138.4598710649326,
+       "at": [
+        104.8,
+        131.5
+       ],
+       "end1": [
+        103.5,
+        130.5,
+        1
+       ],
+       "end2": [
+        102.5,
+        132.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_5",
+     "ink": "black",
+     "width": 5.0,
+     "samples": 217,
+     "occluded_share": 0.02304147465437788,
+     "recall_all": 0.9032258064516129,
+     "recall_visible": 0.9245283018867925,
+     "visual_gaps": [
+      {
+       "start": 59,
+       "len": 4
+      },
+      {
+       "start": 68,
+       "len": 2
+      },
+      {
+       "start": 102,
+       "len": 10
+      }
+     ],
+     "objects_on_line": [
+      7.0,
+      8.0,
+      15.0,
+      18.0,
+      27.0,
+      28.0,
+      33.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 8,
+       "to": 27,
+       "truth_gap_px": 11,
+       "visible_missing_px": 6,
+       "occluded_px": 5,
+       "kind": "visual_gap",
+       "endpoint_dist": 13.152946437965905,
+       "both_at_object_ends": false,
+       "turn_deg": 80.53767779197449,
+       "at": [
+        77.0,
+        131.7
+       ],
+       "end1": [
+        78.5,
+        131.5,
+        1
+       ],
+       "end2": [
+        76.5,
+        144.5,
+        1
+       ]
+      },
+      {
+       "from": 27,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 6.082762530298219,
+       "both_at_object_ends": false,
+       "turn_deg": 111.68744488376123,
+       "at": [
+        71.9,
+        146.9
+       ],
+       "end1": [
+        76.5,
+        144.5,
+        1
+       ],
+       "end2": [
+        70.5,
+        145.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 33,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 105.35264087770372,
+       "at": [
+        62.1,
+        168.8
+       ],
+       "end1": [
+        61.5,
+        169.5,
+        1
+       ],
+       "end2": [
+        59.5,
+        169.5,
+        0
+       ]
+      },
+      {
+       "from": 33,
+       "to": 18,
+       "truth_gap_px": 10,
+       "visible_missing_px": 10,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 8.54400374531753,
+       "both_at_object_ends": true,
+       "turn_deg": 57.707028111440415,
+       "at": [
+        60.1,
+        171.1
+       ],
+       "end1": [
+        59.5,
+        169.5,
+        0
+       ],
+       "end2": [
+        51.5,
+        166.5,
+        1
+       ]
+      },
+      {
+       "from": 18,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.8284271247461903,
+       "both_at_object_ends": false,
+       "turn_deg": 55.918565132620685,
+       "at": [
+        42.2,
+        120.9
+       ],
+       "end1": [
+        39.5,
+        118.5,
+        0
+       ],
+       "end2": [
+        41.5,
+        120.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 7,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 80.5376777919744,
+       "at": [
+        42.1,
+        119.9
+       ],
+       "end1": [
+        41.5,
+        120.5,
+        1
+       ],
+       "end2": [
+        40.5,
+        120.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pale_1",
+     "ink": "pale",
+     "width": 1.0,
+     "samples": 283,
+     "occluded_share": 0.0176678445229682,
+     "recall_all": 0.10954063604240283,
+     "recall_visible": 0.09712230215827339,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 63
+      },
+      {
+       "start": 68,
+       "len": 5
+      },
+      {
+       "start": 84,
+       "len": 5
+      },
+      {
+       "start": 93,
+       "len": 10
+      },
+      {
+       "start": 109,
+       "len": 77
+      },
+      {
+       "start": 192,
+       "len": 91
+      }
+     ],
+     "objects_on_line": [
+      6.0,
+      9.0,
+      25.0,
+      29.0,
+      30.0,
+      33.0,
+      34.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 34,
+       "to": 33,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 14.65135857182211,
+       "at": [
+        68.6,
+        174.9
+       ],
+       "end1": [
+        68.5,
+        174.5,
+        0
+       ],
+       "end2": [
+        70.5,
+        174.5,
+        1
+       ]
+      },
+      {
+       "from": 33,
+       "to": 30,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 7.0710678118654755,
+       "both_at_object_ends": false,
+       "turn_deg": 132.50390226891236,
+       "at": [
+        70.1,
+        172.3
+       ],
+       "end1": [
+        70.5,
+        174.5,
+        1
+       ],
+       "end2": [
+        75.5,
+        169.5,
+        1
+       ]
+      },
+      {
+       "from": 30,
+       "to": 29,
+       "truth_gap_px": 5,
+       "visible_missing_px": 5,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 10.0,
+       "both_at_object_ends": false,
+       "turn_deg": 93.24638524749751,
+       "at": [
+        77.1,
+        158.0
+       ],
+       "end1": [
+        76.5,
+        159.5,
+        0
+       ],
+       "end2": [
+        76.5,
+        149.5,
+        0
+       ]
+      },
+      {
+       "from": 29,
+       "to": 25,
+       "truth_gap_px": 10,
+       "visible_missing_px": 10,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 20.0,
+       "both_at_object_ends": false,
+       "turn_deg": 22.171029663548772,
+       "at": [
+        80.5,
+        149.6
+       ],
+       "end1": [
+        76.5,
+        149.5,
+        0
+       ],
+       "end2": [
+        92.5,
+        137.5,
+        1
+       ]
+      },
+      {
+       "from": 25,
+       "to": 6,
+       "truth_gap_px": 78,
+       "visible_missing_px": 77,
+       "occluded_px": 1,
+       "kind": "visual_gap",
+       "endpoint_dist": 73.0,
+       "both_at_object_ends": false,
+       "turn_deg": 101.30993247401999,
+       "at": [
+        85.9,
+        135.6
+       ],
+       "end1": [
+        92.5,
+        137.5,
+        1
+       ],
+       "end2": [
+        140.5,
+        82.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": true,
+       "turn_deg": 1.6846843178964963,
+       "at": [
+        141.4,
+        82.8
+       ],
+       "end1": [
+        140.5,
+        82.5,
+        1
+       ],
+       "end2": [
+        142.5,
+        81.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_var_2to5",
+     "ink": "red",
+     "width": 3.5,
+     "samples": 168,
+     "occluded_share": 0.0,
+     "recall_all": 0.6666666666666666,
+     "recall_visible": 0.6666666666666666,
+     "visual_gaps": [
+      {
+       "start": 46,
+       "len": 25
+      },
+      {
+       "start": 95,
+       "len": 13
+      },
+      {
+       "start": 119,
+       "len": 18
+      }
+     ],
+     "objects_on_line": [
+      10.0,
+      11.0,
+      16.0,
+      20.0,
+      21.0,
+      25.0
+     ],
+     "owner_runs": 7,
+     "splits": [
+      {
+       "from": 11,
+       "to": 16,
+       "truth_gap_px": 25,
+       "visible_missing_px": 25,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 22.0,
+       "both_at_object_ends": false,
+       "turn_deg": 20.224859431168078,
+       "at": [
+        147.1,
+        110.9
+       ],
+       "end1": [
+        147.5,
+        115.5,
+        1
+       ],
+       "end2": [
+        125.5,
+        115.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 21,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 9.605204155012922,
+       "at": [
+        113.0,
+        125.9
+       ],
+       "end1": [
+        112.5,
+        125.5,
+        1
+       ],
+       "end2": [
+        112.5,
+        125.5,
+        0
+       ]
+      },
+      {
+       "from": 21,
+       "to": 25,
+       "truth_gap_px": 13,
+       "visible_missing_px": 13,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 13.038404810405298,
+       "both_at_object_ends": false,
+       "turn_deg": 18.283044042774105,
+       "at": [
+        102.0,
+        130.7
+       ],
+       "end1": [
+        103.5,
+        130.5,
+        1
+       ],
+       "end2": [
+        92.5,
+        137.5,
+        1
+       ]
+      },
+      {
+       "from": 25,
+       "to": 10,
+       "truth_gap_px": 18,
+       "visible_missing_px": 18,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 18.35755975068582,
+       "both_at_object_ends": false,
+       "turn_deg": 129.80557109226524,
+       "at": [
+        79.1,
+        138.1
+       ],
+       "end1": [
+        76.5,
+        142.5,
+        0
+       ],
+       "end2": [
+        60.5,
+        133.5,
+        1
+       ]
+      },
+      {
+       "from": 10,
+       "to": 20,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 11.0,
+       "both_at_object_ends": false,
+       "turn_deg": 78.69006752597981,
+       "at": [
+        60.6,
+        123.5
+       ],
+       "end1": [
+        60.5,
+        133.5,
+        1
+       ],
+       "end2": [
+        60.5,
+        122.5,
+        0
+       ]
+      },
+      {
+       "from": 20,
+       "to": 10,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 11.0,
+       "both_at_object_ends": false,
+       "turn_deg": 78.69006752597981,
+       "at": [
+        60.6,
+        122.5
+       ],
+       "end1": [
+        60.5,
+        122.5,
+        0
+       ],
+       "end2": [
+        60.5,
+        133.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_touch_fill",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 90,
+     "occluded_share": 0.0,
+     "recall_all": 0.8,
+     "recall_visible": 0.8,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 18
+      }
+     ],
+     "objects_on_line": [
+      19.0,
+      26.0
+     ],
+     "owner_runs": 2,
+     "splits": [
+      {
+       "from": 26,
+       "to": 19,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": true,
+       "turn_deg": 1.3298109162007266,
+       "at": [
+        159.9,
+        139.4
+       ],
+       "end1": [
+        159.5,
+        140.5,
+        0
+       ],
+       "end2": [
+        160.5,
+        136.5,
+        1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2005": {
+   "detected_objects": 33,
+   "false_length_px": 27.137388667070585,
+   "detected_length_px": 1298.548032426581,
+   "objects_spanning_2plus_truth_lines": {
+    "1": [
+     [
+      "red_aa_2",
+      96
+     ],
+     [
+      "pale_1",
+      12
+     ]
+    ],
+    "15": [
+     [
+      "red_aa_2",
+      68
+     ],
+     [
+      "red_aa_3",
+      13
+     ],
+     [
+      "red_var_2to5",
+      18
+     ]
+    ],
+    "16": [
+     [
+      "red_aa_2",
+      21
+     ],
+     [
+      "red_aa_3",
+      10
+     ],
+     [
+      "red_var_2to5",
+      98
+     ]
+    ]
+   },
+   "bands": {
+    "band_green": {
+     "width": 4.0,
+     "detected_length_inside_band": 11.181596237100955,
+     "band_length": 111.69452585570943
+    },
+    "band_yellow": {
+     "width": 4.0,
+     "detected_length_inside_band": 43.86694442552991,
+     "band_length": 183.17697285286823
+    }
+   },
+   "endpoints": 66,
+   "lines": [
+    {
+     "id": "red_aa_2",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 375,
+     "occluded_share": 0.17333333333333334,
+     "recall_all": 0.9706666666666667,
+     "recall_visible": 0.9774193548387097,
+     "visual_gaps": [
+      {
+       "start": 133,
+       "len": 1
+      },
+      {
+       "start": 238,
+       "len": 1
+      },
+      {
+       "start": 370,
+       "len": 5
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      1.0,
+      6.0,
+      11.0,
+      13.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      25.0,
+      27.0,
+      31.0
+     ],
+     "owner_runs": 13,
+     "splits": [
+      {
+       "from": 1,
+       "to": 17,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": true,
+       "turn_deg": 41.987212495816784,
+       "at": [
+        174.7,
+        93.8
+       ],
+       "end1": [
+        175.5,
+        92.5,
+        1
+       ],
+       "end2": [
+        174.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 17,
+       "to": 18,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.605551275463989,
+       "both_at_object_ends": true,
+       "turn_deg": 136.63657704161676,
+       "at": [
+        172.8,
+        96.1
+       ],
+       "end1": [
+        174.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        171.5,
+        98.5,
+        0
+       ]
+      },
+      {
+       "from": 18,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 23.769728648009426,
+       "both_at_object_ends": false,
+       "turn_deg": 45.65403300102176,
+       "at": [
+        154.4,
+        117.3
+       ],
+       "end1": [
+        154.5,
+        116.5,
+        1
+       ],
+       "end2": [
+        145.5,
+        94.5,
+        0
+       ]
+      },
+      {
+       "from": 13,
+       "to": 25,
+       "truth_gap_px": 2,
+       "visible_missing_px": 1,
+       "occluded_px": 1,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 30.805843601498726,
+       "both_at_object_ends": false,
+       "turn_deg": 96.00250348677018,
+       "at": [
+        151.1,
+        121.0
+       ],
+       "end1": [
+        145.5,
+        94.5,
+        0
+       ],
+       "end2": [
+        152.5,
+        124.5,
+        0
+       ]
+      },
+      {
+       "from": 25,
+       "to": 27,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 3.036162871907195,
+       "at": [
+        138.7,
+        135.4
+       ],
+       "end1": [
+        138.5,
+        134.5,
+        1
+       ],
+       "end2": [
+        138.5,
+        136.5,
+        0
+       ]
+      },
+      {
+       "from": 27,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 22.67156809750927,
+       "both_at_object_ends": false,
+       "turn_deg": 141.41820174515033,
+       "at": [
+        110.7,
+        166.8
+       ],
+       "end1": [
+        110.5,
+        165.5,
+        1
+       ],
+       "end2": [
+        93.5,
+        180.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 31,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 19.488668909638957,
+       "at": [
+        95.3,
+        181.1
+       ],
+       "end1": [
+        93.5,
+        180.5,
+        1
+       ],
+       "end2": [
+        94.5,
+        180.5,
+        1
+       ]
+      },
+      {
+       "from": 31,
+       "to": 15,
+       "truth_gap_px": 3,
+       "visible_missing_px": 1,
+       "occluded_px": 2,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 8.06225774829855,
+       "both_at_object_ends": false,
+       "turn_deg": 3.964654722856139,
+       "at": [
+        86.0,
+        168.6
+       ],
+       "end1": [
+        86.5,
+        170.5,
+        0
+       ],
+       "end2": [
+        90.5,
+        177.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 6,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.23606797749979,
+       "both_at_object_ends": false,
+       "turn_deg": 17.969139740156955,
+       "at": [
+        94.4,
+        98.0
+       ],
+       "end1": [
+        97.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        95.5,
+        95.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 11,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 24.08318915758459,
+       "both_at_object_ends": false,
+       "turn_deg": 57.52880770915152,
+       "at": [
+        97.5,
+        72.2
+       ],
+       "end1": [
+        95.5,
+        95.5,
+        1
+       ],
+       "end2": [
+        97.5,
+        71.5,
+        0
+       ]
+      },
+      {
+       "from": 11,
+       "to": 6,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 24.08318915758459,
+       "both_at_object_ends": false,
+       "turn_deg": 57.52880770915152,
+       "at": [
+        97.6,
+        71.2
+       ],
+       "end1": [
+        97.5,
+        71.5,
+        0
+       ],
+       "end2": [
+        95.5,
+        95.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 0,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 12.806248474865697,
+       "both_at_object_ends": false,
+       "turn_deg": 66.40318285279368,
+       "at": [
+        100.7,
+        40.3
+       ],
+       "end1": [
+        102.5,
+        40.5,
+        0
+       ],
+       "end2": [
+        112.5,
+        48.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_aa_3",
+     "ink": "red",
+     "width": 3.0,
+     "samples": 264,
+     "occluded_share": 0.08712121212121213,
+     "recall_all": 0.9128787878787878,
+     "recall_visible": 0.9253112033195021,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 2
+      },
+      {
+       "start": 55,
+       "len": 2
+      },
+      {
+       "start": 95,
+       "len": 2
+      },
+      {
+       "start": 191,
+       "len": 6
+      },
+      {
+       "start": 208,
+       "len": 6
+      }
+     ],
+     "objects_on_line": [
+      14.0,
+      15.0,
+      16.0,
+      19.0,
+      20.0,
+      21.0,
+      24.0,
+      26.0,
+      28.0,
+      31.0,
+      32.0
+     ],
+     "owner_runs": 15,
+     "splits": [
+      {
+       "from": 32,
+       "to": 26,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 73.26575223950135,
+       "at": [
+        78.7,
+        177.1
+       ],
+       "end1": [
+        78.5,
+        177.5,
+        0
+       ],
+       "end2": [
+        78.5,
+        176.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 21,
+       "truth_gap_px": 2,
+       "visible_missing_px": 2,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": true,
+       "turn_deg": 18.325917975437395,
+       "at": [
+        71.0,
+        129.8
+       ],
+       "end1": [
+        69.5,
+        130.5,
+        0
+       ],
+       "end2": [
+        73.5,
+        126.5,
+        1
+       ]
+      },
+      {
+       "from": 21,
+       "to": 15,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 9.433981132056603,
+       "both_at_object_ends": false,
+       "turn_deg": 152.96913974015698,
+       "at": [
+        91.2,
+        104.2
+       ],
+       "end1": [
+        92.5,
+        104.5,
+        0
+       ],
+       "end2": [
+        97.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 15,
+       "to": 16,
+       "truth_gap_px": 4,
+       "visible_missing_px": 2,
+       "occluded_px": 2,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 6.0,
+       "both_at_object_ends": false,
+       "turn_deg": 147.99461679191654,
+       "at": [
+        97.1,
+        100.4
+       ],
+       "end1": [
+        97.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        103.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 14,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 71.56505117707805,
+       "at": [
+        103.4,
+        97.4
+       ],
+       "end1": [
+        103.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        103.5,
+        97.5,
+        0
+       ]
+      },
+      {
+       "from": 14,
+       "to": 19,
+       "truth_gap_px": 1,
+       "visible_missing_px": 0,
+       "occluded_px": 1,
+       "kind": "seamless",
+       "endpoint_dist": 5.0990195135927845,
+       "both_at_object_ends": true,
+       "turn_deg": 130.60129464500443,
+       "at": [
+        122.4,
+        97.9
+       ],
+       "end1": [
+        122.5,
+        96.5,
+        1
+       ],
+       "end2": [
+        123.5,
+        101.5,
+        0
+       ]
+      },
+      {
+       "from": 19,
+       "to": 20,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 138.12213046211573,
+       "at": [
+        124.5,
+        101.3
+       ],
+       "end1": [
+        123.5,
+        101.5,
+        0
+       ],
+       "end2": [
+        124.5,
+        102.5,
+        0
+       ]
+      },
+      {
+       "from": 20,
+       "to": 24,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 13.748172304646936,
+       "at": [
+        119.9,
+        123.3
+       ],
+       "end1": [
+        118.5,
+        123.5,
+        1
+       ],
+       "end2": [
+        118.5,
+        123.5,
+        0
+       ]
+      },
+      {
+       "from": 24,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 39.05124837953327,
+       "both_at_object_ends": false,
+       "turn_deg": 36.86989764584401,
+       "at": [
+        112.3,
+        136.3
+       ],
+       "end1": [
+        112.5,
+        134.5,
+        1
+       ],
+       "end2": [
+        103.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 28,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 38.62641583165593,
+       "both_at_object_ends": false,
+       "turn_deg": 45.198942879360715,
+       "at": [
+        108.3,
+        142.0
+       ],
+       "end1": [
+        93.5,
+        180.5,
+        1
+       ],
+       "end2": [
+        107.5,
+        144.5,
+        0
+       ]
+      },
+      {
+       "from": 28,
+       "to": 15,
+       "truth_gap_px": 8,
+       "visible_missing_px": 6,
+       "occluded_px": 2,
+       "kind": "visual_gap",
+       "endpoint_dist": 21.840329667841555,
+       "both_at_object_ends": false,
+       "turn_deg": 127.18470645323315,
+       "at": [
+        96.0,
+        157.8
+       ],
+       "end1": [
+        96.5,
+        156.5,
+        1
+       ],
+       "end2": [
+        90.5,
+        177.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 31,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 8.06225774829855,
+       "both_at_object_ends": false,
+       "turn_deg": 3.964654722856139,
+       "at": [
+        86.8,
+        168.4
+       ],
+       "end1": [
+        90.5,
+        177.5,
+        1
+       ],
+       "end2": [
+        86.5,
+        170.5,
+        0
+       ]
+      },
+      {
+       "from": 31,
+       "to": 26,
+       "truth_gap_px": 6,
+       "visible_missing_px": 6,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 10.0,
+       "both_at_object_ends": true,
+       "turn_deg": 23.198590513648124,
+       "at": [
+        84.8,
+        170.7
+       ],
+       "end1": [
+        86.5,
+        170.5,
+        0
+       ],
+       "end2": [
+        78.5,
+        176.5,
+        1
+       ]
+      },
+      {
+       "from": 26,
+       "to": 32,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 73.26575223950135,
+       "at": [
+        79.4,
+        176.6
+       ],
+       "end1": [
+        78.5,
+        176.5,
+        1
+       ],
+       "end2": [
+        78.5,
+        177.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_1",
+     "ink": "black",
+     "width": 1.0,
+     "samples": 190,
+     "occluded_share": 0.1736842105263158,
+     "recall_all": 0.9526315789473684,
+     "recall_visible": 1.0,
+     "visual_gaps": [],
+     "objects_on_line": [
+      1.0,
+      3.0,
+      13.0,
+      17.0,
+      30.0
+     ],
+     "owner_runs": 5,
+     "splits": [
+      {
+       "from": 30,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 0.0,
+       "both_at_object_ends": true,
+       "turn_deg": 37.54187240717703,
+       "at": [
+        158.8,
+        159.1
+       ],
+       "end1": [
+        160.5,
+        159.5,
+        0
+       ],
+       "end2": [
+        160.5,
+        159.5,
+        1
+       ]
+      },
+      {
+       "from": 13,
+       "to": 17,
+       "truth_gap_px": 1,
+       "visible_missing_px": 0,
+       "occluded_px": 1,
+       "kind": "seamless",
+       "endpoint_dist": 10.04987562112089,
+       "both_at_object_ends": false,
+       "turn_deg": 139.81355089370658,
+       "at": [
+        161.7,
+        150.6
+       ],
+       "end1": [
+        160.5,
+        159.5,
+        1
+       ],
+       "end2": [
+        159.5,
+        149.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 1,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": true,
+       "turn_deg": 41.987212495816784,
+       "at": [
+        175.4,
+        95.2
+       ],
+       "end1": [
+        174.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        175.5,
+        92.5,
+        1
+       ]
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "truth_gap_px": 8,
+       "visible_missing_px": 0,
+       "occluded_px": 8,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 15.811388300841896,
+       "both_at_object_ends": false,
+       "turn_deg": 158.98628092550382,
+       "at": [
+        177.5,
+        87.5
+       ],
+       "end1": [
+        175.5,
+        92.5,
+        1
+       ],
+       "end2": [
+        180.5,
+        77.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_3",
+     "ink": "black",
+     "width": 3.0,
+     "samples": 185,
+     "occluded_share": 0.10270270270270271,
+     "recall_all": 0.972972972972973,
+     "recall_visible": 0.9698795180722891,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 4
+      },
+      {
+       "start": 123,
+       "len": 1
+      }
+     ],
+     "objects_on_line": [
+      2.0,
+      4.0,
+      5.0,
+      7.0,
+      8.0,
+      9.0
+     ],
+     "owner_runs": 10,
+     "splits": [
+      {
+       "from": 2,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.242640687119285,
+       "both_at_object_ends": true,
+       "turn_deg": 9.574227885091673,
+       "at": [
+        142.9,
+        37.4
+       ],
+       "end1": [
+        144.5,
+        36.5,
+        0
+       ],
+       "end2": [
+        141.5,
+        39.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 5,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 118.00917670801357,
+       "at": [
+        141.7,
+        40.1
+       ],
+       "end1": [
+        141.5,
+        39.5,
+        1
+       ],
+       "end2": [
+        140.5,
+        39.5,
+        0
+       ]
+      },
+      {
+       "from": 5,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.4142135623730951,
+       "both_at_object_ends": true,
+       "turn_deg": 7.9893267663968714,
+       "at": [
+        131.0,
+        58.3
+       ],
+       "end1": [
+        129.5,
+        58.5,
+        1
+       ],
+       "end2": [
+        130.5,
+        59.5,
+        1
+       ]
+      },
+      {
+       "from": 9,
+       "to": 8,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.605551275463989,
+       "both_at_object_ends": true,
+       "turn_deg": 137.70401894873737,
+       "at": [
+        102.4,
+        68.3
+       ],
+       "end1": [
+        100.5,
+        68.5,
+        0
+       ],
+       "end2": [
+        102.5,
+        65.5,
+        0
+       ]
+      },
+      {
+       "from": 8,
+       "to": 7,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 108.29197340314492,
+       "at": [
+        102.9,
+        65.3
+       ],
+       "end1": [
+        102.5,
+        65.5,
+        0
+       ],
+       "end2": [
+        103.5,
+        65.5,
+        1
+       ]
+      },
+      {
+       "from": 7,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.8284271247461903,
+       "both_at_object_ends": true,
+       "turn_deg": 7.761250500115821,
+       "at": [
+        115.7,
+        50.3
+       ],
+       "end1": [
+        115.5,
+        51.5,
+        0
+       ],
+       "end2": [
+        117.5,
+        49.5,
+        0
+       ]
+      },
+      {
+       "from": 4,
+       "to": 5,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 118.00917670801357,
+       "at": [
+        139.3,
+        39.4
+       ],
+       "end1": [
+        141.5,
+        39.5,
+        1
+       ],
+       "end2": [
+        140.5,
+        39.5,
+        0
+       ]
+      },
+      {
+       "from": 5,
+       "to": 4,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 118.00917670801357,
+       "at": [
+        140.2,
+        39.2
+       ],
+       "end1": [
+        140.5,
+        39.5,
+        0
+       ],
+       "end2": [
+        141.5,
+        39.5,
+        1
+       ]
+      },
+      {
+       "from": 4,
+       "to": 2,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.242640687119285,
+       "both_at_object_ends": true,
+       "turn_deg": 9.574227885091673,
+       "at": [
+        142.2,
+        38.6
+       ],
+       "end1": [
+        141.5,
+        39.5,
+        1
+       ],
+       "end2": [
+        144.5,
+        36.5,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "id": "black_5",
+     "ink": "black",
+     "width": 5.0,
+     "samples": 243,
+     "occluded_share": 0.0205761316872428,
+     "recall_all": 0.9835390946502057,
+     "recall_visible": 0.9873949579831933,
+     "visual_gaps": [
+      {
+       "start": 173,
+       "len": 1
+      },
+      {
+       "start": 178,
+       "len": 1
+      },
+      {
+       "start": 183,
+       "len": 1
+      }
+     ],
+     "objects_on_line": [
+      0.0,
+      7.0,
+      8.0,
+      10.0,
+      13.0,
+      17.0,
+      29.0
+     ],
+     "owner_runs": 8,
+     "splits": [
+      {
+       "from": 29,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 1.0,
+       "both_at_object_ends": true,
+       "turn_deg": 19.822464570365238,
+       "at": [
+        161.5,
+        158.3
+       ],
+       "end1": [
+        160.5,
+        158.5,
+        0
+       ],
+       "end2": [
+        160.5,
+        159.5,
+        1
+       ]
+      },
+      {
+       "from": 13,
+       "to": 17,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 10.04987562112089,
+       "both_at_object_ends": false,
+       "turn_deg": 139.81355089370658,
+       "at": [
+        159.5,
+        150.6
+       ],
+       "end1": [
+        160.5,
+        159.5,
+        1
+       ],
+       "end2": [
+        159.5,
+        149.5,
+        1
+       ]
+      },
+      {
+       "from": 17,
+       "to": 13,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 10.04987562112089,
+       "both_at_object_ends": false,
+       "turn_deg": 139.81355089370658,
+       "at": [
+        159.3,
+        149.6
+       ],
+       "end1": [
+        159.5,
+        149.5,
+        1
+       ],
+       "end2": [
+        160.5,
+        159.5,
+        1
+       ]
+      },
+      {
+       "from": 13,
+       "to": 10,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 2.0,
+       "both_at_object_ends": true,
+       "turn_deg": 26.890196009861313,
+       "at": [
+        145.1,
+        97.4
+       ],
+       "end1": [
+        145.5,
+        94.5,
+        0
+       ],
+       "end2": [
+        145.5,
+        96.5,
+        1
+       ]
+      },
+      {
+       "from": 10,
+       "to": 8,
+       "truth_gap_px": 2,
+       "visible_missing_px": 1,
+       "occluded_px": 1,
+       "kind": "occluded_crossing",
+       "endpoint_dist": 5.830951894845301,
+       "both_at_object_ends": true,
+       "turn_deg": 106.05687756369507,
+       "at": [
+        122.3,
+        58.7
+       ],
+       "end1": [
+        122.5,
+        60.5,
+        0
+       ],
+       "end2": [
+        119.5,
+        55.5,
+        1
+       ]
+      },
+      {
+       "from": 8,
+       "to": 7,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.656854249492381,
+       "both_at_object_ends": true,
+       "turn_deg": 153.6959756252874,
+       "at": [
+        118.4,
+        54.1
+       ],
+       "end1": [
+        119.5,
+        55.5,
+        1
+       ],
+       "end2": [
+        115.5,
+        51.5,
+        0
+       ]
+      },
+      {
+       "from": 7,
+       "to": 0,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.242640687119285,
+       "both_at_object_ends": true,
+       "turn_deg": 100.09325037877358,
+       "at": [
+        114.9,
+        50.5
+       ],
+       "end1": [
+        115.5,
+        51.5,
+        0
+       ],
+       "end2": [
+        112.5,
+        48.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pale_1",
+     "ink": "pale",
+     "width": 1.0,
+     "samples": 175,
+     "occluded_share": 0.0,
+     "recall_all": 0.17714285714285713,
+     "recall_visible": 0.17714285714285713,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 35
+      },
+      {
+       "start": 39,
+       "len": 84
+      },
+      {
+       "start": 132,
+       "len": 1
+      },
+      {
+       "start": 140,
+       "len": 9
+      },
+      {
+       "start": 155,
+       "len": 4
+      },
+      {
+       "start": 164,
+       "len": 11
+      }
+     ],
+     "objects_on_line": [
+      1.0,
+      3.0,
+      17.0,
+      29.0
+     ],
+     "owner_runs": 5,
+     "splits": [
+      {
+       "from": 29,
+       "to": 17,
+       "truth_gap_px": 84,
+       "visible_missing_px": 84,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 93.77632963600144,
+       "both_at_object_ends": false,
+       "turn_deg": 103.24051991518715,
+       "at": [
+        197.9,
+        184.7
+       ],
+       "end1": [
+        209.5,
+        183.5,
+        1
+       ],
+       "end2": [
+        174.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 17,
+       "to": 1,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.123105625617661,
+       "both_at_object_ends": true,
+       "turn_deg": 41.987212495816784,
+       "at": [
+        176.3,
+        96.0
+       ],
+       "end1": [
+        174.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        175.5,
+        92.5,
+        1
+       ]
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "truth_gap_px": 9,
+       "visible_missing_px": 9,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 15.811388300841896,
+       "both_at_object_ends": false,
+       "turn_deg": 158.98628092550382,
+       "at": [
+        177.3,
+        88.0
+       ],
+       "end1": [
+        175.5,
+        92.5,
+        1
+       ],
+       "end2": [
+        180.5,
+        77.5,
+        1
+       ]
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "truth_gap_px": 4,
+       "visible_missing_px": 4,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 15.811388300841896,
+       "both_at_object_ends": false,
+       "turn_deg": 158.98628092550382,
+       "at": [
+        183.1,
+        74.6
+       ],
+       "end1": [
+        180.5,
+        77.5,
+        1
+       ],
+       "end2": [
+        175.5,
+        92.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_var_2to5",
+     "ink": "red",
+     "width": 3.5,
+     "samples": 214,
+     "occluded_share": 0.0,
+     "recall_all": 0.8411214953271028,
+     "recall_visible": 0.8411214953271028,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 14
+      },
+      {
+       "start": 30,
+       "len": 8
+      },
+      {
+       "start": 82,
+       "len": 3
+      },
+      {
+       "start": 197,
+       "len": 9
+      }
+     ],
+     "objects_on_line": [
+      6.0,
+      15.0,
+      16.0,
+      19.0,
+      23.0
+     ],
+     "owner_runs": 6,
+     "splits": [
+      {
+       "from": 19,
+       "to": 16,
+       "truth_gap_px": 8,
+       "visible_missing_px": 8,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 17.804493814764857,
+       "both_at_object_ends": false,
+       "turn_deg": 45.0,
+       "at": [
+        114.1,
+        112.0
+       ],
+       "end1": [
+        114.5,
+        110.5,
+        1
+       ],
+       "end2": [
+        103.5,
+        96.5,
+        0
+       ]
+      },
+      {
+       "from": 16,
+       "to": 23,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 27.294688127912362,
+       "both_at_object_ends": false,
+       "turn_deg": 137.38594403038883,
+       "at": [
+        107.2,
+        121.9
+       ],
+       "end1": [
+        103.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        107.5,
+        123.5,
+        0
+       ]
+      },
+      {
+       "from": 23,
+       "to": 15,
+       "truth_gap_px": 3,
+       "visible_missing_px": 3,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 21.02379604162864,
+       "both_at_object_ends": false,
+       "turn_deg": 153.74975763031102,
+       "at": [
+        90.3,
+        158.1
+       ],
+       "end1": [
+        91.5,
+        156.5,
+        1
+       ],
+       "end2": [
+        90.5,
+        177.5,
+        1
+       ]
+      },
+      {
+       "from": 15,
+       "to": 16,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 4.242640687119285,
+       "both_at_object_ends": true,
+       "turn_deg": 81.98576357387243,
+       "at": [
+        91.8,
+        178.5
+       ],
+       "end1": [
+        90.5,
+        177.5,
+        1
+       ],
+       "end2": [
+        93.5,
+        180.5,
+        1
+       ]
+      },
+      {
+       "from": 16,
+       "to": 6,
+       "truth_gap_px": 9,
+       "visible_missing_px": 9,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 8.06225774829855,
+       "both_at_object_ends": false,
+       "turn_deg": 14.036243467926536,
+       "at": [
+        101.7,
+        98.8
+       ],
+       "end1": [
+        103.5,
+        96.5,
+        0
+       ],
+       "end2": [
+        95.5,
+        95.5,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "red_touch_fill",
+     "ink": "red",
+     "width": 2.0,
+     "samples": 90,
+     "occluded_share": 0.0,
+     "recall_all": 0.5222222222222223,
+     "recall_visible": 0.5222222222222223,
+     "visual_gaps": [
+      {
+       "start": 0,
+       "len": 34
+      },
+      {
+       "start": 56,
+       "len": 1
+      },
+      {
+       "start": 75,
+       "len": 1
+      },
+      {
+       "start": 78,
+       "len": 7
+      }
+     ],
+     "objects_on_line": [
+      5.0,
+      6.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0
+     ],
+     "owner_runs": 6,
+     "splits": [
+      {
+       "from": 11,
+       "to": 6,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 24.08318915758459,
+       "both_at_object_ends": false,
+       "turn_deg": 57.52880770915152,
+       "at": [
+        95.5,
+        71.2
+       ],
+       "end1": [
+        97.5,
+        71.5,
+        0
+       ],
+       "end2": [
+        95.5,
+        95.5,
+        1
+       ]
+      },
+      {
+       "from": 6,
+       "to": 9,
+       "truth_gap_px": 0,
+       "visible_missing_px": 0,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 27.459060435491963,
+       "both_at_object_ends": false,
+       "turn_deg": 56.83364530616069,
+       "at": [
+        98.2,
+        69.9
+       ],
+       "end1": [
+        95.5,
+        95.5,
+        1
+       ],
+       "end2": [
+        100.5,
+        68.5,
+        0
+       ]
+      },
+      {
+       "from": 9,
+       "to": 8,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 3.605551275463989,
+       "both_at_object_ends": true,
+       "turn_deg": 137.70401894873737,
+       "at": [
+        101.9,
+        68.2
+       ],
+       "end1": [
+        100.5,
+        68.5,
+        0
+       ],
+       "end2": [
+        102.5,
+        65.5,
+        0
+       ]
+      },
+      {
+       "from": 8,
+       "to": 10,
+       "truth_gap_px": 1,
+       "visible_missing_px": 1,
+       "occluded_px": 0,
+       "kind": "seamless",
+       "endpoint_dist": 5.830951894845301,
+       "both_at_object_ends": false,
+       "turn_deg": 106.05687756369507,
+       "at": [
+        119.4,
+        60.2
+       ],
+       "end1": [
+        119.5,
+        55.5,
+        1
+       ],
+       "end2": [
+        122.5,
+        60.5,
+        0
+       ]
+      },
+      {
+       "from": 10,
+       "to": 5,
+       "truth_gap_px": 7,
+       "visible_missing_px": 7,
+       "occluded_px": 0,
+       "kind": "visual_gap",
+       "endpoint_dist": 7.280109889280518,
+       "both_at_object_ends": true,
+       "turn_deg": 85.13280369571879,
+       "at": [
+        122.1,
+        58.9
+       ],
+       "end1": [
+        122.5,
+        60.5,
+        0
+       ],
+       "end2": [
+        129.5,
+        58.5,
+        1
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "cases": {
+  "pale_1_missed": {
+   "seed": 2001,
+   "line": "pale_1",
+   "zoom_box": [
+    169.8,
+    63.3,
+    217.8,
+    111.3
+   ]
+  },
+  "red_var_2to5": {
+   "seed": 2001,
+   "line": "red_var_2to5",
+   "zoom_box": [
+    100.6,
+    112.6,
+    148.6,
+    160.6
+   ]
+  },
+  "red_touch_fill": {
+   "seed": 2001,
+   "line": "red_touch_fill",
+   "zoom_box": [
+    131.6,
+    96.5,
+    179.6,
+    144.5
+   ]
+  },
+  "band_drawn_as_line": {
+   "seed": 2001,
+   "line": "band_yellow",
+   "zoom_box": [
+    167.7,
+    147.5,
+    215.7,
+    195.5
+   ]
+  },
+  "red_2px_breaks": {
+   "seed": 2004,
+   "line": "red_aa_2",
+   "zoom_box": [
+    102.2,
+    106.2,
+    150.2,
+    154.2
+   ]
+  },
+  "black_1_fragmented": {
+   "seed": 2005,
+   "line": "black_1",
+   "zoom_box": [
+    149.6,
+    84.5,
+    197.6,
+    132.5
+   ]
+  }
+ }
+}

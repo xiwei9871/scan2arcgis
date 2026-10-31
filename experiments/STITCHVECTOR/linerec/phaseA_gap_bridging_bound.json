@@ -1,0 +1,42 @@
+{
+ "black_1": {
+  "visible_recall": 0.966,
+  "if_gaps_le3": 0.976,
+  "if_gaps_le8": 1.0
+ },
+ "black_3": {
+  "visible_recall": 0.923,
+  "if_gaps_le3": 0.933,
+  "if_gaps_le8": 0.954
+ },
+ "black_5": {
+  "visible_recall": 0.87,
+  "if_gaps_le3": 0.891,
+  "if_gaps_le8": 0.937
+ },
+ "red_aa_2": {
+  "visible_recall": 0.897,
+  "if_gaps_le3": 0.914,
+  "if_gaps_le8": 0.939
+ },
+ "red_aa_3": {
+  "visible_recall": 0.842,
+  "if_gaps_le3": 0.857,
+  "if_gaps_le8": 0.893
+ },
+ "red_var_2to5": {
+  "visible_recall": 0.624,
+  "if_gaps_le3": 0.628,
+  "if_gaps_le8": 0.639
+ },
+ "red_touch_fill": {
+  "visible_recall": 0.664,
+  "if_gaps_le3": 0.671,
+  "if_gaps_le8": 0.711
+ },
+ "pale_1": {
+  "visible_recall": 0.229,
+  "if_gaps_le3": 0.235,
+  "if_gaps_le8": 0.285
+ }
+}

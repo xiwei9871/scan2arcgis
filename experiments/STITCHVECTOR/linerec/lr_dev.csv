@@ -1,0 +1,7 @@
+level,seed,true_pairs,predicted_links,correct_or_same_owner,wrong_or_different_owner,uncertain,band_band,impure_or_unassignable
+L1,1101,33,20,19,1,2,2,1
+L1,1102,40,26,25,1,1,3,1
+L1,1103,50,38,38,0,2,1,0
+L2,1001,,9,7,1,1,,1
+L2,1002,,6,4,0,1,,2
+L2,1003,,12,10,1,0,,1

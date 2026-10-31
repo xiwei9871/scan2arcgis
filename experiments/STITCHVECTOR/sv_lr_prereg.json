@@ -1,0 +1,92 @@
+{
+ "title": "StitchVector line recovery Phase C: fragment linking (S2) isolated from detection, then frozen P1 detector + linker. Pushed and remote-verified before test seeds are generated.",
+ "status_after_run": "STITCHVECTOR_LINE_RECOVERY_REVIEW_READY",
+ "question": "Given line fragments, can a label-free linker join the fragments that belong together with very few wrong links, and hold back ambiguous cases as UNCERTAIN instead of guessing?",
+ "phaseA_basis": "docs/research/stitchvector/line_recovery_review.md section 1 (descriptive analysis of frozen P1 test seeds 2001-2005; P1 scores unchanged)",
+ "levels": {
+  "L1": "controlled fragments (sv_lr_bench.scene + cut): known lines are rendered (anti-aliasing, noise sigma 2, JPEG 75), then cut into fragments at crossings with later-drawn lines (occluded gaps) and at 1-3 random visible gaps of 2-16 px where the ink is still in the image. True links = consecutive fragments of one line. Scenes contain shaded red 2/3 px, black 1/3 px, pale 1 px, red 2->5 px, a parallel red pair 5 px apart, two collinear black lines with a real 10 px ink-free gap, a T-junction where a line ends 4 px from another line, a shallow 25 deg black crossing, and two fill-coloured bands also cut into fragments.",
+  "L2": "frozen P1 detector (sv_autoline, 32e8a41) on sv_synth tiles, then the linker; links scored by whether both fragments belong to the same truth line (fragment owner = truth line holding >= 60% of its length within 2 px; fragments following 2+ truth lines over >= 10 px each are unassignable)"
+ },
+ "seeds": {
+  "dev": {
+   "L1": [
+    1101,
+    1102,
+    1103
+   ],
+   "L2": [
+    1001,
+    1002,
+    1003
+   ]
+  },
+  "test": {
+   "L1": [
+    3101,
+    3102,
+    3103,
+    3104,
+    3105
+   ],
+   "L2": [
+    3001,
+    3002,
+    3003,
+    3004,
+    3005
+   ]
+  }
+ },
+ "dev_disclosure": "The linker (sv_linker.py) was written and tuned on dev seeds only (L1 1101-1103, L2 1001-1003, the P1 dev seeds). Changes made after looking at dev scores: r_max 16->24, a stricter angle (25 deg) for gaps > 8 px, frag_col_dE 25->35, occl_dmax 14->24, and touching ends now need bend <= 30 deg and colour dE <= 15. A width_diff change (2.5->1.5) was tried and reverted. Dev L1: 84 links, 82 correct (precision 0.976, recall 0.667). Dev L2: 3-9 links per tile, 1 link per tile between fragments of different truth lines in 2 of 3 tiles. Test seeds 3101-3105 and 3001-3005 were never generated before freeze; P1 test seeds 2001-2005 are not used.",
+ "linker": "sv_linker.link with LK.P (frozen in code and below): end tangents measured 2-10 px back from each end; candidates within r_max with similar colour and width and end angles <= ang_max (<= ang_max_long beyond long_d); image support sampled along a cubic Hermite bridge (ink above c_low of the fragments' colour supports; colour of another nearby fragment is neutral = occluded); bridges with no visible evidence allowed only up to occl_dmax with small angles (INFERRED_OCCLUDED); maximum-weight matching; matches within margin of an alternative are UNCERTAIN; statuses CONFIRMED / INFERRED / INFERRED_OCCLUDED",
+ "params": {
+  "r_max": 24.0,
+  "touch": 1.0,
+  "tan_skip": 2.0,
+  "tan_len": 8.0,
+  "ang_max": 45.0,
+  "ang_max_long": 25.0,
+  "long_d": 8.0,
+  "ang_touch": 30.0,
+  "touch_col_dE": 15.0,
+  "bg_median": 15,
+  "c_low": 6.0,
+  "col_dE": 20.0,
+  "frag_col_dE": 35.0,
+  "width_diff": 2.5,
+  "s_min": 0.7,
+  "occl_r": 6.0,
+  "occl_ang": 25.0,
+  "occl_dmax": 24.0,
+  "w_ang": 1.0,
+  "w_sup": 1.0,
+  "margin": 0.15,
+  "confirm_d": 3.0,
+  "confirm_s": 0.9
+ },
+ "metrics": {
+  "L1": [
+   "precision = correct / predicted links (band-band links reported separately)",
+   "recall = correct / true non-band pairs, split by gap kind (occluded / visible) and length (<= 8 / > 8 px)",
+   "wrong links by kind, in particular must-not cases: parallel pair, real termination, T-junction, band to line",
+   "UNCERTAIN count and how many sit on true pairs",
+   "components per line (1 = fully recovered), impure components (fragments of 2+ lines merged)"
+  ],
+  "L2": [
+   "links, links within one truth line, links across truth lines, unassignable",
+   "P1 recall and objects_covering per line before vs after linking"
+  ]
+ },
+ "reading": {
+  "precision_first": "a wrong link merges two different lines and is worse than a missing link; the linker is useful only if wrong links are rare, recall is secondary",
+  "no_single_pass": "no single pass/fail for the route; numbers are read jointly with the must-not cases"
+ },
+ "stop_rule": "one run on test seeds, <= 10 min CPU; no code or parameter change after the first number",
+ "not_done": [
+  "real samples",
+  "QGIS",
+  "M1/M2/B2/RAG",
+  "sealed pool",
+  "any change to P1/Oracle/D71/POC-01 records"
+ ]
+}
