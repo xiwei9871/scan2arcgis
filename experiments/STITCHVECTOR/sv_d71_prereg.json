@@ -1,0 +1,47 @@
+{
+ "title": "StitchVector 7.1 line/face diagnostic pre-registration (pushed and remote-verified BEFORE the u2 run)",
+ "status_after_run": "STITCHVECTOR_LINE_FACE_DIAGNOSTIC_READY_FOR_REVIEW",
+ "nature": "exploratory sensitivity diagnostic; NOT an upper bound on line/face layering gains; no route decision from a single percentage",
+ "question": "If high-confidence overlay lines are kept as a separate layer, can the colour faces they cut reconnect into fewer, more complete objects without losing real fine structure?",
+ "approved_scope": "design review 1260861 section 7.1 only; 7.2-7.5 not approved",
+ "sample": {"image": "runs/real/u2/work.png (local only)", "crop": "centre 300x300 (offset y240 x711, same as R2)", "labels": "PIL median cut 32 colours, no dither (sv_common.quantize)", "label_files_read": "none"},
+ "disclosure_before_freeze": "Before writing this file I viewed the u2 300x300 crop (3x enlarged) and counted: 8,252 same-colour 4-connected faces, thin_mask share 0.252 (one 8-connected unit holds 99.9% of it), and the 14 most frequent palette entries. No L/P/U classification, fill or face count after fill was run on u2. Parameters were set on synthetic tests (tests/stitchvector/test_sv_d71.py), one of which found a cv2 even-kernel opening leak; a synthetic RGB smoke run (not u2) found that ink classes passed fill_min through wide px at crossings and text, so fill_share was added. Both fixes were made before this freeze.",
+ "method": {
+  "colour_classes": "palette entries used in the crop merged by single linkage at CIE76 dE < merge_dE (anti-aliasing / JPEG shades of one colour become one class); faces are still counted on the 32 labels",
+  "candidates": "per colour class: pixels removed by a binary opening with an open_px x open_px square (i.e. local width < open_px); this replaces thin_mask, which is one connected blob on u2 and cannot be classified unit by unit",
+  "units": "8-connected components of candidates within one colour class",
+  "features_per_unit": ["skeleton length", "mean width = px / skeleton", "elongation = skeleton / width", "branch density = (end+junction skeleton px) / skeleton", "attach_px = unit px 4-adjacent to a wide region of the same colour class", "side_same = share of skeleton px whose side_win x side_win context (non-candidate px) is >= side_px_dom one colour class (needs >= side_min_ctx context px)", "contrast = dE between unit colour class centroid and dominant side class", "fill_colour = the unit's colour class has >= fill_min wide px AND wide px >= fill_share of all its px (ink classes have some wide px at crossings and text)"],
+  "classes": {
+   "P (protected, checked FIRST)": "attach_px >= attach_min OR (elongated AND side_same < side_diff) OR fill_colour",
+   "L_core (high-confidence overlay line)": "not P AND skeleton >= min_skel AND elongation >= elong AND branch <= branch AND side_same >= side_same AND contrast >= contrast_dE",
+   "U (undetermined)": "everything else; never filled",
+   "L_halo": "a U unit whose every pixel lies within one pixel (8-neighbourhood) of L_core; one pass; reported separately and moved with L"
+  },
+  "priority": "P > L > U. A unit meeting both P and L conditions is P. Unclear units are U. No unit is forced into L to raise merging.",
+  "layers": {
+   "line_layer": "L_core + L_halo pixels with their ORIGINAL labels; pixel mask only; INTERMEDIATE, not vectorised",
+   "face_layer": "label image with L pixels replaced by the nearest non-L pixel label (scipy EDT indices); filled pixels are INFERRED, never counted as observed",
+   "composite": "line layer painted over face layer; two variants: exact original labels, and one colour per L unit (its most frequent label)"
+  }
+ },
+ "params": {"merge_dE": 10.0, "open_px": 4, "min_skel": 15, "elong": 10.0, "branch": 0.05, "side_win": 7, "side_px_dom": 0.85, "side_min_ctx": 8, "side_same": 0.8, "side_diff": 0.5, "contrast_dE": 15.0, "attach_min": 2, "fill_min": 200, "fill_share": 0.5},
+ "sensitivity": {"merge_dE": [7.0, 14.0], "open_px": [3, 5], "elong": [7.0, 14.0], "side_same": [0.7, 0.9], "contrast_dE": [10.0, 20.0], "fill_min": [100, 400], "fill_share": [0.3, 0.7]},
+ "sensitivity_rule": "each parameter moved alone to two neighbouring values; values fixed here and not changed after results",
+ "reported": {
+  "A_objects": ["baseline faces (8,252)", "face-layer faces", "after-faces that merge >= 2 baseline faces and how many baseline faces they absorb", "baseline faces lying fully inside L", "faces made only of inferred pixels", "exact sv_arcs face vectors of baseline and face layer (faces, arcs, vertices, mismatch, strict coverage)"],
+  "B_line_layer_cost": ["8-connected L units (candidate logical lines)", "pixel-faithful L polygons (objects, vertices)", "one-colour-per-unit L polygons", "skeleton centreline estimate (chains, vertices at simplify 1 px)", "totals = face layer + line layer for each variant vs baseline"],
+  "C_fidelity": ["composite vs original and vs labels (sv_common.fidelity) split by L_core / P / U / L_halo pixels", "face layer alone (to show the inferred-fill cost; not a success measure)"],
+  "checks": ["composite exact == label image (construction check)", "non-L labels unchanged in face layer (must be 0)", "P pixels unchanged (construction check; does NOT validate the P/L split)"],
+  "visual_review": "30 random units per class L_core / P / U (seed 0) cropped 24x24 at 4x with the unit outlined; manual inspection only, results written as cases, never as a pass rate"
+ },
+ "visual_review": {"per_class": 30, "seed": 0},
+ "interpretation_rules": [
+  "If any L_core sample is a real narrow colour band (a fill colour strip, not an ink line), record the case and DO NOT interpret face-count gains.",
+  "Face-count drop with merged faces being large reconnected regions, construction checks passing and no band in L: line splitting (C3) is a visible fragment source on this crop.",
+  "Small drop with large U: the classifier is the bottleneck; this does not reject layering.",
+  "Small drop with small U and many L: line splitting is not a main fragment source on THIS crop only.",
+  "No claim about final vector object counts: the line layer is a pixel mask here; its vector cost is an estimate."
+ ],
+ "stop_rule": "<= 10 min CPU for the whole run; otherwise report and stop. No re-run with changed parameters in this round.",
+ "not_done": ["13014 or any other sample", "T self-calibration study", "new GIS tools", "M1/M2/B2/RAG", "sealed test pool", "POC-01 records"]
+}
