@@ -1,0 +1,12 @@
+labels,method,faces,line_features,logical_lines,objects_total,vertices_total,gpkg_bytes
+32_tol0,B0,8252,0,0,8252,47756,2416640
+32_tol0,O1,6085,18,11,6103,39738,1998848
+32_tol1,B0,8252,0,0,8252,39357,2134016
+32_tol1,O1,6085,18,11,6103,30372,1679360
+class_tol0,B0,1933,0,0,1933,12924,708608
+class_tol0,O1,831,18,11,849,7341,446464
+class_tol1,B0,1933,0,0,1933,9769,622592
+class_tol1,O1,831,18,11,849,4643,364544
+raw RGB,B1_default,280,0,0,280,23469,
+raw RGB,B1_spline_s1,4754,0,0,4754,29757,
+raw RGB,B1_pixel,5031,0,0,5031,29990,

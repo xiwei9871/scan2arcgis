@@ -1,0 +1,63 @@
+{
+ "B0_32_tol0": {
+  "pink_class_faces_total": 5977,
+  "green_class_faces_total": 317,
+  "faces_le_5px_area": 7668,
+  "faces_total": 8252
+ },
+ "O1_32_tol0": {
+  "pink_class_faces_total": 4948,
+  "green_class_faces_total": 257,
+  "faces_le_5px_area": 5368,
+  "faces_total": 6085
+ },
+ "B0_class_tol0": {
+  "pink_class_faces_total": 53,
+  "green_class_faces_total": 18,
+  "faces_le_5px_area": 1859,
+  "faces_total": 1933
+ },
+ "O1_class_tol0": {
+  "pink_class_faces_total": 25,
+  "green_class_faces_total": 12,
+  "faces_le_5px_area": 771,
+  "faces_total": 831
+ },
+ "non_simple_lines": [
+  "F2t1"
+ ],
+ "pink_class": 3,
+ "green_class": 2,
+ "small_faces_by_distance_to_oracle_lines": {
+  "B0_32_tol0": {
+   "small_faces": 7668,
+   "within_3px_of_oracle_line": 2837,
+   "farther": 4831
+  },
+  "O1_32_tol0": {
+   "small_faces": 5368,
+   "within_3px_of_oracle_line": 614,
+   "farther": 4754
+  },
+  "B0_class_tol0": {
+   "small_faces": 1859,
+   "within_3px_of_oracle_line": 1140,
+   "farther": 719
+  },
+  "O1_class_tol0": {
+   "small_faces": 771,
+   "within_3px_of_oracle_line": 56,
+   "farther": 715
+  }
+ },
+ "line_presence_summary": {
+  "O1": {
+   "mean_present_share": 0.622,
+   "breaks_total": 35
+  },
+  "B0": {
+   "mean_present_share": 0.516,
+   "breaks_total": 54
+  }
+ }
+}
