@@ -1,0 +1,539 @@
+{
+ "title": "Oracle linework for u2 centre 300x300 (crop offset y240 x711). Hand waypoints in crop pixel coordinates (x right, y down).",
+ "how_made": "Waypoints were read by eye from 6x enlarged tiles of the crop with a 10 px grid. Code snaps each waypoint to the lowest-cost pixel within snap_r and joins them with a minimum-cost 8-connected path on a label-free contrast map (dE to a 15x15 median). Checked only with --preview overlays (traces drawn on the image), never with any metric. G1-G3 (faint pale-orange straight lines, contrast ~25 dE) are given as fixed straight traces at the row of minimum brightness measured from row means over x 60-92 (G1 rows 59-61 -> centre 60, G2 156, G3 253): in the first preview the cost path for them jumped toward the much stronger red faults at crossings.",
+ "status": "controlled ideal input for the architecture test; NOT an automatic detector and NOT evidence that automatic line detection works",
+ "lines": [
+  {
+   "id": "A",
+   "kind": "red_line_in_green",
+   "waypoints": [
+    [
+     0,
+     18
+    ],
+    [
+     9,
+     9
+    ],
+    [
+     18,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "B",
+   "kind": "red_line_green_edge",
+   "waypoints": [
+    [
+     40,
+     33
+    ],
+    [
+     46,
+     24
+    ],
+    [
+     53,
+     13
+    ]
+   ]
+  },
+  {
+   "id": "C",
+   "kind": "red_line_in_green",
+   "waypoints": [
+    [
+     0,
+     68
+    ],
+    [
+     12,
+     59
+    ],
+    [
+     29,
+     46
+    ]
+   ]
+  },
+  {
+   "id": "F1",
+   "group": "F1",
+   "kind": "red_fault",
+   "waypoints": [
+    [
+     25,
+     99
+    ],
+    [
+     35,
+     91
+    ],
+    [
+     45,
+     82
+    ],
+    [
+     52,
+     77
+    ],
+    [
+     60,
+     72
+    ],
+    [
+     70,
+     65
+    ],
+    [
+     77,
+     61
+    ],
+    [
+     85,
+     61
+    ],
+    [
+     93,
+     61
+    ]
+   ]
+  },
+  {
+   "id": "F1t1",
+   "group": "F1",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     45,
+     75
+    ],
+    [
+     45,
+     81
+    ],
+    [
+     50,
+     79
+    ]
+   ]
+  },
+  {
+   "id": "F1t2",
+   "group": "F1",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     74,
+     57
+    ],
+    [
+     73,
+     63
+    ],
+    [
+     79,
+     61
+    ]
+   ]
+  },
+  {
+   "id": "F2",
+   "group": "F2",
+   "kind": "red_fault",
+   "waypoints": [
+    [
+     0,
+     157
+    ],
+    [
+     15,
+     147
+    ],
+    [
+     30,
+     136
+    ],
+    [
+     45,
+     127
+    ],
+    [
+     60,
+     118
+    ],
+    [
+     75,
+     109
+    ],
+    [
+     93,
+     101
+    ]
+   ]
+  },
+  {
+   "id": "F2t1",
+   "group": "F2",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     31,
+     128
+    ],
+    [
+     32,
+     134
+    ],
+    [
+     38,
+     131
+    ]
+   ]
+  },
+  {
+   "id": "F2t2",
+   "group": "F2",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     73,
+     102
+    ],
+    [
+     73,
+     108
+    ],
+    [
+     79,
+     106
+    ]
+   ]
+  },
+  {
+   "id": "LOOP",
+   "kind": "red_curve",
+   "waypoints": [
+    [
+     15,
+     186
+    ],
+    [
+     28,
+     177
+    ],
+    [
+     38,
+     175
+    ],
+    [
+     43,
+     177
+    ],
+    [
+     50,
+     184
+    ],
+    [
+     60,
+     192
+    ],
+    [
+     68,
+     199
+    ],
+    [
+     72,
+     207
+    ],
+    [
+     73,
+     218
+    ],
+    [
+     70,
+     227
+    ],
+    [
+     62,
+     230
+    ],
+    [
+     57,
+     231
+    ],
+    [
+     50,
+     238
+    ],
+    [
+     40,
+     250
+    ],
+    [
+     30,
+     258
+    ],
+    [
+     20,
+     266
+    ],
+    [
+     10,
+     271
+    ]
+   ]
+  },
+  {
+   "id": "F3",
+   "group": "F3",
+   "kind": "red_fault",
+   "waypoints": [
+    [
+     93,
+     232
+    ],
+    [
+     88,
+     240
+    ],
+    [
+     80,
+     250
+    ],
+    [
+     70,
+     256
+    ],
+    [
+     60,
+     262
+    ],
+    [
+     50,
+     266
+    ],
+    [
+     43,
+     270
+    ],
+    [
+     37,
+     276
+    ],
+    [
+     30,
+     281
+    ],
+    [
+     20,
+     290
+    ],
+    [
+     10,
+     295
+    ],
+    [
+     0,
+     298
+    ]
+   ]
+  },
+  {
+   "id": "F3t1",
+   "group": "F3",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     81,
+     240
+    ],
+    [
+     84,
+     247
+    ],
+    [
+     89,
+     240
+    ]
+   ]
+  },
+  {
+   "id": "F3t2",
+   "group": "F3",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     30,
+     276
+    ],
+    [
+     31,
+     281
+    ],
+    [
+     36,
+     279
+    ]
+   ]
+  },
+  {
+   "id": "F4",
+   "group": "F4",
+   "kind": "red_fault",
+   "waypoints": [
+    [
+     93,
+     275
+    ],
+    [
+     88,
+     283
+    ],
+    [
+     82,
+     292
+    ],
+    [
+     77,
+     299
+    ]
+   ]
+  },
+  {
+   "id": "F4t1",
+   "group": "F4",
+   "kind": "red_tooth",
+   "closed": true,
+   "waypoints": [
+    [
+     80,
+     286
+    ],
+    [
+     82,
+     292
+    ],
+    [
+     87,
+     287
+    ]
+   ]
+  },
+  {
+   "id": "G1",
+   "kind": "pale_orange_line",
+   "traced": [
+    [
+     0.5,
+     60.5
+    ],
+    [
+     93.5,
+     60.5
+    ]
+   ]
+  },
+  {
+   "id": "G2",
+   "kind": "pale_orange_line",
+   "traced": [
+    [
+     0.5,
+     156.5
+    ],
+    [
+     93.5,
+     156.5
+    ]
+   ]
+  },
+  {
+   "id": "G3",
+   "kind": "pale_orange_line",
+   "traced": [
+    [
+     0.5,
+     253.5
+    ],
+    [
+     93.5,
+     253.5
+    ]
+   ]
+  }
+ ],
+ "protected": [
+  {
+   "id": "PN1",
+   "kind": "green_narrow_lens",
+   "radius": 2.5,
+   "axis": [
+    [
+     40,
+     246
+    ],
+    [
+     48,
+     236
+    ],
+    [
+     55,
+     226
+    ],
+    [
+     64,
+     212
+    ]
+   ]
+  },
+  {
+   "id": "PN2",
+   "kind": "green_grey_narrow_strip",
+   "radius": 2.0,
+   "axis": [
+    [
+     0,
+     170
+    ],
+    [
+     10,
+     160
+    ],
+    [
+     20,
+     153
+    ],
+    [
+     30,
+     149
+    ],
+    [
+     40,
+     143
+    ],
+    [
+     47,
+     138
+    ],
+    [
+     55,
+     130
+    ],
+    [
+     65,
+     121
+    ]
+   ]
+  }
+ ],
+ "not_traced": "black and purple text (C-O, Ar2E, place names, 云), the white circle symbol, red fill wedges (faces, not lines)",
+ "protected_note": "PN1 is a green lens with a grey outline (a narrow colour unit, kept in the face layer). PN2 is the grey-green strip that D71 counted as its single L_core and called 'not a narrow band'; on closer reading it may be the same kind of narrow green unit, so it is protected here (P > L)."
+}

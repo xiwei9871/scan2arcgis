@@ -1,0 +1,39 @@
+{
+ "title": "StitchVector Oracle line/face POC pre-registration (pushed and remote-verified BEFORE any metric is computed)",
+ "status_after_run": "STITCHVECTOR_ORACLE_LINE_FACE_READY_FOR_REVIEW",
+ "question": "If the visually continuous lines are correctly traced as vector paths and separated from the colour faces below, does the GIS editing workload drop while visual information is kept?",
+ "not_tested": "automatic line detection (D71 showed it is hard); the oracle is a controlled ideal input",
+ "sample": {"image": "runs/real/u2/work.png (local)", "crop": "centre 300x300, offset y240 x711 (same as R2 and D71)", "labels": "PIL median cut 32 colours (sv_common.quantize)", "map_area_note": "only columns 0-94 of the crop hold map content; columns 95-299 are white page. All counts include the white page as one face; nothing is re-cropped.", "official_labels": "not read"},
+ "oracle": {"file": "oracle/u2_300_oracle.json", "made": "hand waypoints read from enlarged tiles, snapped by minimum-cost path on a label-free contrast map; only checked by preview overlays before freeze (two previews; G1-G3 changed to fixed straight traces after the first). No metric of any kind was computed on u2 before this freeze.", "coverage": ["red lines inside one colour (A, C)", "red line on a green/pink edge (B)", "anti-aliased red faults with teeth (F1-F4)", "curved red line with a bend (LOOP)", "pale orange straight lines (G1-G3)", "two protected narrow green units (PN1, PN2)"], "missing_in_sample": ["black ink lines", "a line crossing two DIFFERENT fill colours over a long distance", "dense contours"]},
+ "methods": {
+  "B0": "label image -> sv_arcs single pass (shared arc network, strict coverage). No line layer.",
+  "B1": "existing R1 VTracer outputs on raw RGB (default, spline_s1, pixel), the same 300x300 window clipped from the R1 1000x780 window (offset_in_r1_window_yx) and rendered by the R1 rule. Not re-run.",
+  "O1": "oracle traces smoothed (moving average, smooth_win points, endpoints fixed; not for fixed straight traces) then simplified at eps_geom -> visual_lines (LineString, width_px, rgb from the original). Footprint = buffer(width/2) + halo removed from the label image except protected areas; removed pixels get the nearest remaining label (INFERRED); faces by sv_arcs at the same tolerance as B0. Composite = faces then lines (pixel-centre rasterisation of buffer(width/2))."
+ },
+ "configs": [["32", 0], ["32", 1], ["class", 0], ["class", 1]],
+ "configs_note": "labels '32' = the 32-colour label image (same as B0/R2/D71); 'class' = palette entries merged at dE<10 (9 classes on u2, same rule as D71) to show layering with fewer colour shades. tol = sv_arcs per-arc simplification in px (0 exact, 1 = coarse grade, method H-M). B0 and O1 are compared only within the same config.",
+ "primary": "32_tol0",
+ "B1": {"configs": ["default", "spline_s1", "pixel"], "offset_in_r1_window_yx": [240, 350], "comparison_rule": "B1 is raw-RGB VTracer: compare its vs_original numbers and object counts as a reference curve only, never as a same-input baseline"},
+ "params": {"bg_median": 15, "snap_r": 3, "smooth_win": 5, "eps_geom": 1.0, "halo": 1.0, "corridor": 3.0, "c_ink": 12.0, "w_min": 1.0, "w_max": 6.0, "r_min": 0.71, "merge_dE": 10.0, "frag_dE": 15.0},
+ "pre_freeze_fixes": "found on synthetic images only (tests/stitchvector/test_sv_oracle.py and width checks with drawn 1/2/3/5 px lines), before any u2 metric: (1) 8-connected traces gave staircase vertices -> moving-average smoothing (smooth_win 5); (2) width from all ink in the corridor over-estimated anti-aliased lines -> width = contrast pixels above half of the near-line 90th percentile (FWHM-like); (3) a 9x9 median background takes the colour of lines >= 3 px wide (contrast 0) -> 15x15. Measured on drawn lines (estimated / drawn): 1->1.0, 2->3.0, 3->3.9, 5->4.6 px. G1-G3 were changed to fixed straight traces after the first preview (see oracle how_made).",
+ "T_thin_vs_eps_geom": "eps_geom (1 px) is the line path fitting error; there is no T_thin in this POC (the oracle replaces detection); face tolerance tol is separate again",
+ "metrics": {
+  "A_fidelity": ["dE50/dE90 and exact share vs ORIGINAL and vs the 32-colour image, whole crop and split into line core / removed / protected / rest pixels", "per line: footprint width, estimated width, share of the line's ink pixels covered, share of footprint on ink, distance of ink skeleton to the vector line (mean, p95), Hausdorff to the raw trace", "per line presence along the oracle trace: share of trace pixels whose rendered colour is within frag_dE of the original, number of breaks (>= 2 consecutive misses), for B0, O1 and each B1", "protected pixels: label unchanged share in the face layer; face layer alone shown only as the inferred-fill cost"],
+  "B_complexity": ["faces, arcs, face arc vertices, line features, logical lines, total objects, total vertices, GPKG bytes, build and write seconds, readback seconds", "fragmentation: for the largest connected region of each major colour class, how many faces of that class lie inside it (B0 vs O1)"],
+  "C_edit_tasks": {
+   "C1": "move logical line F2 by dy=+3 px. O1: count features / logical objects / face polygons touched, check line is simple. B0 proxy: move the same pixels in the label image, re-polygonise, count polygons changed or created.",
+   "C2": "recolour the pink background face (rgb 255,222,236 class): O1 vs B0 number of faces of that class inside its largest region = objects to recolour.",
+   "C3": "move the longest shared arc between the green and pink classes by 1 px: shared-arc rebuild (topology checked) vs editing only one Simple Features polygon (gap and overlap area). Topology-preserving editing of a GPKG in QGIS is NOT_VERIFIED (QGIS not installed)."
+  },
+  "readback": "every O1 GPKG is read back and re-rendered; pixels differing from the in-memory composite and uncovered pixels are reported"
+ },
+ "edit_tasks": {"C1_group": "F2", "C1_dy": 3, "C2_class_rgb": [255, 222, 236], "C3_classes_rgb": [[211, 229, 161], [255, 222, 236]], "C3_shift": 1},
+ "outcomes": {
+  "A_clear_improvement": "within the primary config: O1 total objects and the edit counts of C1/C2 well below B0; fragmentation of the pink and green regions drops; line presence and colour error on non-line pixels not worse than B0; protected pixels unchanged. Judged jointly from the reported numbers, no single cut-off.",
+  "B_limited": "even with correct lines the face layer stays fragmented (faces of the pink/green class inside their region stay in the same order of magnitude as B0) or total vertices / edit counts barely change",
+  "C_structural_error": "correct lines still cause wrong merges, protected strips swallowed (protected label unchanged share < 1), invalid coverage, readback mismatches, or broken lines"
+ },
+ "stop_rule": "<= 10 min CPU for the full run; one run; no parameter or oracle change after the first metric is printed. If the oracle file must change after freeze, the change is a new commit, reported, and the earlier result kept.",
+ "binary_artifacts": "PNG and GPKG are blocked by the pre-push hook. They stay in runs/stitchvector/oracle_u2_300/ (local); the report lists SHA-256 and the reproduce command. The hook is not bypassed.",
+ "not_done": ["new automatic line detector", "13014 or other samples", "T self-calibration", "QGIS install", "M1/M2/B2/RAG", "sealed test pool", "POC-01 / D71 history"]
+}
