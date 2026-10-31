@@ -1,0 +1,67 @@
+{
+ "title": "StitchVector 3.0 line detection Phase C: two single-factor fixes for severe misses on top of the frozen 2.0 detector. Pushed and remote-verified before test seeds 5001-5005 are generated.",
+ "status_after_run": "STITCHVECTOR_V3_LINE_DETECTION_REVIEW_READY",
+ "phaseA": "linedet/phaseA_stages_p1test.json (viewed P1 test seeds 2001-2005, descriptive): share of visible truth length lost at each step, credited only to the owning line. pale: contrast 25%, protection 15%, spur 12%, join/min_len 33%; width-varying: skeleton 16%, join/min_len 18%; touching a same-colour fill: contrast 21%, skeleton 8%, join/min_len 7%; red/black lines keep 87%.",
+ "methods": [
+  "B0",
+  "B1",
+  "B2a"
+ ],
+ "method_defs": {
+  "B0": "frozen 2.0 (sv_autoline.extract, 32e8a41)",
+  "B1": "short-chain rescue: 2.0 objects unchanged; short groups 2.0 drops (< min_len) are added back only when the frozen linker (58cd05b) groups them with pieces totalling >= min_len",
+  "B2a": "additive hysteresis: 2.0 objects unchanged; run 2.0 with candidate = contrast > c_low connected to contrast > c_ink (skimage.filters.apply_hysteresis_threshold); add only output parts farther than add_r from the 2.0 drawing and >= min_len long"
+ },
+ "params": {
+  "c_low": 8.0,
+  "add_r": 1.5
+ },
+ "seeds": {
+  "dev": [
+   1001,
+   1002,
+   1003
+  ],
+  "viewed": [
+   2001,
+   2002,
+   2003,
+   2004,
+   2005
+  ],
+  "test": [
+   5001,
+   5002,
+   5003,
+   5004,
+   5005
+  ]
+ },
+ "dev_disclosure": "On dev seeds 1001-1003 (results in linedet/ld_dev.json): plain hysteresis B2 (replacing the 2.0 candidate mask) raised pale recall 0.12->0.51 but removed 199 px of lines B0 had drawn and raised red/black gaps >= 10 px from 8 to 15, so it is not tested; B2a (additive) kept all B0 lines, pale 0.12->0.41, false length 0.025->0.044; B1 pale 0.12->0.22, false 0.042, objects 100->144. c_low = 8 was the only value tried (Phase A: missed pale axis contrast median 9.4-11.6). Phase A used the already-viewed P1 test seeds; test seeds 5001-5005 were never generated before freeze.",
+ "metrics": {
+  "visual": [
+   "visible recall per line type (truth samples every 1 px, hidden samples excluded, output credited only where this line owns the pixel)",
+   "gaps >= 10 px",
+   "false length share (output > 3 px from every truth line)",
+   "fill-coloured bands: share of axis with a line on it (protected if <= 0.1)"
+  ],
+  "data": [
+   "objects",
+   "mixed cross-line objects (sv_v3_eval)"
+  ],
+  "non_degradation": "B0 length not present in the new output (must be 0 by construction for B1 and B2a)"
+ },
+ "reading": "B1 or B2a is worth adopting only if it raises recall of a severe-miss type without lowering red/black recall, with no B0 line lost, bands still protected and the rise in false length small relative to the gain; joint reading, no single threshold",
+ "images": "per test tile: original / B0 / B1 / B1 errors / B2a / B2a errors; local only",
+ "stop_rule": "one run on test seeds, <= 10 min CPU; no code or parameter change after the first number",
+ "dependencies": "none new (scikit-image 0.26 already in .venv-sv provides apply_hysteresis_threshold)",
+ "not_done": [
+  "Frangi/Meijering/Steger",
+  "sknw/Skan",
+  "real samples",
+  "face layer",
+  "QGIS",
+  "M1/M2/B2/RAG",
+  "sealed pool"
+ ]
+}
