@@ -1,0 +1,34 @@
+synthetic pale                           vis 945 M0 0.443 M2 0.547 {'found_off_or_not_credited': 0.39, 'no_candidate': 0.19, 'luminance_removed': 0.03, 'protected_no_grey': 0.02, 'skeleton_join_minlen': 0.33, 'drawn_cut_by_overlap': 0.05}
+synthetic red_black                      vis 4633 M0 0.909 M2 0.919 {'found_off_or_not_credited': 0.86, 'no_candidate': 0.01, 'luminance_removed': 0.0, 'protected_no_grey': 0.0, 'skeleton_join_minlen': 0.09, 'drawn_cut_by_overlap': 0.03}
+synthetic touch_fill                     vis 422 M0 0.656 M2 0.744 {'found_off_or_not_credited': 0.65, 'no_candidate': 0.15, 'skeleton_join_minlen': 0.1, 'drawn_cut_by_overlap': 0.1}
+synthetic var_width                      vis 1012 M0 0.857 M2 0.867 {'found_off_or_not_credited': 0.53, 'no_candidate': 0.01, 'skeleton_join_minlen': 0.45, 'drawn_cut_by_overlap': 0.01}
+synthetic bands M0 {'bands': 10, 'line_px_in_band_by_class': {'centreline': 8.0, 'side_edge': 27.5, 'crossing_non_ink': 7.5, 'other': 5.5}, 'line_px_in_band': 48.5, 'mean_axis_reusable_centreline_share': 0.0, 'mean_F0_face_outline_share': 0.6, 'groups_extending_outside': 12, 'groups_also_along_ink': 12}
+synthetic bands M2 {'bands': 10, 'line_px_in_band_by_class': {'centreline': 43.0, 'side_edge': 27.5, 'crossing_non_ink': 10.5, 'other': 5.5}, 'line_px_in_band': 86.5, 'mean_axis_reusable_centreline_share': 0.1, 'mean_F0_face_outline_share': 0.6, 'groups_extending_outside': 12, 'groups_also_along_ink': 12}
+scenes boundary_dark                  vis 1041 M0 1.000 M2 1.000 {}
+scenes boundary_pale                  vis 1201 M0 0.630 M2 0.630 {'found_off_or_not_credited': 0.13, 'no_candidate': 0.74, 'skeleton_join_minlen': 0.12, 'drawn_cut_by_overlap': 0.02}
+scenes dark                           vis 3338 M0 1.000 M2 1.000 {}
+scenes mix_colour_on_boundary         vis 1053 M0 0.000 M2 0.000 {'no_candidate': 0.96, 'protected_no_grey': 0.01, 'skeleton_join_minlen': 0.04}
+scenes pale_brighter_than_both_sides  vis 1001 M0 1.000 M2 1.000 {}
+scenes pale_brighter_than_one_side    vis 1053 M0 0.011 M2 0.011 {'found_off_or_not_credited': 0.0, 'no_candidate': 0.52, 'protected_no_grey': 0.13, 'skeleton_join_minlen': 0.34}
+scenes pale_darker                    vis 3328 M0 0.935 M2 0.938 {'found_off_or_not_credited': 0.65, 'drawn_cut_by_overlap': 0.35}
+scenes bands M0 {'bands': 40, 'line_px_in_band_by_class': {'centreline': 9112.5, 'side_edge': 4.5, 'crossing_non_ink': 5.0, 'other': 2.5}, 'line_px_in_band': 9124.5, 'mean_axis_reusable_centreline_share': 1.0, 'mean_F0_face_outline_share': 1.0, 'groups_extending_outside': 0, 'groups_also_along_ink': 0}
+scenes bands M2 {'bands': 40, 'line_px_in_band_by_class': {'centreline': 9112.5, 'side_edge': 4.5, 'crossing_non_ink': 5.0, 'other': 2.5}, 'line_px_in_band': 9124.5, 'mean_axis_reusable_centreline_share': 1.0, 'mean_F0_face_outline_share': 1.0, 'groups_extending_outside': 0, 'groups_also_along_ink': 0}
+added {'synthetic': {'true_line': 197.8, 'band_edge': 54.9, 'fill_edge': 48.5}, 'scenes': {'true_line:pale_darker': 10.6}, 'synthetic_pale_effective_px': 93.6}
+       26.73 real        37.05 user         0.57 sys
+           300826624  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               54150  page reclaims
+                4832  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1910  voluntary context switches
+               50712  involuntary context switches
+        687536213077  instructions retired
+        140465993006  cycles elapsed
+           238748728  peak memory footprint
