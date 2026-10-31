@@ -1,0 +1,85 @@
+{
+ "title": "StitchVector 3.0 line + face integration POC: fully automatic B0 / B2c lines + existing face method, GPKG readback. Pushed and remote-verified before test seeds 7001-7005 / 7101-7105 are generated.",
+ "status_after_run": "STITCHVECTOR_V3_LINE_FACE_INTEGRATION_READY_FOR_REVIEW",
+ "question": "When automatic lines (B0 or B2c) are combined with the existing face method, is the GPKG readback a faithful, valid, editable copy, and are narrow colour bands kept as faces?",
+ "no_manual_inputs": "no oracle lines, no waypoints, no protected masks; sv_lf.build reads only the image. Truth is read only in sv_lf_eval.",
+ "reused_unchanged": [
+  "sv_oracle.faces (sv_arcs shared arcs, strict coverage)",
+  "sv_d71.fill",
+  "sv_oracle.provenance",
+  "sv_oracle_v2.write / render_gpkg / footprint",
+  "sv_v3.group (logical_id)",
+  "sv_ld_fix.b0",
+  "sv_b2c.b2c (dL_max -3)"
+ ],
+ "adapter": "sv_lf.py: automatic line objects -> line records for sv_oracle_v2.write; protected mask always empty; face labels = 32-colour median cut merged at dE < 10 (Oracle 'class' configuration), tol 0",
+ "methods": {
+  "F0": "faces only, no line layer (reference for what the face layer alone can do)",
+  "B0": "frozen 2.0 lines + faces",
+  "B2c": "B2c lines + the same faces"
+ },
+ "params": {
+  "halo": 1.0,
+  "merge_dE": 10.0,
+  "tol": 0
+ },
+ "seeds": {
+  "dev": {
+   "sv_synth": [
+    1201,
+    1202,
+    1203
+   ],
+   "scenes": [
+    1301,
+    1302,
+    1303
+   ]
+  },
+  "test": {
+   "sv_synth": [
+    7001,
+    7002,
+    7003,
+    7004,
+    7005
+   ],
+   "scenes": [
+    7101,
+    7102,
+    7103,
+    7104,
+    7105
+   ]
+  }
+ },
+ "scene_kinds": [
+  "pale_ink_on_light",
+  "ink_on_boundary",
+  "edge_only",
+  "bands",
+  "ink_crosses_band"
+ ],
+ "dev_disclosure": "Dev seeds 1201-1203 / 1301-1303 were already used for B2c Phase A; here they were used only to debug the adapter and the evaluation (lf/lf_dev.json). Seen on dev: GPKG readback equals the in-memory composite (0 px), strict coverage valid, no holes; edit checks change nothing outside the edited group; line-neighbourhood dE90 rises with a line layer (21 -> 35, one colour per line, known from Oracle); a 3 px yellow band (1203) is lost even with faces only because the merged face palette has no class for its colour; in the counterexample band scenes lines are drawn over the bands in the band colour (colour kept, but as line objects). No parameter was changed after the dev run.",
+ "metrics": {
+  "visual": [
+   "dE90 vs original on the GPKG readback: whole tile, line neighbourhood (3 px of a truth ink axis), non-line",
+   "share of pixels with dE <= 10",
+   "per truth line presence: share of 1 px axis samples whose readback colour is within 15 dE of the original"
+  ],
+  "line_face": [
+   "per band: colour_preserved = share of the band core (axis buffered to width/2-1, >= 0.75 px) whose readback colour is within 15 dE of the band colour; axis_under_line = share of band axis samples covered by a visual_lines footprint (band represented as line instead of face)",
+   "false line length split into fill edge / band / other",
+   "uncovered px, strict coverage validity, faces made only of inferred px"
+  ],
+  "edit": [
+   "faces, lines, logical_id groups, vertices",
+   "GPKG edit checks: recolour and move (dy 3) the largest logical group, count re-rendered pixels changed outside that group's old and new footprints (unrelated changes)",
+   "memory composite vs GPKG readback px"
+  ]
+ },
+ "reading": "joint, no single threshold. Each failure is attributed to line detection, face layer, or their combination (e.g. band colour missing from the face palette = face layer; band drawn as a line = line detection + missing face colour).",
+ "qgis": "not installed: GUI editing NOT_VERIFIED",
+ "stop_rule": "one run on test seeds, <= 10 min CPU; no code or parameter change after the first number; no new algorithm in this round",
+ "binary_artifacts": "GPKG and PNG stay local under runs/stitchvector/v3_linefaces/ (pre-push hook); report lists SHA-256 and the reproduce command"
+}
