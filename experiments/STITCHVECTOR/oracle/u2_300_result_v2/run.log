@@ -1,0 +1,28 @@
+config,method,faces,lines,symbols,logical,objects,vertices,map_dE90,line_nbhd_dE90,map_rest_dE90,protected_exact,presence_mean,breaks
+32_tol0,B0,8252,0,0,0,8252,47756,11.44,19.9,6.84,1.0,0.529,67
+32_tol0,O1,6058,11,7,11,6076,39695,12.84,28.85,6.84,1.0,0.579,54
+32_tol1,B0,8252,0,0,0,8252,39357,11.78,20.43,6.92,0.9053,0.504,70
+32_tol1,O1,6058,11,7,11,6076,30277,13.14,28.87,7.03,0.9089,0.579,54
+class_tol0,B0,1933,0,0,0,1933,12924,14.53,22.38,8.57,1.0,0.453,77
+class_tol0,O1,828,11,7,11,846,7358,14.19,29.57,8.57,1.0,0.578,55
+class_tol1,B0,1933,0,0,0,1933,9769,15.1,25.19,8.61,0.8925,0.423,85
+class_tol1,O1,828,11,7,11,846,4669,14.45,29.66,8.61,0.8998,0.578,55
+
+       13.54 real        12.73 user         0.24 sys
+           319782912  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               40888  page reclaims
+                4929  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1484  voluntary context switches
+                4015  involuntary context switches
+        250840789114  instructions retired
+         55162398358  cycles elapsed
+           219972616  peak memory footprint
