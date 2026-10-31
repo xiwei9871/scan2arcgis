@@ -1,0 +1,82 @@
+{
+ "title": "StitchVector 3.0 line-error triage: classification rules, pushed and remote-verified before the triage runs on the target data",
+ "status_after_run": "STITCHVECTOR_V3_LINE_ERROR_TRIAGE_READY_FOR_REVIEW",
+ "nature": "read-only diagnosis of the frozen M0 (B2c, 37d81b7) and M2 (sv_pa, 1fee542) on ALREADY-VIEWED data; nothing is tuned, no method is changed, not a blind test",
+ "data": {
+  "target": {
+   "sv_synth": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005
+   ],
+   "scenes": [
+    8101,
+    8102,
+    8103,
+    8104,
+    8105
+   ]
+  },
+  "dev_smoke": {
+   "sv_synth": [
+    1201
+   ],
+   "scenes": [
+    1301
+   ]
+  },
+  "u2": "u2 centre 300x300 (Oracle traces and PN1/PN2 as reference; Oracle does not trace text or symbols)"
+ },
+ "scene_kinds": [
+  "dark_ink_on_light",
+  "pale_ink_on_light",
+  "pale_ink_on_dark_fill",
+  "ink_on_boundary",
+  "edge_only",
+  "bands",
+  "ink_crosses_band",
+  "ink_mix_colour"
+ ],
+ "A_band_decomposition": {
+  "scope": "line length inside each band zone (band axis buffered to width/2 + 1.5 px), with legal ink (truth ink axes buffered to width/2 + 2 px) removed first, for M0 and M2",
+  "classes": {
+   "centreline": "line sample within 1.5 px of the band axis and tangent within 30 deg of it: a narrow-band centreline, geometry reusable after re-width + line-to-face",
+   "side_edge": "not centreline, within 1 px of the band side (|d - width/2| <= 1) and tangent within 30 deg: the band's own edge drawn as a line (fill-edge style false line)",
+   "crossing_non_ink": "tangent more than 30 deg from the band axis and not truth ink: a false line crossing the band",
+   "other": "anything else inside the zone"
+  },
+  "also": [
+   "axis_reusable_centreline_share: share of band axis samples with a matching centreline in runs >= 5 px (sv_g3 rule)",
+   "F0_face_outline_share: share of the band axis whose two sides are matched by F0 face edges with a band-dedicated face (sv_g3 classify_band face_ok): the band boundary still exists in the face layer",
+   "logical groups with >= 10 px inside the band that also extend >= 10 px outside it, and those that also run >= 10 px along truth ink (wrong grouping across the band)"
+  ]
+ },
+ "B_M2_additions": {
+  "synthetic": "length of M2-added segments that pass the luminance check, by truth label (sv_b2b.label: true_line / fill_edge / band_edge / other) and the part of it on the pale line (effective pale gain)",
+  "scenes": "same with sv_b2c.label_scene label and ink sub-type",
+  "u2": "M2-added parts farther than 3 px from every Oracle trace, per segment: near_dark_ink (a dark L* < 50 component of >= 10 px within 2 px: likely text or symbol ink not traced by Oracle), along_face_boundary (>= 60% of samples matched by F0 face edges), unexplained; with zoom images. Not called false lines."
+ },
+ "C_miss_attribution": {
+  "per_sample": "visible truth ink samples (1 px) missed by M2 (owner-credited, sv_ld_compare.visible_recall) are assigned the FIRST failing stage, in this order",
+  "classes": {
+   "found_off_or_not_credited": "an M2 line lies within 4 px but the sample is not credited (off by > 2 px, or the pixel belongs to another line / crossing zone)",
+   "no_candidate": "neither the Lab candidate mask (hysteresis 8/12) nor the grey candidate mask (5/8) lies within width/2 + 1 px",
+   "luminance_removed": "an M2-added segment rejected by the luminance check lies within 2 px",
+   "protected_no_grey": "Lab candidate present but every such pixel is fill-protected, and no grey candidate (the case M2 cannot rescue)",
+   "skeleton_join_minlen": "a usable candidate is present (grey, or unprotected Lab) but no drawn chain of that path lies within 2 px (lost in skeleton / spur / join / min_len)",
+   "drawn_cut_by_overlap": "a grey drawn chain lies within 2 px but is not in the M2 output (cut away as overlap with B2c within add_r, or removed as < min_len after the cut)",
+   "other": "none of the above"
+  },
+  "groups": {
+   "synthetic": "pale, red_black, var_width, touch_fill",
+   "scenes": "ink sub-type (dark, pale_darker, pale_brighter_than_both_sides, pale_brighter_than_one_side, boundary_dark, boundary_pale, mix_colour_on_boundary)",
+   "u2": "G1, G2, G3, red_tooth, red_other (Oracle traces)"
+  },
+  "also": "M0 and M2 recall per group; gaps >= 10 px in M2"
+ },
+ "outputs": "protabl_triage/tri_result.json; local zoom images of the u2 far segments (pre-push hook: images not pushed)",
+ "stop_rule": "one run on the target data; no rule change after the first number; no new detector, no change to B0 / B2c / M2",
+ "pre_freeze_smoke": "run on dev seeds 1201 / 1301 only (not the target data) to check the code runs; one fix before freeze: sv_ld_stages.owner_map needs >= 2 truth lines, so sv_tri.owner falls back to a single-owner map for one-line scenes. No rule changed."
+}
