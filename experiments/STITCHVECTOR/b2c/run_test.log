@@ -1,0 +1,124 @@
+{
+"gain_by_type": {
+"red_black": {
+"B2a_added_hits": 16,
+"B2c_added_hits": 14,
+"retained_share": 0.875
+},
+"pale": {
+"B2a_added_hits": 227,
+"B2c_added_hits": 227,
+"retained_share": 1.0
+},
+"var_width": {
+"B2a_added_hits": 24,
+"B2c_added_hits": 19,
+"retained_share": 0.7916666666666666
+},
+"touch_fill": {
+"B2a_added_hits": 27,
+"B2c_added_hits": 22,
+"retained_share": 0.8148148148148148
+}
+},
+"added_false_by_place": {
+"fill_edge": {
+"B2a_added": 268.32859939968404,
+"B2c_added": 0.0,
+"removed_share": 1.0
+},
+"band": {
+"B2a_added": 0.0,
+"B2c_added": 0.0,
+"removed_share": null
+},
+"other": {
+"B2a_added": 0.0,
+"B2c_added": 0.0,
+"removed_share": null
+}
+},
+"added_false_total": {
+"B2a": 268.3285993996841,
+"B2c": 0.0,
+"removed_share": 1.0
+},
+"added_segments": {
+"B2a": 29,
+"B2c_kept": 12,
+"impure_lt_0.8": 0,
+"by_label": {
+"fill_edge": {
+"n": 16,
+"kept": 0,
+"length": 274.05863677965,
+"kept_length": 0
+},
+"true_line": {
+"n": 13,
+"kept": 12,
+"length": 270.4003016437094,
+"kept_length": 251.20816415020366
+}
+}
+},
+"scenes_ink_recall_by_sub": {
+"dark": {
+"B0": 1.0,
+"B2a": 1.0,
+"B2c": 1.0
+},
+"pale_darker": {
+"B0": 0.3458308338332334,
+"B2a": 0.9649070185962807,
+"B2c": 0.9649070185962807
+},
+"pale_brighter_than_both_sides": {
+"B0": 1.0,
+"B2a": 1.0,
+"B2c": 1.0
+},
+"pale_brighter_than_one_side": {
+"B0": 0.0,
+"B2a": 0.0,
+"B2c": 0.0
+},
+"boundary_dark": {
+"B0": 1.0,
+"B2a": 1.0,
+"B2c": 1.0
+},
+"boundary_pale": {
+"B0": 0.20698254364089774,
+"B2a": 0.6093100581878637,
+"B2c": 0.6093100581878637
+},
+"mix_colour_on_boundary": {
+"B0": 0.0,
+"B2a": 0.0,
+"B2c": 0.0
+}
+}
+}
+B0 false 163.8 {'fill_edge': 143.75114953063917, 'band': 19.014132654620795, 'other': 1.0216591012708214} objects 161 mixed 4 B0 lost 0.0
+B2a false 432.1 {'fill_edge': 412.0797489303232, 'band': 19.014132654620795, 'other': 1.0216591012708214} objects 190 mixed 4 B0 lost 0.0
+B2c false 163.8 {'fill_edge': 143.75114953063917, 'band': 19.014132654620795, 'other': 1.0216591012708214} objects 173 mixed 4 B0 lost 0.0
+bands {'6001:band_green:5px': [0.032, 0.032, 0.032], '6001:band_yellow:6px': [0.039, 0.043, 0.043], '6002:band_green:4px': [0.015, 0.015, 0.015], '6002:band_yellow:5px': [0.038, 0.038, 0.038], '6003:band_green:4px': [0.042, 0.042, 0.042], '6003:band_yellow:3px': [0.039, 0.039, 0.039], '6004:band_green:4px': [0.0, 0.0, 0.0], '6004:band_yellow:4px': [0.085, 0.085, 0.085], '6005:band_green:6px': [0.008, 0.008, 0.008], '6005:band_yellow:6px': [0.0, 0.0, 0.0]}
+       14.00 real        20.22 user         0.25 sys
+           358187008  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               32758  page reclaims
+                2689  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1302  voluntary context switches
+               20683  involuntary context switches
+        384315874201  instructions retired
+         79671861454  cycles elapsed
+           312951768  peak memory footprint

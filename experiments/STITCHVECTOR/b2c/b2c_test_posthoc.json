@@ -1,0 +1,20 @@
+{
+ "band_6001_yellow_change": "B0 0.039 -> B2a/B2c 0.043: one B2a-added true-line segment (13 px, dL -11.7) crosses the band at 83 deg and touches 1 of 255 axis samples; legal crossing, not drawing along the band",
+ "scope_limit_cases_in_test": {
+  "pale_brighter_than_both_sides": 0,
+  "pale_brighter_than_one_side": 0,
+  "mix_colour_on_boundary": 0
+ },
+ "scope_limit_note": "B2a proposed 0 segments of the brighter-than-side sub-types in the test scenes, so B2c deleted none; B0 already finds pale ink brighter than both sides (recall 1.0), and nothing finds pale ink brighter than one side or mix-colour ink (recall 0). Phase A dev truth axes: dL +18 to +24 for these, i.e. B2c WOULD delete them if B2a proposed them.",
+ "true_segments_deleted": {
+  "synth": [
+   [
+    "6005",
+    19.2,
+    -1.6
+   ]
+  ],
+  "scenes": []
+ },
+ "scene_band_note": "in the counterexample band scenes B0 already draws lines on the bands (axis share 0.4-0.99) because the band colours have no wide area elsewhere and so are not recognised as fill colours; B2a and B2c do not change it (identical values)"
+}
