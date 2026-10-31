@@ -1,0 +1,40 @@
+{
+ "title": "StitchVector 3.0 near-miss geometry attribution: rules, pushed and remote-verified before the run on the target data",
+ "status_after_run": "STITCHVECTOR_V3_LINE_GEOMETRY_ATTRIBUTION_READY_FOR_REVIEW",
+ "nature": "read-only diagnosis of the frozen M2 (sv_pa, 1fee542) on ALREADY-VIEWED data; no method change, no tuning, not a blind test",
+ "data": {"target": {"sv_synth": [8001, 8002, 8003, 8004, 8005], "scenes": [8101, 8102, 8103, 8104, 8105]}, "dev_smoke": {"sv_synth": [1201], "scenes": [1301]}, "u2": "u2 centre 300x300, Oracle traces + PN1/PN2 (Oracle does not trace text or symbols)"},
+ "scene_kinds": ["dark_ink_on_light", "pale_ink_on_light", "pale_ink_on_dark_fill", "ink_on_boundary", "edge_only", "bands", "ink_crosses_band", "ink_mix_colour"],
+ "reproduction": "per-sample sv_tri (1823cb9) miss classes are recomputed with the same code path (sv_tri.methods / stage_masks / owner / attribute logic) and compared with protabl_triage/tri_result.json; any mismatch is reported",
+ "near_miss_split": {
+  "scope": "visible truth samples missed by M2 (owner-credited, 2 px) whose sv_tri class is found_off_or_not_credited (an M2 line within 4 px)",
+  "output_samples": "M2 line geometry sampled every 0.5 px with tangents; each output sample is attributed to its nearest truth ink axis",
+  "classes_first_match": {
+   "D_crossing_or_overlap": "another truth ink axis lies within 3 px of the sample: ownership is ambiguous at a crossing / overlap",
+   "A_scoring_attribution": "an output sample attributed to THIS truth line, tangent within 30 deg, lies within 2 px: geometry meets the 2 px rule, the miss is a scoring / ownership artefact",
+   "B_offset_2_3px": "nearest same-line, aligned output sample at 2-3 px: real offset, needs a vertex move",
+   "B_offset_3_4px": "same at 3-4 px",
+   "C_other_ink_line": "the nearest output sample within 4 px belongs to another truth ink line (attributed to it within 3 px)",
+   "C_band": "the nearest output sample lies in a band zone (band + 2 px)",
+   "C_fill_edge": "the nearest output sample lies within 2.5 px of a fill boundary",
+   "C_other_object": "the nearest output sample is attributed to another line but is > 3 px from it, not band, not fill edge",
+   "E_uncertain": "anything else (e.g. output attributed to this line but not aligned)"
+  }
+ },
+ "metrics": {"recall_owner_credited_2px": "main result (unchanged definition)", "recall_attribution_corrected_2px": "owner-credited hits + class A", "recall_same_line_aligned_2/3/4px": "share of visible samples with a same-line, aligned output sample within 2 / 3 / 4 px; 3 and 4 px are sensitivity only", "recall_owner_or_same_line_aligned_2/3/4px": "union of the two"},
+ "skeleton_split": {
+  "scope": "visible samples missed by M2 whose sv_tri class is skeleton_join_minlen",
+  "classes_first_match": {
+   "lab_only_signal": "no grey candidate near the sample: only the unprotected Lab candidate exists (M2 never uses it)",
+   "isolated_candidate_pixels": "grey candidate present but its largest 8-connected component near the sample has < 10 px",
+   "no_skeleton_nearby": "candidate component >= 10 px but no skeleton pixel within 2 px",
+   "spur_removed": "skeleton within 2 px but no chain kept after spur removal within 2 px",
+   "min_len_removed": "a kept chain exists and a dropped short group (< 10 px after joining) lies within 2 px",
+   "smoothing_or_simplify_shift": "a kept chain exists, not in a dropped short group: lost or shifted by smoothing / simplify / join"
+  },
+  "also": "runs of consecutive samples per class (a continuous recoverable stretch vs scattered points)"
+ },
+ "u2": "same splits on Oracle traces (G1, G2, G3, red_curve LOOP, red_tooth, red_fault_or_line); count of near misses within 4 px of PN1/PN2",
+ "evidence": "local zoom sheets with near-miss samples coloured by class (pre-push hook: images not pushed)",
+ "redraw_estimate": "redraw length = misses not in A (scoring), not in B (move vertices), i.e. C + D + E + all non-near misses; reported per type as an upper bound of what a user must draw",
+ "stop_rule": "one run; no rule change after the first number; no new detector; no change to M0 / M2 / B2c"
+}
