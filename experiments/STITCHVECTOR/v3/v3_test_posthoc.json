@@ -1,0 +1,139 @@
+{
+ "ink_loss": {
+  "4003": {
+   "inf_equals_2_0": true,
+   "lost_px": 104.6,
+   "lost_pieces": [
+    [
+     44.0,
+     [
+      59.0,
+      141.0
+     ]
+    ],
+    [
+     4.3,
+     [
+      48.0,
+      170.0
+     ]
+    ],
+    [
+     56.2,
+     [
+      54.0,
+      203.0
+     ]
+    ]
+   ]
+  },
+  "4004": {
+   "inf_equals_2_0": true,
+   "lost_px": 16.1,
+   "lost_pieces": [
+    [
+     16.1,
+     [
+      65.0,
+      209.0
+     ]
+    ]
+   ]
+  },
+  "4001": {
+   "inf_equals_2_0": true,
+   "lost_px": 0.0,
+   "lost_pieces": []
+  }
+ },
+ "mixed_objects_test": {
+  "4001": [
+   {
+    "method": "2.0",
+    "along": {
+     "red_aa_2": 87,
+     "red_aa_3": 42
+    },
+    "parts": 1
+   },
+   {
+    "method": "2.0+id",
+    "along": {
+     "red_aa_2": 87,
+     "red_aa_3": 42
+    },
+    "parts": 1
+   },
+   {
+    "method": "3.0",
+    "along": {
+     "red_aa_2": 87,
+     "red_aa_3": 42
+    },
+    "parts": 1
+   }
+  ],
+  "4004": [
+   {
+    "method": "2.0",
+    "along": {
+     "black_1": 27,
+     "red_var_2to5": 22
+    },
+    "parts": 1
+   },
+   {
+    "method": "2.0+id",
+    "along": {
+     "black_1": 38,
+     "black_3": 30
+    },
+    "parts": 2
+   },
+   {
+    "method": "2.0+id",
+    "along": {
+     "black_1": 27,
+     "red_var_2to5": 22
+    },
+    "parts": 1
+   },
+   {
+    "method": "3.0",
+    "along": {
+     "black_1": 38,
+     "black_3": 30
+    },
+    "parts": 2
+   }
+  ]
+ },
+ "join_refinement_check": {
+  "4001": {
+   "joins_2_0": 217,
+   "joins_3_0": 205,
+   "joins_in_3_0_not_in_2_0": 2
+  },
+  "4002": {
+   "joins_2_0": 170,
+   "joins_3_0": 159,
+   "joins_in_3_0_not_in_2_0": 0
+  },
+  "4003": {
+   "joins_2_0": 172,
+   "joins_3_0": 162,
+   "joins_in_3_0_not_in_2_0": 1
+  },
+  "4004": {
+   "joins_2_0": 298,
+   "joins_3_0": 279,
+   "joins_in_3_0_not_in_2_0": 4
+  },
+  "4005": {
+   "joins_2_0": 171,
+   "joins_3_0": 164,
+   "joins_in_3_0_not_in_2_0": 0
+  }
+ },
+ "ink_loss_cause": "a refused join leaves both chain ends free at that junction, so the greedy pairing can then join one of them to a different chain that 2.0 did not join; 3.0 groups are then not sub-groups of 2.0 groups, and the 'drawn' test on the group's first chain can drop chains that 2.0 drew"
+}

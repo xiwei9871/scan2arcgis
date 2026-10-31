@@ -1,0 +1,21 @@
+2.0     {"objects": 161, "geometry_parts": 161, "mixed_objects": 2, "recall_mean": 0.8189905812607516, "select_mean": 3.525, "false_share_mean": 0.03652662760913837, "verdicts": {"cross_line_error": 4, "visual_miss": 23, "found_needs_grouping": 11, "acceptable": 2}}
+2.0+id  {"objects": 120, "geometry_parts": 161, "mixed_objects": 3, "recall_mean": 0.8189905812607516, "select_mean": 2.45, "false_share_mean": 0.03652662760913837, "verdicts": {"cross_line_error": 5, "visual_miss": 23, "found_needs_grouping": 8, "acceptable": 4}}
+3.0     {"objects": 136, "geometry_parts": 180, "mixed_objects": 2, "recall_mean": 0.806598932250273, "select_mean": 2.825, "false_share_mean": 0.037486938831322855, "verdicts": {"cross_line_error": 4, "visual_miss": 25, "found_needs_grouping": 7, "acceptable": 4}}
+        3.12 real         3.73 user         0.14 sys
+           251691008  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               25726  page reclaims
+                2674  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1276  voluntary context switches
+                4643  involuntary context switches
+         68790530209  instructions retired
+         15460288022  cycles elapsed
+           206570360  peak memory footprint
