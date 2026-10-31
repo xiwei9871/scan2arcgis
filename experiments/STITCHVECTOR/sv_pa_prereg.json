@@ -1,0 +1,103 @@
+{
+ "title": "StitchVector 3.0 protection ablation: does fill protection systematically drop real ink? Pre-registration, pushed and remote-verified before test seeds 8001-8005 / 8101-8105 are generated.",
+ "status_after_run": "STITCHVECTOR_V3_PROTECTION_ABLATION_REVIEW_READY",
+ "hypotheses": {
+  "A": "grey contrast detects pale ink better than Lab contrast",
+  "B": "fill protection drops ink that the existing contrast already sees"
+ },
+ "methods": {
+  "M0": "B2c unchanged (sv_b2c, 37d81b7)",
+  "M1": "B2c + grey candidates, fill protection kept",
+  "M2": "B2c + grey candidates, no protection on added candidates, then the B2c luminance check",
+  "M3": "B2c + Lab dE candidates, no protection on added candidates, then the same luminance check"
+ },
+ "code": "sv_pa.py (methods), sv_pa_run.py (synthetic + scenes), sv_pa_u2.py (u2 descriptive), sv_pa_diag.py (signal diagnosis)",
+ "params": {
+  "grey_lo": 5.0,
+  "grey_hi": 8.0,
+  "lab_lo": 8.0,
+  "lab_hi": 12.0,
+  "bg_median": 15,
+  "add_r": 1.5
+ },
+ "fairness_note": "grey |dL*| and Lab dE are different quantities; grey uses 5/8 (the value in the earlier diagnosis), Lab uses 8/12 (B2a / B0 values). Not tuned on test data. Equal numbers do not mean equal sensitivity.",
+ "dev_disclosure": {
+  "earlier_diagnosis": "before this freeze, in the same session, pale-line signal was measured on viewed data (protabl/pa_diag_viewed.json, sv_pa_diag.py): u2 G1/G2/G3 dE median 20/16/14 (noise p95 8.8), luminance share ~0.9, 59-64% of G2/G3 axis inside the protection mask; and an ad-hoc version of M1/M2 (and M2 + luminance) was scored on dev seeds 1201-1203 (pale recall 0.32 -> 0.40 / 0.79). Thresholds 8/5 were the only grey values tried.",
+  "dev_run": "protabl/pa_dev.json (dev seeds 1201-1203 synthetic, 1301-1303 scenes): {\"M0\": {\"syn_recall\": 0.846, \"pale\": 0.321, \"red_black\": 0.953, \"precision\": 0.929, \"bands_over_0.1\": 1}, \"M1\": {\"syn_recall\": 0.859, \"pale\": 0.404, \"red_black\": 0.956, \"precision\": 0.928, \"bands_over_0.1\": 1}, \"M2\": {\"syn_recall\": 0.902, \"pale\": 0.789, \"red_black\": 0.953, \"precision\": 0.933, \"bands_over_0.1\": 1}, \"M3\": {\"syn_recall\": 0.892, \"pale\": 0.667, \"red_black\": 0.958, \"precision\": 0.83, \"bands_over_0.1\": 6}}",
+  "no_change_after_dev": "no parameter or rule was changed after the dev run"
+ },
+ "seeds": {
+  "dev": {
+   "sv_synth": [
+    1201,
+    1202,
+    1203
+   ],
+   "scenes": [
+    1301,
+    1302,
+    1303
+   ]
+  },
+  "test": {
+   "sv_synth": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005
+   ],
+   "scenes": [
+    8101,
+    8102,
+    8103,
+    8104,
+    8105
+   ]
+  }
+ },
+ "viewed_not_blind": "1001-1003, 1201-1203, 1301-1303, 2001-2005, 4001-4005, 5001-5005, 6001-6005, 6101-6105, 7001-7005, 7101-7105, u2",
+ "scene_kinds": [
+  "dark_ink_on_light",
+  "pale_ink_on_light",
+  "pale_ink_on_dark_fill",
+  "ink_on_boundary",
+  "edge_only",
+  "bands",
+  "ink_crosses_band",
+  "ink_mix_colour"
+ ],
+ "scene_note": "scene kinds cover dark and pale ink, pale ink on a fill boundary, pale ink brighter than one / both sides, fill edges without ink, 3 and 6 px bands, ink crossing bands, mix-colour ink on a red/pink boundary (the closest available case to 'red line near a similar fill'). No new scene kind is added.",
+ "metrics": {
+  "synthetic": [
+   "visible-sample recall per line type (pale, red/black, width-varying, touching a fill) and overall",
+   "length precision = 1 - false length / detected length; false length split into fill edge / band / other",
+   "bands: axis share with a line on it, per band, and the count over 0.1",
+   "gaps >= 10 px per line",
+   "added candidates before and after the luminance check, by truth label",
+   "worst seed by recall and by precision"
+  ],
+  "scenes": [
+   "recall per ink sub-type",
+   "length precision and false length by place",
+   "band axis share mean and max",
+   "added candidates and kept by sub-type (brighter-than-side ink: candidate count vs kept count)"
+  ],
+  "u2": [
+   "descriptive: G1/G2/G3 coverage, red fault coverage, PN1/PN2 axis share with a line, added length far from Oracle traces"
+  ]
+ },
+ "reading": {
+  "targets": "97% recall / 97% precision remain the project targets, not this round's pass mark",
+  "keep_candidate_if": "in the test, pale recall clearly improves over M0, precision does not drop materially, and fill-edge / band false length does not rise widely; joint reading",
+  "M2_vs_M3": "if M3 is close to M2, prefer reusing the Lab path (fewer moving parts)",
+  "if_unacceptable_false": "stop, report where the false lines come from; no new protection rules in this round"
+ },
+ "stop_rule": "one run on test seeds, <= 10 min CPU; no change after the first number; u2 run after the synthetic test",
+ "not_done": [
+  "face layer, Oracle, VTracer, B0/B2c changes",
+  "edit console, edit-cost calibration (paused; local branch wip/stitchvector-editcost-calibration bf94978 untouched)",
+  "64 colours",
+  "sealed pool"
+ ]
+}

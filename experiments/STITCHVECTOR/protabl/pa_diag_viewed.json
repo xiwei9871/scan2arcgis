@@ -1,0 +1,73 @@
+{
+ "nature": "descriptive diagnosis on viewed data, run before the protection-ablation freeze",
+ "synthetic_dev": {
+  "1201": {
+   "samples": 174,
+   "dE_median": 14.721266462722909,
+   "abs_dL_median": 13.206774170811812,
+   "luminance_share_median": 0.9560282582043454,
+   "centre_darker_share": 0.8793103448275862,
+   "dE_above_12_share": 0.867816091954023,
+   "protected_share": 0.12643678160919541,
+   "noise_p95_dE": 6.937397777945022,
+   "noise_p95_abs_dL": 2.6059188035005647
+  },
+  "1202": {
+   "samples": 198,
+   "dE_median": 16.662089775639068,
+   "abs_dL_median": 13.408746472776748,
+   "luminance_share_median": 0.9154812170132256,
+   "centre_darker_share": 0.7575757575757576,
+   "dE_above_12_share": 0.9292929292929293,
+   "protected_share": 0.17676767676767677,
+   "noise_p95_dE": 6.8350149778257325,
+   "noise_p95_abs_dL": 2.4192136648213127
+  },
+  "1203": {
+   "samples": 164,
+   "dE_median": 13.226359844811908,
+   "abs_dL_median": 11.46452507073382,
+   "luminance_share_median": 0.947385545187887,
+   "centre_darker_share": 0.9451219512195121,
+   "dE_above_12_share": 0.7560975609756098,
+   "protected_share": 0.7073170731707317,
+   "noise_p95_dE": 7.682945745602581,
+   "noise_p95_abs_dL": 2.5803569214934856
+  }
+ },
+ "u2": {
+  "G1": {
+   "samples": 94,
+   "dE_median": 20.03608889952663,
+   "abs_dL_median": 11.793594568784343,
+   "luminance_share_median": 0.6733601799863966,
+   "centre_darker_share": 0.9680851063829787,
+   "dE_above_12_share": 0.9680851063829787,
+   "protected_share": 0.1702127659574468,
+   "noise_p95_dE": 8.837871933507994,
+   "noise_p95_abs_dL": 3.6470120074794536
+  },
+  "G2": {
+   "samples": 94,
+   "dE_median": 15.666899614907358,
+   "abs_dL_median": 9.606801962710321,
+   "luminance_share_median": 0.6131910077198212,
+   "centre_darker_share": 1.0,
+   "dE_above_12_share": 1.0,
+   "protected_share": 0.6382978723404256,
+   "noise_p95_dE": 8.837871933507994,
+   "noise_p95_abs_dL": 3.6470120074794536
+  },
+  "G3": {
+   "samples": 94,
+   "dE_median": 14.15116424341661,
+   "abs_dL_median": 8.306027907534968,
+   "luminance_share_median": 0.6131945489096863,
+   "centre_darker_share": 1.0,
+   "dE_above_12_share": 0.851063829787234,
+   "protected_share": 0.5851063829787234,
+   "noise_p95_dE": 8.837871933507994,
+   "noise_p95_abs_dL": 3.6470120074794536
+  }
+ }
+}
