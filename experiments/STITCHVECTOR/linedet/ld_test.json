@@ -1,0 +1,1123 @@
+{
+ "seeds": [
+  5001,
+  5002,
+  5003,
+  5004,
+  5005
+ ],
+ "tiles": {
+  "5001": {
+   "B0": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 126,
+      "hit": 61,
+      "gaps_ge10": 4
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 163,
+      "hit": 163,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 154,
+      "hit": 123,
+      "gaps_ge10": 2
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 205,
+      "hit": 173,
+      "gaps_ge10": 2
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 156,
+      "hit": 132,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 260,
+      "hit": 0,
+      "gaps_ge10": 1
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 145,
+      "hit": 97,
+      "gaps_ge10": 3
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 91,
+      "hit": 44,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 47.27116331968846,
+    "detected_length": 892.4474976086833,
+    "objects": 22,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 6.0,
+      "axis_share_with_line": 0.05154639175257732
+     },
+     "band_yellow": {
+      "width": 6.0,
+      "axis_share_with_line": 0.017467248908296942
+     }
+    },
+    "info": {}
+   },
+   "B1": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 126,
+      "hit": 61,
+      "gaps_ge10": 4
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 163,
+      "hit": 163,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 154,
+      "hit": 138,
+      "gaps_ge10": 1
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 205,
+      "hit": 179,
+      "gaps_ge10": 2
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 156,
+      "hit": 134,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 260,
+      "hit": 0,
+      "gaps_ge10": 1
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 145,
+      "hit": 109,
+      "gaps_ge10": 1
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 91,
+      "hit": 50,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 98.48712385621297,
+    "detected_length": 998.4342948670467,
+    "objects": 43,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 6.0,
+      "axis_share_with_line": 0.05670103092783505
+     },
+     "band_yellow": {
+      "width": 6.0,
+      "axis_share_with_line": 0.021834061135371178
+     }
+    },
+    "info": {
+     "short_groups": 108,
+     "rescued": 21
+    },
+    "b0_length_not_in_new": 0.0
+   },
+   "B2a": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 126,
+      "hit": 99,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 163,
+      "hit": 163,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 154,
+      "hit": 127,
+      "gaps_ge10": 1
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 205,
+      "hit": 180,
+      "gaps_ge10": 2
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 156,
+      "hit": 132,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 260,
+      "hit": 157,
+      "gaps_ge10": 3
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 145,
+      "hit": 111,
+      "gaps_ge10": 1
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 91,
+      "hit": 54,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 121.50362011568873,
+    "detected_length": 1160.2187116458408,
+    "objects": 38,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 6.0,
+      "axis_share_with_line": 0.05154639175257732
+     },
+     "band_yellow": {
+      "width": 6.0,
+      "axis_share_with_line": 0.017467248908296942
+     }
+    },
+    "info": {
+     "added": 16
+    },
+    "b0_length_not_in_new": 0.0
+   }
+  },
+  "5002": {
+   "B0": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 125,
+      "hit": 124,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 165,
+      "hit": 132,
+      "gaps_ge10": 1
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 202,
+      "hit": 193,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 143,
+      "hit": 127,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 161,
+      "hit": 147,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 176,
+      "hit": 38,
+      "gaps_ge10": 3
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 273,
+      "hit": 246,
+      "gaps_ge10": 1
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 90,
+      "hit": 60,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 2.790023523502527,
+    "detected_length": 1069.833354648838,
+    "objects": 22,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 5.0,
+      "axis_share_with_line": 0.12307692307692308
+     },
+     "band_yellow": {
+      "width": 5.0,
+      "axis_share_with_line": 0.015151515151515152
+     }
+    },
+    "info": {}
+   },
+   "B1": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 125,
+      "hit": 124,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 165,
+      "hit": 151,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 202,
+      "hit": 193,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 143,
+      "hit": 128,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 161,
+      "hit": 153,
+      "gaps_ge10": 0
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 176,
+      "hit": 43,
+      "gaps_ge10": 3
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 273,
+      "hit": 249,
+      "gaps_ge10": 1
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 90,
+      "hit": 60,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 33.739831656771244,
+    "detected_length": 1144.8461239867615,
+    "objects": 34,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 5.0,
+      "axis_share_with_line": 0.12307692307692308
+     },
+     "band_yellow": {
+      "width": 5.0,
+      "axis_share_with_line": 0.015151515151515152
+     }
+    },
+    "info": {
+     "short_groups": 72,
+     "rescued": 12
+    },
+    "b0_length_not_in_new": 0.0
+   },
+   "B2a": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 125,
+      "hit": 124,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 165,
+      "hit": 141,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 202,
+      "hit": 193,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 143,
+      "hit": 132,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 161,
+      "hit": 151,
+      "gaps_ge10": 0
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 176,
+      "hit": 120,
+      "gaps_ge10": 3
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 273,
+      "hit": 246,
+      "gaps_ge10": 1
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 90,
+      "hit": 78,
+      "gaps_ge10": 0
+     }
+    },
+    "false_length": 71.1678522084133,
+    "detected_length": 1249.5700662046897,
+    "objects": 33,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 5.0,
+      "axis_share_with_line": 0.12307692307692308
+     },
+     "band_yellow": {
+      "width": 5.0,
+      "axis_share_with_line": 0.015151515151515152
+     }
+    },
+    "info": {
+     "added": 11
+    },
+    "b0_length_not_in_new": 0.0
+   }
+  },
+  "5003": {
+   "B0": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 236,
+      "hit": 163,
+      "gaps_ge10": 4
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 110,
+      "hit": 52,
+      "gaps_ge10": 2
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 186,
+      "hit": 177,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 203,
+      "hit": 198,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 250,
+      "hit": 230,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 201,
+      "hit": 5,
+      "gaps_ge10": 3
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 217,
+      "hit": 124,
+      "gaps_ge10": 4
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 91,
+      "hit": 76,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 175.721877678638,
+    "detected_length": 1208.2678898931097,
+    "objects": 40,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 6.0,
+      "axis_share_with_line": 0.20670391061452514
+     },
+     "band_yellow": {
+      "width": 3.0,
+      "axis_share_with_line": 0.08791208791208792
+     }
+    },
+    "info": {}
+   },
+   "B1": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 236,
+      "hit": 212,
+      "gaps_ge10": 1
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 110,
+      "hit": 79,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 186,
+      "hit": 183,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 203,
+      "hit": 198,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 250,
+      "hit": 235,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 201,
+      "hit": 29,
+      "gaps_ge10": 2
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 217,
+      "hit": 152,
+      "gaps_ge10": 3
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 91,
+      "hit": 76,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 220.430874481744,
+    "detected_length": 1397.825032179462,
+    "objects": 74,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 6.0,
+      "axis_share_with_line": 0.2905027932960894
+     },
+     "band_yellow": {
+      "width": 3.0,
+      "axis_share_with_line": 0.1813186813186813
+     }
+    },
+    "info": {
+     "short_groups": 211,
+     "rescued": 34
+    },
+    "b0_length_not_in_new": 0.0
+   },
+   "B2a": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 236,
+      "hit": 180,
+      "gaps_ge10": 3
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 110,
+      "hit": 66,
+      "gaps_ge10": 1
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 186,
+      "hit": 177,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 203,
+      "hit": 198,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 250,
+      "hit": 230,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 201,
+      "hit": 107,
+      "gaps_ge10": 4
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 217,
+      "hit": 133,
+      "gaps_ge10": 4
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 91,
+      "hit": 76,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 274.38183392858423,
+    "detected_length": 1440.6975868446464,
+    "objects": 56,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 6.0,
+      "axis_share_with_line": 0.27932960893854747
+     },
+     "band_yellow": {
+      "width": 3.0,
+      "axis_share_with_line": 0.08791208791208792
+     }
+    },
+    "info": {
+     "added": 16
+    },
+    "b0_length_not_in_new": 0.0
+   }
+  },
+  "5004": {
+   "B0": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 138,
+      "hit": 74,
+      "gaps_ge10": 2
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 148,
+      "hit": 136,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 271,
+      "hit": 252,
+      "gaps_ge10": 1
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 212,
+      "hit": 199,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 209,
+      "hit": 192,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 161,
+      "hit": 0,
+      "gaps_ge10": 1
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 149,
+      "hit": 146,
+      "gaps_ge10": 0
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 90,
+      "hit": 59,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 77.82843512355312,
+    "detected_length": 1156.10261299208,
+    "objects": 27,
+    "mixed_objects": 1,
+    "bands": {
+     "band_green": {
+      "width": 3.0,
+      "axis_share_with_line": 0.011811023622047244
+     },
+     "band_yellow": {
+      "width": 4.0,
+      "axis_share_with_line": 0.11061946902654868
+     }
+    },
+    "info": {}
+   },
+   "B1": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 138,
+      "hit": 96,
+      "gaps_ge10": 1
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 148,
+      "hit": 143,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 271,
+      "hit": 258,
+      "gaps_ge10": 1
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 212,
+      "hit": 199,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 209,
+      "hit": 196,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 161,
+      "hit": 32,
+      "gaps_ge10": 2
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 149,
+      "hit": 146,
+      "gaps_ge10": 0
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 90,
+      "hit": 66,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 102.29783678758359,
+    "detected_length": 1261.030062809502,
+    "objects": 49,
+    "mixed_objects": 1,
+    "bands": {
+     "band_green": {
+      "width": 3.0,
+      "axis_share_with_line": 0.01968503937007874
+     },
+     "band_yellow": {
+      "width": 4.0,
+      "axis_share_with_line": 0.11946902654867257
+     }
+    },
+    "info": {
+     "short_groups": 113,
+     "rescued": 22
+    },
+    "b0_length_not_in_new": 0.0
+   },
+   "B2a": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 138,
+      "hit": 74,
+      "gaps_ge10": 2
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 148,
+      "hit": 136,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 271,
+      "hit": 252,
+      "gaps_ge10": 1
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 212,
+      "hit": 199,
+      "gaps_ge10": 0
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 209,
+      "hit": 192,
+      "gaps_ge10": 1
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 161,
+      "hit": 63,
+      "gaps_ge10": 3
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 149,
+      "hit": 146,
+      "gaps_ge10": 0
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 90,
+      "hit": 73,
+      "gaps_ge10": 0
+     }
+    },
+    "false_length": 128.58259769276094,
+    "detected_length": 1261.5670061542191,
+    "objects": 34,
+    "mixed_objects": 1,
+    "bands": {
+     "band_green": {
+      "width": 3.0,
+      "axis_share_with_line": 0.011811023622047244
+     },
+     "band_yellow": {
+      "width": 4.0,
+      "axis_share_with_line": 0.11061946902654868
+     }
+    },
+    "info": {
+     "added": 7
+    },
+    "b0_length_not_in_new": 0.0
+   }
+  },
+  "5005": {
+   "B0": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 182,
+      "hit": 180,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 144,
+      "hit": 128,
+      "gaps_ge10": 1
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 151,
+      "hit": 147,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 133,
+      "hit": 118,
+      "gaps_ge10": 1
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 126,
+      "hit": 122,
+      "gaps_ge10": 0
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 146,
+      "hit": 55,
+      "gaps_ge10": 2
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 239,
+      "hit": 226,
+      "gaps_ge10": 0
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 72,
+      "hit": 51,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 89.81179502577154,
+    "detected_length": 1108.5299089581088,
+    "objects": 35,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 4.0,
+      "axis_share_with_line": 0.2
+     },
+     "band_yellow": {
+      "width": 5.0,
+      "axis_share_with_line": 0.023529411764705882
+     }
+    },
+    "info": {}
+   },
+   "B1": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 182,
+      "hit": 180,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 144,
+      "hit": 143,
+      "gaps_ge10": 0
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 151,
+      "hit": 147,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 133,
+      "hit": 118,
+      "gaps_ge10": 1
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 126,
+      "hit": 122,
+      "gaps_ge10": 0
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 146,
+      "hit": 59,
+      "gaps_ge10": 2
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 239,
+      "hit": 227,
+      "gaps_ge10": 0
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 72,
+      "hit": 56,
+      "gaps_ge10": 1
+     }
+    },
+    "false_length": 117.41361849083857,
+    "detected_length": 1180.1298202318826,
+    "objects": 51,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 4.0,
+      "axis_share_with_line": 0.2
+     },
+     "band_yellow": {
+      "width": 5.0,
+      "axis_share_with_line": 0.023529411764705882
+     }
+    },
+    "info": {
+     "short_groups": 94,
+     "rescued": 16
+    },
+    "b0_length_not_in_new": 0.0
+   },
+   "B2a": {
+    "lines": {
+     "red_aa_2": {
+      "type": "red_black",
+      "visible": 182,
+      "hit": 180,
+      "gaps_ge10": 0
+     },
+     "red_aa_3": {
+      "type": "red_black",
+      "visible": 144,
+      "hit": 128,
+      "gaps_ge10": 1
+     },
+     "black_1": {
+      "type": "red_black",
+      "visible": 151,
+      "hit": 147,
+      "gaps_ge10": 0
+     },
+     "black_3": {
+      "type": "red_black",
+      "visible": 133,
+      "hit": 118,
+      "gaps_ge10": 1
+     },
+     "black_5": {
+      "type": "red_black",
+      "visible": 126,
+      "hit": 122,
+      "gaps_ge10": 0
+     },
+     "pale_1": {
+      "type": "pale",
+      "visible": 146,
+      "hit": 77,
+      "gaps_ge10": 2
+     },
+     "red_var_2to5": {
+      "type": "var_width",
+      "visible": 239,
+      "hit": 226,
+      "gaps_ge10": 0
+     },
+     "red_touch_fill": {
+      "type": "touch_fill",
+      "visible": 72,
+      "hit": 67,
+      "gaps_ge10": 0
+     }
+    },
+    "false_length": 126.2533291393481,
+    "detected_length": 1178.088826572373,
+    "objects": 40,
+    "mixed_objects": 0,
+    "bands": {
+     "band_green": {
+      "width": 4.0,
+      "axis_share_with_line": 0.2
+     },
+     "band_yellow": {
+      "width": 5.0,
+      "axis_share_with_line": 0.023529411764705882
+     }
+    },
+    "info": {
+     "added": 5
+    },
+    "b0_length_not_in_new": 0.0
+   }
+  }
+ },
+ "aggregate": {
+  "B0": {
+   "visible_recall": {
+    "red_black": 0.8706675971156083,
+    "pale": 0.1038135593220339,
+    "var_width": 0.820136852394917,
+    "touch_fill": 0.6682027649769585
+   },
+   "gaps_ge10": {
+    "red_black": 24,
+    "pale": 10,
+    "var_width": 8,
+    "touch_fill": 5
+   },
+   "false_length_share": 0.07238457662299153,
+   "objects": 146,
+   "mixed_objects": 1,
+   "bands_protected": "6/10",
+   "band_axis_share_max": 0.20670391061452514,
+   "b0_length_lost_px": 0.0
+  },
+  "B1": {
+   "visible_recall": {
+    "red_black": 0.9148639218422889,
+    "pale": 0.17266949152542374,
+    "var_width": 0.863147605083089,
+    "touch_fill": 0.7096774193548387
+   },
+   "gaps_ge10": {
+    "red_black": 14,
+    "pale": 10,
+    "var_width": 5,
+    "touch_fill": 5
+   },
+   "false_length_share": 0.09567768283579238,
+   "objects": 251,
+   "mixed_objects": 1,
+   "bands_protected": "5/10",
+   "band_axis_share_max": 0.2905027932960894,
+   "b0_length_lost_px": 0.0
+  },
+  "B2a": {
+   "visible_recall": {
+    "red_black": 0.8934635961851594,
+    "pale": 0.5550847457627118,
+    "var_width": 0.8426197458455523,
+    "touch_fill": 0.8018433179723502
+   },
+   "gaps_ge10": {
+    "red_black": 15,
+    "pale": 15,
+    "var_width": 6,
+    "touch_fill": 2
+   },
+   "false_length_share": 0.11476516912140496,
+   "objects": 201,
+   "mixed_objects": 1,
+   "bands_protected": "6/10",
+   "band_axis_share_max": 0.27932960893854747,
+   "b0_length_lost_px": 0.0
+  }
+ }
+}

@@ -1,0 +1,21 @@
+B0 {'pale': 0.104, 'red_black': 0.871, 'touch_fill': 0.668, 'var_width': 0.82} gaps>=10 {'pale': 10, 'red_black': 24, 'touch_fill': 5, 'var_width': 8} false 0.072 obj 146 mixed 1 bands 6/10 bmax 0.21 B0 lost px 0.0
+B1 {'pale': 0.173, 'red_black': 0.915, 'touch_fill': 0.71, 'var_width': 0.863} gaps>=10 {'pale': 10, 'red_black': 14, 'touch_fill': 5, 'var_width': 5} false 0.096 obj 251 mixed 1 bands 5/10 bmax 0.29 B0 lost px 0.0
+B2a {'pale': 0.555, 'red_black': 0.893, 'touch_fill': 0.802, 'var_width': 0.843} gaps>=10 {'pale': 15, 'red_black': 15, 'touch_fill': 2, 'var_width': 6} false 0.115 obj 201 mixed 1 bands 6/10 bmax 0.28 B0 lost px 0.0
+        7.18 real         7.83 user         0.14 sys
+           227622912  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               24625  page reclaims
+                2688  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 880  voluntary context switches
+                5598  involuntary context switches
+        168404993746  instructions retired
+         32517067711  cycles elapsed
+           182322064  peak memory footprint
