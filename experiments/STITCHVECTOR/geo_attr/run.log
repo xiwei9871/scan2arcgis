@@ -1,0 +1,38 @@
+syn red_black                vis 4633 own2 0.919 corr2 0.919 same2/3/4 0.927/0.945/0.959 near 324 {'D_cros': 211, 'B_offs': 22, 'C_othe': 19, 'C_fill': 4, 'E_unce': 38} skel 35 {'lab_only': 4, 'no_skele': 3, 'min_len_': 26, 'smoothin': 2}
+syn pale                     vis 945 own2 0.547 corr2 0.547 same2/3/4 0.531/0.567/0.599 near 167 {'D_cros': 110, 'B_offs': 16, 'C_othe': 15, 'C_band': 2, 'C_fill': 1, 'E_unce': 13} skel 142 {'lab_only': 68, 'isolated': 11, 'no_skele': 4, 'spur_rem': 2, 'min_len_': 55, 'smoothin': 2}
+syn var_width                vis 1012 own2 0.867 corr2 0.867 same2/3/4 0.869/0.883/0.895 near 71 {'D_cros': 47, 'B_offs': 5, 'C_othe': 12, 'E_unce': 2} skel 61 {'lab_only': 4, 'no_skele': 22, 'spur_rem': 3, 'min_len_': 29, 'smoothin': 3}
+syn touch_fill               vis 422 own2 0.744 corr2 0.744 same2/3/4 0.777/0.810/0.839 near 70 {'D_cros': 41, 'B_offs': 7, 'C_othe': 10, 'C_band': 2, 'E_unce': 2} skel 11 {'lab_only': 9, 'min_len_': 2}
+syn ALL                      vis 7012 own2 0.851 corr2 0.851 same2/3/4 0.856/0.877/0.894 near 632 {'D_cros': 409, 'B_offs': 50, 'C_othe': 56, 'C_band': 4, 'C_fill': 5, 'E_unce': 55} skel 249 {'lab_only': 85, 'isolated': 11, 'no_skele': 29, 'spur_rem': 5, 'min_len_': 112, 'smoothin': 7}
+sce dark                     vis 3338 own2 1.000 corr2 1.000 same2/3/4 1.000/1.000/1.000 near 0 {} skel 0 {}
+sce pale_darker              vis 3328 own2 0.938 corr2 0.938 same2/3/4 0.932/0.954/0.972 near 135 {'D_cros': 9, 'B_offs': 53, 'C_othe': 1, 'C_band': 9, 'E_unce': 1} skel 0 {}
+sce pale_brighter_than_both_ vis 1001 own2 1.000 corr2 1.000 same2/3/4 1.000/1.000/1.000 near 0 {} skel 0 {}
+sce pale_brighter_than_one_s vis 1053 own2 0.011 corr2 0.011 same2/3/4 0.011/0.013/0.014 near 3 {'B_offs': 1} skel 359 {'lab_only': 340, 'isolated': 18, 'min_len_': 1}
+sce boundary_dark            vis 1041 own2 1.000 corr2 1.000 same2/3/4 1.000/1.000/1.000 near 0 {} skel 0 {}
+sce boundary_pale            vis 1201 own2 0.630 corr2 0.630 same2/3/4 0.631/0.647/0.661 near 58 {'D_cros': 23, 'B_offs': 13, 'C_othe': 5, 'E_unce': 2} skel 52 {'lab_only': 43, 'isolated': 5, 'min_len_': 4}
+sce mix_colour_on_boundary   vis 1053 own2 0.000 corr2 0.000 same2/3/4 0.000/0.000/0.000 near 0 {} skel 39 {'lab_only': 14, 'isolated': 19, 'min_len_': 6}
+sce ALL                      vis 12015 own2 0.772 corr2 0.772 same2/3/4 0.770/0.778/0.784 near 196 {'D_cros': 32, 'B_offs': 67, 'C_othe': 6, 'C_band': 9, 'E_unce': 3} skel 450 {'lab_only': 397, 'isolated': 42, 'min_len_': 11}
+u2 red_fault_or_line        vis 332 own2 0.666 corr2 0.922 same2/3/4 0.919/0.940/0.961 near 107 {'D_cros': 7, 'A_scor': 85, 'B_offs': 5, 'E_unce': 5} skel 0 {}
+u2 red_tooth                vis 111 own2 0.243 corr2 0.243 same2/3/4 0.351/0.423/0.468 near 82 {'D_cros': 71, 'B_offs': 4, 'C_othe': 3, 'E_unce': 2} skel 0 {}
+u2 red_curve                vis 179 own2 0.844 corr2 1.000 same2/3/4 0.983/0.994/0.994 near 28 {'A_scor': 28} skel 0 {}
+u2 G1                       vis 94 own2 0.564 corr2 0.564 same2/3/4 0.681/0.819/0.851 near 38 {'D_cros': 24, 'B_offs': 2, 'C_othe': 1} skel 3 {'isolated': 3}
+u2 G2                       vis 94 own2 0.819 corr2 0.819 same2/3/4 0.819/0.851/0.894 near 16 {'D_cros': 8, 'B_offs': 4, 'C_othe': 1} skel 0 {}
+u2 G3                       vis 94 own2 0.745 corr2 0.745 same2/3/4 0.755/0.809/0.851 near 17 {'D_cros': 11, 'B_offs': 2, 'C_othe': 2, 'E_unce': 1} skel 0 {}
+u2 ALL                      vis 904 own2 0.663 corr2 0.788 same2/3/4 0.810/0.852/0.877 near 288 {'D_cros': 121, 'A_scor': 113, 'B_offs': 17, 'C_othe': 7, 'E_unce': 8} skel 3 {'isolated': 3}
+       21.32 real        26.97 user         0.56 sys
+           329416704  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               60537  page reclaims
+                5356  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                2243  voluntary context switches
+               33097  involuntary context switches
+        487656687120  instructions retired
+        101828879985  cycles elapsed
+           261293160  peak memory footprint
