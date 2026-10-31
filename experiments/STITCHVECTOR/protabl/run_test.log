@@ -1,0 +1,22 @@
+M0 synth recall 0.824 {'pale': 0.443, 'red_black': 0.909, 'var_width': 0.857, 'touch_fill': 0.656} precision 0.965 false {'fill_edge': 174, 'band': 40, 'other': 1} bands>0.1 0 cand/kept 0 0 | scenes {'dark': 1.0, 'pale_darker': 0.94, 'pale_brighter_than_both_sides': 1.0, 'pale_brighter_than_one_side': 0.01, 'boundary_dark': 1.0, 'boundary_pale': 0.64, 'mix_colour_on_boundary': 0.0} prec 0.499 band mean/max 0.74 1.0
+M1 synth recall 0.84 {'pale': 0.509, 'red_black': 0.917, 'var_width': 0.877, 'touch_fill': 0.656} precision 0.964 false {'fill_edge': 185, 'band': 40, 'other': 2} bands>0.1 0 cand/kept 12 9 | scenes {'dark': 1.0, 'pale_darker': 0.94, 'pale_brighter_than_both_sides': 1.0, 'pale_brighter_than_one_side': 0.01, 'boundary_dark': 1.0, 'boundary_pale': 0.64, 'mix_colour_on_boundary': 0.0} prec 0.499 band mean/max 0.74 1.0
+M2 synth recall 0.851 {'pale': 0.547, 'red_black': 0.919, 'var_width': 0.867, 'touch_fill': 0.744} precision 0.954 false {'fill_edge': 218, 'band': 76, 'other': 5} bands>0.1 0 cand/kept 30 20 | scenes {'dark': 1.0, 'pale_darker': 0.94, 'pale_brighter_than_both_sides': 1.0, 'pale_brighter_than_one_side': 0.01, 'boundary_dark': 1.0, 'boundary_pale': 0.64, 'mix_colour_on_boundary': 0.0} prec 0.5 band mean/max 0.74 1.0
+M3 synth recall 0.842 {'pale': 0.505, 'red_black': 0.919, 'var_width': 0.868, 'touch_fill': 0.694} precision 0.804 false {'fill_edge': 274, 'band': 927, 'other': 305} bands>0.1 9 cand/kept 137 77 | scenes {'dark': 1.0, 'pale_darker': 0.94, 'pale_brighter_than_both_sides': 1.0, 'pale_brighter_than_one_side': 0.01, 'boundary_dark': 1.0, 'boundary_pale': 0.64, 'mix_colour_on_boundary': 0.0} prec 0.493 band mean/max 0.74 1.0
+       57.21 real        87.40 user         2.62 sys
+           240893952  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              163989  page reclaims
+                2691  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1090  voluntary context switches
+              176595  involuntary context switches
+       1535198144720  instructions retired
+        327336576408  cycles elapsed
+           265929712  peak memory footprint
