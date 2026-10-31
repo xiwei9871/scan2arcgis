@@ -1,0 +1,35 @@
+{
+ "7002": {
+  "band_width": 5.0,
+  "band_core_px": 663,
+  "band_colour": [
+   245,
+   211,
+   123
+  ],
+  "nearest_32_palette_dE": 23.9,
+  "nearest_face_class_dE": 26.1
+ },
+ "7003": {
+  "band_width": 3.0,
+  "band_core_px": 278,
+  "band_colour": [
+   241,
+   213,
+   131
+  ],
+  "nearest_32_palette_dE": 15.6,
+  "nearest_face_class_dE": 15.6
+ },
+ "7001": {
+  "band_width": 5.0,
+  "band_core_px": 852,
+  "band_colour": [
+   243,
+   211,
+   120
+  ],
+  "nearest_32_palette_dE": 2.5,
+  "nearest_face_class_dE": 2.9
+ }
+}
