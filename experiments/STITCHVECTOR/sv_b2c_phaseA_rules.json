@@ -1,0 +1,17 @@
+{
+ "title": "B2c Phase A rules, written and pushed BEFORE any new development data is generated",
+ "feature": "dL = median(L*(centre) - min(L*(left side), L*(right side))) over samples of each segment B2a adds; code sv_b2b.features (unchanged since 910b426), wrapper sv_b2c.seg_dL",
+ "hypothesis_source": "post-hoc observation on already-viewed seeds 1001-1003 / 5001-5005 (docs/research/stitchvector/v3_b2b_edge_filter_review.md section 3): dL <= -3 kept 89% of true-line length and removed 84% of fill-edge length. Used only as a hypothesis.",
+ "dev_data": {"sv_synth": [1201, 1202, 1203], "counterexample_scenes": [1301, 1302, 1303], "scene_kinds": "sv_b2c_scenes.KINDS", "note": "none of these seeds has been generated before this file is pushed"},
+ "measurements": [
+  "A1 pipeline: every segment B2a adds on sv_synth dev tiles, labelled true_line / fill_edge / band_edge / other by length; purity (largest label share) reported; length kept per label for dL thresholds -1, -2, -3, -4, -5",
+  "A2 pipeline: the same on counterexample scenes, plus the ink sub-type (dark, pale_darker, pale_brighter_than_both_sides, pale_brighter_than_one_side, boundary_dark, boundary_pale, mix_colour_on_boundary)",
+  "A3 truth geometry: dL computed directly along every truth ink axis and every truth edge axis in the scenes (independent of what the detector finds), to see the feature itself per sub-type"
+ ],
+ "stop_rule": [
+  "STOP (no Phase B/C) if on A1 no dL threshold keeps >= 80% of true-line length while removing >= 50% of fill-edge length",
+  "STOP if on A3 fill-edge-only axes and pale ink darker than both sides (pale_darker, boundary_pale) overlap so that no threshold separates them (dL of edges must sit clearly above that of such ink)",
+  "NOT a stop by itself: ink brighter than one or both sides is expected to be deleted by construction; it is measured and reported as the scope limit and decides only whether B2c may ever be a default, not whether the test runs"
+ ],
+ "no_new_rules": "if Phase A fails, no further colour or luminance rule is tried in this round"
+}
