@@ -1,0 +1,93 @@
+{
+ "L1": {
+  "true_pairs": 193,
+  "predicted": 124,
+  "correct": 119,
+  "wrong": 5,
+  "precision": 0.9596774193548387,
+  "recall": 0.616580310880829,
+  "recall_by_gap": {
+   "occluded_gt8": [
+    21,
+    52
+   ],
+   "occluded_le8": [
+    43,
+    67
+   ],
+   "visible_gt8": [
+    31,
+    46
+   ],
+   "visible_le8": [
+    24,
+    28
+   ]
+  },
+  "wrong_by_kind": {
+   "line->line": 1,
+   "line->true_termination": 1,
+   "true_termination->true_termination": 2,
+   "same_line_nonadjacent": 1
+  },
+  "uncertain": 20,
+  "uncertain_on_true_pair": 14,
+  "band_band_links": 14,
+  "impure_components": 4,
+  "fragments": 263,
+  "components_mean_by_line": {
+   "black_1": 2.8,
+   "black_3": 2.6,
+   "pale_1": 4.2,
+   "par_a": 2.4,
+   "par_b": 2.0,
+   "red_aa_2": 2.8,
+   "red_aa_3": 2.0,
+   "red_var_2to5": 2.2,
+   "shallow_0": 1.2,
+   "shallow_1": 1.2,
+   "tbar_stem": 1.4,
+   "tbar_top": 1.2,
+   "term_a": 1.4,
+   "term_b": 1.2
+  },
+  "false_merges_must_not": {
+   "parallel->parallel": 0,
+   "true_termination->true_termination": 2,
+   "line->true_termination": 1,
+   "true_termination->line": 0,
+   "band_to_line": 0
+  }
+ },
+ "L2": {
+  "fragments": 155,
+  "logical": 123,
+  "links": 32,
+  "links_same_owner": 25,
+  "links_different_owner": 0,
+  "links_unassignable": 7,
+  "uncertain": 2,
+  "recall_mean_before": 0.7909677427771926,
+  "recall_mean_after": 0.8000179599411543,
+  "objects_covering_mean_before": 3.45,
+  "objects_covering_mean_after": 2.6
+ }
+}
+        6.14 real         5.89 user         0.15 sys
+           186318848  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               26075  page reclaims
+                3306  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1348  voluntary context switches
+                4090  involuntary context switches
+        101199480651  instructions retired
+         25976418164  cycles elapsed
+           133497696  peak memory footprint

@@ -1,0 +1,11 @@
+level,seed,true_pairs,predicted_links,correct_or_same_owner,wrong_or_different_owner,uncertain,band_band,impure_or_unassignable
+L1,3101,42,31,31,0,0,3,0
+L1,3102,37,21,20,1,9,2,1
+L1,3103,39,27,25,2,4,1,2
+L1,3104,39,24,23,1,5,3,0
+L1,3105,36,21,20,1,2,5,1
+L2,3001,,3,2,0,1,,1
+L2,3002,,6,6,0,0,,0
+L2,3003,,6,4,0,1,,2
+L2,3004,,8,4,0,0,,4
+L2,3005,,9,9,0,0,,0
