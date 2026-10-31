@@ -1,0 +1,67 @@
+{
+"independence": {
+"readback_identical": true,
+"line_geometry_identical": true,
+"oracle_faces_only_class_tol0_equals_auto_F0": true
+},
+"F0": {
+"full": 5.398626653854303,
+"map": 14.530805581028323,
+"map_line_nbhd": 22.37537487211541,
+"map_rest": 8.571046920761738,
+"bands": 25.519659835112392
+},
+"B0": {
+"full": 5.3067429179683385,
+"map": 14.605157999904073,
+"map_line_nbhd": 29.341808241162425,
+"map_rest": 8.567260869998721,
+"bands": 30.043475087269435
+},
+"B2c": {
+"full": 5.298457987692236,
+"map": 14.585800142254753,
+"map_line_nbhd": 29.596230501182564,
+"map_rest": 8.55893825748696,
+"bands": 30.043475087269435
+},
+"Oracle_class_tol0": {
+"full": 5.252239320349775,
+"map": 14.185013154459725,
+"map_line_nbhd": 29.572930877523298,
+"map_rest": 8.571046920761738,
+"bands": 25.519659835112392
+},
+"Oracle_32_tol0": {
+"full": 3.3461071112931347,
+"map": 12.835981509258763,
+"map_line_nbhd": 28.85488621811504,
+"map_rest": 6.837202508343596,
+"bands": 25.519659835112392
+},
+"VTracer_spline_s1": {
+"full": 2.6562340013708123,
+"map": 5.636793402450421,
+"map_line_nbhd": 6.993022077196602,
+"map_rest": 5.299806075250617,
+"bands": 4.9753692339060045
+}
+}
+        4.79 real         4.17 user         0.33 sys
+           302612480  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               43936  page reclaims
+                5095  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                2309  voluntary context switches
+                8589  involuntary context switches
+         71318414272  instructions retired
+         18188399929  cycles elapsed
+           251954208  peak memory footprint
