@@ -11,7 +11,6 @@ from shapely.geometry import LineString, Point, Polygon, MultiPolygon
 from shapely.ops import split as shp_split, substring
 
 FACE, LINE = "colour_faces", "visual_lines"
-GRID = 0.125          # overlay grid for experimental line-to-face (face vertices are on the integer grid)
 
 
 def sha256(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
@@ -189,14 +188,14 @@ class Document:
         if the face layer is not a valid coverage afterwards the edit is rolled back."""
         m = self._rows(LINE, ids); rows = self.L.loc[m]
         w = float(width) if width is not None else float(np.median(rows["width_px"]))
-        poly = shapely.union_all([g.buffer(w / 2, quad_segs=4) for g in rows.geometry])
-        poly = shapely.set_precision(shapely.intersection(poly, shapely.box(0, 0, self.W, self.H)), GRID)
-        if poly.is_empty: raise EditError("buffer is empty")
+        buf = shapely.union_all([g.buffer(w / 2, quad_segs=8) for g in rows.geometry])
+        poly = pixel_polygon(buf, self.W, self.H)                    # pixels whose centre is inside the buffer, as pixel-edge polygons
+        if poly is None or poly.is_empty: raise EditError("buffer covers no pixel centre")
         col = hex_ok(rgb) if rgb else rows["rgb"].iloc[0]
         def f():
             hit = shapely.intersects(np.asarray(self.F.geometry.values, object), poly); keep, new = self.F.loc[~hit], []
             for _, r in self.F.loc[hit].iterrows():
-                d = shapely.set_precision(shapely.difference(r.geometry, poly), GRID)
+                d = shapely.difference(r.geometry, poly)              # both on pixel edges: the result stays on pixel edges
                 parts = [q for q in shapely.get_parts(d) if q.geom_type == "Polygon" and q.area > 1e-9]
                 for j, part in enumerate(parts):                      # first piece keeps the face id, extra pieces get new ids
                     rr = r.copy(); rr["geometry"] = part
@@ -210,6 +209,7 @@ class Document:
                 if "colour_class" in r: r["colour_class"] = -1
                 add.append({**r, "geometry": p, "_eid": self.next_f}); self.next_f += 1
             F = gpd.GeoDataFrame(pd.concat([keep, gpd.GeoDataFrame(new, geometry="geometry") if new else keep.iloc[:0], gpd.GeoDataFrame(add, geometry="geometry")], ignore_index=True), geometry="geometry")
+            F = share_vertices(F, poly.buffer(1.5))
             rep = coverage_report(F, self.W, self.H)
             if not rep["accepted"]: raise EditError(f"EXPERIMENTAL_NOT_ACCEPTED: line-to-face gives an invalid face layer {rep}")
             self.F = F; self.L = self.L.loc[~m].copy()
@@ -274,3 +274,24 @@ def coverage_report(F, W, H):
     ok = valid and allpoly and geomvalid and abs(area - W * H) < 1e-6 and abs(float(u.area) - W * H) < 1e-6
     return {"accepted": bool(ok), "coverage_is_valid": valid, "all_polygon": allpoly, "geometries_valid": geomvalid,
             "area_sum_minus_window": round(area - W * H, 6), "union_area_minus_window": round(float(u.area) - W * H, 6)}
+
+
+def pixel_polygon(geom, W, H):
+    """pixels (pixel-centre rule) covered by geom, as a union of pixel-edge polygons."""
+    import rasterio.features as RF
+    from affine import Affine
+    m = RF.rasterize([(geom, 1)], out_shape=(H, W), fill=0, transform=Affine.identity(), all_touched=False, dtype="uint8")
+    if not m.any(): return None
+    polys = [shapely.geometry.shape(g) for g, v in RF.shapes(m, mask=m.astype(bool), connectivity=4, transform=Affine.identity()) if v == 1]
+    return shapely.union_all(polys)
+
+
+def share_vertices(F, zone):
+    """insert into every face near `zone` the vertices of its neighbours that lie on its edges (shape unchanged), so shared
+    edges have the same vertices on both sides (required by the strict coverage check)."""
+    g = np.asarray(F.geometry.values, object); near = shapely.intersects(g, zone)
+    if not near.any(): return F
+    pts = shapely.multipoints(np.vstack([shapely.get_coordinates(x) for x in g[near]]))
+    out = g.copy()
+    for i in np.nonzero(near)[0]: out[i] = shapely.snap(g[i], pts, 1e-6)
+    F = F.copy(); F["geometry"] = out; return F
