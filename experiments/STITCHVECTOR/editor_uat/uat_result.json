@@ -1,0 +1,352 @@
+{
+ "mode": "DATA_LEVEL_VERIFIED (editor core, same code the UI calls)",
+ "inputs_sha256": {
+  "u2_B2c.gpkg": "7d78a7111320c2da1ce18006d05c8ecb5c2fc89c8b97c325801fa5ddde310d26",
+  "synth_7001_B2c.gpkg": "ba7d5abba633f84ef01af92cf9a18b74751f36f9ff97837510551bcf757e8d1a"
+ },
+ "S1_PN2": {
+  "logical_ids": [
+   "G13"
+  ],
+  "group_features": 2,
+  "colour": "#9c9e8c",
+  "before": {
+   "core_by_line_footprint": 0.5593557983747905,
+   "core_by_new_face": 0.0,
+   "new_face_area_outside_band_px2": 0.0,
+   "axis_uncovered_px": 17
+  },
+  "after_recolour_rewidth": {
+   "core_by_line_footprint": 0.9168355923843682,
+   "core_by_new_face": 0.0,
+   "new_face_area_outside_band_px2": 0.0,
+   "axis_uncovered_px": 0
+  },
+  "save_attr": {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/uat/u2_PN2_recolour_rewidth.gpkg",
+   "accepted": true,
+   "coverage_is_valid": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true,
+   "face_columns_kept": true,
+   "line_columns_kept": true,
+   "faces": 665,
+   "lines": 35,
+   "diff": {
+    "colour_faces": {
+     "before": 665,
+     "after": 665,
+     "deleted": 0,
+     "added": 0,
+     "attribute_changed": 0,
+     "geometry_changed": 0,
+     "unchanged": 665
+    },
+    "visual_lines": {
+     "before": 35,
+     "after": 35,
+     "deleted": 0,
+     "added": 0,
+     "attribute_changed": 2,
+     "geometry_changed": 0,
+     "unchanged": 33
+    }
+   }
+  },
+  "line_to_face": {
+   "status": "ACCEPTED_DATA_LEVEL",
+   "area_px2": 337.0,
+   "width": 4.0,
+   "core_by_line_footprint": 0.0,
+   "core_by_new_face": 0.9035888858956089,
+   "new_face_area_outside_band_px2": 69.36248107569945,
+   "axis_uncovered_px": 0
+  },
+  "save_l2f": {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/uat/u2_PN2_line_to_face.gpkg",
+   "accepted": true,
+   "coverage_is_valid": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true,
+   "face_columns_kept": true,
+   "line_columns_kept": true,
+   "faces": 670,
+   "lines": 33,
+   "diff": {
+    "colour_faces": {
+     "before": 665,
+     "after": 670,
+     "deleted": 1,
+     "added": 6,
+     "attribute_changed": 0,
+     "geometry_changed": 16,
+     "unchanged": 648
+    },
+    "visual_lines": {
+     "before": 35,
+     "after": 33,
+     "deleted": 2,
+     "added": 0,
+     "attribute_changed": 0,
+     "geometry_changed": 0,
+     "unchanged": 33
+    }
+   }
+  },
+  "remaining_gaps_px": [
+   4,
+   7
+  ],
+  "ops": {
+   "select": 2,
+   "eyedropper": 1,
+   "recolour": 1,
+   "rewidth": 1,
+   "line_to_face": 1,
+   "split": 0,
+   "merge": 0,
+   "redraw_px": 0
+  },
+  "sequence": [
+   "pick line",
+   "select logical group",
+   "eyedropper",
+   "recolour",
+   "rewidth",
+   "line_to_face"
+  ]
+ },
+ "S2_PN1": {
+  "lines_on_band": 3,
+  "in_band_parts": 4,
+  "gaps_px": [
+   19
+  ],
+  "redraw_px": 19.3,
+  "after": {
+   "core_by_line_footprint": 0.9992703558995594,
+   "core_by_new_face": 0.0,
+   "new_face_area_outside_band_px2": 0.0,
+   "axis_uncovered_px": 0
+  },
+  "outside_band_length_left_unchanged_px": 167.1294171986504,
+  "save": {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/uat/u2_PN1_split_redraw.gpkg",
+   "accepted": true,
+   "coverage_is_valid": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true,
+   "face_columns_kept": true,
+   "line_columns_kept": true,
+   "faces": 665,
+   "lines": 38,
+   "diff": {
+    "colour_faces": {
+     "before": 665,
+     "after": 665,
+     "deleted": 0,
+     "added": 0,
+     "attribute_changed": 0,
+     "geometry_changed": 0,
+     "unchanged": 665
+    },
+    "visual_lines": {
+     "before": 35,
+     "after": 38,
+     "deleted": 0,
+     "added": 3,
+     "attribute_changed": 3,
+     "geometry_changed": 1,
+     "unchanged": 32
+    }
+   }
+  },
+  "line_to_face": {
+   "status": "ACCEPTED_DATA_LEVEL",
+   "area_px2": 352.0,
+   "width": 5.0,
+   "core_by_line_footprint": 0.0,
+   "core_by_new_face": 0.9947699386998403,
+   "new_face_area_outside_band_px2": 140.39958368887633,
+   "axis_uncovered_px": 0
+  },
+  "save_l2f": {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/uat/u2_PN1_line_to_face.gpkg",
+   "accepted": true,
+   "coverage_is_valid": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true,
+   "face_columns_kept": true,
+   "line_columns_kept": true,
+   "faces": 662,
+   "lines": 34,
+   "diff": {
+    "colour_faces": {
+     "before": 665,
+     "after": 662,
+     "deleted": 4,
+     "added": 1,
+     "attribute_changed": 0,
+     "geometry_changed": 4,
+     "unchanged": 657
+    },
+    "visual_lines": {
+     "before": 35,
+     "after": 34,
+     "deleted": 2,
+     "added": 1,
+     "attribute_changed": 1,
+     "geometry_changed": 1,
+     "unchanged": 32
+    }
+   }
+  },
+  "ops": {
+   "select": 3,
+   "split": 2,
+   "redraw_traces": 1,
+   "recolour": 1,
+   "rewidth": 1,
+   "line_to_face": 1,
+   "redraw_px": 19.3
+  },
+  "sequence": [
+   "pick 3 lines on PN1",
+   "split at band outline",
+   "split at band outline",
+   "new group E37 for 3 in-band parts",
+   "redraw 19.3 px"
+  ]
+ },
+ "S3_fragments": {
+  "region": "green",
+  "region_area": 3879.0,
+  "faces_mostly_in_region": 37,
+  "routes": {
+   "R1_click_then_grow_de15": {
+    "faces": 1,
+    "precision_area": 0.9358,
+    "recall_area": 0.8918,
+    "truth_faces_selected": 1,
+    "clicks": 2
+   },
+   "R2_box_over_region": {
+    "faces": 73,
+    "precision_area": 0.8386,
+    "recall_area": 0.9928,
+    "truth_faces_selected": 37,
+    "clicks": 1
+   },
+   "R3_shift_click_each_face_TRUTH_ASSISTED": {
+    "faces": 37,
+    "precision_area": 0.9309,
+    "recall_area": 0.9581,
+    "truth_faces_selected": 37,
+    "clicks": 37
+   }
+  },
+  "edge_connected_components": [
+   36,
+   1
+  ],
+  "merge_all_selected": false,
+  "merge_error": "selected faces are not one edge-connected group (merge would give a multipart face)",
+  "faces_before_after": [
+   398,
+   363
+  ],
+  "merged_face_area": 3984.0,
+  "merged_face_outside_region_px2": 275.7,
+  "save": {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/uat/synth_7001_fragments_merge.gpkg",
+   "accepted": true,
+   "coverage_is_valid": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true,
+   "face_columns_kept": true,
+   "line_columns_kept": true,
+   "faces": 363,
+   "lines": 32,
+   "diff": {
+    "colour_faces": {
+     "before": 398,
+     "after": 363,
+     "deleted": 35,
+     "added": 0,
+     "attribute_changed": 2,
+     "geometry_changed": 1,
+     "unchanged": 361
+    },
+    "visual_lines": {
+     "before": 32,
+     "after": 32,
+     "deleted": 0,
+     "added": 0,
+     "attribute_changed": 0,
+     "geometry_changed": 0,
+     "unchanged": 32
+    }
+   }
+  },
+  "ops": {
+   "select_clicks": 37,
+   "eyedropper": 1,
+   "recolour": 1,
+   "merge": 2
+  }
+ },
+ "S4_line_recolour": {
+  "line_eid": 16,
+  "picked_by_click": true,
+  "dE_before": 14.6,
+  "new_colour": "#c06b6c",
+  "reopened_colour": "#c06b6c",
+  "colour_round_trip": true,
+  "geometry_unchanged": true,
+  "save": {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/uat/u2_line_recolour.gpkg",
+   "accepted": true,
+   "coverage_is_valid": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true,
+   "face_columns_kept": true,
+   "line_columns_kept": true,
+   "faces": 665,
+   "lines": 35,
+   "diff": {
+    "colour_faces": {
+     "before": 665,
+     "after": 665,
+     "deleted": 0,
+     "added": 0,
+     "attribute_changed": 0,
+     "geometry_changed": 0,
+     "unchanged": 665
+    },
+    "visual_lines": {
+     "before": 35,
+     "after": 35,
+     "deleted": 0,
+     "added": 0,
+     "attribute_changed": 1,
+     "geometry_changed": 0,
+     "unchanged": 34
+    }
+   }
+  },
+  "ops": {
+   "select": 1,
+   "eyedropper": 1,
+   "recolour": 1
+  }
+ },
+ "inputs_unchanged": true,
+ "outputs_sha256": {
+  "synth_7001_fragments_merge.gpkg": "b288b997cd3bb40894908c4a555436d93969f2fae246e9c813b15c30e9ec7749",
+  "u2_PN1_line_to_face.gpkg": "7244de57e67033795386eb64ac508acc8dc83aa412c598c6c3ca985794551246",
+  "u2_PN1_split_redraw.gpkg": "4d9e08e90d0dc78b15230302803eea5c4fa162eb2db25f673b2278d841740225",
+  "u2_PN2_line_to_face.gpkg": "7d99d24916658c8d5051e6fa7b113ee4b84e1d111c8c58429d71433bf384c4b9",
+  "u2_PN2_recolour_rewidth.gpkg": "a8fe4a75b34d53ff9563e69a733b3476dd2e0b9740b3287dd7d03a8139bb4b71",
+  "u2_line_recolour.gpkg": "39e58b269a8035ed2c56d29d5198a1b1d97bd92069d9b50fd07d32aa923b80c7"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "fail": 0,
+ "log": [
+  "PASS loaded image 300x300, faces 665, lines 35",
+  "PASS wheel zoom: scale 8.78",
+  "PASS click selects one line: {\"layer\":\"line\",\"ids\":[15]}",
+  "PASS logical_id group selects 2 lines",
+  "PASS eyedropper from scan: #779070",
+  "PASS group recolour + rewidth: #779070/4, #779070/4",
+  "PASS unsaved-changes marker shown",
+  "PASS undo button reverts width",
+  "PASS redo shortcut restores width",
+  "PASS line-to-face: faces 665 -> 670, lines -> 33 (线转面完成，面积 337.0 px²（实验功能）)",
+  "PASS click selects face #0",
+  "edge-adjacent neighbour #1, click point [15.5,0.5]",
+  "PASS shift-click adds a neighbour: [0,1]",
+  "PASS merge two adjacent faces: 670 -> 669 (已合并)",
+  "PASS box selects 16 faces",
+  "PASS batch recolour of 16 faces",
+  "PASS split line by click: lines 33 -> 34",
+  "PASS draw a new line: lines -> 35",
+  "PASS delete selected line: lines -> 34",
+  "PASS save: 已保存 ui_e2e.gpkg；回读一致 true；面层有效 true；原文件未变 true",
+  "PASS after save dirty=false, edit log 10 entries"
+ ]
+}
