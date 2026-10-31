@@ -1,0 +1,73 @@
+{
+ "title": "StitchVector 3.0 geometry-first metrics G1-G3: evaluation plan, pushed and remote-verified before any existing output is scored",
+ "status_after_run": "STITCHVECTOR_V3_GEOMETRY_FIRST_METRICS_REVIEW_READY",
+ "nature": "retrospective scoring of EXISTING outputs; no new generation, no algorithm or parameter change; not a blind test",
+ "inputs": {
+  "synthetic": "runs/stitchvector/v3_linefaces/gpkg/synth_{7001..7005}_{F0,B0,B2c}.gpkg and scene_{7101..7105}_{kind}_{F0,B0,B2c}.gpkg (line+face POC test outputs, 419cf71); SHA-256 checked against experiments/STITCHVECTOR/lf/linefaces_test_artifacts_sha256.txt before scoring",
+  "u2": "runs/stitchvector/v3_u2_real/gpkg/u2_{F0,B0,B2c}.gpkg (fcf7e5e; SHA-256 checked against u2real/u2_artifacts_sha256.txt) and the Oracle v2 reference runs/stitchvector/oracle_u2_300_v2/O1_class_tol0.gpkg (sha256 c499d548...)",
+  "truth": "synthetic: sv_synth.generate / sv_b2c_scenes.scene with the same seeds (deterministic, frozen generators). u2: Oracle traces (selected lines only, no text, no symbols) and the protected bands PN1 / PN2. Truth is used only for scoring."
+ },
+ "truth_elements": {
+  "ink_line": "axis of every drawn ink line; visible samples = not under a later-drawn ink line (half width + 0.5 px)",
+  "fill_boundary": "synthetic tiles: exterior of each fill polygon minus the interiors of later-drawn fills, clipped to the tile; scenes: the drawn fill edges that are not covered by ink. Visible = not under ink and not under a band. u2: none (no truth)",
+  "band": "axis + width of each fill-coloured band (synthetic) or Oracle protected band (u2, width = 2 x radius); visible = not under ink"
+ },
+ "matching": {
+  "tol_px": 1.5,
+  "direction_deg": 30,
+  "run_min_px": 5,
+  "rule": "a truth sample (1 px) is matched by an output kind if a sample of that kind (every 0.5 px) lies within tol and its tangent is within 30 deg (either orientation); matches count as reusable only inside runs of >= 5 consecutive matched visible samples. Face boundaries along the tile frame are ignored."
+ },
+ "classes": {
+  "ink_line": [
+   "line_ok (reusable centreline)",
+   "face_outline (only polygon edges along the ink: geometry exists, conversion needed)",
+   "needs_fix (some geometry within half width + 1.5 px, not reusable)",
+   "missing (nothing to reuse: redraw)"
+  ],
+  "fill_boundary": [
+   "face_ok (reusable face edge)",
+   "line_only (only a line along it: split the face along the line)",
+   "needs_fix",
+   "missing"
+  ],
+  "band_axis": [
+   "face_ok (both sides matched by face edges AND a band-dedicated face at the axis)",
+   "line_convert (reusable centreline: re-widen + line-to-face + difference with the face below)",
+   "face_needs_fix (band-dedicated face present, sides incomplete)",
+   "needs_fix",
+   "missing"
+  ]
+ },
+ "G1": {
+  "G1a_geometry_present": "share of visible truth samples NOT 'missing'",
+  "G1b_reusable": "share that is line_ok / face_ok",
+  "G1c_convertible": "share that is face_outline / line_only / line_convert (geometry usable after a conversion, reported apart from G1b)"
+ },
+ "G2": {
+  "redraw_px": "visible truth length classed missing",
+  "adjust_px": "length classed needs_fix or face_needs_fix",
+  "convert_px": "length classed face_outline / line_only / line_convert",
+  "note": "all lengths are truth-axis samples; areas are never converted to lengths"
+ },
+ "G3": {
+  "ops": [
+   "redraw: runs of >= 3 consecutive missing samples (one manual trace each)",
+   "adjust: runs of >= 3 needs_fix samples",
+   "split_face_along_line: runs of line_only on fill boundaries",
+   "line_to_face: bands with any line_convert run (each also needs rewidth)",
+   "convert_outline_to_line: ink lines with face_outline runs",
+   "recolour_line / rewidth_line: logical groups owning an ink line (>= 60% of length within 2 px) whose colour differs > 15 dE from the original along the line or whose width differs > 1 px from truth (synthetic only)",
+   "delete_false_line: groups owning no ink and no band",
+   "split_cross_line: groups running >= 10 px along two ink lines outside their shared zone",
+   "face recolour: faces (not ink faces) whose colour differs > 15 dE from their majority truth colour, counted individually and as a safe-batch lower bound (a colour can be batch-changed only if all its faces belong to one truth colour)",
+   "face merge: per truth region, faces assigned - 1",
+   "face split: faces whose second truth region holds >= 10% and >= 20 px"
+  ],
+  "proxy_cost": "illustrative only, not user time: 1 per click-level op (recolour, rewidth, delete, split, line_to_face counted 3), 1 per merged face, 1 per 10 px of redraw or adjust length, 1 per convert_outline_to_line counted as redraw of its length ; each line_to_face op is costed 4 (3 for buffer + difference + merge, 1 for the width change it needs)",
+  "qgis": "NOT_VERIFIED (not installed)"
+ },
+ "u2_band_repair": "per band and line method: centreline coverage (tolerance only, and with direction + runs), gap runs; widened-line core coverage = area(band core ∩ union(in-band line parts buffered to band radius)); union with band faces; widened area outside the band; length of the same logical groups outside the band (what a whole-group edit would also change). Replaces the invalid redraw_axis_length_estimate_px of sv_gc_repairability (area + area summed and converted to a length)",
+ "stop_rule": "one scoring run; no change to definitions after the first number",
+ "pre_freeze_smoke": "scorer run on freshly built dev outputs (synthetic 1201, scenes 1301; not the test outputs) to check it runs; one bug fixed before freeze: the per-band boolean 'line_convert' flag overwrote the line_convert sample count. No definition changed."
+}
