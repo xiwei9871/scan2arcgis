@@ -1,0 +1,26 @@
+{
+ "pale_1": {
+  "samples": 1060,
+  "found": 236,
+  "miss_protected": 319,
+  "miss_low_contrast": 0,
+  "miss_ink_but_no_line": 505,
+  "other": 0
+ },
+ "red_var_2to5": {
+  "samples": 1052,
+  "found": 654,
+  "miss_protected": 43,
+  "miss_low_contrast": 119,
+  "miss_ink_but_no_line": 236,
+  "other": 0
+ },
+ "red_touch_fill": {
+  "samples": 452,
+  "found": 300,
+  "miss_protected": 45,
+  "miss_low_contrast": 26,
+  "miss_ink_but_no_line": 81,
+  "other": 0
+ }
+}

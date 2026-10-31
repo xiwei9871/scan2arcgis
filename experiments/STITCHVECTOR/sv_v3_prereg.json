@@ -1,0 +1,61 @@
+{
+ "title": "StitchVector 3.0 minimal line recovery: colour check at crossings + logical_id on top of the unchanged 2.0 detector. Pushed and remote-verified before the new test seeds are generated.",
+ "status_after_run": "STITCHVECTOR_V3_MINIMAL_LINE_RECOVERY_READY_FOR_REVIEW",
+ "questions": [
+  "Are visually complete but fragmented lines selectable as one logical object after adding logical_id only (no geometry change)?",
+  "Does a colour check on the 2.0 straight-through join remove real cross-line objects without hurting the drawing?",
+  "Which severe miss (pale, width-varying, touching a same-colour fill) is cheapest to improve? (diagnosis only)"
+ ],
+ "methods": {
+  "2.0": "sv_autoline.extract (frozen P1 32e8a41), unchanged",
+  "2.0+id": "2.0 objects + logical_id from the frozen linker sv_linker (58cd05b); geometry unchanged",
+  "3.0": "sv_v3.extract_v3 = 2.0 with one extra condition: a straight-through join at a skeleton junction also needs chain colour dE <= join_col_dE; the drawn chains are exactly those 2.0 draws; then logical_id from the frozen linker. join_col_dE = inf reproduces 2.0 (unit-tested)."
+ },
+ "params": {
+  "join_col_dE": 35.0
+ },
+ "seeds": {
+  "dev": [
+   1001,
+   1002,
+   1003
+  ],
+  "viewed": [
+   2001,
+   2002,
+   2003,
+   2004,
+   2005
+  ],
+  "test": [
+   4001,
+   4002,
+   4003,
+   4004,
+   4005
+  ]
+ },
+ "dev_disclosure": "Tried on dev seeds 1001-1003 and on the already-viewed P1 test seeds 2001-2005 before freeze: (a) splitting all output at skeleton junctions into edges: dropped or added ink vs 2.0 (up to 1,150 px removed when short groups were dropped, false length up to 0.126 when kept), rejected; (b) colour check with join_col_dE 20/30/35/40/inf on dev, 35 chosen (fewest cross-line objects on dev without the select count rising above 2.0+id by more than ~0.3); (c) the mixed-object metric was corrected after viewing images (sv_v3_eval: only length near ONE line counts, outside the zone where two lines are both within 2 px). Under the corrected metric the P1 test seeds have 1 real cross-line object in 2.0 (seed 2002), not 13 as in line_recovery_review.md section 1.6; the 12 others run along a shallow crossing. Results of these trials are committed as v3/v3_dev.json and v3/v3_viewed_p1test.json. Test seeds 4001-4005 were never generated before freeze.",
+ "metrics": {
+  "per_line": [
+   "recall: share of 1 px truth samples within 2 px of any object",
+   "recall_own: same using only the logical objects that belong to this line (>= 60% of their length within 2 px)",
+   "select_count: logical objects belonging to the line = objects a user picks to select the whole line",
+   "mixed_objects_on_line: logical objects running >= 10 px along this AND another line outside their shared zone"
+  ],
+  "verdict": "cross_line_error if any mixed object; acceptable if recall_own >= 0.9 and select_count <= 2; found_needs_grouping if recall_own >= 0.9; else visual_miss",
+  "global": [
+   "logical objects, geometry parts, mixed objects, false length share (detected length > 3 px from every truth line)"
+  ]
+ },
+ "images": "original / 2.0 objects / 3.0 logical objects (one colour per logical_id) / 3.0 on original, per test tile, plus up to 5 zoomed grouping examples; local only (pre-push hook blocks PNG)",
+ "stop_rule": "one run on test seeds, <= 10 min CPU; no code or parameter change after the first number",
+ "not_done": [
+  "new line detector",
+  "real samples",
+  "QGIS",
+  "M1/M2/B2/RAG",
+  "sealed pool",
+  "changes to POC-01 / D71 / Oracle / P1 / Line Recovery records"
+ ]
+}
