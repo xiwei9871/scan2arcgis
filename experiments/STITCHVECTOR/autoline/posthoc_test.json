@@ -1,0 +1,71 @@
+{
+ "bands": {
+  "2001:band_green": {
+   "width": 6.0,
+   "axis_share": 0.02
+  },
+  "2001:band_yellow": {
+   "width": 3.0,
+   "axis_share": 0.519
+  },
+  "2002:band_green": {
+   "width": 4.0,
+   "axis_share": 0.329
+  },
+  "2002:band_yellow": {
+   "width": 5.0,
+   "axis_share": 0.027
+  },
+  "2003:band_green": {
+   "width": 5.0,
+   "axis_share": 0.025
+  },
+  "2003:band_yellow": {
+   "width": 6.0,
+   "axis_share": 0.031
+  },
+  "2004:band_green": {
+   "width": 3.0,
+   "axis_share": 0.07
+  },
+  "2004:band_yellow": {
+   "width": 3.0,
+   "axis_share": 0.115
+  },
+  "2005:band_green": {
+   "width": 4.0,
+   "axis_share": 0.027
+  },
+  "2005:band_yellow": {
+   "width": 4.0,
+   "axis_share": 0.06
+  }
+ },
+ "red_var_by_width_third": {
+  "2001": [
+   0.08,
+   0.73,
+   0.05
+  ],
+  "2002": [
+   1.0,
+   0.28,
+   0.8
+  ],
+  "2003": [
+   1.0,
+   0.42,
+   0.44
+  ],
+  "2004": [
+   0.82,
+   0.5,
+   0.68
+  ],
+  "2005": [
+   0.69,
+   0.96,
+   0.88
+  ]
+ }
+}

@@ -1,0 +1,125 @@
+{
+ "lines": {
+  "red_var_2to5": {
+   "recall_mean": 0.6214000000000001,
+   "objects_mean": 3.6,
+   "gaps_mean": 3.4,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 0,
+    "missed": 5
+   },
+   "width_abs_err_mean": 0.421240234375,
+   "d71_recall_mean": 0.06820000000000001
+  },
+  "red_touch_fill": {
+   "recall_mean": 0.664,
+   "objects_mean": 2.4,
+   "gaps_mean": 2.0,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 0,
+    "missed": 5
+   },
+   "width_abs_err_mean": 0.20001220703125,
+   "d71_recall_mean": 0.0
+  },
+  "black_5": {
+   "recall_mean": 0.8370000000000001,
+   "objects_mean": 3.4,
+   "gaps_mean": 2.8,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 2,
+    "missed": 3
+   },
+   "width_abs_err_mean": 0.078759765625,
+   "d71_recall_mean": 0.0
+  },
+  "red_aa_3": {
+   "recall_mean": 0.8192,
+   "objects_mean": 6.6,
+   "gaps_mean": 3.4,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 2,
+    "missed": 3
+   },
+   "width_abs_err_mean": 0.0,
+   "d71_recall_mean": 0.0
+  },
+  "pale_1": {
+   "recall_mean": 0.23359999999999997,
+   "objects_mean": 1.2,
+   "gaps_mean": 6.8,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 0,
+    "missed": 5
+   },
+   "width_abs_err_mean": 0.0,
+   "d71_recall_mean": 0.0954
+  },
+  "red_aa_2": {
+   "recall_mean": 0.8737999999999999,
+   "objects_mean": 7.0,
+   "gaps_mean": 3.0,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 2,
+    "missed": 3
+   },
+   "width_abs_err_mean": 0.2800048828125,
+   "d71_recall_mean": 0.0342
+  },
+  "black_3": {
+   "recall_mean": 0.9084000000000001,
+   "objects_mean": 6.2,
+   "gaps_mean": 2.4,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 3,
+    "missed": 2
+   },
+   "width_abs_err_mean": 0.15751953125,
+   "d71_recall_mean": 0.0
+  },
+  "black_1": {
+   "recall_mean": 0.9272,
+   "objects_mean": 4.0,
+   "gaps_mean": 2.4,
+   "verdicts": {
+    "continuous": 0,
+    "found_fragmented": 4,
+    "missed": 1
+   },
+   "width_abs_err_mean": 0.15999755859375,
+   "d71_recall_mean": 0.0
+  }
+ },
+ "bands": {
+  "n": 10,
+  "max_axis_share_with_line": 0.5185185185185185,
+  "mean_axis_share_with_line": 0.12232209100607841,
+  "protected_ok": 7
+ },
+ "false_length_share_mean": 0.0728497955472203
+}
+        6.32 real         5.94 user         0.12 sys
+           185171968  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               23238  page reclaims
+                3321  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 931  voluntary context switches
+                3139  involuntary context switches
+         98904298324  instructions retired
+         26044876111  cycles elapsed
+           132137800  peak memory footprint
