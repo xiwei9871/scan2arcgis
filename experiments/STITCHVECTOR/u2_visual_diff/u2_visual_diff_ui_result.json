@@ -1,0 +1,15 @@
+{
+ "fail": 0,
+ "log": [
+  "PASS header shows OCR candidates and text-object counts: 已加载：u2_full_text_cleared.gpkg（对照：u2_full_B2c.gpkg）805×780 面 12995 线 418 隔离线 188 待定碎面 3570OCR 候选 219 ｜ 独立文字对象 126 ｜ 无 OCR 记录 126 ｜ 与 OCR 相同 0 ｜ 改过 OCR 0（人工确认未记录）",
+  "PASS diff modes: off,scan_vector,scan_heat,cmp_cur",
+  "PASS mode scan_vector: residual layer at the scan grid 805x780",
+  "PASS mode scan_heat: residual layer at the scan grid 805x780",
+  "PASS mode cmp_cur: residual layer at the scan grid 805x780",
+  "PASS threshold 1 -> 12758 px shown, 60 -> 11768 px",
+  "PASS opacity 20% -> alpha 51, 90% -> 230",
+  "PASS left-pane wheel zooms the shared view 0.70 -> 1.09",
+  "PASS click on residual pixel [26.5,0.5] locates: residual_compare_current: 像素 627900，有差异 12758（2.03%），平均 2.42，最大 253\n残差 = 逐像素 max(|dR|,|dG|,|dB|)，未配准、未变形；阈值只影响显示\n定位：像素 (26, 0) 残差 109；面 [0]；线 []",
+  "PASS diff view made no edit"
+ ]
+}

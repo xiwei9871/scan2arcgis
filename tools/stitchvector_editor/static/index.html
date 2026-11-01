@@ -34,6 +34,16 @@
   <div class="row">面层透明度 <input type="range" id="alpha" min="0" max="100" value="45" style="width:120px"></div>
   <div class="row">三态核验：<button id="viewA">A 原图</button> <button id="viewB">B 线面（文字关）</button> <button id="viewC">C 线面+文字</button></div>
   <div class="row"><label><input type="checkbox" id="showResidue" checked> 隔离线（紫色虚线，带编号）</label></div>
+  <h3>差异查看</h3>
+  <div class="row">模式 <select id="diffMode">
+    <option value="off">关闭（正常编辑视图）</option>
+    <option value="scan_vector">左 原图 / 右 矢量渲染</option>
+    <option value="scan_heat">左 原图 / 右 残差热力图（原图 vs 当前矢量）</option>
+    <option value="cmp_cur">左 对照 GPKG 渲染 / 右 当前渲染（含两者残差）</option>
+  </select> <button id="diffReload">重新计算</button></div>
+  <div class="row">阈值 <input type="range" id="diffThr" min="0" max="255" value="0" style="width:110px"> <span id="diffThrV">0</span>
+    透明度 <input type="range" id="diffAlpha" min="0" max="100" value="80" style="width:90px"></div>
+  <div id="diffInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
   <div class="row"><label><input type="checkbox" id="dual" checked> 左右对照（左：原图只读，右：矢量可编辑）</label></div>
   <div class="row"><button id="fit">适应窗口</button> 滚轮缩放，右键或空格拖动平移</div>
 

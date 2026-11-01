@@ -17,7 +17,10 @@ async function refresh() {
   S = await (await fetch("/api/state")).json();
   $("dirty").textContent = S.dirty ? "● 未保存" : "";
   const pend = (S.pending || []).reduce((a, p) => a + p.faces.length, 0);
-  $("src").innerHTML = `<b>已加载：${S.gpkg.split("/").slice(-1)[0]}</b><br>${S.width}×${S.height}  面 ${S.faces.length}  线 ${S.lines.length}  文字 ${(S.texts || []).length}  隔离线 ${(S.residue || []).length}  待定碎面 ${pend}`;
+  const tc = S.text_counts || {};
+  $("src").innerHTML = `<b>已加载：${S.gpkg.split("/").slice(-1)[0]}</b>${S.compare ? "（对照：" + S.compare.split("/").slice(-1)[0] + "）" : ""}<br>${S.width}×${S.height}  面 ${S.faces.length}  线 ${S.lines.length}  隔离线 ${(S.residue || []).length}  待定碎面 ${pend}` +
+    `<br>OCR 候选 ${tc.ocr_candidates_in_json ?? "未提供"} ｜ 独立文字对象 ${tc.text_objects ?? 0} ｜ 无 OCR 记录 ${tc.no_ocr_record ?? "?"} ｜ 与 OCR 相同 ${tc.equal_to_ocr ?? "?"} ｜ 改过 OCR ${tc.edited_from_ocr ?? "?"}（人工确认未记录）` +
+    ((tc.text_objects ?? 0) === 0 ? "<br><span style='color:#b00'>本文件没有文字图层：画面里的字形是 B2c 的面/线残影，不是文字对象</span>" : "");
   $("log").textContent = S.log.slice().reverse().map(e => e.op + (e.of ? " (" + e.of + ")" : "") + (e.objects ? "  ×" + e.objects : "")).join("\n") || "（无）";
   const keep = new Set((sel.layer === "face" ? S.faces : S.lines).map(o => o.id)); sel.ids = sel.ids.filter(i => keep.has(i));
   fillLegend(); showSel(); draw();
@@ -305,3 +308,58 @@ function showResidueList() {
     d.append(b1, b2); el.append(d); }
 }
 const _refresh0 = refresh; refresh = async function () { await _refresh0(); showResidueList(); };
+
+// ---------- visual residual mode (server renders on the scan's own pixel grid; no registration) ----------
+const DIFF = { mode: "off", imgs: {}, raw: {} };
+function loadImg(url) { return new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = url + "?t=" + Date.now(); }); }
+function rawOf(i) { const c = document.createElement("canvas"); c.width = i.width; c.height = i.height; const x = c.getContext("2d"); x.drawImage(i, 0, 0); return x.getImageData(0, 0, i.width, i.height).data; }
+function heatCanvas(raw, w, h, thr, alpha) {   // raw residual (grey value = max |dRGB|) -> red heat, values < thr hidden
+  const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d"); const im = x.createImageData(w, h);
+  for (let i = 0; i < w * h; i++) { const v = raw[i * 4]; const o = i * 4;
+    if (v < Math.max(thr, 1)) { im.data[o + 3] = 0; continue; }
+    im.data[o] = 255; im.data[o + 1] = Math.round(255 * (1 - v / 255)); im.data[o + 2] = 0; im.data[o + 3] = Math.round(255 * alpha); }
+  x.putImageData(im, 0, 0); return c;
+}
+async function diffLoad() {
+  const m = $("diffMode").value; DIFF.mode = m; DIFF.imgs = {}; DIFF.raw = {};
+  if (m === "off") { $("diffInfo").textContent = ""; draw(); return; }
+  try {
+    const keys = m === "cmp_cur" ? ["render_compare", "render_current", "residual_compare_current"]
+               : m === "scan_heat" ? ["residual_scan_current"] : ["render_current", "residual_scan_current"];
+    for (const k of keys) { DIFF.imgs[k] = await loadImg("/api/raster/" + k); if (k.startsWith("residual")) DIFF.raw[k] = rawOf(DIFF.imgs[k]); }
+    const rk = keys.find(k => k.startsWith("residual")); const r = DIFF.raw[rk]; let n = 0, s = 0, mx = 0;
+    for (let i = 0; i < r.length; i += 4) { const v = r[i]; if (v > 0) n++; s += v; if (v > mx) mx = v; }
+    const N = r.length / 4; DIFF.stat = { key: rk, px: N, changed: n, mean: s / N, max: mx };
+    $("diffInfo").textContent = `${rk}: 像素 ${N}，有差异 ${n}（${(100 * n / N).toFixed(2)}%），平均 ${(s / N).toFixed(2)}，最大 ${mx}\n残差 = 逐像素 max(|dR|,|dG|,|dB|)，未配准、未变形；阈值只影响显示`;
+    diffRebuild();
+  } catch (e) { msg("差异图加载失败：" + e.message); }
+}
+function diffRebuild() {
+  const rk = Object.keys(DIFF.raw)[0]; if (!rk) return; const im = DIFF.imgs[rk];
+  DIFF.heat = heatCanvas(DIFF.raw[rk], im.width, im.height, +$("diffThr").value, +$("diffAlpha").value / 100); $("diffThrV").textContent = $("diffThr").value; draw();
+}
+$("diffMode").onchange = diffLoad; $("diffReload").onclick = diffLoad; $("diffThr").oninput = diffRebuild; $("diffAlpha").oninput = diffRebuild;
+function diffPaint(c, side) {   // called after the normal drawing of each pane
+  if (DIFF.mode === "off" || !S) return; c.save(); c.setTransform(view.s, 0, 0, view.s, view.x, view.y); c.imageSmoothingEnabled = false;
+  const I = DIFF.imgs;
+  if (side === "L") { if (DIFF.mode === "cmp_cur" && I.render_compare) c.drawImage(I.render_compare, 0, 0); else if (img.complete) c.drawImage(img, 0, 0); }
+  else {
+    if (DIFF.mode === "scan_vector" && I.render_current) c.drawImage(I.render_current, 0, 0);
+    if (DIFF.mode === "cmp_cur" && I.render_current) c.drawImage(I.render_current, 0, 0);
+    if (DIFF.mode === "scan_heat") { c.fillStyle = "#fff"; c.fillRect(0, 0, S.width, S.height); }
+    if (DIFF.heat) c.drawImage(DIFF.heat, 0, 0);
+  }
+  if (hover) crosshair(c); c.restore();
+}
+const _draw0 = draw; draw = function () { _draw0(); diffPaint(ctxL, "L"); diffPaint(ctx, "R"); };
+// click on a residual pixel (diff mode) -> show its value and pick the vector objects there
+async function diffLocate(x, y) {
+  if (DIFF.mode === "off" || !S) return null; const xi = Math.floor(x), yi = Math.floor(y);
+  if (xi < 0 || yi < 0 || xi >= S.width || yi >= S.height) return null;
+  const rk = Object.keys(DIFF.raw).find(k => k.startsWith("residual")); const v = rk ? DIFF.raw[rk][(yi * S.width + xi) * 4] : null;
+  const f = await api("pick", { x: xi + 0.5, y: yi + 0.5, layer: "face" }); const l = await api("pick", { x: xi + 0.5, y: yi + 0.5, layer: "line" });
+  DIFF.last = { x: xi, y: yi, residual: v, faces: f.ids, lines: l.ids }; setSel(l.ids.length ? "line" : "face", l.ids.length ? l.ids : f.ids);
+  const t = `像素 (${xi}, ${yi}) 残差 ${v}；面 ${JSON.stringify(f.ids)}；线 ${JSON.stringify(l.ids)}`;
+  const base = ($("diffInfo").textContent || "").split("\n定位：")[0]; $("diffInfo").textContent = base + "\n定位：" + t; msg(t, true); return DIFF.last;
+}
+cv.addEventListener("click", (ev) => { if (DIFF.mode === "off" || !S) return; const [x, y] = toWorld(ev); guard(() => diffLocate(x, y)); }, true);

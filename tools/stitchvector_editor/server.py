@@ -12,9 +12,42 @@ STATE = {}
 LOCK = threading.Lock()   # one request touches the document at a time (ThreadingHTTPServer)
 
 
-def open_doc(image, gpkg):
+def open_doc(image, gpkg, compare=None, ocr_json=None):
     import numpy as np
-    im = Image.open(image).convert("RGB"); STATE.update(image=Path(image).resolve(), gpkg=Path(gpkg).resolve(), doc=Document(gpkg, im.size, np.asarray(im)))
+    im = Image.open(image).convert("RGB"); a = np.asarray(im)
+    STATE.update(image=Path(image).resolve(), gpkg=Path(gpkg).resolve(), doc=Document(gpkg, im.size, a), scan=a,
+                 compare=Path(compare).resolve() if compare else None, ocr_json=Path(ocr_json).resolve() if ocr_json else None)
+    STATE["ocr_candidates"] = None
+    if ocr_json:
+        STATE["ocr_candidates"] = len(json.load(open(ocr_json)).get("items", []))
+
+
+def text_counts(d):
+    """what the text layer really holds.
+    ocr_candidates_in_json: OCR detections in the JSON (never turned into objects by the editor).
+    text_objects: rows of text_labels (independent text objects).
+    no_ocr_record: objects whose ocr_text is empty, so it is unknown whether a human confirmed the text
+      (the full-sheet audit wrote the automatic OCR string into `text` and left ocr_text empty).
+    equal_to_ocr / edited_from_ocr: objects with an OCR record whose text equals / differs from it.
+    Human confirmation itself is not stored; none of these counts proves it."""
+    T = d.T; n = len(T)
+    o = [("" if v is None or (isinstance(v, float) and v != v) else str(v)) for v in (T["ocr_text"] if n else [])]
+    t = [str(v) for v in (T["text"] if n else [])]
+    none = sum(1 for x in o if not x); same = sum(1 for a, b in zip(t, o) if b and a == b)
+    return {"ocr_candidates_in_json": STATE.get("ocr_candidates"), "text_objects": n, "no_ocr_record": none,
+            "equal_to_ocr": same, "edited_from_ocr": n - none - same}
+
+
+def _render_doc(d):
+    from . import render as R
+    return R.render_frames(d.F, d.L, None, (d.H, d.W))
+
+
+def _render_compare():
+    from . import render as R
+    if STATE.get("compare") is None: raise EditError("no --compare GPKG given")
+    if "compare_rgb" not in STATE: STATE["compare_rgb"] = R.render(STATE["compare"], STATE["scan"].shape[:2])[0]
+    return STATE["compare_rgb"]
 
 
 def safe_name(name):
@@ -37,7 +70,26 @@ class H(BaseHTTPRequestHandler):
         if p == "/app.js": return self._send(200, (HERE / "static/app.js").read_bytes(), "text/javascript; charset=utf-8")
         if p == "/image": return self._send(200, STATE["image"].read_bytes(), "image/png")
         if p == "/api/state":
-            with LOCK: s = STATE["doc"].state(); s.update(image=str(STATE["image"]), gpkg=str(STATE["gpkg"]), out_dir=str(STATE["out_dir"])); return self._send(200, s)
+            with LOCK:
+                s = STATE["doc"].state(); s.update(image=str(STATE["image"]), gpkg=str(STATE["gpkg"]), out_dir=str(STATE["out_dir"]),
+                                                   compare=str(STATE["compare"]) if STATE.get("compare") else None, text_counts=text_counts(STATE["doc"]))
+                return self._send(200, s)
+        if p.startswith("/api/raster/"):
+            # PNG at the scan's exact pixel grid. render_current / render_compare: deterministic vector render.
+            # residual_*: RAW per-pixel max |dR|,|dG|,|dB| as an 8-bit grey PNG (value = difference, no threshold).
+            from . import render as R
+            k = p.removeprefix("/api/raster/")
+            try:
+                with LOCK:
+                    scan = STATE["scan"]
+                    if k == "render_current": a = _render_doc(STATE["doc"])[0]
+                    elif k == "render_compare": a = _render_compare()
+                    elif k == "residual_scan_current": a = R.residual(scan, _render_doc(STATE["doc"])[0])[1]
+                    elif k == "residual_scan_compare": a = R.residual(scan, _render_compare())[1]
+                    elif k == "residual_compare_current": a = R.residual(_render_compare(), _render_doc(STATE["doc"])[0])[1]
+                    else: return self._send(404, {"error": "unknown raster"})
+                return self._send(200, R.png_bytes(a), "image/png")
+            except EditError as e: return self._send(400, {"ok": False, "error": str(e)})
         return self._send(404, {"error": "not found"})
 
     def do_POST(self):
@@ -100,9 +152,11 @@ class H(BaseHTTPRequestHandler):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="StitchVector Editor V0.1")
     ap.add_argument("--image", required=True); ap.add_argument("--gpkg", required=True); ap.add_argument("--out-dir", required=True)
-    ap.add_argument("--port", type=int, default=8765); a = ap.parse_args(argv)
+    ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--compare", help="optional second GPKG (e.g. the original B2c) for the B2c / edited difference view")
+    ap.add_argument("--ocr-json", help="optional OCR candidate JSON, only counted (never turned into text objects)"); a = ap.parse_args(argv)
     out = Path(a.out_dir).resolve(); out.mkdir(parents=True, exist_ok=True); STATE["out_dir"] = out
-    open_doc(a.image, a.gpkg)
+    open_doc(a.image, a.gpkg, a.compare, a.ocr_json)
     srv = ThreadingHTTPServer(("127.0.0.1", a.port), H)
     print(f"StitchVector Editor V0.1: http://127.0.0.1:{a.port}/  (image {a.image}, gpkg {a.gpkg}, saves to {out})", flush=True)
     try: srv.serve_forever()
