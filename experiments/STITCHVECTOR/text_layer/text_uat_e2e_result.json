@@ -1,0 +1,43 @@
+{
+ "fail": 0,
+ "log": [
+  "PASS loaded faces 665, texts 0",
+  "PASS view B: image off, faces+lines on, text off, opacity 100",
+  "PASS view A: original only",
+  "PASS view C: vector 100% + text",
+  "PASS Ar₂E preview: 9 uncertain groups, 17 faces, none has a target by default (box [0,195,52,225])",
+  "PASS every uncertain group lists >= 2 candidate ground faces with before/after outlines",
+  "PASS click on orange group selects group 0",
+  "PASS click on candidate face previews merge into #7",
+  "PASS assignment recorded",
+  "PASS group 1 skipped (stays uncertain)",
+  "PASS click on non-candidate face #458 does not set a target",
+  "PASS Ar₂E text created",
+  "PASS only the assigned group merged; other 8 uncertain groups untouched",
+  "PASS 3 isolated lines listed with numbers: R22, R24, R25",
+  "PASS residue line highlighted",
+  "PASS restore: lines 32 -> 33, isolated 3 -> 2",
+  "PASS undo restore",
+  "PASS undo text box: back to 665 faces, no text",
+  "PASS redo both",
+  "PASS source GPKG hash unchanged in the session",
+  "PASS save: 已保存 text_uat_e2e.gpkg；回读一致 true；面层有效 true；原文件未变 true"
+ ],
+ "ops": {
+  "view_B": 1,
+  "view_C": 1,
+  "tool:textBox": 1,
+  "box_drag": 1,
+  "confirm_text": 1,
+  "tool:assignText": 1,
+  "click_group": 1,
+  "click_target": 1,
+  "confirm_assign": 1,
+  "skip_group": 1,
+  "text_apply": 1,
+  "highlight_residue": 1,
+  "restore_residue": 1,
+  "save": 1
+ },
+ "verification": "UI_INTERACTION_VERIFIED (scripted browser, not a human)"
+}

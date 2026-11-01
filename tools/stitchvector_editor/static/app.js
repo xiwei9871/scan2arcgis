@@ -2,6 +2,7 @@
 const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), main = document.getElementById("main");
 const cvL = document.getElementById("cvL"), ctxL = cvL.getContext("2d"), mainL = document.getElementById("mainL");
 let hover = null, splitPv = null, textPv = null, selText = null;
+let aGroup = null, aTarget = null, assigns = {}, skipped = new Set(), hiRes = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
 let stroke = null, mergePv = null, healPv = null;
@@ -59,7 +60,8 @@ function draw() {
       ctx.fillText(t.text, 0, 0); if (selText === t.id) { const w = ctx.measureText(t.text).width; ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(-w / 2 - 1, -t.font_px / 2 - 1, w + 2, t.font_px + 2); } ctx.restore(); } }
   if (textPv) { const [x0, y0, x1, y1] = textPv.box; ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 2 / view.s; ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
     const by = new Map(S.faces.map(f => [f.id, f])); for (const g of textPv.groups) for (const id of g.faces) { const f = by.get(id); if (!f) continue; ctx.beginPath();
-      for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } ctx.fillStyle = g.decision === "merge" ? "#76ff03" : "#ff9100"; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
+      for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } const gi = textPv.groups.indexOf(g); ctx.fillStyle = g.decision === "merge" ? "#76ff03" : (gi === aGroup ? "#2979ff" : (gi in assigns ? "#00c853" : (skipped.has(gi) ? "#9e9e9e" : "#ff9100"))); ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
+  drawResidue(); drawAssign();
   ctx.lineWidth = 2 / view.s; ctx.setLineDash([4 / view.s, 3 / view.s]);
   if (sel.layer === "face") for (const f of S.faces) if (selSet.has(f.id)) { ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } ctx.strokeStyle = "#00e5ff"; ctx.stroke(); }
   if (sel.layer === "line") for (const l of S.lines) if (selSet.has(l.id)) { ctx.beginPath(); l.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = Math.max(l.width + 2, 3) ; ctx.globalAlpha = 0.6; ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 2 / view.s; }
@@ -118,6 +120,7 @@ cv.addEventListener("mouseup", async (ev) => {
   if (ev.button !== 0) return;
   const [x, y] = toWorld(ev);
   if (tool === "eyedrop") return eyedrop(x, y);
+  if (tool === "assignText") return assignClick(x, y);
   if (tool === "draw") { drawPts.push([x, y]); draw(); return; }
   if (tool === "split") return guard(async () => { if (sel.layer !== "line" || sel.ids.length !== 1) throw new Error("先用“选线”选中一条线"); const r = await api("split", { id: sel.ids[0], x, y }); setSel("line", r.ids); msg("已拆分", true); });
   if (tool === "pickFace") { const t = pickText(x, y); if (t) { selText = t.id; $("tText").value = t.text; $("tFont").value = t.font_px; $("tAngle").value = t.angle_deg; $("tRgb").value = t.rgb; msg(`选中文字 ${t.text}`, true); draw(); return; } }
@@ -149,7 +152,7 @@ window.addEventListener("resize", draw);
 document.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => {
   tool = b.dataset.tool; drawPts = []; document.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x === b)); draw();
 });
-["showImg", "showFaces", "showLines", "showText", "alpha", "dual"].forEach(id => $(id).oninput = draw);
+["showImg", "showFaces", "showLines", "showText", "showResidue", "alpha", "dual"].forEach(id => $(id).oninput = draw);
 $("fit").onclick = fit;
 $("clear").onclick = () => setSel(sel.layer, []);
 $("group").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中一条线"); const r = await api("group", { id: sel.ids[0] }); setSel("line", r.ids); msg(`整组 ${r.ids.length} 条线`, true); });
@@ -230,18 +233,74 @@ function showTextPv(r) {
   $("tText").value = (r.ocr && r.ocr.text) || ""; $("tFont").value = (0.8 * (r.box[3] - r.box[1])).toFixed(1);
   const c = r.counts; $("tGroups").textContent = `残影面 ${c.residue_faces}：并入 ${c.merge_faces}（绿） 待定 ${c.uncertain_faces}（橙）  隔离线 ${c.residue_lines}\n` +
     r.groups.map((g, i) => g.decision === "uncertain" ? `组${i} 待定 ${g.faces.length} 面，可并入：` + (g.grounds || []).join("/") : "").filter(Boolean).join("\n") +
-    (c.uncertain_faces ? "\n（待定组默认不动；如确认，在下框按 组号:面号 填写，逗号分隔）" : "");
-  if (c.uncertain_faces && !$("tAssign")) { const i = document.createElement("input"); i.id = "tAssign"; i.placeholder = "例如 3:7,5:7"; i.style.width = "200px"; $("tGroups").after(i); }
+    (c.uncertain_faces ? "\n（待定组默认不合并；用“点选归属”逐组决定，或跳过）" : "");
+  aGroup = null; aTarget = null; assigns = {}; skipped = new Set(); showAssign();
   msg("请确认文字内容（OCR 只是候选）", true); draw();
 }
 $("textApply").onclick = () => guard(async () => { if (!textPv) throw new Error("先用“框文字”框一个区域");
-  const assign = {}; const a = $("tAssign") ? $("tAssign").value.trim() : "";
-  if (a) for (const kv of a.split(",")) { const [k, v] = kv.split(":").map(x => x.trim()); if (k && v) assign[k] = +v; }
+  const assign = { ...assigns };
   const r = await api("text_apply", { preview_id: textPv.preview_id, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value, assign });
-  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; if ($("tAssign")) $("tAssign").remove(); msg(`已建文字；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
-$("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; if ($("tAssign")) $("tAssign").remove(); draw(); };
+  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; resetAssign(); msg(`已建文字；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
+$("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; resetAssign(); draw(); };
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
   await api("text_edit", { id: selText, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value }); msg("已修改文字", true); });
 $("textDelete").onclick = () => guard(async () => { if (selText === null) throw new Error("先选中文字"); await api("text_delete", { id: selText }); selText = null; msg("已删除文字", true); });
 function pickText(x, y) { if (!S || !S.texts || !$("showText").checked) return null;
   for (const t of S.texts) if (x >= t.box_x0 && x <= t.box_x1 && y >= t.box_y0 && y <= t.box_y1) return t; return null; }
+
+
+// ---------- three-state view ----------
+function setView(img, faces, lines, text) { $("showImg").checked = img; $("showFaces").checked = faces; $("showLines").checked = lines; $("showText").checked = text; $("alpha").value = 100; draw(); }
+$("viewA").onclick = () => setView(true, false, false, false);
+$("viewB").onclick = () => setView(false, true, true, false);
+$("viewC").onclick = () => setView(false, true, true, true);
+
+// ---------- uncertain-group assignment by clicking ----------
+function ringPath(rings) { const p = new Path2D(); for (const r of rings) { r.forEach((q, i) => i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1])); p.closePath(); } return p; }
+function faceHit(id, x, y) { const f = S.faces.find(o => o.id === id); return f && ctx.isPointInPath(ringPath(f.rings), x * view.s + view.x, y * view.s + view.y, "evenodd"); }
+function hitWorld(rings, x, y) { const p = ringPath(rings); ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); const m = new DOMMatrix([view.s, 0, 0, view.s, view.x, view.y]); const q = new Path2D(); q.addPath(p, m); const r = ctx.isPointInPath(q, x * view.s + view.x, y * view.s + view.y, "evenodd"); ctx.restore(); return r; }
+function faceAt(ids, x, y) { for (const id of ids) { const f = S.faces.find(o => o.id === id); if (f && hitWorld(f.rings, x, y)) return id; } return null; }
+function assignClick(x, y) {
+  if (!textPv) return msg("先用“框文字”框一个区域");
+  const unc = textPv.groups.map((g, i) => [g, i]).filter(([g]) => g.decision === "uncertain");
+  for (const [g, i] of unc) if (faceAt(g.faces, x, y) !== null) { aGroup = i; aTarget = null; showAssign(); draw(); return msg(`已选待定组 ${i}，现在点它旁边的候选底面`, true); }
+  if (aGroup === null) return msg("先点一个橙色待定组");
+  const g = textPv.groups[aGroup]; const t = faceAt(g.grounds || [], x, y);
+  if (t === null) return msg("这里不是该组的候选底面；候选面已用彩色轮廓标出");
+  aTarget = t; showAssign(); draw(); msg(`预览：组 ${aGroup} 并入面 #${t}（绿色实线 = 合并后边界，白色虚线 = 合并前）`, true);
+}
+function showAssign() {
+  if (!textPv) { $("aInfo").textContent = ""; return; }
+  const unc = textPv.groups.map((g, i) => [g, i]).filter(([g]) => g.decision === "uncertain");
+  $("aInfo").textContent = unc.length ? unc.map(([g, i]) => `组${i}：${g.faces.length} 面，候选 ${(g.grounds || []).map(t => "#" + t).join("/")} → ` +
+    (i in assigns ? `并入 #${assigns[i]}` : skipped.has(i) ? "跳过（不合并）" : "待定（默认不合并）") + (i === aGroup ? "  ◀ 当前" : "")).join("\n") : "（本框没有待定组）";
+}
+function resetAssign() { aGroup = null; aTarget = null; assigns = {}; skipped = new Set(); $("aInfo").textContent = ""; }
+$("aConfirm").onclick = () => { if (aGroup === null || aTarget === null) return msg("先点待定组，再点目标底面"); assigns[aGroup] = aTarget; skipped.delete(aGroup); aGroup = null; aTarget = null; showAssign(); draw(); msg("已记录归属；点“确认文字并清理残影”时才执行", true); };
+$("aSkip").onclick = () => { if (aGroup === null) return msg("先点一个待定组"); delete assigns[aGroup]; skipped.add(aGroup); aGroup = null; aTarget = null; showAssign(); draw(); msg("已跳过，此组保持待定，不合并", true); };
+$("aClear").onclick = () => { assigns = {}; skipped = new Set(); aGroup = null; aTarget = null; showAssign(); draw(); };
+function strokeRings(rings, col, w, dash) { ctx.beginPath(); for (const r of rings) { r.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } ctx.strokeStyle = col; ctx.lineWidth = w / view.s; ctx.setLineDash(dash.map(d => d / view.s)); ctx.stroke(); ctx.setLineDash([]); }
+function drawAssign() {
+  if (!textPv || aGroup === null) return; const g = textPv.groups[aGroup]; if (!g || !g.options) return;
+  for (const o of g.options) { const f = S.faces.find(x => x.id === o.target); if (f) strokeRings(f.rings, o.target === aTarget ? "#00e5ff" : "#ffd600", 1.5, [3, 2]); }
+  const o = g.options.find(x => x.target === aTarget); if (!o) return;
+  strokeRings(o.before, "#ffffff", 1.5, [4, 3]); strokeRings(o.after, "#00e676", 2.5, []);
+}
+
+// ---------- residue (isolated) lines ----------
+function drawResidue() {
+  if (!$("showResidue").checked || !S.residue) return;
+  for (const r of S.residue) { ctx.beginPath(); r.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
+    ctx.strokeStyle = r.id === hiRes ? "#ffea00" : "#d500f9"; ctx.lineWidth = (r.id === hiRes ? 3 : 1.5) / view.s; ctx.setLineDash([3 / view.s, 2 / view.s]); ctx.stroke(); ctx.setLineDash([]);
+    const m = r.coords[Math.floor(r.coords.length / 2)]; ctx.fillStyle = "#d500f9"; ctx.font = `${11 / view.s}px ui-monospace, monospace`; ctx.fillText("R" + r.id, m[0] + 2 / view.s, m[1] - 2 / view.s); }
+}
+function showResidueList() {
+  const L = (S && S.residue) || []; const el = $("resList");
+  if (!L.length) { el.textContent = "（无）"; return; } el.innerHTML = "";
+  for (const r of L) { const d = document.createElement("div");
+    d.innerHTML = `R${r.id} ${r.line_id || ""} 长 ${r.length} <span class="sw" style="background:${r.rgb}"></span> `;
+    const b1 = document.createElement("button"); b1.textContent = "高亮"; b1.dataset.res = r.id; b1.onclick = () => { hiRes = r.id; const m = r.coords[0]; draw(); msg(`R${r.id} 已高亮（黄色）`, true); };
+    const b2 = document.createElement("button"); b2.textContent = "恢复为地质线"; b2.dataset.restore = r.id; b2.onclick = () => guard(async () => { await api("restore_residue", { ids: [r.id] }); hiRes = null; msg(`R${r.id} 已恢复到线层`, true); });
+    d.append(b1, b2); el.append(d); }
+}
+const _refresh0 = refresh; refresh = async function () { await _refresh0(); showResidueList(); };

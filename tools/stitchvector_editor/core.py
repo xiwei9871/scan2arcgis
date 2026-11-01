@@ -465,7 +465,9 @@ class Document:
                 "styles": self.styles, "render": self.render_lines(),
                 "texts": [{"id": int(e), "x": round(g.x, 2), "y": round(g.y, 2), **{k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in TEXT_COLS}}
                           for e, g, (_, r) in zip(self.T["_eid"], self.T.geometry, self.T.iterrows())],
-                "residue_lines": len(self.Q)}
+                "residue_lines": len(self.Q),
+                "residue": [{"id": int(e), "line_id": r.get("line_id"), "rgb": r.get("rgb"), "width": float(r.get("width_px") or 1), "length": round(float(g.length), 1),
+                             "coords": [[round(x, 2), round(y, 2)] for x, y in g.coords]} for e, g, (_, r) in zip(self.Q["_eid"], self.Q.geometry, self.Q.iterrows())]}
 
 
 def coverage_report(F, W, H):
@@ -775,7 +777,8 @@ class TextMixin:
             for e in c: adj |= set(self._edge_neighbours(e))
             adj -= res; gr = sorted(a for a in adj if a in ground)
             if len(gr) == 1: groups.append({"faces": c, "decision": "merge", "target": gr[0], "reason": "inside one ground face"})
-            elif len(gr) > 1: groups.append({"faces": c, "decision": "uncertain", "target": None, "grounds": gr, "reason": "touches two or more ground faces (possible contact)"})
+            elif len(gr) > 1: groups.append({"faces": c, "decision": "uncertain", "target": None, "grounds": gr, "reason": "touches two or more ground faces (possible contact)",
+                                             "options": self._merge_options(c, gr)})
             else: groups.append({"faces": c, "decision": "uncertain", "target": None, "reason": "no ground face beside it"})
         lines = []
         for e, ln in zip(self.L["_eid"], self.L.geometry):
@@ -787,6 +790,17 @@ class TextMixin:
         return {"preview_id": pid, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand,
                 "counts": {"residue_faces": len(res), "merge_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "merge"),
                            "uncertain_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "uncertain"), "residue_lines": len(lines)}}
+
+    def _merge_options(self, faces, grounds):
+        """for an uncertain group: its own outline and, per candidate ground face, the outline before and after a merge."""
+        geo = dict(zip(self.F["_eid"], self.F.geometry)); rgb = dict(zip(self.F["_eid"], self.F["rgb"]))
+        def rings(g): return [[[round(x, 2), round(y, 2)] for x, y in q.exterior.coords] for q in shapely.get_parts(g) if q.geom_type == "Polygon"]
+        own = shapely.union_all([geo[e] for e in faces]); out = []
+        for t in grounds:
+            after = shapely.union_all([geo[t], own]); win = own.buffer(6)
+            out.append({"target": int(t), "rgb": rgb[t], "before": rings(shapely.intersection(geo[t], win)), "after": rings(shapely.intersection(after, win)),
+                        "single_polygon": after.geom_type == "Polygon"})
+        return out
 
     def text_apply(self, preview_id, text, font_px=None, angle_deg=0.0, rgb="#000000", assign=None):
         """apply a stored text preview: merge residue groups into their ground face, move residue lines to

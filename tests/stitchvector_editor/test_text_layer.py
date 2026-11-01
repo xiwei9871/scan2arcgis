@@ -66,3 +66,32 @@ def test_edit_text_validates(doc):
     assert t["text"] == "雲" and t["font_px"] == 12 and t["angle_deg"] == 15
     with pytest.raises(EditError): doc.edit_text(tid, font_px=0)
     with pytest.raises(EditError): doc.edit_text(tid, x=-5, y=10)
+
+
+AR2E = (0, 196, 52, 225)
+
+
+def test_uncertain_groups_carry_before_after_options_and_default_no_merge(doc):
+    pv = doc.text_preview(AR2E, ocr=False); unc = [g for g in pv["groups"] if g["decision"] == "uncertain"]
+    assert unc and all(len(g["options"]) == len(g["grounds"]) for g in unc)
+    assert all(o["before"] and o["after"] for g in unc for o in g["options"])
+    n0 = len(doc.F); before = {e for g in unc for e in g["faces"]}
+    doc.text_apply(pv["preview_id"], "Ar₂E")          # no assignment: uncertain faces stay
+    live = set(int(e) for e in doc.F["_eid"]); assert before <= live and len(doc.F) < n0
+
+
+def test_assign_one_group_only_merges_that_group(doc):
+    pv = doc.text_preview(AR2E, ocr=False); idx = [i for i, g in enumerate(pv["groups"]) if g["decision"] == "uncertain"]
+    k = idx[0]; g = pv["groups"][k]; t = g["grounds"][0]
+    others = {e for i in idx[1:] for e in pv["groups"][i]["faces"]}
+    doc.text_apply(pv["preview_id"], "Ar₂E", assign={k: t})
+    live = set(int(e) for e in doc.F["_eid"])
+    assert not (set(g["faces"]) & live) and others <= live
+
+
+def test_residue_listed_and_restore_one_line(doc):
+    pv = doc.text_preview(AR2E, ocr=False); doc.text_apply(pv["preview_id"], "Ar₂E")
+    st = doc.state(); assert st["residue"] and all(r["coords"] for r in st["residue"])
+    nL, nQ = len(doc.L), len(doc.Q); rid = st["residue"][0]["id"]
+    doc.restore_residue_lines([rid]); assert len(doc.L) == nL + 1 and len(doc.Q) == nQ - 1
+    doc.undo_op(); assert len(doc.L) == nL and len(doc.Q) == nQ

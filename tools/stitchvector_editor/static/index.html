@@ -32,6 +32,8 @@
     <label><input type="checkbox" id="showLines" checked> 线层</label>
     <label><input type="checkbox" id="showText" checked> 文字层</label></div>
   <div class="row">面层透明度 <input type="range" id="alpha" min="0" max="100" value="45" style="width:120px"></div>
+  <div class="row">三态核验：<button id="viewA">A 原图</button> <button id="viewB">B 线面（文字关）</button> <button id="viewC">C 线面+文字</button></div>
+  <div class="row"><label><input type="checkbox" id="showResidue" checked> 隔离线（紫色虚线，带编号）</label></div>
   <div class="row"><label><input type="checkbox" id="dual" checked> 左右对照（左：原图只读，右：矢量可编辑）</label></div>
   <div class="row"><button id="fit">适应窗口</button> 滚轮缩放，右键或空格拖动平移</div>
 
@@ -94,8 +96,13 @@
   <div class="row">文字 <input id="tText" style="width:110px"> 字号 <input type="number" id="tFont" style="width:48px" step="0.5"> 角度 <input type="number" id="tAngle" value="0" style="width:44px"></div>
   <div class="row">文字颜色 <input type="color" id="tRgb" value="#000000"></div>
   <div id="tGroups" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
+  <div class="row"><button data-tool="assignText">点选归属</button> 先点橙色待定组，再点它旁边的候选底面</div>
+  <div id="aInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
+  <div class="row"><button id="aConfirm">确认此组归属</button> <button id="aSkip">跳过此组（保持待定）</button> <button id="aClear">清除全部归属</button></div>
   <div class="row"><button id="textApply">确认文字并清理残影</button> <button id="textCancel">取消</button></div>
   <div class="row"><button id="textEdit">修改所选文字</button> <button id="textDelete">删除所选文字</button></div>
+  <h3>隔离线（文字残影线，可恢复）</h3>
+  <div id="resList" style="font:11px ui-monospace,monospace;max-height:160px;overflow-y:auto">（无）</div>
   <h3>保存</h3>
   <div class="row"><input id="fname" value="edited.gpkg" style="width:150px"> <button id="save">另存为新 GPKG</button></div>
   <div id="msg"></div>
