@@ -1,0 +1,217 @@
+{
+ "inputs": {
+  "map_png": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_map.png",
+  "map_sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7",
+  "b2c_full_gpkg": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_B2c.gpkg",
+  "b2c_full_sha256": "988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7",
+  "b2c_full_sha256_after": "988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7",
+  "b2c_300_editor_input_sha256_unchanged": true,
+  "ocr_json": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_ocr_full.json"
+ },
+ "truth_coverage": {
+  "map_px": 627900,
+  "oracle_window_px_in_map": 28200,
+  "share": 0.045,
+  "text_truth_labels": 3,
+  "face_unit_truth": 0
+ },
+ "faces": {
+  "faces": 17047,
+  "colour_classes": 11,
+  "legend_swatches": 12,
+  "per_class": {
+   "#63413b": {
+    "faces": 1503,
+    "area_px2": 8280.0,
+    "small_faces": 1117,
+    "largest_px2": 440.0,
+    "nearest_swatch": "S01",
+    "swatch_dE": 42.3
+   },
+   "#d5e4a1": {
+    "faces": 1190,
+    "area_px2": 152017.0,
+    "small_faces": 1054,
+    "largest_px2": 105002.0,
+    "nearest_swatch": "S06",
+    "swatch_dE": 4.4
+   },
+   "#c85945": {
+    "faces": 1049,
+    "area_px2": 11778.0,
+    "small_faces": 593,
+    "largest_px2": 277.0,
+    "nearest_swatch": "S10",
+    "swatch_dE": 4.2
+   },
+   "#fffffd": {
+    "faces": 768,
+    "area_px2": 328209.0,
+    "small_faces": 645,
+    "largest_px2": 99000.0,
+    "nearest_swatch": "S00",
+    "swatch_dE": 2.4
+   },
+   "#c0d1c5": {
+    "faces": 1604,
+    "area_px2": 4381.0,
+    "small_faces": 1487,
+    "largest_px2": 247.0,
+    "nearest_swatch": "S03",
+    "swatch_dE": 13.2
+   },
+   "#e7ceb0": {
+    "faces": 2412,
+    "area_px2": 8908.0,
+    "small_faces": 2110,
+    "largest_px2": 280.0,
+    "nearest_swatch": "S02",
+    "swatch_dE": 16.6
+   },
+   "#c78a99": {
+    "faces": 2566,
+    "area_px2": 6154.0,
+    "small_faces": 2372,
+    "largest_px2": 125.0,
+    "nearest_swatch": "S05",
+    "swatch_dE": 18.5
+   },
+   "#dd5842": {
+    "faces": 207,
+    "area_px2": 42352.0,
+    "small_faces": 170,
+    "largest_px2": 19677.0,
+    "nearest_swatch": "S10",
+    "swatch_dE": 7.1
+   },
+   "#d0a6ae": {
+    "faces": 2342,
+    "area_px2": 27156.0,
+    "small_faces": 2182,
+    "largest_px2": 8692.0,
+    "nearest_swatch": "S02",
+    "swatch_dE": 16.2
+   },
+   "#92959e": {
+    "faces": 3036,
+    "area_px2": 12895.0,
+    "small_faces": 2642,
+    "largest_px2": 445.0,
+    "nearest_swatch": "S07",
+    "swatch_dE": 19.4
+   },
+   "#abd1e9": {
+    "faces": 370,
+    "area_px2": 25770.0,
+    "small_faces": 290,
+    "largest_px2": 4534.0,
+    "nearest_swatch": "S04",
+    "swatch_dE": 1.3
+   }
+  },
+  "small_faces": 14662,
+  "small_face_area_px2": 25205.0,
+  "small_share_of_faces": 0.86,
+  "small_by_source": {
+   "text_box": 6704,
+   "line_footprint": 1301,
+   "other": 6657
+  },
+  "area_quantiles": [
+   1.0,
+   7.0,
+   60.54000000000087,
+   105002.0
+  ],
+  "coverage": {
+   "accepted": true,
+   "coverage_is_valid": true,
+   "all_polygon": true,
+   "geometries_valid": true,
+   "area_sum_minus_window": 0.0,
+   "union_area_minus_window": 0.0
+  },
+  "semantic_truth": "none: no per-unit ground truth exists for u2; nearest legend swatch by colour only (candidate, not a classification)"
+ },
+ "lines": {
+  "lines": 606,
+  "logical_groups": 501,
+  "total_length_px": 14903.7,
+  "short_lt10px": 32,
+  "inside_text_boxes": 191,
+  "crossing_text_boxes": 82,
+  "truth_window": {
+   "oracle_lines": 18,
+   "oracle_length_in_map_px": 942.9,
+   "recall_2p5px": 0.704,
+   "precision_2p5px_vs_oracle": 0.667,
+   "note": "Oracle traces only part of the linework (no text, no symbols) -> precision is a lower bound"
+  }
+ },
+ "text": {
+  "ocr_raw_items": 219,
+  "text_boxes_after_dedup": 127,
+  "score_lt_0p8": 32,
+  "truth_labels": 3,
+  "truth_matched_by_box": 3,
+  "truth_text_correct": 1,
+  "truth_missed": 0,
+  "truth_note": "only 3 human-confirmed labels exist (all in the Oracle window); full-sheet precision/recall NOT_EVALUATED"
+ },
+ "topology_text_clearing": {
+  "text_boxes_processed": 127,
+  "boxes_with_residue": 126,
+  "errors": [],
+  "faces_before_after": [
+   17047,
+   12995
+  ],
+  "lines_before_after": [
+   606,
+   418
+  ],
+  "lines_moved_to_residue": 188,
+  "faces_merged": 4052,
+  "uncertain_groups_left": 273,
+  "uncertain_faces_left": 3593,
+  "face_px_changed": 9467,
+  "face_px_changed_outside_allowed_zone": 27,
+  "lines_not_touching_boxes_changed": 0,
+  "moved_lines_in_multi_part_groups": 16,
+  "coverage_after": {
+   "accepted": true,
+   "coverage_is_valid": true,
+   "all_polygon": true,
+   "geometries_valid": true,
+   "area_sum_minus_window": 0.0,
+   "union_area_minus_window": 0.0
+  },
+  "save": {
+   "accepted": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true
+  },
+  "seconds": 88.2,
+  "text_used": "automatic OCR strings (not human-confirmed)"
+ },
+ "review_queue_items": 575,
+ "outputs_local": {
+  "cleared_gpkg": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_text_cleared.gpkg",
+  "cleared_sha256": "9e9b87f683d20a4b06638427af078f97c655ba6b48ca5b1ac85c9a521401523d",
+  "problem_map_png": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_problem_map_x2.png",
+  "problem_map_sha256": "7841fb4c75abdf5a925294d80ba86aa67fd155f46eec1fe18d17773e86506620"
+ },
+ "status": {
+  "faces_geometry_validity": "PASS",
+  "faces_semantic_classification": "NOT_EVALUATED (no unit truth; colour classes only)",
+  "faces_fragmentation": "FAIL (14662 of 17047 faces are <= 5 px2)",
+  "lines_vs_oracle_window": "PENDING_REVIEW (recall 0.704 on 4.5% of the map; rest not evaluated)",
+  "lines_outside_window": "NOT_EVALUATED",
+  "text_detection_full_sheet": "NOT_EVALUATED (no full-sheet text truth)",
+  "text_ocr_on_3_known_labels": "1 of 3 correct",
+  "text_clearing_face_protection": "FAIL",
+  "text_clearing_line_protection": "PENDING_REVIEW",
+  "joint_topology_after_clearing": "PASS"
+ },
+ "seconds": 113.3
+}

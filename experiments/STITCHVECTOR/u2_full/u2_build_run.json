@@ -1,0 +1,91 @@
+{
+ "input": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_map.png",
+ "input_sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7",
+ "shape_hw": [
+  780,
+  805
+ ],
+ "multipart_split": [
+  {
+   "parts": 2,
+   "length": 19.9
+  },
+  {
+   "parts": 2,
+   "length": 29.3
+  },
+  {
+   "parts": 2,
+   "length": 17.4
+  },
+  {
+   "parts": 2,
+   "length": 23.2
+  },
+  {
+   "parts": 2,
+   "length": 26.3
+  },
+  {
+   "parts": 3,
+   "length": 21.0
+  },
+  {
+   "parts": 2,
+   "length": 26.9
+  },
+  {
+   "parts": 2,
+   "length": 20.3
+  },
+  {
+   "parts": 2,
+   "length": 22.8
+  },
+  {
+   "parts": 2,
+   "length": 33.5
+  },
+  {
+   "parts": 2,
+   "length": 20.8
+  },
+  {
+   "parts": 2,
+   "length": 31.2
+  },
+  {
+   "parts": 2,
+   "length": 32.2
+  },
+  {
+   "parts": 2,
+   "length": 32.6
+  },
+  {
+   "parts": 2,
+   "length": 29.1
+  }
+ ],
+ "errors": [],
+ "code_commit": "24d2d14db53a3e534256e0440f1f89d340166602",
+ "python": "3.11.15",
+ "manual_steps": "none",
+ "oracle_used": false,
+ "ok": true,
+ "colour_classes": 11,
+ "b2c_objects": 590,
+ "line_records": 606,
+ "faces": 17047,
+ "render_holes_px": 0,
+ "seconds": {
+  "labels": 0.1,
+  "lines_b2c_group": 5.1,
+  "faces": 10.5,
+  "write": 0.1,
+  "render_readback": 1.0,
+  "total": 16.8
+ },
+ "output": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_B2c.gpkg",
+ "output_sha256": "988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7"
+}

@@ -1,0 +1,576 @@
+priority,kind,ref,x,y,why,action
+1,uncertain_residue_group,"T006:[421, 422]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T006:[439, 455]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T006:[457, 458, 459, 460, 479, 480]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T006:[507, 508, 521]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T006:[524],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T006:[526],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T006:[529],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T006:[548, 555]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T009:[709, 710, 711, 712, 713, 714]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T009:[838],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T010:[770, 818, 819, 820, 821, 826]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T010:[815, 816, 817]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T010:[827, 828, 853, 854, 875, 876]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T010:[851],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T011:[851],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T012:[937, 953, 975, 976, 977, 999]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T012:[954, 956, 978, 979, 980, 981]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T012:[1040, 1041, 1042, 1043, 1061]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T012:[1083],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T012:[1112, 1123]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T012:[1114],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T012:[1168],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T012:[1203, 1204]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T013:[974, 999, 1000, 1009, 1010, 1011]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T014:[1105, 1106, 1107, 1108, 1115, 1116]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T014:[1109, 1110, 1161, 1162, 1187, 1219]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T014:[1517],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T014:[1544],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T016:[1151, 1179, 1191, 1205, 1206, 1226]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T016:[1193, 1194, 1207, 1208, 1209, 1210]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T016:[1596, 1597]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T017:[1266, 1267, 1268, 1269, 1299, 1300]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T019:[1840, 1841, 1842, 1843, 1855, 1856]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T019:[1986, 1987]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T023:[2094],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T023:[2096, 2108]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T023:[2121, 2122]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T023:[2124],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T023:[2132, 2133, 2135, 2145, 2146, 2147]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T023:[2199, 2200]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T023:[2229],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T023:[2293, 2294, 2325, 2326, 2327]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T023:[2324],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2336, 2355, 2412, 2413, 2480, 2499]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T025:[2354],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2380, 2381, 2382]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T025:[2383],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2385, 2411, 2454]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2410, 2433, 2451, 2452, 2453]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2478, 2479]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T025:[2498],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2521, 2522, 2539, 2540, 2541, 2569]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T025:[2573],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2600, 2601, 2602, 2626, 2642, 2664]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T025:[2810, 2811, 2812]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T026:[2504, 2577, 2578, 2605, 2606, 2607]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T026:[2579, 2608]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T027:[3214, 3268]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T027:[3269, 3270, 3271, 3272, 3341, 3342]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T028:[2782],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T028:[2803, 2830, 2842, 2868, 2869, 2870]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T028:[2979],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T028:[3160],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T028:[3221],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T028:[3296, 3417]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T028:[3359],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T029:[2840, 2841, 2903, 2904, 2905, 2906]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T030:[3202, 3203, 3204, 3205, 3206, 3207]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T031:[3268, 3340, 3341, 3342, 3343, 3408]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T031:[3375, 3376, 3435, 3507]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T032:[3537, 3564, 3565]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T032:[3618, 3619]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T033:[3483, 3541, 3602, 3603, 3624, 3625]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T033:[3830, 3831, 3904, 3942, 3975]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T033:[3976],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T033:[4033, 4060, 4061, 4062, 4080, 4081]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T033:[4141],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T033:[4142],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T034:[4071, 4072, 4109, 4229]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T036:[4299, 4301, 4302, 4304, 4315, 4329]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T037:[4425, 4518]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T037:[4515, 4545, 4546, 4547, 4548, 4572]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4516],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4519],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T037:[4521, 4522, 4523, 4550, 4551, 4552]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4549],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4570],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T037:[4592, 4593, 4594]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T037:[4697, 4698]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4720],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4734],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T037:[4735],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T038:[4819, 4820, 4821]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T039:[4648, 4660]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T039:[4690, 4691, 4692, 4714, 4715]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T039:[4725, 4738, 4739, 4740, 4795, 4806]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T042:[5257, 5258, 5272]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[4931, 4948]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[4990, 4991, 5027, 5092]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5090, 5091]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5115, 5150, 5151, 5177, 5207, 5208]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5210, 5211]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5251, 5252, 5266, 5290, 5291, 5292]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5254, 5255, 5256, 5271]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5270],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5320],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5351, 5371, 5372, 5374, 5421, 5422]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5353, 5425, 5426, 5427]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T044:[5428, 5429]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5701],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5734],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5749],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5789],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T044:[5802],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T048:[5972, 5973]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T048:[5974],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T048:[5976],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T048:[6021],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T048:[6031],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T048:[6048],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T048:[6059, 6083]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T048:[6110],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T048:[6122, 6123]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T051:[6190, 6206, 6207, 6208, 6209, 6231]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T051:[6556, 6557, 6601, 6642, 6643]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T051:[6558],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T051:[6559],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T051:[6698],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T052:[6251, 6252, 6287, 6288, 6289, 6290]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T052:[6253, 6254, 6255, 6256, 6257, 6298]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T053:[6333, 6371, 6394, 6395, 6431, 6432]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T053:[6465, 6466]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T053:[6588, 6589]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T053:[6590],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T053:[6687, 6705]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T053:[6703, 6704]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T053:[6768],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T053:[6770],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T054:[6525, 6658, 6659]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T054:[6576, 6674, 6675, 6766, 6767, 6847]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T054:[6615],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T054:[6656],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T054:[6657],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T054:[6850, 6851, 6852, 6853, 6854, 6907]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T054:[7440],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T055:[7170],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T055:[7284],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T057:[7275, 7276, 7309, 7341, 7358, 7380]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T057:[7308],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T057:[7356, 7357, 7405, 7406, 7429, 7430]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T057:[7477, 7494, 7495, 7512]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T058:[7367, 7368, 7464]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T058:[7370, 7422, 7423, 7445, 7446, 7470]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T058:[7421, 7466, 7467, 7468, 7469, 7489]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T058:[7441],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T058:[7442, 7443, 7465]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T058:[7570],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T058:[7626],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T059:[7529, 7557, 7558, 7580, 7581, 7598]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T059:[7582, 7583, 7584]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T062:[8140],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T063:[8150, 8151, 8152, 8163, 8164, 8165]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T063:[8179],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T063:[8192, 8243, 8268, 8333, 8334, 8335]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T063:[8193],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T063:[8231],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T063:[8299],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T063:[8357, 8393]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T063:[8459, 8460]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T065:[8162, 8173, 8187, 8188, 8209, 8211]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T066:[8259, 8260, 8261, 8309, 8345, 8346]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T066:[8534],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T067:[8267, 8282, 8356, 8391, 8392, 8428]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T067:[8610],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T069:[8482, 8483]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8513],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8514],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8515],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T069:[8517, 8518, 8565, 8609, 8641, 8670]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8543],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8544],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8545],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8564],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T069:[8741, 8775]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8801],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T069:[8829],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T072:[9042],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T072:[9066, 9067, 9068, 9069, 9070, 9086]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T072:[9085],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T072:[9527],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T072:[9599],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T073:[9119, 9144, 9145, 9146, 9175, 9176]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T073:[9121, 9190, 9191, 9192, 9193, 9194]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T073:[9622, 9623, 9624, 9667]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T073:[9649],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T073:[9691],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T073:[9698],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T073:[9737],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T074:[9147, 9148, 9195]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T074:[9150],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T074:[9196, 9197, 9242, 9243, 9244, 9245]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T074:[9199, 9200, 9249, 9250, 9251, 9252]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T074:[9746],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T075:[9679, 9680, 9720, 9721, 9722, 9723]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T076:[9668],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T076:[9670, 9702, 9703, 9745, 9755, 9756]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T076:[9746],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T076:[9768, 9769]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T076:[9792],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T076:[9812, 9813, 9847, 9848, 9884, 9885]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T076:[9823, 9837, 9874]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T076:[9824, 9825]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T076:[10041, 10055, 10056, 10057, 10058, 10079]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T076:[10080],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T076:[10113],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T077:[9944, 9963, 9964, 9965, 9966, 9981]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T077:[9982, 10001]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T077:[10012],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T077:[10071],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T079:[10166, 10167, 10168, 10192, 10193, 10194]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T079:[10274],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T080:[10220, 10221, 10222, 10237, 10238, 10254]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T080:[10304, 10382, 10407]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T081:[10212, 10276, 10292, 10293, 10294, 10295]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T081:[10559],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T082:[10799, 10800]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T083:[10658, 10659, 10666, 10677, 10678, 10690]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T083:[10668, 10669, 10670, 10671, 10704, 10763]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T083:[10703],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T083:[10728, 10745, 10761, 10762, 10780]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T084:[10701],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T085:[10680, 10693, 10694, 10695, 10696, 10706]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T085:[10765, 10766, 10767]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T085:[10870, 10871, 10872, 10891, 10892, 10915]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T085:[10890, 10913, 10914, 10934, 10958, 10959]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T087:[10765, 10766, 10767, 10786, 10787, 10867]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T089:[10977, 11034, 11081, 11097, 11098, 11099]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T089:[11224],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T089:[11346],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T090:[11095, 11096, 11111, 11112, 11137, 11155]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T090:[11113],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T090:[11286],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T090:[11330, 11358]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T091:[11205, 11206, 11255, 11256, 11257, 11273]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T093:[11225, 11226, 11227, 11228, 11229, 11230]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T094:[11488],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T094:[11489, 11514]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T096:[11685, 11726, 11743, 11744, 11755, 11756]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T096:[11745, 11746, 11747, 11757, 11783, 11784]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T096:[12183, 12184, 12198, 12199, 12200, 12226]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T096:[12185, 12186, 12201]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T096:[12224],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T096:[12253],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T096:[12279],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T097:[11794, 11820, 11853]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T099:[12185, 12186, 12201]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T100:[12567],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T105:[12725],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T105:[12757],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T105:[12771, 12772, 12773, 12788, 12789, 12790]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T105:[13011, 13024, 13025, 13034]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T105:[13044],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T105:[13045],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T105:[13059],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T105:[13061, 13062]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,T109:[13627],,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T109:[13733, 13734, 13735, 13763, 13764, 13765]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T112:[13728, 13779, 13780, 13781, 13782, 13833]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T114:[14261, 14262, 14263, 14264, 14309, 14310]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T114:[14345, 14385, 14386, 14455, 14492, 14526]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T118:[14877, 14879]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T118:[14966, 14967]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,uncertain_residue_group,"T118:[15002, 15003, 15020, 15026]",,,touches two or more ground faces (possible contact),assign to a ground face or skip
+1,isolated_line_in_group,line 15,560.0,36.5,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 16,561.2,31.4,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 49,502.6,95.7,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 98,730.5,158.0,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 99,732.0,153.7,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 152,442.0,223.5,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 313,285.5,446.5,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 314,287.5,441.7,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 348,416.0,498.0,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 358,464.8,504.5,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 364,446.5,514.5,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 410,486.5,579.0,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 411,493.5,577.4,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 502,134.0,727.5,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 503,131.1,720.8,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,isolated_line_in_group,line 590,583.6,509.1,PENDING_REVIEW: group has parts outside the box (possible real line),restore if geological
+1,wrong_or_missed_text,T041,714.0,266.0,OCR 'E-O' vs truth 'Є-O',correct text
+1,wrong_or_missed_text,T070,726.5,448.5,OCR 'ArE' vs truth 'Ar₂E',correct text
+2,low_confidence_text,T000,24.0,0.0,OCR '11140' 0.777,confirm or correct text
+2,low_confidence_text,T001,173.0,0.0,OCR '11150' 0.723,confirm or correct text
+2,low_confidence_text,T010,465.0,72.0,OCR 'B-o' 0.702,confirm or correct text
+2,low_confidence_text,T012,502.0,81.0,OCR '-B' 0.78,confirm or correct text
+2,low_confidence_text,T018,195.5,111.0,OCR 'O' 0.67,confirm or correct text
+2,low_confidence_text,T023,479.0,150.0,OCR 'K40' 0.712,confirm or correct text
+2,low_confidence_text,T025,374.0,163.0,OCR 'AP' 0.631,confirm or correct text
+2,low_confidence_text,T031,332.0,202.0,OCR '。' 0.647,confirm or correct text
+2,low_confidence_text,T035,511.0,240.0,OCR '选台寺' 0.786,confirm or correct text
+2,low_confidence_text,T036,284.0,242.0,OCR 'L5' 0.539,confirm or correct text
+2,low_confidence_text,T040,565.0,265.5,OCR 'Jey' 0.775,confirm or correct text
+2,low_confidence_text,T041,714.0,266.0,OCR 'E-O' 0.62,confirm or correct text
+2,low_confidence_text,T044,360.0,277.5,OCR '12250' 0.642,confirm or correct text
+2,low_confidence_text,T046,301.0,302.5,OCR 'PLiL' 0.667,confirm or correct text
+2,low_confidence_text,T048,410.0,333.0,OCR 'Ted' 0.72,confirm or correct text
+2,low_confidence_text,T050,506.0,343.0,OCR '15' 0.727,confirm or correct text
+2,low_confidence_text,T058,513.0,382.0,OCR 'par' 0.557,confirm or correct text
+2,low_confidence_text,T061,83.0,407.0,OCR '-O' 0.754,confirm or correct text
+2,low_confidence_text,T064,361.0,435.0,OCR 'Jst' 0.785,confirm or correct text
+2,low_confidence_text,T067,223.0,441.0,OCR '/TH' 0.755,confirm or correct text
+2,low_confidence_text,T076,413.0,493.0,OCR 'Jiy 3s。' 0.598,confirm or correct text
+2,low_confidence_text,T089,537.5,565.5,OCR '常尔士' 0.608,confirm or correct text
+2,low_confidence_text,T090,470.0,569.0,OCR 'C-O' 0.571,confirm or correct text
+2,low_confidence_text,T092,399.0,572.0,OCR '8' 0.584,confirm or correct text
+2,low_confidence_text,T100,461.0,630.0,OCR 'fss' 0.523,confirm or correct text
+2,low_confidence_text,T103,55.5,642.5,OCR '1o' 0.704,confirm or correct text
+2,low_confidence_text,T105,98.0,649.0,OCR 'MT' 0.771,confirm or correct text
+2,low_confidence_text,T107,317.0,681.0,OCR '25' 0.789,confirm or correct text
+2,low_confidence_text,T108,752.5,692.0,OCR 'Are.J' 0.766,confirm or correct text
+2,low_confidence_text,T109,302.0,694.5,OCR '22' 0.654,confirm or correct text
+2,low_confidence_text,T113,512.0,699.0,OCR '娑婆' 0.667,confirm or correct text
+2,low_confidence_text,T114,273.5,706.0,OCR 'S2°' 0.705,confirm or correct text
+2,small_face_cluster,59 faces,330,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,57 faces,650,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,55 faces,410,250,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,52 faces,310,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,48 faces,510,490,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,47 faces,210,590,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,46 faces,650,110,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,46 faces,270,550,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,44 faces,430,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,42 faces,130,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,41 faces,530,50,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,41 faces,230,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,37 faces,730,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,37 faces,330,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,37 faces,90,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,37 faces,130,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,36 faces,330,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,36 faces,330,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,36 faces,250,550,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,36 faces,110,630,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,35 faces,610,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,35 faces,250,530,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,35 faces,130,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,34 faces,570,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,34 faces,270,530,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,34 faces,650,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,33 faces,570,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,32 faces,630,70,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,32 faces,230,570,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,32 faces,350,630,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,32 faces,570,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,31 faces,450,190,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,31 faces,130,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,31 faces,630,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,31 faces,630,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,31 faces,490,770,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,30 faces,590,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,29 faces,790,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,29 faces,790,190,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,29 faces,210,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,29 faces,370,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,29 faces,570,510,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,29 faces,210,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,28 faces,370,150,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,28 faces,270,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,28 faces,330,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,28 faces,690,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,28 faces,790,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,27 faces,410,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,27 faces,630,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,27 faces,350,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,27 faces,310,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,26 faces,310,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,26 faces,370,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,26 faces,150,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,25 faces,490,10,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,25 faces,350,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,24 faces,350,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,24 faces,290,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,24 faces,370,590,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,24 faces,190,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,23 faces,410,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,23 faces,510,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,23 faces,270,510,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,23 faces,290,550,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,23 faces,550,550,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,23 faces,130,630,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,390,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,230,310,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,570,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,570,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,190,590,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,270,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,22 faces,250,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,230,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,610,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,490,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,530,550,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,330,570,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,190,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,330,630,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,21 faces,150,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,250,130,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,510,150,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,730,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,610,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,710,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,710,510,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,710,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,50,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,20 faces,170,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,19 faces,470,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,19 faces,810,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,19 faces,470,190,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,19 faces,650,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,19 faces,290,530,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,19 faces,310,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,730,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,650,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,470,310,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,630,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,710,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,590,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,510,450,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,18 faces,490,510,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,530,10,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,650,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,310,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,550,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,550,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,530,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,710,530,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,590,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,17 faces,630,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,790,50,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,670,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,630,310,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,330,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,550,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,470,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,650,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,630,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,16 faces,730,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,510,10,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,250,150,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,690,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,750,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,270,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,670,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,290,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,290,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,530,450,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,630,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,210,570,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,150,630,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,590,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,670,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,15 faces,650,770,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,610,70,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,750,90,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,670,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,690,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,270,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,650,310,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,610,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,310,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,330,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,470,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,790,490,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,690,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,110,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,630,750,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,14 faces,790,770,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,530,70,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,790,70,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,770,70,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,650,90,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,350,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,610,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,430,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,230,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,670,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,670,370,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,550,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,490,450,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,230,590,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,790,670,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,110,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,690,750,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,13 faces,190,770,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,650,70,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,570,90,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,790,110,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,510,130,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,270,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,590,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,370,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,430,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,710,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,370,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,510,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,730,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,730,450,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,610,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,610,490,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,710,590,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,590,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,610,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,610,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,290,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,510,750,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,12 faces,590,770,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,490,110,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,770,150,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,670,150,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,730,170,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,330,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,230,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,630,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,490,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,450,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,390,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,350,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,350,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,690,390,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,650,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,490,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,310,430,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,430,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,570,530,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,230,550,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,670,610,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,630,650,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,130,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,11 faces,550,730,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,510,110,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,670,110,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,230,150,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,490,190,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,510,190,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,490,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,390,210,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,490,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,610,230,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,670,250,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,650,270,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,470,290,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,250,310,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,370,330,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,410,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,550,350,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,690,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,530,410,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,290,470,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,690,490,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,270,570,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,550,590,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,650,630,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,690,690,<=5 px2 faces not under text or lines,heal brush / lasso merge
+2,small_face_cluster,10 faces,470,710,<=5 px2 faces not under text or lines,heal brush / lasso merge
+3,short_line,line 28,599.5,61.5,9.9 px,"connect, keep or delete"
+3,short_line,line 60,499.5,105.5,9.7 px,"connect, keep or delete"
+3,short_line,line 111,262.5,170.5,9.9 px,"connect, keep or delete"
+3,short_line,line 129,758.5,192.5,9.8 px,"connect, keep or delete"
+3,short_line,line 177,474.5,268.5,9.7 px,"connect, keep or delete"
+3,short_line,line 204,790.5,301.5,9.9 px,"connect, keep or delete"
+3,short_line,line 224,731.5,330.5,9.5 px,"connect, keep or delete"
+3,short_line,line 244,400.5,355.5,1.4 px,"connect, keep or delete"
+3,short_line,line 245,400.5,356.5,1.0 px,"connect, keep or delete"
+3,short_line,line 263,551.5,379.5,1.0 px,"connect, keep or delete"
+3,short_line,line 326,548.5,456.5,4.2 px,"connect, keep or delete"
+3,short_line,line 441,317.5,628.5,3.0 px,"connect, keep or delete"
