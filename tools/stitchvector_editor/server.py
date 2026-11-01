@@ -12,7 +12,8 @@ STATE = {}
 
 
 def open_doc(image, gpkg):
-    im = Image.open(image); STATE.update(image=Path(image).resolve(), gpkg=Path(gpkg).resolve(), doc=Document(gpkg, im.size))
+    import numpy as np
+    im = Image.open(image).convert("RGB"); STATE.update(image=Path(image).resolve(), gpkg=Path(gpkg).resolve(), doc=Document(gpkg, im.size, np.asarray(im)))
 
 
 def safe_name(name):
@@ -58,6 +59,18 @@ class H(BaseHTTPRequestHandler):
             elif op == "draw": r = {"id": d.add_line(a["coords"], float(a.get("width", 2)), a.get("rgb", "#000000"), a.get("logical_id"))}
             elif op == "merge": r = {"id": d.merge_faces(a["ids"])}
             elif op == "line_to_face": r = d.line_to_face(a["ids"], a.get("width"), a.get("rgb"))
+            elif op == "select_gesture":
+                g = d.gesture(a["kind"], a["points"], float(a.get("radius", 0)))
+                ids = d.select_region(g, lay, a.get("rule", "touch"), a.get("max_area"))
+                base = set(int(i) for i in a.get("current", [])); mode = a.get("mode", "replace")
+                ids = sorted(base | set(ids)) if mode == "add" else (sorted(base - set(ids)) if mode == "subtract" else sorted(ids))
+                r = {"ids": ids}
+            elif op == "grow_sel": r = {"ids": d.grow(a["ids"], int(a.get("steps", 1)))}
+            elif op == "shrink_sel": r = {"ids": d.shrink(a["ids"], int(a.get("steps", 1)))}
+            elif op == "merge_preview": r = d.merge_preview(a["ids"])
+            elif op == "merge_groups": r = d.merge_components(a["ids"])
+            elif op == "heal_preview": r = d.heal_preview(d.gesture("brush", a["points"], float(a.get("radius", 4))), float(a.get("max_area", 12)))
+            elif op == "heal_apply": r = d.heal_apply(a["plan"])
             elif op == "undo": r = {"undone": d.undo_op()}
             elif op == "redo": r = {"redone": d.redo_op()}
             elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]))

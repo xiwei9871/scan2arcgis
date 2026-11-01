@@ -1,0 +1,132 @@
+{
+ "mode": "DATA_LEVEL_VERIFIED",
+ "A_fragments_7001": {
+  "region_area": 3879.0,
+  "routes": {
+   "lasso_centre_rule": {
+    "faces": 31,
+    "precision_area": 0.93,
+    "recall_area": 0.9412,
+    "gestures": 1,
+    "lasso_points": 9
+   },
+   "lasso_cover50_rule": {
+    "faces": 30,
+    "precision_area": 0.9342,
+    "recall_area": 0.9472,
+    "gestures": 1
+   },
+   "brush_2_strokes_touch": {
+    "faces": 37,
+    "precision_area": 0.0665,
+    "recall_area": 0.9537,
+    "gestures": 2
+   },
+   "lasso_then_grow1": {
+    "faces": 87,
+    "precision_area": 0.0687,
+    "recall_area": 0.9997,
+    "gestures": 2
+   }
+  },
+  "faces_mostly_in_region": 37,
+  "merge_preview": [
+   {
+    "faces": 1,
+    "area": 8.0,
+    "single_polygon": true,
+    "colour_conflict_share": 0.0
+   },
+   {
+    "faces": 29,
+    "area": 3917.0,
+    "single_polygon": true,
+    "colour_conflict_share": 0.016
+   },
+   {
+    "faces": 1,
+    "area": 1.0,
+    "single_polygon": true,
+    "colour_conflict_share": 0.0
+   }
+  ],
+  "merge": {
+   "faces_before_after": [
+    398,
+    370
+   ],
+   "groups_merged": 1,
+   "largest_merged_area": 3917.0,
+   "largest_merged_outside_region_px2": 275.0,
+   "coverage_valid": true
+  },
+  "save": {
+   "accepted": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true
+  },
+  "v01_baseline": {
+   "shift_clicks": 37,
+   "merged_outside_region_px2": 275.7
+  }
+ },
+ "B_heal_u2": {
+  "over_recognised_line": {
+   "stroke_points": 8,
+   "candidates": 10,
+   "counts": {
+    "merge": 9,
+    "keep": 0,
+    "uncertain": 1
+   },
+   "reasons": {
+    "under a line": 1,
+    "same colour as neighbour": 8,
+    "check": 1
+   },
+   "faces_before_after": [
+    665,
+    656
+   ],
+   "coverage_valid": true,
+   "undo_restores": true,
+   "save": {
+    "accepted": true,
+    "readback_matches_memory": true,
+    "input_sha256_unchanged": true
+   }
+  },
+  "over_unrecognised_ink": {
+   "stroke_points": 9,
+   "candidates": 118,
+   "counts": {
+    "merge": 27,
+    "keep": 14,
+    "uncertain": 77
+   },
+   "reasons": {
+    "distinct colour": 14,
+    "under a line": 8,
+    "same colour as neighbour": 19,
+    "check": 77
+   },
+   "faces_before_after": [
+    665,
+    638
+   ],
+   "coverage_valid": true,
+   "undo_restores": true,
+   "save": {
+    "accepted": true,
+    "readback_matches_memory": true,
+    "input_sha256_unchanged": true
+   }
+  }
+ },
+ "inputs_unchanged": true,
+ "outputs_sha256": {
+  "synth_7001_lasso_merge.gpkg": "c2709b85de487344da6e65e9b70b8517c09a46f7d87de527d2d745bcbecd756c",
+  "u2_heal_over_recognised_line.gpkg": "509853ceb64878c3076b994d1939a689021e188c4ef6117b776d9b481d87caff",
+  "u2_heal_over_unrecognised_ink.gpkg": "8b6c63677baf0accc11eb3208066a3c92455f419ad1e4db82156ef48293ccb7b"
+ }
+}

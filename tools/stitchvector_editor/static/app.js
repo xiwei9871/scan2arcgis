@@ -2,6 +2,7 @@
 const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), main = document.getElementById("main");
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
+let stroke = null, mergePv = null, healPv = null;
 const $ = (id) => document.getElementById(id);
 
 function msg(t, ok) { $("msg").style.color = ok ? "#060" : "#b00"; $("msg").textContent = t || ""; }
@@ -41,6 +42,14 @@ function draw() {
   if (sel.layer === "line") for (const l of S.lines) if (selSet.has(l.id)) { ctx.beginPath(); l.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = Math.max(l.width + 2, 3) ; ctx.globalAlpha = 0.6; ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 2 / view.s; }
   ctx.setLineDash([]);
   if (drawPts.length) { ctx.beginPath(); drawPts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = "#ff00ff"; ctx.lineWidth = Math.max(+$("width").value, 1); ctx.stroke(); }
+  if (stroke && stroke.pts.length) { ctx.beginPath(); stroke.pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
+    if (stroke.kind === "lasso") { ctx.closePath(); ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.stroke(); }
+    else { ctx.strokeStyle = "rgba(255,235,59,0.45)"; ctx.lineWidth = 2 * +$("radius").value; ctx.lineCap = "round"; ctx.stroke(); } }
+  if (mergePv) for (const g of mergePv.groups) for (const ring of g.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
+    ctx.strokeStyle = (g.colour_conflict_share || 0) > 0.1 ? "#ff1744" : "#76ff03"; ctx.lineWidth = 2.5 / view.s; ctx.stroke(); }
+  if (healPv) { const by = new Map(S.faces.map(f => [f.id, f])); const C = { merge: "#76ff03", keep: "#2979ff", uncertain: "#ff9100" };
+    for (const c of healPv.candidates) { const f = by.get(c.id); if (!f) continue; ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); }
+      ctx.fillStyle = C[c.decision]; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
   if (drag && drag.box) { const [x0, y0] = drag.w0, [x1, y1] = drag.w1; ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0)); }
 }
 function showSel() {
@@ -66,14 +75,17 @@ cv.addEventListener("mousedown", (ev) => {
   const w = toWorld(ev);
   if (ev.button === 2 || ev.getModifierState(" ") || spaceDown) { drag = { pan: true, x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y }; return; }
   if (tool === "boxFace") drag = { box: true, w0: w, w1: w };
+  if (["brushSel", "lassoSel", "heal"].includes(tool)) { stroke = { kind: tool === "lassoSel" ? "lasso" : "brush", pts: [w] }; drag = { gesture: true }; }
 });
 cv.addEventListener("mousemove", (ev) => {
   if (!drag) return;
   if (drag.pan) { view.x = drag.vx + ev.clientX - drag.x; view.y = drag.vy + ev.clientY - drag.y; draw(); }
   else if (drag.box) { drag.w1 = toWorld(ev); draw(); }
+  else if (drag.gesture && stroke) { const w = toWorld(ev), q = stroke.pts[stroke.pts.length - 1]; if (Math.hypot(w[0] - q[0], w[1] - q[1]) * view.s > 3) { stroke.pts.push(w); draw(); } }
 });
 cv.addEventListener("mouseup", async (ev) => {
   const d = drag; drag = null; if (d && d.pan) return;
+  if (d && d.gesture && stroke) { const st = stroke; return guard(async () => { await finishGesture(st, ev); }); }
   if (d && d.box) { const [x0, y0] = d.w0, [x1, y1] = d.w1;
     if (Math.abs(x1 - x0) + Math.abs(y1 - y0) > 1) return guard(async () => { const r = await api("box", { x0, y0, x1, y1, layer: "face" }); setSel("face", r.ids, ev.shiftKey); msg(`框选 ${r.ids.length} 个面`, true); }); }
   if (ev.button !== 0) return;
@@ -129,3 +141,27 @@ $("save").onclick = () => guard(async () => {
 
 img.onload = () => { off.width = img.width; off.height = img.height; offCtx = off.getContext("2d", { willReadFrequently: true }); offCtx.drawImage(img, 0, 0); refresh().then(fit); };
 img.src = "/image";
+
+async function finishGesture(st, ev) {
+  const radius = +$("radius").value;
+  if (tool === "heal") {
+    const r = await api("heal_preview", { points: st.pts, radius }); healPv = r; mergePv = null;
+    const c = r.counts || { merge: 0, keep: 0, uncertain: 0 };
+    $("preview").textContent = `修复预览：候选 ${r.candidates.length}\n并入 ${c.merge}（绿） 保留 ${c.keep}（蓝） 待定 ${c.uncertain}（橙）\n点“执行修复”只合并绿色项；待定项不动。` +
+      "\n" + r.candidates.slice(0, 12).map(x => `#${x.id} ${x.decision} ${x.reason} 面积${x.area.toFixed(1)} dE${x.dE ?? "-"}`).join("\n");
+    msg(`修复预览：${r.candidates.length} 个候选`, true); stroke = null; draw(); return;
+  }
+  const mode = ev.shiftKey ? "add" : (ev.altKey ? "subtract" : $("selMode").value);
+  const r = await api("select_gesture", { kind: st.kind, points: st.pts, radius, layer: "face", rule: $("selRule").value, mode,
+                                          current: sel.layer === "face" ? sel.ids : [] });
+  sel = { layer: "face", ids: r.ids }; stroke = null; mergePv = null; healPv = null; showSel(); draw(); msg(`选区 ${r.ids.length} 个面（${mode}）`, true);
+}
+$("growSel").onclick = () => guard(async () => { if (sel.layer !== "face" || !sel.ids.length) throw new Error("先选面"); const r = await api("grow_sel", { ids: sel.ids }); setSel("face", r.ids); msg(`外扩到 ${r.ids.length} 个面`, true); });
+$("shrinkSel").onclick = () => guard(async () => { if (sel.layer !== "face" || !sel.ids.length) throw new Error("先选面"); const r = await api("shrink_sel", { ids: sel.ids }); setSel("face", r.ids); msg(`内缩到 ${r.ids.length} 个面`, true); });
+$("mergePreview").onclick = () => guard(async () => {
+  if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge_preview", { ids: sel.ids }); mergePv = r; healPv = null;
+  $("preview").textContent = `合并预览：${r.groups.length} 组，其中可合并 ${r.mergeable_groups} 组\n` + r.groups.map((g, i) => `组${i + 1}: ${g.faces.length} 面 面积${g.area.toFixed(0)} 颜色冲突 ${((g.colour_conflict_share || 0) * 100).toFixed(0)}%` + ((g.colour_conflict_share || 0) > 0.1 ? "  ⚠ 可能越过真实边界" : "")).join("\n");
+  draw(); msg("绿色轮廓 = 合并后边界；红色 = 组内原图颜色差异大，请检查", true); });
+$("mergeGroups").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge_groups", { ids: sel.ids }); mergePv = null; setSel("face", []); $("preview").textContent = "（无预览）"; msg(`已合并 ${r.groups} 组、${r.faces} 个面`, true); });
+$("healApply").onclick = () => guard(async () => { if (!healPv) throw new Error("先用碎面修复刷刷一下"); const r = await api("heal_apply", { plan: healPv.candidates }); healPv = null; $("preview").textContent = "（无预览）"; msg(`已修复：合并 ${r.merged} 个碎面`, true); });
+$("healCancel").onclick = () => { healPv = null; mergePv = null; $("preview").textContent = "（无预览）"; draw(); };

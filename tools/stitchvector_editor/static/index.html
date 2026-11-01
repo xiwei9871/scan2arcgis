@@ -39,6 +39,20 @@
     <button data-tool="split">拆分线</button>
     <button data-tool="draw">补画线</button>
   </div>
+  <div class="row">
+    <button data-tool="brushSel">刷选面</button>
+    <button data-tool="lassoSel">套索选面</button>
+    <button data-tool="heal">碎面修复刷</button>
+    笔刷半径 <input type="number" id="radius" value="4" min="1" max="40" style="width:44px">
+  </div>
+  <div class="row">选区方式
+    <select id="selMode"><option value="replace">替换</option><option value="add">追加</option><option value="subtract">扣除</option></select>
+    规则 <select id="selRule"><option value="touch">接触即选</option><option value="centre">中心在内</option><option value="cover50">覆盖过半</option></select>
+  </div>
+  <div class="row"><button id="growSel">选区外扩一圈</button> <button id="shrinkSel">选区内缩一圈</button></div>
+  <div class="row"><button id="mergePreview">预览合并</button> <button id="mergeGroups">按预览合并</button></div>
+  <div class="row"><button id="healApply">执行修复（只合并“并入”项）</button> <button id="healCancel">取消修复预览</button></div>
+  <div id="preview" style="font:11px ui-monospace,monospace;white-space:pre-wrap;background:#fff;border:1px solid #ddd;padding:4px;max-height:140px;overflow-y:auto">（无预览）</div>
   <div class="row">Shift 加选。补画：逐点单击，双击结束。</div>
 
   <h3>选择</h3>

@@ -34,8 +34,9 @@ class EditError(Exception):
 
 
 class Document:
-    def __init__(self, gpkg, image_size):
+    def __init__(self, gpkg, image_size, image=None):
         self.src = Path(gpkg); self.src_sha = sha256(self.src); self.W, self.H = image_size
+        self.img = None if image is None else np.asarray(image)[..., :3]
         layers = [l[0] for l in pyogrio.list_layers(self.src)]
         if FACE not in layers: raise EditError(f"{self.src.name} has no {FACE} layer")
         self.F = pyogrio.read_dataframe(self.src, layer=FACE); self.F["_eid"] = np.arange(len(self.F))
@@ -295,3 +296,176 @@ def share_vertices(F, zone):
     out = g.copy()
     for i in np.nonzero(near)[0]: out[i] = shapely.snap(g[i], pts, 1e-6)
     F = F.copy(); F["geometry"] = out; return F
+
+
+# ================= POC 1: gestures -> feature selection -> previewed commands =================
+DE_CONFLICT = 20.0
+
+
+def _lab_px(img):
+    from skimage.color import rgb2lab
+    return rgb2lab(img / 255.0)
+
+
+class SelectionMixin:
+    """Gesture -> set of feature ids -> command with preview. Selections never modify data."""
+
+    def gesture(self, kind, pts, radius=0.0):
+        pts = [tuple(map(float, p)) for p in pts]
+        if kind == "brush":
+            if not pts: raise EditError("empty brush stroke")
+            r = max(float(radius), 0.5)
+            return (LineString(pts) if len(pts) > 1 else Point(pts[0])).buffer(r, quad_segs=8)
+        if kind == "lasso":
+            if len(pts) < 3: raise EditError("a lasso needs at least 3 points")
+            g = shapely.make_valid(Polygon(pts))
+            if g.is_empty or g.area <= 0: raise EditError("lasso has no area")
+            return g
+        raise EditError(f"unknown gesture {kind}")
+
+    def select_region(self, geom, layer=FACE, rule="touch", max_area=None):
+        if layer == LINE:
+            return [int(e) for e, g in zip(self.L["_eid"], self.L.geometry) if g.intersects(geom)]
+        g = np.asarray(self.F.geometry.values, object)
+        if rule == "touch": m = shapely.intersects(g, geom)
+        elif rule == "centre": m = shapely.contains(geom, shapely.point_on_surface(g))
+        elif rule == "cover50": m = shapely.area(shapely.intersection(g, geom)) >= 0.5 * shapely.area(g)
+        else: raise EditError(f"unknown rule {rule}")
+        if max_area is not None: m &= shapely.area(g) <= float(max_area)
+        return [int(e) for e in self.F["_eid"][m]]
+
+    def _edge_neighbours(self, eid):
+        geoms = dict(zip(self.F["_eid"], self.F.geometry)); g = geoms[eid]
+        tree = shapely.STRtree(np.asarray(self.F.geometry.values, object)); eids = np.asarray(self.F["_eid"]); out = {}
+        for j in tree.query(g, predicate="touches"):
+            f = int(eids[j])
+            if f == eid: continue
+            s = shapely.length(shapely.intersection(g, geoms[f]))
+            if s > 0: out[f] = s
+        return out
+
+    def grow(self, ids, steps=1):
+        sel = set(int(i) for i in ids)
+        for _ in range(int(steps)):
+            add = set()
+            for e in sel: add |= set(self._edge_neighbours(e))
+            sel |= add
+        return sorted(sel)
+
+    def shrink(self, ids, steps=1):
+        sel = set(int(i) for i in ids)
+        for _ in range(int(steps)):
+            sel = {e for e in sel if set(self._edge_neighbours(e)) <= sel}
+        return sorted(sel)
+
+    def _components(self, ids):
+        ids = sorted(set(int(i) for i in ids)); idset = set(ids); comp, seen = [], set()
+        for e in ids:
+            if e in seen: continue
+            stack, cur = [e], []
+            while stack:
+                x = stack.pop()
+                if x in seen: continue
+                seen.add(x); cur.append(x); stack += [n for n in self._edge_neighbours(x) if n in idset and n not in seen]
+            comp.append(sorted(cur))
+        return comp
+
+    def _face_pixels(self):
+        import rasterio.features as RF
+        from affine import Affine
+        return RF.rasterize([(g, int(e) + 1) for e, g in zip(self.F["_eid"], self.F.geometry)], out_shape=(self.H, self.W), fill=0,
+                            transform=Affine.identity(), dtype="int32") - 1
+
+    def _line_mask(self, extra=1.0):
+        import rasterio.features as RF
+        from affine import Affine
+        if not len(self.L): return np.zeros((self.H, self.W), bool)
+        U = shapely.union_all([g.buffer(max(w / 2, 0.71) + extra) for g, w in zip(self.L.geometry, self.L["width_px"])])
+        return RF.rasterize([(U, 1)], out_shape=(self.H, self.W), fill=0, transform=Affine.identity(), dtype="uint8") > 0
+
+    def merge_preview(self, ids):
+        """for each edge-connected group of the selection: merged outline, faces, area, and the pixels inside it whose
+        ORIGINAL colour differs from the group's dominant colour by > DE_CONFLICT (ink pixels under lines excluded) - a
+        warning that the merge may cross a real boundary. Nothing is modified."""
+        comps = self._components(ids); out = []
+        lab = _lab_px(self.img) if self.img is not None else None; fid = self._face_pixels() if lab is not None else None
+        ink = self._line_mask() if lab is not None else None
+        for c in comps:
+            u = shapely.union_all([self.F.loc[self.F["_eid"] == e, "geometry"].iloc[0] for e in c]); rec = {"faces": c, "area": float(u.area), "single_polygon": u.geom_type == "Polygon"}
+            if lab is not None:
+                m = np.isin(fid, c) & ~ink
+                if m.any():
+                    ref = np.median(lab[m], 0); de = np.linalg.norm(lab[m] - ref, axis=1)
+                    rec["colour_conflict_px"] = int((de > DE_CONFLICT).sum()); rec["colour_conflict_share"] = float((de > DE_CONFLICT).mean())
+            rec["outline"] = [[[round(x, 2), round(y, 2)] for x, y in p.exterior.coords] for p in shapely.get_parts(u) if p.geom_type == "Polygon"]
+            out.append(rec)
+        return {"groups": out, "mergeable_groups": sum(1 for r in out if len(r["faces"]) > 1 and r["single_polygon"])}
+
+    def merge_components(self, ids):
+        """merge every edge-connected group of the selection (one undoable step); single faces are left alone."""
+        comps = [c for c in self._components(ids) if len(c) > 1]
+        if not comps: raise EditError("no two selected faces share an edge")
+        def f():
+            for c in comps:
+                m = self.F["_eid"].isin(c); sub = self.F.loc[m]; u = shapely.union_all(list(sub.geometry))
+                if u.geom_type != "Polygon": continue
+                keep = int(sub["_eid"].iloc[int(np.argmax(shapely.area(np.asarray(sub.geometry.values, object))))])
+                k = self.F["_eid"] == keep; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_merge"; self.F = self.F.loc[~(m & ~k)].copy()
+            rep = coverage_report(self.F, self.W, self.H)
+            if not rep["accepted"]: raise EditError(f"merge gives an invalid face layer {rep}")
+        n = sum(len(c) for c in comps); self._do("merge selected groups", f, objects=n, merge=len(comps)); return {"groups": len(comps), "faces": n}
+
+    def heal_preview(self, region, max_area=12.0, de_merge=15.0, de_keep=25.0, min_keep=3.0):
+        """small faces touched by the brush get a proposed target: the neighbour (not itself a candidate) sharing the
+        longest edge. merge if >= 50% under a line footprint or original colour within de_merge of the target's local
+        original colour; keep if colour differs >= de_keep and area >= min_keep; otherwise uncertain (kept unless the user
+        accepts). Nothing is modified."""
+        if self.img is None: raise EditError("heal needs the scan image")
+        cand = self.select_region(region, FACE, "touch", max_area); cs = set(cand)
+        if not cand: return {"candidates": []}
+        lab = _lab_px(self.img); fid = self._face_pixels(); ink = self._line_mask(0.5); local = region.buffer(6)
+        import rasterio.features as RF
+        from affine import Affine
+        near = RF.rasterize([(local, 1)], out_shape=(self.H, self.W), fill=0, transform=Affine.identity(), dtype="uint8") > 0
+        out = []
+        for e in cand:
+            nb = self._edge_neighbours(e); outside = {k: v for k, v in nb.items() if k not in cs}
+            pool = outside or nb
+            if not pool: out.append({"id": e, "decision": "keep", "reason": "no edge neighbour"}); continue
+            t = max(pool, key=pool.get); g = self.F.loc[self.F["_eid"] == e, "geometry"].iloc[0]
+            me = fid == e; tm = (fid == t) & near & ~ink
+            if not me.any(): me = np.zeros_like(me); c = g.representative_point(); me[int(min(c.y, self.H - 1)), int(min(c.x, self.W - 1))] = True
+            under = float((me & ink).sum() / max(me.sum(), 1))
+            de = float(np.linalg.norm(np.median(lab[me], 0) - np.median(lab[tm], 0))) if tm.any() else None
+            if under >= 0.5: d, why = "merge", "under a line"
+            elif de is not None and de <= de_merge: d, why = "merge", "same colour as neighbour"
+            elif de is not None and de >= de_keep and g.area >= min_keep: d, why = "keep", "distinct colour"
+            else: d, why = "uncertain", "check"
+            out.append({"id": e, "target": int(t), "target_is_candidate": t in cs, "decision": d, "reason": why, "area": float(g.area),
+                        "dE": None if de is None else round(de, 1), "under_line_share": round(under, 2)})
+        return {"candidates": out, "counts": {k: sum(1 for r in out if r["decision"] == k) for k in ("merge", "keep", "uncertain")}}
+
+    def heal_apply(self, plan):
+        """plan: list of {id, target, decision}; faces with decision 'merge' are merged into their (resolved) target."""
+        tgt = {int(r["id"]): int(r["target"]) for r in plan if r.get("decision") == "merge" and r.get("target") is not None}
+        if not tgt: raise EditError("nothing to merge")
+        def final(e, seen=()):
+            t = tgt.get(e)
+            return e if t is None or t in seen else final(t, seen + (e,))
+        groups = {}
+        for e in tgt: groups.setdefault(final(e), []).append(e)
+        def f():
+            done = 0
+            for t, members in groups.items():
+                if t in tgt: continue
+                allm = [t] + members; m = self.F["_eid"].isin(allm); u = shapely.union_all(list(self.F.loc[m, "geometry"]))
+                if u.geom_type != "Polygon": continue
+                k = self.F["_eid"] == t; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_heal"; self.F = self.F.loc[~(m & ~k)].copy(); done += len(members)
+            rep = coverage_report(self.F, self.W, self.H)
+            if not rep["accepted"]: raise EditError(f"heal gives an invalid face layer {rep}")
+            if not done: raise EditError("no candidate could be merged into one polygon with its target")
+        self._do("heal fragments", f, objects=len(tgt), heal=1); return {"merged": len(tgt), "targets": len(groups)}
+
+
+for _n, _f in list(vars(SelectionMixin).items()):
+    if callable(_f) and not _n.startswith("__"): setattr(Document, _n, _f)
