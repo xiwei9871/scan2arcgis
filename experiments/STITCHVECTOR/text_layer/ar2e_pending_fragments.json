@@ -1,0 +1,530 @@
+[
+ {
+  "fragment": "P01",
+  "face_id": 419,
+  "x": 19.5,
+  "y": 200.5,
+  "area_px2": 2.0,
+  "rgb": "#d8736b",
+  "scan_L": 62.0,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 3.0,
+    "scan_dE": 44.9
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 3.0,
+    "scan_dE": 23.7
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P02",
+  "face_id": 420,
+  "x": 18.5,
+  "y": 202.5,
+  "area_px2": 1.0,
+  "rgb": "#d8736b",
+  "scan_L": 54.0,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415,
+   422
+  ],
+  "ground_options": [
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 30.2
+   },
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 1.0,
+    "scan_dE": 45.8
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P03",
+  "face_id": 421,
+  "x": 17.5,
+  "y": 203.5,
+  "area_px2": 1.0,
+  "rgb": "#d8736b",
+  "scan_L": 56.5,
+  "dark_glyph": false,
+  "neighbours": [
+   415,
+   422,
+   424
+  ],
+  "ground_options": [
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 29.2
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P04",
+  "face_id": 422,
+  "x": 18.5,
+  "y": 203.5,
+  "area_px2": 1.0,
+  "rgb": "#c8baa3",
+  "scan_L": 68.2,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   420,
+   421
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 27.5
+   }
+  ],
+  "suggested_face": 7,
+  "suggested_rgb": "#ffdfec",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P05",
+  "face_id": 423,
+  "x": 16.5,
+  "y": 204.5,
+  "area_px2": 1.0,
+  "rgb": "#d8736b",
+  "scan_L": 57.3,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415,
+   424
+  ],
+  "ground_options": [
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 20.4
+   },
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 1.0,
+    "scan_dE": 49.8
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P06",
+  "face_id": 424,
+  "x": 17.5,
+  "y": 204.5,
+  "area_px2": 1.0,
+  "rgb": "#c8baa3",
+  "scan_L": 75.2,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   423,
+   421
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 23.4
+   }
+  ],
+  "suggested_face": 7,
+  "suggested_rgb": "#ffdfec",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P07",
+  "face_id": 425,
+  "x": 15.5,
+  "y": 205.5,
+  "area_px2": 1.0,
+  "rgb": "#d8736b",
+  "scan_L": 63.5,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 54.4
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 13.3
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P08",
+  "face_id": 426,
+  "x": 14.5,
+  "y": 206.5,
+  "area_px2": 1.0,
+  "rgb": "#9a7267",
+  "scan_L": 52.9,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 44.3
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 36.0
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P09",
+  "face_id": 427,
+  "x": 12.5,
+  "y": 209.5,
+  "area_px2": 5.0,
+  "rgb": "#d8736b",
+  "scan_L": 56.2,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 6.0,
+    "scan_dE": 49.4
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 6.0,
+    "scan_dE": 22.6
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P10",
+  "face_id": 428,
+  "x": 11.5,
+  "y": 212.5,
+  "area_px2": 2.0,
+  "rgb": "#d8736b",
+  "scan_L": 59.5,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 3.0,
+    "scan_dE": 45.6
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 3.0,
+    "scan_dE": 23.9
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P11",
+  "face_id": 429,
+  "x": 10.5,
+  "y": 215.5,
+  "area_px2": 2.0,
+  "rgb": "#d8736b",
+  "scan_L": 56.9,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415,
+   431
+  ],
+  "ground_options": [
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 3.0,
+    "scan_dE": 25.4
+   },
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 46.2
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P12",
+  "face_id": 430,
+  "x": 9.5,
+  "y": 217.5,
+  "area_px2": 2.0,
+  "rgb": "#9a7267",
+  "scan_L": 52.2,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   432,
+   415,
+   431
+  ],
+  "ground_options": [
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 3.0,
+    "scan_dE": 30.2
+   },
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 1.0,
+    "scan_dE": 47.0
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P13",
+  "face_id": 431,
+  "x": 10.5,
+  "y": 216.5,
+  "area_px2": 1.0,
+  "rgb": "#c8baa3",
+  "scan_L": 73.4,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   430,
+   429
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 27.8
+   }
+  ],
+  "suggested_face": 7,
+  "suggested_rgb": "#ffdfec",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P14",
+  "face_id": 432,
+  "x": 9.5,
+  "y": 218.5,
+  "area_px2": 1.0,
+  "rgb": "#d8736b",
+  "scan_L": 58.9,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   430,
+   415,
+   433
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 1.0,
+    "scan_dE": 36.8
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 1.0,
+    "scan_dE": 39.3
+   }
+  ],
+  "suggested_face": 7,
+  "suggested_rgb": "#ffdfec",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P15",
+  "face_id": 433,
+  "x": 9.5,
+  "y": 219.5,
+  "area_px2": 1.0,
+  "rgb": "#c8baa3",
+  "scan_L": 68.6,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   432,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 2.0,
+    "scan_dE": 26.3
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 1.0,
+    "scan_dE": 46.0
+   }
+  ],
+  "suggested_face": 7,
+  "suggested_rgb": "#ffdfec",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ },
+ {
+  "fragment": "P16",
+  "face_id": 434,
+  "x": 7.0,
+  "y": 224.5,
+  "area_px2": 4.0,
+  "rgb": "#c8baa3",
+  "scan_L": 55.0,
+  "dark_glyph": false,
+  "neighbours": [
+   7,
+   415
+  ],
+  "ground_options": [
+   {
+    "face": 7,
+    "rgb": "#ffdfec",
+    "area": 22774.0,
+    "shared_edge_px": 6.0,
+    "scan_dE": 52.4
+   },
+   {
+    "face": 415,
+    "rgb": "#d85241",
+    "area": 607.0,
+    "shared_edge_px": 4.0,
+    "scan_dE": 18.3
+   }
+  ],
+  "suggested_face": 415,
+  "suggested_rgb": "#d85241",
+  "suggestion_basis": "nearest original-scan colour among candidate ground faces (hint only, not applied)",
+  "status": "PENDING_HUMAN"
+ }
+]

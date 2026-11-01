@@ -1,0 +1,159 @@
+{
+ "inputs": {
+  "b2c": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/inputs/u2_B2c.gpkg",
+  "b2c_sha256": "7d78a7111320c2da1ce18006d05c8ecb5c2fc89c8b97c325801fa5ddde310d26",
+  "demo": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_text/demo/u2_text_demo.gpkg",
+  "demo_sha256": "11b1cd1ad6269d421f723ad0643c5f3a053766ae2eb2a227ae8e88ca2039e533"
+ },
+ "boxes": {
+  "Є-O": {
+   "box": [
+    3,
+    25,
+    35,
+    42
+   ],
+   "before": {
+    "small_faces": 40,
+    "small_face_area": 93.0,
+    "dark_glyph_faces": 8,
+    "dark_glyph_area": 30.0,
+    "lines_inside": 2
+   },
+   "after": {
+    "small_faces": 0,
+    "small_face_area": 0.0,
+    "dark_glyph_faces": 0,
+    "dark_glyph_area": 0.0,
+    "lines_inside": 0
+   },
+   "dark_glyph_area_removed_share": 1.0,
+   "label": {
+    "x": 19.0,
+    "y": 33.5,
+    "font_px": 13.6,
+    "ocr_text": "C-0"
+   },
+   "scan_glyph_bbox": [
+    6,
+    28,
+    32,
+    38
+   ],
+   "scan_glyph_centre": [
+    19.0,
+    33.0
+   ],
+   "label_centre_offset_px": 0.5,
+   "scan_glyph_height_px": 10,
+   "font_px_over_glyph_height": 1.36
+  },
+  "Ar₂E": {
+   "box": [
+    0,
+    196,
+    52,
+    225
+   ],
+   "before": {
+    "small_faces": 81,
+    "small_face_area": 147.0,
+    "dark_glyph_faces": 16,
+    "dark_glyph_area": 42.0,
+    "lines_inside": 3
+   },
+   "after": {
+    "small_faces": 16,
+    "small_face_area": 27.0,
+    "dark_glyph_faces": 0,
+    "dark_glyph_area": 0.0,
+    "lines_inside": 0
+   },
+   "dark_glyph_area_removed_share": 1.0,
+   "label": {
+    "x": 26.0,
+    "y": 210.5,
+    "font_px": 23.2,
+    "ocr_text": "ArE"
+   },
+   "scan_glyph_bbox": [
+    0,
+    196,
+    48,
+    225
+   ],
+   "scan_glyph_centre": [
+    24.0,
+    210.5
+   ],
+   "label_centre_offset_px": 2.0,
+   "scan_glyph_height_px": 29,
+   "font_px_over_glyph_height": 0.8
+  },
+  "云": {
+   "box": [
+    24,
+    59,
+    41,
+    76
+   ],
+   "before": {
+    "small_faces": 10,
+    "small_face_area": 45.0,
+    "dark_glyph_faces": 3,
+    "dark_glyph_area": 9.0,
+    "lines_inside": 2
+   },
+   "after": {
+    "small_faces": 0,
+    "small_face_area": 0.0,
+    "dark_glyph_faces": 0,
+    "dark_glyph_area": 0.0,
+    "lines_inside": 0
+   },
+   "dark_glyph_area_removed_share": 1.0,
+   "label": {
+    "x": 32.5,
+    "y": 67.5,
+    "font_px": 13.6,
+    "ocr_text": "云"
+   },
+   "scan_glyph_bbox": [
+    27,
+    66,
+    38,
+    73
+   ],
+   "scan_glyph_centre": [
+    32.5,
+    69.5
+   ],
+   "label_centre_offset_px": 2.0,
+   "scan_glyph_height_px": 7,
+   "font_px_over_glyph_height": 1.94
+  }
+ },
+ "boundary_fidelity": {
+  "colour_area_change_outside_boxes_px2": 2.0,
+  "colour_area_change_outside_boxes_plus1px_px2": 0.0,
+  "lines_not_touching_boxes_changed": [],
+  "lines_moved_to_residue": [
+   "L1",
+   "L22",
+   "L24",
+   "L25",
+   "L31",
+   "L33",
+   "L6"
+  ],
+  "coverage_valid": true
+ },
+ "ar2e_pending": {
+  "count": 16,
+  "area_px2": 27.0,
+  "dark_glyph": 0
+ },
+ "regression": {
+  "b2c_sha256_unchanged": true
+ }
+}

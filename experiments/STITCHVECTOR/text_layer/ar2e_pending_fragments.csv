@@ -1,0 +1,17 @@
+fragment,face_id,x,y,area_px2,rgb,scan_L,dark_glyph,neighbours,ground_options,suggested_face,suggested_rgb,status
+P01,419,19.5,200.5,2.0,#d8736b,62.0,False,7 415,"7(#ffdfec,edge 3,dE 44.9); 415(#d85241,edge 3,dE 23.7)",415,#d85241,PENDING_HUMAN
+P02,420,18.5,202.5,1.0,#d8736b,54.0,False,7 415 422,"415(#d85241,edge 2,dE 30.2); 7(#ffdfec,edge 1,dE 45.8)",415,#d85241,PENDING_HUMAN
+P03,421,17.5,203.5,1.0,#d8736b,56.5,False,415 422 424,"415(#d85241,edge 2,dE 29.2)",415,#d85241,PENDING_HUMAN
+P04,422,18.5,203.5,1.0,#c8baa3,68.2,False,7 420 421,"7(#ffdfec,edge 2,dE 27.5)",7,#ffdfec,PENDING_HUMAN
+P05,423,16.5,204.5,1.0,#d8736b,57.3,False,7 415 424,"415(#d85241,edge 2,dE 20.4); 7(#ffdfec,edge 1,dE 49.8)",415,#d85241,PENDING_HUMAN
+P06,424,17.5,204.5,1.0,#c8baa3,75.2,False,7 423 421,"7(#ffdfec,edge 2,dE 23.4)",7,#ffdfec,PENDING_HUMAN
+P07,425,15.5,205.5,1.0,#d8736b,63.5,False,7 415,"7(#ffdfec,edge 2,dE 54.4); 415(#d85241,edge 2,dE 13.3)",415,#d85241,PENDING_HUMAN
+P08,426,14.5,206.5,1.0,#9a7267,52.9,False,7 415,"7(#ffdfec,edge 2,dE 44.3); 415(#d85241,edge 2,dE 36.0)",415,#d85241,PENDING_HUMAN
+P09,427,12.5,209.5,5.0,#d8736b,56.2,False,7 415,"7(#ffdfec,edge 6,dE 49.4); 415(#d85241,edge 6,dE 22.6)",415,#d85241,PENDING_HUMAN
+P10,428,11.5,212.5,2.0,#d8736b,59.5,False,7 415,"7(#ffdfec,edge 3,dE 45.6); 415(#d85241,edge 3,dE 23.9)",415,#d85241,PENDING_HUMAN
+P11,429,10.5,215.5,2.0,#d8736b,56.9,False,7 415 431,"415(#d85241,edge 3,dE 25.4); 7(#ffdfec,edge 2,dE 46.2)",415,#d85241,PENDING_HUMAN
+P12,430,9.5,217.5,2.0,#9a7267,52.2,False,7 432 415 431,"415(#d85241,edge 3,dE 30.2); 7(#ffdfec,edge 1,dE 47.0)",415,#d85241,PENDING_HUMAN
+P13,431,10.5,216.5,1.0,#c8baa3,73.4,False,7 430 429,"7(#ffdfec,edge 2,dE 27.8)",7,#ffdfec,PENDING_HUMAN
+P14,432,9.5,218.5,1.0,#d8736b,58.9,False,7 430 415 433,"7(#ffdfec,edge 1,dE 36.8); 415(#d85241,edge 1,dE 39.3)",7,#ffdfec,PENDING_HUMAN
+P15,433,9.5,219.5,1.0,#c8baa3,68.6,False,7 432 415,"7(#ffdfec,edge 2,dE 26.3); 415(#d85241,edge 1,dE 46.0)",7,#ffdfec,PENDING_HUMAN
+P16,434,7.0,224.5,4.0,#c8baa3,55.0,False,7 415,"7(#ffdfec,edge 6,dE 52.4); 415(#d85241,edge 4,dE 18.3)",415,#d85241,PENDING_HUMAN

@@ -1,0 +1,15 @@
+{
+ "fail": 0,
+ "log": [
+  "PASS header shows demo file: 已加载：u2_text_demo.gpkg300×300 面 550 线 28 文字 3 隔离线 7 待定碎面 16",
+  "PASS text layer on/off changes the vector canvas",
+  "PASS view B: scan overlay off, faces 100%",
+  "PASS view A: scan overlay on",
+  "PASS view switching made no edit",
+  "PASS text edit applied, unsaved marker on",
+  "PASS undo restores font",
+  "PASS redo re-applies font",
+  "PASS state back to demo: 550/28/3/7/16",
+  "PASS save: 已保存 demo_reopen_check.gpkg；回读一致 true；面层有效 true；原文件未变 true"
+ ]
+}
