@@ -29,7 +29,8 @@
   <h3>显示</h3>
   <div class="row"><label><input type="checkbox" id="showImg" checked> 原图</label>
     <label><input type="checkbox" id="showFaces" checked> 面层</label>
-    <label><input type="checkbox" id="showLines" checked> 线层</label></div>
+    <label><input type="checkbox" id="showLines" checked> 线层</label>
+    <label><input type="checkbox" id="showText" checked> 文字层</label></div>
   <div class="row">面层透明度 <input type="range" id="alpha" min="0" max="100" value="45" style="width:120px"></div>
   <div class="row"><label><input type="checkbox" id="dual" checked> 左右对照（左：原图只读，右：矢量可编辑）</label></div>
   <div class="row"><button id="fit">适应窗口</button> 滚轮缩放，右键或空格拖动平移</div>
@@ -42,6 +43,7 @@
     <button data-tool="eyedrop">吸管</button>
     <button data-tool="split">拆分线</button>
     <button data-tool="draw">补画线</button>
+    <button data-tool="textBox">框文字</button>
   </div>
   <div class="row">
     <button data-tool="brushSel">刷选面</button>
@@ -86,6 +88,14 @@
     朝向 <select id="stSide"><option value="left">左</option><option value="right">右</option></select></div>
   <div class="row"><button id="saveStyle">保存图例修改（所有用此图例的对象立即更新）</button></div>
 
+  <h3>文字</h3>
+  <div class="row">用“框文字”拖一个框 → 预览 → 确认文字内容</div>
+  <div class="row">OCR 候选 <span id="ocrCand" style="font-family:ui-monospace">-</span></div>
+  <div class="row">文字 <input id="tText" style="width:110px"> 字号 <input type="number" id="tFont" style="width:48px" step="0.5"> 角度 <input type="number" id="tAngle" value="0" style="width:44px"></div>
+  <div class="row">文字颜色 <input type="color" id="tRgb" value="#000000"></div>
+  <div id="tGroups" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
+  <div class="row"><button id="textApply">确认文字并清理残影</button> <button id="textCancel">取消</button></div>
+  <div class="row"><button id="textEdit">修改所选文字</button> <button id="textDelete">删除所选文字</button></div>
   <h3>保存</h3>
   <div class="row"><input id="fname" value="edited.gpkg" style="width:150px"> <button id="save">另存为新 GPKG</button></div>
   <div id="msg"></div>

@@ -1,0 +1,231 @@
+{
+ "boxes": {
+  "\u0404-O": {
+   "ocr_candidate": "C-0",
+   "ocr_score": 0.733,
+   "ocr_correct": false,
+   "residue_before": {
+    "faces": 40,
+    "lines": 2
+   },
+   "preview_counts": {
+    "residue_faces": 40,
+    "merge_faces": 40,
+    "uncertain_faces": 0,
+    "residue_lines": 2
+   },
+   "applied": {
+    "merged_faces": 40,
+    "moved_lines": 2,
+    "text_id": 0
+   },
+   "residue_after": {
+    "faces": 0,
+    "lines": 0
+   },
+   "user_assignment": {},
+   "wrong_assignment_check": null,
+   "uncertain_groups": []
+  },
+  "Ar\u2082E": {
+   "ocr_candidate": "ArE",
+   "ocr_score": 0.84,
+   "ocr_correct": false,
+   "residue_before": {
+    "faces": 81,
+    "lines": 3
+   },
+   "preview_counts": {
+    "residue_faces": 81,
+    "merge_faces": 65,
+    "uncertain_faces": 16,
+    "residue_lines": 3
+   },
+   "applied": {
+    "merged_faces": 81,
+    "moved_lines": 3,
+    "text_id": 1
+   },
+   "residue_after": {
+    "faces": 0,
+    "lines": 0
+   },
+   "user_assignment": {
+    "0": 457,
+    "1": 457,
+    "2": 457,
+    "3": 457,
+    "4": 457,
+    "5": 457,
+    "8": 457,
+    "15": 7
+   },
+   "wrong_assignment_check": "rejected: face 0 is not a ground face beside group 0",
+   "uncertain_groups": [
+    {
+     "faces": 1,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 5,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 1,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 1,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 1,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 1,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 5,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    },
+    {
+     "faces": 1,
+     "grounds": [
+      7,
+      457
+     ],
+     "reason": "touches two or more ground faces (possible contact)"
+    }
+   ]
+  },
+  "\u4e91": {
+   "ocr_candidate": "\u4e91",
+   "ocr_score": 1.0,
+   "ocr_correct": true,
+   "residue_before": {
+    "faces": 10,
+    "lines": 2
+   },
+   "preview_counts": {
+    "residue_faces": 10,
+    "merge_faces": 10,
+    "uncertain_faces": 0,
+    "residue_lines": 2
+   },
+   "applied": {
+    "merged_faces": 10,
+    "moved_lines": 2,
+    "text_id": 2
+   },
+   "residue_after": {
+    "faces": 0,
+    "lines": 0
+   },
+   "user_assignment": {},
+   "wrong_assignment_check": null,
+   "uncertain_groups": []
+  }
+ },
+ "verification": "DATA_LEVEL_VERIFIED",
+ "note": "boxes drawn and texts confirmed by the user (simulated); OCR gives candidates only",
+ "changed_outside_boxes": {
+  "faces": 0,
+  "lines": 0
+ },
+ "faces_before_after": [
+  665,
+  534
+ ],
+ "lines_before_after": [
+  35,
+  28
+ ],
+ "coverage": {
+  "accepted": true,
+  "coverage_is_valid": true,
+  "all_polygon": true,
+  "geometries_valid": true,
+  "area_sum_minus_window": 0.0,
+  "union_area_minus_window": 0.0
+ },
+ "save": {
+  "accepted": true,
+  "readback_matches_memory": true,
+  "text_matches_memory": true,
+  "input_sha256_unchanged": true,
+  "layers": [
+   "colour_faces",
+   "visual_lines",
+   "text_labels",
+   "text_residue_lines",
+   "legend_styles",
+   "layer_styles"
+  ]
+ },
+ "reopen": {
+  "texts": [
+   "\u0404-O",
+   "Ar\u2082E",
+   "\u4e91"
+  ],
+  "font_px": [
+   13.6,
+   23.2,
+   13.6
+  ],
+  "residue_lines": 7,
+  "layer_styles_rows": 1
+ },
+ "ops": {
+  "\u0404-O": {
+   "box": 1,
+   "confirm_text": 1,
+   "apply": 1,
+   "assign_uncertain_groups": 0
+  },
+  "Ar\u2082E": {
+   "box": 1,
+   "confirm_text": 1,
+   "apply": 1,
+   "assign_uncertain_groups": 8
+  },
+  "\u4e91": {
+   "box": 1,
+   "confirm_text": 1,
+   "apply": 1,
+   "assign_uncertain_groups": 0
+  }
+ },
+ "inputs_unchanged": true,
+ "output_sha256": "1953c77cc96d89cac1908fcb8e87f2c7de0f29a965d22e3f862cb3b5d077fce8"
+}

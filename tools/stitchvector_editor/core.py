@@ -11,6 +11,8 @@ from shapely.geometry import LineString, Point, Polygon, MultiPolygon
 from shapely.ops import split as shp_split, substring
 
 FACE, LINE, STYLES = "colour_faces", "visual_lines", "legend_styles"
+TEXT, RESIDUE, QSTYLE = "text_labels", "text_residue_lines", "layer_styles"
+TEXT_COLS = ["label_id", "text", "ocr_text", "ocr_score", "font_px", "angle_deg", "anchor", "rgb", "box_x0", "box_y0", "box_x1", "box_y1", "source"]
 ROLES = ("COVER", "SPLIT", "UNKNOWN")
 
 
@@ -96,7 +98,7 @@ class Document:
         self.F = pyogrio.read_dataframe(self.src, layer=FACE); self.F["_eid"] = np.arange(len(self.F))
         self.L = pyogrio.read_dataframe(self.src, layer=LINE) if LINE in layers else gpd.GeoDataFrame(
             {"line_id": [], "logical_id": [], "kind": [], "width_px": [], "rgb": [], "source": [], "draw_order": []}, geometry=[])
-        self.L["_eid"] = np.arange(len(self.L)); self.other = {l: pyogrio.read_dataframe(self.src, layer=l) for l in layers if l not in (FACE, LINE, STYLES)}
+        self.L["_eid"] = np.arange(len(self.L)); self.other = {l: pyogrio.read_dataframe(self.src, layer=l) for l in layers if l not in (FACE, LINE, STYLES, TEXT, RESIDUE, QSTYLE)}
         # line role (COVER / SPLIT / UNKNOWN) and legend binding; existing lines default to UNKNOWN, never inferred
         if "line_role" not in self.L.columns: self.L["line_role"] = "UNKNOWN"
         self.L["line_role"] = self.L["line_role"].fillna("UNKNOWN").astype(object)
@@ -110,13 +112,20 @@ class Document:
         self.F0, self.L0 = self.F.copy(), self.L.copy(); self.next_f, self.next_l = len(self.F), len(self.L)
         self.undo, self.redo, self.log = [], [], []; self.dirty = False
         self.version = 0; self.previews = {}; self._pid = 0
+        # text layer (points with editable text) and text-residue lines (moved out of visual_lines, restorable)
+        self.T = pyogrio.read_dataframe(self.src, layer=TEXT) if TEXT in layers else gpd.GeoDataFrame({c: [] for c in TEXT_COLS}, geometry=[])
+        self.Q = pyogrio.read_dataframe(self.src, layer=RESIDUE) if RESIDUE in layers else gpd.GeoDataFrame({c: [] for c in self.line_cols}, geometry=[])
+        self.T["_eid"] = np.arange(len(self.T)); self.Q["_eid"] = np.arange(len(self.Q)); self.next_t = len(self.T)
+        self.T0 = self.T.copy()
 
     # ---------- state ----------
     def _bump(self):
         """every change of document content (edit, undo, redo) gets a new version; all stored previews become stale."""
         self.version += 1; self.previews.clear()
 
-    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles))
+    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles), self.T.copy(), self.Q.copy(), self.next_t)
+
+    def _restore(self, snap): self.F, self.L, self.next_f, self.next_l, self.styles, self.T, self.Q, self.next_t = snap
 
     def _push(self, desc, counts):
         self.redo.clear(); self.dirty = True; self._bump()
@@ -126,17 +135,17 @@ class Document:
         snap = self._snap()
         try: fn()
         except Exception:
-            self.F, self.L, self.next_f, self.next_l, self.styles = snap; raise
+            self._restore(snap); raise
         self.undo.append((snap, desc)); self._push(desc, counts)
 
     def undo_op(self):
         if not self.undo: raise EditError("nothing to undo")
-        snap, desc = self.undo.pop(); self.redo.append((self._snap(), desc)); self.F, self.L, self.next_f, self.next_l, self.styles = snap
+        snap, desc = self.undo.pop(); self.redo.append((self._snap(), desc)); self._restore(snap)
         self.dirty = True; self._bump(); self.log.append({"t": round(time.time(), 3), "op": "undo", "of": desc}); return desc
 
     def redo_op(self):
         if not self.redo: raise EditError("nothing to redo")
-        snap, desc = self.redo.pop(); self.undo.append((self._snap(), desc)); self.F, self.L, self.next_f, self.next_l, self.styles = snap
+        snap, desc = self.redo.pop(); self.undo.append((self._snap(), desc)); self._restore(snap)
         self.dirty = True; self._bump(); self.log.append({"t": round(time.time(), 3), "op": "redo", "of": desc}); return desc
 
     def _rows(self, layer, ids):
@@ -393,11 +402,13 @@ class Document:
             self._out(self.F).to_file(tmp, layer=FACE, driver="GPKG", engine="pyogrio")
             if len(self.L): self._out(self.L).to_file(tmp, layer=LINE, driver="GPKG", engine="pyogrio")
             pyogrio.write_dataframe(pd.DataFrame([{"legend_id": k, **v} for k, v in self.styles.items()]), tmp, layer=STYLES, driver="GPKG")
+            if len(self.T): self._out(self.T).to_file(tmp, layer=TEXT, driver="GPKG", engine="pyogrio"); write_label_style(tmp)
+            if len(self.Q): self._out(self.Q).to_file(tmp, layer=RESIDUE, driver="GPKG", engine="pyogrio")
             for k, D in self.other.items():
                 if isinstance(D, gpd.GeoDataFrame): D.to_file(tmp, layer=k, driver="GPKG", engine="pyogrio")
                 else: pyogrio.write_dataframe(D, tmp, layer=k, driver="GPKG")
             rep = self.verify(tmp)
-            bad = [k for k in ("accepted", "readback_matches_memory", "input_sha256_unchanged", "face_columns_kept", "line_columns_kept") if not rep.get(k)]
+            bad = [k for k in ("accepted", "readback_matches_memory", "input_sha256_unchanged", "face_columns_kept", "line_columns_kept", "text_matches_memory") if not rep.get(k)]
             if bad: raise EditError(f"save rejected, checks failed: {bad}; nothing was written to {path.name}")
             if path.exists(): raise EditError(f"{path.name} appeared during save; not overwritten")
             os.replace(tmp, path)
@@ -421,6 +432,12 @@ class Document:
         rep.update({"layers": layers, "faces": len(F), "lines": 0 if L is None else len(L), "face_columns_kept": [c for c in self.face_cols if c not in F.columns] == [],
                     "line_columns_kept": L is None or [c for c in self.line_cols if c not in L.columns] == [],
                     "readback_matches_memory": bool(same_faces and same_lines and geom_same), "input_sha256_unchanged": sha256(self.src) == self.src_sha})
+        T = pyogrio.read_dataframe(path, layer=TEXT) if TEXT in layers else None
+        Q = pyogrio.read_dataframe(path, layer=RESIDUE) if RESIDUE in layers else None
+        rep["text_labels"] = 0 if T is None else len(T); rep["text_residue_lines"] = 0 if Q is None else len(Q)
+        rep["text_matches_memory"] = bool(((T is None and not len(self.T)) or (T is not None and list(T["text"]) == list(self.T["text"])
+                                           and all(a.equals_exact(b, 1e-6) for a, b in zip(T.geometry, self.T.geometry))))
+                                          and ((Q is None and not len(self.Q)) or (Q is not None and len(Q) == len(self.Q))))
         return rep
 
     def diff(self):
@@ -445,7 +462,10 @@ class Document:
                  for e, g, (_, r) in zip(self.L["_eid"], self.L.geometry, self.L.iterrows())]
         return {"width": self.W, "height": self.H, "faces": faces, "lines": lines, "dirty": self.dirty, "undo": len(self.undo), "redo": len(self.redo),
                 "log": self.log[-50:], "source": str(self.src), "source_sha256": self.src_sha, "version": self.version,
-                "styles": self.styles, "render": self.render_lines()}
+                "styles": self.styles, "render": self.render_lines(),
+                "texts": [{"id": int(e), "x": round(g.x, 2), "y": round(g.y, 2), **{k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in TEXT_COLS}}
+                          for e, g, (_, r) in zip(self.T["_eid"], self.T.geometry, self.T.iterrows())],
+                "residue_lines": len(self.Q)}
 
 
 def coverage_report(F, W, H):
@@ -686,4 +706,167 @@ class SelectionMixin:
 
 
 for _n, _f in list(vars(SelectionMixin).items()):
+    if callable(_f) and not _n.startswith("__"): setattr(Document, _n, _f)
+
+
+# ================= text layer: isolate text from faces/lines, keep it as editable text =================
+OCR_PY = Path.home() / "geomap2arcgis/.venv-ocr/bin/python"
+
+
+def write_label_style(path):
+    """QGIS reads the GeoPackage `layer_styles` table automatically; this default style labels text_labels with its
+    `text` field (size, angle, colour data-defined). Written into the temporary file before validation. Not checked in QGIS."""
+    import sqlite3
+    con = sqlite3.connect(path)
+    try:
+        gcol = con.execute("select column_name from gpkg_geometry_columns where table_name=?", (TEXT,)).fetchone()[0]
+    finally:
+        con.close()
+    qml = ("<!DOCTYPE qgis><qgis version='3.28' styleCategories='Symbology|Labeling'>"
+           "<renderer-v2 type='nullSymbol'/>"
+           "<labeling type='simple'><settings><text-style fieldName='text' fontSize='10' fontSizeUnit='MapUnit' textColor='0,0,0,255'/>"
+           "<placement placement='1' quadOffset='4'/>"
+           "<dd_properties><Option type='Map'><Option name='properties' type='Map'>"
+           "<Option name='Size' type='Map'><Option name='active' value='true' type='bool'/><Option name='field' value='font_px' type='QString'/><Option name='type' value='2' type='int'/></Option>"
+           "<Option name='LabelRotation' type='Map'><Option name='active' value='true' type='bool'/><Option name='field' value='angle_deg' type='QString'/><Option name='type' value='2' type='int'/></Option>"
+           "<Option name='Color' type='Map'><Option name='active' value='true' type='bool'/><Option name='field' value='rgb' type='QString'/><Option name='type' value='2' type='int'/></Option>"
+           "</Option></Option></dd_properties></settings></labeling><labelsEnabled>1</labelsEnabled></qgis>")
+    row = {"f_table_catalog": "", "f_table_schema": "", "f_table_name": TEXT, "f_geometry_column": gcol, "styleName": "stitchvector_text",
+           "styleQML": qml, "styleSLD": "", "useAsDefault": 1, "description": "StitchVector text labels", "owner": "", "ui": "", "update_time": ""}
+    pyogrio.write_dataframe(pd.DataFrame([row]), path, layer=QSTYLE, driver="GPKG")
+
+
+class TextMixin:
+    def ocr_box(self, box):
+        """OCR candidate for a box (RapidOCR in a separate interpreter). Failure gives an empty candidate, never an error."""
+        import io, subprocess
+        from PIL import Image
+        x0, y0, x1, y1 = self._box(box)
+        if self.img is None or not OCR_PY.exists(): return {"text": "", "score": 0.0, "engine": "none"}
+        b = io.BytesIO(); Image.fromarray(np.ascontiguousarray(self.img[y0:y1, x0:x1])).save(b, "PNG")
+        try:
+            p = subprocess.run([str(OCR_PY), str(Path(__file__).with_name("ocr_cli.py"))], input=b.getvalue(), capture_output=True, timeout=60)
+            r = json.loads(p.stdout.decode().strip().splitlines()[-1]); r["engine"] = "rapidocr"; return r
+        except Exception as e:
+            return {"text": "", "score": 0.0, "engine": f"failed: {type(e).__name__}"}
+
+    def _box(self, box):
+        x0, y0, x1, y1 = [float(v) for v in box]
+        x0, x1 = sorted((x0, x1)); y0, y1 = sorted((y0, y1))
+        x0, y0 = max(int(np.floor(x0)), 0), max(int(np.floor(y0)), 0); x1, y1 = min(int(np.ceil(x1)), self.W), min(int(np.ceil(y1)), self.H)
+        if x1 - x0 < 2 or y1 - y0 < 2: raise EditError("text box too small")
+        if (x1 - x0) * (y1 - y0) > 120 * 120: raise EditError("text box too large (max 120x120 px); draw one box per label")
+        return x0, y0, x1, y1
+
+    def text_preview(self, box, max_area=60.0, inside_share=0.5, line_inside=0.9, ocr=True):
+        """Plan for one text box. Residue faces: area <= max_area and >= inside_share of their area inside the box.
+        Residue faces are grouped by shared edges; a group adjacent to exactly ONE ground face (a non-residue face that
+        covers part of the box) is proposed to merge into it; a group touching two or more ground faces (box on a contact)
+        or none is 'uncertain' and left alone. Lines with >= line_inside of their length in the box go to text_residue_lines
+        (restorable); lines that cross the box edge are kept. Stored on the server under a preview id. Nothing is modified."""
+        x0, y0, x1, y1 = self._box(box); B = shapely.box(x0, y0, x1, y1)
+        g = np.asarray(self.F.geometry.values, object); eids = np.asarray(self.F["_eid"]); area = shapely.area(g)
+        inter = shapely.area(shapely.intersection(g, B))
+        res = set(int(e) for e in eids[(area <= max_area) & (inter >= inside_share * area) & (inter > 0)])
+        ground = {int(e): float(a) for e, a, i in zip(eids, area, inter) if int(e) not in res and i > 0}
+        groups = []
+        for c in self._components(sorted(res)):
+            adj = set()
+            for e in c: adj |= set(self._edge_neighbours(e))
+            adj -= res; gr = sorted(a for a in adj if a in ground)
+            if len(gr) == 1: groups.append({"faces": c, "decision": "merge", "target": gr[0], "reason": "inside one ground face"})
+            elif len(gr) > 1: groups.append({"faces": c, "decision": "uncertain", "target": None, "grounds": gr, "reason": "touches two or more ground faces (possible contact)"})
+            else: groups.append({"faces": c, "decision": "uncertain", "target": None, "reason": "no ground face beside it"})
+        lines = []
+        for e, ln in zip(self.L["_eid"], self.L.geometry):
+            if ln.length > 0 and ln.intersection(B).length >= line_inside * ln.length: lines.append(int(e))
+        cand = self.ocr_box((x0, y0, x1, y1)) if ocr else {"text": "", "score": 0.0, "engine": "off"}
+        self._pid += 1; pid = f"text-{self._pid}"
+        plan = {"kind": "text", "version": self.version, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand}
+        self.previews[pid] = plan
+        return {"preview_id": pid, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand,
+                "counts": {"residue_faces": len(res), "merge_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "merge"),
+                           "uncertain_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "uncertain"), "residue_lines": len(lines)}}
+
+    def text_apply(self, preview_id, text, font_px=None, angle_deg=0.0, rgb="#000000", assign=None):
+        """apply a stored text preview: merge residue groups into their ground face, move residue lines to
+        text_residue_lines, add one text_labels point (box centre) with the user-confirmed text. One undoable step."""
+        pv = self.previews.get(str(preview_id))
+        if pv is None or pv.get("kind") != "text": raise EditError("unknown or expired preview; preview again")
+        if pv["version"] != self.version: raise EditError("stale preview: the document changed after the preview")
+        text = str(text).strip()
+        if not text or len(text) > 200: raise EditError("text must be 1-200 characters")
+        x0, y0, x1, y1 = pv["box"]; fpx = float(font_px) if font_px else round(0.8 * (y1 - y0), 1)
+        if not (1 <= fpx <= 200): raise EditError("font size 1-200 px")
+        ang = float(angle_deg); rgb = hex_ok(rgb); live = set(int(e) for e in self.F["_eid"])
+        # optional user decision for 'uncertain' groups: {group_index: target_face}; target must be one of its ground faces
+        groups = [dict(g) for g in pv["groups"]]
+        for k, t in (assign or {}).items():
+            k, t = int(k), int(t)
+            if not (0 <= k < len(groups)) or groups[k]["decision"] != "uncertain": raise EditError(f"group {k} is not an uncertain group of this preview")
+            if t not in groups[k].get("grounds", []): raise EditError(f"face {t} is not a ground face beside group {k}")
+            groups[k].update(decision="merge", target=t, reason="user assigned")
+        pv = {**pv, "groups": groups}
+        for gr in pv["groups"]:
+            if gr["decision"] != "merge": continue
+            if not set(gr["faces"] + [gr["target"]]) <= live: raise EditError("a face of the preview no longer exists; preview again")
+        def f():
+            merged = 0
+            for gr in pv["groups"]:
+                if gr["decision"] != "merge": continue
+                allm = gr["faces"] + [gr["target"]]; m = self.F["_eid"].isin(allm); u = shapely.union_all(list(self.F.loc[m, "geometry"]))
+                if u.geom_type != "Polygon": raise EditError(f"merging text residue {gr['faces']} into face {gr['target']} would not give one polygon")
+                k = self.F["_eid"] == gr["target"]; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_text_clean"
+                self.F = self.F.loc[~(m & ~k)].copy(); merged += len(gr["faces"])
+            rep = coverage_report(self.F, self.W, self.H)
+            if not rep["accepted"]: raise EditError(f"text clean-up gives an invalid face layer {rep}")
+            if pv["lines"]:
+                lm = self.L["_eid"].isin(pv["lines"]); moved = self.L.loc[lm].copy(); moved["source"] = "text_residue"
+                self.Q = gpd.GeoDataFrame(pd.concat([self.Q, moved], ignore_index=True), geometry="geometry"); self.L = self.L.loc[~lm].copy()
+            row = {"label_id": f"T{self.next_t}", "text": text, "ocr_text": pv["ocr"].get("text", ""), "ocr_score": float(pv["ocr"].get("score", 0.0)),
+                   "font_px": fpx, "angle_deg": ang, "anchor": "center", "rgb": rgb, "box_x0": float(x0), "box_y0": float(y0), "box_x1": float(x1),
+                   "box_y1": float(y1), "source": "edited_text_box", "_eid": self.next_t}
+            new = gpd.GeoDataFrame({k: [v] for k, v in row.items()}, geometry=[Point((x0 + x1) / 2, (y0 + y1) / 2)]); self.next_t += 1
+            self.T = gpd.GeoDataFrame(pd.concat([self.T, new], ignore_index=True), geometry="geometry")
+            self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": int(row["_eid"])}
+        self._do("text box", f, objects=1, text=1)
+        return self._last_text
+
+    def edit_text(self, tid, **kw):
+        m = self.T["_eid"] == int(tid)
+        if not m.any(): raise EditError(f"unknown text id {tid}")
+        upd = {}
+        if "text" in kw:
+            t = str(kw["text"]).strip()
+            if not t or len(t) > 200: raise EditError("text must be 1-200 characters")
+            upd["text"] = t
+        if "font_px" in kw:
+            v = float(kw["font_px"])
+            if not (1 <= v <= 200): raise EditError("font size 1-200 px")
+            upd["font_px"] = v
+        if "angle_deg" in kw: upd["angle_deg"] = float(kw["angle_deg"])
+        if "rgb" in kw: upd["rgb"] = hex_ok(kw["rgb"])
+        xy = (float(kw["x"]), float(kw["y"])) if "x" in kw and "y" in kw else None
+        if xy and not (0 <= xy[0] <= self.W and 0 <= xy[1] <= self.H): raise EditError("text position outside the image")
+        def f():
+            for k, v in upd.items(): self.T.loc[m, k] = v
+            if xy: self.T.loc[m, "geometry"] = [Point(*xy)]
+        self._do("edit text", f, objects=1, text=1)
+
+    def delete_text(self, tid):
+        m = self.T["_eid"] == int(tid)
+        if not m.any(): raise EditError(f"unknown text id {tid}")
+        def f(): self.T = self.T.loc[~m].copy()
+        self._do("delete text", f, objects=1, text=1)
+
+    def restore_residue_lines(self, ids):
+        m = self.Q["_eid"].isin([int(i) for i in ids])
+        if not m.any(): raise EditError("no such text-residue line")
+        def f():
+            back = self.Q.loc[m].copy(); back["source"] = "restored_from_text_residue"
+            self.L = gpd.GeoDataFrame(pd.concat([self.L, back], ignore_index=True), geometry="geometry"); self.Q = self.Q.loc[~m].copy()
+        self._do("restore text-residue lines", f, objects=int(m.sum()))
+
+
+for _n, _f in list(vars(TextMixin).items()):
     if callable(_f) and not _n.startswith("__"): setattr(Document, _n, _f)

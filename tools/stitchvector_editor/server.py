@@ -81,6 +81,11 @@ class H(BaseHTTPRequestHandler):
             elif op == "set_style": d.set_style(str(a["legend_id"]), dict(a["style"])); r = {}
             elif op == "split_face_preview": r = d.split_face_preview(int(a["id"]))
             elif op == "split_face_apply": r = d.split_face_apply(str(a["preview_id"]))
+            elif op == "text_preview": r = d.text_preview([float(v) for v in a["box"]])
+            elif op == "text_apply": r = d.text_apply(str(a["preview_id"]), a["text"], a.get("font_px"), float(a.get("angle_deg", 0)), a.get("rgb", "#000000"), a.get("assign"))
+            elif op == "text_edit": d.edit_text(int(a["id"]), **{k: a[k] for k in ("text", "font_px", "angle_deg", "rgb", "x", "y") if k in a}); r = {}
+            elif op == "text_delete": d.delete_text(int(a["id"])); r = {}
+            elif op == "restore_residue": d.restore_residue_lines(a["ids"]); r = {}
             elif op == "undo": r = {"undone": d.undo_op()}
             elif op == "redo": r = {"redone": d.redo_op()}
             elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]))

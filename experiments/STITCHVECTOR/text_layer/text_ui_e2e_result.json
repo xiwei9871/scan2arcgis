@@ -1,0 +1,31 @@
+{
+ "fail": 0,
+ "log": [
+  "PASS loaded faces 665, texts 0",
+  "PASS text layer toggle present",
+  "PASS Є-O: preview text-2, OCR candidate \"E-0\" (0.681)",
+  "PASS Є-O: text field prefilled with the OCR candidate",
+  "PASS Є-O: text object created at (18.5, 33), font 14.4",
+  "PASS Є-O: no small residue faces left in the box",
+  "PASS 云: preview text-3, OCR candidate \"云\" (1)",
+  "PASS 云: text field prefilled with the OCR candidate",
+  "PASS 云: text object created at (32, 67), font 14.4",
+  "PASS 云: no small residue faces left in the box",
+  "PASS stale text preview refused after undo/redo: unknown or expired preview; preview again",
+  "PASS text layer toggle: 2 labels drawn when on, 0 when off",
+  "PASS edit text: font 13.6 -> 16",
+  "PASS undo text edit",
+  "PASS redo text edit",
+  "PASS save: 已保存 text_ui_e2e.gpkg；回读一致 true；面层有效 true；原文件未变 true",
+  "PASS after save dirty=false"
+ ],
+ "ops": {
+  "tool:textBox": 1,
+  "box_drag": 3,
+  "confirm_text": 2,
+  "text_apply": 2,
+  "text_edit": 1,
+  "save": 1
+ },
+ "verification": "UI_INTERACTION_VERIFIED (script-driven browser)"
+}

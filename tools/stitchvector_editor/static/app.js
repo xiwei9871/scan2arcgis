@@ -1,7 +1,7 @@
 // StitchVector Editor V0.1 client. World coordinates = image pixels (x right, y down), same as the GPKG.
 const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), main = document.getElementById("main");
 const cvL = document.getElementById("cvL"), ctxL = cvL.getContext("2d"), mainL = document.getElementById("mainL");
-let hover = null, splitPv = null;
+let hover = null, splitPv = null, textPv = null, selText = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
 let stroke = null, mergePv = null, healPv = null;
@@ -54,6 +54,12 @@ function draw() {
       ctx.setLineDash(r.dash || []); ctx.lineCap = (r.dash && r.dash.length) ? "butt" : "round"; ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = l.rgb; for (const t of (r.teeth || [])) { ctx.beginPath(); t.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill(); } }
   }
+  if ($("showText").checked && S.texts) { for (const t of S.texts) { ctx.save(); ctx.translate(t.x, t.y); ctx.rotate(-(t.angle_deg || 0) * Math.PI / 180);
+      ctx.font = `${t.font_px}px -apple-system, "PingFang SC", sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = t.rgb || "#000";
+      ctx.fillText(t.text, 0, 0); if (selText === t.id) { const w = ctx.measureText(t.text).width; ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(-w / 2 - 1, -t.font_px / 2 - 1, w + 2, t.font_px + 2); } ctx.restore(); } }
+  if (textPv) { const [x0, y0, x1, y1] = textPv.box; ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 2 / view.s; ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
+    const by = new Map(S.faces.map(f => [f.id, f])); for (const g of textPv.groups) for (const id of g.faces) { const f = by.get(id); if (!f) continue; ctx.beginPath();
+      for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } ctx.fillStyle = g.decision === "merge" ? "#76ff03" : "#ff9100"; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
   ctx.lineWidth = 2 / view.s; ctx.setLineDash([4 / view.s, 3 / view.s]);
   if (sel.layer === "face") for (const f of S.faces) if (selSet.has(f.id)) { ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } ctx.strokeStyle = "#00e5ff"; ctx.stroke(); }
   if (sel.layer === "line") for (const l of S.lines) if (selSet.has(l.id)) { ctx.beginPath(); l.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = Math.max(l.width + 2, 3) ; ctx.globalAlpha = 0.6; ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 2 / view.s; }
@@ -93,7 +99,7 @@ async function guard(fn) { try { await fn(); await refresh(); } catch (e) { msg(
 cv.addEventListener("mousedown", (ev) => {
   const w = toWorld(ev);
   if (ev.button === 2 || ev.getModifierState(" ") || spaceDown) { drag = { pan: true, x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y }; return; }
-  if (tool === "boxFace") drag = { box: true, w0: w, w1: w };
+  if (tool === "boxFace" || tool === "textBox") drag = { box: true, text: tool === "textBox", w0: w, w1: w };
   if (["brushSel", "lassoSel", "heal"].includes(tool)) { stroke = { kind: tool === "lassoSel" ? "lasso" : "brush", pts: [w] }; drag = { gesture: true }; }
 });
 cv.addEventListener("mousemove", (ev) => {
@@ -105,6 +111,8 @@ cv.addEventListener("mousemove", (ev) => {
 cv.addEventListener("mouseup", async (ev) => {
   const d = drag; drag = null; if (d && d.pan) return;
   if (d && d.gesture && stroke) { const st = stroke; return guard(async () => { await finishGesture(st, ev); }); }
+  if (d && d.box && d.text) { const [x0, y0] = d.w0, [x1, y1] = d.w1;
+    if (Math.abs(x1 - x0) > 2 && Math.abs(y1 - y0) > 2) return guard(async () => { const r = await api("text_preview", { box: [x0, y0, x1, y1] }); showTextPv(r); }); return; }
   if (d && d.box) { const [x0, y0] = d.w0, [x1, y1] = d.w1;
     if (Math.abs(x1 - x0) + Math.abs(y1 - y0) > 1) return guard(async () => { const r = await api("box", { x0, y0, x1, y1, layer: "face" }); setSel("face", r.ids, ev.shiftKey); msg(`框选 ${r.ids.length} 个面`, true); }); }
   if (ev.button !== 0) return;
@@ -112,6 +120,7 @@ cv.addEventListener("mouseup", async (ev) => {
   if (tool === "eyedrop") return eyedrop(x, y);
   if (tool === "draw") { drawPts.push([x, y]); draw(); return; }
   if (tool === "split") return guard(async () => { if (sel.layer !== "line" || sel.ids.length !== 1) throw new Error("先用“选线”选中一条线"); const r = await api("split", { id: sel.ids[0], x, y }); setSel("line", r.ids); msg("已拆分", true); });
+  if (tool === "pickFace") { const t = pickText(x, y); if (t) { selText = t.id; $("tText").value = t.text; $("tFont").value = t.font_px; $("tAngle").value = t.angle_deg; $("tRgb").value = t.rgb; msg(`选中文字 ${t.text}`, true); draw(); return; } }
   const layer = (tool === "pickLine") ? "line" : "face";
   guard(async () => { const r = await api("pick", { x, y, layer }); setSel(layer, r.ids, ev.shiftKey); });
 });
@@ -140,7 +149,7 @@ window.addEventListener("resize", draw);
 document.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => {
   tool = b.dataset.tool; drawPts = []; document.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x === b)); draw();
 });
-["showImg", "showFaces", "showLines", "alpha", "dual"].forEach(id => $(id).oninput = draw);
+["showImg", "showFaces", "showLines", "showText", "alpha", "dual"].forEach(id => $(id).oninput = draw);
 $("fit").onclick = fit;
 $("clear").onclick = () => setSel(sel.layer, []);
 $("group").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中一条线"); const r = await api("group", { id: sel.ids[0] }); setSel("line", r.ids); msg(`整组 ${r.ids.length} 条线`, true); });
@@ -215,3 +224,24 @@ $("saveStyle").onclick = () => guard(async () => { const id = $("legend").value;
 $("splitPreview").onclick = () => guard(async () => { if (sel.layer !== "line" || sel.ids.length !== 1) throw new Error("先选中一条 SPLIT 线");
   const r = await api("split_face_preview", { id: sel.ids[0] }); splitPv = r; $("preview").textContent = `切面预览：切开 ${r.faces_cut} 个面，生成 ${r.pieces} 块（黄色轮廓）`; msg("黄色轮廓 = 切开后的面", true); });
 $("splitApply").onclick = () => guard(async () => { if (!splitPv) throw new Error("先预览切面"); const r = await api("split_face_apply", { preview_id: splitPv.preview_id }); splitPv = null; $("preview").textContent = "（无预览）"; msg(`已切开 ${r.faces_cut} 个面`, true); });
+
+function showTextPv(r) {
+  textPv = r; $("ocrCand").textContent = r.ocr ? `${r.ocr.text || "（空）"}  置信度 ${r.ocr.score}  (${r.ocr.engine || "rapidocr"})` : "-";
+  $("tText").value = (r.ocr && r.ocr.text) || ""; $("tFont").value = (0.8 * (r.box[3] - r.box[1])).toFixed(1);
+  const c = r.counts; $("tGroups").textContent = `残影面 ${c.residue_faces}：并入 ${c.merge_faces}（绿） 待定 ${c.uncertain_faces}（橙）  隔离线 ${c.residue_lines}\n` +
+    r.groups.map((g, i) => g.decision === "uncertain" ? `组${i} 待定 ${g.faces.length} 面，可并入：` + (g.grounds || []).join("/") : "").filter(Boolean).join("\n") +
+    (c.uncertain_faces ? "\n（待定组默认不动；如确认，在下框按 组号:面号 填写，逗号分隔）" : "");
+  if (c.uncertain_faces && !$("tAssign")) { const i = document.createElement("input"); i.id = "tAssign"; i.placeholder = "例如 3:7,5:7"; i.style.width = "200px"; $("tGroups").after(i); }
+  msg("请确认文字内容（OCR 只是候选）", true); draw();
+}
+$("textApply").onclick = () => guard(async () => { if (!textPv) throw new Error("先用“框文字”框一个区域");
+  const assign = {}; const a = $("tAssign") ? $("tAssign").value.trim() : "";
+  if (a) for (const kv of a.split(",")) { const [k, v] = kv.split(":").map(x => x.trim()); if (k && v) assign[k] = +v; }
+  const r = await api("text_apply", { preview_id: textPv.preview_id, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value, assign });
+  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; if ($("tAssign")) $("tAssign").remove(); msg(`已建文字；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
+$("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; if ($("tAssign")) $("tAssign").remove(); draw(); };
+$("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
+  await api("text_edit", { id: selText, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value }); msg("已修改文字", true); });
+$("textDelete").onclick = () => guard(async () => { if (selText === null) throw new Error("先选中文字"); await api("text_delete", { id: selText }); selText = null; msg("已删除文字", true); });
+function pickText(x, y) { if (!S || !S.texts || !$("showText").checked) return null;
+  for (const t of S.texts) if (x >= t.box_x0 && x <= t.box_x1 && y >= t.box_y0 && y <= t.box_y1) return t; return null; }
