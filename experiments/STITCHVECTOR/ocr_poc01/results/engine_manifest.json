@@ -1,0 +1,140 @@
+{
+ "host": {
+  "cpu": "Apple M4",
+  "ram_gb": 16,
+  "os": "macOS (Darwin 25.6.0)",
+  "python": "3.11.15"
+ },
+ "engines": {
+  "rapidocr": {
+   "venv": ".venv-ocr (existing, untouched)",
+   "packages": {
+    "rapidocr": "3.4.5",
+    "onnxruntime": "1.23.2"
+   },
+   "framework": "onnxruntime CPU",
+   "models": [
+    "ch_PP-OCRv4_det_infer (mobile)",
+    "ch_PP-OCRv4_rec_infer (mobile)",
+    "ch_ppocr_mobile_v2.0_cls_infer"
+   ],
+   "weights": [
+    {
+     "path": ".venv-ocr/lib/python3.11/site-packages/rapidocr/models/ch_PP-OCRv4_det_infer.onnx",
+     "bytes": 4745517,
+     "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9"
+    },
+    {
+     "path": ".venv-ocr/lib/python3.11/site-packages/rapidocr/models/ch_PP-OCRv4_rec_infer.onnx",
+     "bytes": 10857958,
+     "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b"
+    },
+    {
+     "path": ".venv-ocr/lib/python3.11/site-packages/rapidocr/models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+     "bytes": 585532,
+     "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+    },
+    {
+     "path": ".venv-ocr/lib/python3.11/site-packages/rapidocr/models/ppocr_keys_v1.txt",
+     "bytes": 26249,
+     "sha256": "28b2362ad4ab2dc38769aa72feb535e3a9ddb3fd2a7585a05920e6393b1dc7f7"
+    },
+    {
+     "path": ".venv-ocr/lib/python3.11/site-packages/rapidocr/models/ppocrv5_dict.txt",
+     "bytes": 74012,
+     "sha256": "d1979e9f794c464c0d2e0b70a7fe14dd978e9dc644c0e71f14158cdf8342af1b"
+    }
+   ],
+   "license_code": "Apache-2.0",
+   "license_weights": "Apache-2.0 (PaddleOCR PP-OCRv4 weights converted to ONNX)"
+  },
+  "paddleocr": {
+   "venv": "runs/ocr_poc01/venvs/paddle (new)",
+   "packages": {
+    "paddleocr": "3.7.0",
+    "paddlex": "3.7.2",
+    "paddlepaddle": "3.3.1"
+   },
+   "framework": "PaddlePaddle CPU (paddle inference)",
+   "models": [
+    "PP-OCRv6_medium_det",
+    "PP-OCRv6_medium_rec",
+    "PP-LCNet_x1_0_textline_ori"
+   ],
+   "model_note": "library default for lang=ch in paddleocr 3.7.0; PP-OCRv6 tiny/small and PP-OCRv5 server/mobile also listed but NOT_TESTED in this round",
+   "weights": [
+    {
+     "path": "runs/ocr_poc01/cache/paddle/official_models/PP-LCNet_x1_0_textline_ori/inference.pdiparams",
+     "bytes": 6743918,
+     "sha256": "0de2bcf996cf553e2b848dd7b1769dafffc6917b1ccdf55c1d8efe7909fbf743"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/paddle/official_models/PP-OCRv6_medium_det/inference.pdiparams",
+     "bytes": 61960476,
+     "sha256": "85218d2e3d98f5a21c58b4220627be923a97aee5db3cc71f39536ab31ac53960"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/paddle/official_models/PP-OCRv6_medium_rec/inference.pdiparams",
+     "bytes": 76465087,
+     "sha256": "1b01c79a914587933f615569e75de54f2e638ebb5d3f3b3c1b38c24ede8c7319"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/paddle/official_models/PP-LCNet_x1_0_textline_ori/inference.json",
+     "bytes": 104399,
+     "sha256": "b81929eeaff8e52db0fafb49c9fbfc5bc0572f81641fe0179cc52096323fb4d4"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/paddle/official_models/PP-OCRv6_medium_det/inference.json",
+     "bytes": 312150,
+     "sha256": "0f1a7ec35da36173529c7a60238b7f7919e3831929c3f700ad90ad4896adecd5"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/paddle/official_models/PP-OCRv6_medium_rec/inference.json",
+     "bytes": 221814,
+     "sha256": "0b2e25e990bd072f1bf77d59d67d508bce6c4bd44af6624e0fb27d6da2cd00e8"
+    }
+   ],
+   "license_code": "Apache-2.0",
+   "license_weights": "Apache-2.0 (model card README 'license: apache-2.0')"
+  },
+  "surya": {
+   "venv": "runs/ocr_poc01/venvs/surya (new)",
+   "packages": {
+    "surya-ocr": "0.23.0",
+    "torch": "2.15.0",
+    "transformers": "5.22.1"
+   },
+   "framework": "torch CPU/MPS for detection; llama.cpp llama-server 0.8.0 (Homebrew, Metal) for recognition",
+   "models": [
+    "text_detection 2025_05_07 (datalab s3)",
+    "datalab-to/surya-ocr-2.5-gguf surya-2.5-Q8_0.gguf + surya-2.5-mmproj.gguf"
+   ],
+   "model_note": "Q8_0 quantised GGUF chosen over the 1.18 GB full GGUF for disk space; full-precision NOT_TESTED",
+   "weights": [
+    {
+     "path": "runs/ocr_poc01/cache/datalab/text_detection/2025_05_07/model.safetensors",
+     "bytes": 76930732,
+     "sha256": "38c3749eeb5f06fc93ed71eeee5cbd86b1945d08f8f74746bda035d41324bd3e"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/hf/hub/models--datalab-to--surya-ocr-2.5-gguf/snapshots/eb78671ae9af9bdddfac2e25507c55337b6098e2/surya-2.5-Q8_0.gguf",
+     "target": "cd8643d6d0a4bb6f05d96f41574381c24b5860fecf76eeff0b56148d1478ae21",
+     "bytes": 628680096,
+     "sha256": "5ab34c76845f66d2882ec5c89735894b700e0a7decd08898ab962b2afb9aca57"
+    },
+    {
+     "path": "runs/ocr_poc01/cache/hf/hub/models--datalab-to--surya-ocr-2.5-gguf/snapshots/eb78671ae9af9bdddfac2e25507c55337b6098e2/surya-2.5-mmproj.gguf",
+     "target": "c8a92cb02dac67de2272b3f296a4335a2ff108d2e9985501bff5f94b1a9503ab",
+     "bytes": 207345920,
+     "sha256": "f245dbf784cf73683a273a37fefae0d0d7983b083a5d2fecf9309476f861f659"
+    }
+   ],
+   "license_code": "Apache-2.0 (github datalab-to/surya)",
+   "license_weights": "AI Pubs Open RAIL-M (modified): free for research/personal use; commercial use barred if the user's organisation had > USD 5M revenue in the prior year, has raised > USD 5M, or competes with Datalab; share-alike clause covers Output; commercial licence from datalab.to"
+  },
+  "mapkurator": {
+   "status": "NOT_TESTED",
+   "reason": "research only per brief; LICENSE file not found at repo root (raw URL 404 on main and master; GitHub API rate-limited) -> license NOT_VERIFIED"
+  }
+ }
+}

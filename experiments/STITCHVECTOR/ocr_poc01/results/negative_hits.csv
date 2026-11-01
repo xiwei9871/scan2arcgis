@@ -1,0 +1,3 @@
+run,sample_id,neg_kind,bbox
+surya_e2e_x1,u2_neg_037,AREA_RANDOM,"[478.0, 503.0, 496.0, 521.0]"
+surya_e2e_x1+x2,u2_neg_037,AREA_RANDOM,"[478.0, 503.0, 496.0, 521.0]"

@@ -1,0 +1,56 @@
+sample_id,truth,detected_by_paddle,paddle_raw,surya_on_paddle,rapid_on_paddle,4a_generic,6b_vote_dict,candidates_4b,6b_correct
+u2_text_002,N-Q,True,N-Q,N-Q,N-Q,N-Q,N-Q,N-Q (raw),True
+u2_text_004,Є-O,True,€-o,C-O,-O,Є-O,Є-O,Є-O (R2 range must be old->young; only Є-O is valid for ?-O),True
+u2_text_008,CHT,True,CHT,CHT,CHTA,CHT,CHT,CHT (raw),True
+u2_text_012,C-P,True,C-P,C-P,C-P,C-P,C-P,C-P (raw),True
+u2_text_014,C-P,True,C-P,C-P,C-P,C-P,C-P,C-P (raw),True
+u2_text_015,T,True,T,T,T,T,T,T (raw),True
+u2_text_018,J₃t,True,J3t,J₃ₜ,Jat,J₃t,J₃ₜ,J₃t (R1 digit after era prefix 'J' is a subscript),False
+u2_text_020,T,True,T,T,T,T,T,T (raw),True
+u2_text_022,C-P,True,C-P,C-P,C-P,C-P,C-P,C-P (raw),True
+u2_text_023,T,True,T,T,T,T,T,T (raw),True
+u2_text_025,Pt₁L,True,PtL,PtuL,PuL,PtL,PtL,PtL (raw),False
+u2_text_028,Pt₁L,True,PuL,PtiL,PuL,PuL,PuL,PuL (raw),False
+u2_text_029,Pt₁L,False,,,,,,,False
+u2_text_034,J₁y,True,Jiy,Jiy,Jiy,Jiy,Jiy,Jiy (raw),False
+u2_text_038,T,True,T,T,T,T,T,T (raw),True
+u2_text_041,J₃t,True,J3t,J₃t,Jst,J₃t,J₃t,J₃t (R1 digit after era prefix 'J' is a subscript),True
+u2_text_042,J₂y,True,Jhy,Jy,Jey,Jhy,Jhy,Jhy (raw),False
+u2_text_046,Є-O,True,€-o,C-O,E-O,Є-O,Є-O,Є-O (R2 range must be old->young; only Є-O is valid for ?-O),True
+u2_text_049,Є-O,True,€-o,C-O,E-O,Є-O,Є-O,Є-O (R2 range must be old->young; only Є-O is valid for ?-O),True
+u2_text_052,Ar₂J,True,ArJ,Ar2J,ArJ,ArJ,ArJ,ArJ (raw),False
+u2_text_053,Ar₂E,True,Ar2E,Ar₂E,ArE,Ar₂E,Ar₂E,Ar₂E (R1 digit after era prefix 'Ar' is a subscript),True
+u2_text_054,HtL,True,HtL,HtL,HtL,HtL,HtL,HtL (raw),True
+u2_text_055,C-P,True,C-P,C-P,C-P,C-P,C-P,C-P (raw),True
+u2_text_056,T,False,,,,,,,False
+u2_text_057,J₂d,True,Jed,Jed,Ted,Jed,Jed,Jed (raw),False
+u2_text_060,J₂y,True,J2y,J₂y,Vky,J₂y,J₂y,J₂y (R1 digit after era prefix 'J' is a subscript),True
+u2_text_061,J₃t,True,J3t,J₃ t,Jt,J₃t,J₃t,J₃t (R1 digit after era prefix 'J' is a subscript),True
+u2_text_062,J₂y,True,J2y,Jy,Jay,J₂y,J₂y,J₂y (R1 digit after era prefix 'J' is a subscript),True
+u2_text_063,T,True,T,T,T,T,T,T (raw),True
+u2_text_069,Ar,True,Ar,Ar,Ar,Ar,Ar,Ar (raw),True
+u2_text_072,J₂d,True,J2d,Jed,Jd,J₂d,J₂d,J₂d (R1 digit after era prefix 'J' is a subscript),True
+u2_text_077,Ar₂E,True,Ar2E,Ar₂E,Ar2E,Ar₂E,Ar₂E,Ar₂E (R1 digit after era prefix 'Ar' is a subscript),True
+u2_text_079,HtL,True,HtL,HtL,HtL,HtL,HtL,HtL (raw),True
+u2_text_082,Ar₂E,True,Ar2E,Ar₂E,ArE,Ar₂E,Ar₂E,Ar₂E (R1 digit after era prefix 'Ar' is a subscript),True
+u2_text_096,J₁y,True,Jy,Jy,Nhy,Jy,Jy,Jy (raw),False
+u2_text_098,DT,True,DT,DT,DT,DT,DT,DT (raw),True
+u2_text_099,T,True,T,T,T,T,T,T (raw),True
+u2_text_102,N-Q,True,N-Q,N-Q,N-Q,N-Q,N-Q,N-Q (raw),True
+u2_text_103,Є-O,True,€-o,E-O,-0,Є-O,Є-O,Є-O (R2 range must be old->young; only Є-O is valid for ?-O),True
+u2_text_105,TT,True,TT,TT,TT,TT,TT,TT (raw),True
+u2_text_107,Pt₁D,True,PuD,Pt₄D,PuD,PuD,PuD,PuD (raw),False
+u2_text_110,Ar₂E,True,Ar2E,Ar₂E,ArE,Ar₂E,Ar₂E,Ar₂E (R1 digit after era prefix 'Ar' is a subscript),True
+u2_text_112,HT,True,HT,HT,HT,HT,HT,HT (raw),True
+u2_text_113,Ar₂E,True,Ar2E,Ar₂E,ArE,Ar₂E,Ar₂E,Ar₂E (R1 digit after era prefix 'Ar' is a subscript),True
+u2_text_114,YT,True,YT,YT,YTA,YT,YT,YT (raw),True
+u2_text_115,QT,True,QT,QT,QT,QT,QT,QT (raw),True
+u2_text_116,MT,True,MT,MT,MY,MT,MT,MT (raw),True
+u2_text_118,HtL,True,HtL,HtL,HtL,HtL,HtL,HtL (raw),True
+u2_text_120,N-Q,True,N-Q,N-Q,N-Q,N-Q,N-Q,N-Q (raw),True
+u2_text_130,T,True,T,T,T,T,T,T (raw),True
+u2_text_131,T,True,T,T,T,T,T,T (raw),True
+u2_text_133,T,True,T,T,T,T,T,T (raw),True
+u2_text_136,Є-O,True,€-o,C-O,E-O,Є-O,Є-O,Є-O (R2 range must be old->young; only Є-O is valid for ?-O),True
+u2_text_138,Pt₁D,True,PuD,PuD,PuD,PuD,PuD,PuD (raw),False
+u2_text_140,Ar₂J,True,Ar2J,Ar₂J,AreJ,Ar₂J,Ar₂J,Ar₂J (R1 digit after era prefix 'Ar' is a subscript),True

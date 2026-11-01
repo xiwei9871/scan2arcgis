@@ -1,0 +1,5687 @@
+{
+ "image_id": "u2",
+ "image_sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7",
+ "coords": "u2_map.png pixels (= work.png map box [0,0,805,780])",
+ "objects": [
+  {
+   "sample_id": "u2_text_001",
+   "image_id": "u2",
+   "polygon": [
+    [
+     91.0,
+     8.0
+    ],
+    [
+     106.0,
+     8.0
+    ],
+    [
+     106.0,
+     24.0
+    ],
+    [
+     91.0,
+     24.0
+    ]
+   ],
+   "raw_text": "A",
+   "normalized_text": "A",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "section line A endpoint",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_002",
+   "image_id": "u2",
+   "polygon": [
+    [
+     84.0,
+     126.0
+    ],
+    [
+     115.0,
+     126.0
+    ],
+    [
+     115.0,
+     144.0
+    ],
+    [
+     84.0,
+     144.0
+    ]
+   ],
+   "raw_text": "N-Q",
+   "normalized_text": "N-Q",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_003",
+   "image_id": "u2",
+   "polygon": [
+    [
+     203.0,
+     93.0
+    ],
+    [
+     241.0,
+     93.0
+    ],
+    [
+     241.0,
+     108.0
+    ],
+    [
+     203.0,
+     108.0
+    ]
+   ],
+   "raw_text": "五寨县",
+   "normalized_text": "五寨县",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_004",
+   "image_id": "u2",
+   "polygon": [
+    [
+     381.0,
+     62.0
+    ],
+    [
+     411.0,
+     62.0
+    ],
+    [
+     411.0,
+     77.0
+    ],
+    [
+     381.0,
+     77.0
+    ]
+   ],
+   "raw_text": "Є-O",
+   "normalized_text": "Є-O",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "Є rendered like C with bar",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_005",
+   "image_id": "u2",
+   "polygon": [
+    [
+     381.0,
+     101.0
+    ],
+    [
+     420.0,
+     101.0
+    ],
+    [
+     420.0,
+     118.0
+    ],
+    [
+     381.0,
+     118.0
+    ]
+   ],
+   "raw_text": "紫峰崖",
+   "normalized_text": "紫峰崖",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_006",
+   "image_id": "u2",
+   "polygon": [
+    [
+     370.0,
+     122.0
+    ],
+    [
+     383.0,
+     122.0
+    ],
+    [
+     383.0,
+     138.0
+    ],
+    [
+     370.0,
+     138.0
+    ]
+   ],
+   "raw_text": "C",
+   "normalized_text": "C",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "section line C endpoint",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_007",
+   "image_id": "u2",
+   "polygon": [
+    [
+     333.0,
+     137.0
+    ],
+    [
+     351.0,
+     137.0
+    ],
+    [
+     351.0,
+     153.0
+    ],
+    [
+     333.0,
+     153.0
+    ]
+   ],
+   "raw_text": "芦",
+   "normalized_text": "芦",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_008",
+   "image_id": "u2",
+   "polygon": [
+    [
+     456.0,
+     125.0
+    ],
+    [
+     487.0,
+     125.0
+    ],
+    [
+     487.0,
+     139.0
+    ],
+    [
+     456.0,
+     139.0
+    ]
+   ],
+   "raw_text": "CHT",
+   "normalized_text": "CHT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "triangle line symbol touches right",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_009",
+   "image_id": "u2",
+   "polygon": [
+    [
+     483.0,
+     150.0
+    ],
+    [
+     499.0,
+     150.0
+    ],
+    [
+     499.0,
+     163.0
+    ],
+    [
+     483.0,
+     163.0
+    ]
+   ],
+   "raw_text": "40",
+   "normalized_text": "40",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "attitude symbol stroke left",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_010",
+   "image_id": "u2",
+   "polygon": [
+    [
+     477.0,
+     60.0
+    ],
+    [
+     500.0,
+     60.0
+    ],
+    [
+     500.0,
+     76.0
+    ],
+    [
+     477.0,
+     76.0
+    ]
+   ],
+   "raw_text": "春景",
+   "normalized_text": "春景",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_011",
+   "image_id": "u2",
+   "polygon": [
+    [
+     468.0,
+     73.0
+    ],
+    [
+     480.0,
+     73.0
+    ],
+    [
+     480.0,
+     86.0
+    ],
+    [
+     468.0,
+     86.0
+    ]
+   ],
+   "raw_text": "B",
+   "normalized_text": "B",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_012",
+   "image_id": "u2",
+   "polygon": [
+    [
+     467.0,
+     85.0
+    ],
+    [
+     498.0,
+     85.0
+    ],
+    [
+     498.0,
+     100.0
+    ],
+    [
+     467.0,
+     100.0
+    ]
+   ],
+   "raw_text": "C-P",
+   "normalized_text": "C-P",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_013",
+   "image_id": "u2",
+   "polygon": [
+    [
+     514.0,
+     84.0
+    ],
+    [
+     529.0,
+     84.0
+    ],
+    [
+     529.0,
+     99.0
+    ],
+    [
+     514.0,
+     99.0
+    ]
+   ],
+   "raw_text": "B′",
+   "normalized_text": "B′",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_014",
+   "image_id": "u2",
+   "polygon": [
+    [
+     541.0,
+     25.0
+    ],
+    [
+     566.0,
+     25.0
+    ],
+    [
+     566.0,
+     40.0
+    ],
+    [
+     541.0,
+     40.0
+    ]
+   ],
+   "raw_text": "C-P",
+   "normalized_text": "C-P",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_015",
+   "image_id": "u2",
+   "polygon": [
+    [
+     572.0,
+     40.0
+    ],
+    [
+     581.0,
+     40.0
+    ],
+    [
+     581.0,
+     55.0
+    ],
+    [
+     572.0,
+     55.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_016",
+   "image_id": "u2",
+   "polygon": [
+    [
+     599.0,
+     17.0
+    ],
+    [
+     637.0,
+     17.0
+    ],
+    [
+     637.0,
+     31.0
+    ],
+    [
+     599.0,
+     31.0
+    ]
+   ],
+   "raw_text": "宁武县",
+   "normalized_text": "宁武县",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_017",
+   "image_id": "u2",
+   "polygon": [
+    [
+     547.0,
+     97.0
+    ],
+    [
+     583.0,
+     97.0
+    ],
+    [
+     583.0,
+     113.0
+    ],
+    [
+     547.0,
+     113.0
+    ]
+   ],
+   "raw_text": "上榆庄",
+   "normalized_text": "上榆庄",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "上 crossed by dashed boundary",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_018",
+   "image_id": "u2",
+   "polygon": [
+    [
+     552.0,
+     154.0
+    ],
+    [
+     573.0,
+     154.0
+    ],
+    [
+     573.0,
+     171.0
+    ],
+    [
+     552.0,
+     171.0
+    ]
+   ],
+   "raw_text": "J₃t",
+   "normalized_text": "J₃t",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_019",
+   "image_id": "u2",
+   "polygon": [
+    [
+     509.0,
+     171.0
+    ],
+    [
+     524.0,
+     171.0
+    ],
+    [
+     524.0,
+     185.0
+    ],
+    [
+     509.0,
+     185.0
+    ]
+   ],
+   "raw_text": "50",
+   "normalized_text": "50",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_020",
+   "image_id": "u2",
+   "polygon": [
+    [
+     732.0,
+     29.0
+    ],
+    [
+     744.0,
+     29.0
+    ],
+    [
+     744.0,
+     47.0
+    ],
+    [
+     732.0,
+     47.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_021",
+   "image_id": "u2",
+   "polygon": [
+    [
+     716.0,
+     101.0
+    ],
+    [
+     758.0,
+     101.0
+    ],
+    [
+     758.0,
+     117.0
+    ],
+    [
+     716.0,
+     117.0
+    ]
+   ],
+   "raw_text": "轩岗镇",
+   "normalized_text": "轩岗镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "crossed by red line",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_022",
+   "image_id": "u2",
+   "polygon": [
+    [
+     712.0,
+     144.0
+    ],
+    [
+     738.0,
+     144.0
+    ],
+    [
+     738.0,
+     161.0
+    ],
+    [
+     712.0,
+     161.0
+    ]
+   ],
+   "raw_text": "C-P",
+   "normalized_text": "C-P",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_023",
+   "image_id": "u2",
+   "polygon": [
+    [
+     658.0,
+     151.0
+    ],
+    [
+     670.0,
+     151.0
+    ],
+    [
+     670.0,
+     169.0
+    ],
+    [
+     658.0,
+     169.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "red line touches",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_024",
+   "image_id": "u2",
+   "polygon": [
+    [
+     32.0,
+     199.0
+    ],
+    [
+     72.0,
+     199.0
+    ],
+    [
+     72.0,
+     214.0
+    ],
+    [
+     32.0,
+     214.0
+    ]
+   ],
+   "raw_text": "三井镇",
+   "normalized_text": "三井镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_025",
+   "image_id": "u2",
+   "polygon": [
+    [
+     239.0,
+     227.0
+    ],
+    [
+     267.0,
+     227.0
+    ],
+    [
+     267.0,
+     243.0
+    ],
+    [
+     239.0,
+     243.0
+    ]
+   ],
+   "raw_text": "Pt₁L",
+   "normalized_text": "Pt₁L",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "subscript 1 small; verify legend",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_026",
+   "image_id": "u2",
+   "polygon": [
+    [
+     289.0,
+     243.0
+    ],
+    [
+     295.0,
+     243.0
+    ],
+    [
+     295.0,
+     252.0
+    ],
+    [
+     289.0,
+     252.0
+    ]
+   ],
+   "raw_text": "5",
+   "normalized_text": "5",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "superscript-like dip value",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_027",
+   "image_id": "u2",
+   "polygon": [
+    [
+     288.0,
+     257.0
+    ],
+    [
+     303.0,
+     257.0
+    ],
+    [
+     303.0,
+     271.0
+    ],
+    [
+     288.0,
+     271.0
+    ]
+   ],
+   "raw_text": "芽",
+   "normalized_text": "芽",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_028",
+   "image_id": "u2",
+   "polygon": [
+    [
+     303.0,
+     302.0
+    ],
+    [
+     331.0,
+     302.0
+    ],
+    [
+     331.0,
+     319.0
+    ],
+    [
+     303.0,
+     319.0
+    ]
+   ],
+   "raw_text": "Pt₁L",
+   "normalized_text": "Pt₁L",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_029",
+   "image_id": "u2",
+   "polygon": [
+    [
+     392.0,
+     168.0
+    ],
+    [
+     420.0,
+     168.0
+    ],
+    [
+     420.0,
+     183.0
+    ],
+    [
+     392.0,
+     183.0
+    ]
+   ],
+   "raw_text": "Pt₁L",
+   "normalized_text": "Pt₁L",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_030",
+   "image_id": "u2",
+   "polygon": [
+    [
+     330.0,
+     185.0
+    ],
+    [
+     354.0,
+     185.0
+    ],
+    [
+     354.0,
+     201.0
+    ],
+    [
+     330.0,
+     201.0
+    ]
+   ],
+   "raw_text": "大庙",
+   "normalized_text": "大庙",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_031",
+   "image_id": "u2",
+   "polygon": [
+    [
+     405.0,
+     206.0
+    ],
+    [
+     414.0,
+     206.0
+    ],
+    [
+     414.0,
+     215.0
+    ],
+    [
+     405.0,
+     215.0
+    ]
+   ],
+   "raw_text": "32",
+   "normalized_text": "32",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_032",
+   "image_id": "u2",
+   "polygon": [
+    [
+     435.0,
+     211.0
+    ],
+    [
+     472.0,
+     211.0
+    ],
+    [
+     472.0,
+     228.0
+    ],
+    [
+     435.0,
+     228.0
+    ]
+   ],
+   "raw_text": "东寨镇",
+   "normalized_text": "东寨镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_033",
+   "image_id": "u2",
+   "polygon": [
+    [
+     340.0,
+     251.0
+    ],
+    [
+     378.0,
+     251.0
+    ],
+    [
+     378.0,
+     266.0
+    ],
+    [
+     340.0,
+     266.0
+    ]
+   ],
+   "raw_text": "前马仑",
+   "normalized_text": "前马仑",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_034",
+   "image_id": "u2",
+   "polygon": [
+    [
+     443.0,
+     274.0
+    ],
+    [
+     463.0,
+     274.0
+    ],
+    [
+     463.0,
+     289.0
+    ],
+    [
+     443.0,
+     289.0
+    ]
+   ],
+   "raw_text": "J₁y",
+   "normalized_text": "J₁y",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_035",
+   "image_id": "u2",
+   "polygon": [
+    [
+     376.0,
+     282.0
+    ],
+    [
+     382.0,
+     282.0
+    ],
+    [
+     382.0,
+     291.0
+    ],
+    [
+     376.0,
+     291.0
+    ]
+   ],
+   "raw_text": "9",
+   "normalized_text": "9",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_036",
+   "image_id": "u2",
+   "polygon": [
+    [
+     382.0,
+     289.0
+    ],
+    [
+     393.0,
+     289.0
+    ],
+    [
+     393.0,
+     299.0
+    ],
+    [
+     382.0,
+     299.0
+    ]
+   ],
+   "raw_text": "22",
+   "normalized_text": "22",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_037",
+   "image_id": "u2",
+   "polygon": [
+    [
+     391.0,
+     300.0
+    ],
+    [
+     405.0,
+     300.0
+    ],
+    [
+     405.0,
+     312.0
+    ],
+    [
+     391.0,
+     312.0
+    ]
+   ],
+   "raw_text": "50",
+   "normalized_text": "50",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_038",
+   "image_id": "u2",
+   "polygon": [
+    [
+     419.0,
+     306.0
+    ],
+    [
+     429.0,
+     306.0
+    ],
+    [
+     429.0,
+     322.0
+    ],
+    [
+     419.0,
+     322.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_039",
+   "image_id": "u2",
+   "polygon": [
+    [
+     514.0,
+     188.0
+    ],
+    [
+     544.0,
+     188.0
+    ],
+    [
+     544.0,
+     202.0
+    ],
+    [
+     514.0,
+     202.0
+    ]
+   ],
+   "raw_text": "图7a",
+   "normalized_text": "图7a",
+   "category": "MIXED_ANNOTATION",
+   "draft_category": "MAP_ANNOTATION",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_040",
+   "image_id": "u2",
+   "polygon": [
+    [
+     513.0,
+     242.0
+    ],
+    [
+     549.0,
+     242.0
+    ],
+    [
+     549.0,
+     258.0
+    ],
+    [
+     513.0,
+     258.0
+    ]
+   ],
+   "raw_text": "迭台寺",
+   "normalized_text": "迭台寺",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_041",
+   "image_id": "u2",
+   "polygon": [
+    [
+     517.0,
+     272.0
+    ],
+    [
+     538.0,
+     272.0
+    ],
+    [
+     538.0,
+     288.0
+    ],
+    [
+     517.0,
+     288.0
+    ]
+   ],
+   "raw_text": "J₃t",
+   "normalized_text": "J₃t",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_042",
+   "image_id": "u2",
+   "polygon": [
+    [
+     565.0,
+     264.0
+    ],
+    [
+     586.0,
+     264.0
+    ],
+    [
+     586.0,
+     281.0
+    ],
+    [
+     565.0,
+     281.0
+    ]
+   ],
+   "raw_text": "J₂y",
+   "normalized_text": "J₂y",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_043",
+   "image_id": "u2",
+   "polygon": [
+    [
+     586.0,
+     261.0
+    ],
+    [
+     599.0,
+     261.0
+    ],
+    [
+     599.0,
+     272.0
+    ],
+    [
+     586.0,
+     272.0
+    ]
+   ],
+   "raw_text": "49",
+   "normalized_text": "49",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_044",
+   "image_id": "u2",
+   "polygon": [
+    [
+     608.0,
+     285.0
+    ],
+    [
+     620.0,
+     285.0
+    ],
+    [
+     620.0,
+     296.0
+    ],
+    [
+     608.0,
+     296.0
+    ]
+   ],
+   "raw_text": "55",
+   "normalized_text": "55",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_045",
+   "image_id": "u2",
+   "polygon": [
+    [
+     615.0,
+     189.0
+    ],
+    [
+     678.0,
+     189.0
+    ],
+    [
+     678.0,
+     205.0
+    ],
+    [
+     615.0,
+     205.0
+    ]
+   ],
+   "raw_text": "长梁沟镇",
+   "normalized_text": "长梁沟镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "crossed by red lines",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_046",
+   "image_id": "u2",
+   "polygon": [
+    [
+     716.0,
+     267.0
+    ],
+    [
+     744.0,
+     267.0
+    ],
+    [
+     744.0,
+     283.0
+    ],
+    [
+     716.0,
+     283.0
+    ]
+   ],
+   "raw_text": "Є-O",
+   "normalized_text": "Є-O",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_047",
+   "image_id": "u2",
+   "polygon": [
+    [
+     736.0,
+     301.0
+    ],
+    [
+     751.0,
+     301.0
+    ],
+    [
+     751.0,
+     316.0
+    ],
+    [
+     736.0,
+     316.0
+    ]
+   ],
+   "raw_text": "云",
+   "normalized_text": "云",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "purple text; also 云 may be place",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_048",
+   "image_id": "u2",
+   "polygon": [
+    [
+     706.0,
+     317.0
+    ],
+    [
+     722.0,
+     317.0
+    ],
+    [
+     722.0,
+     331.0
+    ],
+    [
+     706.0,
+     331.0
+    ]
+   ],
+   "raw_text": "C′",
+   "normalized_text": "C′",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_049",
+   "image_id": "u2",
+   "polygon": [
+    [
+     84.0,
+     406.0
+    ],
+    [
+     113.0,
+     406.0
+    ],
+    [
+     113.0,
+     422.0
+    ],
+    [
+     84.0,
+     422.0
+    ]
+   ],
+   "raw_text": "Є-O",
+   "normalized_text": "Є-O",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_050",
+   "image_id": "u2",
+   "polygon": [
+    [
+     124.0,
+     459.0
+    ],
+    [
+     163.0,
+     459.0
+    ],
+    [
+     163.0,
+     473.0
+    ],
+    [
+     124.0,
+     473.0
+    ]
+   ],
+   "raw_text": "马跑泉",
+   "normalized_text": "马跑泉",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_051",
+   "image_id": "u2",
+   "polygon": [
+    [
+     243.0,
+     345.0
+    ],
+    [
+     259.0,
+     345.0
+    ],
+    [
+     259.0,
+     358.0
+    ],
+    [
+     243.0,
+     358.0
+    ]
+   ],
+   "raw_text": "山",
+   "normalized_text": "山",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_052",
+   "image_id": "u2",
+   "polygon": [
+    [
+     168.0,
+     364.0
+    ],
+    [
+     200.0,
+     364.0
+    ],
+    [
+     200.0,
+     379.0
+    ],
+    [
+     168.0,
+     379.0
+    ]
+   ],
+   "raw_text": "Ar₂J",
+   "normalized_text": "Ar₂J",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_053",
+   "image_id": "u2",
+   "polygon": [
+    [
+     249.0,
+     364.0
+    ],
+    [
+     281.0,
+     364.0
+    ],
+    [
+     281.0,
+     379.0
+    ],
+    [
+     249.0,
+     379.0
+    ]
+   ],
+   "raw_text": "Ar₂E",
+   "normalized_text": "Ar₂E",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_054",
+   "image_id": "u2",
+   "polygon": [
+    [
+     228.0,
+     443.0
+    ],
+    [
+     257.0,
+     443.0
+    ],
+    [
+     257.0,
+     458.0
+    ],
+    [
+     228.0,
+     458.0
+    ]
+   ],
+   "raw_text": "HtL",
+   "normalized_text": "HtL",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "line passes near",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_055",
+   "image_id": "u2",
+   "polygon": [
+    [
+     267.0,
+     437.0
+    ],
+    [
+     292.0,
+     437.0
+    ],
+    [
+     292.0,
+     453.0
+    ],
+    [
+     267.0,
+     453.0
+    ]
+   ],
+   "raw_text": "C-P",
+   "normalized_text": "C-P",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_056",
+   "image_id": "u2",
+   "polygon": [
+    [
+     301.0,
+     429.0
+    ],
+    [
+     311.0,
+     429.0
+    ],
+    [
+     311.0,
+     445.0
+    ],
+    [
+     301.0,
+     445.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_057",
+   "image_id": "u2",
+   "polygon": [
+    [
+     413.0,
+     336.0
+    ],
+    [
+     433.0,
+     336.0
+    ],
+    [
+     433.0,
+     351.0
+    ],
+    [
+     413.0,
+     351.0
+    ]
+   ],
+   "raw_text": "J₂d",
+   "normalized_text": "J₂d",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_058",
+   "image_id": "u2",
+   "polygon": [
+    [
+     446.0,
+     356.0
+    ],
+    [
+     489.0,
+     356.0
+    ],
+    [
+     489.0,
+     372.0
+    ],
+    [
+     446.0,
+     372.0
+    ]
+   ],
+   "raw_text": "化北屯",
+   "normalized_text": "化北屯",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_059",
+   "image_id": "u2",
+   "polygon": [
+    [
+     367.0,
+     369.0
+    ],
+    [
+     420.0,
+     369.0
+    ],
+    [
+     420.0,
+     383.0
+    ],
+    [
+     367.0,
+     383.0
+    ]
+   ],
+   "raw_text": "陈家半沟",
+   "normalized_text": "陈家半沟",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "dashed boundary crosses 陈",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_060",
+   "image_id": "u2",
+   "polygon": [
+    [
+     373.0,
+     406.0
+    ],
+    [
+     392.0,
+     406.0
+    ],
+    [
+     392.0,
+     421.0
+    ],
+    [
+     373.0,
+     421.0
+    ]
+   ],
+   "raw_text": "J₂y",
+   "normalized_text": "J₂y",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_061",
+   "image_id": "u2",
+   "polygon": [
+    [
+     364.0,
+     435.0
+    ],
+    [
+     381.0,
+     435.0
+    ],
+    [
+     381.0,
+     450.0
+    ],
+    [
+     364.0,
+     450.0
+    ]
+   ],
+   "raw_text": "J₃t",
+   "normalized_text": "J₃t",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_062",
+   "image_id": "u2",
+   "polygon": [
+    [
+     428.0,
+     430.0
+    ],
+    [
+     448.0,
+     430.0
+    ],
+    [
+     448.0,
+     443.0
+    ],
+    [
+     428.0,
+     443.0
+    ]
+   ],
+   "raw_text": "J₂y",
+   "normalized_text": "J₂y",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_063",
+   "image_id": "u2",
+   "polygon": [
+    [
+     461.0,
+     446.0
+    ],
+    [
+     471.0,
+     446.0
+    ],
+    [
+     471.0,
+     462.0
+    ],
+    [
+     461.0,
+     462.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_064",
+   "image_id": "u2",
+   "polygon": [
+    [
+     505.0,
+     342.0
+    ],
+    [
+     516.0,
+     342.0
+    ],
+    [
+     516.0,
+     353.0
+    ],
+    [
+     505.0,
+     353.0
+    ]
+   ],
+   "raw_text": "15",
+   "normalized_text": "15",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_065",
+   "image_id": "u2",
+   "polygon": [
+    [
+     535.0,
+     357.0
+    ],
+    [
+     546.0,
+     357.0
+    ],
+    [
+     546.0,
+     367.0
+    ],
+    [
+     535.0,
+     367.0
+    ]
+   ],
+   "raw_text": "39",
+   "normalized_text": "39",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_066",
+   "image_id": "u2",
+   "polygon": [
+    [
+     546.0,
+     358.0
+    ],
+    [
+     557.0,
+     358.0
+    ],
+    [
+     557.0,
+     368.0
+    ],
+    [
+     546.0,
+     368.0
+    ]
+   ],
+   "raw_text": "46",
+   "normalized_text": "46",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_067",
+   "image_id": "u2",
+   "polygon": [
+    [
+     572.0,
+     370.0
+    ],
+    [
+     595.0,
+     370.0
+    ],
+    [
+     595.0,
+     384.0
+    ],
+    [
+     572.0,
+     384.0
+    ]
+   ],
+   "raw_text": "怀道",
+   "normalized_text": "怀道",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "red line crosses",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_068",
+   "image_id": "u2",
+   "polygon": [
+    [
+     549.0,
+     377.0
+    ],
+    [
+     562.0,
+     377.0
+    ],
+    [
+     562.0,
+     391.0
+    ],
+    [
+     549.0,
+     391.0
+    ]
+   ],
+   "raw_text": "D",
+   "normalized_text": "D",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_069",
+   "image_id": "u2",
+   "polygon": [
+    [
+     594.0,
+     381.0
+    ],
+    [
+     613.0,
+     381.0
+    ],
+    [
+     613.0,
+     395.0
+    ],
+    [
+     594.0,
+     395.0
+    ]
+   ],
+   "raw_text": "Ar",
+   "normalized_text": "Ar",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_070",
+   "image_id": "u2",
+   "polygon": [
+    [
+     571.0,
+     396.0
+    ],
+    [
+     581.0,
+     396.0
+    ],
+    [
+     581.0,
+     406.0
+    ],
+    [
+     571.0,
+     406.0
+    ]
+   ],
+   "raw_text": "64",
+   "normalized_text": "64",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_071",
+   "image_id": "u2",
+   "polygon": [
+    [
+     557.0,
+     443.0
+    ],
+    [
+     596.0,
+     443.0
+    ],
+    [
+     596.0,
+     457.0
+    ],
+    [
+     557.0,
+     457.0
+    ]
+   ],
+   "raw_text": "鱼脊岭",
+   "normalized_text": "鱼脊岭",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_072",
+   "image_id": "u2",
+   "polygon": [
+    [
+     514.0,
+     381.0
+    ],
+    [
+     533.0,
+     381.0
+    ],
+    [
+     533.0,
+     396.0
+    ],
+    [
+     514.0,
+     396.0
+    ]
+   ],
+   "raw_text": "J₂d",
+   "normalized_text": "J₂d",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_073",
+   "image_id": "u2",
+   "polygon": [
+    [
+     629.0,
+     435.0
+    ],
+    [
+     643.0,
+     435.0
+    ],
+    [
+     643.0,
+     449.0
+    ],
+    [
+     629.0,
+     449.0
+    ]
+   ],
+   "raw_text": "D′",
+   "normalized_text": "D′",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_074",
+   "image_id": "u2",
+   "polygon": [
+    [
+     705.0,
+     352.0
+    ],
+    [
+     742.0,
+     352.0
+    ],
+    [
+     742.0,
+     366.0
+    ],
+    [
+     705.0,
+     366.0
+    ]
+   ],
+   "raw_text": "辉顺沟",
+   "normalized_text": "辉顺沟",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_075",
+   "image_id": "u2",
+   "polygon": [
+    [
+     664.0,
+     403.0
+    ],
+    [
+     677.0,
+     403.0
+    ],
+    [
+     677.0,
+     416.0
+    ],
+    [
+     664.0,
+     416.0
+    ]
+   ],
+   "raw_text": "中",
+   "normalized_text": "中",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "purple 中 on red unit",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_076",
+   "image_id": "u2",
+   "polygon": [
+    [
+     651.0,
+     449.0
+    ],
+    [
+     690.0,
+     449.0
+    ],
+    [
+     690.0,
+     463.0
+    ],
+    [
+     651.0,
+     463.0
+    ]
+   ],
+   "raw_text": "谢家坪",
+   "normalized_text": "谢家坪",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "green line crosses",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_077",
+   "image_id": "u2",
+   "polygon": [
+    [
+     728.0,
+     449.0
+    ],
+    [
+     759.0,
+     449.0
+    ],
+    [
+     759.0,
+     464.0
+    ],
+    [
+     728.0,
+     464.0
+    ]
+   ],
+   "raw_text": "Ar₂E",
+   "normalized_text": "Ar₂E",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_078",
+   "image_id": "u2",
+   "polygon": [
+    [
+     27.0,
+     530.0
+    ],
+    [
+     50.0,
+     530.0
+    ],
+    [
+     50.0,
+     543.0
+    ],
+    [
+     27.0,
+     543.0
+    ]
+   ],
+   "raw_text": "河口",
+   "normalized_text": "河口",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_079",
+   "image_id": "u2",
+   "polygon": [
+    [
+     66.0,
+     562.0
+    ],
+    [
+     90.0,
+     562.0
+    ],
+    [
+     90.0,
+     575.0
+    ],
+    [
+     66.0,
+     575.0
+    ]
+   ],
+   "raw_text": "HtL",
+   "normalized_text": "HtL",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "L italic",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_080",
+   "image_id": "u2",
+   "polygon": [
+    [
+     119.0,
+     588.0
+    ],
+    [
+     131.0,
+     588.0
+    ],
+    [
+     131.0,
+     601.0
+    ],
+    [
+     119.0,
+     601.0
+    ]
+   ],
+   "raw_text": "E",
+   "normalized_text": "E",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "section line E endpoint; red line below",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_081",
+   "image_id": "u2",
+   "polygon": [
+    [
+     280.0,
+     478.0
+    ],
+    [
+     308.0,
+     478.0
+    ],
+    [
+     308.0,
+     494.0
+    ],
+    [
+     280.0,
+     494.0
+    ]
+   ],
+   "raw_text": "新堡",
+   "normalized_text": "新堡",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_082",
+   "image_id": "u2",
+   "polygon": [
+    [
+     166.0,
+     550.0
+    ],
+    [
+     198.0,
+     550.0
+    ],
+    [
+     198.0,
+     563.0
+    ],
+    [
+     166.0,
+     563.0
+    ]
+   ],
+   "raw_text": "Ar₂E",
+   "normalized_text": "Ar₂E",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_083",
+   "image_id": "u2",
+   "polygon": [
+    [
+     157.0,
+     608.0
+    ],
+    [
+     193.0,
+     608.0
+    ],
+    [
+     193.0,
+     622.0
+    ],
+    [
+     157.0,
+     622.0
+    ]
+   ],
+   "raw_text": "马坊镇",
+   "normalized_text": "马坊镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "left edge cut by tile; check",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_084",
+   "image_id": "u2",
+   "polygon": [
+    [
+     177.0,
+     625.0
+    ],
+    [
+     190.0,
+     625.0
+    ],
+    [
+     190.0,
+     635.0
+    ],
+    [
+     177.0,
+     635.0
+    ]
+   ],
+   "raw_text": "16",
+   "normalized_text": "16",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "attitude stroke left",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_085",
+   "image_id": "u2",
+   "polygon": [
+    [
+     250.0,
+     531.0
+    ],
+    [
+     260.0,
+     531.0
+    ],
+    [
+     260.0,
+     541.0
+    ],
+    [
+     250.0,
+     541.0
+    ]
+   ],
+   "raw_text": "70",
+   "normalized_text": "70",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_086",
+   "image_id": "u2",
+   "polygon": [
+    [
+     270.0,
+     525.0
+    ],
+    [
+     283.0,
+     525.0
+    ],
+    [
+     283.0,
+     535.0
+    ],
+    [
+     270.0,
+     535.0
+    ]
+   ],
+   "raw_text": "67",
+   "normalized_text": "67",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_087",
+   "image_id": "u2",
+   "polygon": [
+    [
+     285.0,
+     536.0
+    ],
+    [
+     297.0,
+     536.0
+    ],
+    [
+     297.0,
+     545.0
+    ],
+    [
+     285.0,
+     545.0
+    ]
+   ],
+   "raw_text": "68",
+   "normalized_text": "68",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_088",
+   "image_id": "u2",
+   "polygon": [
+    [
+     289.0,
+     546.0
+    ],
+    [
+     301.0,
+     546.0
+    ],
+    [
+     301.0,
+     556.0
+    ],
+    [
+     289.0,
+     556.0
+    ]
+   ],
+   "raw_text": "10",
+   "normalized_text": "10",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_089",
+   "image_id": "u2",
+   "polygon": [
+    [
+     309.0,
+     551.0
+    ],
+    [
+     315.0,
+     551.0
+    ],
+    [
+     315.0,
+     560.0
+    ],
+    [
+     309.0,
+     560.0
+    ]
+   ],
+   "raw_text": "4",
+   "normalized_text": "4",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "faint digit to the left; may be 84 or 54; PENDING",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_090",
+   "image_id": "u2",
+   "polygon": [
+    [
+     320.0,
+     548.0
+    ],
+    [
+     339.0,
+     548.0
+    ],
+    [
+     339.0,
+     561.0
+    ],
+    [
+     320.0,
+     561.0
+    ]
+   ],
+   "raw_text": "S6",
+   "normalized_text": "S6",
+   "category": "LATIN_LABEL",
+   "draft_category": "SAMPLE_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_091",
+   "image_id": "u2",
+   "polygon": [
+    [
+     310.0,
+     619.0
+    ],
+    [
+     320.0,
+     619.0
+    ],
+    [
+     320.0,
+     629.0
+    ],
+    [
+     310.0,
+     629.0
+    ]
+   ],
+   "raw_text": "10",
+   "normalized_text": "10",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_092",
+   "image_id": "u2",
+   "polygon": [
+    [
+     326.0,
+     626.0
+    ],
+    [
+     341.0,
+     626.0
+    ],
+    [
+     341.0,
+     639.0
+    ],
+    [
+     326.0,
+     639.0
+    ]
+   ],
+   "raw_text": "S4",
+   "normalized_text": "S4",
+   "category": "LATIN_LABEL",
+   "draft_category": "SAMPLE_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "right edge cut by tile",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_093",
+   "image_id": "u2",
+   "polygon": [
+    [
+     309.0,
+     641.0
+    ],
+    [
+     318.0,
+     641.0
+    ],
+    [
+     318.0,
+     651.0
+    ],
+    [
+     309.0,
+     651.0
+    ]
+   ],
+   "raw_text": "10",
+   "normalized_text": "10",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_094",
+   "image_id": "u2",
+   "polygon": [
+    [
+     337.0,
+     482.0
+    ],
+    [
+     389.0,
+     482.0
+    ],
+    [
+     389.0,
+     497.0
+    ],
+    [
+     337.0,
+     497.0
+    ]
+   ],
+   "raw_text": "石家庄镇",
+   "normalized_text": "石家庄镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_095",
+   "image_id": "u2",
+   "polygon": [
+    [
+     442.0,
+     482.0
+    ],
+    [
+     495.0,
+     482.0
+    ],
+    [
+     495.0,
+     497.0
+    ],
+    [
+     442.0,
+     497.0
+    ]
+   ],
+   "raw_text": "杜家村镇",
+   "normalized_text": "杜家村镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "red/purple lines cross 村镇",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_096",
+   "image_id": "u2",
+   "polygon": [
+    [
+     419.0,
+     500.0
+    ],
+    [
+     439.0,
+     500.0
+    ],
+    [
+     439.0,
+     515.0
+    ],
+    [
+     419.0,
+     515.0
+    ]
+   ],
+   "raw_text": "J₁y",
+   "normalized_text": "J₁y",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "attitude stroke left",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_097",
+   "image_id": "u2",
+   "polygon": [
+    [
+     444.0,
+     497.0
+    ],
+    [
+     458.0,
+     497.0
+    ],
+    [
+     458.0,
+     507.0
+    ],
+    [
+     444.0,
+     507.0
+    ]
+   ],
+   "raw_text": "35",
+   "normalized_text": "35",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "attitude symbol right",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_098",
+   "image_id": "u2",
+   "polygon": [
+    [
+     455.0,
+     509.0
+    ],
+    [
+     474.0,
+     509.0
+    ],
+    [
+     474.0,
+     525.0
+    ],
+    [
+     455.0,
+     525.0
+    ]
+   ],
+   "raw_text": "DT",
+   "normalized_text": "DT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_099",
+   "image_id": "u2",
+   "polygon": [
+    [
+     407.0,
+     548.0
+    ],
+    [
+     417.0,
+     548.0
+    ],
+    [
+     417.0,
+     564.0
+    ],
+    [
+     407.0,
+     564.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_100",
+   "image_id": "u2",
+   "polygon": [
+    [
+     402.0,
+     572.0
+    ],
+    [
+     408.0,
+     572.0
+    ],
+    [
+     408.0,
+     582.0
+    ],
+    [
+     402.0,
+     582.0
+    ]
+   ],
+   "raw_text": "8",
+   "normalized_text": "8",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_101",
+   "image_id": "u2",
+   "polygon": [
+    [
+     340.0,
+     597.0
+    ],
+    [
+     358.0,
+     597.0
+    ],
+    [
+     358.0,
+     611.0
+    ],
+    [
+     340.0,
+     611.0
+    ]
+   ],
+   "raw_text": "S5",
+   "normalized_text": "S5",
+   "category": "LATIN_LABEL",
+   "draft_category": "SAMPLE_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_102",
+   "image_id": "u2",
+   "polygon": [
+    [
+     379.0,
+     645.0
+    ],
+    [
+     409.0,
+     645.0
+    ],
+    [
+     409.0,
+     661.0
+    ],
+    [
+     379.0,
+     661.0
+    ]
+   ],
+   "raw_text": "N-Q",
+   "normalized_text": "N-Q",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_103",
+   "image_id": "u2",
+   "polygon": [
+    [
+     472.0,
+     571.0
+    ],
+    [
+     501.0,
+     571.0
+    ],
+    [
+     501.0,
+     587.0
+    ],
+    [
+     472.0,
+     587.0
+    ]
+   ],
+   "raw_text": "Є-O",
+   "normalized_text": "Є-O",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_104",
+   "image_id": "u2",
+   "polygon": [
+    [
+     463.0,
+     629.0
+    ],
+    [
+     474.0,
+     629.0
+    ],
+    [
+     474.0,
+     641.0
+    ],
+    [
+     463.0,
+     641.0
+    ]
+   ],
+   "raw_text": "55",
+   "normalized_text": "55",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_105",
+   "image_id": "u2",
+   "polygon": [
+    [
+     578.0,
+     490.0
+    ],
+    [
+     594.0,
+     490.0
+    ],
+    [
+     594.0,
+     506.0
+    ],
+    [
+     578.0,
+     506.0
+    ]
+   ],
+   "raw_text": "TT",
+   "normalized_text": "TT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "green line passes",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_106",
+   "image_id": "u2",
+   "polygon": [
+    [
+     579.0,
+     505.0
+    ],
+    [
+     615.0,
+     505.0
+    ],
+    [
+     615.0,
+     520.0
+    ],
+    [
+     579.0,
+     520.0
+    ]
+   ],
+   "raw_text": "大端地",
+   "normalized_text": "大端地",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "green line crosses 大",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_107",
+   "image_id": "u2",
+   "polygon": [
+    [
+     623.0,
+     518.0
+    ],
+    [
+     652.0,
+     518.0
+    ],
+    [
+     652.0,
+     534.0
+    ],
+    [
+     623.0,
+     534.0
+    ]
+   ],
+   "raw_text": "Pt₁D",
+   "normalized_text": "Pt₁D",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_108",
+   "image_id": "u2",
+   "polygon": [
+    [
+     622.0,
+     541.0
+    ],
+    [
+     637.0,
+     541.0
+    ],
+    [
+     637.0,
+     555.0
+    ],
+    [
+     622.0,
+     555.0
+    ]
+   ],
+   "raw_text": "山",
+   "normalized_text": "山",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "purple italic 山 on red unit",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_109",
+   "image_id": "u2",
+   "polygon": [
+    [
+     540.0,
+     568.0
+    ],
+    [
+     578.0,
+     568.0
+    ],
+    [
+     578.0,
+     582.0
+    ],
+    [
+     540.0,
+     582.0
+    ]
+   ],
+   "raw_text": "堂尔上",
+   "normalized_text": "堂尔上",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "red line crosses",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_110",
+   "image_id": "u2",
+   "polygon": [
+    [
+     532.0,
+     620.0
+    ],
+    [
+     563.0,
+     620.0
+    ],
+    [
+     563.0,
+     635.0
+    ],
+    [
+     532.0,
+     635.0
+    ]
+   ],
+   "raw_text": "Ar₂E",
+   "normalized_text": "Ar₂E",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_111",
+   "image_id": "u2",
+   "polygon": [
+    [
+     646.0,
+     574.0
+    ],
+    [
+     683.0,
+     574.0
+    ],
+    [
+     683.0,
+     590.0
+    ],
+    [
+     646.0,
+     590.0
+    ]
+   ],
+   "raw_text": "上冰沟",
+   "normalized_text": "上冰沟",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "on red unit",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_112",
+   "image_id": "u2",
+   "polygon": [
+    [
+     722.0,
+     571.0
+    ],
+    [
+     741.0,
+     571.0
+    ],
+    [
+     741.0,
+     587.0
+    ],
+    [
+     722.0,
+     587.0
+    ]
+   ],
+   "raw_text": "HT",
+   "normalized_text": "HT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "red line touches bottom",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_113",
+   "image_id": "u2",
+   "polygon": [
+    [
+     727.0,
+     613.0
+    ],
+    [
+     758.0,
+     613.0
+    ],
+    [
+     758.0,
+     628.0
+    ],
+    [
+     727.0,
+     628.0
+    ]
+   ],
+   "raw_text": "Ar₂E",
+   "normalized_text": "Ar₂E",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_114",
+   "image_id": "u2",
+   "polygon": [
+    [
+     690.0,
+     637.0
+    ],
+    [
+     709.0,
+     637.0
+    ],
+    [
+     709.0,
+     651.0
+    ],
+    [
+     690.0,
+     651.0
+    ]
+   ],
+   "raw_text": "YT",
+   "normalized_text": "YT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "triangle line symbol right",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_115",
+   "image_id": "u2",
+   "polygon": [
+    [
+     57.0,
+     644.0
+    ],
+    [
+     80.0,
+     644.0
+    ],
+    [
+     80.0,
+     657.0
+    ],
+    [
+     57.0,
+     657.0
+    ]
+   ],
+   "raw_text": "QT",
+   "normalized_text": "QT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "red line crosses T",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_116",
+   "image_id": "u2",
+   "polygon": [
+    [
+     102.0,
+     652.0
+    ],
+    [
+     125.0,
+     652.0
+    ],
+    [
+     125.0,
+     665.0
+    ],
+    [
+     102.0,
+     665.0
+    ]
+   ],
+   "raw_text": "MT",
+   "normalized_text": "MT",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_117",
+   "image_id": "u2",
+   "polygon": [
+    [
+     132.0,
+     644.0
+    ],
+    [
+     141.0,
+     644.0
+    ],
+    [
+     141.0,
+     651.0
+    ],
+    [
+     132.0,
+     651.0
+    ]
+   ],
+   "raw_text": "68",
+   "normalized_text": "68",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "attitude symbol below",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_118",
+   "image_id": "u2",
+   "polygon": [
+    [
+     80.0,
+     671.0
+    ],
+    [
+     103.0,
+     671.0
+    ],
+    [
+     103.0,
+     685.0
+    ],
+    [
+     80.0,
+     685.0
+    ]
+   ],
+   "raw_text": "HtL",
+   "normalized_text": "HtL",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_119",
+   "image_id": "u2",
+   "polygon": [
+    [
+     44.0,
+     701.0
+    ],
+    [
+     82.0,
+     701.0
+    ],
+    [
+     82.0,
+     713.0
+    ],
+    [
+     44.0,
+     713.0
+    ]
+   ],
+   "raw_text": "岚城镇",
+   "normalized_text": "岚城镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "green line crosses 城",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_120",
+   "image_id": "u2",
+   "polygon": [
+    [
+     109.0,
+     715.0
+    ],
+    [
+     137.0,
+     715.0
+    ],
+    [
+     137.0,
+     729.0
+    ],
+    [
+     109.0,
+     729.0
+    ]
+   ],
+   "raw_text": "N-Q",
+   "normalized_text": "N-Q",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_121",
+   "image_id": "u2",
+   "polygon": [
+    [
+     24.0,
+     750.0
+    ],
+    [
+     31.0,
+     750.0
+    ],
+    [
+     31.0,
+     761.0
+    ],
+    [
+     24.0,
+     761.0
+    ]
+   ],
+   "raw_text": "0",
+   "normalized_text": "0",
+   "category": "NUMERIC_SCALE",
+   "draft_category": "SCALE_BAR",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_122",
+   "image_id": "u2",
+   "polygon": [
+    [
+     77.0,
+     750.0
+    ],
+    [
+     84.0,
+     750.0
+    ],
+    [
+     84.0,
+     761.0
+    ],
+    [
+     77.0,
+     761.0
+    ]
+   ],
+   "raw_text": "5",
+   "normalized_text": "5",
+   "category": "NUMERIC_SCALE",
+   "draft_category": "SCALE_BAR",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_123",
+   "image_id": "u2",
+   "polygon": [
+    [
+     124.0,
+     750.0
+    ],
+    [
+     164.0,
+     750.0
+    ],
+    [
+     164.0,
+     761.0
+    ],
+    [
+     124.0,
+     761.0
+    ]
+   ],
+   "raw_text": "10 km",
+   "normalized_text": "10 km",
+   "category": "NUMERIC_SCALE",
+   "draft_category": "SCALE_BAR",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_124",
+   "image_id": "u2",
+   "polygon": [
+    [
+     312.0,
+     658.0
+    ],
+    [
+     325.0,
+     658.0
+    ],
+    [
+     325.0,
+     671.0
+    ],
+    [
+     312.0,
+     671.0
+    ]
+   ],
+   "raw_text": "S1",
+   "normalized_text": "S1",
+   "category": "LATIN_LABEL",
+   "draft_category": "SAMPLE_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "yellow sample dot right",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_125",
+   "image_id": "u2",
+   "polygon": [
+    [
+     307.0,
+     673.0
+    ],
+    [
+     317.0,
+     673.0
+    ],
+    [
+     317.0,
+     681.0
+    ],
+    [
+     307.0,
+     681.0
+    ]
+   ],
+   "raw_text": "15",
+   "normalized_text": "15",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_126",
+   "image_id": "u2",
+   "polygon": [
+    [
+     323.0,
+     689.0
+    ],
+    [
+     333.0,
+     689.0
+    ],
+    [
+     333.0,
+     698.0
+    ],
+    [
+     323.0,
+     698.0
+    ]
+   ],
+   "raw_text": "25",
+   "normalized_text": "25",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_127",
+   "image_id": "u2",
+   "polygon": [
+    [
+     303.0,
+     699.0
+    ],
+    [
+     313.0,
+     699.0
+    ],
+    [
+     313.0,
+     708.0
+    ],
+    [
+     303.0,
+     708.0
+    ]
+   ],
+   "raw_text": "22",
+   "normalized_text": "22",
+   "category": "NUMERIC_ATTITUDE",
+   "draft_category": "DIP_NUMBER",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "dashed line touches",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_128",
+   "image_id": "u2",
+   "polygon": [
+    [
+     211.0,
+     699.0
+    ],
+    [
+     229.0,
+     699.0
+    ],
+    [
+     229.0,
+     710.0
+    ],
+    [
+     211.0,
+     710.0
+    ]
+   ],
+   "raw_text": "S3",
+   "normalized_text": "S3",
+   "category": "LATIN_LABEL",
+   "draft_category": "SAMPLE_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_129",
+   "image_id": "u2",
+   "polygon": [
+    [
+     275.0,
+     710.0
+    ],
+    [
+     294.0,
+     710.0
+    ],
+    [
+     294.0,
+     721.0
+    ],
+    [
+     275.0,
+     721.0
+    ]
+   ],
+   "raw_text": "S2",
+   "normalized_text": "S2",
+   "category": "LATIN_LABEL",
+   "draft_category": "SAMPLE_LABEL",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": true,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "dashed line touches",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_130",
+   "image_id": "u2",
+   "polygon": [
+    [
+     323.0,
+     709.0
+    ],
+    [
+     333.0,
+     709.0
+    ],
+    [
+     333.0,
+     721.0
+    ],
+    [
+     323.0,
+     721.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_131",
+   "image_id": "u2",
+   "polygon": [
+    [
+     239.0,
+     749.0
+    ],
+    [
+     249.0,
+     749.0
+    ],
+    [
+     249.0,
+     763.0
+    ],
+    [
+     239.0,
+     763.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_132",
+   "image_id": "u2",
+   "polygon": [
+    [
+     274.0,
+     745.0
+    ],
+    [
+     313.0,
+     745.0
+    ],
+    [
+     313.0,
+     758.0
+    ],
+    [
+     274.0,
+     758.0
+    ]
+   ],
+   "raw_text": "静乐县",
+   "normalized_text": "静乐县",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_133",
+   "image_id": "u2",
+   "polygon": [
+    [
+     186.0,
+     766.0
+    ],
+    [
+     196.0,
+     766.0
+    ],
+    [
+     196.0,
+     780.0
+    ],
+    [
+     186.0,
+     780.0
+    ]
+   ],
+   "raw_text": "T",
+   "normalized_text": "T",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "cut by map edge",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_134",
+   "image_id": "u2",
+   "polygon": [
+    [
+     338.0,
+     734.0
+    ],
+    [
+     352.0,
+     734.0
+    ],
+    [
+     352.0,
+     747.0
+    ],
+    [
+     338.0,
+     747.0
+    ]
+   ],
+   "raw_text": "E′",
+   "normalized_text": "E′",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "section line E′ endpoint",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_135",
+   "image_id": "u2",
+   "polygon": [
+    [
+     370.0,
+     748.0
+    ],
+    [
+     410.0,
+     748.0
+    ],
+    [
+     410.0,
+     761.0
+    ],
+    [
+     370.0,
+     761.0
+    ]
+   ],
+   "raw_text": "娘子神",
+   "normalized_text": "娘子神",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_136",
+   "image_id": "u2",
+   "polygon": [
+    [
+     429.0,
+     735.0
+    ],
+    [
+     457.0,
+     735.0
+    ],
+    [
+     457.0,
+     749.0
+    ],
+    [
+     429.0,
+     749.0
+    ]
+   ],
+   "raw_text": "Є-O",
+   "normalized_text": "Є-O",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_137",
+   "image_id": "u2",
+   "polygon": [
+    [
+     516.0,
+     702.0
+    ],
+    [
+     542.0,
+     702.0
+    ],
+    [
+     542.0,
+     716.0
+    ],
+    [
+     516.0,
+     716.0
+    ]
+   ],
+   "raw_text": "娑婆",
+   "normalized_text": "娑婆",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_138",
+   "image_id": "u2",
+   "polygon": [
+    [
+     565.0,
+     730.0
+    ],
+    [
+     596.0,
+     730.0
+    ],
+    [
+     596.0,
+     745.0
+    ],
+    [
+     565.0,
+     745.0
+    ]
+   ],
+   "raw_text": "Pt₁D",
+   "normalized_text": "Pt₁D",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "on red unit",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_139",
+   "image_id": "u2",
+   "polygon": [
+    [
+     685.0,
+     700.0
+    ],
+    [
+     720.0,
+     700.0
+    ],
+    [
+     720.0,
+     714.0
+    ],
+    [
+     685.0,
+     714.0
+    ]
+   ],
+   "raw_text": "下马圈",
+   "normalized_text": "下马圈",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "section line passes left",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_140",
+   "image_id": "u2",
+   "polygon": [
+    [
+     753.0,
+     690.0
+    ],
+    [
+     783.0,
+     690.0
+    ],
+    [
+     783.0,
+     702.0
+    ],
+    [
+     753.0,
+     702.0
+    ]
+   ],
+   "raw_text": "Ar₂J",
+   "normalized_text": "Ar₂J",
+   "category": "GEOLOGICAL_CODE",
+   "draft_category": "GEOLOGICAL_CODE",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_141",
+   "image_id": "u2",
+   "polygon": [
+    [
+     759.0,
+     718.0
+    ],
+    [
+     799.0,
+     718.0
+    ],
+    [
+     799.0,
+     730.0
+    ],
+    [
+     759.0,
+     730.0
+    ]
+   ],
+   "raw_text": "三交镇",
+   "normalized_text": "三交镇",
+   "category": "CHINESE_PLACE_NAME",
+   "draft_category": "PLACE_NAME",
+   "has_special_symbol": false,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "green line crosses",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  },
+  {
+   "sample_id": "u2_text_142",
+   "image_id": "u2",
+   "polygon": [
+    [
+     775.0,
+     773.0
+    ],
+    [
+     791.0,
+     773.0
+    ],
+    [
+     791.0,
+     780.0
+    ],
+    [
+     775.0,
+     780.0
+    ]
+   ],
+   "raw_text": "A′",
+   "normalized_text": "A′",
+   "category": "LATIN_LABEL",
+   "draft_category": "SECTION_LABEL",
+   "has_special_symbol": true,
+   "orientation": "HORIZONTAL",
+   "overlaps_geological_line": false,
+   "overlaps_geological_line_source": "auto_B2c_prefill",
+   "note": "cut by map edge",
+   "review_status": "AGENT_DRAFT",
+   "revision": [
+    {
+     "rev": 1,
+     "by": "claude-opus-5-5 (agent)",
+     "date": "2026-11-01",
+     "action": "drafted from 4x map tiles"
+    }
+   ]
+  }
+ ]
+}

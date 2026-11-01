@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><title>StitchVector OCR POC-01 对比</title>
+<style>
+body{margin:0;font:13px -apple-system,"PingFang SC",sans-serif;display:flex;height:100vh}
+#left{flex:1;overflow:auto;background:#333;position:relative}
+#wrap{position:relative;transform-origin:0 0}
+#wrap img,#wrap svg{position:absolute;left:0;top:0}
+#side{width:460px;display:flex;flex-direction:column;border-left:1px solid #ccc}
+#ctl{padding:8px;border-bottom:1px solid #ddd;line-height:1.9}
+#detail{padding:8px;border-bottom:1px solid #ddd;min-height:120px;background:#fafafa}
+#tbl{flex:1;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #eee;padding:2px 4px;text-align:left;white-space:nowrap}
+tr:hover{background:#eef}tr.sel{background:#ffd}
+.warn{color:#b00;font-weight:bold}
+.CORRECT{color:#080}.WRONG_TEXT{color:#c60}.MISSED{color:#c00}.FALSE_POS_NEG{color:#90c}.UNMATCHED{color:#06c}
+</style></head><body>
+<div id="left"><div id="wrap"><img id="img"><svg id="svg"></svg></div></div>
+<div id="side">
+ <div id="ctl">
+  <div class="warn">真值状态：<span id="tstat"></span></div>
+  引擎：<select id="eng"></select>
+  缩放：<select id="zoom"><option>1</option><option selected>2</option><option>3</option><option>4</option></select><br>
+  <label><input type="checkbox" id="sTruth" checked>人工真值</label>
+  <label><input type="checkbox" id="sNeg">负样本</label>
+  <label><input type="checkbox" id="sPred" checked>模型框</label>
+  <label><input type="checkbox" id="sLines">B2c 地质线</label>
+  <label><input type="checkbox" id="sText" checked>显示字符串</label><br>
+  表格：<select id="filter">
+   <option value="ERR">错误（错字+漏检+误检）</option><option value="ALL">全部真值</option>
+   <option value="WRONG_TEXT">错字</option><option value="MISSED">漏检</option>
+   <option value="FP">误检/未匹配框</option><option value="GEOLOGICAL_CODE">地质代号</option>
+  </select>
+  <span id="cnt"></span>
+  <div>图例：<span class="CORRECT">■正确</span> <span class="WRONG_TEXT">■错字</span> <span class="MISSED">■漏检(真值)</span>
+   <span class="FALSE_POS_NEG">■命中负样本</span> <span class="UNMATCHED">■未匹配框</span></div>
+ </div>
+ <div id="detail">点击地图上的框或表格行查看各模型结果。</div>
+ <div id="tbl"><table><thead><tr><th>ID</th><th>类别</th><th>真值</th><th>预测</th><th>状态</th></tr></thead><tbody id="tb"></tbody></table></div>
+</div>
+<script src="data.js"></script>
+<script>
+const D = window.OCR_DATA, E = Object.keys(D.engines), $ = id => document.getElementById(id);
+const COL = {CORRECT:"#0a0",WRONG_TEXT:"#f80",MISSED:"#e00",FALSE_POS_NEG:"#b0e",UNMATCHED:"#08f"};
+const TR = Object.fromEntries(D.truth.map(t => [t.sample_id, t]));
+let sel = null;
+$("tstat").textContent = D.truth_status;
+E.forEach(e => $("eng").add(new Option(e, e)));
+$("img").src = D.image; $("img").width = D.w; $("img").height = D.h;
+const svg = $("svg"); svg.setAttribute("width", D.w); svg.setAttribute("height", D.h);
+const pts = p => p.map(q => q.join(",")).join(" ");
+const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+function engineView(e) {
+  const g = D.engines[e], byTruth = {};
+  g.boxes.forEach((b, i) => { b.i = i; if (b.truth) byTruth[b.truth] = b; });
+  return {g, byTruth, missed: new Set(g.missed)};
+}
+function truthStatus(v, t) {
+  if (v.missed.has(t.sample_id)) return "MISSED";
+  return v.byTruth[t.sample_id]?.status || "MISSED";
+}
+function draw() {
+  const e = $("eng").value, v = engineView(e); let h = "";
+  if ($("sLines").checked) D.lines.forEach(l => h += `<polyline points="${pts(l)}" fill="none" stroke="#0ff" stroke-width="0.8" opacity="0.8"/>`);
+  if ($("sNeg").checked) D.negatives.forEach(n => h += `<polygon points="${pts(n.polygon)}" fill="none" stroke="#999" stroke-dasharray="2,2" stroke-width="0.6"/>`);
+  if ($("sTruth").checked) D.truth.forEach(t => {
+    const st = truthStatus(v, t), c = st === "MISSED" ? COL.MISSED : "#fff";
+    h += `<polygon data-t="${t.sample_id}" points="${pts(t.polygon)}" fill="none" stroke="${c}" stroke-width="${st==="MISSED"?1.2:0.6}" stroke-dasharray="${st==="MISSED"?"":"1,1"}" style="cursor:pointer;pointer-events:all"/>`;
+  });
+  if ($("sPred").checked) v.g.boxes.forEach(b => {
+    h += `<polygon data-b="${b.i}" points="${pts(b.poly)}" fill="${COL[b.status]}" fill-opacity="0.12" stroke="${COL[b.status]}" stroke-width="0.9" style="cursor:pointer"/>`;
+    if ($("sText").checked) { const x = Math.min(...b.poly.map(p => p[0])), y = Math.min(...b.poly.map(p => p[1]));
+      h += `<text x="${x}" y="${y - 1}" font-size="6" fill="${COL[b.status]}" stroke="#000" stroke-width="0.15" style="pointer-events:none">${esc(b.text)}</text>`; }
+  });
+  if (sel) { const p = sel.poly; h += `<polygon points="${pts(p)}" fill="none" stroke="#ff0" stroke-width="2"/>`; }
+  svg.innerHTML = h; table();
+}
+function rowsFor(v) {
+  const f = $("filter").value, out = [];
+  D.truth.forEach(t => {
+    const st = truthStatus(v, t), b = v.byTruth[t.sample_id];
+    const keep = f === "ALL" || (f === "ERR" && st !== "CORRECT") || f === st || (f === "GEOLOGICAL_CODE" && t.category === f);
+    if (keep) out.push({id: t.sample_id, cat: t.category, truth: t.raw_text, pred: b ? b.text : "", st, poly: t.polygon, tid: t.sample_id});
+  });
+  if (f === "ERR" || f === "FP" || f === "ALL") v.g.boxes.forEach(b => {
+    if (b.status === "FALSE_POS_NEG" || b.status === "UNMATCHED") out.push({id: "box#" + b.i, cat: "-", truth: "", pred: b.text, st: b.status, poly: b.poly, bi: b.i});
+  });
+  return out;
+}
+function table() {
+  const v = engineView($("eng").value), R = rowsFor(v);
+  $("cnt").textContent = `${R.length} 行`;
+  $("tb").innerHTML = R.map((r, k) => `<tr data-k="${k}" class="${sel && sel.id === r.id ? "sel" : ""}"><td>${r.id}</td><td>${r.cat}</td><td>${esc(r.truth)}</td><td>${esc(r.pred)}</td><td class="${r.st}">${r.st}</td></tr>`).join("");
+  [...$("tb").rows].forEach(tr => tr.onclick = () => pick(R[+tr.dataset.k], true));
+}
+function pick(r, jump) {
+  sel = r; detail(r);
+  if (jump) { const z = +$("zoom").value, xs = r.poly.map(p => p[0]), ys = r.poly.map(p => p[1]);
+    $("left").scrollTo({left: Math.min(...xs) * z - $("left").clientWidth / 2, top: Math.min(...ys) * z - $("left").clientHeight / 2, behavior: "smooth"}); }
+  draw();
+}
+function detail(r) {
+  let h = "";
+  if (r.tid) {
+    const t = TR[r.tid];
+    h += `<b>${t.sample_id}</b> 真值 <b>${esc(t.raw_text)}</b>（${t.category}${t.has_special_symbol ? "，含特殊符号" : ""}${t.overlaps_geological_line ? "，与地质线交叉" : ""}）<br>${esc(t.review_status)} ${esc(t.note)}<br>`;
+    h += `<table><tr><th>引擎</th><th>端到端</th><th>置信度</th><th>固定框 1×</th><th>固定框 2×</th></tr>`;
+    E.forEach(e => { const v = engineView(e), b = v.byTruth[t.sample_id], fx = v.g.fixed[t.sample_id] || {};
+      const st = truthStatus(v, t);
+      h += `<tr><td>${e}</td><td class="${st}">${b ? esc(b.text) : "（漏检）"}</td><td>${b && b.conf != null ? b.conf.toFixed(3) : ""}</td><td>${esc(fx.x1)}</td><td>${esc(fx.x2)}</td></tr>`; });
+    h += `</table><small>置信度来自各引擎原始输出，不同引擎之间不可直接比较。</small>`;
+  } else {
+    const b = D.engines[$("eng").value].boxes[r.bi];
+    h += `<b>${$("eng").value} 框 #${r.bi}</b>：${esc(b.text)}（置信度 ${b.conf}）<br>状态 <span class="${b.status}">${b.status}</span>：没有对应真值${b.status === "FALSE_POS_NEG" ? "，且覆盖负样本（地质线/符号/空白区）" : "（可能是真值未标的文字、符号或误检，待复核）"}`;
+  }
+  $("detail").innerHTML = h;
+}
+svg.onclick = ev => {
+  const el = ev.target, v = engineView($("eng").value);
+  if (el.dataset.b !== undefined) { const b = v.g.boxes[+el.dataset.b];
+    pick(b.truth ? {id: b.truth, tid: b.truth, poly: TR[b.truth].polygon} : {id: "box#" + b.i, bi: b.i, poly: b.poly}, false); }
+  else if (el.dataset.t) pick({id: el.dataset.t, tid: el.dataset.t, poly: TR[el.dataset.t].polygon}, false);
+};
+function zoom() { const z = +$("zoom").value; $("wrap").style.transform = `scale(${z})`; $("wrap").style.width = D.w * z + "px"; $("wrap").style.height = D.h * z + "px"; }
+["eng", "sTruth", "sNeg", "sPred", "sLines", "sText", "filter"].forEach(id => $(id).onchange = draw);
+$("zoom").onchange = () => { zoom(); };
+zoom(); draw();
+</script></body></html>

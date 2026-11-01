@@ -1,0 +1,1427 @@
+[
+{
+"sample_id": "u2_neg_000",
+"image_id": "u2",
+"polygon": [
+[
+771.0,
+145.0
+],
+[
+771.0,
+163.0
+],
+[
+753.0,
+163.0
+],
+[
+753.0,
+145.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_001",
+"image_id": "u2",
+"polygon": [
+[
+645.0,
+71.0
+],
+[
+645.0,
+89.0
+],
+[
+627.0,
+89.0
+],
+[
+627.0,
+71.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_002",
+"image_id": "u2",
+"polygon": [
+[
+459.0,
+708.0
+],
+[
+459.0,
+726.0
+],
+[
+441.0,
+726.0
+],
+[
+441.0,
+708.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_003",
+"image_id": "u2",
+"polygon": [
+[
+276.0,
+166.0
+],
+[
+276.0,
+184.0
+],
+[
+258.0,
+184.0
+],
+[
+258.0,
+166.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_004",
+"image_id": "u2",
+"polygon": [
+[
+737.0,
+233.0
+],
+[
+737.0,
+251.0
+],
+[
+719.0,
+251.0
+],
+[
+719.0,
+233.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_005",
+"image_id": "u2",
+"polygon": [
+[
+653.0,
+601.0
+],
+[
+653.0,
+619.0
+],
+[
+635.0,
+619.0
+],
+[
+635.0,
+601.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_006",
+"image_id": "u2",
+"polygon": [
+[
+361.0,
+109.0
+],
+[
+361.0,
+127.0
+],
+[
+343.0,
+127.0
+],
+[
+343.0,
+109.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_007",
+"image_id": "u2",
+"polygon": [
+[
+230.0,
+164.0
+],
+[
+230.0,
+182.0
+],
+[
+212.0,
+182.0
+],
+[
+212.0,
+164.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_008",
+"image_id": "u2",
+"polygon": [
+[
+528.0,
+207.0
+],
+[
+528.0,
+225.0
+],
+[
+510.0,
+225.0
+],
+[
+510.0,
+207.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_009",
+"image_id": "u2",
+"polygon": [
+[
+360.0,
+413.0
+],
+[
+360.0,
+431.0
+],
+[
+342.0,
+431.0
+],
+[
+342.0,
+413.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_010",
+"image_id": "u2",
+"polygon": [
+[
+667.0,
+270.0
+],
+[
+667.0,
+288.0
+],
+[
+649.0,
+288.0
+],
+[
+649.0,
+270.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_011",
+"image_id": "u2",
+"polygon": [
+[
+638.0,
+459.0
+],
+[
+638.0,
+477.0
+],
+[
+620.0,
+477.0
+],
+[
+620.0,
+459.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_012",
+"image_id": "u2",
+"polygon": [
+[
+664.0,
+621.0
+],
+[
+664.0,
+639.0
+],
+[
+646.0,
+639.0
+],
+[
+646.0,
+621.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_013",
+"image_id": "u2",
+"polygon": [
+[
+610.0,
+65.0
+],
+[
+610.0,
+83.0
+],
+[
+592.0,
+83.0
+],
+[
+592.0,
+65.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_014",
+"image_id": "u2",
+"polygon": [
+[
+303.0,
+96.0
+],
+[
+303.0,
+114.0
+],
+[
+285.0,
+114.0
+],
+[
+285.0,
+96.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_015",
+"image_id": "u2",
+"polygon": [
+[
+504.0,
+188.0
+],
+[
+504.0,
+206.0
+],
+[
+486.0,
+206.0
+],
+[
+486.0,
+188.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_016",
+"image_id": "u2",
+"polygon": [
+[
+575.0,
+749.0
+],
+[
+575.0,
+767.0
+],
+[
+557.0,
+767.0
+],
+[
+557.0,
+749.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_017",
+"image_id": "u2",
+"polygon": [
+[
+234.0,
+134.0
+],
+[
+234.0,
+152.0
+],
+[
+216.0,
+152.0
+],
+[
+216.0,
+134.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_018",
+"image_id": "u2",
+"polygon": [
+[
+767.0,
+253.0
+],
+[
+767.0,
+271.0
+],
+[
+749.0,
+271.0
+],
+[
+749.0,
+253.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_019",
+"image_id": "u2",
+"polygon": [
+[
+59.0,
+387.0
+],
+[
+59.0,
+405.0
+],
+[
+41.0,
+405.0
+],
+[
+41.0,
+387.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_020",
+"image_id": "u2",
+"polygon": [
+[
+526.0,
+743.0
+],
+[
+526.0,
+761.0
+],
+[
+508.0,
+761.0
+],
+[
+508.0,
+743.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_021",
+"image_id": "u2",
+"polygon": [
+[
+536.0,
+26.0
+],
+[
+536.0,
+44.0
+],
+[
+518.0,
+44.0
+],
+[
+518.0,
+26.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_022",
+"image_id": "u2",
+"polygon": [
+[
+251.0,
+572.0
+],
+[
+251.0,
+590.0
+],
+[
+233.0,
+590.0
+],
+[
+233.0,
+572.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_023",
+"image_id": "u2",
+"polygon": [
+[
+313.0,
+379.0
+],
+[
+313.0,
+397.0
+],
+[
+295.0,
+397.0
+],
+[
+295.0,
+379.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_024",
+"image_id": "u2",
+"polygon": [
+[
+767.0,
+182.0
+],
+[
+767.0,
+200.0
+],
+[
+749.0,
+200.0
+],
+[
+749.0,
+182.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_025",
+"image_id": "u2",
+"polygon": [
+[
+275.0,
+552.0
+],
+[
+275.0,
+570.0
+],
+[
+257.0,
+570.0
+],
+[
+257.0,
+552.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_026",
+"image_id": "u2",
+"polygon": [
+[
+607.0,
+337.0
+],
+[
+607.0,
+355.0
+],
+[
+589.0,
+355.0
+],
+[
+589.0,
+337.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_027",
+"image_id": "u2",
+"polygon": [
+[
+619.0,
+705.0
+],
+[
+619.0,
+723.0
+],
+[
+601.0,
+723.0
+],
+[
+601.0,
+705.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_028",
+"image_id": "u2",
+"polygon": [
+[
+746.0,
+53.0
+],
+[
+746.0,
+71.0
+],
+[
+728.0,
+71.0
+],
+[
+728.0,
+53.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_029",
+"image_id": "u2",
+"polygon": [
+[
+786.0,
+741.0
+],
+[
+786.0,
+759.0
+],
+[
+768.0,
+759.0
+],
+[
+768.0,
+741.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LINE_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_030",
+"image_id": "u2",
+"polygon": [
+[
+550.0,
+331.0
+],
+[
+550.0,
+349.0
+],
+[
+532.0,
+349.0
+],
+[
+532.0,
+331.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_031",
+"image_id": "u2",
+"polygon": [
+[
+782.0,
+42.0
+],
+[
+782.0,
+60.0
+],
+[
+764.0,
+60.0
+],
+[
+764.0,
+42.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_032",
+"image_id": "u2",
+"polygon": [
+[
+191.0,
+179.0
+],
+[
+191.0,
+197.0
+],
+[
+173.0,
+197.0
+],
+[
+173.0,
+179.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_033",
+"image_id": "u2",
+"polygon": [
+[
+756.0,
+380.0
+],
+[
+756.0,
+398.0
+],
+[
+738.0,
+398.0
+],
+[
+738.0,
+380.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_034",
+"image_id": "u2",
+"polygon": [
+[
+605.0,
+586.0
+],
+[
+605.0,
+604.0
+],
+[
+587.0,
+604.0
+],
+[
+587.0,
+586.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_035",
+"image_id": "u2",
+"polygon": [
+[
+684.0,
+542.0
+],
+[
+684.0,
+560.0
+],
+[
+666.0,
+560.0
+],
+[
+666.0,
+542.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_036",
+"image_id": "u2",
+"polygon": [
+[
+631.0,
+102.0
+],
+[
+631.0,
+120.0
+],
+[
+613.0,
+120.0
+],
+[
+613.0,
+102.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_037",
+"image_id": "u2",
+"polygon": [
+[
+496.0,
+503.0
+],
+[
+496.0,
+521.0
+],
+[
+478.0,
+521.0
+],
+[
+478.0,
+503.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_038",
+"image_id": "u2",
+"polygon": [
+[
+182.0,
+525.0
+],
+[
+182.0,
+543.0
+],
+[
+164.0,
+543.0
+],
+[
+164.0,
+525.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_039",
+"image_id": "u2",
+"polygon": [
+[
+314.0,
+158.0
+],
+[
+314.0,
+176.0
+],
+[
+296.0,
+176.0
+],
+[
+296.0,
+158.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "AREA_RANDOM",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_040",
+"image_id": "u2",
+"polygon": [
+[
+185.0,
+588.0
+],
+[
+185.0,
+602.0
+],
+[
+171.0,
+602.0
+],
+[
+171.0,
+588.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "SYMBOL_PICKED",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_041",
+"image_id": "u2",
+"polygon": [
+[
+53.0,
+681.0
+],
+[
+53.0,
+695.0
+],
+[
+39.0,
+695.0
+],
+[
+39.0,
+681.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "SYMBOL_PICKED",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_042",
+"image_id": "u2",
+"polygon": [
+[
+708.7,
+410.0
+],
+[
+708.7,
+428.0
+],
+[
+690.7,
+428.0
+],
+[
+690.7,
+410.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_043",
+"image_id": "u2",
+"polygon": [
+[
+596.9,
+539.1
+],
+[
+596.9,
+557.1
+],
+[
+578.9,
+557.1
+],
+[
+578.9,
+539.1
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_044",
+"image_id": "u2",
+"polygon": [
+[
+693.6,
+29.6
+],
+[
+693.6,
+47.6
+],
+[
+675.6,
+47.6
+],
+[
+675.6,
+29.6
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_045",
+"image_id": "u2",
+"polygon": [
+[
+208.5,
+38.8
+],
+[
+208.5,
+56.8
+],
+[
+190.5,
+56.8
+],
+[
+190.5,
+38.8
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_046",
+"image_id": "u2",
+"polygon": [
+[
+667.1,
+11.7
+],
+[
+667.1,
+29.7
+],
+[
+649.1,
+29.7
+],
+[
+649.1,
+11.7
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_047",
+"image_id": "u2",
+"polygon": [
+[
+475.1,
+169.9
+],
+[
+475.1,
+187.9
+],
+[
+457.1,
+187.9
+],
+[
+457.1,
+169.9
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_048",
+"image_id": "u2",
+"polygon": [
+[
+98.2,
+193.5
+],
+[
+98.2,
+211.5
+],
+[
+80.2,
+211.5
+],
+[
+80.2,
+193.5
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_049",
+"image_id": "u2",
+"polygon": [
+[
+636.3,
+680.0
+],
+[
+636.3,
+698.0
+],
+[
+618.3,
+698.0
+],
+[
+618.3,
+680.0
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_050",
+"image_id": "u2",
+"polygon": [
+[
+567.7,
+678.7
+],
+[
+567.7,
+696.7
+],
+[
+549.7,
+696.7
+],
+[
+549.7,
+678.7
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_051",
+"image_id": "u2",
+"polygon": [
+[
+662.4,
+664.9
+],
+[
+662.4,
+682.9
+],
+[
+644.4,
+682.9
+],
+[
+644.4,
+664.9
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_052",
+"image_id": "u2",
+"polygon": [
+[
+164.3,
+57.4
+],
+[
+164.3,
+75.4
+],
+[
+146.3,
+75.4
+],
+[
+146.3,
+57.4
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_053",
+"image_id": "u2",
+"polygon": [
+[
+172.4,
+95.6
+],
+[
+172.4,
+113.6
+],
+[
+154.4,
+113.6
+],
+[
+154.4,
+95.6
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_054",
+"image_id": "u2",
+"polygon": [
+[
+744.8,
+493.6
+],
+[
+744.8,
+511.6
+],
+[
+726.8,
+511.6
+],
+[
+726.8,
+493.6
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_055",
+"image_id": "u2",
+"polygon": [
+[
+704.1,
+761.5
+],
+[
+704.1,
+779.5
+],
+[
+686.1,
+779.5
+],
+[
+686.1,
+761.5
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+},
+{
+"sample_id": "u2_neg_056",
+"image_id": "u2",
+"polygon": [
+[
+500.5,
+656.2
+],
+[
+500.5,
+674.2
+],
+[
+482.5,
+674.2
+],
+[
+482.5,
+656.2
+]
+],
+"category": "NON_TEXT",
+"neg_kind": "LONG_LINE",
+"review_status": "AGENT_DRAFT"
+}
+]

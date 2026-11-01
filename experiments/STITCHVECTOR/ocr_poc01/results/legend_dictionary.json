@@ -1,0 +1,285 @@
+{
+ "legend_dictionary": {
+  "Ar₂E": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "Ar2E"
+    ],
+    [
+     "rapidocr",
+     "ArE"
+    ],
+    [
+     "surya",
+     "ArnE"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "rapidocr"
+   ],
+   "score": 3
+  },
+  "C-P": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "C-P"
+    ],
+    [
+     "rapidocr",
+     "P"
+    ],
+    [
+     "surya",
+     "C-P"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "surya"
+   ],
+   "score": 4
+  },
+  "HtL": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "HtL"
+    ],
+    [
+     "rapidocr",
+     "HtL"
+    ],
+    [
+     "surya",
+     "HtL"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "rapidocr",
+    "surya"
+   ],
+   "score": 6
+  },
+  "Jxd": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "Jxd"
+    ],
+    [
+     "surya",
+     "Jxd"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "surya"
+   ],
+   "score": 4
+  },
+  "N-Q": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "N-Q"
+    ],
+    [
+     "rapidocr",
+     "N-Q"
+    ],
+    [
+     "surya",
+     "N-Q"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "rapidocr",
+    "surya"
+   ],
+   "score": 6
+  },
+  "T": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "T"
+    ],
+    [
+     "surya",
+     "T"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "surya"
+   ],
+   "score": 4
+  },
+  "Є-O": {
+   "engines_raw": [
+    [
+     "paddleocr",
+     "€-o"
+    ],
+    [
+     "surya",
+     "C-O"
+    ]
+   ],
+   "support": [
+    "paddleocr",
+    "surya"
+   ],
+   "score": 4
+  }
+ },
+ "unresolved_legend_rows": [
+  [
+   [
+    "paddleocr",
+    "Jy"
+   ],
+   [
+    "rapidocr",
+    "J"
+   ],
+   [
+    "surya",
+    "Js"
+   ]
+  ],
+  [
+   [
+    "paddleocr",
+    "Jx"
+   ],
+   [
+    "rapidocr",
+    "J"
+   ],
+   [
+    "surya",
+    "J3"
+   ]
+  ],
+  [
+   [
+    "paddleocr",
+    "ArzJ"
+   ],
+   [
+    "rapidocr",
+    "Ar2J"
+   ],
+   [
+    "surya",
+    "ArzJ"
+   ]
+  ],
+  [
+   [
+    "paddleocr",
+    "Jzy"
+   ],
+   [
+    "surya",
+    "Ljy"
+   ]
+  ],
+  [
+   [
+    "paddleocr",
+    "PuD"
+   ],
+   [
+    "rapidocr",
+    "PD"
+   ],
+   [
+    "surya",
+    "PtiD"
+   ]
+  ],
+  [
+   [
+    "paddleocr",
+    "PiL"
+   ]
+  ],
+  [
+   [
+    "paddleocr",
+    "S1"
+   ],
+   [
+    "rapidocr",
+    "OS1"
+   ],
+   [
+    "surya",
+    "S1"
+   ]
+  ],
+  [
+   [
+    "surya",
+    "A"
+   ],
+   [
+    "surya",
+    "green"
+   ],
+   [
+    "surya",
+    "line"
+   ],
+   [
+    "surya",
+    "on"
+   ],
+   [
+    "surya",
+    "a"
+   ],
+   [
+    "surya",
+    "white"
+   ]
+  ],
+  [
+   [
+    "surya",
+    "A"
+   ],
+   [
+    "surya",
+    "red"
+   ],
+   [
+    "surya",
+    "line"
+   ],
+   [
+    "surya",
+    "with"
+   ],
+   [
+    "surya",
+    "two"
+   ],
+   [
+    "surya",
+    "small"
+   ],
+   [
+    "surya",
+    "along"
+   ]
+  ]
+ ]
+}
