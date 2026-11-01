@@ -47,5 +47,5 @@ def test_heal_preview_and_apply(doc):
     region = doc.gesture("brush", stroke, 4); pv = doc.heal_preview(region)
     assert "candidates" in pv and all(c["decision"] in ("merge", "keep", "uncertain") for c in pv["candidates"])
     if pv["counts"]["merge"]:
-        n0 = len(doc.F); doc.heal_apply(pv["candidates"]); assert len(doc.F) < n0 and coverage_report(doc.F, 300, 300)["accepted"]
+        n0 = len(doc.F); doc.heal_apply(pv["preview_id"]); assert len(doc.F) < n0 and coverage_report(doc.F, 300, 300)["accepted"]
         doc.undo_op(); assert len(doc.F) == n0

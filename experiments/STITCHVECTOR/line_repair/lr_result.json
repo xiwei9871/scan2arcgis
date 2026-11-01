@@ -1,0 +1,130 @@
+{
+ "S_COVER": {
+  "role_assumption": "F3 treated as COVER for the test; geology not verified",
+  "drawn_px": 21.6,
+  "group_size": 2,
+  "heal_counts": {
+   "merge": 4,
+   "keep": 0,
+   "uncertain": 3
+  },
+  "heal_merged": 4,
+  "before": {
+   "small_faces_near_gap": 7,
+   "continuity": {
+    "axis_px": 117,
+    "covered_share": 0.812,
+    "gaps_px": [
+     22
+    ]
+   }
+  },
+  "after": {
+   "small_faces_near_gap": 3,
+   "continuity": {
+    "axis_px": 117,
+    "covered_share": 1.0,
+    "gaps_px": []
+   }
+  },
+  "legend_geometry_unchanged": true,
+  "teeth_rendered": 6,
+  "objects_changed_outside_zone": 0,
+  "save": {
+   "accepted": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true
+  },
+  "reopen": {
+   "styles": [
+    "F_GREEN",
+    "F_PINK",
+    "L_DASH_RED",
+    "L_SOLID_BLACK",
+    "L_TEETH_RED"
+   ],
+   "teeth_style": {
+    "kind": "line",
+    "name": "red with teeth (thrust)",
+    "rgb": "#c0392b",
+    "width": 1.5,
+    "line_type": "teeth",
+    "dash": "",
+    "tooth_spacing": 8.0,
+    "tooth_size": 4.0,
+    "tooth_side": "right"
+   },
+   "lines_with_teeth_legend": 2,
+   "roles": [
+    "COVER",
+    "UNKNOWN"
+   ],
+   "teeth_rendered": 6
+  },
+  "ops": {
+   "draw": 1,
+   "select_group": 1,
+   "set_role": 1,
+   "heal_preview": 1,
+   "heal_apply": 1,
+   "apply_legend": 1,
+   "edit_style": 1,
+   "save": 1
+  },
+  "output": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_lr/uat/cover/u2_F3_cover_repair.gpkg",
+  "output_sha256": "43e4842164ff6552371a9c9d75ce4db9122daf281df0d77069d22deb592b16b3"
+ },
+ "S_SPLIT": {
+  "role_assumption": "C treated as SPLIT for the test; geology not verified",
+  "faces_crossed": 22,
+  "faces_cut": 4,
+  "pieces": 9,
+  "faces_before_after": [
+   665,
+   670
+  ],
+  "coverage": {
+   "accepted": true,
+   "coverage_is_valid": true,
+   "all_polygon": true,
+   "geometries_valid": true,
+   "area_sum_minus_window": 0.0,
+   "union_area_minus_window": 0.0
+  },
+  "new_edge_along_line_share": 0.93,
+  "continuity": {
+   "axis_px": 37,
+   "covered_share": 1.0,
+   "gaps_px": []
+  },
+  "objects_changed_outside_zone": 0,
+  "save": {
+   "accepted": true,
+   "readback_matches_memory": true,
+   "input_sha256_unchanged": true
+  },
+  "reopen_roles": [
+   "SPLIT",
+   "UNKNOWN"
+  ],
+  "ops": {
+   "draw": 1,
+   "set_role": 1,
+   "split_preview": 1,
+   "split_apply": 1,
+   "apply_legend": 1,
+   "save": 1
+  },
+  "output": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_lr/uat/split/u2_C_split_repair.gpkg",
+  "output_sha256": "86253f8ab83e60a13ae22063306a82423d65b65d3cdc7354e16471ade7defa88"
+ },
+ "S_NEG": {
+  "stale_after_edit": "rejected: unknown or expired preview; preview again",
+  "stale_after_undo": "rejected: unknown or expired preview; preview again",
+  "split_on_unknown": "rejected: only a line marked SPLIT can cut faces; set its role first",
+  "under_unknown_candidates": 2,
+  "under_unknown_proposed_merge": 0
+ },
+ "inputs_unchanged": true,
+ "verification": "DATA_LEVEL_VERIFIED"
+}

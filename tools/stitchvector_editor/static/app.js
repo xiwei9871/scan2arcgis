@@ -1,5 +1,7 @@
 // StitchVector Editor V0.1 client. World coordinates = image pixels (x right, y down), same as the GPKG.
 const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), main = document.getElementById("main");
+const cvL = document.getElementById("cvL"), ctxL = cvL.getContext("2d"), mainL = document.getElementById("mainL");
+let hover = null, splitPv = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
 let stroke = null, mergePv = null, healPv = null;
@@ -16,14 +18,25 @@ async function refresh() {
   $("src").textContent = S.gpkg.split("/").slice(-1)[0] + "  " + S.width + "×" + S.height + "  面 " + S.faces.length + "  线 " + S.lines.length;
   $("log").textContent = S.log.slice().reverse().map(e => e.op + (e.of ? " (" + e.of + ")" : "") + (e.objects ? "  ×" + e.objects : "")).join("\n") || "（无）";
   const keep = new Set((sel.layer === "face" ? S.faces : S.lines).map(o => o.id)); sel.ids = sel.ids.filter(i => keep.has(i));
-  showSel(); draw();
+  fillLegend(); showSel(); draw();
 }
-function toWorld(ev) { const r = cv.getBoundingClientRect(); return [(ev.clientX - r.left - view.x) / view.s, (ev.clientY - r.top - view.y) / view.s]; }
+function toWorld(ev, c) { const r = (c || cv).getBoundingClientRect(); return [(ev.clientX - r.left - view.x) / view.s, (ev.clientY - r.top - view.y) / view.s]; }
 function fit() {
   if (!S) return; const w = main.clientWidth, h = main.clientHeight; view.s = Math.min(w / S.width, h / S.height) * 0.95;
   view.x = (w - S.width * view.s) / 2; view.y = (h - S.height * view.s) / 2; draw();
 }
+function drawLeft() {
+  mainL.style.display = $("dual").checked ? "" : "none"; if (!$("dual").checked) return;
+  cvL.width = mainL.clientWidth; cvL.height = mainL.clientHeight; ctxL.setTransform(1, 0, 0, 1, 0, 0); ctxL.fillStyle = "#888"; ctxL.fillRect(0, 0, cvL.width, cvL.height);
+  if (!S) return; ctxL.setTransform(view.s, 0, 0, view.s, view.x, view.y); ctxL.imageSmoothingEnabled = false; if (img.complete) ctxL.drawImage(img, 0, 0);
+  crosshair(ctxL);
+}
+function crosshair(c) {
+  if (!hover || !S) return; c.save(); c.strokeStyle = "#ff00ff"; c.lineWidth = 1 / view.s; c.setLineDash([]);
+  c.beginPath(); c.moveTo(hover[0] - 6 / view.s * 3, hover[1]); c.lineTo(hover[0] + 6 / view.s * 3, hover[1]); c.moveTo(hover[0], hover[1] - 6 / view.s * 3); c.lineTo(hover[0], hover[1] + 6 / view.s * 3); c.stroke(); c.restore();
+}
 function draw() {
+  drawLeft();
   cv.width = main.clientWidth; cv.height = main.clientHeight; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = "#888"; ctx.fillRect(0, 0, cv.width, cv.height);
   if (!S) return; ctx.setTransform(view.s, 0, 0, view.s, view.x, view.y); ctx.imageSmoothingEnabled = false;
   if ($("showImg").checked && img.complete) ctx.drawImage(img, 0, 0);
@@ -35,7 +48,11 @@ function draw() {
   }
   if ($("showLines").checked) {
     ctx.lineCap = "round"; ctx.lineJoin = "round";
-    for (const l of S.lines) { ctx.beginPath(); l.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = l.rgb; ctx.lineWidth = Math.max(l.width, 0.5); ctx.stroke(); }
+    const R = new Map((S.render || []).map(r => [r.id, r]));
+    for (const l of S.lines) { const r = R.get(l.id) || { dash: [], teeth: [] };
+      ctx.beginPath(); l.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = l.rgb; ctx.lineWidth = Math.max(l.width, 0.5);
+      ctx.setLineDash(r.dash || []); ctx.lineCap = (r.dash && r.dash.length) ? "butt" : "round"; ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = l.rgb; for (const t of (r.teeth || [])) { ctx.beginPath(); t.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill(); } }
   }
   ctx.lineWidth = 2 / view.s; ctx.setLineDash([4 / view.s, 3 / view.s]);
   if (sel.layer === "face") for (const f of S.faces) if (selSet.has(f.id)) { ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } ctx.strokeStyle = "#00e5ff"; ctx.stroke(); }
@@ -50,6 +67,8 @@ function draw() {
   if (healPv) { const by = new Map(S.faces.map(f => [f.id, f])); const C = { merge: "#76ff03", keep: "#2979ff", uncertain: "#ff9100" };
     for (const c of healPv.candidates) { const f = by.get(c.id); if (!f) continue; ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); }
       ctx.fillStyle = C[c.decision]; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
+  if (splitPv) for (const ring of splitPv.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.strokeStyle = "#ffea00"; ctx.lineWidth = 2 / view.s; ctx.stroke(); }
+  crosshair(ctx);
   if (drag && drag.box) { const [x0, y0] = drag.w0, [x1, y1] = drag.w1; ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0)); }
 }
 function showSel() {
@@ -78,7 +97,7 @@ cv.addEventListener("mousedown", (ev) => {
   if (["brushSel", "lassoSel", "heal"].includes(tool)) { stroke = { kind: tool === "lassoSel" ? "lasso" : "brush", pts: [w] }; drag = { gesture: true }; }
 });
 cv.addEventListener("mousemove", (ev) => {
-  if (!drag) return;
+  hover = toWorld(ev); if (!drag) { draw(); return; }
   if (drag.pan) { view.x = drag.vx + ev.clientX - drag.x; view.y = drag.vy + ev.clientY - drag.y; draw(); }
   else if (drag.box) { drag.w1 = toWorld(ev); draw(); }
   else if (drag.gesture && stroke) { const w = toWorld(ev), q = stroke.pts[stroke.pts.length - 1]; if (Math.hypot(w[0] - q[0], w[1] - q[1]) * view.s > 3) { stroke.pts.push(w); draw(); } }
@@ -121,7 +140,7 @@ window.addEventListener("resize", draw);
 document.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => {
   tool = b.dataset.tool; drawPts = []; document.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x === b)); draw();
 });
-["showImg", "showFaces", "showLines", "alpha"].forEach(id => $(id).oninput = draw);
+["showImg", "showFaces", "showLines", "alpha", "dual"].forEach(id => $(id).oninput = draw);
 $("fit").onclick = fit;
 $("clear").onclick = () => setSel(sel.layer, []);
 $("group").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中一条线"); const r = await api("group", { id: sel.ids[0] }); setSel("line", r.ids); msg(`整组 ${r.ids.length} 条线`, true); });
@@ -163,5 +182,36 @@ $("mergePreview").onclick = () => guard(async () => {
   $("preview").textContent = `合并预览：${r.groups.length} 组，其中可合并 ${r.mergeable_groups} 组\n` + r.groups.map((g, i) => `组${i + 1}: ${g.faces.length} 面 面积${g.area.toFixed(0)} 颜色冲突 ${((g.colour_conflict_share || 0) * 100).toFixed(0)}%` + ((g.colour_conflict_share || 0) > 0.1 ? "  ⚠ 可能越过真实边界" : "")).join("\n");
   draw(); msg("绿色轮廓 = 合并后边界；红色 = 组内原图颜色差异大，请检查", true); });
 $("mergeGroups").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge_groups", { ids: sel.ids }); mergePv = null; setSel("face", []); $("preview").textContent = "（无预览）"; msg(`已合并 ${r.groups} 组、${r.faces} 个面`, true); });
-$("healApply").onclick = () => guard(async () => { if (!healPv) throw new Error("先用碎面修复刷刷一下"); const r = await api("heal_apply", { plan: healPv.candidates }); healPv = null; $("preview").textContent = "（无预览）"; msg(`已修复：合并 ${r.merged} 个碎面`, true); });
+$("healApply").onclick = () => guard(async () => { if (!healPv) throw new Error("先用碎面修复刷刷一下"); const r = await api("heal_apply", { preview_id: healPv.preview_id }); healPv = null; $("preview").textContent = "（无预览）"; msg(`已修复：合并 ${r.merged} 个碎面`, true); });
 $("healCancel").onclick = () => { healPv = null; mergePv = null; $("preview").textContent = "（无预览）"; draw(); };
+
+// ---- left pane: pan / zoom / crosshair only (read-only; no edits) ----
+let dragL = null;
+cvL.addEventListener("mousedown", (ev) => { dragL = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y }; });
+cvL.addEventListener("mousemove", (ev) => { hover = toWorld(ev, cvL); if (dragL) { view.x = dragL.vx + ev.clientX - dragL.x; view.y = dragL.vy + ev.clientY - dragL.y; } draw(); });
+window.addEventListener("mouseup", () => { dragL = null; });
+cvL.addEventListener("wheel", (ev) => {
+  ev.preventDefault(); const r = cvL.getBoundingClientRect(), mx = ev.clientX - r.left, my = ev.clientY - r.top, k = Math.exp(-ev.deltaY * 0.0015);
+  view.x = mx - (mx - view.x) * k; view.y = my - (my - view.y) * k; view.s *= k; draw();
+}, { passive: false });
+cvL.addEventListener("contextmenu", (e) => e.preventDefault());
+
+// ---- line roles, split faces, legend ----
+function fillLegend() {
+  const sel_ = $("legend"), cur = sel_.value; sel_.innerHTML = "";
+  for (const [k, v] of Object.entries(S.styles || {})) { const o = document.createElement("option"); o.value = k; o.textContent = `${k} · ${v.kind === "line" ? "线" : "面"} · ${v.name}`; sel_.appendChild(o); }
+  if (cur && S.styles[cur]) sel_.value = cur; showStyle();
+}
+function showStyle() { const st = (S.styles || {})[$("legend").value]; if (!st) return;
+  $("stRgb").value = st.rgb; $("stWidth").value = st.width; $("stType").value = st.line_type || "solid"; $("stDash").value = st.dash || "";
+  $("stSpacing").value = st.tooth_spacing; $("stSize").value = st.tooth_size; $("stSide").value = st.tooth_side || "left"; }
+$("legend").onchange = showStyle;
+$("setRole").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("set_role", { ids: sel.ids, role: $("role").value }); msg(`已设 ${sel.ids.length} 条线为 ${$("role").value}`, true); });
+$("applyLegend").onclick = () => guard(async () => { if (!sel.ids.length) throw new Error("没有选中对象"); await api("apply_legend", { layer: sel.layer, ids: sel.ids, legend_id: $("legend").value }); msg(`已应用图例 ${$("legend").value}（几何不变）`, true); });
+$("saveStyle").onclick = () => guard(async () => { const id = $("legend").value; const st = S.styles[id];
+  await api("set_style", { legend_id: id, style: { ...st, rgb: $("stRgb").value, width: +$("stWidth").value || st.width, line_type: st.kind === "line" ? $("stType").value : "",
+    dash: $("stDash").value, tooth_spacing: +$("stSpacing").value, tooth_size: +$("stSize").value, tooth_side: st.kind === "line" ? $("stSide").value : "" } });
+  msg(`图例 ${id} 已更新，所有用它的对象已重绘`, true); });
+$("splitPreview").onclick = () => guard(async () => { if (sel.layer !== "line" || sel.ids.length !== 1) throw new Error("先选中一条 SPLIT 线");
+  const r = await api("split_face_preview", { id: sel.ids[0] }); splitPv = r; $("preview").textContent = `切面预览：切开 ${r.faces_cut} 个面，生成 ${r.pieces} 块（黄色轮廓）`; msg("黄色轮廓 = 切开后的面", true); });
+$("splitApply").onclick = () => guard(async () => { if (!splitPv) throw new Error("先预览切面"); const r = await api("split_face_apply", { preview_id: splitPv.preview_id }); splitPv = null; $("preview").textContent = "（无预览）"; msg(`已切开 ${r.faces_cut} 个面`, true); });

@@ -10,7 +10,8 @@ import numpy as np, pandas as pd, geopandas as gpd, pyogrio, shapely
 from shapely.geometry import LineString, Point, Polygon, MultiPolygon
 from shapely.ops import split as shp_split, substring
 
-FACE, LINE = "colour_faces", "visual_lines"
+FACE, LINE, STYLES = "colour_faces", "visual_lines", "legend_styles"
+ROLES = ("COVER", "SPLIT", "UNKNOWN")
 
 
 def sha256(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
@@ -29,6 +30,59 @@ def lab(rgb):
     return rgb2lab(np.asarray(rgb, float).reshape(-1, 1, 3) / 255.0).reshape(-1, 3)
 
 
+
+# ================= Legend: styles stored apart from geometry =================
+LINE_TYPES = ("solid", "dash", "teeth")
+STYLE_KEYS = {"kind": str, "name": str, "rgb": str, "width": float, "line_type": str, "dash": str,
+              "tooth_spacing": float, "tooth_size": float, "tooth_side": str}
+
+
+def default_styles():
+    """a minimal starter library (not a recognised legend): edit or add entries per map."""
+    return {
+        "L_SOLID_BLACK": {"kind": "line", "name": "solid black 1.5", "rgb": "#202020", "width": 1.5, "line_type": "solid", "dash": "", "tooth_spacing": 0.0, "tooth_size": 0.0, "tooth_side": "left"},
+        "L_DASH_RED": {"kind": "line", "name": "dashed red 1.5", "rgb": "#c0392b", "width": 1.5, "line_type": "dash", "dash": "6,4", "tooth_spacing": 0.0, "tooth_size": 0.0, "tooth_side": "left"},
+        "L_TEETH_RED": {"kind": "line", "name": "red with teeth (thrust)", "rgb": "#c0392b", "width": 1.5, "line_type": "teeth", "dash": "", "tooth_spacing": 10.0, "tooth_size": 4.0, "tooth_side": "left"},
+        "F_PINK": {"kind": "face", "name": "pink fill", "rgb": "#f5c6d0", "width": 0.0, "line_type": "", "dash": "", "tooth_spacing": 0.0, "tooth_size": 0.0, "tooth_side": ""},
+        "F_GREEN": {"kind": "face", "name": "green fill", "rgb": "#cfe3a5", "width": 0.0, "line_type": "", "dash": "", "tooth_spacing": 0.0, "tooth_size": 0.0, "tooth_side": ""},
+    }
+
+
+def clean_style(r):
+    out = {}
+    for k, t in STYLE_KEYS.items():
+        v = r.get(k)
+        if v is None or (isinstance(v, float) and np.isnan(v)): v = "" if t is str else 0.0
+        out[k] = t(v)
+    if out["kind"] not in ("line", "face"): raise EditError(f"style kind must be line or face, not {out['kind']!r}")
+    out["rgb"] = hex_ok(out["rgb"])
+    if out["kind"] == "line":
+        if out["line_type"] not in LINE_TYPES: raise EditError(f"line_type must be one of {LINE_TYPES}")
+        if out["width"] <= 0 or out["width"] > 50: raise EditError("width must be in (0, 50]")
+        if out["line_type"] == "dash":
+            try: d = [float(x) for x in out["dash"].split(",")]
+            except ValueError: raise EditError("dash must be like '6,4'")
+            if len(d) < 2 or min(d) <= 0: raise EditError("dash must be like '6,4' with positive numbers")
+        if out["line_type"] == "teeth":
+            if not (2 <= out["tooth_spacing"] <= 200) or not (0.5 <= out["tooth_size"] <= 50): raise EditError("tooth spacing 2-200, size 0.5-50")
+            if out["tooth_side"] not in ("left", "right"): raise EditError("tooth_side must be left or right")
+    return out
+
+
+def teeth_triangles(line, spacing, size, side):
+    """triangles along `line`, one every `spacing` px, apex `size` px to the left/right of the travel direction
+    (y down, as in the image). Used for display only; the line geometry is not changed."""
+    out = []; L = line.length; sgn = 1.0 if side == "left" else -1.0; d = spacing / 2
+    while d < L:
+        a, b = line.interpolate(max(d - size / 2, 0)), line.interpolate(min(d + size / 2, L)); m = line.interpolate(d)
+        tx, ty = b.x - a.x, b.y - a.y; n = np.hypot(tx, ty)
+        if n > 1e-9:
+            nx, ny = ty / n * sgn, -tx / n * sgn
+            out.append([[a.x, a.y], [b.x, b.y], [m.x + nx * size, m.y + ny * size]])
+        d += spacing
+    return out
+
+
 class EditError(Exception):
     pass
 
@@ -42,34 +96,48 @@ class Document:
         self.F = pyogrio.read_dataframe(self.src, layer=FACE); self.F["_eid"] = np.arange(len(self.F))
         self.L = pyogrio.read_dataframe(self.src, layer=LINE) if LINE in layers else gpd.GeoDataFrame(
             {"line_id": [], "logical_id": [], "kind": [], "width_px": [], "rgb": [], "source": [], "draw_order": []}, geometry=[])
-        self.L["_eid"] = np.arange(len(self.L)); self.other = {l: pyogrio.read_dataframe(self.src, layer=l) for l in layers if l not in (FACE, LINE)}
+        self.L["_eid"] = np.arange(len(self.L)); self.other = {l: pyogrio.read_dataframe(self.src, layer=l) for l in layers if l not in (FACE, LINE, STYLES)}
+        # line role (COVER / SPLIT / UNKNOWN) and legend binding; existing lines default to UNKNOWN, never inferred
+        if "line_role" not in self.L.columns: self.L["line_role"] = "UNKNOWN"
+        self.L["line_role"] = self.L["line_role"].fillna("UNKNOWN").astype(object)
+        for D in (self.L, self.F):
+            if "legend_id" not in D.columns: D["legend_id"] = None
+            D["legend_id"] = D["legend_id"].astype(object).where(D["legend_id"].notna(), None)
+        self.styles = default_styles()
+        if STYLES in layers:
+            for r in pyogrio.read_dataframe(self.src, layer=STYLES).to_dict("records"): self.styles[r["legend_id"]] = clean_style(r)
         self.face_cols = [c for c in self.F.columns if c not in ("geometry", "_eid")]; self.line_cols = [c for c in self.L.columns if c not in ("geometry", "_eid")]
         self.F0, self.L0 = self.F.copy(), self.L.copy(); self.next_f, self.next_l = len(self.F), len(self.L)
         self.undo, self.redo, self.log = [], [], []; self.dirty = False
+        self.version = 0; self.previews = {}; self._pid = 0
 
     # ---------- state ----------
-    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l)
+    def _bump(self):
+        """every change of document content (edit, undo, redo) gets a new version; all stored previews become stale."""
+        self.version += 1; self.previews.clear()
+
+    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles))
 
     def _push(self, desc, counts):
-        self.redo.clear(); self.dirty = True
+        self.redo.clear(); self.dirty = True; self._bump()
         self.log.append({"t": round(time.time(), 3), "op": desc, **counts})
 
     def _do(self, desc, fn, **counts):
         snap = self._snap()
         try: fn()
         except Exception:
-            self.F, self.L, self.next_f, self.next_l = snap; raise
+            self.F, self.L, self.next_f, self.next_l, self.styles = snap; raise
         self.undo.append((snap, desc)); self._push(desc, counts)
 
     def undo_op(self):
         if not self.undo: raise EditError("nothing to undo")
-        snap, desc = self.undo.pop(); self.redo.append((self._snap(), desc)); self.F, self.L, self.next_f, self.next_l = snap
-        self.dirty = True; self.log.append({"t": round(time.time(), 3), "op": "undo", "of": desc}); return desc
+        snap, desc = self.undo.pop(); self.redo.append((self._snap(), desc)); self.F, self.L, self.next_f, self.next_l, self.styles = snap
+        self.dirty = True; self._bump(); self.log.append({"t": round(time.time(), 3), "op": "undo", "of": desc}); return desc
 
     def redo_op(self):
         if not self.redo: raise EditError("nothing to redo")
-        snap, desc = self.redo.pop(); self.undo.append((self._snap(), desc)); self.F, self.L, self.next_f, self.next_l = snap
-        self.dirty = True; self.log.append({"t": round(time.time(), 3), "op": "redo", "of": desc}); return desc
+        snap, desc = self.redo.pop(); self.undo.append((self._snap(), desc)); self.F, self.L, self.next_f, self.next_l, self.styles = snap
+        self.dirty = True; self._bump(); self.log.append({"t": round(time.time(), 3), "op": "redo", "of": desc}); return desc
 
     def _rows(self, layer, ids):
         D = self.F if layer == FACE else self.L; m = D["_eid"].isin([int(i) for i in ids])
@@ -163,7 +231,8 @@ class Document:
         lid = logical_id or f"E{self.next_l}"; rgb = hex_ok(rgb)
         def f():
             r = {k: [None] for k in self.line_cols}; r.update({"line_id": [f"D{self.next_l}"], "logical_id": [lid], "kind": ["manual"], "width_px": [float(width)],
-                                                             "rgb": [rgb], "source": ["edited_drawn"], "draw_order": [int(self.L["draw_order"].max()) + 1 if len(self.L) else 0]})
+                                                             "rgb": [rgb], "source": ["edited_drawn"], "draw_order": [int(self.L["draw_order"].max()) + 1 if len(self.L) else 0],
+                                                             "line_role": ["UNKNOWN"], "legend_id": [""]})
             new = gpd.GeoDataFrame({**r, "_eid": [self.next_l]}, geometry=[g]); self.next_l += 1
             self.L = gpd.GeoDataFrame(pd.concat([self.L, new], ignore_index=True), geometry="geometry")
         self._do("draw line", f, objects=1, redraw_px=round(g.length, 1))
@@ -217,19 +286,128 @@ class Document:
         self._do("line to face (experimental)", f, objects=int(m.sum()), line_to_face=1)
         return {"area_px2": float(poly.area), "width": w}
 
+    # ---------- line roles and legend (style only, never geometry) ----------
+    def set_role(self, ids, role):
+        if role not in ROLES: raise EditError(f"role must be one of {ROLES}")
+        m = self._rows(LINE, ids)
+        def f(): self.L.loc[m, "line_role"] = role
+        self._do(f"set line role {role}", f, objects=int(m.sum()), role=1)
+
+    def apply_legend(self, layer, ids, legend_id):
+        st = self.styles.get(legend_id)
+        if st is None: raise EditError(f"unknown legend {legend_id!r}")
+        want = "line" if layer == LINE else "face"
+        if st["kind"] != want: raise EditError(f"legend {legend_id} is a {st['kind']} style, not a {want} style")
+        m = self._rows(layer, ids)
+        def f():
+            D = self.L if layer == LINE else self.F
+            D.loc[m, "legend_id"] = legend_id; D.loc[m, "rgb"] = st["rgb"]
+            if layer == LINE: D.loc[m, "width_px"] = st["width"]
+        self._do(f"apply legend {legend_id}", f, objects=int(m.sum()), legend=1)
+
+    def set_style(self, legend_id, style):
+        if not isinstance(legend_id, str) or not legend_id or len(legend_id) > 40: raise EditError("bad legend id")
+        st = clean_style({**self.styles.get(legend_id, {}), **style})
+        def f():
+            self.styles[legend_id] = st
+            for D in (self.L, self.F):
+                m = D["legend_id"] == legend_id
+                if m.any():
+                    D.loc[m, "rgb"] = st["rgb"]
+                    if D is self.L: D.loc[m, "width_px"] = st["width"]
+        self._do(f"edit legend {legend_id}", f, legend=1)
+
+    def split_face_preview(self, eid):
+        """SPLIT line: cut every face it crosses along the line (snapped to the pixel grid). Returns the pieces that would
+        be created. Refused for COVER / UNKNOWN lines. Nothing is modified."""
+        m = self._rows(LINE, [eid]); r = self.L.loc[m].iloc[0]
+        if r["line_role"] != "SPLIT": raise EditError("only a line marked SPLIT can cut faces; set its role first")
+        plan = self._split_plan(r.geometry)
+        self._pid += 1; pid = f"split-{self._pid}"; self.previews[pid] = {"kind": "split", "version": self.version, "line": int(eid), "plan": plan}
+        return {"preview_id": pid, "faces_cut": len(plan), "pieces": sum(len(v) for v in plan.values()),
+                "outline": [[[round(x, 2), round(y, 2)] for x, y in p.exterior.coords] for v in plan.values() for p in v]}
+
+    def _split_plan(self, line):
+        cutter = pixel_line_cut(line)
+        g = np.asarray(self.F.geometry.values, object); hit = shapely.intersects(g, line); plan = {}
+        for e, face in zip(self.F["_eid"][hit], g[hit]):
+            parts = [p for p in shapely.get_parts(shapely.difference(face, cutter)) if p.area > 0]
+            if len(parts) < 2: continue
+            # pixels of the cut strip go to the piece on their left (deterministic, keeps full coverage)
+            strip = shapely.intersection(face, cutter)
+            big = sorted(parts, key=lambda p: -p.area)
+            strip_parts = [q for q in shapely.get_parts(strip) if q.area > 0]
+            for q in strip_parts:
+                k = int(np.argmax([shapely.length(shapely.intersection(q.boundary, p.boundary)) for p in big])); big[k] = shapely.union_all([big[k], q])
+            big = [shapely.normalize(shapely.make_valid(p)) for p in big]
+            if all(p.geom_type == "Polygon" for p in big): plan[int(e)] = big
+        if not plan: raise EditError("the line does not cut any face into two parts (extend it across the face)")
+        return plan
+
+    def split_face_apply(self, preview_id):
+        pv = self.previews.get(str(preview_id))
+        if pv is None or pv.get("kind") != "split": raise EditError("unknown or expired preview; preview again")
+        if pv["version"] != self.version: raise EditError("stale preview: the document changed after the preview")
+        plan = pv["plan"]
+        def f():
+            rows = []
+            for e, parts in plan.items():
+                k = self.F["_eid"] == e
+                if not k.any(): raise EditError(f"face {e} no longer exists")
+                base = self.F.loc[k].iloc[0]; self.F.loc[k, "geometry"] = [parts[0]]; self.F.loc[k, "source"] = "edited_split"
+                for p in parts[1:]:
+                    r = base.copy(); r["geometry"] = p; r["_eid"] = self.next_f; r["source"] = "edited_split"; self.next_f += 1; rows.append(r)
+            if rows: self.F = gpd.GeoDataFrame(pd.concat([self.F, gpd.GeoDataFrame(rows, geometry="geometry")], ignore_index=True), geometry="geometry")
+            self.F = share_vertices(self.F, shapely.union_all([p for v in plan.values() for p in v]).buffer(1))
+            rep = coverage_report(self.F, self.W, self.H)
+            if not rep["accepted"]: raise EditError(f"split gives an invalid face layer {rep}")
+        self._do("split faces along SPLIT line", f, objects=len(plan), split_face=1)
+        return {"faces_cut": len(plan), "pieces": sum(len(v) for v in plan.values())}
+
+    def render_lines(self):
+        """display geometry for every line from its legend: dash pattern and tooth triangles. Never stored."""
+        out = []
+        for e, g, lid in zip(self.L["_eid"], self.L.geometry, self.L["legend_id"]):
+            st = self.styles.get(lid) if lid else None
+            rec = {"id": int(e), "line_type": "solid", "dash": [], "teeth": []}
+            if st and st["kind"] == "line":
+                rec["line_type"] = st["line_type"]
+                if st["line_type"] == "dash": rec["dash"] = [float(x) for x in st["dash"].split(",")]
+                if st["line_type"] == "teeth": rec["teeth"] = [[[round(x, 2), round(y, 2)] for x, y in t] for t in teeth_triangles(g, st["tooth_spacing"], st["tooth_size"], st["tooth_side"])]
+            out.append(rec)
+        return out
+
     # ---------- output ----------
     def _out(self, D): return gpd.GeoDataFrame(D.drop(columns=["_eid"]), geometry="geometry")
 
     def save_as(self, path):
+        """atomic save: write a temporary GPKG in the same folder, close it, re-read and validate it; only an accepted file
+        is renamed to the requested path. On any failure the temporary file is removed, nothing is left at `path`, and the
+        document stays unsaved (dirty)."""
+        import os, uuid
         path = Path(path).resolve()
         if path == self.src.resolve(): raise EditError("refusing to overwrite the input GPKG; choose a new file name")
         if path.exists(): raise EditError(f"{path.name} already exists")
-        self._out(self.F).to_file(path, layer=FACE, driver="GPKG", engine="pyogrio")
-        if len(self.L): self._out(self.L).to_file(path, layer=LINE, driver="GPKG", engine="pyogrio")
-        for k, D in self.other.items(): D.to_file(path, layer=k, driver="GPKG", engine="pyogrio")
-        rep = self.verify(path); log = path.with_suffix(".edits.json")
-        json.dump({"input": str(self.src), "input_sha256": self.src_sha, "output": str(path), "output_sha256": sha256(path), "edits": self.log,
-                   "diff": self.diff(), "verification": rep}, open(log, "w"), indent=1, default=float)
+        tmp = path.with_name(f".{path.stem}.{uuid.uuid4().hex[:8]}.tmp.gpkg")
+        try:
+            self._out(self.F).to_file(tmp, layer=FACE, driver="GPKG", engine="pyogrio")
+            if len(self.L): self._out(self.L).to_file(tmp, layer=LINE, driver="GPKG", engine="pyogrio")
+            pyogrio.write_dataframe(pd.DataFrame([{"legend_id": k, **v} for k, v in self.styles.items()]), tmp, layer=STYLES, driver="GPKG")
+            for k, D in self.other.items():
+                if isinstance(D, gpd.GeoDataFrame): D.to_file(tmp, layer=k, driver="GPKG", engine="pyogrio")
+                else: pyogrio.write_dataframe(D, tmp, layer=k, driver="GPKG")
+            rep = self.verify(tmp)
+            bad = [k for k in ("accepted", "readback_matches_memory", "input_sha256_unchanged", "face_columns_kept", "line_columns_kept") if not rep.get(k)]
+            if bad: raise EditError(f"save rejected, checks failed: {bad}; nothing was written to {path.name}")
+            if path.exists(): raise EditError(f"{path.name} appeared during save; not overwritten")
+            os.replace(tmp, path)
+        except Exception:
+            for q in (tmp, Path(str(tmp) + "-wal"), Path(str(tmp) + "-shm")):
+                if q.exists(): q.unlink()
+            raise
+        rep["path_sha256"] = sha256(path); log = path.with_suffix(".edits.json")
+        json.dump({"input": str(self.src), "input_sha256": self.src_sha, "output": str(path), "output_sha256": rep["path_sha256"], "edits": self.log,
+                   "diff": self.diff(), "verification": rep, "document_version": self.version}, open(log, "w"), indent=1, default=float)
         self.dirty = False; return {"path": str(path), "edit_log": str(log), **rep}
 
     def verify(self, path):
@@ -262,11 +440,12 @@ class Document:
         faces = [{"id": int(e), "rgb": c, "rings": [ring(p)] + [[[round(x, 3), round(y, 3)] for x, y in h.coords] for h in p.interiors],
                   "attrs": {k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in self.face_cols}}
                  for e, c, p, (_, r) in zip(self.F["_eid"], self.F["rgb"], self.F.geometry, self.F.iterrows())]
-        lines = [{"id": int(e), "rgb": r["rgb"], "width": float(r["width_px"]), "logical_id": str(r["logical_id"]),
+        lines = [{"id": int(e), "rgb": r["rgb"], "width": float(r["width_px"]), "logical_id": str(r["logical_id"]), "role": r["line_role"], "legend_id": r["legend_id"],
                   "coords": [[round(x, 3), round(y, 3)] for x, y in g.coords], "attrs": {k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in self.line_cols}}
                  for e, g, (_, r) in zip(self.L["_eid"], self.L.geometry, self.L.iterrows())]
         return {"width": self.W, "height": self.H, "faces": faces, "lines": lines, "dirty": self.dirty, "undo": len(self.undo), "redo": len(self.redo),
-                "log": self.log[-50:], "source": str(self.src), "source_sha256": self.src_sha}
+                "log": self.log[-50:], "source": str(self.src), "source_sha256": self.src_sha, "version": self.version,
+                "styles": self.styles, "render": self.render_lines()}
 
 
 def coverage_report(F, W, H):
@@ -285,6 +464,16 @@ def pixel_polygon(geom, W, H):
     if not m.any(): return None
     polys = [shapely.geometry.shape(g) for g, v in RF.shapes(m, mask=m.astype(bool), connectivity=4, transform=Affine.identity()) if v == 1]
     return shapely.union_all(polys)
+
+
+def pixel_line_cut(line):
+    """the pixels a line passes through (pixel-centre rule after a 0.5 px buffer), as a polygon on the pixel grid."""
+    import rasterio.features as RF
+    from affine import Affine
+    b = shapely.bounds(line); W = int(np.ceil(b[2])) + 2; H = int(np.ceil(b[3])) + 2
+    m = RF.rasterize([(line.buffer(0.5), 1)], out_shape=(H, W), fill=0, transform=Affine.identity(), all_touched=False, dtype="uint8")
+    if not m.any(): raise EditError("line too short to cut")
+    return shapely.union_all([shapely.geometry.shape(g) for g, v in RF.shapes(m, mask=m.astype(bool), connectivity=4, transform=Affine.identity()) if v == 1])
 
 
 def share_vertices(F, zone):
@@ -415,15 +604,27 @@ class SelectionMixin:
             if not rep["accepted"]: raise EditError(f"merge gives an invalid face layer {rep}")
         n = sum(len(c) for c in comps); self._do("merge selected groups", f, objects=n, merge=len(comps)); return {"groups": len(comps), "faces": n}
 
+    def _role_mask(self, roles, extra=0.5):
+        import rasterio.features as RF
+        from affine import Affine
+        if not len(self.L): return np.zeros((self.H, self.W), bool)
+        r = self.L["line_role"] if "line_role" in self.L.columns else pd.Series(["UNKNOWN"] * len(self.L), index=self.L.index)
+        sub = [(g, w) for g, w, k in zip(self.L.geometry, self.L["width_px"], r) if k in roles]
+        if not sub: return np.zeros((self.H, self.W), bool)
+        U = shapely.union_all([g.buffer(max(float(w) / 2, 0.71) + extra) for g, w in sub])
+        return RF.rasterize([(U, 1)], out_shape=(self.H, self.W), fill=0, transform=Affine.identity(), dtype="uint8") > 0
+
     def heal_preview(self, region, max_area=12.0, de_merge=15.0, de_keep=25.0, min_keep=3.0):
-        """small faces touched by the brush get a proposed target: the neighbour (not itself a candidate) sharing the
-        longest edge. merge if >= 50% under a line footprint or original colour within de_merge of the target's local
-        original colour; keep if colour differs >= de_keep and area >= min_keep; otherwise uncertain (kept unless the user
-        accepts). Nothing is modified."""
+        """small faces touched by the brush get a proposed target: the edge neighbour (not itself a candidate) sharing the
+        longest edge. Line roles decide what "under a line" means:
+          under a COVER line (>= 50% of the face)   -> merge (the stroke sits on top of one unit)
+          under a SPLIT or UNKNOWN line              -> uncertain (it may be a real contact; never merged automatically)
+          otherwise: same original colour as target  -> merge; distinct colour and area >= min_keep -> keep; else uncertain.
+        The plan is stored on the server under a preview id bound to the current document version. Nothing is modified."""
         if self.img is None: raise EditError("heal needs the scan image")
         cand = self.select_region(region, FACE, "touch", max_area); cs = set(cand)
-        if not cand: return {"candidates": []}
         lab = _lab_px(self.img); fid = self._face_pixels(); ink = self._line_mask(0.5); local = region.buffer(6)
+        cover = self._role_mask({"COVER"}); other = self._role_mask({"SPLIT", "UNKNOWN"})
         import rasterio.features as RF
         from affine import Affine
         near = RF.rasterize([(local, 1)], out_shape=(self.H, self.W), fill=0, transform=Affine.identity(), dtype="uint8") > 0
@@ -435,20 +636,37 @@ class SelectionMixin:
             t = max(pool, key=pool.get); g = self.F.loc[self.F["_eid"] == e, "geometry"].iloc[0]
             me = fid == e; tm = (fid == t) & near & ~ink
             if not me.any(): me = np.zeros_like(me); c = g.representative_point(); me[int(min(c.y, self.H - 1)), int(min(c.x, self.W - 1))] = True
-            under = float((me & ink).sum() / max(me.sum(), 1))
+            n = max(me.sum(), 1); u_cover = float((me & cover).sum() / n); u_other = float((me & other).sum() / n)
             de = float(np.linalg.norm(np.median(lab[me], 0) - np.median(lab[tm], 0))) if tm.any() else None
-            if under >= 0.5: d, why = "merge", "under a line"
+            if u_other >= 0.5: d, why = "uncertain", "under a SPLIT/UNKNOWN line"
+            elif u_cover >= 0.5: d, why = "merge", "under a COVER line"
             elif de is not None and de <= de_merge: d, why = "merge", "same colour as neighbour"
             elif de is not None and de >= de_keep and g.area >= min_keep: d, why = "keep", "distinct colour"
             else: d, why = "uncertain", "check"
             out.append({"id": e, "target": int(t), "target_is_candidate": t in cs, "decision": d, "reason": why, "area": float(g.area),
-                        "dE": None if de is None else round(de, 1), "under_line_share": round(under, 2)})
-        return {"candidates": out, "counts": {k: sum(1 for r in out if r["decision"] == k) for k in ("merge", "keep", "uncertain")}}
+                        "dE": None if de is None else round(de, 1), "under_cover_share": round(u_cover, 2), "under_split_or_unknown_share": round(u_other, 2)})
+        self._pid += 1; pid = f"heal-{self._pid}"
+        self.previews[pid] = {"kind": "heal", "version": self.version, "candidates": out}
+        return {"preview_id": pid, "version": self.version, "candidates": out,
+                "counts": {k: sum(1 for r in out if r["decision"] == k) for k in ("merge", "keep", "uncertain")}}
 
-    def heal_apply(self, plan):
-        """plan: list of {id, target, decision}; faces with decision 'merge' are merged into their (resolved) target."""
-        tgt = {int(r["id"]): int(r["target"]) for r in plan if r.get("decision") == "merge" and r.get("target") is not None}
+    def heal_apply(self, preview_id, accept_uncertain=()):
+        """apply a stored heal preview. The client sends only the preview id (and, optionally, ids of 'uncertain' faces
+        the user explicitly accepts). Rejected if the preview is unknown or stale (document changed since). Every merge
+        is re-checked: candidate and target still exist and still share an edge; the result must be one polygon and the
+        whole face layer must pass the strict coverage check, otherwise nothing changes."""
+        pv = self.previews.get(str(preview_id))
+        if pv is None or pv.get("kind") != "heal": raise EditError("unknown or expired preview; preview again")
+        if pv["version"] != self.version: raise EditError("stale preview: the document changed after the preview")
+        acc = {int(i) for i in accept_uncertain}
+        tgt = {r["id"]: r["target"] for r in pv["candidates"] if r.get("target") is not None and (r["decision"] == "merge" or (r["decision"] == "uncertain" and r["id"] in acc))}
+        bad = acc - {r["id"] for r in pv["candidates"] if r["decision"] == "uncertain"}
+        if bad: raise EditError(f"ids {sorted(bad)} are not uncertain candidates of this preview")
         if not tgt: raise EditError("nothing to merge")
+        live = set(int(e) for e in self.F["_eid"])
+        for e, t in tgt.items():
+            if e not in live or t not in live: raise EditError(f"face {e} or its target {t} no longer exists")
+            if t not in self._edge_neighbours(e): raise EditError(f"face {e} does not share an edge with target {t}")
         def final(e, seen=()):
             t = tgt.get(e)
             return e if t is None or t in seen else final(t, seen + (e,))

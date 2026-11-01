@@ -1,7 +1,7 @@
 """StitchVector Editor V0.1 - local HTTP server (stdlib only, binds 127.0.0.1).
 Usage: python -m tools.stitchvector_editor.server --image scan.png --gpkg result.gpkg --out-dir edits/ [--port 8765]
 The input GPKG is opened read-only; saves go to new files inside --out-dir only."""
-import argparse, json, re, sys, traceback
+import argparse, json, re, sys, threading, traceback
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from PIL import Image
@@ -9,6 +9,7 @@ from .core import Document, EditError, FACE, LINE
 
 HERE = Path(__file__).resolve().parent
 STATE = {}
+LOCK = threading.Lock()   # one request touches the document at a time (ThreadingHTTPServer)
 
 
 def open_doc(image, gpkg):
@@ -36,7 +37,7 @@ class H(BaseHTTPRequestHandler):
         if p == "/app.js": return self._send(200, (HERE / "static/app.js").read_bytes(), "text/javascript; charset=utf-8")
         if p == "/image": return self._send(200, STATE["image"].read_bytes(), "image/png")
         if p == "/api/state":
-            s = STATE["doc"].state(); s.update(image=str(STATE["image"]), gpkg=str(STATE["gpkg"]), out_dir=str(STATE["out_dir"])); return self._send(200, s)
+            with LOCK: s = STATE["doc"].state(); s.update(image=str(STATE["image"]), gpkg=str(STATE["gpkg"]), out_dir=str(STATE["out_dir"])); return self._send(200, s)
         return self._send(404, {"error": "not found"})
 
     def do_POST(self):
@@ -44,7 +45,11 @@ class H(BaseHTTPRequestHandler):
         if n > 2_000_000: return self._send(413, {"error": "request too large"})
         try: a = json.loads(self.rfile.read(n) or b"{}")
         except ValueError: return self._send(400, {"error": "bad json"})
-        d = STATE["doc"]; op = self.path.split("?")[0].removeprefix("/api/")
+        op = self.path.split("?")[0].removeprefix("/api/")
+        with LOCK: return self._post(op, a)
+
+    def _post(self, op, a):
+        d = STATE["doc"]
         try:
             lay = LINE if a.get("layer") == "line" else FACE
             if op == "pick": r = {"ids": d.pick(float(a["x"]), float(a["y"]), lay)}
@@ -70,7 +75,12 @@ class H(BaseHTTPRequestHandler):
             elif op == "merge_preview": r = d.merge_preview(a["ids"])
             elif op == "merge_groups": r = d.merge_components(a["ids"])
             elif op == "heal_preview": r = d.heal_preview(d.gesture("brush", a["points"], float(a.get("radius", 4))), float(a.get("max_area", 12)))
-            elif op == "heal_apply": r = d.heal_apply(a["plan"])
+            elif op == "heal_apply": r = d.heal_apply(str(a["preview_id"]), a.get("accept_uncertain", []))
+            elif op == "set_role": d.set_role(a["ids"], str(a["role"])); r = {}
+            elif op == "apply_legend": d.apply_legend(lay, a["ids"], str(a["legend_id"])); r = {}
+            elif op == "set_style": d.set_style(str(a["legend_id"]), dict(a["style"])); r = {}
+            elif op == "split_face_preview": r = d.split_face_preview(int(a["id"]))
+            elif op == "split_face_apply": r = d.split_face_apply(str(a["preview_id"]))
             elif op == "undo": r = {"undone": d.undo_op()}
             elif op == "redo": r = {"redone": d.redo_op()}
             elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]))
