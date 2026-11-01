@@ -465,7 +465,7 @@ class Document:
                 "styles": self.styles, "render": self.render_lines(),
                 "texts": [{"id": int(e), "x": round(g.x, 2), "y": round(g.y, 2), **{k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in TEXT_COLS}}
                           for e, g, (_, r) in zip(self.T["_eid"], self.T.geometry, self.T.iterrows())],
-                "residue_lines": len(self.Q),
+                "residue_lines": len(self.Q), "pending": self.pending_residue(),
                 "residue": [{"id": int(e), "line_id": r.get("line_id"), "rgb": r.get("rgb"), "width": float(r.get("width_px") or 1), "length": round(float(g.length), 1),
                              "coords": [[round(x, 2), round(y, 2)] for x, y in g.coords]} for e, g, (_, r) in zip(self.Q["_eid"], self.Q.geometry, self.Q.iterrows())]}
 
@@ -872,6 +872,17 @@ class TextMixin:
         if not m.any(): raise EditError(f"unknown text id {tid}")
         def f(): self.T = self.T.loc[~m].copy()
         self._do("delete text", f, objects=1, text=1)
+
+    def pending_residue(self, max_area=60.0, inside_share=0.5):
+        """small faces still lying mostly inside a text label's box (residue the user has not resolved), per label."""
+        out = []
+        if not len(self.T): return out
+        g = np.asarray(self.F.geometry.values, object); area = shapely.area(g); eids = np.asarray(self.F["_eid"])
+        for e, (_, r) in zip(self.T["_eid"], self.T.iterrows()):
+            B = shapely.box(r["box_x0"], r["box_y0"], r["box_x1"], r["box_y1"]); inter = shapely.area(shapely.intersection(g, B))
+            m = (area <= max_area) & (inter >= inside_share * area) & (inter > 0)
+            out.append({"text_id": int(e), "text": r["text"], "faces": [int(x) for x in eids[m]]})
+        return out
 
     def restore_residue_lines(self, ids):
         m = self.Q["_eid"].isin([int(i) for i in ids])

@@ -1,0 +1,14 @@
+{
+ "colour_area_change_outside_boxes_buffer0px": 2.0,
+ "colour_area_change_outside_boxes_buffer1px": 0.0,
+ "lines_not_touching_any_box_changed": [],
+ "lines_removed": [
+  "L1",
+  "L22",
+  "L24",
+  "L25",
+  "L31",
+  "L33",
+  "L6"
+ ]
+}

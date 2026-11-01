@@ -1,0 +1,68 @@
+{
+ "view": {
+  "scale": 4.5,
+  "offset": [
+   20,
+   10
+  ],
+  "screenshot_px": [
+   1183,
+   900
+  ]
+ },
+ "boxes": {
+  "E-O": {
+   "screen_box": [
+    33,
+    122,
+    177,
+    199
+   ],
+   "px": 11088,
+   "changed_b2c_to_edited_text_off": 2755,
+   "share": 0.248,
+   "changed_by_text_layer_on": 1863
+  },
+  "Ar2E": {
+   "screen_box": [
+    20,
+    887,
+    254,
+    900
+   ],
+   "px": 3042,
+   "changed_b2c_to_edited_text_off": 0,
+   "share": 0.0,
+   "changed_by_text_layer_on": 0
+  },
+  "yun": {
+   "screen_box": [
+    128,
+    275,
+    204,
+    352
+   ],
+   "px": 5852,
+   "changed_b2c_to_edited_text_off": 1546,
+   "share": 0.264,
+   "changed_by_text_layer_on": 1127
+  }
+ },
+ "outside_boxes": {
+  "screen_px_checked": 1005404,
+  "changed_screen_px": 0,
+  "changed_image_px_approx": 0,
+  "changed_image_xy": []
+ },
+ "sha256": {
+  "1_original_png.png": "d6433f0086b0cc6278a5b866083487460946781115dfe910af882183501ead6c",
+  "2_b2c_vector.png": "34eda0313d362c017af26a4eac5be032bdfa6e79416e051b3e7eb9b2d2ead760",
+  "2_b2c_vector_fullpage.png": "e6a26c0b810fdcdea56ae051e31e350dbd6f9e656ce7f7d7dcf688f80f7e3ba1",
+  "3_edited_text_off.png": "4f9fd9661903abad22c3034cee6844aa2ce5f858e4421bb2e11152014b715388",
+  "4_edited_text_on.png": "3b14b2089a51a921aadbeb33793e1ff579cafdedb6fdb0908e4a6a4bccfbb454",
+  "4_edited_text_on_fullpage.png": "9ca189d4c7ad9b26ca63762374dca38ff4f53af11471f8f4250bcf1531481474",
+  "zoom_Ar2E.png": "b1436f6f05b048e6314d2f17ee8f74f55e167f4360bb6996b98360c7fb44228b",
+  "zoom_E-O.png": "c1b2ea0066f6cfa394caba589242e4e05c1025f1c579c3840945bc1b93886b62",
+  "zoom_yun.png": "14bbccd0d4f11bb6619b08d8186b25b405f053560ee6f3363f1104af37119c2b"
+ }
+}

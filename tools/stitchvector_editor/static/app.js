@@ -16,7 +16,8 @@ async function api(op, body) {
 async function refresh() {
   S = await (await fetch("/api/state")).json();
   $("dirty").textContent = S.dirty ? "● 未保存" : "";
-  $("src").textContent = S.gpkg.split("/").slice(-1)[0] + "  " + S.width + "×" + S.height + "  面 " + S.faces.length + "  线 " + S.lines.length;
+  const pend = (S.pending || []).reduce((a, p) => a + p.faces.length, 0);
+  $("src").innerHTML = `<b>已加载：${S.gpkg.split("/").slice(-1)[0]}</b><br>${S.width}×${S.height}  面 ${S.faces.length}  线 ${S.lines.length}  文字 ${(S.texts || []).length}  隔离线 ${(S.residue || []).length}  待定碎面 ${pend}`;
   $("log").textContent = S.log.slice().reverse().map(e => e.op + (e.of ? " (" + e.of + ")" : "") + (e.objects ? "  ×" + e.objects : "")).join("\n") || "（无）";
   const keep = new Set((sel.layer === "face" ? S.faces : S.lines).map(o => o.id)); sel.ids = sel.ids.filter(i => keep.has(i));
   fillLegend(); showSel(); draw();

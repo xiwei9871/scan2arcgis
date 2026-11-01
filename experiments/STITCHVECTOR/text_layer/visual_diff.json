@@ -1,0 +1,140 @@
+{
+ "views": {
+  "top": {
+   "scale": 4.5,
+   "offset": [
+    20,
+    10
+   ]
+  },
+  "bot": {
+   "scale": 4.5,
+   "offset": [
+    20,
+    -700
+   ]
+  }
+ },
+ "boxes": {
+  "Є-O": {
+   "view": "top",
+   "screen_box": [
+    34,
+    122,
+    178,
+    199
+   ],
+   "px": 11088,
+   "changed_b2c_vs_edited_text_off": 2750,
+   "share": 0.248,
+   "changed_by_text_on": 1863
+  },
+  "云": {
+   "view": "top",
+   "screen_box": [
+    128,
+    276,
+    204,
+    352
+   ],
+   "px": 5776,
+   "changed_b2c_vs_edited_text_off": 1546,
+   "share": 0.268,
+   "changed_by_text_on": 1127
+  },
+  "Ar₂E": {
+   "view": "bot",
+   "screen_box": [
+    20,
+    182,
+    254,
+    312
+   ],
+   "px": 30420,
+   "changed_b2c_vs_edited_text_off": 3625,
+   "share": 0.119,
+   "changed_by_text_on": 5274
+  }
+ },
+ "outside": {
+  "top": {
+   "screen_px_checked": 1043072,
+   "changed_screen_px": 0,
+   "changed_image_px": []
+  },
+  "bot": {
+   "screen_px_checked": 1029768,
+   "changed_screen_px": 13,
+   "changed_image_px": [
+    [
+     44,
+     237
+    ],
+    [
+     50,
+     230
+    ],
+    [
+     53,
+     224
+    ],
+    [
+     53,
+     225
+    ],
+    [
+     54,
+     224
+    ],
+    [
+     58,
+     218
+    ],
+    [
+     60,
+     215
+    ],
+    [
+     62,
+     212
+    ],
+    [
+     80,
+     248
+    ],
+    [
+     80,
+     250
+    ],
+    [
+     87,
+     242
+    ],
+    [
+     91,
+     234
+    ],
+    [
+     92,
+     233
+    ]
+   ]
+  }
+ },
+ "sha256": {
+  "bot_1_original_png.png": "4928fde9312f85134ffe07c1e7b1bb09732edfc38dc20d8f8d4306f79dbd4a6c",
+  "bot_2_b2c_vector.png": "53408188eb19e5e48295dedbfa63968815c817ed576d98c8f2cd595fc999c4e9",
+  "bot_2_b2c_vector_fullpage.png": "48dcbfba5eeec0e9c9bc69ab90f4ad6b2225f3c6ad50833fcf281f4487771256",
+  "bot_3_edited_text_off.png": "7b7855d29ceb7470e64e34057aa27c73198b236b1746a24198c1ae304915f9cb",
+  "bot_4_edited_text_on.png": "3c90986a9028888be543d62080b208ba4c78b6d963f2e8dc6d0a9f9eb4f0a77d",
+  "bot_4_edited_text_on_fullpage.png": "0f7d323def59f3c99c1c6e0313b81a2197c038a98aa42d0bc5ae89af5912702d",
+  "top_1_original_png.png": "d6433f0086b0cc6278a5b866083487460946781115dfe910af882183501ead6c",
+  "top_2_b2c_vector.png": "34eda0313d362c017af26a4eac5be032bdfa6e79416e051b3e7eb9b2d2ead760",
+  "top_3_edited_text_off.png": "4f9fd9661903abad22c3034cee6844aa2ce5f858e4421bb2e11152014b715388",
+  "top_4_edited_text_on.png": "3b14b2089a51a921aadbeb33793e1ff579cafdedb6fdb0908e4a6a4bccfbb454",
+  "zoom_Ar2E.png": "f2c9ac2b0fae55430187c769efcc39568003f416b4d8404dfca9057324297f84",
+  "zoom_E-O.png": "c1b2ea0066f6cfa394caba589242e4e05c1025f1c579c3840945bc1b93886b62",
+  "zoom_EO.png": "fe1c8650c9e83f3a78d10f4b64206eb03a18420181f4d48dba9c74afcfa822dc",
+  "zoom_yun.png": "6264e53ce780a03f8476e31aed226d49536e106458f8f1eb70d79932697f50df"
+ }
+}

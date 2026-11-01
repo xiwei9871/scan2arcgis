@@ -1,0 +1,122 @@
+{
+ "input": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01/inputs/u2_B2c.gpkg",
+ "input_sha256": "7d78a7111320c2da1ce18006d05c8ecb5c2fc89c8b97c325801fa5ddde310d26",
+ "boxes": {
+  "Є-O": {
+   "box": [
+    3,
+    25,
+    35,
+    42
+   ],
+   "ocr_candidate": "C-0",
+   "ocr_score": 0.733,
+   "counts": {
+    "residue_faces": 40,
+    "merge_faces": 40,
+    "uncertain_faces": 0,
+    "residue_lines": 2
+   },
+   "applied": {
+    "merged_faces": 40,
+    "moved_lines": 2,
+    "text_id": 0
+   }
+  },
+  "Ar₂E": {
+   "box": [
+    0,
+    196,
+    52,
+    225
+   ],
+   "ocr_candidate": "ArE",
+   "ocr_score": 0.84,
+   "counts": {
+    "residue_faces": 81,
+    "merge_faces": 65,
+    "uncertain_faces": 16,
+    "residue_lines": 3
+   },
+   "applied": {
+    "merged_faces": 65,
+    "moved_lines": 3,
+    "text_id": 1
+   }
+  },
+  "云": {
+   "box": [
+    24,
+    59,
+    41,
+    76
+   ],
+   "ocr_candidate": "云",
+   "ocr_score": 1.0,
+   "counts": {
+    "residue_faces": 10,
+    "merge_faces": 10,
+    "uncertain_faces": 0,
+    "residue_lines": 2
+   },
+   "applied": {
+    "merged_faces": 10,
+    "moved_lines": 2,
+    "text_id": 2
+   }
+  }
+ },
+ "assignment_of_uncertain_groups": "none (left pending)",
+ "output": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_text/demo/u2_text_demo.gpkg",
+ "output_sha256": "11b1cd1ad6269d421f723ad0643c5f3a053766ae2eb2a227ae8e88ca2039e533",
+ "faces": 550,
+ "lines": 28,
+ "texts": [
+  "Є-O",
+  "Ar₂E",
+  "云"
+ ],
+ "residue_lines": 7,
+ "pending": [
+  {
+   "text_id": 0,
+   "text": "Є-O",
+   "faces": []
+  },
+  {
+   "text_id": 1,
+   "text": "Ar₂E",
+   "faces": [
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434
+   ]
+  },
+  {
+   "text_id": 2,
+   "text": "云",
+   "faces": []
+  }
+ ],
+ "coverage": true,
+ "save": {
+  "accepted": true,
+  "readback_matches_memory": true,
+  "text_matches_memory": true,
+  "input_sha256_unchanged": true
+ },
+ "input_unchanged": true
+}
