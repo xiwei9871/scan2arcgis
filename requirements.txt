@@ -1,0 +1,36 @@
+# Exact tested Python 3.11 environment snapshot, sourced from docs/archive/v1/env/requirements-.venv-sv.txt
+# Install in its OWN venv; see docs/stitchvector_studio/v01/INSTALL.md
+affine==3.0.1
+attrs==26.1.0
+certifi==2026.10.23
+click==8.5.0
+click-plugins==1.1.1.2
+cligj==0.7.2
+geopandas==1.2.0
+ImageIO==2.38.1
+iniconfig==2.3.1
+lazy-loader==0.6
+networkx==3.6.1
+numpy==2.4.6
+opencv-python-headless==5.0.0.93
+packaging==26.3
+pandas==3.1.0
+pillow==13.0.0
+pip==26.2.2
+pluggy==1.7.0
+Pygments==2.21.0
+pyogrio==0.13.0
+pyparsing==3.3.3
+pypdfium2==5.14.0
+pyproj==3.7.2
+pytest==9.2.0
+python-dateutil==3.0.0
+rasterio==1.4.4
+scikit-image==0.26.0
+scipy==1.17.1
+setuptools==82.0.1
+shapely==2.2.0
+six==1.17.0
+tifffile==2026.3.3
+tzdata==2026.6
+vtracer==1.0.0a4

@@ -2,7 +2,7 @@
  "entrypoint": "tools.stitchvector_studio.plugins.rapidocr.plugin:Plugin",
  "input_schemas": ["raster_document.v1"], "output_schemas": ["ocr_candidates.v1"],
  "capabilities": ["text_detection", "text_recognition_zh_en"],
- "runtime": {"type": "python_subprocess", "python": "geomap2arcgis/.venv-ocr/bin/python", "timeout_s": 900},
+ "runtime": {"type": "python_subprocess", "python": ".venv-ocr/bin/python", "timeout_s": 900},
  "parameters": {"min_score": {"type": "number", "default": 0.0, "min": 0, "max": 1}},
  "code_files": ["tools/stitchvector_studio/plugins/rapidocr/plugin.py"],
  "fixed_params": {"scales": [1, 2]},
