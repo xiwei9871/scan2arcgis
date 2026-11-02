@@ -28,7 +28,7 @@ git worktree remove legacy       # 用完移除
 
 ## 远端
 
-- `origin`：GitHub `xiwei9871/scan2arcgis`（公开），只推送 `main`
+- `origin`：GitHub `xiwei9871/scan2arcgis`（公开），主干与经审核的功能/研究分支可推送；受仓库数据保护和 pre-push 规则约束
 - `gitlab`：公司 GitLab 旧仓库，只读参考
 
 ## 数据规则
