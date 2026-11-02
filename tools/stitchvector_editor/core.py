@@ -12,7 +12,7 @@ from shapely.ops import split as shp_split, substring
 
 FACE, LINE, STYLES = "colour_faces", "visual_lines", "legend_styles"
 TEXT, RESIDUE, QSTYLE = "text_labels", "text_residue_lines", "layer_styles"
-TEXT_COLS = ["label_id", "text", "ocr_text", "ocr_score", "font_px", "angle_deg", "anchor", "rgb", "box_x0", "box_y0", "box_x1", "box_y1", "source"]
+TEXT_COLS = ["label_id", "text", "ocr_text", "ocr_score", "font_px", "angle_deg", "anchor", "rgb", "box_x0", "box_y0", "box_x1", "box_y1", "source", "review_status"]
 ROLES = ("COVER", "SPLIT", "UNKNOWN")
 
 
@@ -115,6 +115,9 @@ class Document:
         # text layer (points with editable text) and text-residue lines (moved out of visual_lines, restorable)
         self.T = pyogrio.read_dataframe(self.src, layer=TEXT) if TEXT in layers else gpd.GeoDataFrame({c: [] for c in TEXT_COLS}, geometry=[])
         self.Q = pyogrio.read_dataframe(self.src, layer=RESIDUE) if RESIDUE in layers else gpd.GeoDataFrame({c: [] for c in self.line_cols}, geometry=[])
+        # review status: files written before it existed carry no confirmation record -> OCR_CANDIDATE (never assumed confirmed)
+        if "review_status" not in self.T.columns: self.T["review_status"] = "OCR_CANDIDATE"
+        self.T["review_status"] = self.T["review_status"].fillna("OCR_CANDIDATE").astype(object)
         self.T["_eid"] = np.arange(len(self.T)); self.Q["_eid"] = np.arange(len(self.Q)); self.next_t = len(self.T)
         self.T0 = self.T.copy()
 
@@ -463,7 +466,7 @@ class Document:
         return {"width": self.W, "height": self.H, "faces": faces, "lines": lines, "dirty": self.dirty, "undo": len(self.undo), "redo": len(self.redo),
                 "log": self.log[-50:], "source": str(self.src), "source_sha256": self.src_sha, "version": self.version,
                 "styles": self.styles, "render": self.render_lines(),
-                "texts": [{"id": int(e), "x": round(g.x, 2), "y": round(g.y, 2), **{k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in TEXT_COLS}}
+                "texts": [{"id": int(e), "x": round(g.x, 2), "y": round(g.y, 2), **{k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in TEXT_COLS + [c for c in ("candidate_texts", "rule_reasons", "geometry_status", "ocr_engine") if c in self.T.columns]}}
                           for e, g, (_, r) in zip(self.T["_eid"], self.T.geometry, self.T.iterrows())],
                 "residue_lines": len(self.Q), "pending": self.pending_residue(),
                 "residue": [{"id": int(e), "line_id": r.get("line_id"), "rgb": r.get("rgb"), "width": float(r.get("width_px") or 1), "length": round(float(g.length), 1),
@@ -839,7 +842,7 @@ class TextMixin:
                 self.Q = gpd.GeoDataFrame(pd.concat([self.Q, moved], ignore_index=True), geometry="geometry"); self.L = self.L.loc[~lm].copy()
             row = {"label_id": f"T{self.next_t}", "text": text, "ocr_text": pv["ocr"].get("text", ""), "ocr_score": float(pv["ocr"].get("score", 0.0)),
                    "font_px": fpx, "angle_deg": ang, "anchor": "center", "rgb": rgb, "box_x0": float(x0), "box_y0": float(y0), "box_x1": float(x1),
-                   "box_y1": float(y1), "source": "edited_text_box", "_eid": self.next_t}
+                   "box_y1": float(y1), "source": "edited_text_box", "review_status": "TEXT_VECTOR_CREATED", "_eid": self.next_t}
             new = gpd.GeoDataFrame({k: [v] for k, v in row.items()}, geometry=[Point((x0 + x1) / 2, (y0 + y1) / 2)]); self.next_t += 1
             self.T = gpd.GeoDataFrame(pd.concat([self.T, new], ignore_index=True), geometry="geometry")
             self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": int(row["_eid"])}
@@ -854,18 +857,42 @@ class TextMixin:
             t = str(kw["text"]).strip()
             if not t or len(t) > 200: raise EditError("text must be 1-200 characters")
             upd["text"] = t
+            if "review_status" not in kw: upd["review_status"] = "HUMAN_EDITED"
         if "font_px" in kw:
             v = float(kw["font_px"])
             if not (1 <= v <= 200): raise EditError("font size 1-200 px")
             upd["font_px"] = v
         if "angle_deg" in kw: upd["angle_deg"] = float(kw["angle_deg"])
         if "rgb" in kw: upd["rgb"] = hex_ok(kw["rgb"])
+        if "review_status" in kw:
+            rs = str(kw["review_status"])
+            if rs not in ("OCR_CANDIDATE", "OCR_DRAFT", "HUMAN_EDITED", "OCR_CONFIRMED", "TEXT_VECTOR_CREATED", "BACKGROUND_CLEAR_PENDING", "TEXT_LAYER_COMPLETE"): raise EditError(f"bad review_status {rs}")
+            upd["review_status"] = rs
         xy = (float(kw["x"]), float(kw["y"])) if "x" in kw and "y" in kw else None
         if xy and not (0 <= xy[0] <= self.W and 0 <= xy[1] <= self.H): raise EditError("text position outside the image")
         def f():
             for k, v in upd.items(): self.T.loc[m, k] = v
             if xy: self.T.loc[m, "geometry"] = [Point(*xy)]
         self._do("edit text", f, objects=1, text=1)
+
+    def add_text(self, x, y, text, font_px=12.0, angle_deg=0.0, rgb="#000000"):
+        """a text object the OCR missed; review_status HUMAN_EDITED, source manual. One undoable step."""
+        t = str(text).strip()
+        if not t or len(t) > 200: raise EditError("text must be 1-200 characters")
+        x, y, fpx = float(x), float(y), float(font_px)
+        if not (0 <= x <= self.W and 0 <= y <= self.H): raise EditError("text position outside the image")
+        if not (1 <= fpx <= 200): raise EditError("font size 1-200 px")
+        h = fpx / 0.8 / 2; w = max(h, fpx * 0.6 * len(t) / 2)
+        row = {c: None for c in self.T.columns if c not in ("geometry", "_eid")}
+        row.update({"label_id": f"T{self.next_t}", "text": t, "ocr_text": "", "ocr_score": 0.0, "font_px": fpx, "angle_deg": float(angle_deg), "anchor": "center",
+                    "rgb": hex_ok(rgb), "box_x0": x - w, "box_y0": y - h, "box_x1": x + w, "box_y1": y + h, "source": "manual", "review_status": "HUMAN_EDITED"})
+        if "geometry_status" in self.T.columns: row["geometry_status"] = "NO_GLYPH_RECORD"
+        row["_eid"] = self.next_t
+        def f():
+            new = gpd.GeoDataFrame({k: [v] for k, v in row.items()}, geometry=[Point(x, y)]); self.next_t += 1
+            self.T = gpd.GeoDataFrame(pd.concat([self.T, new], ignore_index=True), geometry="geometry")
+        self._do("add text", f, objects=1, text=1)
+        return int(row["_eid"])
 
     def delete_text(self, tid):
         m = self.T["_eid"] == int(tid)

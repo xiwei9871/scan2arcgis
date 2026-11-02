@@ -30,10 +30,10 @@
   <div class="row"><label><input type="checkbox" id="showImg" checked> 原图</label>
     <label><input type="checkbox" id="showFaces" checked> 面层</label>
     <label><input type="checkbox" id="showLines" checked> 线层</label>
-    <label><input type="checkbox" id="showText" checked> 文字层</label></div>
+    <label><input type="checkbox" id="showText" checked> 文字层（独立文字对象；双击编辑）</label></div>
   <div class="row">面层透明度 <input type="range" id="alpha" min="0" max="100" value="45" style="width:120px"></div>
   <div class="row">三态核验：<button id="viewA">A 原图</button> <button id="viewB">B 线面（文字关）</button> <button id="viewC">C 线面+文字</button></div>
-  <div class="row"><label><input type="checkbox" id="showResidue" checked> 隔离线（紫色虚线，带编号）</label></div>
+  <div class="row"><label><input type="checkbox" id="showResidue" checked> 隔离线（紫色虚线）</label> <label><input type="checkbox" id="showResidueIds"> 隔离线编号 R…（调试）</label></div>
   <h3>差异查看</h3>
   <div class="row">模式 <select id="diffMode">
     <option value="off">关闭（正常编辑视图）</option>
@@ -56,6 +56,7 @@
     <button data-tool="split">拆分线</button>
     <button data-tool="draw">补画线</button>
     <button data-tool="textBox">框文字</button>
+    <button data-tool="addText">加文字</button> <button data-tool="moveText">移动文字</button>
   </div>
   <div class="row">
     <button data-tool="brushSel">刷选面</button>

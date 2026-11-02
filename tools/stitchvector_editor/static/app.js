@@ -156,7 +156,7 @@ window.addEventListener("resize", draw);
 document.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => {
   tool = b.dataset.tool; drawPts = []; document.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x === b)); draw();
 });
-["showImg", "showFaces", "showLines", "showText", "showResidue", "alpha", "dual"].forEach(id => $(id).oninput = draw);
+["showImg", "showFaces", "showLines", "showText", "showResidue", "showResidueIds", "alpha", "dual"].forEach(id => $(id).oninput = draw);
 $("fit").onclick = fit;
 $("clear").onclick = () => setSel(sel.layer, []);
 $("group").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中一条线"); const r = await api("group", { id: sel.ids[0] }); setSel("line", r.ids); msg(`整组 ${r.ids.length} 条线`, true); });
@@ -247,7 +247,9 @@ $("textApply").onclick = () => guard(async () => { if (!textPv) throw new Error(
   textPv = null; selText = r.text_id; $("tGroups").textContent = ""; resetAssign(); msg(`已建文字；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
 $("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; resetAssign(); draw(); };
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
-  await api("text_edit", { id: selText, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value }); msg("已修改文字", true); });
+  const b = { id: selText }; if ($("tText").value.trim()) b.text = $("tText").value;
+  if (+$("tFont").value > 0) b.font_px = +$("tFont").value; if ($("tAngle").value !== "") b.angle_deg = +$("tAngle").value; if ($("tRgb").value) b.rgb = $("tRgb").value;
+  await api("text_edit", b); msg("已修改文字", true); });
 $("textDelete").onclick = () => guard(async () => { if (selText === null) throw new Error("先选中文字"); await api("text_delete", { id: selText }); selText = null; msg("已删除文字", true); });
 function pickText(x, y) { if (!S || !S.texts || !$("showText").checked) return null;
   for (const t of S.texts) if (x >= t.box_x0 && x <= t.box_x1 && y >= t.box_y0 && y <= t.box_y1) return t; return null; }
@@ -296,7 +298,7 @@ function drawResidue() {
   if (!$("showResidue").checked || !S.residue) return;
   for (const r of S.residue) { ctx.beginPath(); r.coords.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
     ctx.strokeStyle = r.id === hiRes ? "#ffea00" : "#d500f9"; ctx.lineWidth = (r.id === hiRes ? 3 : 1.5) / view.s; ctx.setLineDash([3 / view.s, 2 / view.s]); ctx.stroke(); ctx.setLineDash([]);
-    const m = r.coords[Math.floor(r.coords.length / 2)]; ctx.fillStyle = "#d500f9"; ctx.font = `${11 / view.s}px ui-monospace, monospace`; ctx.fillText("R" + r.id, m[0] + 2 / view.s, m[1] - 2 / view.s); }
+    if (!$("showResidueIds") || !$("showResidueIds").checked) continue; const m = r.coords[Math.floor(r.coords.length / 2)]; ctx.fillStyle = "#d500f9"; ctx.font = `${11 / view.s}px ui-monospace, monospace`; ctx.fillText("R" + r.id, m[0] + 2 / view.s, m[1] - 2 / view.s); }
 }
 function showResidueList() {
   const L = (S && S.residue) || []; const el = $("resList");
