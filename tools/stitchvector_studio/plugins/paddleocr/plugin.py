@@ -7,7 +7,8 @@ from pathlib import Path
 from tools.stitchvector_studio.contracts import StageResult, artifact, write_json_atomic, OK
 from tools.stitchvector_studio import geo_rules as G
 
-CACHE = Path.home() / "geomap2arcgis/runs/ocr_poc01/cache/paddle"
+ROOT = Path(__file__).resolve().parents[4]
+CACHE = Path(os.environ.get("PADDLE_PDX_CACHE_HOME", str(ROOT / "runs/ocr_poc01/cache/paddle"))).expanduser()
 
 
 def _iou(a, b):
