@@ -1,0 +1,32 @@
+{
+ "profile_id": "legacy-b2c-v01-rapidocr",
+ "kind": "CURRENT_BASELINE_FALLBACK",
+ "description": "Fallback: same B2c baseline with RapidOCR (PP-OCRv4 mobile ONNX) instead of PaddleOCR.",
+ "stages": [
+  {
+   "stage": "input",
+   "plugin": "builtin.input",
+   "builtin": true
+  },
+  {
+   "stage": "vectorize",
+   "plugin": "stitchvector.vectorize.b2c"
+  },
+  {
+   "stage": "ocr",
+   "plugin": "stitchvector.ocr.rapidocr",
+   "optional": true
+  },
+  {
+   "stage": "quality",
+   "plugin": "builtin.quality",
+   "builtin": true
+  }
+ ],
+ "options": {
+  "auto_text_clear": false,
+  "preserve_pending_objects": true,
+  "topology_validation": true,
+  "create_text_drafts": true
+ }
+}

@@ -1,0 +1,7 @@
+{"plugin_id": "stitchvector.ocr.mock", "version": "0.1.0", "api_version": 1, "stage": "ocr",
+ "entrypoint": "tools.stitchvector_studio.plugins.mock_ocr.plugin:Plugin",
+ "input_schemas": ["raster_document.v1"], "output_schemas": ["ocr_candidates.v1"],
+ "capabilities": ["test_only"],
+ "runtime": {"type": "python_subprocess", "python": "studio", "timeout_s": 60},
+ "parameters": {"text": {"type": "string", "default": "MOCK"}},
+ "code_files": ["tools/stitchvector_studio/plugins/mock_ocr/plugin.py"], "notes": "Test plugin."}

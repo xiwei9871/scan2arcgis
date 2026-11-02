@@ -1,0 +1,9 @@
+{"plugin_id": "stitchvector.ocr.rapidocr", "version": "1.0.0", "api_version": 1, "stage": "ocr",
+ "entrypoint": "tools.stitchvector_studio.plugins.rapidocr.plugin:Plugin",
+ "input_schemas": ["raster_document.v1"], "output_schemas": ["ocr_candidates.v1"],
+ "capabilities": ["text_detection", "text_recognition_zh_en"],
+ "runtime": {"type": "python_subprocess", "python": "geomap2arcgis/.venv-ocr/bin/python", "timeout_s": 900},
+ "parameters": {"min_score": {"type": "number", "default": 0.0, "min": 0, "max": 1}},
+ "code_files": ["tools/stitchvector_studio/plugins/rapidocr/plugin.py"],
+ "fixed_params": {"scales": [1, 2]},
+ "notes": "Candidates only. Known errors on geological codes (e.g. Є-O -> E-O, Ar2E -> ArE)."}

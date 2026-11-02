@@ -1,0 +1,43 @@
+{
+ "fail": 1,
+ "log": [
+  "PASS default profile legacy-b2c-v01 (B2c + PaddleOCR)",
+  "PASS RapidOCR profile selectable",
+  "PASS geology-aware-vnext listed but disabled (NOT_IMPLEMENTED)",
+  "PASS upload: 已导入 u2_map.png：PNG，1 页",
+  "PASS job: run-20261102-005224-b7a788 COMPLETED  input:input=COMPLETED | vectorize:b2c@1.0.0=COMPLETED 17s | ocr:paddleocr@1.0.0=COMPLETED 31.77s | quality:quality=COMPLETED",
+  "PASS editor loaded faces 17047, lines 606",
+  "PASS text drafts 148, all OCR_DRAFT",
+  "PASS OCR candidates 148 = text objects",
+  "FAIL canvas settled before the toggle check (37717668 / 2015871565)",
+  "PASS text layer off changes the canvas, on restores it (2015871565 / 2145039812 / 2015871565, checked true)",
+  "PASS isolated-line R numbers on their own toggle (off by default)",
+  "PASS real OCR error chosen: raw \"Ar2E\" (draft \"Ar₂E\")",
+  "PASS text edited: ocr_text \"Ar2E\" kept, text \"Ar₂E\", HUMAN_EDITED",
+  "PASS text moved to (100,100)",
+  "PASS missing text added (J₂d)",
+  "PASS a wrong text object deleted",
+  "PASS text edits changed no face / line",
+  "PASS face recoloured + line width changed",
+  "PASS undo line width",
+  "PASS redo line width",
+  "PASS visual diff (scan vs current) computed",
+  "PASS save: 已保存 v001；回读一致 true；面层有效 true",
+  "PASS after save: no unsaved edits {\"server\":false,\"client\":false}",
+  "PASS after reload + reopen: edited text, raw OCR and position kept",
+  "PASS after reopen: face colour + line width kept",
+  "PASS GPKG export: 已导出 GPKG（PIXEL_SPACE，成果未进行地理配准: coordinates are image pixels (x right, y down); no CRS）；回读 通过：geological_faces 17047/17047，geological_lines 606/606，text_confirmed 2/2，text_unconfirmed 146/146",
+  "PASS SHP export: 已导出 SHP（PIXEL_SPACE，成果未进行地理配准: coordinates are image pixels (x right, y down); no CRS）；回读 通过：geological_faces 17047/17047，geological_lines 606/606，text_confirmed 2/2，text_unconfirmed 146/146",
+  "PASS coordinate mode shown: 坐标：PIXEL_SPACE（成果未进行地理配准）"
+ ],
+ "downloads": {
+  "GPKG": "/tmp/svs_dl9/stitchvector_export.gpkg",
+  "SHP": "/tmp/svs_dl9/stitchvector_export_shp.zip"
+ },
+ "project_id": "p-20261102-005224-5467a9",
+ "edited": {
+  "id": 57,
+  "raw": "Ar2E",
+  "text": "Ar₂E"
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "s_png.png": {
+  "result": "ACCEPTED",
+  "type": "PNG",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": null,
+  "source_sha256": "82a4d8fd7a48d0693ff6ce8d8956ce96f374422e7130935351d7695f3ff2fb9b"
+ },
+ "s_jpg.jpg": {
+  "result": "ACCEPTED",
+  "type": "JPEG",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": null,
+  "source_sha256": "cc26c04aceb8e416c2cf60b026117a6ea9a867ad1fffe309fa971cb88c43462d"
+ },
+ "s_bmp.bmp": {
+  "result": "ACCEPTED",
+  "type": "BMP",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": null,
+  "source_sha256": "19068794e6cbbfac61390cfaeab1a7854f1988f8a9aad0ed194d3b91ea0b4532"
+ },
+ "s_webp.webp": {
+  "result": "ACCEPTED",
+  "type": "WEBP",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": null,
+  "source_sha256": "396cf79edcc11ec14f1fe478e1118d96d3b68baa5cc1a5ffc302522469368174"
+ },
+ "s_tiff.tif": {
+  "result": "ACCEPTED",
+  "type": "TIFF",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": null,
+  "source_sha256": "cb67e6922cbea10c41a37b86c317ae8f3174b568716c94e567f024ec974d52de"
+ },
+ "s_multipage.tif": {
+  "result": "ACCEPTED",
+  "type": "TIFF",
+  "pages": 3,
+  "page": 2,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": null,
+  "source_sha256": "106d79ca2cfcc4f9ed9f47bbe794df03fe71ae1a85199ac9709efefc25de4be5"
+ },
+ "s_geotiff.tif": {
+  "result": "ACCEPTED",
+  "type": "GEOTIFF",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   260,
+   260
+  ],
+  "mode": "GEOREFERENCED",
+  "epsg": 32649,
+  "transform": [
+   2.0,
+   0.0,
+   500000.0,
+   0.0,
+   -2.0,
+   4300000.0
+  ],
+  "pdf_dpi": null,
+  "source_sha256": "74fa835d38a5d3bc26e3b852d44ee53f1ef269f15db078b379c16720062f6ba5"
+ },
+ "s_pdf1.pdf": {
+  "result": "ACCEPTED",
+  "type": "PDF",
+  "pages": 1,
+  "page": 0,
+  "wh": [
+   390,
+   390
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": 150,
+  "source_sha256": "1f58563d9d53b08f550c0ad3bc7ac4e239e11b7248ac900ea80ab34e8102abdc"
+ },
+ "s_pdf3.pdf": {
+  "result": "ACCEPTED",
+  "type": "PDF",
+  "pages": 3,
+  "page": 1,
+  "wh": [
+   188,
+   188
+  ],
+  "mode": "PIXEL_SPACE",
+  "epsg": null,
+  "transform": null,
+  "pdf_dpi": 72,
+  "source_sha256": "97e357090360c36c5f239646ea2be0afaeee9278c0d9d1d04b8c75ed6696487e"
+ },
+ "s_corrupt.png": {
+  "result": "REJECTED",
+  "error": "InputError: cannot decode PNG: UnidentifiedImageError: cannot identify image file '/private/tmp/svs_fmt3/projects/p-20261101-233255-dbdccb/original/.s_corrupt.p"
+ },
+ "s_fake_ext.png": {
+  "result": "REJECTED",
+  "error": "InputError: unrecognised file type (not PNG/JPEG/TIFF/GeoTIFF/PDF/BMP/WebP/JP2 by content)"
+ }
+}

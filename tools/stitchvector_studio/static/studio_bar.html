@@ -1,0 +1,21 @@
+<div id="studioBar">
+  <b>StitchVector Studio V0.1</b>
+  <span class="grp">项目 <select id="sProj"><option value="">（选择项目）</option></select>
+    <button id="sNew">新建项目</button></span>
+  <span class="grp"><input type="file" id="sFile" accept=".png,.jpg,.jpeg,.tif,.tiff,.pdf,.bmp,.webp,.jp2"> <button id="sUpload">导入文件</button>
+    页 <select id="sPage"><option value="0">0</option></select> DPI <input type="number" id="sDpi" value="300" min="36" max="600" style="width:52px">
+    <img id="sThumb" alt=""></span>
+  <span class="grp">流水线 <select id="sProfile"></select> <button id="sProcess">开始矢量化</button> <button id="sCancel">取消</button>
+    <span id="sJob">（无任务）</span></span>
+  <span class="grp"><button id="sSave">保存版本</button> <select id="sVersions"><option value="">（版本）</option></select> <button id="sOpenV">打开版本</button></span>
+  <span class="grp">导出 <select id="sFmt"><option value="GPKG">GPKG</option><option value="SHP">Shapefile ZIP</option><option value="GEOJSON">GeoJSON</option></select>
+    <label><input type="checkbox" class="sLay" value="geological_faces" checked>面</label>
+    <label><input type="checkbox" class="sLay" value="geological_lines" checked>线</label>
+    <label><input type="checkbox" class="sLay" value="text_confirmed" checked>已确认文字</label>
+    <label><input type="checkbox" class="sLay" value="text_unconfirmed">未确认文字</label>
+    <label><input type="checkbox" class="sLay" value="isolated_lines">隔离线</label>
+    <label><input type="checkbox" id="sPixelOk">确认像素坐标导出</label>
+    <button id="sExport">导出</button> <span id="sDl"></span></span>
+  <span class="grp"><label><input type="checkbox" id="sShowOcr">OCR 候选框</label> <span id="sCoord"></span></span>
+  <div id="sMsg"></div>
+</div>

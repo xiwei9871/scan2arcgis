@@ -1,0 +1,10 @@
+body { flex-wrap: wrap; align-content: flex-start; }
+#studioBar { width: 100%; box-sizing: border-box; padding: 4px 8px; background: #22313f; color: #fff; font: 12px -apple-system, sans-serif; }
+#studioBar .grp { display: inline-block; margin: 2px 10px 2px 0; padding-left: 8px; border-left: 1px solid #577; }
+#studioBar button { font-size: 12px; }
+#studioBar select, #studioBar input { font-size: 12px; }
+#sThumb { height: 26px; vertical-align: middle; }
+#sMsg { min-height: 14px; color: #ffd54f; }
+#sCoord { color: #ffab91; font-weight: bold; }
+#sDl a { color: #80d8ff; }
+#side, #wrap { height: calc(100vh - 92px) !important; }

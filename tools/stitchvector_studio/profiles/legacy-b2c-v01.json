@@ -1,0 +1,32 @@
+{
+ "profile_id": "legacy-b2c-v01",
+ "kind": "CURRENT_BASELINE",
+ "description": "Current baseline: B2c on the scan as is (text and symbols included); PaddleOCR PP-OCRv6_medium candidates in parallel become editable OCR_DRAFT text objects. No automatic text clearing.",
+ "stages": [
+  {
+   "stage": "input",
+   "plugin": "builtin.input",
+   "builtin": true
+  },
+  {
+   "stage": "vectorize",
+   "plugin": "stitchvector.vectorize.b2c"
+  },
+  {
+   "stage": "ocr",
+   "plugin": "stitchvector.ocr.paddleocr",
+   "optional": true
+  },
+  {
+   "stage": "quality",
+   "plugin": "builtin.quality",
+   "builtin": true
+  }
+ ],
+ "options": {
+  "auto_text_clear": false,
+  "preserve_pending_objects": true,
+  "topology_validation": true,
+  "create_text_drafts": true
+ }
+}

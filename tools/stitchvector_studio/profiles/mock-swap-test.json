@@ -1,0 +1,8 @@
+{"profile_id": "mock-swap-test", "kind": "TEST",
+ "description": "Hot-swap test: mock vectoriser + mock OCR through the same Studio code path.",
+ "stages": [
+  {"stage": "input", "plugin": "builtin.input", "builtin": true},
+  {"stage": "vectorize", "plugin": "stitchvector.vectorize.mock"},
+  {"stage": "ocr", "plugin": "stitchvector.ocr.mock", "optional": true},
+  {"stage": "quality", "plugin": "builtin.quality", "builtin": true}],
+ "options": {"auto_text_clear": false}}

@@ -1,0 +1,11 @@
+{"profile_id": "geology-aware-vnext", "kind": "TARGET_NOT_RUNNABLE",
+ "description": "Target order: legend pre-parse -> OCR + text protection -> lines -> faces -> legend / residual audit. Interface only in V0.1.",
+ "stages": [
+  {"stage": "input", "plugin": "builtin.input", "builtin": true},
+  {"stage": "legend", "plugin": "stitchvector.legend.preparse", "status": "NOT_IMPLEMENTED", "needs": ["legend.v1 producer"]},
+  {"stage": "ocr", "plugin": "stitchvector.ocr.rapidocr"},
+  {"stage": "text_process", "plugin": "stitchvector.text.protect_mask", "status": "NOT_IMPLEMENTED", "needs": ["protection mask consumed by the line stage"]},
+  {"stage": "vectorize", "plugin": "stitchvector.vectorize.lines_protected", "status": "NOT_IMPLEMENTED", "needs": ["line detector that reads the protection mask"]},
+  {"stage": "geometry", "plugin": "stitchvector.geometry.faces_legend", "status": "NOT_IMPLEMENTED", "needs": ["legend-aware face builder"]},
+  {"stage": "quality", "plugin": "stitchvector.quality.legend_residual", "status": "NOT_IMPLEMENTED", "needs": ["legend.v1 confirmed entries"]}],
+ "options": {"auto_text_clear": false}}

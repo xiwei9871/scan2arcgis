@@ -1,0 +1,8 @@
+{"plugin_id": "stitchvector.vectorize.mock", "version": "0.1.0", "api_version": 1, "stage": "vectorize",
+ "entrypoint": "tools.stitchvector_studio.plugins.mock_vectorize.plugin:Plugin",
+ "input_schemas": ["raster_document.v1"], "output_schemas": ["vector_layers.v1"],
+ "capabilities": ["polygon_extraction", "polyline_extraction", "test_only"],
+ "runtime": {"type": "python_subprocess", "python": "studio", "timeout_s": 120},
+ "parameters": {"cell": {"type": "integer", "default": 50, "min": 4, "max": 1000}, "fail": {"type": "boolean", "default": false}},
+ "code_files": ["tools/stitchvector_studio/plugins/mock_vectorize/plugin.py"],
+ "notes": "Test plugin."}
