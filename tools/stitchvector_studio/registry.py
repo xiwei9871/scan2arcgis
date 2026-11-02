@@ -34,12 +34,12 @@ def _check(m, src):
 
 
 def resolve_python(runtime):
-    """runtime.python: 'studio' (the server's interpreter) or a path relative to the user's home / absolute."""
+    """runtime.python: 'studio' or a repo-root-relative/absolute interpreter path."""
     import sys
     py = runtime.get("python", "studio")
     if py == "studio": return sys.executable
     p = Path(py).expanduser()
-    if not p.is_absolute(): p = Path.home() / py
+    if not p.is_absolute(): p = ROOT / p
     return str(p)
 
 
