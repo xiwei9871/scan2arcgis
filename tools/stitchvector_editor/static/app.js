@@ -25,6 +25,7 @@ async function refresh() {
   const keep = new Set((sel.layer === "face" ? S.faces : S.lines).map(o => o.id)); sel.ids = sel.ids.filter(i => keep.has(i));
   fillLegend(); showSel(); draw();
 }
+document.fonts && document.fonts.addEventListener && document.fonts.addEventListener("loadingdone", () => { if (S) draw(); });
 function toWorld(ev, c) { const r = (c || cv).getBoundingClientRect(); return [(ev.clientX - r.left - view.x) / view.s, (ev.clientY - r.top - view.y) / view.s]; }
 function fit() {
   if (!S) return; const w = main.clientWidth, h = main.clientHeight; view.s = Math.min(w / S.width, h / S.height) * 0.95;

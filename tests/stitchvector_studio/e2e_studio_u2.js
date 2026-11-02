@@ -32,8 +32,10 @@ async (page) => {
   await page.mouse.move(2, 2); await page.waitForTimeout(300);
   await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(800); await px(); await page.waitForTimeout(300);
   await page.uncheck("#showText"); await page.waitForTimeout(300); await page.check("#showText"); await page.waitForTimeout(300);   // prime: first frame after reopen differs (see report)
-  await page.evaluate(() => refresh()); await page.waitForTimeout(2500); const a0 = await px(); await page.waitForTimeout(1000); const a1 = await px();
-  ok(a0 === a1, `canvas settled before the toggle check (${a0} / ${a1})`);
+  await page.evaluate(() => refresh()); await page.waitForTimeout(2500);
+  let a0 = await px(), a1 = a0, resamples = 0;
+  for (; resamples < 10; resamples++) { await page.waitForTimeout(700); a1 = await px(); if (a1 === a0) break; a0 = a1; }
+  ok(a0 === a1, `canvas settled before the toggle check (${a0} / ${a1}, ${resamples} resamples)`);
   await page.uncheck("#showText"); await page.waitForTimeout(400); const a2 = await px(); await page.check("#showText"); await page.waitForTimeout(400); const a3 = await px();
   ok(a1 !== a2 && a1 === a3, `text layer off changes the canvas, on restores it (${a1} / ${a2} / ${a3}, checked ${await page.isChecked("#showText")})`);
   ok(!(await page.isChecked("#showResidueIds")), "isolated-line R numbers on their own toggle (off by default)");

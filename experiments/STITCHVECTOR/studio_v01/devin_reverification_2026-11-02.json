@@ -1,0 +1,25 @@
+{
+ "date": "2026-11-02",
+ "agent": "Devin (takeover per issue #2)",
+ "server": ".venv-sv/bin/python -m tools.stitchvector_studio.server --workspace runs/stitchvector/studio_v01/e2e_ws_devin --port 8830",
+ "commit_tested": "see git log feature/stitchvector-studio-v01",
+ "checks": {
+  "mock_pipeline_smoke": {"result": "PASS", "detail": "mock-swap-test profile COMPLETED: 36 faces / 1 line / 4 ocr candidates", "project": "p-20261102-080553-88addb"},
+  "input_format_suite_live": {
+   "result": "PASS",
+   "accepted": {"s_png.png": "PNG", "s_jpg.jpg": "JPEG", "s_bmp.bmp": "BMP", "s_webp.webp": "WEBP", "s_tiff.tif": "TIFF", "s_multipage.tif": "TIFF 3 pages", "s_geotiff.tif": "GEOTIFF", "s_pdf1.pdf": "PDF", "s_pdf3.pdf": "PDF 3 pages"},
+   "rejected": {"s_corrupt.png": "cannot decode PNG", "s_fake_ext.png": "unrecognised file type (content sniff)"}
+  },
+  "normalise": {"geotiff": "GEOREFERENCED epsg=32649 transform kept", "pdf3_page1": "page index honoured", "multipage_tiff_page2": "page index honoured"},
+  "u2_browser_e2e": {"result": "PASS 30/30 (fail=0)", "run": "run-20261102-081020-705cf1", "project": "p-20261102-081020-dc82fe",
+    "stages": {"b2c": "17.89s -> 17047 faces / 606 lines", "paddleocr": "33.86s -> 148 drafts", "quality": "COMPLETED"},
+    "downloads": ["/tmp/svs_dl_devin/stitchvector_export.gpkg", "/tmp/svs_dl_devin/stitchvector_export_shp.zip"],
+    "independent_readback": "pyogrio: gpkg layers geological_faces 17047, geological_lines 606, text_confirmed 2, text_unconfirmed 146; shp zip has shp/shx/dbf/cpg + manifest"},
+  "geojson_export": {"result": "PASS", "detail": "PIXEL_SPACE -> stitchvector_export.pixel.json (RFC7946-honest refusal of fake GeoJSON), 7.97 MB, readback ok", "export_id": "e-2da4f0a19f"},
+  "rapidocr_fallback": {"result": "PASS", "run": "run-20261102-081315-2ef526", "project": "p-20261102-081315-66d307",
+    "stages": {"b2c": "17.95s -> 17047/606 (identical to paddle run)", "rapidocr": "4.88s -> 219 candidates"}},
+  "job_cancel": {"result": "PASS", "detail": "vectorize cancelled mid-run; ocr+quality marked CANCELLED; manifest persisted"},
+  "server_restart": {"result": "PASS", "detail": "after kill+restart, job manifest and 16 projects re-served from disk"},
+  "b2c_segfault": {"result": "NOT_REPRODUCED", "detail": "3 consecutive clean B2c runs (17.36s/17.89s/17.95s); earlier -11 was intermittent, keep watching"}
+ }
+}
