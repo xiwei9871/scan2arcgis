@@ -34,3 +34,13 @@ git worktree remove legacy       # 用完移除
 ## 数据规则
 
 地质图图件、客户资料、标注真值默认不入库。`data/manifests/` 只记录文件名、SHA-256、来源、比例尺、坐标系、授权状态。
+
+## StitchVector Studio V0.1 — 环境配置与运行
+
+Studio 及 B2c/GIS 主依赖：[`requirements.txt`](requirements.txt)  
+默认 PaddleOCR：[`requirements-ocr-paddle.txt`](requirements-ocr-paddle.txt)  
+备用 RapidOCR：[`requirements-ocr-rapid.txt`](requirements-ocr-rapid.txt)
+
+**[安装与启动教程：docs/stitchvector_studio/v01/INSTALL.md](docs/stitchvector_studio/v01/INSTALL.md)**
+
+以上三组依赖必须分别安装在三个 Python 3.11 虚拟环境中；不要合并成单一环境。OCR 模型首次使用时需联网下载；原始地质图和实验 GPKG 不在仓库中，用户自行导入图像。当前安装配置在独立开发分支验证中，不应把“同机恢复成功”当成“跨机安装已验证”。
