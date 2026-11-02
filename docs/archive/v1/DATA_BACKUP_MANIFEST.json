@@ -1,0 +1,1370 @@
+{
+ "manifest": "stitchvector-data-backup/v1",
+ "generated": "2026-11-02",
+ "status": "REMOTE_BACKUP_PENDING",
+ "reason": "No currently-authorized private remote. gitlab.manqiaotechnology.com remote exists but git ls-remote returns HTTP Basic access denied (credentials expired). Protected data was NOT uploaded anywhere.",
+ "approved_destination": null,
+ "pending_destination_candidate": "gitlab.manqiaotechnology.com/stock/Map-Auto-Conversion-Tool (company GitLab; needs credential refresh + explicit data-backup authorization)",
+ "packaging_plan": "tar.gz per experiment bundle, sha256 sidecar per file, manifest JSON in bundle root",
+ "bundles": [
+  {
+   "bundle": "u2-core.tar.gz",
+   "covers": "runs/stitchvector/u2_full + oracle_u2_300*",
+   "importance": "CRITICAL"
+  },
+  {
+   "bundle": "gsj-u3-inputs.tar.gz",
+   "covers": "runs/r2_gsj + runs/real/u3 + runs/mac_r1/real/u3",
+   "importance": "CRITICAL"
+  },
+  {
+   "bundle": "ocr-poc01-data.tar.gz",
+   "covers": "runs/ocr_poc01/{raw,truth_draft,viewer,logs} + truth/paddle_boxes.json",
+   "importance": "HIGH"
+  },
+  {
+   "bundle": "studio-workspaces.tar.gz",
+   "covers": "runs/stitchvector/studio_v01",
+   "importance": "MEDIUM"
+  },
+  {
+   "bundle": "experiment-outputs.tar.gz",
+   "covers": "runs/{r4a2,r4c0,r4b*,arch*,mac_r1,r1_synth,synth_suite,r3*,real,stitchvector medium dirs}",
+   "importance": "MEDIUM"
+  }
+ ],
+ "items": [
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_map.png",
+   "size": 799032,
+   "sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_B2c.gpkg",
+   "size": 7053312,
+   "sha256": "988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_text_cleared.gpkg",
+   "size": 5828608,
+   "sha256": "9e9b87f683d20a4b06638427af078f97c655ba6b48ca5b1ac85c9a521401523d",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_text_input_copy.gpkg",
+   "size": 7053312,
+   "sha256": "988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_text_cleared.edits.json",
+   "size": 11981,
+   "sha256": "8f3b22ac2a30b33a3f6bb32982a862f28b8dda4fa9bce1f22db3c61c3ae97bb6",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_ocr_full.json",
+   "size": 26200,
+   "sha256": "2671c7566de929fc9615790718b95bb7de3f74bdafce01bf15caccd21c3a3da1",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_problem_map_x2.png",
+   "size": 894184,
+   "sha256": "7841fb4c75abdf5a925294d80ba86aa67fd155f46eec1fe18d17773e86506620",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/view_faces_x2.png",
+   "size": 180051,
+   "sha256": "80efacedb7be483cf983c5ddfe21ac8867c43932a94802175795266ccbaf88ac",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/view_lines_x2.png",
+   "size": 1698209,
+   "sha256": "f46b821eea4abb3308d2e433b0125b5b83fb6d3ac0bc76a1c63fefeb84a9d1c9",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/view_ocr_boxes_x2.png",
+   "size": 2359431,
+   "sha256": "c2812726360f0ed221342e8ad4d83a09d6af366caa6ead2e3592ece958901718",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/residual_B2c_vs_cleared_rgb.npy",
+   "size": 1883828,
+   "sha256": "e82e70538c99e0805e2dabc1833607bbf4a7d9c821e6505ef99fcf658ae45230",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/residual_scan_vs_B2c_rgb.npy",
+   "size": 1883828,
+   "sha256": "5b03a6a04febd8a6585154556d2320f0915fd9c9c47ace2d72f6d9e27f640ed6",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/residual_scan_vs_cleared_rgb.npy",
+   "size": 1883828,
+   "sha256": "9b85556e40a9d6d514b5319fb83c13e1c51a54f1fd597039123afa2126c493f8",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/u2_render_B2c.png",
+   "size": 142475,
+   "sha256": "41c69eeab32c20fd804221938bf57b596b25a853def1f5aacef423286dd71e06",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/u2_render_cleared.png",
+   "size": 118521,
+   "sha256": "8dc04b80778057ad07de38fecb4ebdc645e0305006662be2acba5a8579a4e68e",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/u2_residual_before_after.png",
+   "size": 36442,
+   "sha256": "b23d7a263075c1439aa7e759488fee8f3d57272811858aa6efceae0564ee8f13",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/u2_residual_full.png",
+   "size": 565696,
+   "sha256": "314477e40661745d8f69287bb9762792e93e83268c10b93f891e4b8f0ffcf19a",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/visual_diff/u2_residual_no_text.png",
+   "size": 450500,
+   "sha256": "d165e160f9f01a2a7851735e95a3f4f35ed9bdf2b658c1e1d88859bf8f7f506e",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/B0_32_tol0.gpkg",
+   "size": 2416640,
+   "sha256": "39cb11149bbf05a5d8e79b4cf2c5663ed5b00ad8cc3e4a9697a2c80a94d509f6",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/B0_32_tol1.gpkg",
+   "size": 2134016,
+   "sha256": "4f3fe4377570e25446478c539d17d293119ac32f57e426b57ed68b6b00d662a7",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/B0_class_tol0.gpkg",
+   "size": 708608,
+   "sha256": "f6dadf16ae16a057e0b0ea6735cf5a3113339f576047490452cf29fb1a523f26",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/B0_class_tol1.gpkg",
+   "size": 622592,
+   "sha256": "a5bc6424931b31c5397385880fa851f98f73a12005c3e9378410d17891da3512",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/O1_32_tol0.gpkg",
+   "size": 1998848,
+   "sha256": "8f8b4a88fb5add7b264a0eabffaa0edf2d14afa0ab14dc4346d9b452eb7e95e8",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/O1_32_tol1.gpkg",
+   "size": 1679360,
+   "sha256": "e9538f35694e90c2c051ffb0a0e8854ae31fc5ac31b3321969a1b02a33b586ae",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/O1_class_tol0.gpkg",
+   "size": 446464,
+   "sha256": "b427723f5b5bca79fd2f7c128b6e34722544ba5654bb86f21a0f1531cdecfd2f",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/O1_class_tol1.gpkg",
+   "size": 364544,
+   "sha256": "10187ca6a14264c6557c3ee15ef358fc502ca4569479b6ad2e30a43a263c3bbd",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/compare_strip_x6.png",
+   "size": 126313,
+   "sha256": "70fade62310cf64d3854dc0e9455cb27af059a5e07358786c3ec35ee17480730",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/composite_O1_x3.png",
+   "size": 38497,
+   "sha256": "3b1c5c3a8c441f5048dca0746e134f03ae787ce56a207a47fa50eb00c4210fb5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/error_O1_dE_x6scale.png",
+   "size": 30283,
+   "sha256": "de231ec26dd486851331f8e3489f8a4e6dd2c2cba8da3a77462d7acbbf264d45",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/face_layer_x3.png",
+   "size": 37831,
+   "sha256": "f2bfb846a1a3e78e0f8c221532c87397c396624acb2512a863f64b34e91b984f",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/line_layer_x3.png",
+   "size": 6513,
+   "sha256": "ba1193fdbb291364519630edbe969d01a48061d34f833d9c72498f7da646cc92",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/oracle_preview_x6.png",
+   "size": 71932,
+   "sha256": "79bd9c8d7000dac8cef2f43af02b5a01a84420783cccd2890bd69892df212458",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300/original_x3.png",
+   "size": 67381,
+   "sha256": "a53542b8c4de8b42b7c97838eff3a76946cb18b91cfdd8b92bfc44a5d31dfa6b",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/B0_32_tol0.gpkg",
+   "size": 2416640,
+   "sha256": "6e943707d08ff1b7200b96b7ff3574b39d6d64824fa22ad2083705a6d530b4c0",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/B0_32_tol1.gpkg",
+   "size": 2134016,
+   "sha256": "641b902d31d8ed85bc60aedd96d77bba125d8dd63ad330491c0bee799819d431",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/B0_class_tol0.gpkg",
+   "size": 708608,
+   "sha256": "641e5f248b663dd33c13432efa71617f87df503ea1e20c9ffe2868462a9a15de",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/B0_class_tol1.gpkg",
+   "size": 622592,
+   "sha256": "83d01f7c461a5474ddde6440f6683722595e428e8ce1a981bac2ba7dc1cc6ce5",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/O1_32_tol0.gpkg",
+   "size": 2011136,
+   "sha256": "9a810356b8dafaa5dd06596793b0525f5b96ff4ebaecb1a1c65bedfee2dc3391",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/O1_32_tol1.gpkg",
+   "size": 1691648,
+   "sha256": "a7a2087c29232ad63b2f56b1da3faf85b8ed9daab20cbb42f50c46ec4b7d1be8",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/O1_class_tol0.gpkg",
+   "size": 466944,
+   "sha256": "c499d548dc492d932fecade8b57a734db339e5810a8763d6148de434c671428c",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/O1_class_tol1.gpkg",
+   "size": 385024,
+   "sha256": "cff43fa316fc158c38065549b99172388206919c31c110053c701ab710e2a2c2",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/v2_compare_map_x6.png",
+   "size": 111615,
+   "sha256": "68eb89018b3660d9af97e068603d836f17700064cfd3cdd7cc38a94a505fadad",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/oracle_u2_300_v2/v2_error_map_x6.png",
+   "size": 33834,
+   "sha256": "f3fa898d869f86a029268a7028c0188c1f4e7867d46d113d9badad31fd942529",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/13014_256.gpkg",
+   "size": 16461824,
+   "sha256": "50872d1f658920ed855c72e90da112fe8502cdb38347d0f5b9cfbc59ee95d023",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/13014_512.gpkg",
+   "size": 66117632,
+   "sha256": "3749c7dbbfb13bc1a199c3bff3673286b7836f8b0223764d1015fe9aee838877",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/r0_results.json",
+   "size": 1631,
+   "sha256": "728e02215bd87594efd08b759a31ae84d3c70d5d8e08eb977c7783dc2a167b1c",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/u2_256.gpkg",
+   "size": 2416640,
+   "sha256": "bb610b7f602673cd9b478841a7dcb3c84c257c35b03b5c9883240bc560d37a60",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/u2_512.gpkg",
+   "size": 17149952,
+   "sha256": "d98e43cc42ccdf0f7d2a4de85aa2497e158309246ea7281c13f725a106b4763a",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/u3_256.gpkg",
+   "size": 5644288,
+   "sha256": "7202d2f3f9fc29dcbeca82097ed431d74cec95fec8d552e058db0a6258a6b011",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r0/u3_512.gpkg",
+   "size": 24158208,
+   "sha256": "db834bc468a871987cd6d39c8aecb694346069200ada19ac4f55367f4b367aaa",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized16_default.gpkg",
+   "size": 39497728,
+   "sha256": "005f71200673a3fac65aedd95f6fab0f24864f448155f8d2dfa4d16ba42e9686",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized16_pixel.gpkg",
+   "size": 96800768,
+   "sha256": "8058b1a1612cd553397467086a77b71ebae7b3bab2d7f13df66a5f3d7ae28a81",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized16_polygon.gpkg",
+   "size": 9936896,
+   "sha256": "931f102c3cce8d289f0637533d8d3b73df8f46b1b9ea2c2188a7095b7e19c0e5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized16_spline_s1.gpkg",
+   "size": 83804160,
+   "sha256": "0bf9d0b7d83ac5164053d283f4d5de2a96f293b78bb1f588fc56e685962d368f",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized16_spline_s2.gpkg",
+   "size": 83795968,
+   "sha256": "674eec9a42dcba9695198fb1e879000c2ea7205b126556e5231dfbb2bc945d2c",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized32_default.gpkg",
+   "size": 36892672,
+   "sha256": "9469b89b61b12418740f3a9b070da2ff6792f5a057672dd594b39133aa09391f",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized32_pixel.gpkg",
+   "size": 103591936,
+   "sha256": "7572bb29d35f56eeb2c4e81aa5c0aa778271c56d9d3dd64a77b1b9b10158c308",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized32_polygon.gpkg",
+   "size": 8232960,
+   "sha256": "090e8207fede59b90a181bbc935a1595a152f8865e46546dafdc6507777559e4",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized32_spline_s1.gpkg",
+   "size": 90959872,
+   "sha256": "dbb78548900293c8cdbdc6062e1c31c1c6f244e0ebb166b9343f0e31d72e47af",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized32_spline_s2.gpkg",
+   "size": 90959872,
+   "sha256": "8887347f5598af37b2bc859f0e8bdcb1d71cb22d48736cfbee69b630e7e5e982",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized64_default.gpkg",
+   "size": 38498304,
+   "sha256": "05f19c84addead755134cf3697c59189046a1fa69200cb93747fb6722fd47e00",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized64_pixel.gpkg",
+   "size": 119799808,
+   "sha256": "312e5086866275e063656c975660f330160a287fbcfbbde99e3633a43e6f98b3",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized64_polygon.gpkg",
+   "size": 6873088,
+   "sha256": "77be69479fc7e20c6271f06177aa5960d187e6716295755675a011be4de8f636",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized64_spline_s1.gpkg",
+   "size": 109768704,
+   "sha256": "a970e3ecfc7c3c66672a800a96a8df286fed83a9f539e872d8d06bd3a4576c84",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_quantized64_spline_s2.gpkg",
+   "size": 109768704,
+   "sha256": "a7f37d307b23de0ee38922858b23258ff3fae916fd2d7f4472548931a1ac3699",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_rawRGB_default.gpkg",
+   "size": 40386560,
+   "sha256": "b6a171464db7ad3e5e59f9930c0d60d1eb1dfcc02c9c2bae3b8b8c024b60df23",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_rawRGB_pixel.gpkg",
+   "size": 137826304,
+   "sha256": "47a3dfd8bf9732c3b46a33524c3c7507ad2a1668e1745bec6dc69e430f7a144b",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_rawRGB_polygon.gpkg",
+   "size": 5300224,
+   "sha256": "36b917fc73193412a95910a98312adf85566faf2529b47adab8625593eefd21f",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_rawRGB_spline_s1.gpkg",
+   "size": 127664128,
+   "sha256": "31aefffd2d4499b4dfbff435fe3da1607560f45622c7712b8af1b39d1ac2405c",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_rawRGB_spline_s2.gpkg",
+   "size": 127664128,
+   "sha256": "2bb2645f7a405618010647e8eaf652634edb39c7a7b2222d9bb7dea476e4b01b",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/13014_rawRGB_watershed.gpkg",
+   "size": 1028096,
+   "sha256": "04cbdd3d6bc0a6c408a09909484a9edd4ec9b4d92dd984cd2a082e035d44640d",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized16_default.gpkg",
+   "size": 4169728,
+   "sha256": "62692b4176dfa4ab5718925755ca68434a58895c271430ba0a1a2fa13c29c3b7",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized16_pixel.gpkg",
+   "size": 11354112,
+   "sha256": "300e7f2edf7b50e469728ad9f85c6935f82e641ea2f7c4371219606599cc1ef7",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized16_polygon.gpkg",
+   "size": 1638400,
+   "sha256": "cd531a53df7069bbbbe734c7902750a40801a99721174642e5f5e95b1bfc1dc6",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized16_spline_s1.gpkg",
+   "size": 9961472,
+   "sha256": "5052dbe647f82f64b361861abbc00717851d99cb539e6b6b50adff7eb0c26148",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized16_spline_s2.gpkg",
+   "size": 9957376,
+   "sha256": "4fcadfdb6e0d2bf438a7083f773e1d4e796dd9bb3a7a28d253383bcfff087c32",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized32_default.gpkg",
+   "size": 5369856,
+   "sha256": "ded4443adaa65791c03a6681316078d96475097affeef2c31f73d37110125732",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized32_pixel.gpkg",
+   "size": 12447744,
+   "sha256": "1007cd3d5e8fb24cc8a763449313a588d7348236112c28fb5c1c1bd6af067ca2",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized32_polygon.gpkg",
+   "size": 1753088,
+   "sha256": "d62a3834b900595514122c24bd4c12a3a160b1462deb50dd7cbe05e4ef18bf12",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized32_spline_s1.gpkg",
+   "size": 11177984,
+   "sha256": "cf4bbbdfbc5e2633981c8c12ab35578d3df2b29fa7ed97ff7950c62d180fb92e",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized32_spline_s2.gpkg",
+   "size": 11173888,
+   "sha256": "84033a0207755d0e27f2b15ae709bc3fff0ba95875cd8a8393de96af19caa338",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized64_default.gpkg",
+   "size": 6307840,
+   "sha256": "48e1c638968c9b38d68733974edd54e595f13fed68352aee7912f6835fe77b68",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized64_pixel.gpkg",
+   "size": 14278656,
+   "sha256": "af54efad9ced9a10a05eef267e1b8c13bcedf2cb92009c1b182f0467db27a234",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized64_polygon.gpkg",
+   "size": 1687552,
+   "sha256": "187da665d3edea41f126b75fb7348a7a3a9b422feab2d4bd9b802c81b6c33fab",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized64_spline_s1.gpkg",
+   "size": 12828672,
+   "sha256": "84ae0f97efe03d6d1db8f9c2a54a9e7b67985db8256e0b96c9d55139a2b0d4e5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_quantized64_spline_s2.gpkg",
+   "size": 12804096,
+   "sha256": "e6a3752651445df42687bf7cc22f922626ee4963fded3de0a5e73b17d03dc117",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_rawRGB_default.gpkg",
+   "size": 7151616,
+   "sha256": "c824105757e960f1fead17252d23d69056e60b6fb75a54021b656f0a72a31aa4",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_rawRGB_pixel.gpkg",
+   "size": 20348928,
+   "sha256": "1e1c89d567f3cf25da33fdd63f52ccd439037a626e1b9d99d84bdfeb6cf41c0d",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_rawRGB_polygon.gpkg",
+   "size": 1568768,
+   "sha256": "49333a7fbdfad257c83aed3de6683fa3cec0c13a262bae9e24ae77701af3fb3d",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_rawRGB_spline_s1.gpkg",
+   "size": 19095552,
+   "sha256": "6db7a596c6768aa7327aae2e87841861699fb6fb11843bd5d72d87e9b0c901e0",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_rawRGB_spline_s2.gpkg",
+   "size": 19095552,
+   "sha256": "59cb68f00e48ad2d1baa16bdfb4f924b5f75b05a5a3ccd22b6ffe0cc15f7acfc",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u2_rawRGB_watershed.gpkg",
+   "size": 569344,
+   "sha256": "5bc4358b78890cb5e386a7229547c7e09547d2e389296c9a256ff64e6f090f9c",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized16_default.gpkg",
+   "size": 1839104,
+   "sha256": "94089c808a58492e5b7ae1ca245f52556108232ecc36d12c74655450ec8273e5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized16_pixel.gpkg",
+   "size": 3420160,
+   "sha256": "7dc83c16b494942bedb8fa7a1bc488eb6cd195eda82ecc841f9e57c313a29848",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized16_polygon.gpkg",
+   "size": 929792,
+   "sha256": "9b9bb6535a4784f158aa0af877eb6f287e7bde9f717f11030e42746bd995575c",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized16_spline_s1.gpkg",
+   "size": 3514368,
+   "sha256": "83b7dcce2499b1d513d7ef657ba2f585178a90910516a4827c14543e900aec93",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized16_spline_s2.gpkg",
+   "size": 3481600,
+   "sha256": "5e2b6ce0f342944e488ff74886a13ddd72d493544be6c40d215d5d435b7f286d",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized32_default.gpkg",
+   "size": 2527232,
+   "sha256": "bab3a5d82ee0ad6c69b4f9e6f436fce9c54af623a98d282bc20db40fc2a276cf",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized32_pixel.gpkg",
+   "size": 4833280,
+   "sha256": "11519dbac504c1357bbb5444cb94270c2850f6d4b6d0c3f1bf3efa84dfeaabe5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized32_polygon.gpkg",
+   "size": 1441792,
+   "sha256": "5ef24bac483dddc54bb5b8be8f95e9f33c3262a39f8c76fee41caa5e9c1dd646",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized32_spline_s1.gpkg",
+   "size": 5496832,
+   "sha256": "e6b5845c6e2e08b812a0b0b2f1764f9573965e8aab8d79a02ea5c60cd9143873",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized32_spline_s2.gpkg",
+   "size": 5492736,
+   "sha256": "5ab6707bb669178d4195ef77a9b56be6ba3cd1cfd6f4f99d4f81fff76709e4c2",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized64_default.gpkg",
+   "size": 3686400,
+   "sha256": "2d29ba5f4921fa8f09adaf9fd2a51d56e82e0c789a8f2f72c61eb03f9e1514ef",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized64_pixel.gpkg",
+   "size": 6582272,
+   "sha256": "86b32ba3f3e398717161a65baa378424e9cd51adef38dc68b48f05d00de37662",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized64_polygon.gpkg",
+   "size": 1789952,
+   "sha256": "78bfa8952f783afac9ce6da6ed78032381b3f153e7cd72405cee9aa05d73cdab",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized64_spline_s1.gpkg",
+   "size": 7204864,
+   "sha256": "430360ff8df8a07442268c9a09f91716dbc05fe2805de2c7dc7dfc68e74be6b4",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_quantized64_spline_s2.gpkg",
+   "size": 7184384,
+   "sha256": "971e081c6e806f7048ee71127ad107d2701f9ee3f7cc1544121dd93988d0cfc5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_rawRGB_default.gpkg",
+   "size": 4833280,
+   "sha256": "24073ea9a790e5c92d877e08e376ff7edb32eb208d8086af78006a1acb566a70",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_rawRGB_pixel.gpkg",
+   "size": 8298496,
+   "sha256": "5a8c6ee543a4bc01c5b422100b241cd738fb3c636b3f5bf6fc2492891ee7ba63",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_rawRGB_polygon.gpkg",
+   "size": 1929216,
+   "sha256": "5b9f2c80e7b79b980715a2334b48bd22a3fda29b4da0c5280cce617889b50bd5",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_rawRGB_spline_s1.gpkg",
+   "size": 9711616,
+   "sha256": "5455b59f748be0421d1066314698d3061c72f010def8821fd989f9c4a84c7ddb",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_rawRGB_spline_s2.gpkg",
+   "size": 9703424,
+   "sha256": "15e47620e72b03075ed8f09636ccb6fb4a1a8092f9423035414564c293eb74cc",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r1/u3_rawRGB_watershed.gpkg",
+   "size": 618496,
+   "sha256": "13ceaf7d6e3aebc8f97c965624f0296a6aaf73891b88b4e0f335ba576454b8c7",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r2_gsj/08001/frame.jpg",
+   "size": 642844,
+   "sha256": "373002725e2b4376a115bac04d341e1b561b1df7063f1cdcad1fd576c85862df",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r2_gsj/08001/frame.json",
+   "size": 747,
+   "sha256": "f5a57127ebc2dac98cc22bfc94fb206e87d0af685512e4105bfcd26498b73cca",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r2_gsj/08001/frame_reg.json",
+   "size": 11116,
+   "sha256": "f6029fa7dabb5de7ce85f667e1df55c4dd80a82919754a466b7709d2d28ae504",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r2_gsj/08004/frame.jpg",
+   "size": 610367,
+   "sha256": "41a679d191ac0b7c308f7b58fc7cddae7aecf970ca8258c0b741afa589a216d4",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r2_gsj/08004/frame.json",
+   "size": 727,
+   "sha256": "0a791c6587099ed0ab2f13cddfc9cd61d116fe9d60b7c62398f45726e86d57a1",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r2_gsj/08004/frame_reg.json",
+   "size": 10133,
+   "sha256": "e7866228c77945e845df18cb27dc5b02195de0c9e2ade801eb40ac53e12ac0b5",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/work.png",
+   "size": 3228324,
+   "sha256": "6398704b8f8eb60fe34381c7a0ab22da35da2f2c6eeb006e860b9fbe8ce4d267",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/legacy_fairness.json",
+   "size": 347,
+   "sha256": "2fdff83f230026fcb0ef43e8ef6e3aec65a37ac608f8d40fbcb5a9eb9d96cb22",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/swatches.json",
+   "size": 2330,
+   "sha256": "5a9488e37153ed115923357fd092285acb1c368bfb24439691c9ff7447780635",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/work.json",
+   "size": 3021,
+   "sha256": "6b6c019b387692b210f0cdd13c88166f9082d6da28eb73616181ee64e78b54e0",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/swatch_check.jpg",
+   "size": 132750,
+   "sha256": "dba731fce9e61bac14cfe8b52fe1c3f215d0c09dfe698b9187118fe16806341b",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/out/work_r1.gpkg",
+   "size": 2146304,
+   "sha256": "b4be9bfefeeeb84c370f1a43065b7faa80f6f621fb1c544685667be3442ad360",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/out/work_r1_overlay.jpg",
+   "size": 246763,
+   "sha256": "8de6fbabacb4249d238a05afc67cad5f3d1af0649b8557cc6ab633bd77a00866",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/out/work_r1_run.json",
+   "size": 955,
+   "sha256": "7b37f257e9354c4ca5ea05e27123c9c10f509e985c1d5418a90aca7b7663bd66",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/compare/compare.json",
+   "size": 869,
+   "sha256": "5f20229a2925ef6ca62e29a665b3226ff0f31fee6e702c3ba5c8ca58667aab5e",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real/u3/compare/compare_side_by_side.jpg",
+   "size": 201773,
+   "sha256": "8efd83b2672097ee1d6852c28fde8cc322ce3c57a8d240f9b1b89f65f30e2d42",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real/u3/work.png",
+   "size": 3228324,
+   "sha256": "6398704b8f8eb60fe34381c7a0ab22da35da2f2c6eeb006e860b9fbe8ce4d267",
+   "importance": "CRITICAL"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real/u3/swatches.json",
+   "size": 2331,
+   "sha256": "ba989b1753e2ca153ea7e5a0b6a1c58911dbf7dd80896d92d72a467c16fef801",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real/u3/work.json",
+   "size": 3022,
+   "sha256": "d2068632ccd7afbee21afa1069711188e702b067189ba6984b8001ec4d1e9cb2",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real/u3/swatch_check.jpg",
+   "size": 132750,
+   "sha256": "dba731fce9e61bac14cfe8b52fe1c3f215d0c09dfe698b9187118fe16806341b",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real/u3/compare/compare.json",
+   "size": 871,
+   "sha256": "c827f17c1cbd0d5258f93cbf3ce8f02f7f9184393594a6c072743f83679c07a4",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real/u3/compare/compare_side_by_side.jpg",
+   "size": 201731,
+   "sha256": "310511e889782d7b2f1c0a09dafb739c40d74093fe79b49cb2391559d34dd4e8",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_boxes.json",
+   "size": 15125,
+   "sha256": "3d6ba4758b10964dce266adcc822c0a19d3cb7396ad241da3d7d598c7acad38e",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/paddle_boxes.json",
+   "size": 14215,
+   "sha256": "1aca47d9ccadaa6f751733f8c51afb49c9832cd21412d9ad66f26e0ca773262b",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/neg_draft.json",
+   "size": 2635,
+   "sha256": "5ef85fc27c0908b9d4bbb402f0fd6595bee9ccb056d61b29ee004088d171f725",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/neg_draft2.json",
+   "size": 12407,
+   "sha256": "3a82807f923c6c589806f7f0f912d377961e260689196aad1c689654b7b2fa85",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/neg_sheet.png",
+   "size": 576821,
+   "sha256": "eb266f108eafedc879c40f239226048a7a9e839eac2d5dcf23146dc901d6b507",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/notes_dedup.tsv",
+   "size": 6491,
+   "sha256": "e4e94bdbf420432c0cf27011922772d65becb6548493502f6954855b2d340a54",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/notes_part1.tsv",
+   "size": 4070,
+   "sha256": "744af960082adec1a65d52cb0980f426f794e9a7542751425cb7538526e51254",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/notes_v.tsv",
+   "size": 6418,
+   "sha256": "2c54e926be50af904591e74b9303e6e8ae599994c1d5bc44f5553336f6e0e25e",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/sheet_0.png",
+   "size": 491029,
+   "sha256": "e283da1ad89032f92dc17968b701648b5e366db90e03c02e1ef4ee90ce6cb6ec",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/sheet_1.png",
+   "size": 515197,
+   "sha256": "5eee49567ec8a03edb390c8d7a30fc98c7e0e5e3e16153f8c8ef2491d8f6ef55",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/sheet_2.png",
+   "size": 511587,
+   "sha256": "a5cf2f52cadc9c48da4bc287419b38cf99c313776e35bb9a3fda91e74b2cd36e",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/sheet_3.png",
+   "size": 550753,
+   "sha256": "267bf085105a46fb148cf0ad88544a56c47c68bef8de2857567c77a4857c7aa9",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/sheet_4.png",
+   "size": 508486,
+   "sha256": "b5a6df2563719288876d24e39344d342b4fb5495a290972e86fed61014d4b7b5",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/truth_draft/sheet_5.png",
+   "size": 403577,
+   "sha256": "ee7c977b308c833a6f57597c237a5315915ad0e8ae508fcd9636b3547e9bf595",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/legend_paddleocr_x2.json",
+   "size": 8447,
+   "sha256": "568e25324891447eeb539897bf25ea0ffde69fd2151f0df8a4c6b39333818c23",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/legend_rapidocr_x2.json",
+   "size": 8153,
+   "sha256": "4c836e428e03be9af011fde2bae5f1700373a395ea9f8322b41fe88f9743ca81",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/legend_surya_x2.json",
+   "size": 12593,
+   "sha256": "7d3a43f85da1374230c8dda223102b9efa4d4c9479e3c4f605db200888024519",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/paddleocr_e2e_x1.json",
+   "size": 31170,
+   "sha256": "54952e4f49d20f666e6613519cc7bba019efb7374d054824ceec5fbade5c0d01",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/paddleocr_e2e_x2.json",
+   "size": 31923,
+   "sha256": "ebbebc2b6d33d0c155346f40e5cfea70974cb6657be2294fa6582189482ad062",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/paddleocr_fixed_x1.json",
+   "size": 39195,
+   "sha256": "f042ba77f39b5e08a4b717494a3d53133ec3392453ec2d78f832765735b62810",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/paddleocr_fixed_x2.json",
+   "size": 39229,
+   "sha256": "642115d5abd3a946620a45948a969246e6990d2f54079c4420cad1766cf2c64c",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/rapidocr_e2e_x1.json",
+   "size": 26332,
+   "sha256": "9b2a5d2cc28b03d12cbd834000a43ce0c8113286ed44fddadce262d486fe9eef",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/rapidocr_e2e_x2.json",
+   "size": 27561,
+   "sha256": "e6ed43e7c0927c626b95a1a32064f6749dd8c084308c9fea8ef295730397e13e",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/rapidocr_fixed_x1.json",
+   "size": 39180,
+   "sha256": "39a1f0be6461aadac6a43bd2d1a07da840af2f96a801d912204c726f6c35b7da",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/rapidocr_fixed_x2.json",
+   "size": 39193,
+   "sha256": "fc864893b301ad81110c3da7d83008f6b16993f03dd3a5e626d242c58982fbbf",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/rapidocr_on_paddle_x2.json",
+   "size": 38446,
+   "sha256": "5da29287a82a7d4821d04c08573672f3f4c6a53d5b1b4bfd6fa32bdf461edcb2",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/surya_e2e_x1.json",
+   "size": 39842,
+   "sha256": "da7f42d8d311f1e6fe84b63a2ed65b563ce42b99e1d0ce41bc06d22a85888c81",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/surya_e2e_x2.json",
+   "size": 40720,
+   "sha256": "78bd30f2113babfede01cdf64eaa078b78330bc9ba349916dd9154e0d2be0b88",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/surya_fixed_x1.json",
+   "size": 47566,
+   "sha256": "bd6370bb5cc158b7ff071ac7ea7eb5e346372dae910fe4ac938d22b375802479",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/surya_fixed_x2.json",
+   "size": 47510,
+   "sha256": "249963af4c68f61762370b106fb6bd3a62d0e23ef66b3f1978ad35b51276f2a0",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/raw/surya_on_paddle_x2.json",
+   "size": 48677,
+   "sha256": "6e08d13d4cea1882d8d61f614a526f74fa948458b40cda65f8d5a1f1e44d1ed5",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/viewer/data.js",
+   "size": 159241,
+   "sha256": "9384ca6a783104b7e6ccce162dc1e7f81d8f67c94efdb97a0cb7949c12fe71b6",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/viewer/index.html",
+   "size": 8488,
+   "sha256": "d74a2bc229a25a71547680d6441c0f8a1131300b2d40a5eb582cc2a8fd3dd8a0",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/viewer/u2_map.png",
+   "size": 799032,
+   "sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/logs/llamacpp_install.log",
+   "size": 2336,
+   "sha256": "d2ffe2f8e90c7bb09fed4f913e1e9f31da280b30e9823184393649384d029e7d",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/logs/paddle_install.log",
+   "size": 19699,
+   "sha256": "359b90243f62ac1b21c6efa2af782101df64a46ddde50862c5d723df83d4d9af",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/logs/surya_e2e.log",
+   "size": 688,
+   "sha256": "504bc97a6613a944f91d9ebb1abeb026adb4babb66419a495a5a1c21768a957b",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/logs/surya_install.log",
+   "size": 14343,
+   "sha256": "e212c3df1cadecc72652bb22ae3a2d54b0ed83cacc8f20cd88b0fd79cb848d78",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/ocr_poc01/logs/surya_rerun.log",
+   "size": 1730,
+   "sha256": "31bbace15112f87bb798e4f4cfe6aafc778106ece0517a949d783a7f696d4995",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/studio_v01/e2e_ws",
+   "size": 242817657,
+   "sha256": "dir:203 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/studio_v01/e2e_ws2",
+   "size": 31170535,
+   "sha256": "dir:24 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/studio_v01/e2e_ws_devin",
+   "size": 109062662,
+   "sha256": "dir:147 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_v01",
+   "size": 5161802,
+   "sha256": "dir:28 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_text",
+   "size": 3962417,
+   "sha256": "dir:37 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_lr",
+   "size": 3204729,
+   "sha256": "dir:11 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/editor_poc",
+   "size": 1719762,
+   "sha256": "dir:9 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4a2",
+   "size": 6451907167,
+   "sha256": "dir:561 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4c0",
+   "size": 4661008995,
+   "sha256": "dir:304 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4b2",
+   "size": 1039118038,
+   "sha256": "dir:91 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4b0_1",
+   "size": 326744473,
+   "sha256": "dir:31 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4c0_1b",
+   "size": 309375875,
+   "sha256": "dir:52 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4a_gtf",
+   "size": 254862367,
+   "sha256": "dir:31 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4c0_1",
+   "size": 226142436,
+   "sha256": "dir:105 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4a",
+   "size": 5995560,
+   "sha256": "dir:229 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4a_diag",
+   "size": 2538923,
+   "sha256": "dir:23 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4a_vec",
+   "size": 29614530,
+   "sha256": "dir:28 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4b0",
+   "size": 4474288,
+   "sha256": "dir:34 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4b1",
+   "size": 9366245,
+   "sha256": "dir:50 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r4b1t",
+   "size": 2697739,
+   "sha256": "dir:12 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/arch2",
+   "size": 413448618,
+   "sha256": "dir:10 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/arch1",
+   "size": 887696,
+   "sha256": "dir:12 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r1_synth",
+   "size": 391961787,
+   "sha256": "dir:193 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r1_synth_clean_s1.err",
+   "size": 76,
+   "sha256": "",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/r1_synth",
+   "size": 389662835,
+   "sha256": "dir:179 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/r1_synth_rerun",
+   "size": 26073314,
+   "sha256": "dir:12 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/synth_suite",
+   "size": 136195431,
+   "sha256": "dir:60 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/real",
+   "size": 14860430,
+   "sha256": "dir:35 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/mac_r1/results",
+   "size": 49954,
+   "sha256": "dir:2 files",
+   "importance": "HIGH"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/synth_suite",
+   "size": 136195447,
+   "sha256": "dir:60 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r3",
+   "size": 9514493,
+   "sha256": "dir:44 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/r3fix",
+   "size": 4451077,
+   "sha256": "dir:46 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/r2_failcase",
+   "size": 2793152,
+   "sha256": "dir:2 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/real",
+   "size": 20314321,
+   "sha256": "dir:40 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/_probe",
+   "size": 10161775,
+   "sha256": "dir:5 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/previews",
+   "size": 3271671,
+   "sha256": "dir:8 files",
+   "importance": "LOW"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_linefaces",
+   "size": 27619154,
+   "sha256": "dir:381 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_b2c",
+   "size": 3537056,
+   "sha256": "dir:12 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_protabl",
+   "size": 2989590,
+   "sha256": "dir:16 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_linedet",
+   "size": 2983569,
+   "sha256": "dir:21 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/linerec_phaseA",
+   "size": 2973243,
+   "sha256": "dir:18 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_u2_real",
+   "size": 2120282,
+   "sha256": "dir:27 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_minimal",
+   "size": 1620047,
+   "sha256": "dir:13 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_geo_attr",
+   "size": 729426,
+   "sha256": "dir:3 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/d71_u2_300",
+   "size": 553080,
+   "sha256": "dir:11 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/autoline_synth",
+   "size": 487954,
+   "sha256": "dir:1 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/v3_b2b",
+   "size": 69593,
+   "sha256": "dir:1 files",
+   "importance": "MEDIUM"
+  },
+  {
+   "path": "/Users/xiwei/geomap2arcgis/runs/stitchvector/studio_samples",
+   "size": 1497828,
+   "sha256": "dir:11 files",
+   "importance": "MEDIUM"
+  }
+ ]
+}
