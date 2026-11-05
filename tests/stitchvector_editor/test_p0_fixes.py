@@ -73,7 +73,7 @@ def test_move_undo_redo_restores_hit(tmp_path):
 
 
 def test_box_sync_survives_save_reopen(tmp_path):
-    d, p, _ = make_doc(tmp_path, texts=[{"x": 50, "y": 50, "text": "芽"}])
+    d, p, _ = make_doc(tmp_path, texts=[{"x": 50, "y": 50, "text": "芽", "review_status": "OCR_CONFIRMED"}])
     tid = int(d.T["_eid"].iloc[0]); d.edit_text(tid, x=80.0, y=80.0)
     out = tmp_path / "v1.gpkg"; d.save_as(out)
     d2 = Document(out, (W, H))

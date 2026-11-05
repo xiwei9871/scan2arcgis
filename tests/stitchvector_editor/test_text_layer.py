@@ -31,6 +31,10 @@ def test_apply_cleans_box_keeps_outside_and_round_trips(doc, tmp_path):
     assert r["merged_faces"] == pv["counts"]["merge_faces"] and coverage_report(doc.F, 300, 300)["accepted"]
     g = np.asarray(doc.F.geometry.values, object); small = (shapely.area(g) <= 60) & (shapely.area(shapely.intersection(g, B)) >= 0.5 * shapely.area(g))
     assert int(small.sum()) == 0
+    # a newly vectorised text is TEXT_VECTOR_CREATED — a pipeline state, not a confirmation; the user must confirm it
+    tid = r["text_id"]
+    with pytest.raises(Exception, match="deliverable state"): doc.save_as(tmp_path / "blocked.gpkg")
+    doc.review_decide([tid], "confirm")
     out = tmp_path / "t.gpkg"; sv = doc.save_as(out); assert sv["accepted"] and sv["text_matches_memory"]
     T = pyogrio.read_dataframe(out, layer=TEXT); assert list(T["text"]) == ["Є-O"]
     assert len(pyogrio.read_dataframe(out, layer=RESIDUE)) == r["moved_lines"]

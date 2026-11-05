@@ -1,0 +1,25 @@
+category,text_id,text,ocr_text,score,status,reasons,box,crop_file,truth_correct,notes
+auto_accepted_high_conf,0,A,A,0.996,AUTO_ACCEPTED_UNVERIFIED,[],"[94, 11, 108, 25]",auto_accepted_high_conf_T0.png,yes,map section letter A
+auto_accepted_high_conf,2,宁武县,宁武县,0.996,AUTO_ACCEPTED_UNVERIFIED,[],"[596, 16, 640, 35]",auto_accepted_high_conf_T2.png,yes,
+auto_accepted_high_conf,4,春景,春景,0.969,AUTO_ACCEPTED_UNVERIFIED,"[""soft:crosses_boundary_line""]","[475, 61, 508, 80]",auto_accepted_high_conf_T4.png,yes,
+auto_accepted_high_conf,5,五寨县,五寨县,0.999,AUTO_ACCEPTED_UNVERIFIED,"[""soft:crosses_boundary_line""]","[200, 93, 245, 112]",auto_accepted_high_conf_T5.png,yes,
+auto_accepted_high_conf,6,紫峰崖,紫峰崖,0.967,AUTO_ACCEPTED_UNVERIFIED,"[""soft:crosses_boundary_line""]","[369, 97, 425, 125]",auto_accepted_high_conf_T6.png,yes,leading map symbol ° not part of text
+auto_accepted_high_conf,10,榆庄,榆庄,0.9,AUTO_ACCEPTED_UNVERIFIED,"[""soft:crosses_boundary_line""]","[543, 98, 586, 116]",auto_accepted_high_conf_T10.png,no,image reads 上榆庄; leading char missed despite score 0.90 -> auto-accepted error
+auto_accepted_high_conf,11,轩肉镇,轩肉镇,0.942,AUTO_ACCEPTED_UNVERIFIED,"[""soft:crosses_boundary_line""]","[714, 102, 759, 120]",auto_accepted_high_conf_T11.png,no,image reads 轩岗镇; 岗 misread as 肉 at score 0.942 -> auto-accepted error
+auto_accepted_high_conf,14,芦,芦,0.997,AUTO_ACCEPTED_UNVERIFIED,"[""soft:crosses_boundary_line""]","[335, 138, 350, 152]",auto_accepted_high_conf_T14.png,yes,single-char label
+review_low_conf,3,-O,-O,0.81,REVIEW_REQUIRED,"[""soft:crosses_boundary_line""]","[379, 61, 415, 80]",review_low_conf_T3.png,no,image reads C-O; leading C missed
+review_low_conf,8,B-o,B-o,0.702,REVIEW_REQUIRED,"[""soft:crosses_boundary_line""]","[465, 72, 500, 90]",review_low_conf_T8.png,uncertain,image B-o / B-9 ambiguous
+review_low_conf,9,-B,-B,0.78,REVIEW_REQUIRED,"[""soft:crosses_boundary_line""]","[502, 81, 533, 102]",review_low_conf_T9.png,uncertain,image shows symbol+B' ; prefix char is a map symbol not '-'
+review_low_conf,15,K40,K40,0.712,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""sub_or_superscript"", ""soft:crosses_boundary_line""]","[479, 150, 502, 167]",review_low_conf_T15.png,uncertain,image K40 / 140 ambiguous
+review_low_conf,16,J3t,J3t,0.778,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""sub_or_superscript"", ""soft:crosses_boundary_line""]","[551, 158, 573, 175]",review_low_conf_T16.png,yes,image J3t (subscript 3 normalised)
+review_low_conf,21,长梁沟镇,长梁沟镇,0.707,REVIEW_REQUIRED,"[""soft:crosses_boundary_line""]","[615, 187, 674, 208]",review_low_conf_T21.png,yes,low score but correct
+review_low_conf,23,。,。,0.647,REVIEW_REQUIRED,"[""special_symbol"", ""soft:crosses_boundary_line""]","[332, 202, 350, 214]",review_low_conf_T23.png,no,residence dot symbol picked up as text
+review_low_conf,26,PtL,PtL,0.699,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[235, 225, 269, 244]",review_low_conf_T26.png,yes,"image Pt1L, subscript normalised"
+review_era_code,1,C-P,C-P,0.967,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[538, 24, 569, 43]",review_era_code_T1.png,yes,
+review_era_code,7,C-P,C-P,0.941,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[463, 86, 509, 108]",review_era_code_T7.png,yes,
+review_era_code,12,N-Q,N-Q,0.98,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[84, 126, 118, 145]",review_era_code_T12.png,yes,
+review_era_code,13,CHTA,CHTA,0.991,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[454, 123, 498, 141]",review_era_code_T13.png,yes,image CHTΔ / CHTA garbled era code; forced review justified
+review_era_code,15,K40,K40,0.712,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""sub_or_superscript"", ""soft:crosses_boundary_line""]","[479, 150, 502, 167]",review_era_code_T15.png,uncertain,image K40 / 140 ambiguous
+review_era_code,16,J3t,J3t,0.778,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""sub_or_superscript"", ""soft:crosses_boundary_line""]","[551, 158, 573, 175]",review_era_code_T16.png,yes,image J3t (subscript 3 normalised)
+review_era_code,17,C-P,C-P,0.954,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[710, 146, 741, 165]",review_era_code_T17.png,yes,image C-P
+review_era_code,26,PtL,PtL,0.699,REVIEW_REQUIRED,"[""stratigraphic_or_lithology_code"", ""soft:crosses_boundary_line""]","[235, 225, 269, 244]",review_era_code_T26.png,yes,"image Pt1L, subscript normalised"

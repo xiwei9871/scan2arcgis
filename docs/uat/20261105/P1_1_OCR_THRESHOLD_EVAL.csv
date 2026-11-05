@@ -1,0 +1,9 @@
+engine,threshold,items,review_required,auto_accepted_unverified,review_pct
+rapidocr,0.8,219,151,68,68.9
+rapidocr,0.85,219,156,63,71.2
+rapidocr,0.9,219,160,59,73.1
+rapidocr,0.95,219,171,48,78.1
+paddleocr,0.8,148,98,50,66.2
+paddleocr,0.85,148,99,49,66.9
+paddleocr,0.9,148,99,49,66.9
+paddleocr,0.95,148,100,48,67.6

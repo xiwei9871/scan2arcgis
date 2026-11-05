@@ -88,7 +88,7 @@ def test_review_state_survives_save_reopen(tmp_path):
 def test_save_gate_blocks_unreviewed_and_draft_records_manifest(tmp_path):
     d, _, _ = make_doc(tmp_path, texts=TEXTS)
     d.classify_review(0.90)
-    with pytest.raises(EditError, match="require review"):
+    with pytest.raises(EditError, match="deliverable state"):
         d.save_as(tmp_path / "formal.gpkg")
     r = d.save_as(tmp_path / "draft.gpkg", draft=True)
     assert r["export_mode"] == "draft" and r["unreviewed"] == 6

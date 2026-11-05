@@ -159,7 +159,7 @@ class H(ED.H):
             pj = WS.get(pid); doc = json.load(open(pj["document"]["path"], encoding="utf-8"))
             eid = "e-" + uuid.uuid4().hex[:10]; out = WS.pdir(pid) / "exports" / eid
             meta = EXP.export(WS.working(pid), doc, str(b.get("format", "GPKG")), b.get("layers") or list(EXP.DEFAULT_LAYERS), out,
-                              allow_pixel_space=bool(b.get("allow_pixel_space")))
+                              allow_pixel_space=bool(b.get("allow_pixel_space")), draft=bool(b.get("draft")))
             meta.pop("path", None); meta["export_id"] = eid; meta["download"] = f"/api/studio/projects/{pid}/exports/{eid}/{meta['file']}"
             meta["from_version"] = pj.get("current_version"); return meta
         if rest == ["ocr"] and method == "GET":

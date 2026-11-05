@@ -313,7 +313,8 @@ $("textEdit").onclick = () => guard(async () => { if (selText === null) throw ne
 $("textDelete").onclick = () => guard(async () => { if (selText === null) throw new Error("先选中文字"); await api("text_delete", { id: selText }); selText = null; msg("已删除文字", true); });
 
 // ---------- OCR review mode (P1): classify -> red boxes -> queue -> decide ----------
-async function refreshQueue() { const r = await api("review_queue", {}); revQueue = r.queue || []; $("revCounters").textContent = S.review ? `待审 ${S.review.required}  已跳过 ${S.review.skipped}  自动放行(未核实) ${S.review.auto_accepted}  已确认 ${S.review.confirmed}  人工改 ${S.review.human_edited}  共 ${S.review.total}` : ""; }
+async function refreshQueue() { const r = await api("review_queue", {}); revQueue = r.queue || []; const c = r.review || S.review;
+  $("revCounters").textContent = c ? `待审 ${c.required}  已跳过 ${c.skipped}  自动放行(未核实) ${c.auto_accepted}  已确认 ${c.confirmed}  人工改 ${c.human_edited}  共 ${c.total}` : ""; }
 $("classifyReview").onclick = () => guard(async () => { const r = await api("review_classify", { threshold: +$("revTh").value });
   await refreshQueue(); $("reviewMode").checked = true; revIdx = 0;
   msg(`分流完成：待审 ${r.review.required}、自动放行 ${r.review.auto_accepted}（未核实、不算人工确认）`, true); draw();

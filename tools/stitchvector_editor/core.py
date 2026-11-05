@@ -15,14 +15,34 @@ TEXT, RESIDUE, QSTYLE = "text_labels", "text_residue_lines", "layer_styles"
 TEXT_COLS = ["label_id", "text", "ocr_text", "ocr_score", "font_px", "angle_deg", "anchor", "rgb", "box_x0", "box_y0", "box_x1", "box_y1", "source", "review_status", "review_reason", "reviewed_at", "review_actor"]
 REVIEW_HUMAN = ("HUMAN_EDITED", "OCR_CONFIRMED", "TEXT_VECTOR_CREATED", "TEXT_LAYER_COMPLETE", "BACKGROUND_CLEAR_PENDING")
 REVIEW_ALL = ("OCR_CANDIDATE", "OCR_DRAFT", "AUTO_ACCEPTED_UNVERIFIED", "REVIEW_REQUIRED", "REVIEW_SKIPPED") + REVIEW_HUMAN
+# states that may appear in a FORMAL delivery. True human confirmation is OCR_CONFIRMED or a real content change
+# (HUMAN_EDITED); AUTO_ACCEPTED_UNVERIFIED and TEXT_LAYER_COMPLETE are explicit non-human terminal states.
+# TEXT_VECTOR_CREATED and BACKGROUND_CLEAR_PENDING are geometry-pipeline states, NOT confirmations — like
+# REVIEW_REQUIRED/REVIEW_SKIPPED/OCR_DRAFT/OCR_CANDIDATE they block a formal export unless saved as draft.
+# Shared by the editor save gate and the Studio GIS export so both apply the same judgement.
+REVIEW_DELIVERABLE = ("OCR_CONFIRMED", "HUMAN_EDITED", "TEXT_LAYER_COMPLETE", "AUTO_ACCEPTED_UNVERIFIED")
 OCR_REVIEW_THRESHOLD = 0.90   # initial configuration, NOT a validated optimum
 _SUBSUP_CHARS = "⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉ₐₑₒₓ⁺⁻‾"
 _ERA_RE = re.compile(r"^(Ar|Pt|Pz|Mz|Kz|Cmb|[Є∈ϵOOSDCPTJKNZQEЯƐ][0-9a-z]?|[γδλνπξβμρσφχψωατ][0-9δλγβ]?)")
+def _era_like(t):
+    """prefix match AND code-shaped (short, or containing a digit/symbol) — an ordinary word that merely starts
+    with a code letter (North, Tertiary, Ordovician) must not be flagged as a stratigraphic code."""
+    return bool(_ERA_RE.match(t)) and (any(not c.isalpha() for c in t) or len(t) <= 4)
 _SAFE_CHAR_RE = re.compile(r"[一-鿿A-Za-z0-9\-—·.,、()（）:：'\"°′″/\\ ]")
 ROLES = ("COVER", "SPLIT", "UNKNOWN")
 
 
 def sha256(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
+def review_status_series(T):
+    """review_status column normalised the same way everywhere: a missing column/old file means nothing was
+    ever confirmed -> OCR_CANDIDATE (never assumed confirmed)."""
+    if "review_status" not in T.columns: return pd.Series(["OCR_CANDIDATE"] * len(T), index=T.index, dtype=object)
+    return T["review_status"].fillna("OCR_CANDIDATE").astype(object)
+def review_pending(T):
+    """texts that are not in a deliverable state — a formal export/save must refuse to pass them silently."""
+    return int((~review_status_series(T).isin(REVIEW_DELIVERABLE)).sum()) if len(T) else 0
+def review_status_counts(T):
+    s = review_status_series(T); return {str(k): int(v) for k, v in s.value_counts().items()}
 
 
 def hex_ok(s):
@@ -450,9 +470,10 @@ class Document:
         document stays unsaved (dirty). If OCR texts still need review, the save is refused unless draft=True — a formal
         export must never silently let unreviewed candidates through; a draft save records export_mode=draft + count."""
         import os, uuid
-        pend = int((self.T["review_status"] == "REVIEW_REQUIRED").sum()) if len(self.T) else 0
+        pend = review_pending(self.T)
         if pend and not draft:
-            raise EditError(f"{pend} OCR texts still require review; confirm/skip them or save with draft=true (草稿导出)")
+            raise EditError(f"{pend} OCR texts are not in a deliverable state (required/skipped/draft/candidate or a "
+                            f"non-confirmation pipeline state); confirm them or save with draft=true (草稿导出)")
         path = Path(path).resolve()
         if path == self.src.resolve(): raise EditError("refusing to overwrite the input GPKG; choose a new file name")
         if path.exists(): raise EditError(f"{path.name} already exists")
@@ -1083,7 +1104,11 @@ class TextMixin:
                 self.Q = gpd.GeoDataFrame(pd.concat([self.Q, moved], ignore_index=True), geometry="geometry"); self.L = self.L.loc[~lm].copy()
             if tgt is not None:
                 m = self.T["_eid"] == tgt
-                for k, v in {"text": text, "font_px": fpx, "angle_deg": ang, "rgb": rgb, "review_status": "HUMAN_EDITED"}.items(): self.T.loc[m, k] = v
+                upd = {"text": text, "font_px": fpx, "angle_deg": ang, "rgb": rgb}
+                if text != str(self.T.loc[m, "text"].iloc[0]):   # re-submitting the same text is not a new confirmation
+                    upd.update(review_status="HUMAN_EDITED",
+                               reviewed_at=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), review_actor="human:text_box")
+                for k, v in upd.items(): self.T.loc[m, k] = v
                 self._sync_text_box(m)
                 self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": tgt, "mode": "edited_existing"}
             else:
@@ -1104,7 +1129,11 @@ class TextMixin:
             t = str(kw["text"]).strip()
             if not t or len(t) > 200: raise EditError("text must be 1-200 characters")
             upd["text"] = t
-            if "review_status" not in kw: upd["review_status"] = "HUMAN_EDITED"
+            if "review_status" not in kw and t != str(self.T.loc[m, "text"].iloc[0]):
+                # only a real content change is a human confirmation; font/angle/position edits and re-submitting
+                # the same text leave the review state untouched
+                upd.update(review_status="HUMAN_EDITED",
+                           reviewed_at=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), review_actor="human:edit_text")
         if "font_px" in kw:
             v = float(kw["font_px"])
             if not (1 <= v <= 200): raise EditError("font size 1-200 px")
@@ -1133,7 +1162,8 @@ class TextMixin:
         bx0, by0, bx1, by1 = self._display_box(x, y, t, fpx, angle_deg)
         row = {c: None for c in self.T.columns if c not in ("geometry", "_eid")}
         row.update({"label_id": f"T{self.next_t}", "text": t, "ocr_text": "", "ocr_score": 0.0, "font_px": fpx, "angle_deg": float(angle_deg), "anchor": "center",
-                    "rgb": hex_ok(rgb), "box_x0": bx0, "box_y0": by0, "box_x1": bx1, "box_y1": by1, "source": "manual", "review_status": "HUMAN_EDITED"})
+                    "rgb": hex_ok(rgb), "box_x0": bx0, "box_y0": by0, "box_x1": bx1, "box_y1": by1, "source": "manual", "review_status": "HUMAN_EDITED",
+                    "reviewed_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "review_actor": "manual"})
         if "geometry_status" in self.T.columns: row["geometry_status"] = "NO_GLYPH_RECORD"
         row["_eid"] = self.next_t
         def f():
@@ -1173,7 +1203,7 @@ class TextMixin:
         """geology-aware risk rules; any hit forces human review regardless of the model score."""
         rs, t = [], str(r.get("text") or "")
         if not t.strip(): rs.append("empty_text")
-        if _ERA_RE.match(t): rs.append("stratigraphic_or_lithology_code")
+        if _era_like(t): rs.append("stratigraphic_or_lithology_code")
         if any(c in _SUBSUP_CHARS for c in t) or re.search(r"[A-Za-zЄϵ][0-9]|[0-9][A-Za-z]", t): rs.append("sub_or_superscript")
         if re.fullmatch(r"[0-9]{1,3}", t) or (len(t) <= 2 and any(c.isdigit() for c in t)): rs.append("numeric_or_short")
         if any(not _SAFE_CHAR_RE.match(c) for c in t): rs.append("special_symbol")
@@ -1225,7 +1255,7 @@ class TextMixin:
             elif v == "OCR_CONFIRMED": c["confirmed"] += 1
             elif v == "HUMAN_EDITED": c["human_edited"] += 1
             else: c["other"] += 1
-        c["pending"] = c["required"]
+        c["pending"] = review_pending(self.T)   # everything not in a deliverable state, same measure as the save gate
         return c
 
     def review_queue(self, include_all=False):
@@ -1246,8 +1276,8 @@ class TextMixin:
         if action not in ("confirm", "skip"): raise EditError("action must be confirm|skip")
         m = self.T["_eid"].isin([int(i) for i in ids])
         if not m.any(): raise EditError("no such text")
-        eligible = self.T.loc[m, "review_status"].isin(("REVIEW_REQUIRED", "REVIEW_SKIPPED", "AUTO_ACCEPTED_UNVERIFIED"))
-        if not eligible.all(): raise EditError("only queued/auto-accepted texts can be decided here; human-edited rows already carry a terminal state")
+        eligible = ~self.T.loc[m, "review_status"].isin(("OCR_CONFIRMED", "HUMAN_EDITED"))
+        if not eligible.all(): raise EditError("only texts that are not already human-confirmed can be decided here")
         now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         def f():
             self.T.loc[m, "review_status"] = "OCR_CONFIRMED" if action == "confirm" else "REVIEW_SKIPPED"

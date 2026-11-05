@@ -17,22 +17,22 @@ from pathlib import Path
 import numpy as np, pyogrio, shapely, geopandas as gpd
 from shapely import affinity
 from .contracts import sha256_file, write_json_atomic
+from tools.stitchvector_editor.core import REVIEW_DELIVERABLE, review_status_series, review_pending, review_status_counts
 
 LAYERS = {"geological_faces": "colour_faces", "geological_lines": "visual_lines", "text_confirmed": "text_labels",
           "text_unconfirmed": "text_labels", "isolated_lines": "text_residue_lines"}
 DEFAULT_LAYERS = ("geological_faces", "geological_lines", "text_confirmed")
 FORMATS = ("GPKG", "SHP", "GEOJSON")
-CONFIRMED = ("HUMAN_EDITED", "OCR_CONFIRMED", "TEXT_VECTOR_CREATED", "TEXT_LAYER_COMPLETE")
+# same deliverable judgement as the editor save gate: pipeline states (TEXT_VECTOR_CREATED, BACKGROUND_CLEAR_PENDING)
+# and incomplete review states are NOT confirmations and go to the unconfirmed layer / block a formal export.
+CONFIRMED = REVIEW_DELIVERABLE
 
 
 class ExportError(Exception):
     pass
 
 
-def _text_status(T):
-    if "review_status" in T.columns: return T["review_status"].fillna("OCR_CANDIDATE").astype(str)
-    # older files: no review flag stored -> nothing is confirmed (never assume)
-    return gpd.pd.Series(["OCR_CANDIDATE"] * len(T), index=T.index)
+def _text_status(T): return review_status_series(T).astype(str)
 
 
 def collect(gpkg, layers):
@@ -70,17 +70,27 @@ def _shp_safe(D):
     return D.rename(columns=m), m
 
 
-def export(gpkg, doc, fmt, layers, out_dir, base="stitchvector_export", allow_pixel_space=False):
+def export(gpkg, doc, fmt, layers, out_dir, base="stitchvector_export", allow_pixel_space=False, draft=False):
     fmt = fmt.upper()
     if fmt not in FORMATS: raise ExportError(f"format must be one of {FORMATS}")
     layers = list(layers or DEFAULT_LAYERS); mode = doc.get("coordinate_mode", "PIXEL_SPACE")
     if mode == "PIXEL_SPACE" and fmt in ("SHP",) and not allow_pixel_space:
         raise ExportError("project is not georeferenced: confirm pixel-space Shapefile export (no .prj is written)")
+    # shared review gate with the editor: incomplete review/pipeline states may not pass a formal export silently
+    if "text_labels" in [l[0] for l in pyogrio.list_layers(gpkg)]:
+        T_all = pyogrio.read_dataframe(gpkg, layer="text_labels"); pend = review_pending(T_all)
+        if pend and not draft:
+            raise ExportError(f"{pend} OCR texts are not in a deliverable state; confirm them in review or export with draft=true")
+        if pend and draft and "text_unconfirmed" not in layers: layers = layers + ["text_unconfirmed"]
+    else:
+        pend = 0
     data = {k: v for k, v in collect(gpkg, layers).items() if v is not None and len(v)}
     if not data: raise ExportError("selected layers are empty")
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     tmpd = Path(tempfile.mkdtemp(dir=out_dir, prefix=".exp_")); crs = _crs(doc)
     meta = {"format": fmt, "coordinate_mode": mode, "crs": crs, "layers": {}, "source_gpkg_sha256": sha256_file(gpkg),
+            "export_mode": "draft" if (pend and draft) else "formal", "unreviewed": pend,
+            "review": review_status_counts(T_all) if pend else {},
             "note": None if mode == "GEOREFERENCED" else "成果未进行地理配准: coordinates are image pixels (x right, y down); no CRS"}
     try:
         if fmt == "GPKG":
