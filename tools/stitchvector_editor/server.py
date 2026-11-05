@@ -111,6 +111,10 @@ class H(BaseHTTPRequestHandler):
             elif op == "recolour": d.recolour(lay, a["ids"], a["rgb"]); r = {}
             elif op == "rewidth": d.rewidth(a["ids"], a["width"]); r = {}
             elif op == "regroup": r = {"logical_id": d.new_group(a["ids"])}
+            elif op == "ungroup_lines": d.ungroup_lines(a["ids"]); r = {}
+            elif op == "isolate_lines": d.isolate_lines(a["ids"], a.get("reason", "misgrouped")); r = {}
+            elif op == "join_preview": r = d.join_preview([int(i) for i in a["ids"]])
+            elif op == "join_lines": r = d.join_lines([int(i) for i in a["ids"]], float(a.get("max_gap", 30)))
             elif op == "delete": d.delete_lines(a["ids"]); r = {}
             elif op == "split": r = {"ids": d.split_line(int(a["id"]), float(a["x"]), float(a["y"]))}
             elif op == "draw": r = {"id": d.add_line(a["coords"], float(a.get("width", 2)), a.get("rgb", "#000000"), a.get("logical_id"))}

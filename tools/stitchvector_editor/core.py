@@ -245,6 +245,77 @@ class Document:
         def f(): self.L.loc[m, "logical_id"] = lid
         self._do("new logical group", f, objects=int(m.sum()), regroup=1); return lid
 
+    def ungroup_lines(self, ids):
+        """A24: take the selected lines out of their logical groups - each gets a fresh individual logical_id."""
+        m = self._rows(LINE, ids)
+        def f():
+            for i in self.L.index[m]:
+                self.L.loc[i, "logical_id"] = f"E{self.next_l}"; self.next_l += 1
+        self._do("ungroup lines", f, objects=int(m.sum()), ungroup=1)
+
+    def isolate_lines(self, ids, reason="misgrouped"):
+        """move wrongly-grouped strokes (e.g. text strokes in a geological line group) out of visual_lines into
+        text_residue_lines - isolation, never deletion, restorable via restore_residue_lines."""
+        m = self._rows(LINE, ids)
+        def f():
+            moved = self.L.loc[m].copy(); moved["source"] = f"isolated_{reason}"; moved["residue_of"] = "manual_isolate"
+            self.Q = gpd.GeoDataFrame(pd.concat([self.Q, moved], ignore_index=True), geometry="geometry")
+            self.L = self.L.loc[~m].copy()
+        self._do("isolate lines", f, objects=int(m.sum()), isolate=1)
+
+    # ---------- A15: join broken lines ----------
+
+    def _join_has_dash(self, ids):
+        lids = set(str(x) for x in self.L.loc[self._rows(LINE, ids), "legend_id"] if str(x) not in ("", "None", "nan"))
+        return any((self.styles.get(l) or {}).get("line_type") == "dash" for l in lids)
+
+    def _join_plan(self, ids):
+        """order the selected lines end-to-end (greedy nearest-endpoint, reversing a line when its far end is closer);
+        returns the chain, each junction's endpoint gap, and the connector segment that would be drawn."""
+        rows = self.L.loc[self._rows(LINE, ids)]
+        if len(rows) < 2: raise EditError("select at least 2 lines to join")
+        geoms = {int(e): g for e, g in zip(rows["_eid"], rows.geometry)}
+        ends = {e: (list(g.coords)[0], list(g.coords)[-1]) for e, g in geoms.items()}
+        cur = int(rows["_eid"].iloc[0]); chain = [cur]; rest = set(geoms) - {cur}
+        tail = ends[cur][1]; gaps = []; conns = []
+        while rest:
+            nxt = min(rest, key=lambda e: min(np.hypot(tail[0] - q[0], tail[1] - q[1]) for q in ends[e]))
+            d0 = float(np.hypot(tail[0] - ends[nxt][0][0], tail[1] - ends[nxt][0][1]))
+            d1 = float(np.hypot(tail[0] - ends[nxt][1][0], tail[1] - ends[nxt][1][1]))
+            if d1 < d0:
+                geoms[nxt] = LineString(list(geoms[nxt].coords)[::-1]); ends[nxt] = (ends[nxt][1], ends[nxt][0]); d0 = d1
+            gaps.append({"between": [chain[-1], nxt], "gap": round(d0, 2)})
+            conns.append([[round(tail[0], 2), round(tail[1], 2)], [round(ends[nxt][0][0], 2), round(ends[nxt][0][1], 2)]])
+            tail = ends[nxt][1]; chain.append(nxt); rest.discard(nxt)
+        return chain, gaps, conns, geoms
+
+    def join_preview(self, ids):
+        """A15 preview: the chained order, endpoint gap per junction, connector segments, and whether a dash-typed
+        line is involved (its gaps are semantic - logical grouping is the right fix, not a geometry join)."""
+        chain, gaps, conns, _ = self._join_plan(ids)
+        return {"order": chain, "gaps": gaps, "connectors": conns, "dash_protected": self._join_has_dash(ids)}
+
+    def join_lines(self, ids, max_gap=30.0):
+        """A15: join the selected lines into ONE LineString in chained order; a junction whose endpoint gap exceeds
+        max_gap refuses (draw the missing piece first). Dash-typed lines refuse a geometry join so their visible
+        gaps survive - group them logically instead. One undoable step."""
+        if self._join_has_dash(ids):
+            raise EditError("a dashed line's gaps are semantic - group the segments logically instead of joining geometry")
+        chain, gaps, conns, geoms = self._join_plan(ids)
+        big = [g for g in gaps if g["gap"] > max_gap]
+        if big: raise EditError(f"endpoint gaps too large to auto-join: {big}; draw the missing piece first")
+        coords = list(geoms[chain[0]].coords)
+        for i, e in enumerate(chain[1:]):
+            c = list(geoms[e].coords)
+            coords.extend(c if gaps[i]["gap"] > 0 else c[1:])
+        keep = chain[0]; m = self._rows(LINE, ids)
+        def f():
+            k = self.L["_eid"] == keep
+            self.L.loc[k, "geometry"] = [LineString(coords)]; self.L.loc[k, "source"] = "edited_join"
+            self.L = self.L.loc[~(m & (self.L["_eid"] != keep))].copy()
+        self._do("join lines", f, objects=int(m.sum()), join=1)
+        return {"id": int(keep), "gaps": gaps}
+
     # ---------- line geometry ----------
     def delete_lines(self, ids):
         m = self._rows(LINE, ids)

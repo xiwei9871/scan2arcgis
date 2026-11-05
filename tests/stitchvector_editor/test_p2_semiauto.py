@@ -242,3 +242,93 @@ def test_wrong_merge_split_along_drawn_line(tmp_path):
     f3 = d.F.loc[d.F["face_id"] == "F3"].iloc[0]
     assert f3.geometry.area > 0, "the untouched face is not harmed"
     d.undo_op(); assert len(d.F) == 2
+
+
+# ---------------- T13: join broken lines + line grouping ----------------
+
+def make_broken_doc(tmp_path):
+    """A15/A20/A24: L0+L1 collinear with a 5px endpoint gap; L2 a 10px further segment; L3 an isolated stroke."""
+    F = gpd.GeoDataFrame({"face_id": ["F0"], "rgb": ["#aaaaaa"], "label": ["K1"], "source": ["test"]},
+                         geometry=[rect(0, 0, 200, 120)])
+    L = gpd.GeoDataFrame({"line_id": ["L0", "L1", "L2", "L3"], "logical_id": ["G0", "G0", "G1", "G9"],
+                          "kind": ["contact"] * 4, "width_px": [2.0] * 4, "rgb": ["#000000"] * 4,
+                          "source": ["test"] * 4, "draw_order": [0, 1, 2, 3]},
+                         geometry=[LineString([(10, 10), (40, 10)]),
+                                   LineString([(45, 10), (80, 10)]),
+                                   LineString([(90, 10), (120, 10)]),
+                                   LineString([(150, 50), (165, 50)])])
+    p = tmp_path / "in.gpkg"
+    F.to_file(p, layer="colour_faces", driver="GPKG", engine="pyogrio")
+    L.to_file(p, layer="visual_lines", driver="GPKG", engine="pyogrio")
+    return Document(p, (W, H), np.full((H, W, 3), 170, np.uint8)), p
+
+
+def test_join_preview_orders_and_reports_gaps(tmp_path):
+    d, _ = make_broken_doc(tmp_path)
+    pv = d.join_preview([0, 1, 2])
+    assert pv["order"] == [0, 1, 2]
+    assert [g["gap"] for g in pv["gaps"]] == [5.0, 10.0], "each junction's endpoint gap is reported"
+    assert len(pv["connectors"]) == 2 and pv["dash_protected"] is False
+
+
+def test_join_lines_bridges_small_gaps_undoable(tmp_path):
+    d, _ = make_broken_doc(tmp_path)
+    r = d.join_lines([0, 1])
+    assert r["id"] == 0 and len(d.L) == 3, "two segments become one line"
+    g = d.L.loc[d.L["_eid"] == 0, "geometry"].iloc[0]
+    assert list(g.coords)[0] == (10, 10) and list(g.coords)[-1] == (80, 10) and len(g.coords) == 4, \
+        "the 5px gap becomes a straight connector edge between the two endpoint vertices"
+    d.undo_op(); assert len(d.L) == 4 and d.L.geometry.loc[d.L["_eid"] == 0].iloc[0].length == 30
+
+
+def test_join_refuses_gap_too_large(tmp_path):
+    d, _ = make_broken_doc(tmp_path)
+    with pytest.raises(EditError, match="too large"):
+        d.join_lines([0, 1, 2], max_gap=7)          # L1->L2 gap is 10px
+    assert len(d.L) == 4, "a refused join changes nothing"
+
+
+def test_join_reverses_far_end_first(tmp_path):
+    """a segment picked backwards is reversed so its nearest end connects."""
+    d, _ = make_broken_doc(tmp_path)
+    pv = d.join_preview([2, 1])                      # 1 sits before 2 on the axis
+    assert pv["order"] == [1, 2] and pv["gaps"][0]["gap"] == 10.0
+
+
+def test_dash_join_refused_use_logical_group(tmp_path):
+    """A20: a dashed line's gaps are semantic - geometry join is refused; logical grouping keeps them dash."""
+    d, _ = make_broken_doc(tmp_path)
+    d.apply_legend("visual_lines", [1], "L_DASH_RED")
+    with pytest.raises(EditError, match="dashed"):
+        d.join_lines([0, 1])
+    lid = d.new_group([0, 1])
+    assert set(d.L.loc[d.L["_eid"].isin([0, 1]), "logical_id"]) == {lid}
+    assert len(d.L) == 4, "grouping changes membership only, never geometry"
+
+
+def test_ungroup_lines_gives_individual_groups(tmp_path):
+    d, _ = make_broken_doc(tmp_path)
+    assert len(set(d.L["logical_id"])) == 3
+    d.ungroup_lines([0, 1])
+    lids = d.L.loc[d.L["_eid"].isin([0, 1]), "logical_id"].tolist()
+    assert len(set(lids)) == 2 and "G0" not in lids, "each ungrouped line gets its own fresh logical_id"
+    d.undo_op(); assert set(d.L.loc[d.L["_eid"].isin([0, 1]), "logical_id"]) == {"G0"}
+
+
+def test_isolate_lines_moves_to_residue_restorable(tmp_path):
+    """A24: a text stroke wrongly grouped as a geological line is moved out - never deleted, restorable."""
+    d, _ = make_broken_doc(tmp_path)
+    q0 = len(d.Q)
+    d.isolate_lines([3], reason="misgrouped")
+    assert len(d.L) == 3 and len(d.Q) == q0 + 1
+    row = d.Q.iloc[-1]
+    assert row["residue_of"] == "manual_isolate" and row["source"] == "isolated_misgrouped"
+    d.undo_op(); assert len(d.L) == 4 and len(d.Q) == q0
+
+
+def test_join_persists_through_save(tmp_path):
+    d, p = make_broken_doc(tmp_path)
+    d.join_lines([0, 1, 2])
+    out = tmp_path / "out.gpkg"; d.save_as(out)
+    d2 = Document(out, (W, H))
+    assert len(d2.L) == 2 and d2.L.loc[d2.L["_eid"] == 0, "geometry"].iloc[0].length == 110

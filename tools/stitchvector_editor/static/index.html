@@ -87,6 +87,9 @@
     <button id="apply">应用颜色</button></div>
   <div class="row">线宽 <input type="number" id="width" value="2" step="0.5" min="0.25" style="width:60px"> <button id="rewidth">应用线宽</button></div>
   <div class="row"><button id="merge">合并所选面</button> <button id="del">删除所选线</button> <button id="regroup">所选线设为新组</button></div>
+  <div class="row"><button id="joinPv">预览接线</button> <button id="joinApply">确认接线</button> <button id="ungroupLines">拆出组</button> <button id="isolateLines">移出线组</button>
+    <span style="font-size:11px;color:#666">断线补接；虚线段不可几何接（逻辑归组）</span></div>
+  <div id="joinInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
   <div class="row"><button id="l2f">线转面（实验）</button> 新面代号 <input id="l2fLabel" style="width:60px" placeholder="如 K1"></div>
   <div class="row"><button id="undo">撤销 ⌘Z</button> <button id="redo">重做 ⇧⌘Z</button></div>
 

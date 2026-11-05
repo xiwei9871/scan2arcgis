@@ -6,7 +6,7 @@ let revQueue = [], revIdx = 0, revCur = null;
 let aGroup = null, aTarget = null, assigns = {}, skipped = new Set(), hiRes = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
-let stroke = null, mergePv = null, healPv = null, suggestPv = null, roiB = null;
+let stroke = null, mergePv = null, healPv = null, suggestPv = null, roiB = null, joinPv = null;
 const $ = (id) => document.getElementById(id);
 
 function msg(t, ok) { $("msg").style.color = ok ? "#060" : "#b00"; $("msg").textContent = t || ""; }
@@ -93,7 +93,9 @@ function draw() {
   if (healPv) { const by = new Map(S.faces.map(f => [f.id, f])); const C = { merge: "#76ff03", keep: "#2979ff", uncertain: "#ff9100" };
     for (const c of healPv.candidates) { const f = by.get(c.id); if (!f) continue; ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); }
       ctx.fillStyle = C[c.decision]; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
-  if (splitPv) for (const ring of splitPv.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.strokeStyle = "#ffea00"; ctx.lineWidth = 2 / view.s; ctx.stroke(); }
+  if (splitPv) for (const ring of splitPv.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.lineTo(p[0], p[1])); ctx.closePath(); ctx.strokeStyle = "#ffea00"; ctx.lineWidth = 2 / view.s; ctx.stroke(); }
+  if (joinPv) { ctx.strokeStyle = "#00bcd4"; ctx.lineWidth = 2 / view.s; ctx.setLineDash([5 / view.s, 3 / view.s]);
+    for (const c of joinPv.connectors) { ctx.beginPath(); ctx.moveTo(c[0][0], c[0][1]); ctx.lineTo(c[1][0], c[1][1]); ctx.stroke(); } ctx.setLineDash([]); }
   if (roiB) { ctx.strokeStyle = "#aa00ff"; ctx.lineWidth = 2.5 / view.s; ctx.setLineDash([8 / view.s, 4 / view.s]); ctx.strokeRect(roiB[0], roiB[1], roiB[2] - roiB[0], roiB[3] - roiB[1]); ctx.setLineDash([]); }
   crosshair(ctx);
   if (drag && drag.box) { const [x0, y0] = drag.w0, [x1, y1] = drag.w1; ctx.strokeStyle = drag.roi ? "#aa00ff" : "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0)); }
@@ -195,6 +197,18 @@ async function mergeWithConfirm(op) {
 $("merge").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await mergeWithConfirm("merge"); setSel("face", [r.id]); msg("已合并（来源见 merged_from）", true); });
 $("del").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("delete", { ids: sel.ids }); setSel("line", []); msg("已删除", true); });
 $("regroup").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const r = await api("regroup", { ids: sel.ids }); msg("新组 " + r.logical_id, true); });
+$("joinPv").onclick = () => guard(async () => {
+  if (sel.layer !== "line" || sel.ids.length < 2) throw new Error("先选中 2 条以上要接的线");
+  joinPv = await api("join_preview", { ids: sel.ids });
+  $("joinInfo").textContent = `链接顺序 ${joinPv.order.join("→")}` + joinPv.gaps.map(g => `\n#${g.between[0]}→#${g.between[1]} 端点距 ${g.gap}px`) +
+    (joinPv.dash_protected ? "\n⚠ 含虚线：间隔是语义，不能几何接——请用逻辑归组" : "") + "\n青色虚线=将补画的连接段";
+  draw(); });
+$("joinApply").onclick = () => guard(async () => {
+  if (!joinPv) throw new Error("先预览接线");
+  const r = await api("join_lines", { ids: sel.ids }); joinPv = null; $("joinInfo").textContent = ""; setSel("line", [r.id]);
+  msg(`已接成线 #${r.id}（可撤销）`, true); });
+$("ungroupLines").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("ungroup_lines", { ids: sel.ids }); msg(`已把 ${sel.ids.length} 条线拆出原组（各自独立）`, true); });
+$("isolateLines").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("isolate_lines", { ids: sel.ids }); setSel("line", []); msg(`已移出 ${sel.ids.length} 条线为隔离对象（可恢复/撤销）`, true); });
 $("l2f").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const lb = $("l2fLabel").value.trim(); const r = await api("line_to_face", { ids: sel.ids, width: +$("width").value, rgb: $("colour").value, label: lb === "" ? null : (isNaN(+lb) ? lb : +lb) }); setSel("face", []); msg(`线转面完成，面积 ${r.area_px2.toFixed(1)} px²（实验功能）`, true); });
 $("undo").onclick = () => guard(async () => { const r = await api("undo"); msg("撤销：" + r.undone, true); });
 $("redo").onclick = () => guard(async () => { const r = await api("redo"); msg("重做：" + r.redone, true); });
