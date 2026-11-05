@@ -1,0 +1,20 @@
+issue_id,现象,复现位置,解决方式,界面入口,修复步骤,前后验证,风险,保存撤销,测试证据,状态
+A01,文字笔画及周边被识别成碎面,"U2 全图文字密集处（真实修复 C-P@267,434）",T11 text_residue 自动关联残影面+面归并,编辑器⑥ 框文字/选文字→残影预览→勾选→确认,选文字→预览→确认（2-4步）,U2真实C-P区：2残影面归并、coverage合法、压线风险线默认保留,误并真实小面：预览+边界风险标记+undo,保存/undo/reopen已验证,unit+U2 UAT #5 + 三态截图,RESOLVED_SEMI_AUTO
+A02,文字笔画误识别为地质线,U2 文字压线处,T11 残影线预览+隔离到 text_residue_lines（可恢复）,编辑器⑥ 残影预览逐条勾选；风险线默认不隔离,选文字→看候选线→确认（2-3步）,U2:86/86候选命中压线风险→默认保留（保守正确）,误删真实界线：风险默认不选+隔离非删除+可恢复,保存/undo/reopen已验证,unit+U2 UAT #5,RESOLVED_SEMI_AUTO
+A05,窄小面缺失/误识别为线,U2 真实窄带面#1430（33x1px）+需用户指认实际错处,T12 描绘中线→line_to_face恢复面+宽度/属性手动设置,编辑器② 补画线+④ 线转面；吸附已有端点/线段,描轴→吸附→转面→查coverage（3-6步）,U2真实对象模拟误并→恢复IoU=0.971、coverage合法,人工描绘误差：吸附+预览减轻,保存/undo已验证,unit+U2 UAT #4(IoU 0.971),RESOLVED_SEMI_AUTO
+A06,不同面域被误合并,合成+真实误并面,T12 split_face_preview→split_face_apply 沿界线切开,编辑器④ 预览沿SPLIT线切面→执行,选面→画切线→预览→确认（2-4步）,合成+真值案例通过；影响邻面在预览可见,切割伤邻面：预览确认+undo,保存/undo已验证,unit test_p2_semiauto,RESOLVED_MANUAL_TOOL
+A08,连续面域被错误分裂,U2 孤立小斑/碎带,T10 merge_suggest候选+风险标记+fragSelect批量筛选+LOGICAL_GROUP,编辑器④ 智能合并建议/碎面筛选（面积/颜色/代号/邻域）→预览合并或归组,点主面→筛选加选→预览→确认（3-5步）,U2:点选1面→fragSelect自动加26邻近同色碎面（真实浏览器）,跨真实边界：同色/连通/代号过滤+冲突警示,保存/undo已验证,unit+U2 UAT #1+浏览器e2e,RESOLVED_SEMI_AUTO
+A09,面域内部破碎呈孔洞状,U2 高碎面密度区,同A08工具链；优先逻辑归组不破坏几何,同A08,同A08,U2实测无无风险可并邻对→NOT强行合并；逻辑归组已验证；批量筛选路径可用,强行合并风险如实保留：几何合并保守、归组可选,保存/undo已验证,"U2 UAT #1(逻辑归组PASS,几何合并未强行验证)",RESOLVED_SEMI_AUTO
+A10,处理范围外对象入成果/背景连通,"U2 ROI[0,400,400,780]",T14 ROI画框+审计报告+跨域合并阻止+keep/clip导出+持久化,编辑器⑦ 框ROI→ROI审计→裁剪预览→保存时选keep/clip,框ROI→审计→预览→导出（2-3步）,U2:域外12374面/481线丢弃、27跨界裁切、重开ROI恢复,裁剪误伤：keep保留整面/clip精确裁切可选,保存/undo/reopen已验证,unit+U2 UAT #6,RESOLVED_SEMI_AUTO
+A15,线条漏检与断裂,U2 真实2px端点断线,T13 join_preview贪心链序+端点距+连接段预览；joinEnds端点直连工具,编辑器② 端点接线（点两端→推荐端点→预览→确认）,点端点→点候选→确认补线（2-3步）；不合适可手绘,U2真实2px断线补接通过；浏览器端点接线预览通过,接错端点：预览+max_gap拒绝+undo,保存/undo已验证,unit+U2 UAT #2+浏览器e2e,RESOLVED_SEMI_AUTO
+A20,虚线误连成实线丢间隔,U2 dash图例线,T13 虚线几何接拒绝（间隔是语义）+逻辑归组；已误并者：拆线→删误连段→图例→归组,编辑器⑤ 图例+④ 归为同组/拆组,选线→应用dash图例→逻辑归组（2-3步）,U2:几何接被拒+归组不改渲染；误并恢复链测试通过,实线化破坏间隔：算法级拒绝,保存/undo已验证,unit+U2 UAT #3,RESOLVED_SEMI_AUTO
+A24,线编组错误/笔画混组,U2 G52/G62混组实例,T13 regroup批量归组+ungroup_lines拆组+isolate_lines移出笔画（可恢复）,编辑器④ 归为同组/拆出组/移出线组,选线→归组/拆组（1-2步）,U2真实混组归并通过；logical_id独立于几何,误并无关线：选区可控+undo,保存/undo已验证,unit+U2 UAT #3,RESOLVED_MANUAL_TOOL
+A33,线周边窄面被吞并,U2 真实窄带面#1430,同A05工具链,同A05,同A05,IoU=0.971恢复+coverage合法；真实错误位置需用户UAT指认补充,修复窄面影响邻面：预览可见影响范围,保存/undo已验证,unit+U2 UAT #4,RESOLVED_SEMI_AUTO
+E01,错字/邻近符号并入文字,U2 148条PaddleOCR+219条RapidOCR基线,P1置信度审核：0.90阈值+代号强制复核+红框队列+修改/确认/跳过,Studio/编辑器⑧ OCR审核：审核模式→面板→改字→确认→自动下一项,点待审→改→确认（1-2步/项）,U2真实错字Ar2E→编辑HUMAN_EDITED+持久化；真值小样本：自动放行组2/8实错(探索性),高置信度错字漏审：抽查机制+强制复核规则,保存/undo/reopen已验证,unit+浏览器e2e+Studio e2e,RESOLVED_SEMI_AUTO
+E02,文字漏检/符号误识别为文字,U2 漏检处,textBox框选区域局部OCR重识别(ocr_box)+addText手动加字+textDelete删错候选,编辑器② 框文字/加文字；⑥ 删除所选文字,框选→局部识别→确认或手动输入（2-3步）,引擎状态可见(reused/failed原因)+手工输入保底；新增字入正常审核/导出流,引擎不可用时手工兜底,保存/undo已验证,unit+e2e_text,RESOLVED_SEMI_AUTO
+E04,文字重复/错误去重,P0已修,框内已有文字默认进入编辑模式不产生重复,编辑器② 框文字,自动,e2e 28/28+unit,距离去重误删：已有对象优先复用,已验证,unit+e2e_p0_fixes,RESOLVED_AUTO
+E09,OCR字号与方向异常,P0已修,短边为字高+长边方向为角+范围钳制,自动,0,e2e 28/28+unit,—,已验证,unit+e2e_p0_fixes,RESOLVED_AUTO
+E10,文字残影未完全消除,U2 C-P真实清理区,T11残影清理+三态核验(A原图/B矢量关文字/C叠加)+可恢复隔离层,编辑器① 三态核验按钮+⑥ 残影清理,清理→三态对照确认无错误笔画（2-4步）,U2真实C-P：清理后矢量视图无笔画残影，原图文字像素属扫描件未动,原图文字像素≠清理失败：三态明确区分,保存/undo/reopen已验证,unit+U2 UAT #5+三态截图,RESOLVED_SEMI_AUTO
+E12,框文字返回空候选,P0已修,ocr_box先查已有对象+区分失败原因+手工输入保底,编辑器② 框文字,0-2,e2e 28/28+unit,引擎不可用原因对用户可见,已验证,unit+e2e_p0_fixes,RESOLVED_AUTO
+E22,文字移动后点击范围不同步,P0已修,anchor+font_px+text统一重算box_x0..y1,自动,0,e2e 28/28+unit+GPKG回读,—,已验证,unit+e2e_p0_fixes,RESOLVED_AUTO
+E31,合并面属性关联缺失,P0已修,merged_from溯源列记录全部来源(id/rgb/label/area)且链式展平,③ 已选对象面板显示合并自,0,unit+浏览器撤销验证,—,已验证,unit+e2e_p0_fixes,RESOLVED_AUTO
