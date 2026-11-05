@@ -25,4 +25,4 @@ python -m tools.stitchvector_editor.server --image <扫描图> --gpkg <矢量GPK
 ## 上线前待办
 - 地理配准（当前 PIXEL_SPACE）。
 - 多用户/并发与持久化会话（如需要）。
-- 治理门脚本入 worktree 后补跑 s2a_gates.py。
+- 治理门 s2a_gates.py 已在主检出执行：assets-decisions 的 vendored-venv 私钥误报需在主检出治理（SKIP 加 venvs 或清理 vendored 环境）。

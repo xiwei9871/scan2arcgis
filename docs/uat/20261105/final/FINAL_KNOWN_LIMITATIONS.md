@@ -1,5 +1,13 @@
 # FINAL_KNOWN_LIMITATIONS — 已知限制与待人工确认项
 
+## OWNER_REAL_CASE_VALIDATION_PENDING（4 项）
+
+以下 4 项**工具链已实现并验证**，但“真实缺陷已完全消除”需 owner 用真实错处复核——工具链已实现 ≠ 真实缺陷已完全消除：
+
+- **A09**：U2 无无风险可并邻对，未强行合并；逻辑归组+批量筛选已验证。
+- **A05/A33**：强证据为真实对象模拟误并→恢复 IoU=0.971；实际错处需指认。
+- **E02**：漏检补识别能力已验证；全图漏检真值未知。
+
 ## 数据/验证限制
 
 1. **A09 几何合并 NOT_VALIDATED_ON_U2**：U2 上不存在无风险的可并同色邻对（B2c 已并完），未强行合并真实地质边界；逻辑归组与批量筛选路径已验证。人工 UAT 若指认具体误并位置，工具链可即时处理。
@@ -7,7 +15,7 @@
 3. **E10 像素级残影核对**：以图层计数+几何一致性+三态截图判定，未做逐像素 diff；原始扫描文字像素属扫描件，不计清理失败。
 4. **OCR 漏检数量无真值**：E02 补识别能力已验证，但 U2 全图漏检总数未知（探索性结论）。
 5. **真值小样本**：自动放行 8 条中 2 条实错（探索性，样本不足，不宣称准确率达标）。
-6. **治理门 `tools/gov/s2a_gates.py` 在 worktree 缺失 → NOT_VERIFIED**。
+6. **治理门**：`tools/gov/s2a_gates.py` 存在于主检出（`chore/project-continuity-v101`），sv-v02 worktree 无此文件。已在主检出实际执行：state-head PASS、state-workspace PASS、assets-decisions **FAIL**——`runs/ocr_poc01/venvs/` 下第三方库文件（cv2 dylib、pycryptodome RSA.py/ECC.py 源码）命中私钥正则，属预存在误报，与本轮变更无关，归主检出治理范围（可加 venvs 到 SKIP 或清理 vendored 环境），不在本轮改动。
 7. **跨域坐标系**：U2 为像素坐标（无地理配准）；GIS 导出标记 PIXEL_SPACE，SHP 无 .prj。配准属后续工作，不在本轮范围。
 
 ## 设计性保守（非缺陷）

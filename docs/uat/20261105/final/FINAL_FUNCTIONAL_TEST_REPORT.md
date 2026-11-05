@@ -2,6 +2,11 @@
 
 分支 `fix/stitchvector-v02-uat-remediation`，数据：真实 U2 全图（805×780，B2c 17,047 面 / 606 线；text_cleared 12,995 面 / 418 线 / 126 文字 / 188 隔离线）。
 
+## 状态口径
+
+RESOLVED_AUTO 5 / RESOLVED_SEMI_AUTO 12 / RESOLVED_MANUAL_TOOL 2，共 19 项（E04 只计一次）。
+其中 A05/A09/A33/E02 附加 `OWNER_REAL_CASE_VALIDATION_PENDING`：工具链已实现并验证，真实缺陷完全消除需 owner 以真实错处复核。
+
 ## 自动化结果汇总
 
 | 套件 | 结果 | 说明 |
@@ -12,7 +17,7 @@
 | Studio e2e closeout（保存/导出） | **10/10 PASS, fail:0** | 重开→改字 HUMAN_EDITED→存版本→刷新重开持久化→正式导出被门禁拒→GPKG/SHP 草稿导出回读 17047/17047 |
 | U2 真实 UAT（7 场景） | **7/7 PASS** | A33 IoU 0.971 / ROI clip / C-P 残影 / 断线补接 / 编组 / 虚线保护 / A09 逻辑归组 |
 | 草稿导出回读 | PASS | `text_unconfirmed` 146 条 OCR_DRAFT 全保留；正式导出 146 条未审核被正确拒绝 |
-| 治理门 s2a_gates.py | **NOT_VERIFIED** | worktree 无此脚本 |
+| 治理门 s2a_gates.py（主检出执行） | state-head PASS / workspace PASS / assets-decisions FAIL | FAIL=runs/ocr_poc01/venvs vendored 库命中私钥正则，预存在误报，与本轮无关 |
 
 ## 五条 Studio 端到端路径验收
 

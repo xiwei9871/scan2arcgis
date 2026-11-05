@@ -1,19 +1,68 @@
 {
-  "run_at": "2026-11-05T17:26:00+08:00",
+  "run_at": "2026-11-05T17:45:00+08:00",
   "branch": "fix/stitchvector-v02-uat-remediation",
   "suites": {
-    "unit_editor_studio": {"command": "python -m pytest tests/stitchvector_editor tests/stitchvector_studio -x -q", "passed": 97, "failed": 0},
-    "browser_editor_closeout_ui": {"file": "tests/stitchvector_editor/e2e_closeout_ui.js", "target": "real U2 text_cleared (12995 faces, 418 lines)", "passed": 11, "failed": 0},
-    "browser_studio_e2e_u2_part1": {"file": "tests/stitchvector_studio/e2e_studio_u2.js", "target": "full pipeline upload->b2c->paddleocr->edit", "passed": 18, "failed": 0, "note": "pipeline+text edit+undo/redo section; part 2 covers save/export"},
-    "browser_studio_e2e_closeout": {"file": "tests/stitchvector_studio/e2e_studio_closeout.js", "target": "reopen->edit->save->reload->export gate", "passed": 10, "failed": 0},
-    "real_u2_uat": {"file": "tests/stitchvector_editor/u2_real_uat.py", "scenarios": 7, "passed": 7, "note": "A09 geometry merge deliberately NOT forced: no risk-free same-colour pair on U2"},
-    "draft_export_readback": {"check": "text_unconfirmed layer", "result": "146 OCR_DRAFT preserved", "formal_export": "refused by unified gate"},
-    "governance_gate": {"command": "python3 tools/gov/s2a_gates.py all", "result": "NOT_VERIFIED", "reason": "script absent in this worktree"}
+    "unit_editor_studio": {
+      "command": "python -m pytest tests/stitchvector_editor tests/stitchvector_studio -x -q",
+      "passed": 97,
+      "failed": 0
+    },
+    "browser_editor_closeout_ui": {
+      "file": "tests/stitchvector_editor/e2e_closeout_ui.js",
+      "target": "real U2 text_cleared (12995 faces, 418 lines)",
+      "passed": 11,
+      "failed": 0
+    },
+    "browser_studio_e2e_u2_part1": {
+      "file": "tests/stitchvector_studio/e2e_studio_u2.js",
+      "target": "full pipeline upload->b2c->paddleocr->edit",
+      "passed": 18,
+      "failed": 0,
+      "note": "pipeline+text edit+undo/redo section; part 2 covers save/export"
+    },
+    "browser_studio_e2e_closeout": {
+      "file": "tests/stitchvector_studio/e2e_studio_closeout.js",
+      "target": "reopen->edit->save->reload->export gate",
+      "passed": 10,
+      "failed": 0
+    },
+    "real_u2_uat": {
+      "file": "tests/stitchvector_editor/u2_real_uat.py",
+      "scenarios": 7,
+      "passed": 7,
+      "note": "A09 geometry merge deliberately NOT forced: no risk-free same-colour pair on U2"
+    },
+    "draft_export_readback": {
+      "check": "text_unconfirmed layer",
+      "result": "146 OCR_DRAFT preserved",
+      "formal_export": "refused by unified gate"
+    },
+    "governance_gate": {
+      "command": "python3 tools/gov/s2a_gates.py all",
+      "scope": "main checkout (chore/project-continuity-v101); script absent in sv-v02 worktree",
+      "result": {
+        "state-head": "PASS",
+        "state-workspace": "PASS",
+        "assets-decisions": "FAIL — vendored library files under runs/ocr_poc01/venvs match private-key regex (cv2 dylibs, pycryptodome sources); pre-existing, unrelated to this round, main-checkout governance scope"
+      }
+    }
   },
   "ui_integration": {
     "fragSelect": "real-U2 click -> 26 neighbour fragments auto-added (no Ctrl-clicking)",
     "joinEnds": "two clicks -> join_preview 7->17 gap 1px with connector preview",
     "busy_feedback": "guard() shows progress message on every op",
     "sidebar": "workflow-numbered sections 1-9, advanced blocks in <details open>"
+  },
+  "issue_status_counts": {
+    "RESOLVED_AUTO": 5,
+    "RESOLVED_SEMI_AUTO": 12,
+    "RESOLVED_MANUAL_TOOL": 2,
+    "total": 19,
+    "owner_real_case_validation_pending": [
+      "A05",
+      "A09",
+      "A33",
+      "E02"
+    ]
   }
 }
