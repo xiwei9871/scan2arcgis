@@ -87,8 +87,10 @@ function draw() {
 function showSel() {
   if (!S || !sel.ids.length) { $("sel").textContent = "（无）"; return; }
   const list = sel.layer === "face" ? S.faces : S.lines, by = new Map(list.map(o => [o.id, o]));
-  const rows = sel.ids.slice(0, 12).map(i => { const o = by.get(i); if (!o) return ""; return sel.layer === "face"
-    ? `面 #${i}  ${o.rgb}  source=${o.attrs.source}  label=${o.attrs.label}`
+  const rows = sel.ids.slice(0, 12).map(i => { const o = by.get(i); if (!o) return ""; let mf = "";
+    if (sel.layer === "face" && o.attrs.merged_from) { try { mf = `  合并自:${JSON.parse(o.attrs.merged_from).map(e => "#" + e.eid).join(",")}`; } catch (e) { } }
+    return sel.layer === "face"
+    ? `面 #${i}  ${o.rgb}  source=${o.attrs.source}  label=${o.attrs.label}${mf}`
     : `线 #${i}  ${o.rgb}  宽 ${o.width}  组 ${o.logical_id}  ${o.attrs.line_id}  source=${o.attrs.source}`; });
   $("sel").textContent = `${sel.layer === "face" ? "面" : "线"} 已选 ${sel.ids.length}\n` + rows.join("\n") + (sel.ids.length > 12 ? "\n…" : "");
 }
@@ -164,7 +166,15 @@ $("group").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.
 $("grow").onclick = () => guard(async () => { if (sel.layer !== "face" || !sel.ids.length) throw new Error("先选中一个面"); const r = await api("grow", { ids: sel.ids }); setSel("face", r.ids); msg(`扩展到 ${r.ids.length} 个相邻同色面`, true); });
 $("apply").onclick = () => guard(async () => { if (!sel.ids.length) throw new Error("没有选中对象"); await api("recolour", { layer: sel.layer, ids: sel.ids, rgb: $("colour").value }); msg(`已改色 ${sel.ids.length} 个对象`, true); });
 $("rewidth").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("rewidth", { ids: sel.ids, width: +$("width").value }); msg("已改线宽", true); });
-$("merge").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge", { ids: sel.ids }); setSel("face", [r.id]); msg("已合并", true); });
+async function mergeWithConfirm(op) {
+  try { return await api(op, { ids: sel.ids }); }
+  catch (e) {
+    if (e.message.includes("different labels") && confirm(e.message + "\n确认仍要合并？来源会记录在 merged_from。"))
+      return await api(op, { ids: sel.ids, allow_mixed_labels: true });
+    throw e;
+  }
+}
+$("merge").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await mergeWithConfirm("merge"); setSel("face", [r.id]); msg("已合并（来源见 merged_from）", true); });
 $("del").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("delete", { ids: sel.ids }); setSel("line", []); msg("已删除", true); });
 $("regroup").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const r = await api("regroup", { ids: sel.ids }); msg("新组 " + r.logical_id, true); });
 $("l2f").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const r = await api("line_to_face", { ids: sel.ids, width: +$("width").value, rgb: $("colour").value }); setSel("face", []); msg(`线转面完成，面积 ${r.area_px2.toFixed(1)} px²（实验功能）`, true); });
@@ -198,7 +208,7 @@ $("mergePreview").onclick = () => guard(async () => {
   if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge_preview", { ids: sel.ids }); mergePv = r; healPv = null;
   $("preview").textContent = `合并预览：${r.groups.length} 组，其中可合并 ${r.mergeable_groups} 组\n` + r.groups.map((g, i) => `组${i + 1}: ${g.faces.length} 面 面积${g.area.toFixed(0)} 颜色冲突 ${((g.colour_conflict_share || 0) * 100).toFixed(0)}%` + ((g.colour_conflict_share || 0) > 0.1 ? "  ⚠ 可能越过真实边界" : "")).join("\n");
   draw(); msg("绿色轮廓 = 合并后边界；红色 = 组内原图颜色差异大，请检查", true); });
-$("mergeGroups").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge_groups", { ids: sel.ids }); mergePv = null; setSel("face", []); $("preview").textContent = "（无预览）"; msg(`已合并 ${r.groups} 组、${r.faces} 个面`, true); });
+$("mergeGroups").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await mergeWithConfirm("merge_groups"); mergePv = null; setSel("face", []); $("preview").textContent = "（无预览）"; msg(`已合并 ${r.groups} 组、${r.faces} 个面（来源见 merged_from）`, true); });
 $("healApply").onclick = () => guard(async () => { if (!healPv) throw new Error("先用碎面修复刷刷一下"); const r = await api("heal_apply", { preview_id: healPv.preview_id }); healPv = null; $("preview").textContent = "（无预览）"; msg(`已修复：合并 ${r.merged} 个碎面`, true); });
 $("healCancel").onclick = () => { healPv = null; mergePv = null; $("preview").textContent = "（无预览）"; draw(); };
 
@@ -234,8 +244,11 @@ $("splitPreview").onclick = () => guard(async () => { if (sel.layer !== "line" |
 $("splitApply").onclick = () => guard(async () => { if (!splitPv) throw new Error("先预览切面"); const r = await api("split_face_apply", { preview_id: splitPv.preview_id }); splitPv = null; $("preview").textContent = "（无预览）"; msg(`已切开 ${r.faces_cut} 个面`, true); });
 
 function showTextPv(r) {
-  textPv = r; $("ocrCand").textContent = r.ocr ? `${r.ocr.text || "（空）"}  置信度 ${r.ocr.score}  (${r.ocr.engine || "rapidocr"})` : "-";
-  $("tText").value = (r.ocr && r.ocr.text) || ""; $("tFont").value = (0.8 * (r.box[3] - r.box[1])).toFixed(1);
+  textPv = r; const o = r.ocr || {};
+  $("ocrCand").textContent = `${o.text || "（空）"}  置信度 ${o.score ?? "—"}  (${o.engine || "-"})` +
+    (o.status && o.status !== "ok" && o.status !== "off" ? `  状态:${o.status}${o.reason ? " " + o.reason : ""}` : "") + (o.low_confidence ? "  ⚠低置信" : "");
+  $("tExist").textContent = (r.existing || []).length ? `框内已有文字：${r.existing.map(e => `#${e.id}「${e.text}」`).join(" ")}；确认 = 编辑已有对象，不产生重复` : "";
+  $("tText").value = (o.text) || ""; $("tFont").value = (0.8 * (r.box[3] - r.box[1])).toFixed(1);
   const c = r.counts; $("tGroups").textContent = `残影面 ${c.residue_faces}：并入 ${c.merge_faces}（绿） 待定 ${c.uncertain_faces}（橙）  隔离线 ${c.residue_lines}\n` +
     r.groups.map((g, i) => g.decision === "uncertain" ? `组${i} 待定 ${g.faces.length} 面，可并入：` + (g.grounds || []).join("/") : "").filter(Boolean).join("\n") +
     (c.uncertain_faces ? "\n（待定组默认不合并；用“点选归属”逐组决定，或跳过）" : "");
@@ -244,16 +257,30 @@ function showTextPv(r) {
 }
 $("textApply").onclick = () => guard(async () => { if (!textPv) throw new Error("先用“框文字”框一个区域");
   const assign = { ...assigns };
-  const r = await api("text_apply", { preview_id: textPv.preview_id, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value, assign });
-  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; resetAssign(); msg(`已建文字；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
+  const r = await api("text_apply", { preview_id: textPv.preview_id, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value, assign,
+    existing_mode: $("tForceNew").checked ? "create" : "edit" });
+  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; $("tExist").textContent = ""; resetAssign();
+  msg(r.mode === "edited_existing" ? `已更新已有文字 #${r.text_id}；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`
+      : `已建文字 #${r.text_id}；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
 $("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; resetAssign(); draw(); };
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
   const b = { id: selText }; if ($("tText").value.trim()) b.text = $("tText").value;
   if (+$("tFont").value > 0) b.font_px = +$("tFont").value; if ($("tAngle").value !== "") b.angle_deg = +$("tAngle").value; if ($("tRgb").value) b.rgb = $("tRgb").value;
   await api("text_edit", b); msg("已修改文字", true); });
 $("textDelete").onclick = () => guard(async () => { if (selText === null) throw new Error("先选中文字"); await api("text_delete", { id: selText }); selText = null; msg("已删除文字", true); });
-function pickText(x, y) { if (!S || !S.texts || !$("showText").checked) return null;
-  for (const t of S.texts) if (x >= t.box_x0 && x <= t.box_x1 && y >= t.box_y0 && y <= t.box_y1) return t; return null; }
+function textEm(t) { let w = 0; for (const ch of String(t || "")) { const o = ch.codePointAt(0); w += (o >= 0x2E80 && o <= 0x9FFF) || (o >= 0x3000 && o <= 0x303F) || (o >= 0xFF00 && o <= 0xFFEF) ? 1.0 : 0.58; } return w; }
+// text hit test = the RENDERED extent (anchor point + font + angle), not the OCR detection box. Mirrors core._text_*.
+function pickText(x, y) {
+  if (!S || !S.texts || !$("showText").checked) return null;
+  const pad = 2 / view.s;
+  for (const t of S.texts) {
+    const h = t.font_px / 0.8 / 2, w = Math.max(h, t.font_px * textEm(t.text) / 2);
+    const a = (t.angle_deg || 0) * Math.PI / 180, dx = x - t.x, dy = y - t.y;
+    const lx = dx * Math.cos(a) - dy * Math.sin(a), ly = dx * Math.sin(a) + dy * Math.cos(a);
+    if (Math.abs(lx) <= w + pad && Math.abs(ly) <= h + pad) return t;
+  }
+  return null;
+}
 
 
 // ---------- three-state view ----------

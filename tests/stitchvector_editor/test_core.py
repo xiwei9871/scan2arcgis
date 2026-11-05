@@ -1,6 +1,6 @@
 import shutil, sys
 from pathlib import Path
-import numpy as np, pytest, shapely
+import numpy as np, pandas as pd, pytest, shapely
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from tools.stitchvector_editor.core import Document, EditError, FACE, LINE, sha256, coverage_report  # noqa: E402
 
@@ -39,7 +39,16 @@ def test_merge_adjacent_and_refuse_disconnected(doc):
     d, _, _ = doc
     big = int(d.F["_eid"].iloc[int(np.argmax(d.F.geometry.area))]); gb = d.F.loc[d.F["_eid"] == big, "geometry"].iloc[0]
     direct = [int(e) for e, g in zip(d.F["_eid"], d.F.geometry) if e != big and shapely.length(shapely.intersection(g, gb)) > 0]
-    pair = [big, direct[0]]; n0 = len(d.F); d.merge_faces(pair)
+    blab = d.F.loc[d.F["_eid"] == big, "label"].iloc[0] if "label" in d.F.columns else None
+    same = next((e for e in direct if pd.isna(d.F.loc[d.F["_eid"] == e, "label"].iloc[0]) == pd.isna(blab)
+                 and (pd.isna(blab) or d.F.loc[d.F["_eid"] == e, "label"].iloc[0] == blab)), None)
+    if same is None:                                            # no same-label neighbour: mixed merge must refuse
+        with pytest.raises(EditError): d.merge_faces([big, direct[0]])
+        same = direct[0]
+        with pytest.raises(EditError): d.merge_faces([big, same])           # sanity: still refused
+        n0 = len(d.F); d.merge_faces([big, same], allow_mixed_labels=True)  # explicit opt-in path
+    else:
+        n0 = len(d.F); d.merge_faces([big, same])
     assert len(d.F) == n0 - 1 and coverage_report(d.F, 300, 300)["accepted"]
     g = list(zip(d.F["_eid"], d.F.geometry)); a = g[0]
     b = next((e, x) for e, x in g[1:] if x.distance(a[1]) > 5)          # two faces that do not touch

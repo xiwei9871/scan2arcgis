@@ -114,7 +114,7 @@ class H(BaseHTTPRequestHandler):
             elif op == "delete": d.delete_lines(a["ids"]); r = {}
             elif op == "split": r = {"ids": d.split_line(int(a["id"]), float(a["x"]), float(a["y"]))}
             elif op == "draw": r = {"id": d.add_line(a["coords"], float(a.get("width", 2)), a.get("rgb", "#000000"), a.get("logical_id"))}
-            elif op == "merge": r = {"id": d.merge_faces(a["ids"])}
+            elif op == "merge": r = {"id": d.merge_faces(a["ids"], bool(a.get("allow_mixed_labels")))}
             elif op == "line_to_face": r = d.line_to_face(a["ids"], a.get("width"), a.get("rgb"))
             elif op == "select_gesture":
                 g = d.gesture(a["kind"], a["points"], float(a.get("radius", 0)))
@@ -125,17 +125,19 @@ class H(BaseHTTPRequestHandler):
             elif op == "grow_sel": r = {"ids": d.grow(a["ids"], int(a.get("steps", 1)))}
             elif op == "shrink_sel": r = {"ids": d.shrink(a["ids"], int(a.get("steps", 1)))}
             elif op == "merge_preview": r = d.merge_preview(a["ids"])
-            elif op == "merge_groups": r = d.merge_components(a["ids"])
+            elif op == "merge_groups": r = d.merge_components(a["ids"], bool(a.get("allow_mixed_labels")))
+            elif op == "merge_history": r = {"history": d.merge_history()}
             elif op == "heal_preview": r = d.heal_preview(d.gesture("brush", a["points"], float(a.get("radius", 4))), float(a.get("max_area", 12)))
-            elif op == "heal_apply": r = d.heal_apply(str(a["preview_id"]), a.get("accept_uncertain", []))
+            elif op == "heal_apply": r = d.heal_apply(str(a["preview_id"]), a.get("accept_uncertain", []), bool(a.get("allow_mixed_labels")))
             elif op == "set_role": d.set_role(a["ids"], str(a["role"])); r = {}
             elif op == "apply_legend": d.apply_legend(lay, a["ids"], str(a["legend_id"])); r = {}
             elif op == "set_style": d.set_style(str(a["legend_id"]), dict(a["style"])); r = {}
             elif op == "split_face_preview": r = d.split_face_preview(int(a["id"]))
             elif op == "split_face_apply": r = d.split_face_apply(str(a["preview_id"]))
             elif op == "text_preview": r = d.text_preview([float(v) for v in a["box"]])
-            elif op == "text_apply": r = d.text_apply(str(a["preview_id"]), a["text"], a.get("font_px"), float(a.get("angle_deg", 0)), a.get("rgb", "#000000"), a.get("assign"))
+            elif op == "text_apply": r = d.text_apply(str(a["preview_id"]), a["text"], a.get("font_px"), float(a.get("angle_deg", 0)), a.get("rgb", "#000000"), a.get("assign"), a.get("existing_mode", "edit"))
             elif op == "text_edit": d.edit_text(int(a["id"]), **{k: a[k] for k in ("text", "font_px", "angle_deg", "rgb", "x", "y", "review_status") if k in a}); r = {}
+            elif op == "text_pick": r = {"ids": d.pick_text(float(a["x"]), float(a["y"]), float(a.get("tol", 2)))}
             elif op == "text_add": r = {"id": d.add_text(a["x"], a["y"], a["text"], a.get("font_px", 12), a.get("angle_deg", 0), a.get("rgb", "#000000"))}
             elif op == "text_delete": d.delete_text(int(a["id"])); r = {}
             elif op == "restore_residue": d.restore_residue_lines(a["ids"]); r = {}

@@ -273,6 +273,21 @@ def _git_head():
     except Exception: return None
 
 
+def _quad_metrics(q):
+    """text geometry from an OCR quad: glyph height = SHORT edge length (never the rotated bounding box height),
+    reading angle = LONG edge direction normalised to (-90, 90]. Keeps rotated/vertical labels at a sane size."""
+    import math
+    if len(q) < 4: return 4.0, 0.0
+    edges = [(q[(i + 1) % 4][0] - q[i][0], q[(i + 1) % 4][1] - q[i][1]) for i in range(4)]
+    lens = [math.hypot(*e) for e in edges]
+    li = max(range(4), key=lambda i: lens[i]); dx, dy = edges[li]
+    ang = -math.degrees(math.atan2(dy, dx))
+    while ang <= -90: ang += 180
+    while ang > 90: ang -= 180
+    if abs(ang) < 3: ang = 0.0
+    return max(min(lens), 1.0), round(ang, 1)
+
+
 def add_text_drafts(gpkg, ocr_json, run_id):
     """OCR candidates -> editable text_labels points (review_status OCR_DRAFT, geometry_status BACKGROUND_NOT_CLEARED).
     raw OCR string kept in ocr_text; `text` starts as the generic-rule suggestion (or the raw string); candidates and
@@ -283,11 +298,9 @@ def add_text_drafts(gpkg, ocr_json, run_id):
     for i, it in enumerate(o.get("items", [])):
         q = it["quad"]; xs = [p[0] for p in q]; ys = [p[1] for p in q]
         x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
-        import math
-        ang = -math.degrees(math.atan2(q[1][1] - q[0][1], q[1][0] - q[0][0])) if len(q) >= 2 else 0.0
-        if abs(ang) < 3: ang = 0.0
+        h, ang = _quad_metrics(q)
         rows.append({"label_id": f"T{i:03d}", "text": it.get("suggested_text") or it["text"], "ocr_text": it["text"], "ocr_score": float(it.get("score", 0)),
-                     "font_px": round(max(4.0, 0.8 * (y1 - y0)), 1), "angle_deg": round(ang, 1), "anchor": "center", "rgb": "#000000",
+                     "font_px": round(max(4.0, 0.8 * h), 1), "angle_deg": ang, "anchor": "center", "rgb": "#000000",
                      "box_x0": x0, "box_y0": y0, "box_x1": x1, "box_y1": y1, "source": f"ocr:{o.get('engine')}", "review_status": "OCR_DRAFT",
                      "geometry_status": "BACKGROUND_NOT_CLEARED", "candidate_texts": json.dumps(it.get("candidate_texts") or [it["text"]], ensure_ascii=False),
                      "rule_reasons": json.dumps(it.get("rule_reasons") or [], ensure_ascii=False), "ocr_engine": str(o.get("engine")), "ocr_model": str(o.get("model")),

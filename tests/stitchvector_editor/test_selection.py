@@ -37,7 +37,10 @@ def test_grow_shrink(doc):
 def test_merge_preview_then_merge_components_valid(doc):
     lasso = doc.gesture("lasso", [[5, 5], [60, 5], [60, 60], [5, 60]]); ids = doc.select_region(lasso, FACE, "centre")
     pv = doc.merge_preview(ids); assert pv["groups"] and all("outline" in g for g in pv["groups"])
-    n0 = len(doc.F); r = doc.merge_components(ids)
+    try:                                                        # mixed geological labels now refuse silently-merging (E31)
+        doc.merge_components(ids)
+    except EditError as e: assert "allow_mixed_labels" in str(e)
+    n0 = len(doc.F); r = doc.merge_components(ids, allow_mixed_labels=True)
     assert len(doc.F) < n0 and coverage_report(doc.F, 300, 300)["accepted"]
     doc.undo_op(); assert len(doc.F) == n0
 
@@ -47,5 +50,11 @@ def test_heal_preview_and_apply(doc):
     region = doc.gesture("brush", stroke, 4); pv = doc.heal_preview(region)
     assert "candidates" in pv and all(c["decision"] in ("merge", "keep", "uncertain") for c in pv["candidates"])
     if pv["counts"]["merge"]:
-        n0 = len(doc.F); doc.heal_apply(pv["preview_id"]); assert len(doc.F) < n0 and coverage_report(doc.F, 300, 300)["accepted"]
+        n0 = len(doc.F)
+        try:
+            doc.heal_apply(pv["preview_id"])
+        except EditError as e:                                   # mixed labels must refuse without consent (E31)
+            assert "allow_mixed_labels" in str(e)
+            doc.heal_apply(pv["preview_id"], allow_mixed_labels=True)
+        assert len(doc.F) < n0 and coverage_report(doc.F, 300, 300)["accepted"]
         doc.undo_op(); assert len(doc.F) == n0

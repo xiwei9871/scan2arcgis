@@ -102,6 +102,9 @@ class Document:
         # line role (COVER / SPLIT / UNKNOWN) and legend binding; existing lines default to UNKNOWN, never inferred
         if "line_role" not in self.L.columns: self.L["line_role"] = "UNKNOWN"
         self.L["line_role"] = self.L["line_role"].fillna("UNKNOWN").astype(object)
+        # merge provenance: JSON list of source faces on every merged result (added on first merge for old files)
+        if "merged_from" not in self.F.columns: self.F["merged_from"] = None
+        self.F["merged_from"] = self.F["merged_from"].astype(object)
         for D in (self.L, self.F):
             if "legend_id" not in D.columns: D["legend_id"] = None
             D["legend_id"] = D["legend_id"].astype(object).where(D["legend_id"].notna(), None)
@@ -251,16 +254,52 @@ class Document:
         return self.next_l - 1
 
     # ---------- face geometry ----------
-    def merge_faces(self, ids):
-        """dissolve selected faces into one; they must form one edge-connected group (no multipart result)."""
+    def _check_mixed_labels(self, mask, allow_mixed_labels, what):
+        """refuse to silently merge faces that carry different geological labels; requires explicit opt-in."""
+        labels = sorted({r for r in self.F.loc[mask, "label"] if not pd.isna(r)}) if "label" in self.F.columns else []
+        if len(labels) > 1 and not allow_mixed_labels:
+            raise EditError(f"{what} would merge faces with different labels {labels} (possibly different geological units); "
+                            "pass allow_mixed_labels to merge anyway")
+
+    def _merge_provenance(self, m, keep, op):
+        """merged_from JSON for the surviving face: every source face (survivor flagged kept=true) with id/rgb/label/area.
+        Prior merged_from chains are flattened in, so the history survives repeated merges."""
+        entries = []
+        for _, r in self.F.loc[m].iterrows():
+            prev = r.get("merged_from")
+            if isinstance(prev, str) and prev:
+                try:
+                    for q in json.loads(prev):
+                        q = dict(q); q.pop("kept", None); q["via"] = int(r["_eid"]); entries.append(q)
+                except Exception: pass
+            entries.append({"eid": int(r["_eid"]), "rgb": r.get("rgb"), "label": (None if pd.isna(r.get("label")) else r.get("label")),
+                            "area": round(float(r.geometry.area), 2), "source": r.get("source"), "kept": int(r["_eid"]) == keep,
+                            "op": op, "t": round(time.time(), 3)})
+        return json.dumps(entries, ensure_ascii=False)
+
+    def merge_history(self):
+        """faces carrying a merged_from record: full merge lineage for the UI and exports."""
+        out = []
+        for _, r in self.F.iterrows():
+            v = r.get("merged_from")
+            if isinstance(v, str) and v:
+                try: out.append({"eid": int(r["_eid"]), "rgb": r.get("rgb"), "label": (None if pd.isna(r.get("label")) else r.get("label")), "from": json.loads(v)})
+                except Exception: pass
+        return out
+
+    def merge_faces(self, ids, allow_mixed_labels=False):
+        """dissolve selected faces into one; they must form one edge-connected group (no multipart result).
+        Source ids/attributes are kept in merged_from; mixing different labels needs allow_mixed_labels."""
         ids = sorted(set(int(i) for i in ids))
         if len(ids) < 2: raise EditError("select at least 2 faces to merge")
         m = self._rows(FACE, ids); geoms = list(self.F.loc[m, "geometry"])
         u = shapely.union_all(geoms)
         if u.geom_type != "Polygon": raise EditError("selected faces are not one edge-connected group (merge would give a multipart face)")
+        self._check_mixed_labels(m, allow_mixed_labels, "merge")
         sub = self.F.loc[m]; keep = int(sub["_eid"].iloc[int(np.argmax(shapely.area(np.asarray(sub.geometry.values, object))))])
+        prov = self._merge_provenance(m, keep, "merge")
         def f():
-            k = self.F["_eid"] == keep; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_merge"
+            k = self.F["_eid"] == keep; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_merge"; self.F.loc[k, "merged_from"] = prov
             self.F = self.F.loc[~(m & ~k)].copy()
         self._do("merge faces", f, objects=len(ids), merge=1); return keep
 
@@ -615,16 +654,22 @@ class SelectionMixin:
             out.append(rec)
         return {"groups": out, "mergeable_groups": sum(1 for r in out if len(r["faces"]) > 1 and r["single_polygon"])}
 
-    def merge_components(self, ids):
-        """merge every edge-connected group of the selection (one undoable step); single faces are left alone."""
+    def merge_components(self, ids, allow_mixed_labels=False):
+        """merge every edge-connected group of the selection (one undoable step); single faces are left alone.
+        Each surviving face records merged_from for all its sources."""
         comps = [c for c in self._components(ids) if len(c) > 1]
         if not comps: raise EditError("no two selected faces share an edge")
+        mixed = [c for c in comps if "label" in self.F.columns and
+                 len({r for r in self.F.loc[self.F["_eid"].isin(c), "label"] if not pd.isna(r)}) > 1]
+        if mixed and not allow_mixed_labels:
+            raise EditError(f"groups {mixed} would merge faces with different labels; pass allow_mixed_labels")
         def f():
             for c in comps:
                 m = self.F["_eid"].isin(c); sub = self.F.loc[m]; u = shapely.union_all(list(sub.geometry))
                 if u.geom_type != "Polygon": continue
                 keep = int(sub["_eid"].iloc[int(np.argmax(shapely.area(np.asarray(sub.geometry.values, object))))])
-                k = self.F["_eid"] == keep; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_merge"; self.F = self.F.loc[~(m & ~k)].copy()
+                k = self.F["_eid"] == keep; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_merge"
+                self.F.loc[k, "merged_from"] = self._merge_provenance(m, keep, "merge_components"); self.F = self.F.loc[~(m & ~k)].copy()
             rep = coverage_report(self.F, self.W, self.H)
             if not rep["accepted"]: raise EditError(f"merge gives an invalid face layer {rep}")
         n = sum(len(c) for c in comps); self._do("merge selected groups", f, objects=n, merge=len(comps)); return {"groups": len(comps), "faces": n}
@@ -675,7 +720,7 @@ class SelectionMixin:
         return {"preview_id": pid, "version": self.version, "candidates": out,
                 "counts": {k: sum(1 for r in out if r["decision"] == k) for k in ("merge", "keep", "uncertain")}}
 
-    def heal_apply(self, preview_id, accept_uncertain=()):
+    def heal_apply(self, preview_id, accept_uncertain=(), allow_mixed_labels=False):
         """apply a stored heal preview. The client sends only the preview id (and, optionally, ids of 'uncertain' faces
         the user explicitly accepts). Rejected if the preview is unknown or stale (document changed since). Every merge
         is re-checked: candidate and target still exist and still share an edge; the result must be one polygon and the
@@ -697,13 +742,18 @@ class SelectionMixin:
             return e if t is None or t in seen else final(t, seen + (e,))
         groups = {}
         for e in tgt: groups.setdefault(final(e), []).append(e)
+        for t, members in groups.items():
+            if t in tgt: continue
+            self._check_mixed_labels(self.F["_eid"].isin([t] + members), allow_mixed_labels, f"heal into face {t}")
+        prov = {t: self._merge_provenance(self.F["_eid"].isin([t] + members), t, "heal") for t, members in groups.items() if t not in tgt}
         def f():
             done = 0
             for t, members in groups.items():
                 if t in tgt: continue
                 allm = [t] + members; m = self.F["_eid"].isin(allm); u = shapely.union_all(list(self.F.loc[m, "geometry"]))
                 if u.geom_type != "Polygon": continue
-                k = self.F["_eid"] == t; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_heal"; self.F = self.F.loc[~(m & ~k)].copy(); done += len(members)
+                k = self.F["_eid"] == t; self.F.loc[k, "geometry"] = [u]; self.F.loc[k, "source"] = "edited_heal"; self.F.loc[k, "merged_from"] = prov[t]
+                self.F = self.F.loc[~(m & ~k)].copy(); done += len(members)
             rep = coverage_report(self.F, self.W, self.H)
             if not rep["accepted"]: raise EditError(f"heal gives an invalid face layer {rep}")
             if not done: raise EditError("no candidate could be merged into one polygon with its target")
@@ -715,7 +765,24 @@ for _n, _f in list(vars(SelectionMixin).items()):
 
 
 # ================= text layer: isolate text from faces/lines, keep it as editable text =================
-OCR_PY = Path.home() / "geomap2arcgis/.venv-ocr/bin/python"
+def _ocr_python():
+    """RapidOCR venv interpreter. Resolution order: $STITCHVECTOR_OCR_PY, then .venv-ocr next to the repo's
+    common git dir (works from worktrees and moved checkouts), then next to this file's repo root, then the
+    legacy ~/geomap2arcgis path. Returns (Path, where) or (None, reason)."""
+    import os, subprocess
+    env = os.environ.get("STITCHVECTOR_OCR_PY")
+    if env: return (Path(env), "env") if Path(env).exists() else (None, f"STITCHVECTOR_OCR_PY does not exist: {env}")
+    here = Path(__file__).resolve()
+    try:
+        gd = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=str(here.parent),
+                            capture_output=True, text=True, timeout=5)
+        if gd.returncode == 0 and gd.stdout.strip():
+            p = Path(gd.stdout.strip()).parent / ".venv-ocr/bin/python"
+            if p.exists(): return p, "repo"
+    except Exception: pass
+    for p in (here.parents[2] / ".venv-ocr/bin/python", Path.home() / "geomap2arcgis/.venv-ocr/bin/python"):
+        if p.exists(): return p, "path"
+    return None, "no .venv-ocr interpreter found (set STITCHVECTOR_OCR_PY)"
 
 
 def write_label_style(path):
@@ -742,18 +809,94 @@ def write_label_style(path):
 
 
 class TextMixin:
+    # ---------- text display extent: ONE place where position/text/font/angle -> display box and hit region ----------
+    @staticmethod
+    def _text_em(t):
+        """rough text width in em units: CJK/fullwidth chars ~1.0, everything else ~0.58 (mirrors the client)."""
+        w = 0.0
+        for ch in str(t or ""):
+            o = ord(ch)
+            w += 1.0 if (0x2E80 <= o <= 0x9FFF or 0x3000 <= o <= 0x303F or 0xFF00 <= o <= 0xFFEF) else 0.58
+        return w
+
+    def _text_extent(self, text, font_px):
+        """rendered half-extent (w,h) around the anchor point of a centred text."""
+        fpx = float(font_px)
+        h = fpx / 0.8 / 2
+        w = max(h, fpx * self._text_em(text) / 2)
+        return w, h
+
+    def _display_box(self, x, y, text, font_px, angle_deg):
+        """axis-aligned box covering the rotated rendered extent - the click/display region stored in box_*."""
+        import math
+        w, h = self._text_extent(text, font_px)
+        a = math.radians(float(angle_deg or 0.0)); c, s = abs(math.cos(a)), abs(math.sin(a))
+        hw, hh = w * c + h * s, w * s + h * c
+        return x - hw, y - hh, x + hw, y + hh
+
+    def _sync_text_box(self, mask):
+        """recompute box_* for the rows in `mask` from their current point/text/font_px/angle_deg."""
+        for c in ("box_x0", "box_y0", "box_x1", "box_y1"): self.T[c] = self.T[c].astype(float)
+        for i, r in self.T.loc[mask].iterrows():
+            p = r.geometry
+            self.T.loc[i, ["box_x0", "box_y0", "box_x1", "box_y1"]] = list(self._display_box(p.x, p.y, r["text"], r["font_px"], r["angle_deg"]))
+
+    def _text_hit(self, r, x, y, pad=2.0):
+        """(x,y) inside the rotated rendered extent of one text row (matches what the canvas draws)."""
+        import math
+        w, h = self._text_extent(r["text"], r["font_px"])
+        p = r.geometry
+        a = math.radians(float(r["angle_deg"] or 0.0))
+        dx, dy = float(x) - p.x, float(y) - p.y
+        lx, ly = dx * math.cos(a) - dy * math.sin(a), dx * math.sin(a) + dy * math.cos(a)
+        return abs(lx) <= w + pad and abs(ly) <= h + pad
+
+    def pick_text(self, x, y, tol=2.0):
+        """text objects whose RENDERED extent contains (x,y). Uses the point + angle, never a stale detection box."""
+        return [int(e) for e, (_, r) in zip(self.T["_eid"], self.T.iterrows()) if self._text_hit(r, x, y, tol)]
+
+    def _texts_in_box(self, B):
+        """existing text objects overlapping box B (anchor inside, or their display box intersects)."""
+        out = []
+        for _, r in self.T.iterrows():
+            p = r.geometry
+            try: bx = shapely.box(float(r["box_x0"]), float(r["box_y0"]), float(r["box_x1"]), float(r["box_y1"]))
+            except Exception: bx = p.buffer(1)
+            inside = bool(B.contains(p))
+            if inside or bool(bx.intersects(B)):
+                out.append({"id": int(r["_eid"]), "text": r["text"], "x": round(p.x, 1), "y": round(p.y, 1),
+                            "anchor_in_box": inside, "review_status": r.get("review_status")})
+        return out
+
+    # ---------- local OCR ----------
     def ocr_box(self, box):
-        """OCR candidate for a box (RapidOCR in a separate interpreter). Failure gives an empty candidate, never an error."""
+        """OCR candidate for a box (RapidOCR in a separate interpreter). Always reports a machine-readable status
+        and a human reason; never raises."""
         import io, subprocess
         from PIL import Image
         x0, y0, x1, y1 = self._box(box)
-        if self.img is None or not OCR_PY.exists(): return {"text": "", "score": 0.0, "engine": "none"}
+        if self.img is None: return {"text": "", "score": 0.0, "engine": "none", "status": "engine_unavailable", "reason": "no scan image loaded"}
+        py, where = _ocr_python()
+        if py is None: return {"text": "", "score": 0.0, "engine": "none", "status": "engine_unavailable", "reason": where}
         b = io.BytesIO(); Image.fromarray(np.ascontiguousarray(self.img[y0:y1, x0:x1])).save(b, "PNG")
         try:
-            p = subprocess.run([str(OCR_PY), str(Path(__file__).with_name("ocr_cli.py"))], input=b.getvalue(), capture_output=True, timeout=60)
-            r = json.loads(p.stdout.decode().strip().splitlines()[-1]); r["engine"] = "rapidocr"; return r
+            p = subprocess.run([str(py), str(Path(__file__).with_name("ocr_cli.py"))], input=b.getvalue(), capture_output=True, timeout=60)
+        except subprocess.TimeoutExpired:
+            return {"text": "", "score": 0.0, "engine": "rapidocr", "status": "failed", "reason": "ocr subprocess timed out (60s)"}
         except Exception as e:
-            return {"text": "", "score": 0.0, "engine": f"failed: {type(e).__name__}"}
+            return {"text": "", "score": 0.0, "engine": "rapidocr", "status": "failed", "reason": f"{type(e).__name__}: {e}"}
+        if p.returncode != 0:
+            tail = (p.stderr or b"").decode(errors="replace").strip().splitlines()
+            return {"text": "", "score": 0.0, "engine": "rapidocr", "status": "failed",
+                    "reason": f"ocr exit {p.returncode}: {(tail[-1] if tail else '')[:200]}"}
+        try:
+            r = json.loads(p.stdout.decode().strip().splitlines()[-1])
+        except Exception as e:
+            return {"text": "", "score": 0.0, "engine": "rapidocr", "status": "failed", "reason": f"bad ocr output: {type(e).__name__}"}
+        r["engine"] = "rapidocr"
+        r["status"] = "ok" if str(r.get("text", "")).strip() else "no_detection"
+        r["low_confidence"] = bool(r.get("text") and float(r.get("score", 0)) < 0.5)
+        return r
 
     def _box(self, box):
         x0, y0, x1, y1 = [float(v) for v in box]
@@ -786,11 +929,15 @@ class TextMixin:
         lines = []
         for e, ln in zip(self.L["_eid"], self.L.geometry):
             if ln.length > 0 and ln.intersection(B).length >= line_inside * ln.length: lines.append(int(e))
-        cand = self.ocr_box((x0, y0, x1, y1)) if ocr else {"text": "", "score": 0.0, "engine": "off"}
+        existing = self._texts_in_box(B)
+        # reuse existing text objects first; only run local OCR when the box has no text object of its own yet
+        if existing: cand = {"text": str(existing[0]["text"] or ""), "score": 0.0, "engine": "existing", "status": "reused",
+                             "reason": f"box already contains text object #{existing[0]['id']}"}
+        else: cand = self.ocr_box((x0, y0, x1, y1)) if ocr else {"text": "", "score": 0.0, "engine": "off", "status": "off"}
         self._pid += 1; pid = f"text-{self._pid}"
-        plan = {"kind": "text", "version": self.version, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand}
+        plan = {"kind": "text", "version": self.version, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand, "existing": existing}
         self.previews[pid] = plan
-        return {"preview_id": pid, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand,
+        return {"preview_id": pid, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand, "existing": existing,
                 "counts": {"residue_faces": len(res), "merge_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "merge"),
                            "uncertain_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "uncertain"), "residue_lines": len(lines)}}
 
@@ -805,9 +952,10 @@ class TextMixin:
                         "single_polygon": after.geom_type == "Polygon"})
         return out
 
-    def text_apply(self, preview_id, text, font_px=None, angle_deg=0.0, rgb="#000000", assign=None):
+    def text_apply(self, preview_id, text, font_px=None, angle_deg=0.0, rgb="#000000", assign=None, existing_mode="edit"):
         """apply a stored text preview: merge residue groups into their ground face, move residue lines to
-        text_residue_lines, add one text_labels point (box centre) with the user-confirmed text. One undoable step."""
+        text_residue_lines, then either EDIT an existing text object found in the box (default, no duplicates)
+        or create a new text_labels point when existing_mode='create' or the box was empty. One undoable step."""
         pv = self.previews.get(str(preview_id))
         if pv is None or pv.get("kind") != "text": raise EditError("unknown or expired preview; preview again")
         if pv["version"] != self.version: raise EditError("stale preview: the document changed after the preview")
@@ -827,6 +975,12 @@ class TextMixin:
         for gr in pv["groups"]:
             if gr["decision"] != "merge": continue
             if not set(gr["faces"] + [gr["target"]]) <= live: raise EditError("a face of the preview no longer exists; preview again")
+        # an existing text object overlapping the box defaults to being EDITED, never duplicated
+        existing = pv.get("existing") or []
+        tgt = None
+        if existing and existing_mode == "edit":
+            tgt = next((int(x["id"]) for x in existing if x.get("anchor_in_box")), int(existing[0]["id"]))
+            if tgt not in set(int(e) for e in self.T["_eid"]): raise EditError(f"text {tgt} no longer exists; preview again")
         def f():
             merged = 0
             for gr in pv["groups"]:
@@ -840,12 +994,18 @@ class TextMixin:
             if pv["lines"]:
                 lm = self.L["_eid"].isin(pv["lines"]); moved = self.L.loc[lm].copy(); moved["source"] = "text_residue"
                 self.Q = gpd.GeoDataFrame(pd.concat([self.Q, moved], ignore_index=True), geometry="geometry"); self.L = self.L.loc[~lm].copy()
-            row = {"label_id": f"T{self.next_t}", "text": text, "ocr_text": pv["ocr"].get("text", ""), "ocr_score": float(pv["ocr"].get("score", 0.0)),
-                   "font_px": fpx, "angle_deg": ang, "anchor": "center", "rgb": rgb, "box_x0": float(x0), "box_y0": float(y0), "box_x1": float(x1),
-                   "box_y1": float(y1), "source": "edited_text_box", "review_status": "TEXT_VECTOR_CREATED", "_eid": self.next_t}
-            new = gpd.GeoDataFrame({k: [v] for k, v in row.items()}, geometry=[Point((x0 + x1) / 2, (y0 + y1) / 2)]); self.next_t += 1
-            self.T = gpd.GeoDataFrame(pd.concat([self.T, new], ignore_index=True), geometry="geometry")
-            self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": int(row["_eid"])}
+            if tgt is not None:
+                m = self.T["_eid"] == tgt
+                for k, v in {"text": text, "font_px": fpx, "angle_deg": ang, "rgb": rgb, "review_status": "HUMAN_EDITED"}.items(): self.T.loc[m, k] = v
+                self._sync_text_box(m)
+                self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": tgt, "mode": "edited_existing"}
+            else:
+                row = {"label_id": f"T{self.next_t}", "text": text, "ocr_text": pv["ocr"].get("text", ""), "ocr_score": float(pv["ocr"].get("score", 0.0)),
+                       "font_px": fpx, "angle_deg": ang, "anchor": "center", "rgb": rgb, "box_x0": float(x0), "box_y0": float(y0), "box_x1": float(x1),
+                       "box_y1": float(y1), "source": "edited_text_box", "review_status": "TEXT_VECTOR_CREATED", "_eid": self.next_t}
+                new = gpd.GeoDataFrame({k: [v] for k, v in row.items()}, geometry=[Point((x0 + x1) / 2, (y0 + y1) / 2)]); self.next_t += 1
+                self.T = gpd.GeoDataFrame(pd.concat([self.T, new], ignore_index=True), geometry="geometry")
+                self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": int(row["_eid"]), "mode": "created"}
         self._do("text box", f, objects=1, text=1)
         return self._last_text
 
@@ -873,6 +1033,7 @@ class TextMixin:
         def f():
             for k, v in upd.items(): self.T.loc[m, k] = v
             if xy: self.T.loc[m, "geometry"] = [Point(*xy)]
+            if upd or xy: self._sync_text_box(m)
         self._do("edit text", f, objects=1, text=1)
 
     def add_text(self, x, y, text, font_px=12.0, angle_deg=0.0, rgb="#000000"):
@@ -882,10 +1043,10 @@ class TextMixin:
         x, y, fpx = float(x), float(y), float(font_px)
         if not (0 <= x <= self.W and 0 <= y <= self.H): raise EditError("text position outside the image")
         if not (1 <= fpx <= 200): raise EditError("font size 1-200 px")
-        h = fpx / 0.8 / 2; w = max(h, fpx * 0.6 * len(t) / 2)
+        bx0, by0, bx1, by1 = self._display_box(x, y, t, fpx, angle_deg)
         row = {c: None for c in self.T.columns if c not in ("geometry", "_eid")}
         row.update({"label_id": f"T{self.next_t}", "text": t, "ocr_text": "", "ocr_score": 0.0, "font_px": fpx, "angle_deg": float(angle_deg), "anchor": "center",
-                    "rgb": hex_ok(rgb), "box_x0": x - w, "box_y0": y - h, "box_x1": x + w, "box_y1": y + h, "source": "manual", "review_status": "HUMAN_EDITED"})
+                    "rgb": hex_ok(rgb), "box_x0": bx0, "box_y0": by0, "box_x1": bx1, "box_y1": by1, "source": "manual", "review_status": "HUMAN_EDITED"})
         if "geometry_status" in self.T.columns: row["geometry_status"] = "NO_GLYPH_RECORD"
         row["_eid"] = self.next_t
         def f():
