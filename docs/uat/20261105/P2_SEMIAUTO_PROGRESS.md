@@ -64,3 +64,28 @@ T10 在 U2 的实际形态确认为**半自动**：
 **状态**：`PARTIAL_AUTO / SEMI_AUTO_PASS`——自动扩选路径在 U2 无安全产出（数据特性非缺陷）；
 半自动通路（建议→预览→归组/合并→撤销）单测+真实数据验证通过。
 成本对照记入 `P2_EDIT_COST_COMPARISON.csv`。
+
+---
+
+## T11 文字残影半自动清理（A01/A02/E10）
+
+**实现**（`text_residue` + `text_apply(line_ids=)`，隔离非删除、可恢复、可撤销）：
+
+- `Document.text_residue(ids)`：对每个**已有文字对象**按其显示框（+pad）跑残影预案——小面并入候选按既有
+  text_preview 分组规则（merge/uncertain），线候选=框内线长占比≥90%；`line_info` 逐线给出
+  `inside_share/length/role/risks/suggested`。只读，不落任何修改。
+- 风险规则：`line_role∈{SPLIT,UNKNOWN}`→`boundary_risk`（疑似真实界线，默认不勾）；
+  端点贴框边→`may_continue_outside`。
+- `text_apply(..., line_ids=[...])`：仅隔离用户勾选的线子集到 `text_residue_lines`（记录
+  `source=text_residue` + `residue_of=text#<id>` 溯源），未勾线一律保留在 `visual_lines`；
+  面并入沿用 coverage 校验；`restore_residue_lines` 恢复原样。
+- UI：「选中文字→查残影」按钮 + 逐线勾选面板（⚠风险默认不勾）；应用走现有 textApply 确认路径。
+
+**真实 U2 验证（40 文字样本）**：37/40 有框内线候选（共 86 条），**86/86 全部命中 `boundary_risk`**——
+U2 注记大多压在真实界线上，默认隔离零条线、面并入照常建议：保守行为正确，真实界线零误删风险。
+3 个无框内线文字为纯面残影。
+
+**单测**（合成，新增 3 例共 9 例）：建议只读/风险标记/子集隔离+溯源/恢复/撤销/保存重开。
+
+**状态**：`SEMI_AUTO_PASS`——A01/A02 修复路径为「点文字→查残影→勾线→确认」≤4 步/处；
+E10 线残影默认保守（U2 上几乎全是真界线），留人工勾选决定。

@@ -93,3 +93,69 @@ def test_set_roi_state(tmp_path):
     assert all(c["eid"] in (0, 1, 2) for c in sug["candidates"])
     d.set_roi(None)
     assert d.roi is None
+
+
+# ---------- T11: text residue semi-automatic cleanup ----------
+
+def make_residue_doc(tmp_path):
+    """ground face + tiny residue face inside a text box; lines: glyph stroke inside, SPLIT-role line inside
+    (must flag boundary_risk), long line crossing the box edge (never a residue candidate)."""
+    faces = [Polygon([(0, 0), (200, 0), (200, 120), (0, 120)], holes=[[(61, 41), (68, 41), (68, 48), (61, 48)]]),  # F0 ground with hole
+             rect(61, 41, 68, 48)]                                          # F1 tiny fragment tiling the hole (<60px)
+    F = gpd.GeoDataFrame({"face_id": ["F0", "F1"], "rgb": ["#aaaaaa", "#aaaaaa"], "label": [None, None], "source": ["test"] * 2},
+                         geometry=faces)
+    L = gpd.GeoDataFrame({"line_id": ["L0", "L1", "L2"], "logical_id": ["G0", "G1", "G2"],
+                          "kind": ["contact"] * 3, "width_px": [2.0] * 3, "rgb": ["#000000"] * 3,
+                          "source": ["test"] * 3, "draw_order": [0] * 3,
+                          "line_role": ["COVER", "SPLIT", "SPLIT"]},
+                         geometry=[LineString([(52, 42), (58, 46)]),        # L0 glyph stroke, fully inside box
+                                   LineString([(62, 43), (68, 47)]),        # L1 SPLIT-role, fully inside -> boundary_risk
+                                   LineString([(0, 45), (200, 45)])])       # L2 real contact through the box -> kept
+    T = gpd.GeoDataFrame([{"label_id": "T0", "text": "怀道", "ocr_text": "怀道", "ocr_score": 0.9, "font_px": 12.0,
+                           "angle_deg": 0.0, "anchor": "center", "rgb": "#000000",
+                           "box_x0": 50.0, "box_y0": 38.0, "box_x1": 72.0, "box_y1": 52.0,
+                           "source": "test", "review_status": "OCR_CONFIRMED"}],
+                        geometry=[__import__("shapely").geometry.Point(61, 45)])
+    p = tmp_path / "in.gpkg"
+    F.to_file(p, layer="colour_faces", driver="GPKG", engine="pyogrio")
+    L.to_file(p, layer="visual_lines", driver="GPKG", engine="pyogrio")
+    T.to_file(p, layer="text_labels", driver="GPKG", engine="pyogrio")
+    return Document(p, (W, H), np.full((H, W, 3), 170, np.uint8)), p
+
+
+def test_text_residue_suggests_from_text_box(tmp_path):
+    d, _ = make_residue_doc(tmp_path)
+    L0, F0 = d.L.copy(), d.F.copy()
+    r = d.text_residue([0])
+    assert d.L.equals(L0) and d.F.equals(F0) and not d.log, "suggestion must not modify anything"
+    t = r["texts"][0]
+    assert t["text_id"] == 0 and t["counts"]["residue_faces"] >= 1
+    info = {x["id"]: x for x in t["line_info"]}
+    assert 0 in info and 1 in info and 2 not in info, "only fully-inside lines are candidates"
+    assert "boundary_risk" in info[1]["risks"] and info[1]["suggested"] is False, \
+        "a SPLIT-role line inside the box must be flagged, not suggested"
+    assert info[0]["suggested"] is True
+
+
+def test_text_apply_line_subset_keeps_risky_line(tmp_path):
+    d, _ = make_residue_doc(tmp_path)
+    t = d.text_residue([0])["texts"][0]
+    r = d.text_apply(t["preview_id"], "怀道", line_ids=[0])          # isolate only the glyph stroke, keep the SPLIT line
+    assert r["mode"] == "edited_existing" and r["moved_lines"] == 1
+    assert set(d.L["line_id"]) == {"L1", "L2"}, "the flagged line and the crossing contact stay in visual_lines"
+    assert list(d.Q["line_id"]) == ["L0"] and d.Q["residue_of"].iloc[0] == "text#0"
+    d.restore_residue_lines([int(d.Q["_eid"].iloc[0])])
+    assert set(d.L["line_id"]) == {"L0", "L1", "L2"} and len(d.Q) == 0
+
+
+def test_residue_cleanup_undo_and_save(tmp_path):
+    d, _ = make_residue_doc(tmp_path)
+    t = d.text_residue([0])["texts"][0]
+    d.text_apply(t["preview_id"], "怀道", line_ids=[0, 1])
+    assert len(d.Q) == 2 and len(d.L) == 1
+    d.undo_op()
+    assert len(d.L) == 3 and len(d.Q) == 0
+    d.redo_op(); assert len(d.Q) == 2
+    out = tmp_path / "out.gpkg"; d.save_as(out)
+    d2 = Document(out, (W, H))
+    assert len(d2.Q) == 2 and d2.Q["residue_of"].iloc[0] == "text#0"

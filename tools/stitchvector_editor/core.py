@@ -1033,20 +1033,49 @@ class TextMixin:
             elif len(gr) > 1: groups.append({"faces": c, "decision": "uncertain", "target": None, "grounds": gr, "reason": "touches two or more ground faces (possible contact)",
                                              "options": self._merge_options(c, gr)})
             else: groups.append({"faces": c, "decision": "uncertain", "target": None, "reason": "no ground face beside it"})
-        lines = []
+        lines = []; line_info = []
+        roles = dict(zip(self.L["_eid"], self.L["line_role"])) if "line_role" in self.L.columns else {}
         for e, ln in zip(self.L["_eid"], self.L.geometry):
-            if ln.length > 0 and ln.intersection(B).length >= line_inside * ln.length: lines.append(int(e))
+            if ln.length == 0: continue
+            share = ln.intersection(B).length / ln.length
+            if share < line_inside: continue
+            risks = []
+            if roles.get(int(e)) in ("SPLIT", "UNKNOWN"): risks.append("boundary_risk")
+            for pt in (ln.coords[0], ln.coords[-1]):
+                if B.exterior.distance(Point(pt)) < 1.0: risks.append("may_continue_outside"); break
+            lines.append(int(e))
+            line_info.append({"id": int(e), "inside_share": round(float(share), 3), "length": round(float(ln.length), 1),
+                              "role": roles.get(int(e)), "risks": risks, "suggested": not risks})
         existing = self._texts_in_box(B)
         # reuse existing text objects first; only run local OCR when the box has no text object of its own yet
         if existing: cand = {"text": str(existing[0]["text"] or ""), "score": 0.0, "engine": "existing", "status": "reused",
                              "reason": f"box already contains text object #{existing[0]['id']}"}
         else: cand = self.ocr_box((x0, y0, x1, y1)) if ocr else {"text": "", "score": 0.0, "engine": "off", "status": "off"}
         self._pid += 1; pid = f"text-{self._pid}"
-        plan = {"kind": "text", "version": self.version, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand, "existing": existing}
+        plan = {"kind": "text", "version": self.version, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "line_info": line_info, "ocr": cand, "existing": existing}
         self.previews[pid] = plan
-        return {"preview_id": pid, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "ocr": cand, "existing": existing,
+        return {"preview_id": pid, "box": [x0, y0, x1, y1], "groups": groups, "lines": lines, "line_info": line_info, "ocr": cand, "existing": existing,
                 "counts": {"residue_faces": len(res), "merge_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "merge"),
-                           "uncertain_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "uncertain"), "residue_lines": len(lines)}}
+                           "uncertain_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "uncertain"), "residue_lines": len(lines),
+                           "risky_lines": sum(1 for x in line_info if not x["suggested"])}}
+
+    def text_residue(self, ids, pad=4.0):
+        """T11 residue suggestion for EXISTING text objects: run the residue plan on each text's own display box
+        (padded), no OCR. Returns one stored preview per text - applying it edits that text in place (no duplicates)
+        and isolates only the lines the user keeps checked. Nothing is modified here."""
+        out = []
+        for tid in ids:
+            r = self.T[self.T["_eid"] == int(tid)]
+            if r.empty: raise EditError(f"unknown text id {tid}")
+            t = r.iloc[0]
+            try: box = [float(t["box_x0"]) - pad, float(t["box_y0"]) - pad, float(t["box_x1"]) + pad, float(t["box_y1"]) + pad]
+            except (TypeError, ValueError):
+                p = t.geometry.buffer(max(float(t.get("font_px") or 12) / 2, 6) + pad)
+                box = list(p.bounds)
+            pv = self.text_preview(box, ocr=False)
+            out.append({"text_id": int(tid), "text": t["text"], "box": pv["box"], "preview_id": pv["preview_id"],
+                        "groups": pv["groups"], "lines": pv["lines"], "line_info": pv["line_info"], "counts": pv["counts"]})
+        return {"texts": out}
 
     def _merge_options(self, faces, grounds):
         """for an uncertain group: its own outline and, per candidate ground face, the outline before and after a merge."""
@@ -1059,10 +1088,12 @@ class TextMixin:
                         "single_polygon": after.geom_type == "Polygon"})
         return out
 
-    def text_apply(self, preview_id, text, font_px=None, angle_deg=0.0, rgb="#000000", assign=None, existing_mode="edit"):
+    def text_apply(self, preview_id, text, font_px=None, angle_deg=0.0, rgb="#000000", assign=None, existing_mode="edit", line_ids=None):
         """apply a stored text preview: merge residue groups into their ground face, move residue lines to
         text_residue_lines, then either EDIT an existing text object found in the box (default, no duplicates)
-        or create a new text_labels point when existing_mode='create' or the box was empty. One undoable step."""
+        or create a new text_labels point when existing_mode='create' or the box was empty. One undoable step.
+        line_ids optionally restricts which of the previewed residue lines are isolated (unchecked risky lines
+        can be left in visual_lines); moved lines keep provenance in residue_of."""
         pv = self.previews.get(str(preview_id))
         if pv is None or pv.get("kind") != "text": raise EditError("unknown or expired preview; preview again")
         if pv["version"] != self.version: raise EditError("stale preview: the document changed after the preview")
@@ -1073,6 +1104,8 @@ class TextMixin:
         ang = float(angle_deg); rgb = hex_ok(rgb); live = set(int(e) for e in self.F["_eid"])
         # optional user decision for 'uncertain' groups: {group_index: target_face}; target must be one of its ground faces
         groups = [dict(g) for g in pv["groups"]]
+        mv = sorted(int(i) for i in (line_ids if line_ids is not None else pv["lines"]))
+        if not set(mv) <= set(pv["lines"]): raise EditError("line_ids must be a subset of the previewed residue lines")
         for k, t in (assign or {}).items():
             k, t = int(k), int(t)
             if not (0 <= k < len(groups)) or groups[k]["decision"] != "uncertain": raise EditError(f"group {k} is not an uncertain group of this preview")
@@ -1098,8 +1131,9 @@ class TextMixin:
                 self.F = self.F.loc[~(m & ~k)].copy(); merged += len(gr["faces"])
             rep = coverage_report(self.F, self.W, self.H)
             if not rep["accepted"]: raise EditError(f"text clean-up gives an invalid face layer {rep}")
-            if pv["lines"]:
-                lm = self.L["_eid"].isin(pv["lines"]); moved = self.L.loc[lm].copy(); moved["source"] = "text_residue"
+            if mv:
+                lm = self.L["_eid"].isin(mv); moved = self.L.loc[lm].copy(); moved["source"] = "text_residue"
+                moved["residue_of"] = f"text#{tgt if tgt is not None else self.next_t}"
                 self.Q = gpd.GeoDataFrame(pd.concat([self.Q, moved], ignore_index=True), geometry="geometry"); self.L = self.L.loc[~lm].copy()
             if tgt is not None:
                 m = self.T["_eid"] == tgt
@@ -1109,14 +1143,14 @@ class TextMixin:
                                reviewed_at=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), review_actor="human:text_box")
                 for k, v in upd.items(): self.T.loc[m, k] = v
                 self._sync_text_box(m)
-                self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": tgt, "mode": "edited_existing"}
+                self._last_text = {"merged_faces": merged, "moved_lines": len(mv), "text_id": tgt, "mode": "edited_existing"}
             else:
                 row = {"label_id": f"T{self.next_t}", "text": text, "ocr_text": pv["ocr"].get("text", ""), "ocr_score": float(pv["ocr"].get("score", 0.0)),
                        "font_px": fpx, "angle_deg": ang, "anchor": "center", "rgb": rgb, "box_x0": float(x0), "box_y0": float(y0), "box_x1": float(x1),
                        "box_y1": float(y1), "source": "edited_text_box", "review_status": "TEXT_VECTOR_CREATED", "_eid": self.next_t}
                 new = gpd.GeoDataFrame({k: [v] for k, v in row.items()}, geometry=[Point((x0 + x1) / 2, (y0 + y1) / 2)]); self.next_t += 1
                 self.T = gpd.GeoDataFrame(pd.concat([self.T, new], ignore_index=True), geometry="geometry")
-                self._last_text = {"merged_faces": merged, "moved_lines": len(pv["lines"]), "text_id": int(row["_eid"]), "mode": "created"}
+                self._last_text = {"merged_faces": merged, "moved_lines": len(mv), "text_id": int(row["_eid"]), "mode": "created"}
         self._do("text box", f, objects=1, text=1)
         return self._last_text
 

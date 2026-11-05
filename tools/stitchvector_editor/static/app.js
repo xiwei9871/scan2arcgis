@@ -300,11 +300,26 @@ function showTextPv(r) {
 $("textApply").onclick = () => guard(async () => { if (!textPv) throw new Error("先用“框文字”框一个区域");
   const assign = { ...assigns };
   const r = await api("text_apply", { preview_id: textPv.preview_id, text: $("tText").value, font_px: +$("tFont").value, angle_deg: +$("tAngle").value, rgb: $("tRgb").value, assign,
-    existing_mode: $("tForceNew").checked ? "create" : "edit" });
-  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; $("tExist").textContent = ""; resetAssign();
+    existing_mode: $("tForceNew").checked ? "create" : "edit", line_ids: resLineIds() });
+  textPv = null; selText = r.text_id; $("tGroups").textContent = ""; $("tExist").textContent = ""; $("tResLines").textContent = ""; resetAssign();
   msg(r.mode === "edited_existing" ? `已更新已有文字 #${r.text_id}；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`
       : `已建文字 #${r.text_id}；并入残影面 ${r.merged_faces}，隔离线 ${r.moved_lines}`, true); });
-$("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; resetAssign(); draw(); };
+$("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; $("tResLines").textContent = ""; resetAssign(); draw(); };
+// T11: residue preview from the selected text object's own box; risky lines start unchecked and can be left alone.
+$("textResidue").onclick = () => guard(async () => {
+  if (selText === null) throw new Error("先用“选面”工具点中一个文字对象");
+  const rr = await api("text_residue", { ids: [selText] }); const t = rr.texts[0];
+  const te = S.texts.find(x => x.id === selText) || {};
+  showTextPv({ preview_id: t.preview_id, box: t.box, groups: t.groups, lines: t.lines, line_info: t.line_info,
+               ocr: { text: te.text || "", score: te.ocr_score, engine: "existing", status: "reused" },
+               existing: [{ id: selText, text: te.text, anchor_in_box: true, review_status: te.review_status }], counts: t.counts });
+  $("tText").value = te.text || "";
+  $("tResLines").innerHTML = (t.line_info || []).map(l =>
+    `<label><input type="checkbox" class="trl" value="${l.id}" ${l.suggested ? "checked" : ""}> 线#${l.id} 内${(l.inside_share * 100).toFixed(0)}% 长${l.length}` +
+    (l.role ? ` ${l.role}` : "") + (l.risks.length ? ` <span style="color:#b00">⚠${l.risks.join("/")}</span>` : "") + "</label>").join("<br>");
+  msg(`残影候选：面 ${t.counts.residue_faces}（并 ${t.counts.merge_faces}/待定 ${t.counts.uncertain_faces}） 线 ${t.counts.residue_lines}（风险 ${t.counts.risky_lines} 默认不勾）`, true);
+});
+function resLineIds() { const c = document.querySelectorAll(".trl"); return c.length ? [...c].filter(x => x.checked).map(x => +x.value) : null; }
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
   const b = { id: selText }; if ($("tText").value.trim()) b.text = $("tText").value;
   if (+$("tFont").value > 0) b.font_px = +$("tFont").value; if ($("tAngle").value !== "") b.angle_deg = +$("tAngle").value; if ($("tRgb").value) b.rgb = $("tRgb").value;

@@ -139,7 +139,8 @@ class H(BaseHTTPRequestHandler):
             elif op == "split_face_preview": r = d.split_face_preview(int(a["id"]))
             elif op == "split_face_apply": r = d.split_face_apply(str(a["preview_id"]))
             elif op == "text_preview": r = d.text_preview([float(v) for v in a["box"]])
-            elif op == "text_apply": r = d.text_apply(str(a["preview_id"]), a["text"], a.get("font_px"), float(a.get("angle_deg", 0)), a.get("rgb", "#000000"), a.get("assign"), a.get("existing_mode", "edit"))
+            elif op == "text_apply": r = d.text_apply(str(a["preview_id"]), a["text"], a.get("font_px"), float(a.get("angle_deg", 0)), a.get("rgb", "#000000"), a.get("assign"), a.get("existing_mode", "edit"), a.get("line_ids"))
+            elif op == "text_residue": r = d.text_residue([int(i) for i in a["ids"]], float(a.get("pad", 4)))
             elif op == "text_edit": d.edit_text(int(a["id"]), **{k: a[k] for k in ("text", "font_px", "angle_deg", "rgb", "x", "y", "review_status") if k in a}); r = {}
             elif op == "text_pick": r = {"ids": d.pick_text(float(a["x"]), float(a["y"]), float(a.get("tol", 2)))}
             elif op == "text_add": r = {"id": d.add_text(a["x"], a["y"], a["text"], a.get("font_px", 12), a.get("angle_deg", 0), a.get("rgb", "#000000"))}
