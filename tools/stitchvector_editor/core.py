@@ -474,6 +474,10 @@ class Document:
         if pend and not draft:
             raise EditError(f"{pend} OCR texts are not in a deliverable state (required/skipped/draft/candidate or a "
                             f"non-confirmation pipeline state); confirm them or save with draft=true (草稿导出)")
+        outside = sum(self._outside_roi(D) for D in (self.F, self.L, self.T))
+        if outside and not draft:
+            raise EditError(f"{outside} objects lie fully outside the declared processing region (ROI); "
+                            f"clear/expand the ROI, isolate them, or save with draft=true")
         path = Path(path).resolve()
         if path == self.src.resolve(): raise EditError("refusing to overwrite the input GPKG; choose a new file name")
         if path.exists(): raise EditError(f"{path.name} already exists")
@@ -496,11 +500,12 @@ class Document:
             for q in (tmp, Path(str(tmp) + "-wal"), Path(str(tmp) + "-shm")):
                 if q.exists(): q.unlink()
             raise
-        rep["path_sha256"] = sha256(path); rep["export_mode"] = "draft" if (pend and draft) else "formal"; rep["unreviewed"] = pend
+        rep["path_sha256"] = sha256(path); rep["export_mode"] = "draft" if ((pend or outside) and draft) else "formal"; rep["unreviewed"] = pend
+        rep["roi"] = self.roi_report()
         log = path.with_suffix(".edits.json")
         json.dump({"input": str(self.src), "input_sha256": self.src_sha, "output": str(path), "output_sha256": rep["path_sha256"], "edits": self.log,
                    "diff": self.diff(), "verification": rep, "document_version": self.version,
-                   "export_mode": rep["export_mode"], "unreviewed": pend, "review": self.review_counters()}, open(log, "w"), indent=1, default=float)
+                   "export_mode": rep["export_mode"], "unreviewed": pend, "outside_roi": outside, "review": self.review_counters()}, open(log, "w"), indent=1, default=float)
         self.dirty = False; return {"path": str(path), "edit_log": str(log), **rep}
 
     def verify(self, path):
@@ -660,6 +665,27 @@ class SelectionMixin:
     def _roi_clip(self, g):
         return g.intersection(self.roi) if getattr(self, "roi", None) is not None else g
 
+    def _outside_roi(self, D):
+        if getattr(self, "roi", None) is None or not len(D): return 0
+        g = np.asarray(D.geometry.values, object)
+        return int((~shapely.intersects(g, self.roi)).sum())
+
+    def roi_report(self):
+        """T14 audit vs the declared ROI: per layer, objects fully inside / crossing the edge / fully outside.
+        Legitimate multi-region units stay separate faces sharing a label (merge never yields multipart);
+        wrongly-connected background is prevented by merge_suggest flagging outside_roi + merge connectivity rules."""
+        if getattr(self, "roi", None) is None: return {"roi": None}
+        R = self.roi; rep = {"roi": [round(v, 1) for v in R.bounds]}
+        for name, D in (("faces", self.F), ("lines", self.L), ("texts", self.T)):
+            g = np.asarray(D.geometry.values, object) if len(D) else []
+            ins = crx = out = 0
+            for x in g:
+                if R.contains(x): ins += 1
+                elif x.intersects(R): crx += 1
+                else: out += 1
+            rep[name] = {"inside": ins, "crossing": crx, "outside": out}
+        return rep
+
     def merge_suggest(self, ids, de=15.0, roi=None):
         """T10 smart fragment-merge suggestion. Grow edge-adjacent same-colour faces from the seed,
         optionally inside a user ROI; every candidate carries risk flags - nothing is modified.
@@ -667,9 +693,9 @@ class SelectionMixin:
         contact), narrow_band (min bbox side < 2px, fragment-like), mixed_label (different label)."""
         region = shapely.box(*roi) if roi else getattr(self, "roi", None)
         grown = set(self.adjacent_similar(list(ids), de))
+        inside = None
         if region is not None:
-            inside = set(self.select_region(region, FACE, "centre"))
-            grown &= inside | set(int(i) for i in ids)
+            inside = set(self.select_region(region, FACE, "centre")) | set(int(i) for i in ids)
         seed = int(ids[0]); scol = lab(hex_to_rgb(self.F.loc[self.F["_eid"] == seed, "rgb"].iloc[0]))[0]
         roles = dict(zip(self.L["_eid"], self.L["line_role"])) if "line_role" in self.L.columns else {}
         block = [g for g, r in zip(self.L.geometry, self.L["_eid"]) if roles.get(r) in ("SPLIT", "UNKNOWN")]
@@ -678,6 +704,7 @@ class SelectionMixin:
             row = self.F.loc[self.F["_eid"] == e].iloc[0]; g = row.geometry
             de_c = float(np.linalg.norm(lab(hex_to_rgb(row["rgb"]))[0] - scol))
             risks = []
+            if inside is not None and e not in inside: risks.append("outside_roi")
             if block and shapely.length(shapely.intersection(g.boundary, shapely.union_all(block))) > 0.5:
                 risks.append("crosses_split_line")
             bb = g.bounds
@@ -687,7 +714,7 @@ class SelectionMixin:
                 risks.append("mixed_label")
             out.append({"eid": int(e), "rgb": row["rgb"], "label": None if pd.isna(row["label"]) else str(row["label"]),
                         "area": round(float(g.area), 1), "dE": round(de_c, 1), "risks": risks,
-                        "suggested": e == seed or not [r for r in risks if r in ("crosses_split_line", "mixed_label")]})
+                        "suggested": e == seed or not [r for r in risks if r in ("crosses_split_line", "mixed_label", "outside_roi")]})
         ok_ids = {c["eid"] for c in out if c["suggested"]}
         seen, stack = {seed}, [seed]
         while stack:

@@ -40,13 +40,18 @@ def test_merge_suggest_grows_same_colour(tmp_path):
     assert 3 not in [c["eid"] for c in r["candidates"]], "different colour must not be suggested"
 
 
-def test_merge_suggest_roi_clips(tmp_path):
+def test_merge_suggest_roi_flags_outside(tmp_path):
     d, _ = make_frag_doc(tmp_path)
-    r = d.merge_suggest([0], de=15, roi=[0, 0, 100, 60])
-    eids = {c["eid"] for c in r["candidates"]}
-    assert 0 in eids and eids <= {0, 1, 2}, "ROI centre-rule may drop lower fragments"
-    r2 = d.merge_suggest([0], de=15, roi=[0, 0, 100, 30])
-    assert {c["eid"] for c in r2["candidates"]} == {0}, "tight ROI must stop the flood"
+    r = d.merge_suggest([0], de=15, roi=[0, 0, 100, 60])   # F1/F2 centres (y=80) are outside this ROI
+    byid = {c["eid"]: c for c in r["candidates"]}
+    for e in (1, 2):
+        assert "outside_roi" in byid[e]["risks"] and byid[e]["suggested"] is False, \
+            "centre-outside candidate is flagged outside_roi, never auto-suggested"
+    r2 = d.merge_suggest([0], de=15, roi=[0, 0, 100, 120])
+    assert all("outside_roi" not in c["risks"] for c in r2["candidates"]), "all-inside ROI adds no outside flag"
+    r3 = d.merge_suggest([0], de=15, roi=[0, 0, 100, 20])
+    assert all(c["suggested"] is False or c["eid"] == 0 for c in r3["candidates"]), \
+        "tight ROI leaves nothing safe besides the seed"
 
 
 def test_merge_suggest_risks(tmp_path):
@@ -159,3 +164,37 @@ def test_residue_cleanup_undo_and_save(tmp_path):
     out = tmp_path / "out.gpkg"; d.save_as(out)
     d2 = Document(out, (W, H))
     assert len(d2.Q) == 2 and d2.Q["residue_of"].iloc[0] == "text#0"
+
+
+# ---------- T14: ROI / background protection ----------
+
+def test_roi_report_counts(tmp_path):
+    d, _ = make_frag_doc(tmp_path)
+    d.set_roi([0, 0, 100, 60])
+    r = d.roi_report()
+    assert r["roi"] == [0, 0, 100, 60]
+    assert r["faces"]["inside"] == 1 and r["faces"]["crossing"] == 3 and r["faces"]["outside"] == 0, \
+        "edge-touching neighbours count as crossing, not outside"
+    d.set_roi([0, 0, 99, 120])
+    assert d.roi_report()["faces"]["outside"] == 1, "F3 (x>=100) is fully outside the tighter ROI"
+    assert d.roi_report()["roi"] is not None and Document(d.src, (W, H)).roi_report()["roi"] is None
+
+
+def test_save_blocked_by_outside_roi_objects(tmp_path):
+    d, _ = make_frag_doc(tmp_path)
+    d.set_roi([0, 0, 99, 120])           # F3 (x>=100) is now fully outside the processing region
+    with pytest.raises(EditError, match="outside"):
+        d.save_as(tmp_path / "formal.gpkg")
+    d.set_roi(None)
+    out = tmp_path / "ok.gpkg"; r = d.save_as(out)
+    assert r["roi"]["roi"] is None
+
+
+def test_legit_multi_region_not_forced(tmp_path):
+    """two disjoint same-colour faces may share a logical group; a geometric merge never joins them
+    (components merge only within connectivity) - legitimate multi-region units are preserved."""
+    d, _ = make_frag_doc(tmp_path)
+    gid = d.group_faces([1, 3])          # F1 (x<=50) and F3 (x>=100) are disjoint: logical group is fine
+    assert gid and (d.F["face_group"] == gid).sum() == 2
+    with pytest.raises(EditError, match="share an edge"):
+        d.merge_components([1, 3], allow_mixed_labels=True)   # no shared edge -> can never union into one face

@@ -131,6 +131,7 @@ class H(BaseHTTPRequestHandler):
             elif op == "group_faces": r = {"group_id": d.group_faces(a["ids"])}
             elif op == "ungroup_faces": d.ungroup_faces(a["ids"]); r = {}
             elif op == "set_roi": r = d.set_roi(a.get("bounds"))
+            elif op == "roi_report": r = d.roi_report()
             elif op == "heal_preview": r = d.heal_preview(d.gesture("brush", a["points"], float(a.get("radius", 4))), float(a.get("max_area", 12)))
             elif op == "heal_apply": r = d.heal_apply(str(a["preview_id"]), a.get("accept_uncertain", []), bool(a.get("allow_mixed_labels")))
             elif op == "set_role": d.set_role(a["ids"], str(a["role"])); r = {}

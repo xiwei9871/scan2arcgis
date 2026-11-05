@@ -6,7 +6,7 @@ let revQueue = [], revIdx = 0, revCur = null;
 let aGroup = null, aTarget = null, assigns = {}, skipped = new Set(), hiRes = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
-let stroke = null, mergePv = null, healPv = null, suggestPv = null;
+let stroke = null, mergePv = null, healPv = null, suggestPv = null, roiB = null;
 const $ = (id) => document.getElementById(id);
 
 function msg(t, ok) { $("msg").style.color = ok ? "#060" : "#b00"; $("msg").textContent = t || ""; }
@@ -94,8 +94,9 @@ function draw() {
     for (const c of healPv.candidates) { const f = by.get(c.id); if (!f) continue; ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); }
       ctx.fillStyle = C[c.decision]; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
   if (splitPv) for (const ring of splitPv.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.strokeStyle = "#ffea00"; ctx.lineWidth = 2 / view.s; ctx.stroke(); }
+  if (roiB) { ctx.strokeStyle = "#aa00ff"; ctx.lineWidth = 2.5 / view.s; ctx.setLineDash([8 / view.s, 4 / view.s]); ctx.strokeRect(roiB[0], roiB[1], roiB[2] - roiB[0], roiB[3] - roiB[1]); ctx.setLineDash([]); }
   crosshair(ctx);
-  if (drag && drag.box) { const [x0, y0] = drag.w0, [x1, y1] = drag.w1; ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0)); }
+  if (drag && drag.box) { const [x0, y0] = drag.w0, [x1, y1] = drag.w1; ctx.strokeStyle = drag.roi ? "#aa00ff" : "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0)); }
 }
 function showSel() {
   if (!S || !sel.ids.length) { $("sel").textContent = "（无）"; return; }
@@ -121,7 +122,7 @@ async function guard(fn) { try { await fn(); await refresh(); } catch (e) { msg(
 cv.addEventListener("mousedown", (ev) => {
   const w = toWorld(ev);
   if (ev.button === 2 || ev.getModifierState(" ") || spaceDown) { drag = { pan: true, x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y }; return; }
-  if (tool === "boxFace" || tool === "textBox") drag = { box: true, text: tool === "textBox", w0: w, w1: w };
+  if (tool === "boxFace" || tool === "textBox" || tool === "roiBox") drag = { box: true, text: tool === "textBox", roi: tool === "roiBox", w0: w, w1: w };
   if (["brushSel", "lassoSel", "heal"].includes(tool)) { stroke = { kind: tool === "lassoSel" ? "lasso" : "brush", pts: [w] }; drag = { gesture: true }; }
 });
 cv.addEventListener("mousemove", (ev) => {
@@ -135,6 +136,8 @@ cv.addEventListener("mouseup", async (ev) => {
   if (d && d.gesture && stroke) { const st = stroke; return guard(async () => { await finishGesture(st, ev); }); }
   if (d && d.box && d.text) { const [x0, y0] = d.w0, [x1, y1] = d.w1;
     if (Math.abs(x1 - x0) > 2 && Math.abs(y1 - y0) > 2) return guard(async () => { const r = await api("text_preview", { box: [x0, y0, x1, y1] }); showTextPv(r); }); return; }
+  if (d && d.box && d.roi) { const [x0, y0] = d.w0, [x1, y1] = d.w1;
+    if (Math.abs(x1 - x0) > 4 && Math.abs(y1 - y0) > 4) return guard(async () => { const r = await api("set_roi", { bounds: [Math.min(x0, x1), Math.min(y0, y1), Math.max(x0, x1), Math.max(y0, y1)] }); roiB = r.roi; $("roiInfo").textContent = `ROI [${roiB.map(v => Math.round(v)).join(", ")}]`; draw(); }); return; }
   if (d && d.box) { const [x0, y0] = d.w0, [x1, y1] = d.w1;
     if (Math.abs(x1 - x0) + Math.abs(y1 - y0) > 1) return guard(async () => { const r = await api("box", { x0, y0, x1, y1, layer: "face" }); setSel("face", r.ids, ev.shiftKey); msg(`框选 ${r.ids.length} 个面`, true); }); }
   if (ev.button !== 0) return;
@@ -320,6 +323,15 @@ $("textResidue").onclick = () => guard(async () => {
   msg(`残影候选：面 ${t.counts.residue_faces}（并 ${t.counts.merge_faces}/待定 ${t.counts.uncertain_faces}） 线 ${t.counts.residue_lines}（风险 ${t.counts.risky_lines} 默认不勾）`, true);
 });
 function resLineIds() { const c = document.querySelectorAll(".trl"); return c.length ? [...c].filter(x => x.checked).map(x => +x.value) : null; }
+
+// ---- T14: ROI clear / audit ----
+$("roiClear").onclick = () => guard(async () => { await api("set_roi", { bounds: null }); roiB = null; $("roiInfo").textContent = ""; msg("已清除处理范围", true); draw(); });
+$("roiReport").onclick = () => guard(async () => {
+  const r = await api("roi_report", {});
+  $("roiInfo").textContent = r.roi === null ? "未设 ROI" :
+    `ROI [${r.roi.join(", ")}]\n面 内${r.faces.inside}/跨${r.faces.crossing}/外${r.faces.outside}  线 内${r.lines.inside}/跨${r.lines.crossing}/外${r.lines.outside}  字 内${r.texts.inside}/跨${r.texts.crossing}/外${r.texts.outside}` +
+    (r.faces.outside + r.lines.outside + r.texts.outside ? "\n⚠ 存在完全域外对象：正式导出会被拒绝（可草稿导出）" : "\n无完全域外对象");
+});
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
   const b = { id: selText }; if ($("tText").value.trim()) b.text = $("tText").value;
   if (+$("tFont").value > 0) b.font_px = +$("tFont").value; if ($("tAngle").value !== "") b.angle_deg = +$("tAngle").value; if ($("tRgb").value) b.rgb = $("tRgb").value;

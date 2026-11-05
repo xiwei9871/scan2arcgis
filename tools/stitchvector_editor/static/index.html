@@ -56,6 +56,7 @@
     <button data-tool="split">拆分线</button>
     <button data-tool="draw">补画线</button>
     <button data-tool="textBox">框文字</button>
+    <button data-tool="roiBox">框ROI</button>
     <button data-tool="addText">加文字</button> <button data-tool="moveText">移动文字</button>
   </div>
   <div class="row">
@@ -118,6 +119,11 @@
   <div class="row"><button id="textApply">确认文字并清理残影</button> <button id="textCancel">取消</button></div>
   <div class="row"><button id="textResidue">选中文字→查残影</button> <span style="font-size:11px;color:#666">按文字自带框识别；风险线默认不隔离</span></div>
   <div id="tResLines" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
+
+  <h3>处理范围 (ROI)</h3>
+  <div class="row">用「框ROI」拖一个矩形设为处理范围；候选出域自动标 outside_roi，域外对象阻止正式导出</div>
+  <div class="row"><button id="roiClear">清除ROI</button> <button id="roiReport">域外审计</button></div>
+  <div id="roiInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
 
   <h3>OCR 审核</h3>
   <div class="row"><button id="classifyReview">置信度+风险分流</button> 阈值 <input type="number" id="revTh" value="0.90" step="0.05" min="0.5" max="1" style="width:56px"></div>
