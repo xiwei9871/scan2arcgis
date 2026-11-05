@@ -215,7 +215,12 @@ $("redo").onclick = () => guard(async () => { const r = await api("redo"); msg("
 $("save").onclick = () => guard(async () => {
   let r;
   try { r = await api("save", { name: $("fname").value }); }
-  catch (e) { if (/require review/.test(e.message) && confirm(e.message + "\n以草稿模式导出（保留待审状态并记入 manifest）？")) r = await api("save", { name: $("fname").value, draft: true }); else throw e; }
+  catch (e) {
+    if (/require review|deliverable state/.test(e.message) && confirm(e.message + "\n以草稿模式导出（保留待审状态并记入 manifest）？")) r = await api("save", { name: $("fname").value, draft: true });
+    else if (/outside the declared processing region|roi_mode/.test(e.message)) {
+      const m = prompt(e.message + "\n\n范围约束导出模式：输入 keep（跨界整体保留）或 clip（跨界沿边界裁切），取消则不导出", "keep");
+      if (m === "keep" || m === "clip") r = await api("save", { name: $("fname").value, roi_mode: m }); else throw e;
+    } else throw e; }
   msg(`已保存 ${r.path.split("/").slice(-1)[0]}${r.export_mode === "draft" ? "（草稿，待审 " + r.unreviewed + " 条）" : ""}；回读一致 ${r.readback_matches_memory}；面层有效 ${r.accepted}；原文件未变 ${r.input_sha256_unchanged}`, r.accepted && r.readback_matches_memory);
 });
 
@@ -344,8 +349,16 @@ $("roiReport").onclick = () => guard(async () => {
   const r = await api("roi_report", {});
   $("roiInfo").textContent = r.roi === null ? "未设 ROI" :
     `ROI [${r.roi.join(", ")}]\n面 内${r.faces.inside}/跨${r.faces.crossing}/外${r.faces.outside}  线 内${r.lines.inside}/跨${r.lines.crossing}/外${r.lines.outside}  字 内${r.texts.inside}/跨${r.texts.crossing}/外${r.texts.outside}` +
-    (r.faces.outside + r.lines.outside + r.texts.outside ? "\n⚠ 存在完全域外对象：正式导出会被拒绝（可草稿导出）" : "\n无完全域外对象");
+    (r.faces.outside + r.lines.outside + r.texts.outside ? "\n⚠ 存在完全域外对象：正式导出会被拒绝（可草稿导出或范围约束导出）" : "\n无完全域外对象");
 });
+$("roiClipPv").onclick = () => guard(async () => {
+  const r = await api("roi_clip_preview", {}); const L = r.layers;
+  const fmt = (x) => `内${x.inside.length} 跨${x.crossing.length} 外${x.outside.length}`;
+  $("roiInfo").textContent = `裁剪预览 ROI [${r.roi.join(", ")}]（模式 keep=跨界整体保留 / clip=跨界沿边裁切，域外均丢弃）` +
+    `\n面 ${fmt(L.faces)}  跨域面id: ${L.faces.crossing.join(",") || "无"}` +
+    `\n线 ${fmt(L.lines)}  跨域线id: ${L.lines.crossing.join(",") || "无"}` +
+    `\n字 ${fmt(L.texts)}  残影线 ${fmt(L.residue)}`;
+  msg("裁剪预览已列出跨域对象——确认后保存时选 keep/clip", true); });
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
   const b = { id: selText }; if ($("tText").value.trim()) b.text = $("tText").value;
   if (+$("tFont").value > 0) b.font_px = +$("tFont").value; if ($("tAngle").value !== "") b.angle_deg = +$("tAngle").value; if ($("tRgb").value) b.rgb = $("tRgb").value;

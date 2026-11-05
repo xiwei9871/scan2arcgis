@@ -348,3 +348,55 @@ def test_text_apply_default_isolates_only_suggested_lines(tmp_path):
     t2 = d2.text_residue([0])["texts"][0]
     r2 = d2.text_apply(t2["preview_id"], "怀道", line_ids=list(t2["lines"]))   # explicit opt-in still moves all
     assert r2["moved_lines"] == 2
+
+
+# ---------- P2.1 T14 hardening: ROI persistence / undo / clip export ----------
+
+def test_roi_persists_through_save_and_undo(tmp_path):
+    d, _ = make_frag_doc(tmp_path)
+    d.set_roi([0, 0, 60, 120]); assert d.dirty, "declaring an ROI is project state and must be saved"
+    d.undo_op(); assert d.roi is None, "undo restores the previous ROI"
+    d.redo_op(); assert d.roi is not None and list(d.roi.bounds) == [0, 0, 60, 120]
+    out = tmp_path / "r.gpkg"; d.save_as(out, roi_mode="keep")
+    d2 = Document(out, (W, H))
+    assert d2.roi is not None and list(d2.roi.bounds) == [0, 0, 60, 120], "project_roi layer restores the ROI on reopen"
+
+
+def test_roi_clip_preview_lists_every_layer(tmp_path):
+    d, _ = make_frag_doc(tmp_path)
+    d.set_roi([0, 0, 60, 120])
+    pv = d.roi_clip_preview()
+    L = pv["layers"]
+    assert L["faces"]["inside"] == [1] and set(L["faces"]["crossing"]) == {0, 2}, "F1 inside; F0/F2 cross the edge"
+    assert L["faces"]["outside"] == [3], "F3 is fully outside this ROI"
+    assert L["lines"]["crossing"] == [0], "the contact crosses the ROI edge"
+    assert len(d.F) == 4 and len(d.L) == 1, "preview changes nothing"
+
+
+def test_roi_export_clip_tiles_roi_and_drops_outside(tmp_path):
+    d, _ = make_frag_doc(tmp_path)
+    d.set_roi([0, 0, 60, 120])
+    out = tmp_path / "clip.gpkg"; r = d.save_as(out, roi_mode="clip")
+    assert r["export_mode"] == "roi_clip" and r["accepted"]
+    import pyogrio
+    F = pyogrio.read_dataframe(out, layer="colour_faces")
+    assert len(F) == 3, "F0/F2 clipped at the edge, F1 kept, F3 dropped"
+    u = __import__("shapely").union_all(list(F.geometry))
+    assert abs(u.area - 60 * 120) < 1e-6, "clipped faces tile the ROI exactly"
+    L = pyogrio.read_dataframe(out, layer="visual_lines")
+    assert abs(L.geometry.iloc[0].length - 60) < 1e-6, "the crossing contact is cut at the ROI edge"
+    assert len(d.F) == 4, "the document itself is unchanged by a scoped export"
+
+
+def test_roi_export_keep_preserves_crossing_wholes(tmp_path):
+    d, _ = make_frag_doc(tmp_path)
+    d.set_roi([0, 0, 60, 120])
+    out = tmp_path / "keep.gpkg"; r = d.save_as(out, roi_mode="keep")
+    assert r["export_mode"] == "roi_keep" and r["accepted"]
+    import pyogrio
+    F = pyogrio.read_dataframe(out, layer="colour_faces")
+    assert len(F) == 3, "crossing faces kept whole, only fully-outside F3 dropped"
+    u = __import__("shapely").union_all(list(F.geometry))
+    assert u.area > 60 * 120, "kept crossing faces extend past the ROI - union covers it"
+    with pytest.raises(EditError):
+        d.save_as(tmp_path / "formal.gpkg"), "formal save still refuses while F3 is outside the ROI"

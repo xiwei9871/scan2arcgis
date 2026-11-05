@@ -124,7 +124,7 @@ class Document:
         self.F = pyogrio.read_dataframe(self.src, layer=FACE); self.F["_eid"] = np.arange(len(self.F))
         self.L = pyogrio.read_dataframe(self.src, layer=LINE) if LINE in layers else gpd.GeoDataFrame(
             {"line_id": [], "logical_id": [], "kind": [], "width_px": [], "rgb": [], "source": [], "draw_order": []}, geometry=[])
-        self.L["_eid"] = np.arange(len(self.L)); self.other = {l: pyogrio.read_dataframe(self.src, layer=l) for l in layers if l not in (FACE, LINE, STYLES, TEXT, RESIDUE, QSTYLE)}
+        self.L["_eid"] = np.arange(len(self.L)); self.other = {l: pyogrio.read_dataframe(self.src, layer=l) for l in layers if l not in (FACE, LINE, STYLES, TEXT, RESIDUE, QSTYLE, "project_roi")}
         # line role (COVER / SPLIT / UNKNOWN) and legend binding; existing lines default to UNKNOWN, never inferred
         if "line_role" not in self.L.columns: self.L["line_role"] = "UNKNOWN"
         self.L["line_role"] = self.L["line_role"].fillna("UNKNOWN").astype(object)
@@ -135,6 +135,9 @@ class Document:
         if "face_group" not in self.F.columns: self.F["face_group"] = ""
         self.F["face_group"] = self.F["face_group"].fillna("").astype(object)
         self.next_fg = 1; self.roi = None
+        if "project_roi" in layers:
+            R = pyogrio.read_dataframe(self.src, layer="project_roi")
+            if len(R): self.roi = shapely.union_all(list(R.geometry))
         for D in (self.L, self.F):
             if "legend_id" not in D.columns: D["legend_id"] = None
             D["legend_id"] = D["legend_id"].astype(object).where(D["legend_id"].notna(), None)
@@ -162,9 +165,9 @@ class Document:
         """every change of document content (edit, undo, redo) gets a new version; all stored previews become stale."""
         self.version += 1; self.previews.clear()
 
-    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles), self.T.copy(), self.Q.copy(), self.next_t, self.next_fg)
+    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles), self.T.copy(), self.Q.copy(), self.next_t, self.next_fg, self.roi)
 
-    def _restore(self, snap): self.F, self.L, self.next_f, self.next_l, self.styles, self.T, self.Q, self.next_t, self.next_fg = snap
+    def _restore(self, snap): self.F, self.L, self.next_f, self.next_l, self.styles, self.T, self.Q, self.next_t, self.next_fg, self.roi = snap
 
     def _push(self, desc, counts):
         self.redo.clear(); self.dirty = True; self._bump()
@@ -543,34 +546,62 @@ class Document:
     # ---------- output ----------
     def _out(self, D): return gpd.GeoDataFrame(D.drop(columns=["_eid"]), geometry="geometry")
 
-    def save_as(self, path, draft=False):
+    def _roi_scoped(self, mode):
+        """build the frames a scope-constrained export writes: objects fully outside the ROI are dropped;
+        crossing objects are kept whole (mode='keep') or cut at the ROI edge (mode='clip', polygonal/linear
+        parts exploded so layers stay single-typed)."""
+        R = self.roi
+        def scoped(D, kinds):
+            if not len(D): return D
+            g = np.asarray(D.geometry.values, object)
+            D2 = D.loc[shapely.intersects(g, R)].copy()
+            if mode != "clip": return D2
+            rows = []
+            for (_, r), x in zip(D2.iterrows(), shapely.intersection(np.asarray(D2.geometry.values, object), R)):
+                for p in shapely.get_parts(x):
+                    if p.geom_type in kinds:
+                        rr = r.copy(); rr["geometry"] = p; rows.append(rr)
+            return gpd.GeoDataFrame(rows, geometry="geometry") if rows else D.iloc[0:0].copy()
+        return (scoped(self.F, ("Polygon",)), scoped(self.L, ("LineString",)),
+                self.T.loc[shapely.intersects(np.asarray(self.T.geometry.values, object), R)].copy() if len(self.T) else self.T,
+                scoped(self.Q, ("LineString",)))
+
+    def save_as(self, path, draft=False, roi_mode=None):
         """atomic save: write a temporary GPKG in the same folder, close it, re-read and validate it; only an accepted file
         is renamed to the requested path. On any failure the temporary file is removed, nothing is left at `path`, and the
         document stays unsaved (dirty). If OCR texts still need review, the save is refused unless draft=True — a formal
-        export must never silently let unreviewed candidates through; a draft save records export_mode=draft + count."""
+        export must never silently let unreviewed candidates through; a draft save records export_mode=draft + count.
+        roi_mode ('keep'|'clip') produces a scope-constrained export: outside objects are dropped, crossing ones kept
+        whole or cut at the ROI edge; coverage is then verified against the ROI itself, not the full window."""
         import os, uuid
+        if roi_mode not in (None, "keep", "clip"): raise EditError("roi_mode must be None, 'keep' or 'clip'")
+        if roi_mode and self.roi is None: raise EditError("roi_mode requires a declared ROI (set_roi first)")
         pend = review_pending(self.T)
         if pend and not draft:
             raise EditError(f"{pend} OCR texts are not in a deliverable state (required/skipped/draft/candidate or a "
                             f"non-confirmation pipeline state); confirm them or save with draft=true (草稿导出)")
         outside = sum(self._outside_roi(D) for D in (self.F, self.L, self.T))
-        if outside and not draft:
+        if outside and not draft and not roi_mode:
             raise EditError(f"{outside} objects lie fully outside the declared processing region (ROI); "
-                            f"clear/expand the ROI, isolate them, or save with draft=true")
+                            f"clear/expand the ROI, isolate them, save with draft=true, or export with roi_mode")
         path = Path(path).resolve()
         if path == self.src.resolve(): raise EditError("refusing to overwrite the input GPKG; choose a new file name")
         if path.exists(): raise EditError(f"{path.name} already exists")
+        Fw, Lw, Tw, Qw = self._roi_scoped(roi_mode) if roi_mode else (self.F, self.L, self.T, self.Q)
         tmp = path.with_name(f".{path.stem}.{uuid.uuid4().hex[:8]}.tmp.gpkg")
         try:
-            self._out(self.F).to_file(tmp, layer=FACE, driver="GPKG", engine="pyogrio")
-            if len(self.L): self._out(self.L).to_file(tmp, layer=LINE, driver="GPKG", engine="pyogrio")
+            self._out(Fw).to_file(tmp, layer=FACE, driver="GPKG", engine="pyogrio")
+            if len(Lw): self._out(Lw).to_file(tmp, layer=LINE, driver="GPKG", engine="pyogrio")
             pyogrio.write_dataframe(pd.DataFrame([{"legend_id": k, **v} for k, v in self.styles.items()]), tmp, layer=STYLES, driver="GPKG")
-            if len(self.T): self._out(self.T).to_file(tmp, layer=TEXT, driver="GPKG", engine="pyogrio"); write_label_style(tmp)
-            if len(self.Q): self._out(self.Q).to_file(tmp, layer=RESIDUE, driver="GPKG", engine="pyogrio")
+            if len(Tw): self._out(Tw).to_file(tmp, layer=TEXT, driver="GPKG", engine="pyogrio"); write_label_style(tmp)
+            if len(Qw): self._out(Qw).to_file(tmp, layer=RESIDUE, driver="GPKG", engine="pyogrio")
+            if self.roi is not None:
+                gpd.GeoDataFrame({"name": ["roi"]}, geometry=[self.roi]).to_file(tmp, layer="project_roi", driver="GPKG", engine="pyogrio")
             for k, D in self.other.items():
                 if isinstance(D, gpd.GeoDataFrame): D.to_file(tmp, layer=k, driver="GPKG", engine="pyogrio")
                 else: pyogrio.write_dataframe(D, tmp, layer=k, driver="GPKG")
-            rep = self.verify(tmp)
+            rep = self.verify(tmp, expect=(Fw, Lw, Tw, Qw), cover=self.roi if roi_mode else None,
+                              cover_mode="covers" if roi_mode == "keep" else "within")
             bad = [k for k in ("accepted", "readback_matches_memory", "input_sha256_unchanged", "face_columns_kept", "line_columns_kept", "text_matches_memory") if not rep.get(k)]
             if bad: raise EditError(f"save rejected, checks failed: {bad}; nothing was written to {path.name}")
             if path.exists(): raise EditError(f"{path.name} appeared during save; not overwritten")
@@ -579,7 +610,9 @@ class Document:
             for q in (tmp, Path(str(tmp) + "-wal"), Path(str(tmp) + "-shm")):
                 if q.exists(): q.unlink()
             raise
-        rep["path_sha256"] = sha256(path); rep["export_mode"] = "draft" if ((pend or outside) and draft) else "formal"; rep["unreviewed"] = pend
+        rep["path_sha256"] = sha256(path)
+        rep["export_mode"] = f"roi_{roi_mode}" if roi_mode else ("draft" if ((pend or outside) and draft) else "formal")
+        rep["unreviewed"] = pend; rep["scoped_objects"] = {"dropped_outside": outside if roi_mode else 0}
         rep["roi"] = self.roi_report()
         log = path.with_suffix(".edits.json")
         json.dump({"input": str(self.src), "input_sha256": self.src_sha, "output": str(path), "output_sha256": rep["path_sha256"], "edits": self.log,
@@ -587,23 +620,26 @@ class Document:
                    "export_mode": rep["export_mode"], "unreviewed": pend, "outside_roi": outside, "review": self.review_counters()}, open(log, "w"), indent=1, default=float)
         self.dirty = False; return {"path": str(path), "edit_log": str(log), **rep}
 
-    def verify(self, path):
+    def verify(self, path, expect=None, cover=None, cover_mode="within"):
+        """expect=(F,L,T,Q) lets a scoped/clipped export verify against the written subset instead of the live
+        layers; cover overrides the coverage target (ROI polygon for clip exports)."""
+        Fe, Le, Te, Qe = expect if expect is not None else (self.F, self.L, self.T, self.Q)
         layers = [l[0] for l in pyogrio.list_layers(path)]; F = pyogrio.read_dataframe(path, layer=FACE)
         L = pyogrio.read_dataframe(path, layer=LINE) if LINE in layers else None
-        rep = coverage_report(F, self.W, self.H)
-        mem_f = self.F.sort_values("_eid"); same_faces = len(F) == len(mem_f) and list(F["rgb"]) == list(self.F["rgb"])
-        same_lines = (L is None and not len(self.L)) or (L is not None and len(L) == len(self.L) and list(L["rgb"]) == list(self.L["rgb"])
-                                                       and np.allclose(L["width_px"].astype(float), self.L["width_px"].astype(float)))
-        geom_same = all(a.equals_exact(b, 1e-6) for a, b in zip(F.geometry, self.F.geometry)) and (L is None or all(a.equals_exact(b, 1e-6) for a, b in zip(L.geometry, self.L.geometry)))
+        rep = coverage_report(F, self.W, self.H, cover=cover, cover_mode=cover_mode)
+        same_faces = len(F) == len(Fe) and list(F["rgb"]) == list(Fe["rgb"])
+        same_lines = (L is None and not len(Le)) or (L is not None and len(L) == len(Le) and list(L["rgb"]) == list(Le["rgb"])
+                                                     and np.allclose(L["width_px"].astype(float), Le["width_px"].astype(float)))
+        geom_same = all(a.equals_exact(b, 1e-6) for a, b in zip(F.geometry, Fe.geometry)) and (L is None or all(a.equals_exact(b, 1e-6) for a, b in zip(L.geometry, Le.geometry)))
         rep.update({"layers": layers, "faces": len(F), "lines": 0 if L is None else len(L), "face_columns_kept": [c for c in self.face_cols if c not in F.columns] == [],
                     "line_columns_kept": L is None or [c for c in self.line_cols if c not in L.columns] == [],
                     "readback_matches_memory": bool(same_faces and same_lines and geom_same), "input_sha256_unchanged": sha256(self.src) == self.src_sha})
         T = pyogrio.read_dataframe(path, layer=TEXT) if TEXT in layers else None
         Q = pyogrio.read_dataframe(path, layer=RESIDUE) if RESIDUE in layers else None
         rep["text_labels"] = 0 if T is None else len(T); rep["text_residue_lines"] = 0 if Q is None else len(Q)
-        rep["text_matches_memory"] = bool(((T is None and not len(self.T)) or (T is not None and list(T["text"]) == list(self.T["text"])
-                                           and all(a.equals_exact(b, 1e-6) for a, b in zip(T.geometry, self.T.geometry))))
-                                          and ((Q is None and not len(self.Q)) or (Q is not None and len(Q) == len(self.Q))))
+        rep["text_matches_memory"] = bool(((T is None and not len(Te)) or (T is not None and list(T["text"]) == list(Te["text"])
+                                           and all(a.equals_exact(b, 1e-6) for a, b in zip(T.geometry, Te.geometry))))
+                                          and ((Q is None and not len(Qe)) or (Q is not None and len(Q) == len(Qe))))
         return rep
 
     def diff(self):
@@ -636,12 +672,18 @@ class Document:
                              "coords": [[round(x, 2), round(y, 2)] for x, y in g.coords]} for e, g, (_, r) in zip(self.Q["_eid"], self.Q.geometry, self.Q.iterrows())]}
 
 
-def coverage_report(F, W, H):
+def coverage_report(F, W, H, cover=None, cover_mode="within"):
+    """face-layer coverage check; `cover` overrides the W*H target - 'within' means the faces tile the target
+    exactly (ROI clip export), 'covers' means their union covers it, possibly exceeding (ROI keep export)."""
     g = np.asarray(F.geometry.values, object); area = float(shapely.area(g).sum()); u = shapely.union_all(g)
     valid = bool(shapely.coverage_is_valid(g)); allpoly = all(x.geom_type == "Polygon" for x in g); geomvalid = bool(shapely.is_valid(g).all())
-    ok = valid and allpoly and geomvalid and abs(area - W * H) < 1e-6 and abs(float(u.area) - W * H) < 1e-6
+    target = float(cover.area) if cover is not None else W * H
+    if cover is not None and cover_mode == "covers":
+        ok = valid and allpoly and geomvalid and bool(shapely.covers(u, cover)) and area >= target - 1e-6
+    else:
+        ok = valid and allpoly and geomvalid and abs(area - target) < 1e-6 and abs(float(u.area) - target) < 1e-6
     return {"accepted": bool(ok), "coverage_is_valid": valid, "all_polygon": allpoly, "geometries_valid": geomvalid,
-            "area_sum_minus_window": round(area - W * H, 6), "union_area_minus_window": round(float(u.area) - W * H, 6)}
+            "area_sum_minus_window": round(area - target, 6), "union_area_minus_window": round(float(u.area) - target, 6)}
 
 
 def pixel_polygon(geom, W, H):
@@ -736,9 +778,13 @@ class SelectionMixin:
         return sorted(sel)
 
     def set_roi(self, bounds):
-        """user-declared processing region [x0,y0,x1,y1]; selections/suggestions are clipped to it.
-        Not an edit (no geometry change) - kept in doc state and manifest, undo not required."""
-        self.roi = shapely.box(*bounds) if bounds else None
+        """user-declared processing region [x0,y0,x1,y1] - one state change, undoable, persisted to GPKG
+        (project_roi layer) and restored on reopen. Three DISTINCT capabilities use it:
+        audit = roi_report counts; cross-domain guard = outside_roi risk + formal-save gate;
+        clip export = save_as(roi_mode=keep|clip)."""
+        new = shapely.box(*bounds) if bounds else None
+        def f(): self.roi = new
+        self._do("set roi" if new is not None else "clear roi", f, roi=1)
         return {"roi": bounds}
 
     def _roi_clip(self, g):
@@ -764,6 +810,19 @@ class SelectionMixin:
                 else: out += 1
             rep[name] = {"inside": ins, "crossing": crx, "outside": out}
         return rep
+
+    def roi_clip_preview(self):
+        """preview a scope-constrained export before saving: per layer which objects are inside (kept),
+        crossing (kept whole in 'keep' mode / cut at the ROI edge in 'clip' mode) and outside (dropped).
+        Nothing is modified - the user sees exactly which objects each mode affects."""
+        if self.roi is None: raise EditError("declare an ROI first (set_roi)")
+        R = self.roi; out = {"roi": [round(v, 1) for v in R.bounds], "modes": ["keep", "clip"], "layers": {}}
+        for name, D in (("faces", self.F), ("lines", self.L), ("texts", self.T), ("residue", self.Q)):
+            ins, crx, outl = [], [], []
+            for e, x in zip(D["_eid"], D.geometry):
+                (ins if R.contains(x) else crx if x.intersects(R) else outl).append(int(e))
+            out["layers"][name] = {"inside": ins, "crossing": crx, "outside": outl}
+        return out
 
     def merge_suggest(self, ids, de=15.0, roi=None):
         """T10 smart fragment-merge suggestion. Grow edge-adjacent same-colour faces from the seed,

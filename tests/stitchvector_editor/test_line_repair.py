@@ -65,7 +65,7 @@ def test_non_adjacent_merge_refused(doc):
 def test_failed_save_leaves_nothing_and_stays_dirty(doc, tmp_path, monkeypatch):
     doc.recolour(LINE, [int(doc.L["_eid"].iloc[0])], "#123456")
     real = doc.verify
-    monkeypatch.setattr(doc, "verify", lambda p: {**real(p), "accepted": False})
+    monkeypatch.setattr(doc, "verify", lambda p, **kw: {**real(p), "accepted": False})
     out = tmp_path / "out.gpkg"
     with pytest.raises(EditError): doc.save_as(out)
     assert not out.exists() and not list(tmp_path.glob(".out.*")) and doc.dirty

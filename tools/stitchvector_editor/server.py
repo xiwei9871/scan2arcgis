@@ -136,6 +136,7 @@ class H(BaseHTTPRequestHandler):
             elif op == "ungroup_faces": d.ungroup_faces(a["ids"]); r = {}
             elif op == "set_roi": r = d.set_roi(a.get("bounds"))
             elif op == "roi_report": r = d.roi_report()
+            elif op == "roi_clip_preview": r = d.roi_clip_preview()
             elif op == "heal_preview": r = d.heal_preview(d.gesture("brush", a["points"], float(a.get("radius", 4))), float(a.get("max_area", 12)))
             elif op == "heal_apply": r = d.heal_apply(str(a["preview_id"]), a.get("accept_uncertain", []), bool(a.get("allow_mixed_labels")))
             elif op == "set_role": d.set_role(a["ids"], str(a["role"])); r = {}
@@ -156,7 +157,7 @@ class H(BaseHTTPRequestHandler):
             elif op == "review_decide": r = {"review": d.review_decide(a["ids"], str(a["action"]), str(a.get("actor", "human")))}
             elif op == "undo": r = {"undone": d.undo_op()}
             elif op == "redo": r = {"redone": d.redo_op()}
-            elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]), bool(a.get("draft")))
+            elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]), bool(a.get("draft")), a.get("roi_mode") or None)
             else: return self._send(404, {"error": f"unknown op {op}"})
             return self._send(200, {"ok": True, **r})
         except (EditError, KeyError, ValueError, TypeError) as e:
