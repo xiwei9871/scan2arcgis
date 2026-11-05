@@ -332,3 +332,19 @@ def test_join_persists_through_save(tmp_path):
     out = tmp_path / "out.gpkg"; d.save_as(out)
     d2 = Document(out, (W, H))
     assert len(d2.L) == 2 and d2.L.loc[d2.L["_eid"] == 0, "geometry"].iloc[0].length == 110
+
+
+def test_text_apply_default_isolates_only_suggested_lines(tmp_path):
+    """P2.1: a caller that passes no line_ids must isolate only risk-free (suggested) residue lines;
+    boundary-risk lines stay in visual_lines unless explicitly opted in."""
+    d, _ = make_residue_doc(tmp_path)
+    t = d.text_residue([0])["texts"][0]
+    sug = {l["id"] for l in t["line_info"] if l["suggested"]}
+    r = d.text_apply(t["preview_id"], "怀道")                       # no line_ids at all
+    assert set(d.Q["line_id"]) == {"L0"} and r["moved_lines"] == len(sug) == 1, \
+        "only the suggested glyph stroke is isolated by default"
+    assert "L1" in set(d.L["line_id"]), "the SPLIT-role line is never default-isolated"
+    (tmp_path / "b").mkdir(); d2 = make_residue_doc(tmp_path / "b")[0]
+    t2 = d2.text_residue([0])["texts"][0]
+    r2 = d2.text_apply(t2["preview_id"], "怀道", line_ids=list(t2["lines"]))   # explicit opt-in still moves all
+    assert r2["moved_lines"] == 2

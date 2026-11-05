@@ -1210,7 +1210,13 @@ class TextMixin:
         ang = float(angle_deg); rgb = hex_ok(rgb); live = set(int(e) for e in self.F["_eid"])
         # optional user decision for 'uncertain' groups: {group_index: target_face}; target must be one of its ground faces
         groups = [dict(g) for g in pv["groups"]]
-        mv = sorted(int(i) for i in (line_ids if line_ids is not None else pv["lines"]))
+        if line_ids is None:
+            # default = only the preview's safe (suggested) lines; lines flagged risky must be explicitly
+            # opted in via line_ids - a caller that never inspected the risks must not isolate them all
+            info = {int(x["id"]): x for x in pv.get("line_info", [])}
+            mv = sorted(i for i in pv["lines"] if info.get(i, {}).get("suggested"))
+        else:
+            mv = sorted(int(i) for i in line_ids)
         if not set(mv) <= set(pv["lines"]): raise EditError("line_ids must be a subset of the previewed residue lines")
         for k, t in (assign or {}).items():
             k, t = int(k), int(t)

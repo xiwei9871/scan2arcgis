@@ -27,7 +27,7 @@ def test_preview_changes_nothing(doc):
 
 def test_apply_cleans_box_keeps_outside_and_round_trips(doc, tmp_path):
     F0 = doc.F.set_index("_eid"); B = shapely.box(*EO)
-    pv = doc.text_preview(EO, ocr=False); r = doc.text_apply(pv["preview_id"], "Є-O")
+    pv = doc.text_preview(EO, ocr=False); r = doc.text_apply(pv["preview_id"], "Є-O", line_ids=pv["lines"])
     assert r["merged_faces"] == pv["counts"]["merge_faces"] and coverage_report(doc.F, 300, 300)["accepted"]
     g = np.asarray(doc.F.geometry.values, object); small = (shapely.area(g) <= 60) & (shapely.area(shapely.intersection(g, B)) >= 0.5 * shapely.area(g))
     assert int(small.sum()) == 0
@@ -58,7 +58,7 @@ def test_stale_text_preview_and_empty_text_rejected(doc):
 
 
 def test_undo_restores_faces_lines_text_and_residue_lines_restorable(doc):
-    F0n, L0n = len(doc.F), len(doc.L); pv = doc.text_preview(YUN, ocr=False); r = doc.text_apply(pv["preview_id"], "云")
+    F0n, L0n = len(doc.F), len(doc.L); pv = doc.text_preview(YUN, ocr=False); r = doc.text_apply(pv["preview_id"], "云", line_ids=pv["lines"])
     assert len(doc.T) == 1 and len(doc.Q) == r["moved_lines"]
     doc.undo_op(); assert len(doc.F) == F0n and len(doc.L) == L0n and len(doc.T) == 0 and len(doc.Q) == 0
     doc.redo_op(); ids = list(doc.Q["_eid"]); doc.restore_residue_lines(ids); assert len(doc.L) == L0n and len(doc.Q) == 0
@@ -94,7 +94,7 @@ def test_assign_one_group_only_merges_that_group(doc):
 
 
 def test_residue_listed_and_restore_one_line(doc):
-    pv = doc.text_preview(AR2E, ocr=False); doc.text_apply(pv["preview_id"], "Ar₂E")
+    pv = doc.text_preview(AR2E, ocr=False); doc.text_apply(pv["preview_id"], "Ar₂E", line_ids=pv["lines"])
     st = doc.state(); assert st["residue"] and all(r["coords"] for r in st["residue"])
     nL, nQ = len(doc.L), len(doc.Q); rid = st["residue"][0]["id"]
     doc.restore_residue_lines([rid]); assert len(doc.L) == nL + 1 and len(doc.Q) == nQ - 1
