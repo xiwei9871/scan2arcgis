@@ -127,6 +127,10 @@ class H(BaseHTTPRequestHandler):
             elif op == "merge_preview": r = d.merge_preview(a["ids"])
             elif op == "merge_groups": r = d.merge_components(a["ids"], bool(a.get("allow_mixed_labels")))
             elif op == "merge_history": r = {"history": d.merge_history()}
+            elif op == "merge_suggest": r = d.merge_suggest([int(i) for i in a["ids"]], float(a.get("de", 15)), a.get("roi"))
+            elif op == "group_faces": r = {"group_id": d.group_faces(a["ids"])}
+            elif op == "ungroup_faces": d.ungroup_faces(a["ids"]); r = {}
+            elif op == "set_roi": r = d.set_roi(a.get("bounds"))
             elif op == "heal_preview": r = d.heal_preview(d.gesture("brush", a["points"], float(a.get("radius", 4))), float(a.get("max_area", 12)))
             elif op == "heal_apply": r = d.heal_apply(str(a["preview_id"]), a.get("accept_uncertain", []), bool(a.get("allow_mixed_labels")))
             elif op == "set_role": d.set_role(a["ids"], str(a["role"])); r = {}

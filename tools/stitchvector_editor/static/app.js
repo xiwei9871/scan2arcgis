@@ -6,7 +6,7 @@ let revQueue = [], revIdx = 0, revCur = null;
 let aGroup = null, aTarget = null, assigns = {}, skipped = new Set(), hiRes = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
-let stroke = null, mergePv = null, healPv = null;
+let stroke = null, mergePv = null, healPv = null, suggestPv = null;
 const $ = (id) => document.getElementById(id);
 
 function msg(t, ok) { $("msg").style.color = ok ? "#060" : "#b00"; $("msg").textContent = t || ""; }
@@ -85,6 +85,11 @@ function draw() {
     else { ctx.strokeStyle = "rgba(255,235,59,0.45)"; ctx.lineWidth = 2 * +$("radius").value; ctx.lineCap = "round"; ctx.stroke(); } }
   if (mergePv) for (const g of mergePv.groups) for (const ring of g.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
     ctx.strokeStyle = (g.colour_conflict_share || 0) > 0.1 ? "#ff1744" : "#76ff03"; ctx.lineWidth = 2.5 / view.s; ctx.stroke(); }
+  if (suggestPv) { const by = new Map(S.faces.map(f => [f.id, f]));
+    for (const c of suggestPv.candidates) { const f = by.get(c.eid); if (!f) continue;
+      ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); }
+      ctx.strokeStyle = c.suggested ? "#2979ff" : "#ff9100"; ctx.lineWidth = 2 / view.s; ctx.setLineDash(c.suggested ? [] : [4 / view.s, 3 / view.s]); ctx.stroke(); }
+    ctx.setLineDash([]); }
   if (healPv) { const by = new Map(S.faces.map(f => [f.id, f])); const C = { merge: "#76ff03", keep: "#2979ff", uncertain: "#ff9100" };
     for (const c of healPv.candidates) { const f = by.get(c.id); if (!f) continue; ctx.beginPath(); for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); }
       ctx.fillStyle = C[c.decision]; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
@@ -223,6 +228,31 @@ $("mergePreview").onclick = () => guard(async () => {
 $("mergeGroups").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await mergeWithConfirm("merge_groups"); mergePv = null; setSel("face", []); $("preview").textContent = "（无预览）"; msg(`已合并 ${r.groups} 组、${r.faces} 个面（来源见 merged_from）`, true); });
 $("healApply").onclick = () => guard(async () => { if (!healPv) throw new Error("先用碎面修复刷刷一下"); const r = await api("heal_apply", { preview_id: healPv.preview_id }); healPv = null; $("preview").textContent = "（无预览）"; msg(`已修复：合并 ${r.merged} 个碎面`, true); });
 $("healCancel").onclick = () => { healPv = null; mergePv = null; $("preview").textContent = "（无预览）"; draw(); };
+
+// ---- T10 smart merge suggest: click main face -> candidates w/ risk flags -> group or merge ----
+$("suggestBtn").onclick = () => guard(async () => {
+  if (sel.layer !== "face" || !sel.ids.length) throw new Error("先用选面点中主面");
+  suggestPv = await api("merge_suggest", { ids: sel.ids });
+  const box = $("suggestBox"); box.style.display = "block";
+  box.innerHTML = `建议 ${suggestPv.candidates.length} 个候选（勾选后点归组或合并；⚠=风险项默认不勾）<br>` +
+    suggestPv.candidates.map(c =>
+      `<label><input type="checkbox" class="sgc" value="${c.eid}" ${c.suggested ? "checked" : ""}> ` +
+      `#${c.eid} 面积${c.area} dE${c.dE} ${c.label ?? ""} ` +
+      (c.risks.length ? `<span style="color:#b00">⚠${c.risks.join("/")}</span>` : "") + "</label>").join("<br>");
+  msg(`建议候选 ${suggestPv.candidates.length}（可省 ${suggestPv.total_px_ops_saved} 次逐点）`, true); draw();
+});
+function suggChecked() { return [...document.querySelectorAll(".sgc:checked")].map(x => +x.value); }
+$("suggestGroup").onclick = () => guard(async () => {
+  const ids = suggChecked(); if (ids.length < 2) throw new Error("至少勾选 2 个面");
+  const r = await api("group_faces", { ids }); suggestPv = null; $("suggestBox").style.display = "none";
+  msg(`已逻辑归组 ${r.group_id}（几何未动，可撤销）`, true);
+});
+$("suggestMerge").onclick = () => guard(async () => {
+  const ids = suggChecked(); if (ids.length < 2) throw new Error("至少勾选 2 个面");
+  setSel("face", ids); const r = await mergeWithConfirm("merge");
+  suggestPv = null; $("suggestBox").style.display = "none";
+  setSel("face", [r.id]); msg("已几何合并（来源见 merged_from）", true);
+});
 
 // ---- left pane: pan / zoom / crosshair only (read-only; no edits) ----
 let dragL = null;

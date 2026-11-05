@@ -111,6 +111,10 @@ class Document:
         # merge provenance: JSON list of source faces on every merged result (added on first merge for old files)
         if "merged_from" not in self.F.columns: self.F["merged_from"] = None
         self.F["merged_from"] = self.F["merged_from"].astype(object)
+        # face logical grouping (T10): groups without geometry change; column persists to GPKG
+        if "face_group" not in self.F.columns: self.F["face_group"] = ""
+        self.F["face_group"] = self.F["face_group"].fillna("").astype(object)
+        self.next_fg = 1; self.roi = None
         for D in (self.L, self.F):
             if "legend_id" not in D.columns: D["legend_id"] = None
             D["legend_id"] = D["legend_id"].astype(object).where(D["legend_id"].notna(), None)
@@ -138,9 +142,9 @@ class Document:
         """every change of document content (edit, undo, redo) gets a new version; all stored previews become stale."""
         self.version += 1; self.previews.clear()
 
-    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles), self.T.copy(), self.Q.copy(), self.next_t)
+    def _snap(self): return (self.F.copy(), self.L.copy(), self.next_f, self.next_l, copy.deepcopy(self.styles), self.T.copy(), self.Q.copy(), self.next_t, self.next_fg)
 
-    def _restore(self, snap): self.F, self.L, self.next_f, self.next_l, self.styles, self.T, self.Q, self.next_t = snap
+    def _restore(self, snap): self.F, self.L, self.next_f, self.next_l, self.styles, self.T, self.Q, self.next_t, self.next_fg = snap
 
     def _push(self, desc, counts):
         self.redo.clear(); self.dirty = True; self._bump()
@@ -625,6 +629,74 @@ class SelectionMixin:
         for _ in range(int(steps)):
             sel = {e for e in sel if set(self._edge_neighbours(e)) <= sel}
         return sorted(sel)
+
+    def set_roi(self, bounds):
+        """user-declared processing region [x0,y0,x1,y1]; selections/suggestions are clipped to it.
+        Not an edit (no geometry change) - kept in doc state and manifest, undo not required."""
+        self.roi = shapely.box(*bounds) if bounds else None
+        return {"roi": bounds}
+
+    def _roi_clip(self, g):
+        return g.intersection(self.roi) if getattr(self, "roi", None) is not None else g
+
+    def merge_suggest(self, ids, de=15.0, roi=None):
+        """T10 smart fragment-merge suggestion. Grow edge-adjacent same-colour faces from the seed,
+        optionally inside a user ROI; every candidate carries risk flags - nothing is modified.
+        risks: crosses_split_line (shared edge coincides with a SPLIT/UNKNOWN line = possible real
+        contact), narrow_band (min bbox side < 2px, fragment-like), mixed_label (different label)."""
+        region = shapely.box(*roi) if roi else getattr(self, "roi", None)
+        grown = set(self.adjacent_similar(list(ids), de))
+        if region is not None:
+            inside = set(self.select_region(region, FACE, "centre"))
+            grown &= inside | set(int(i) for i in ids)
+        seed = int(ids[0]); scol = lab(hex_to_rgb(self.F.loc[self.F["_eid"] == seed, "rgb"].iloc[0]))[0]
+        roles = dict(zip(self.L["_eid"], self.L["line_role"])) if "line_role" in self.L.columns else {}
+        block = [g for g, r in zip(self.L.geometry, self.L["_eid"]) if roles.get(r) in ("SPLIT", "UNKNOWN")]
+        out = []
+        for e in sorted(grown):
+            row = self.F.loc[self.F["_eid"] == e].iloc[0]; g = row.geometry
+            de_c = float(np.linalg.norm(lab(hex_to_rgb(row["rgb"]))[0] - scol))
+            risks = []
+            if block and shapely.length(shapely.intersection(g.boundary, shapely.union_all(block))) > 0.5:
+                risks.append("crosses_split_line")
+            bb = g.bounds
+            if min(bb[2] - bb[0], bb[3] - bb[1]) < 2.0: risks.append("narrow_band")
+            if e != seed and "label" in self.F.columns and not pd.isna(row["label"]) and \
+               row["label"] != self.F.loc[self.F["_eid"] == seed, "label"].iloc[0]:
+                risks.append("mixed_label")
+            out.append({"eid": int(e), "rgb": row["rgb"], "label": None if pd.isna(row["label"]) else str(row["label"]),
+                        "area": round(float(g.area), 1), "dE": round(de_c, 1), "risks": risks,
+                        "suggested": e == seed or not [r for r in risks if r in ("crosses_split_line", "mixed_label")]})
+        ok_ids = {c["eid"] for c in out if c["suggested"]}
+        seen, stack = {seed}, [seed]
+        while stack:
+            for nb in self._edge_neighbours(stack.pop()):
+                if nb in ok_ids and nb not in seen:
+                    seen.add(nb); stack.append(nb)
+        for c in out:
+            if c["suggested"] and c["eid"] not in seen:
+                c["risks"].append("not_connected_to_seed"); c["suggested"] = False
+        return {"seed": seed, "roi": list(region.bounds) if region is not None else None,
+                "candidates": out,
+                "suggested": [r["eid"] for r in out if r["suggested"]],
+                "risky": [r["eid"] for r in out if not r["suggested"]],
+                "total_px_ops_saved": max(0, len(out) - 1)}
+
+    def group_faces(self, ids):
+        """LOGICAL_GROUP: tag faces with a shared face_group id; geometry untouched, undoable."""
+        ids = sorted(set(int(i) for i in ids))
+        if len(ids) < 2: raise EditError("select at least 2 faces to group")
+        m = self._rows(FACE, ids)
+        gid = f"FG{self.next_fg}"
+        def f(): self.F.loc[m, "face_group"] = gid
+        self._do("group faces (logical)", f, objects=len(ids), group=1)
+        self.next_fg += 1
+        return gid
+
+    def ungroup_faces(self, ids):
+        m = self._rows(FACE, ids)
+        def f(): self.F.loc[m, "face_group"] = ""
+        self._do("ungroup faces", f, objects=int(m.sum()), ungroup=1)
 
     def _components(self, ids):
         ids = sorted(set(int(i) for i in ids)); idset = set(ids); comp, seen = [], set()
