@@ -113,6 +113,16 @@
   <div id="aInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
   <div class="row"><button id="aConfirm">确认此组归属</button> <button id="aSkip">跳过此组（保持待定）</button> <button id="aClear">清除全部归属</button></div>
   <div class="row"><button id="textApply">确认文字并清理残影</button> <button id="textCancel">取消</button></div>
+
+  <h3>OCR 审核</h3>
+  <div class="row"><button id="classifyReview">置信度+风险分流</button> 阈值 <input type="number" id="revTh" value="0.90" step="0.05" min="0.5" max="1" style="width:56px"></div>
+  <div class="row"><label><input type="checkbox" id="reviewMode"> 审核模式（红框=待审 橙=跳过）</label> <label><input type="checkbox" id="revOnly"> 只看待审</label></div>
+  <div id="revCounters" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
+  <div id="revPanel" style="display:none;border:2px solid #d32f2f;padding:4px;background:#fff">
+    <canvas id="revCrop" width="240" height="88" style="border:1px solid #bbb;width:240px;height:88px;background:#fafafa"></canvas>
+    <div id="revInfo" style="font:12px ui-monospace,monospace;white-space:pre-wrap"></div>
+    <div class="row"><button id="revConfirm">确认正确</button> <button id="revEdit">修改并确认</button> <button id="revSkip">暂时跳过</button></div>
+  </div>
   <div class="row"><button id="textEdit">修改所选文字</button> <button id="textDelete">删除所选文字</button></div>
   <h3>隔离线（文字残影线，可恢复）</h3>
   <div id="resList" style="font:11px ui-monospace,monospace;max-height:160px;overflow-y:auto">（无）</div>

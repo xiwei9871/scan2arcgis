@@ -2,6 +2,7 @@
 const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), main = document.getElementById("main");
 const cvL = document.getElementById("cvL"), ctxL = cvL.getContext("2d"), mainL = document.getElementById("mainL");
 let hover = null, splitPv = null, textPv = null, selText = null;
+let revQueue = [], revIdx = 0, revCur = null;
 let aGroup = null, aTarget = null, assigns = {}, skipped = new Set(), hiRes = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
@@ -60,9 +61,16 @@ function draw() {
       ctx.setLineDash(r.dash || []); ctx.lineCap = (r.dash && r.dash.length) ? "butt" : "round"; ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = l.rgb; for (const t of (r.teeth || [])) { ctx.beginPath(); t.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill(); } }
   }
-  if ($("showText").checked && S.texts) { for (const t of S.texts) { ctx.save(); ctx.translate(t.x, t.y); ctx.rotate(-(t.angle_deg || 0) * Math.PI / 180);
+  if ($("showText").checked && S.texts) { const rm = $("reviewMode") && $("reviewMode").checked, ro = $("revOnly") && $("revOnly").checked;
+    for (const t of S.texts) { const rs = t.review_status || "";
+      if (rm && ro && rs !== "REVIEW_REQUIRED" && rs !== "REVIEW_SKIPPED") continue;
+      ctx.save(); ctx.translate(t.x, t.y); ctx.rotate(-(t.angle_deg || 0) * Math.PI / 180);
       ctx.font = `${t.font_px}px -apple-system, "PingFang SC", sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = t.rgb || "#000";
-      ctx.fillText(t.text, 0, 0); if (selText === t.id) { const w = ctx.measureText(t.text).width; ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(-w / 2 - 1, -t.font_px / 2 - 1, w + 2, t.font_px + 2); } ctx.restore(); } }
+      ctx.fillText(t.text, 0, 0);
+      if (rm && (rs === "REVIEW_REQUIRED" || rs === "REVIEW_SKIPPED")) { const w = ctx.measureText(t.text).width;
+        ctx.strokeStyle = rs === "REVIEW_REQUIRED" ? "#ff1744" : "#ff9100"; ctx.lineWidth = (t.id === (revCur && revCur.id) ? 3 : 2) / view.s;
+        ctx.setLineDash(rs === "REVIEW_REQUIRED" ? [4 / view.s, 2 / view.s] : []); ctx.strokeRect(-w / 2 - 2, -t.font_px / 2 - 2, w + 4, t.font_px + 4); ctx.setLineDash([]); }
+      if (selText === t.id) { const w = ctx.measureText(t.text).width; ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(-w / 2 - 1, -t.font_px / 2 - 1, w + 2, t.font_px + 2); } ctx.restore(); } }
   if (textPv) { const [x0, y0, x1, y1] = textPv.box; ctx.strokeStyle = "#ffeb3b"; ctx.lineWidth = 2 / view.s; ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
     const by = new Map(S.faces.map(f => [f.id, f])); for (const g of textPv.groups) for (const id of g.faces) { const f = by.get(id); if (!f) continue; ctx.beginPath();
       for (const ring of f.rings) { ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); } const gi = textPv.groups.indexOf(g); ctx.fillStyle = g.decision === "merge" ? "#76ff03" : (gi === aGroup ? "#2979ff" : (gi in assigns ? "#00c853" : (skipped.has(gi) ? "#9e9e9e" : "#ff9100"))); ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; } }
@@ -130,7 +138,9 @@ cv.addEventListener("mouseup", async (ev) => {
   if (tool === "assignText") return assignClick(x, y);
   if (tool === "draw") { drawPts.push([x, y]); draw(); return; }
   if (tool === "split") return guard(async () => { if (sel.layer !== "line" || sel.ids.length !== 1) throw new Error("先用“选线”选中一条线"); const r = await api("split", { id: sel.ids[0], x, y }); setSel("line", r.ids); msg("已拆分", true); });
-  if (tool === "pickFace") { const t = pickText(x, y); if (t) { selText = t.id; $("tText").value = t.text; $("tFont").value = t.font_px; $("tAngle").value = t.angle_deg; $("tRgb").value = t.rgb; msg(`选中文字 ${t.text}`, true); draw(); return; } }
+  if (tool === "pickFace") { const t = pickText(x, y); if (t) { selText = t.id; $("tText").value = t.text; $("tFont").value = t.font_px; $("tAngle").value = t.angle_deg; $("tRgb").value = t.rgb;
+    if ($("reviewMode") && $("reviewMode").checked && (t.review_status === "REVIEW_REQUIRED" || t.review_status === "REVIEW_SKIPPED")) openReview(t.id);
+    msg(`选中文字 ${t.text}`, true); draw(); return; } }
   const layer = (tool === "pickLine") ? "line" : "face";
   guard(async () => { const r = await api("pick", { x, y, layer }); setSel(layer, r.ids, ev.shiftKey); });
 });
@@ -181,8 +191,10 @@ $("l2f").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.id
 $("undo").onclick = () => guard(async () => { const r = await api("undo"); msg("撤销：" + r.undone, true); });
 $("redo").onclick = () => guard(async () => { const r = await api("redo"); msg("重做：" + r.redone, true); });
 $("save").onclick = () => guard(async () => {
-  const r = await api("save", { name: $("fname").value });
-  msg(`已保存 ${r.path.split("/").slice(-1)[0]}；回读一致 ${r.readback_matches_memory}；面层有效 ${r.accepted}；原文件未变 ${r.input_sha256_unchanged}`, r.accepted && r.readback_matches_memory);
+  let r;
+  try { r = await api("save", { name: $("fname").value }); }
+  catch (e) { if (/require review/.test(e.message) && confirm(e.message + "\n以草稿模式导出（保留待审状态并记入 manifest）？")) r = await api("save", { name: $("fname").value, draft: true }); else throw e; }
+  msg(`已保存 ${r.path.split("/").slice(-1)[0]}${r.export_mode === "draft" ? "（草稿，待审 " + r.unreviewed + " 条）" : ""}；回读一致 ${r.readback_matches_memory}；面层有效 ${r.accepted}；原文件未变 ${r.input_sha256_unchanged}`, r.accepted && r.readback_matches_memory);
 });
 
 img.onload = () => { off.width = img.width; off.height = img.height; offCtx = off.getContext("2d", { willReadFrequently: true }); offCtx.drawImage(img, 0, 0); refresh().then(fit); };
@@ -266,8 +278,47 @@ $("textCancel").onclick = () => { textPv = null; $("tGroups").textContent = ""; 
 $("textEdit").onclick = () => guard(async () => { if (selText === null) throw new Error("先在文字上用“选面”工具点一下，或刚建好的文字");
   const b = { id: selText }; if ($("tText").value.trim()) b.text = $("tText").value;
   if (+$("tFont").value > 0) b.font_px = +$("tFont").value; if ($("tAngle").value !== "") b.angle_deg = +$("tAngle").value; if ($("tRgb").value) b.rgb = $("tRgb").value;
-  await api("text_edit", b); msg("已修改文字", true); });
+  await api("text_edit", b); msg("已修改文字", true);
+  if ($("reviewMode") && $("reviewMode").checked && revQueue.length) { await refreshQueue(); if (revQueue.length) openReview(revQueue[Math.min(revIdx, revQueue.length - 1)].id); else { $("revPanel").style.display = "none"; revCur = null; } } });
 $("textDelete").onclick = () => guard(async () => { if (selText === null) throw new Error("先选中文字"); await api("text_delete", { id: selText }); selText = null; msg("已删除文字", true); });
+
+// ---------- OCR review mode (P1): classify -> red boxes -> queue -> decide ----------
+async function refreshQueue() { const r = await api("review_queue", {}); revQueue = r.queue || []; $("revCounters").textContent = S.review ? `待审 ${S.review.required}  已跳过 ${S.review.skipped}  自动放行(未核实) ${S.review.auto_accepted}  已确认 ${S.review.confirmed}  人工改 ${S.review.human_edited}  共 ${S.review.total}` : ""; }
+$("classifyReview").onclick = () => guard(async () => { const r = await api("review_classify", { threshold: +$("revTh").value });
+  await refreshQueue(); $("reviewMode").checked = true; revIdx = 0;
+  msg(`分流完成：待审 ${r.review.required}、自动放行 ${r.review.auto_accepted}（未核实、不算人工确认）`, true); draw();
+  if (revQueue.length) openReview(revQueue[0].id); });
+$("reviewMode").onchange = () => { draw(); };
+$("revOnly").onchange = () => { draw(); };
+
+function openReview(id) {
+  const i = revQueue.findIndex(q => q.id === id); if (i < 0) { $("revPanel").style.display = "none"; revCur = null; return; }
+  revIdx = i; revCur = revQueue[i];
+  const t = S.texts.find(x => x.id === id); if (!t) return;
+  $("revPanel").style.display = "block";
+  const b = revCur.box && revCur.box.every(v => v != null) ? revCur.box : [t.x - 10, t.y - 8, t.x + 10, t.y + 8];
+  const c = $("revCrop"), cx = c.getContext("2d"); cx.fillStyle = "#fafafa"; cx.fillRect(0, 0, c.width, c.height);
+  const w = Math.max(b[2] - b[0], 4), h = Math.max(b[3] - b[1], 4), k = Math.min(c.width / (w + 8), c.height / (h + 8));
+  cx.drawImage(img, b[0] - 4, b[1] - 4, w + 8, h + 8, (c.width - w * k) / 2, (c.height - h * k) / 2, w * k, h * k);
+  $("revInfo").textContent = `#${id} 「${t.text}」  OCR:「${t.ocr_text ?? ""}」 分 ${t.ocr_score ?? "—"}\n状态 ${revCur.status}  原因 ${(revCur.reasons || []).join(", ") || "低置信度"}\n队列 ${revIdx + 1}/${revQueue.length}`;
+  const r = document.getElementById("cv").getBoundingClientRect(); view.x = r.width / 2 - t.x * view.s; view.y = r.height / 2 - t.y * view.s; draw();
+}
+async function decide(action) {
+  if (!revCur) return;
+  const r = await api("review_decide", { ids: [revCur.id], action });
+  await refreshQueue();
+  if (revQueue.length) openReview(revQueue[Math.min(revIdx, revQueue.length - 1)].id);
+  else { $("revPanel").style.display = "none"; revCur = null; msg("审核队列清空", true); }
+  draw();
+}
+$("revConfirm").onclick = () => guard(() => decide("confirm"));
+$("revSkip").onclick = () => guard(() => decide("skip"));
+$("revEdit").onclick = () => guard(async () => {
+  if (!revCur) return; selText = revCur.id;
+  const t = S.texts.find(x => x.id === revCur.id);
+  $("tText").value = t.text; $("tFont").value = t.font_px; $("tAngle").value = t.angle_deg; $("tRgb").value = t.rgb || "#000000";
+  msg("在“文字”区改内容/字号/角度后点「应用文字修改」，即记为人工修改并离开队列", true);
+});
 function textEm(t) { let w = 0; for (const ch of String(t || "")) { const o = ch.codePointAt(0); w += (o >= 0x2E80 && o <= 0x9FFF) || (o >= 0x3000 && o <= 0x303F) || (o >= 0xFF00 && o <= 0xFFEF) ? 1.0 : 0.58; } return w; }
 // text hit test = the RENDERED extent (anchor point + font + angle), not the OCR detection box. Mirrors core._text_*.
 function pickText(x, y) {

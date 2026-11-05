@@ -1,0 +1,5 @@
+auto_accepted_unverified,reason_numeric_or_short,reason_rotated_or_vertical,reason_soft:crosses_boundary_line,reason_special_symbol,reason_stratigraphic_or_lithology_code,reason_sub_or_superscript,review_required,review_share_pct,threshold,total_texts
+68,29,26,190,3,86,25,151,68.9,0.8,219
+63,29,26,190,3,86,25,156,71.2,0.85,219
+59,29,26,190,3,86,25,160,73.1,0.9,219
+48,29,26,190,3,86,25,171,78.1,0.95,219

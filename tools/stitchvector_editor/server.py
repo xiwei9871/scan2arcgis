@@ -141,9 +141,12 @@ class H(BaseHTTPRequestHandler):
             elif op == "text_add": r = {"id": d.add_text(a["x"], a["y"], a["text"], a.get("font_px", 12), a.get("angle_deg", 0), a.get("rgb", "#000000"))}
             elif op == "text_delete": d.delete_text(int(a["id"])); r = {}
             elif op == "restore_residue": d.restore_residue_lines(a["ids"]); r = {}
+            elif op == "review_classify": r = {"review": d.classify_review(float(a.get("threshold", 0.90)))}
+            elif op == "review_queue": r = {"queue": d.review_queue(bool(a.get("include_all"))), "review": d.review_counters()}
+            elif op == "review_decide": r = {"review": d.review_decide(a["ids"], str(a["action"]), str(a.get("actor", "human")))}
             elif op == "undo": r = {"undone": d.undo_op()}
             elif op == "redo": r = {"redone": d.redo_op()}
-            elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]))
+            elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]), bool(a.get("draft")))
             else: return self._send(404, {"error": f"unknown op {op}"})
             return self._send(200, {"ok": True, **r})
         except (EditError, KeyError, ValueError, TypeError) as e:

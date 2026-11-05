@@ -4,7 +4,7 @@ A Document holds the faces layer (colour_faces), the lines layer (visual_lines) 
 Every edit is an operation that snapshots both layers first (undo / redo) and appends to an edit log.
 The input GPKG is never written; save_as() writes a new file, re-reads it and validates it.
 """
-import copy, hashlib, json, time
+import copy, hashlib, json, re, time
 from pathlib import Path
 import numpy as np, pandas as pd, geopandas as gpd, pyogrio, shapely
 from shapely.geometry import LineString, Point, Polygon, MultiPolygon
@@ -12,7 +12,13 @@ from shapely.ops import split as shp_split, substring
 
 FACE, LINE, STYLES = "colour_faces", "visual_lines", "legend_styles"
 TEXT, RESIDUE, QSTYLE = "text_labels", "text_residue_lines", "layer_styles"
-TEXT_COLS = ["label_id", "text", "ocr_text", "ocr_score", "font_px", "angle_deg", "anchor", "rgb", "box_x0", "box_y0", "box_x1", "box_y1", "source", "review_status"]
+TEXT_COLS = ["label_id", "text", "ocr_text", "ocr_score", "font_px", "angle_deg", "anchor", "rgb", "box_x0", "box_y0", "box_x1", "box_y1", "source", "review_status", "review_reason", "reviewed_at", "review_actor"]
+REVIEW_HUMAN = ("HUMAN_EDITED", "OCR_CONFIRMED", "TEXT_VECTOR_CREATED", "TEXT_LAYER_COMPLETE", "BACKGROUND_CLEAR_PENDING")
+REVIEW_ALL = ("OCR_CANDIDATE", "OCR_DRAFT", "AUTO_ACCEPTED_UNVERIFIED", "REVIEW_REQUIRED", "REVIEW_SKIPPED") + REVIEW_HUMAN
+OCR_REVIEW_THRESHOLD = 0.90   # initial configuration, NOT a validated optimum
+_SUBSUP_CHARS = "⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉ₐₑₒₓ⁺⁻‾"
+_ERA_RE = re.compile(r"^(Ar|Pt|Pz|Mz|Kz|Cmb|[Є∈ϵOOSDCPTJKNZQEЯƐ][0-9a-z]?|[γδλνπξβμρσφχψωατ][0-9δλγβ]?)")
+_SAFE_CHAR_RE = re.compile(r"[一-鿿A-Za-z0-9\-—·.,、()（）:：'\"°′″/\\ ]")
 ROLES = ("COVER", "SPLIT", "UNKNOWN")
 
 
@@ -121,6 +127,9 @@ class Document:
         # review status: files written before it existed carry no confirmation record -> OCR_CANDIDATE (never assumed confirmed)
         if "review_status" not in self.T.columns: self.T["review_status"] = "OCR_CANDIDATE"
         self.T["review_status"] = self.T["review_status"].fillna("OCR_CANDIDATE").astype(object)
+        for c, d0 in (("review_reason", ""), ("reviewed_at", ""), ("review_actor", "")):
+            if c not in self.T.columns: self.T[c] = d0
+            self.T[c] = self.T[c].fillna(d0).astype(object)
         self.T["_eid"] = np.arange(len(self.T)); self.Q["_eid"] = np.arange(len(self.Q)); self.next_t = len(self.T)
         self.T0 = self.T.copy()
 
@@ -431,11 +440,15 @@ class Document:
     # ---------- output ----------
     def _out(self, D): return gpd.GeoDataFrame(D.drop(columns=["_eid"]), geometry="geometry")
 
-    def save_as(self, path):
+    def save_as(self, path, draft=False):
         """atomic save: write a temporary GPKG in the same folder, close it, re-read and validate it; only an accepted file
         is renamed to the requested path. On any failure the temporary file is removed, nothing is left at `path`, and the
-        document stays unsaved (dirty)."""
+        document stays unsaved (dirty). If OCR texts still need review, the save is refused unless draft=True — a formal
+        export must never silently let unreviewed candidates through; a draft save records export_mode=draft + count."""
         import os, uuid
+        pend = int((self.T["review_status"] == "REVIEW_REQUIRED").sum()) if len(self.T) else 0
+        if pend and not draft:
+            raise EditError(f"{pend} OCR texts still require review; confirm/skip them or save with draft=true (草稿导出)")
         path = Path(path).resolve()
         if path == self.src.resolve(): raise EditError("refusing to overwrite the input GPKG; choose a new file name")
         if path.exists(): raise EditError(f"{path.name} already exists")
@@ -458,9 +471,11 @@ class Document:
             for q in (tmp, Path(str(tmp) + "-wal"), Path(str(tmp) + "-shm")):
                 if q.exists(): q.unlink()
             raise
-        rep["path_sha256"] = sha256(path); log = path.with_suffix(".edits.json")
+        rep["path_sha256"] = sha256(path); rep["export_mode"] = "draft" if (pend and draft) else "formal"; rep["unreviewed"] = pend
+        log = path.with_suffix(".edits.json")
         json.dump({"input": str(self.src), "input_sha256": self.src_sha, "output": str(path), "output_sha256": rep["path_sha256"], "edits": self.log,
-                   "diff": self.diff(), "verification": rep, "document_version": self.version}, open(log, "w"), indent=1, default=float)
+                   "diff": self.diff(), "verification": rep, "document_version": self.version,
+                   "export_mode": rep["export_mode"], "unreviewed": pend, "review": self.review_counters()}, open(log, "w"), indent=1, default=float)
         self.dirty = False; return {"path": str(path), "edit_log": str(log), **rep}
 
     def verify(self, path):
@@ -507,7 +522,7 @@ class Document:
                 "styles": self.styles, "render": self.render_lines(),
                 "texts": [{"id": int(e), "x": round(g.x, 2), "y": round(g.y, 2), **{k: (None if pd.isna(r[k]) else (r[k].item() if hasattr(r[k], "item") else r[k])) for k in TEXT_COLS + [c for c in ("candidate_texts", "rule_reasons", "geometry_status", "ocr_engine") if c in self.T.columns]}}
                           for e, g, (_, r) in zip(self.T["_eid"], self.T.geometry, self.T.iterrows())],
-                "residue_lines": len(self.Q), "pending": self.pending_residue(),
+                "residue_lines": len(self.Q), "pending": self.pending_residue(), "review": self.review_counters(),
                 "residue": [{"id": int(e), "line_id": r.get("line_id"), "rgb": r.get("rgb"), "width": float(r.get("width_px") or 1), "length": round(float(g.length), 1),
                              "coords": [[round(x, 2), round(y, 2)] for x, y in g.coords]} for e, g, (_, r) in zip(self.Q["_eid"], self.Q.geometry, self.Q.iterrows())]}
 
@@ -1026,7 +1041,7 @@ class TextMixin:
         if "rgb" in kw: upd["rgb"] = hex_ok(kw["rgb"])
         if "review_status" in kw:
             rs = str(kw["review_status"])
-            if rs not in ("OCR_CANDIDATE", "OCR_DRAFT", "HUMAN_EDITED", "OCR_CONFIRMED", "TEXT_VECTOR_CREATED", "BACKGROUND_CLEAR_PENDING", "TEXT_LAYER_COMPLETE"): raise EditError(f"bad review_status {rs}")
+            if rs not in REVIEW_ALL: raise EditError(f"bad review_status {rs}")
             upd["review_status"] = rs
         xy = (float(kw["x"]), float(kw["y"])) if "x" in kw and "y" in kw else None
         if xy and not (0 <= xy[0] <= self.W and 0 <= xy[1] <= self.H): raise EditError("text position outside the image")
@@ -1079,6 +1094,94 @@ class TextMixin:
             back = self.Q.loc[m].copy(); back["source"] = "restored_from_text_residue"
             self.L = gpd.GeoDataFrame(pd.concat([self.L, back], ignore_index=True), geometry="geometry"); self.Q = self.Q.loc[~m].copy()
         self._do("restore text-residue lines", f, objects=int(m.sum()))
+
+    # ---------- OCR confidence review (P1): classify -> queue -> human decision ----------
+
+    def _text_risk_reasons(self, r, lines_union=None):
+        """geology-aware risk rules; any hit forces human review regardless of the model score."""
+        rs, t = [], str(r.get("text") or "")
+        if not t.strip(): rs.append("empty_text")
+        if _ERA_RE.match(t): rs.append("stratigraphic_or_lithology_code")
+        if any(c in _SUBSUP_CHARS for c in t) or re.search(r"[A-Za-zЄϵ][0-9]|[0-9][A-Za-z]", t): rs.append("sub_or_superscript")
+        if re.fullmatch(r"[0-9]{1,3}", t) or (len(t) <= 2 and any(c.isdigit() for c in t)): rs.append("numeric_or_short")
+        if any(not _SAFE_CHAR_RE.match(c) for c in t): rs.append("special_symbol")
+        try:
+            if abs(float(r.get("angle_deg") or 0)) > 15: rs.append("rotated_or_vertical")
+        except (TypeError, ValueError): pass
+        cts = r.get("candidate_texts")
+        if isinstance(cts, str) and cts.strip():
+            try:
+                cl = json.loads(cts); ot = str(r.get("ocr_text") or "")
+                if t and ot and t != ot and t not in cl: rs.append("text_differs_from_candidates")
+            except (ValueError, TypeError): pass
+        if lines_union is not None and not pd.isna(r.get("box_x0")):
+            try:
+                box = Polygon([(r.box_x0, r.box_y0), (r.box_x1, r.box_y0), (r.box_x1, r.box_y1), (r.box_x0, r.box_y1)])
+                inner = box.buffer(-0.25 * min(box.bounds[2] - box.bounds[0], box.bounds[3] - box.bounds[1]))
+                if not inner.is_empty and lines_union.intersects(inner):
+                    rs.append("soft:crosses_boundary_line")   # ubiquitous on dense geologic maps: recorded, does not force review alone
+            except Exception: pass
+        return rs
+
+    def classify_review(self, threshold=OCR_REVIEW_THRESHOLD):
+        """route OCR texts by confidence + risk rules. Human-terminal states and manual texts are never reclassified;
+        auto-accepted rows are marked AUTO_ACCEPTED_UNVERIFIED, never OCR_CONFIRMED. One undoable step."""
+        th = float(threshold)
+        if not (0.0 < th <= 1.0): raise EditError("threshold must be in (0,1]")
+        uni = shapely.union_all(list(self.L.geometry)) if len(self.L) else None
+        now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        def f():
+            for i, r in self.T.iterrows():
+                if str(r.get("review_status") or "") in REVIEW_HUMAN or str(r.get("source") or "") == "manual": continue
+                reasons = self._text_risk_reasons(r, uni)
+                sc = r.get("ocr_score"); sc = float(sc) if sc is not None and not pd.isna(sc) else None
+                if sc is None: reasons = ["no_ocr_evidence"] + reasons
+                hard = [x for x in reasons if not x.startswith("soft:")]
+                req = sc is None or sc < th or bool(hard)
+                self.T.loc[i, "review_status"] = "REVIEW_REQUIRED" if req else "AUTO_ACCEPTED_UNVERIFIED"
+                self.T.loc[i, "review_reason"] = json.dumps(reasons, ensure_ascii=False)
+                self.T.loc[i, "reviewed_at"], self.T.loc[i, "review_actor"] = now, f"auto:classify@{th}"
+        self._do("classify OCR review", f, objects=len(self.T))
+        return self.review_counters()
+
+    def review_counters(self):
+        c = {"total": int(len(self.T)), "required": 0, "skipped": 0, "auto_accepted": 0, "confirmed": 0, "human_edited": 0, "other": 0}
+        for v in self.T.get("review_status", []):
+            if v == "REVIEW_REQUIRED": c["required"] += 1
+            elif v == "REVIEW_SKIPPED": c["skipped"] += 1
+            elif v == "AUTO_ACCEPTED_UNVERIFIED": c["auto_accepted"] += 1
+            elif v == "OCR_CONFIRMED": c["confirmed"] += 1
+            elif v == "HUMAN_EDITED": c["human_edited"] += 1
+            else: c["other"] += 1
+        c["pending"] = c["required"]
+        return c
+
+    def review_queue(self, include_all=False):
+        """items needing the review UI, sorted top-to-bottom then left-to-right; skipped items go last."""
+        keep = ("REVIEW_REQUIRED", "REVIEW_SKIPPED", "AUTO_ACCEPTED_UNVERIFIED") if include_all else ("REVIEW_REQUIRED", "REVIEW_SKIPPED")
+        out = []
+        for _, r in self.T.loc[self.T["review_status"].isin(keep)].iterrows():
+            try: rs = json.loads(r.get("review_reason") or "[]")
+            except (ValueError, TypeError): rs = []
+            out.append({"id": int(r["_eid"]), "text": r["text"], "ocr_text": r.get("ocr_text"), "score": (None if pd.isna(r.get("ocr_score")) else float(r["ocr_score"])),
+                        "x": round(r.geometry.x, 1), "y": round(r.geometry.y, 1), "box": [r.get("box_x0"), r.get("box_y0"), r.get("box_x1"), r.get("box_y1")],
+                        "status": r["review_status"], "reasons": rs})
+        out.sort(key=lambda e: (e["status"] == "REVIEW_SKIPPED", e["y"], e["x"]))
+        return out
+
+    def review_decide(self, ids, action, actor="human"):
+        """confirm -> OCR_CONFIRMED; skip -> REVIEW_SKIPPED (still flagged, leaves the active queue). Undoable."""
+        if action not in ("confirm", "skip"): raise EditError("action must be confirm|skip")
+        m = self.T["_eid"].isin([int(i) for i in ids])
+        if not m.any(): raise EditError("no such text")
+        eligible = self.T.loc[m, "review_status"].isin(("REVIEW_REQUIRED", "REVIEW_SKIPPED", "AUTO_ACCEPTED_UNVERIFIED"))
+        if not eligible.all(): raise EditError("only queued/auto-accepted texts can be decided here; human-edited rows already carry a terminal state")
+        now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        def f():
+            self.T.loc[m, "review_status"] = "OCR_CONFIRMED" if action == "confirm" else "REVIEW_SKIPPED"
+            self.T.loc[m, "reviewed_at"], self.T.loc[m, "review_actor"] = now, str(actor)
+        self._do(f"ocr review {action}", f, objects=int(m.sum()))
+        return self.review_counters()
 
 
 for _n, _f in list(vars(TextMixin).items()):
