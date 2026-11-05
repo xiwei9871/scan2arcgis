@@ -1,0 +1,8 @@
+issue_id,input_sha256,before_version,after_version,operator_type,actions_count,clicks_count,elapsed_seconds,objects_changed,reverted_objects,success,harm_detected,verification_method
+A09,988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7,0,1,AGENT_OPERATED,4,4,0.03,1,1,True,False,suggest->risks->(merge|group)->undo; coverage_report
+A15,988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7,0,2,AGENT_OPERATED,3,3,0.0,1,1,True,False,preview->join->undo; line count + geometry
+A24,988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7,0,2,AGENT_OPERATED,3,3,0.0,3,3,True,False,preview->new_group->undo; logical_id compare
+A20,988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7,2,4,AGENT_OPERATED,4,4,0.0,3,6,True,False,apply_legend->render check->join refused->undo
+A33,988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7,0,6,AGENT_OPERATED,4,4,26.4,2,2,True,False,merge->draw axis->line_to_face->IoU vs original->undo x2
+A01/A02/E10,9e9b87f683d20a4b06638427af078f97c655ba6b48ca5b1ac85c9a521401523d,0,1,AGENT_OPERATED,4,4,14.61,2,0,True,False,suggest->line_ids=suggested->apply->draft save->reopen compare
+A10,988df621966d1b3ea25843c51a27ee0b3d691c6b3bb83f979ebff654fa9a6fd7,0,2,AGENT_OPERATED,4,4,4.88,4671,1,True,False,preview->clip export->readback bounds->reopen ROI->undo
