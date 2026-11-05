@@ -400,3 +400,27 @@ def test_roi_export_keep_preserves_crossing_wholes(tmp_path):
     assert u.area > 60 * 120, "kept crossing faces extend past the ROI - union covers it"
     with pytest.raises(EditError):
         d.save_as(tmp_path / "formal.gpkg"), "formal save still refuses while F3 is outside the ROI"
+
+
+def test_dash_wrongly_joined_split_regap_regroup(tmp_path):
+    """A20 recovery path: B2c connected separate dashes into one solid line. Manual repair = split at each
+    gap boundary, delete the wrong connector segments, re-assign the dash legend, regroup logically.
+    The dash interval semantics are restored; render still comes from the legend."""
+    d, _ = make_broken_doc(tmp_path)
+    # pretend L0+L1 were wrongly auto-joined in the input: one solid line with a wrong connector 40-45
+    d.join_lines([0, 1])                                    # now one solid 10->80 line (the "wrong" state)
+    solid = int(d.L.loc[d.L["line_id"] == "L0", "_eid"].iloc[0])
+    d.split_line(solid, 45, 10)                             # cut at gap end -> [10-45,45-80]
+    d.split_line(solid, 40, 10)                             # cut at gap start -> [10-40,40-45,45-80]
+    pieces = list(d.L.loc[d.L.geometry.bounds.minx.between(9, 81) & d.L.geometry.bounds.miny.between(9, 11), "_eid"])
+    conn = [e for e in pieces if abs(d.L.loc[d.L["_eid"] == e, "geometry"].iloc[0].length - 5) < 1e-6]
+    assert len(conn) == 1, "the wrongly-drawn 40-45 connector is isolated"
+    d.isolate_lines(conn, reason="dash_gap")                # remove the false connector - isolated, restorable
+    dash = [e for e in pieces if e != conn[0]]
+    for e in dash: d.apply_legend("visual_lines", [e], "L_DASH_RED")
+    lid = d.new_group(dash)
+    assert set(d.L.loc[d.L["_eid"].isin(dash), "logical_id"]) == {lid} and len(d.L) == 4
+    render = {r["id"]: r for r in d.render_lines()}
+    assert all(render[e]["line_type"] == "dash" for e in dash), "the two segments render dashed again"
+    total = sum(d.L.loc[d.L["_eid"].isin(dash), "geometry"].iloc[i].length for i in range(2))
+    assert total == 65.0, "two dash segments, 30+35 visible length, the 5px interval is preserved as a gap"
