@@ -709,9 +709,8 @@ class SelectionMixin:
         if len(ids) < 2: raise EditError("select at least 2 faces to group")
         m = self._rows(FACE, ids)
         gid = f"FG{self.next_fg}"
-        def f(): self.F.loc[m, "face_group"] = gid
+        def f(): self.F.loc[m, "face_group"] = gid; self.next_fg += 1
         self._do("group faces (logical)", f, objects=len(ids), group=1)
-        self.next_fg += 1
         return gid
 
     def ungroup_faces(self, ids):
