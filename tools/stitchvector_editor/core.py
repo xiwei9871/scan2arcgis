@@ -266,14 +266,21 @@ class Document:
         return [int(eid), self.next_l - 1]
 
     def add_line(self, coords, width, rgb, logical_id=None, snap=3.0):
-        """draw a polyline (>= 2 points); first and last points snap to the nearest line end point within `snap` px."""
+        """draw a polyline (>= 2 points); first and last points snap to the nearest line end point within `snap` px,
+        else to the nearest point on any existing line (T-junction boundary snapping for narrow-face work)."""
         c = [list(map(float, p)) for p in coords]
         if len(c) < 2: raise EditError("a line needs at least 2 points")
         ends = [q for g in self.L.geometry for q in (g.coords[0], g.coords[-1])] if len(self.L) else []
         for k in (0, -1):
             if ends:
                 d = [np.hypot(q[0] - c[k][0], q[1] - c[k][1]) for q in ends]; j = int(np.argmin(d))
-                if d[j] <= snap: c[k] = list(ends[j])
+                if d[j] <= snap: c[k] = list(ends[j]); continue
+            if len(self.L):
+                p = Point(c[k]); best, bd = None, snap
+                for g in self.L.geometry:
+                    q = g.interpolate(g.project(p)); dd = p.distance(q)
+                    if dd < bd: best, bd = q, dd
+                if best is not None: c[k] = [best.x, best.y]
         g = LineString(c)
         if g.length < 0.5: raise EditError("line too short")
         lid = logical_id or f"E{self.next_l}"; rgb = hex_ok(rgb)
@@ -336,7 +343,7 @@ class Document:
             self.F = self.F.loc[~(m & ~k)].copy()
         self._do("merge faces", f, objects=len(ids), merge=1); return keep
 
-    def line_to_face(self, ids, width=None, rgb=None):
+    def line_to_face(self, ids, width=None, rgb=None, label=None, group=None):
         """EXPERIMENTAL: buffer the selected lines (width/2), cut that area out of every face it overlaps, insert it as a
         new face, remove the lines. Coordinates are snapped to a 1/8 px grid so neighbouring faces share vertices;
         if the face layer is not a valid coverage afterwards the edit is rolled back."""
@@ -358,7 +365,8 @@ class Document:
             add = []
             for p in [q for q in shapely.get_parts(poly) if q.geom_type == "Polygon"]:
                 r = {c: None for c in self.face_cols}; r.update({"rgb": col, "source": "edited_line_to_face"})
-                if "label" in r: r["label"] = -1
+                if "label" in r: r["label"] = label if label is not None else -1
+                if "face_group" in r and group: r["face_group"] = group
                 if "observed_px" in r: r["observed_px"] = 0; r["inferred_px"] = 0
                 if "colour_class" in r: r["colour_class"] = -1
                 add.append({**r, "geometry": p, "_eid": self.next_f}); self.next_f += 1

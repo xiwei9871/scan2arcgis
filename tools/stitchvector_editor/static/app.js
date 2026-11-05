@@ -195,7 +195,7 @@ async function mergeWithConfirm(op) {
 $("merge").onclick = () => guard(async () => { if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await mergeWithConfirm("merge"); setSel("face", [r.id]); msg("已合并（来源见 merged_from）", true); });
 $("del").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); await api("delete", { ids: sel.ids }); setSel("line", []); msg("已删除", true); });
 $("regroup").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const r = await api("regroup", { ids: sel.ids }); msg("新组 " + r.logical_id, true); });
-$("l2f").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const r = await api("line_to_face", { ids: sel.ids, width: +$("width").value, rgb: $("colour").value }); setSel("face", []); msg(`线转面完成，面积 ${r.area_px2.toFixed(1)} px²（实验功能）`, true); });
+$("l2f").onclick = () => guard(async () => { if (sel.layer !== "line" || !sel.ids.length) throw new Error("先选中线"); const lb = $("l2fLabel").value.trim(); const r = await api("line_to_face", { ids: sel.ids, width: +$("width").value, rgb: $("colour").value, label: lb === "" ? null : (isNaN(+lb) ? lb : +lb) }); setSel("face", []); msg(`线转面完成，面积 ${r.area_px2.toFixed(1)} px²（实验功能）`, true); });
 $("undo").onclick = () => guard(async () => { const r = await api("undo"); msg("撤销：" + r.undone, true); });
 $("redo").onclick = () => guard(async () => { const r = await api("redo"); msg("重做：" + r.redone, true); });
 $("save").onclick = () => guard(async () => {

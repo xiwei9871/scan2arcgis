@@ -198,3 +198,47 @@ def test_legit_multi_region_not_forced(tmp_path):
     assert gid and (d.F["face_group"] == gid).sum() == 2
     with pytest.raises(EditError, match="share an edge"):
         d.merge_components([1, 3], allow_mixed_labels=True)   # no shared edge -> can never union into one face
+
+
+# ---------- T12: narrow-face restoration + wrong-merge splitting ----------
+
+def test_draw_snaps_to_line_midsegment(tmp_path):
+    """T-junction boundary snapping: a drawn endpoint near the middle of an existing line snaps onto it."""
+    d, _ = make_frag_doc(tmp_path)
+    lid = d.add_line([(50, 5), (49.4, 40.8)], width=2, rgb="#000000")   # end near L0 (y=40) mid-segment
+    g = d.L.loc[d.L["_eid"] == lid, "geometry"].iloc[0]
+    x, y = list(g.coords)[-1]
+    assert abs(y - 40.0) < 1e-6 and abs(x - 49.4) < 1e-6, "endpoint snapped onto the line's mid-segment"
+
+
+def test_narrow_face_restored_by_draw_and_l2f(tmp_path):
+    """A05: draw the missing narrow band's axis, line_to_face -> labelled narrow face, coverage stays valid,
+    neighbours keep their ids."""
+    d, _ = make_frag_doc(tmp_path)
+    n0, ids0 = len(d.F), set(d.F["face_id"])
+    lid = d.add_line([(25, 42), (25, 118)], width=4, rgb="#aaaaaa")
+    r = d.line_to_face([lid], width=4, rgb="#aaaaaa", label="K1")
+    assert r["area_px2"] > 0
+    new = d.F.loc[d.F["source"] == "edited_line_to_face"]
+    assert len(new) == 1 and new["label"].iloc[0] == "K1", "the narrow band becomes a labelled face"
+    assert set(d.F["face_id"]) >= ids0 - {"F1"}, "existing faces survive (pieces keep original ids)"
+    rep = __import__("tools.stitchvector_editor.core", fromlist=["coverage_report"]).coverage_report(d.F, W, H)
+    assert rep["accepted"], rep
+    d.undo_op(); assert len(d.F) == n0 and len(d.L) == 2, "one undo restores the drawn line"
+    d.undo_op(); assert len(d.L) == 1, "a second undo removes it"
+
+
+def test_wrong_merge_split_along_drawn_line(tmp_path):
+    """A06: a wrongly merged face is cut along a user-drawn SPLIT line; preview first, neighbours untouched."""
+    d, _ = make_frag_doc(tmp_path)
+    d.merge_components([0, 1, 2], allow_mixed_labels=True)          # pretend B2c wrongly merged the left block
+    assert len(d.F) == 2
+    lid = d.add_line([(50, -0.5), (50, 120.5)], width=2, rgb="#000000")
+    d.set_role([lid], "SPLIT")
+    pv = d.split_face_preview(lid)
+    assert pv["pieces"] == 2 and pv["faces_cut"] == 1
+    r = d.split_face_apply(pv["preview_id"])
+    assert len(d.F) == 3, "merged face is back to two pieces"
+    f3 = d.F.loc[d.F["face_id"] == "F3"].iloc[0]
+    assert f3.geometry.area > 0, "the untouched face is not harmed"
+    d.undo_op(); assert len(d.F) == 2

@@ -115,7 +115,7 @@ class H(BaseHTTPRequestHandler):
             elif op == "split": r = {"ids": d.split_line(int(a["id"]), float(a["x"]), float(a["y"]))}
             elif op == "draw": r = {"id": d.add_line(a["coords"], float(a.get("width", 2)), a.get("rgb", "#000000"), a.get("logical_id"))}
             elif op == "merge": r = {"id": d.merge_faces(a["ids"], bool(a.get("allow_mixed_labels")))}
-            elif op == "line_to_face": r = d.line_to_face(a["ids"], a.get("width"), a.get("rgb"))
+            elif op == "line_to_face": r = d.line_to_face(a["ids"], a.get("width"), a.get("rgb"), a.get("label"), a.get("group"))
             elif op == "select_gesture":
                 g = d.gesture(a["kind"], a["points"], float(a.get("radius", 0)))
                 ids = d.select_region(g, lay, a.get("rule", "touch"), a.get("max_area"))
