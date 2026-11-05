@@ -75,7 +75,7 @@ def save_version(pid, note):
     """editor document -> versions/vNNN.gpkg (Document.save_as: temp file, read-back verify, rename) -> working copy."""
     import os
     d = editor_doc(pid); vname = WS.next_version(pid); dst = WS.pdir(pid) / "versions" / f"{vname}.gpkg"
-    rep = d.save_as(dst)                                  # refuses to overwrite; failure leaves nothing behind
+    rep = d.save_as(dst, draft=True)                      # a version is a working draft: unreviewed texts stay draft, never silently formal
     edits = list(d.log)
     cur = WS.pdir(pid) / "working" / "current.gpkg"; tmp = cur.with_name(".current.tmp.gpkg")
     shutil.copyfile(dst, tmp); os.replace(tmp, cur)

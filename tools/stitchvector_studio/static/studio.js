@@ -83,11 +83,11 @@ $s("sSave").onclick = () => sguard(async () => {
 $s("sOpenV").onclick = () => sguard(async () => { const v = $s("sVersions").value; if (!v) throw new Error("先选择版本"); await openEditor(v); await showProject(); smsg("已打开版本 " + v, true); });
 $s("sExport").onclick = () => sguard(async () => {
   if (!SV.pid) throw new Error("先选择项目"); const layers = [...document.querySelectorAll(".sLay")].filter(x => x.checked).map(x => x.value);
-  smsg("导出中…", true); const r = await sapi("POST", `projects/${SV.pid}/exports`, { format: $s("sFmt").value, layers, allow_pixel_space: $s("sPixelOk").checked });
+  smsg("导出中…", true); const r = await sapi("POST", `projects/${SV.pid}/exports`, { format: $s("sFmt").value, layers, allow_pixel_space: $s("sPixelOk").checked, draft: $s("sDraft").checked });
   const a = document.createElement("a"); a.href = r.download; a.textContent = `下载 ${r.file}（${(r.bytes / 1024).toFixed(0)} KB）`; a.id = "sDlLink"; a.download = r.file;
   $s("sDl").innerHTML = ""; $s("sDl").append(a);
   const rb = Object.entries(r.readback.layers).map(([k, v]) => `${k} ${v.features}/${v.expected}`).join("，");
-  smsg(`已导出 ${r.format}（${r.coordinate_mode}${r.note ? "，" + r.note : ""}）；回读 ${r.readback.ok ? "通过" : "失败"}：${rb}`, r.readback.ok); });
+  smsg(`已导出 ${r.format}（${r.coordinate_mode}${r.export_mode === "draft" ? "，草稿" : ""}${r.note ? "，" + r.note : ""}）；回读 ${r.readback.ok ? "通过" : "失败"}：${rb}`, r.readback.ok); });
 
 // OCR candidate boxes: their own overlay, independent of the text layer (candidates are never text objects)
 $s("sShowOcr").onchange = () => draw();

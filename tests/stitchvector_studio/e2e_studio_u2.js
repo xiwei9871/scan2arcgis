@@ -42,11 +42,15 @@ async (page) => {
   // a real OCR error: pick a draft whose raw OCR differs from the expected form and fix it
   const target = s.texts.find(t => t.ocr_text === "轩肉镇") || s.texts.find(t => /^Ar2/.test(t.ocr_text)) || s.texts.find(t => t.text !== t.ocr_text);
   ok(!!target, `real OCR error chosen: raw "${target && target.ocr_text}" (draft "${target && target.text}")`);
-  const fixed = target.ocr_text === "轩肉镇" ? "轩岗镇" : "Ar₂E";
   await page.evaluate((id) => { selText = id; }, target.id);
-  await page.fill("#tText", fixed); await page.click("#textEdit"); await page.waitForTimeout(800);
+  // P1.1 gate: re-submitting identical content is NOT a human confirmation
+  await page.fill("#tText", target.text); await page.click("#textEdit"); await page.waitForTimeout(600);
   s = await st(); let t2 = s.texts.find(t => t.id === target.id);
-  ok(t2.text === fixed && t2.ocr_text === target.ocr_text && t2.review_status === "HUMAN_EDITED", `text edited: ocr_text "${t2.ocr_text}" kept, text "${t2.text}", ${t2.review_status}`);
+  ok(t2.review_status !== "HUMAN_EDITED", `same-text resubmit is not a confirmation: ${t2.review_status}`);
+  const fixed = target.ocr_text === "轩肉镇" ? "轩岗镇" : (target.text === "Ar₂E" ? "Ar₂D" : "Ar₂E");
+  await page.fill("#tText", fixed); await page.click("#textEdit"); await page.waitForTimeout(800);
+  s = await st(); t2 = s.texts.find(t => t.id === target.id);
+  ok(t2.text === fixed && t2.ocr_text === target.ocr_text && t2.review_status === "HUMAN_EDITED", `real edit confirms: ocr_text "${t2.ocr_text}" kept, text "${t2.text}", ${t2.review_status}`);
   // move + add + delete text
   await page.evaluate(async (id) => { await api("text_edit", { id, x: 100, y: 100 }); await refresh(); }, target.id);
   s = await st(); t2 = s.texts.find(t => t.id === target.id); ok(Math.abs(t2.x - 100) < 0.01 && Math.abs(t2.y - 100) < 0.01, "text moved to (100,100)");
