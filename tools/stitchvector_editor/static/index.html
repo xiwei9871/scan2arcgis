@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 <meta charset="utf-8">
-<title>StitchVector Editor V0.2 (line repair + legend)</title>
+<title>StitchVector Studio 编辑器 V0.2</title>
 <style>
   body { margin: 0; font: 13px -apple-system, sans-serif; display: flex; height: 100vh; }
   #side { width: 300px; padding: 8px; overflow-y: auto; border-right: 1px solid #ccc; background: #fafafa; }
@@ -23,10 +23,10 @@
 </head>
 <body>
 <div id="side">
-  <b>StitchVector Editor V0.2 (line repair + legend)</b> <span id="dirty"></span>
+  <b>StitchVector 编辑器 V0.2</b> <span id="dirty"></span>
   <div id="src" style="font-size:11px;color:#555"></div>
 
-  <h3>显示</h3>
+  <h3>① 显示与核验</h3>
   <div class="row"><label><input type="checkbox" id="showImg" checked> 原图</label>
     <label><input type="checkbox" id="showFaces" checked> 面层</label>
     <label><input type="checkbox" id="showLines" checked> 线层</label>
@@ -34,7 +34,7 @@
   <div class="row">面层透明度 <input type="range" id="alpha" min="0" max="100" value="45" style="width:120px"></div>
   <div class="row">三态核验：<button id="viewA">A 原图</button> <button id="viewB">B 线面（文字关）</button> <button id="viewC">C 线面+文字</button></div>
   <div class="row"><label><input type="checkbox" id="showResidue" checked> 隔离线（紫色虚线）</label> <label><input type="checkbox" id="showResidueIds"> 隔离线编号 R…（调试）</label></div>
-  <h3>差异查看</h3>
+  <details open><summary><b>①b 差异查看（原图/矢量/残差对照）</b></summary>
   <div class="row">模式 <select id="diffMode">
     <option value="off">关闭（正常编辑视图）</option>
     <option value="scan_vector">左 原图 / 右 矢量渲染</option>
@@ -46,8 +46,9 @@
   <div id="diffInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
   <div class="row"><label><input type="checkbox" id="dual" checked> 左右对照（左：原图只读，右：矢量可编辑）</label></div>
   <div class="row"><button id="fit">适应窗口</button> 滚轮缩放，右键或空格拖动平移</div>
+</details>
 
-  <h3>工具</h3>
+  <h3>② 选择工具（碎面/线条/文字/范围）</h3>
   <div class="row">
     <button data-tool="pickFace" class="on">选面</button>
     <button data-tool="pickLine">选线</button>
@@ -55,6 +56,7 @@
     <button data-tool="eyedrop">吸管</button>
     <button data-tool="split">拆分线</button>
     <button data-tool="draw">补画线</button>
+    <button data-tool="joinEnds">端点接线</button>
     <button data-tool="textBox">框文字</button>
     <button data-tool="roiBox">框ROI</button>
     <button data-tool="addText">加文字</button> <button data-tool="moveText">移动文字</button>
@@ -70,19 +72,23 @@
     规则 <select id="selRule"><option value="touch">接触即选</option><option value="centre">中心在内</option><option value="cover50">覆盖过半</option></select>
   </div>
   <div class="row"><button id="growSel">选区外扩一圈</button> <button id="shrinkSel">选区内缩一圈</button></div>
+  <div class="row">碎面筛选：面积≤<input type="number" id="fragMaxArea" value="60" min="1" style="width:52px">px
+    <label><input type="checkbox" id="fragSameRgb" checked>同色于首选</label>
+    <label><input type="checkbox" id="fragSameLabel">同代号</label>
+    <button id="fragSelect">加入选区</button></div>
   <div class="row"><button id="mergePreview">预览合并</button> <button id="mergeGroups">按预览合并</button></div>
   <div class="row"><button id="suggestBtn">智能合并建议（点主面）</button>
     <button id="suggestGroup">勾选面→逻辑归组</button> <button id="suggestMerge">勾选面→几何合并</button></div>
   <div id="suggestBox" style="font:11px ui-monospace,monospace;background:#fff;border:1px solid #ddd;padding:4px;max-height:150px;overflow-y:auto;display:none"></div>
   <div class="row"><button id="healApply">执行修复（只合并“并入”项）</button> <button id="healCancel">取消修复预览</button></div>
   <div id="preview" style="font:11px ui-monospace,monospace;white-space:pre-wrap;background:#fff;border:1px solid #ddd;padding:4px;max-height:140px;overflow-y:auto">（无预览）</div>
-  <div class="row">Shift 加选。补画：逐点单击，双击结束。</div>
+  <div class="row">Shift 加选。补画：逐点单击，双击结束。端点接线：点第一条断线端点→再点另一端点自动预览。</div>
 
-  <h3>选择</h3>
+  <h3>③ 已选对象</h3>
   <div class="row"><button id="group">选整组线 (logical_id)</button> <button id="grow">扩展相邻同色面</button> <button id="clear">清除</button></div>
   <div id="sel">（无）</div>
 
-  <h3>编辑</h3>
+  <h3>④ 编辑与合并（面）</h3>
   <div class="row">颜色 <input type="color" id="colour" value="#ff0000"> <span id="pickedSw" class="sw"></span>
     <button id="apply">应用颜色</button></div>
   <div class="row">线宽 <input type="number" id="width" value="2" step="0.5" min="0.25" style="width:60px"> <button id="rewidth">应用线宽</button></div>
@@ -93,13 +99,14 @@
   <div class="row"><button id="l2f">线转面（实验）</button> 新面代号 <input id="l2fLabel" style="width:60px" placeholder="如 K1"></div>
   <div class="row"><button id="undo">撤销 ⌘Z</button> <button id="redo">重做 ⇧⌘Z</button></div>
 
-  <h3>线的角色</h3>
+  <details open><summary><b>④b 线的角色（高级）</b></summary>
   <div class="row">角色 <select id="role"><option value="UNKNOWN">UNKNOWN 未定</option><option value="COVER">COVER 覆盖线</option><option value="SPLIT">SPLIT 分割线</option></select>
     <button id="setRole">设为所选线的角色</button></div>
   <div class="row">COVER：修复刷可清理线下碎面；SPLIT：可沿线切面；UNKNOWN：线下碎面一律待定。</div>
   <div class="row"><button id="splitPreview">预览沿 SPLIT 线切面</button> <button id="splitApply">执行切面</button></div>
+</details>
 
-  <h3>图例 Legend</h3>
+  <details open><summary><b>⑤ 图例（虚线/齿形等，高级）</b></summary>
   <div class="row"><select id="legend" style="width:200px"></select> <button id="applyLegend">应用到所选</button></div>
   <div class="row">颜色 <input type="color" id="stRgb"> 线宽 <input type="number" id="stWidth" step="0.5" min="0.5" style="width:50px"></div>
   <div class="row">线型 <select id="stType"><option value="solid">实线</option><option value="dash">虚线</option><option value="teeth">齿形</option></select>
@@ -107,8 +114,9 @@
   <div class="row">齿距 <input type="number" id="stSpacing" step="1" min="2" style="width:46px"> 齿高 <input type="number" id="stSize" step="0.5" min="0.5" style="width:46px">
     朝向 <select id="stSide"><option value="left">左</option><option value="right">右</option></select></div>
   <div class="row"><button id="saveStyle">保存图例修改（所有用此图例的对象立即更新）</button></div>
+</details>
 
-  <h3>文字</h3>
+  <h3>⑥ 文字与残影清理</h3>
   <div class="row">用“框文字”拖一个框 → 预览 → 确认文字内容</div>
   <div class="row">OCR 候选 <span id="ocrCand" style="font-family:ui-monospace">-</span></div>
   <div id="tExist" style="font:11px ui-monospace,monospace;color:#0059c1;white-space:pre-wrap"></div>
@@ -123,13 +131,13 @@
   <div class="row"><button id="textResidue">选中文字→查残影</button> <span style="font-size:11px;color:#666">按文字自带框识别；风险线默认不隔离</span></div>
   <div id="tResLines" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
 
-  <h3>处理范围 (ROI)</h3>
+  <h3>⑦ 处理范围 (ROI)</h3>
   <div class="row">用「框ROI」拖一个矩形设为处理范围；候选出域自动标 outside_roi，域外对象阻止正式导出</div>
   <div class="row"><button id="roiClear">清除ROI</button> <button id="roiReport">域外审计</button> <button id="roiClipPv">裁剪预览</button></div>
   <div class="row" style="font-size:11px;color:#666">保存时可选范围约束导出：keep=域外丢弃·跨界整体保留；clip=域外丢弃·跨界沿边界裁切</div>
   <div id="roiInfo" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
 
-  <h3>OCR 审核</h3>
+  <h3>⑧ OCR 审核</h3>
   <div class="row"><button id="classifyReview">置信度+风险分流</button> 阈值 <input type="number" id="revTh" value="0.90" step="0.05" min="0.5" max="1" style="width:56px"></div>
   <div class="row"><label><input type="checkbox" id="reviewMode"> 审核模式（红框=待审 橙=跳过）</label> <label><input type="checkbox" id="revOnly"> 只看待审</label></div>
   <div id="revCounters" style="font:11px ui-monospace,monospace;white-space:pre-wrap"></div>
@@ -139,13 +147,14 @@
     <div class="row"><button id="revConfirm">确认正确</button> <button id="revEdit">修改并确认</button> <button id="revSkip">暂时跳过</button></div>
   </div>
   <div class="row"><button id="textEdit">修改所选文字</button> <button id="textDelete">删除所选文字</button></div>
-  <h3>隔离线（文字残影线，可恢复）</h3>
+  <h3>⑧b 隔离线（残影线，可恢复）</h3>
   <div id="resList" style="font:11px ui-monospace,monospace;max-height:160px;overflow-y:auto">（无）</div>
-  <h3>保存</h3>
+  <h3>⑨ 保存</h3>
   <div class="row"><input id="fname" value="edited.gpkg" style="width:150px"> <button id="save">另存为新 GPKG</button></div>
   <div id="msg"></div>
-  <h3>修改记录</h3>
+  <details open><summary><b>修改记录</b></summary>
   <div id="log"></div>
+</details>
 </div>
 <div id="wrap"><div id="mainL"><span class="tag">原图（只读）</span><canvas id="cvL"></canvas></div><div id="main"><span class="tag">矢量结果（编辑）</span><canvas id="cv"></canvas></div></div>
 <script src="/app.js"></script>

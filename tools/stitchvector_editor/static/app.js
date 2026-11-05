@@ -6,7 +6,7 @@ let revQueue = [], revIdx = 0, revCur = null;
 let aGroup = null, aTarget = null, assigns = {}, skipped = new Set(), hiRes = null;
 const img = new Image(); const off = document.createElement("canvas"); let offCtx = null;
 let S = null, tool = "pickFace", sel = { layer: "face", ids: [] }, view = { s: 1, x: 0, y: 0 }, drawPts = [], drag = null;
-let stroke = null, mergePv = null, healPv = null, suggestPv = null, roiB = null, joinPv = null;
+let stroke = null, mergePv = null, healPv = null, suggestPv = null, roiB = null, joinPv = null, joinEnd = null;
 const $ = (id) => document.getElementById(id);
 
 function msg(t, ok) { $("msg").style.color = ok ? "#060" : "#b00"; $("msg").textContent = t || ""; }
@@ -96,6 +96,9 @@ function draw() {
   if (splitPv) for (const ring of splitPv.outline) { ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.lineTo(p[0], p[1])); ctx.closePath(); ctx.strokeStyle = "#ffea00"; ctx.lineWidth = 2 / view.s; ctx.stroke(); }
   if (joinPv) { ctx.strokeStyle = "#00bcd4"; ctx.lineWidth = 2 / view.s; ctx.setLineDash([5 / view.s, 3 / view.s]);
     for (const c of joinPv.connectors) { ctx.beginPath(); ctx.moveTo(c[0][0], c[0][1]); ctx.lineTo(c[1][0], c[1][1]); ctx.stroke(); } ctx.setLineDash([]); }
+  if (joinEnd) { ctx.fillStyle = "#d32f2f"; ctx.beginPath(); ctx.arc(joinEnd.pt[0], joinEnd.pt[1], 4 / view.s, 0, 7); ctx.fill();
+    ctx.strokeStyle = "#00bcd4"; ctx.lineWidth = 1.5 / view.s;
+    for (const c of joinEnd.cands) { ctx.beginPath(); ctx.arc(c.pt[0], c.pt[1], 5 / view.s, 0, 7); ctx.stroke(); } }
   if (roiB) { ctx.strokeStyle = "#aa00ff"; ctx.lineWidth = 2.5 / view.s; ctx.setLineDash([8 / view.s, 4 / view.s]); ctx.strokeRect(roiB[0], roiB[1], roiB[2] - roiB[0], roiB[3] - roiB[1]); ctx.setLineDash([]); }
   crosshair(ctx);
   if (drag && drag.box) { const [x0, y0] = drag.w0, [x1, y1] = drag.w1; ctx.strokeStyle = drag.roi ? "#aa00ff" : "#ffeb3b"; ctx.lineWidth = 1.5 / view.s; ctx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0)); }
@@ -119,7 +122,7 @@ function eyedrop(x, y) {
   const hex = "#" + [px[0], px[1], px[2]].map(v => v.toString(16).padStart(2, "0")).join("");
   $("colour").value = hex; $("pickedSw").style.background = hex; msg("吸取 " + hex, true);
 }
-async function guard(fn) { try { await fn(); await refresh(); } catch (e) { msg(e.message); } }
+async function guard(fn) { msg("处理中…", true); try { await fn(); await refresh(); } catch (e) { msg(e.message); } }
 
 cv.addEventListener("mousedown", (ev) => {
   const w = toWorld(ev);
@@ -148,6 +151,21 @@ cv.addEventListener("mouseup", async (ev) => {
   if (tool === "assignText") return assignClick(x, y);
   if (tool === "draw") { drawPts.push([x, y]); draw(); return; }
   if (tool === "split") return guard(async () => { if (sel.layer !== "line" || sel.ids.length !== 1) throw new Error("先用“选线”选中一条线"); const r = await api("split", { id: sel.ids[0], x, y }); setSel("line", r.ids); msg("已拆分", true); });
+  if (tool === "joinEnds") { const tol = 12 / view.s;
+    if (!joinEnd) { const e = nearEnd(x, y, tol); if (!e) { msg("未点到线端点，再试（放大更准）"); return; }
+      const cands = []; for (const l of S.lines) { if (l.id === e.line) continue;
+        for (const p of [l.coords[0], l.coords[l.coords.length - 1]]) {
+          const d = Math.hypot(p[0] - e.pt[0], p[1] - e.pt[1]); if (d < 60) cands.push({ line: l.id, pt: p, d }); } }
+      cands.sort((a, b) => a.d - b.d); joinEnd = { line: e.line, pt: e.pt, cands: cands.slice(0, 8) }; draw();
+      msg(`已选线 ${e.line} 端点：青圈为候选连接端点（${cands.length} 个），点选其一或直接点另一条线的端点`, true); return; }
+    const e2 = nearEnd(x, y, tol, joinEnd.line);
+    if (!e2) { joinEnd = null; draw(); msg("第二下未点到其它线端点，已取消端点接线"); return; }
+    const a = joinEnd.line, b = e2.line; joinEnd = null;
+    return guard(async () => { const r = await api("join_preview", { ids: [a, b] }); joinPv = r; setSel("line", [a, b]);
+      $("joinInfo").textContent = `链接顺序 ${r.order.join("→")}` + r.gaps.map(g => `\n#${g.between[0]}→#${g.between[1]} 端点距 ${g.gap}px`) +
+        (r.dash_protected ? "\n⚠ 含虚线：间隔是语义，不能几何接——请用逻辑归组" : "\n青色虚线=将补画的连接段"); draw();
+      if (r.dash_protected) msg("含虚线，不能几何接——用「归为同组」逻辑归组"); else
+      msg(`接线预览：线 ${a} ↔ ${b}，端点距 ${r.gaps.map(g => g.gap).join("/")}px。点「确认补线」执行；不合适可用补画手绘`, true); }); }
   if (tool === "pickFace") { const t = pickText(x, y); if (t) { selText = t.id; $("tText").value = t.text; $("tFont").value = t.font_px; $("tAngle").value = t.angle_deg; $("tRgb").value = t.rgb;
     if ($("reviewMode") && $("reviewMode").checked && (t.review_status === "REVIEW_REQUIRED" || t.review_status === "REVIEW_SKIPPED")) openReview(t.id);
     msg(`选中文字 ${t.text}`, true); draw(); return; } }
@@ -173,7 +191,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") { drawPts = []; setSel(sel.layer, []); }
 });
 document.addEventListener("keyup", (e) => { if (e.code === "Space") spaceDown = false; });
-window.addEventListener("beforeunload", (e) => { if (S && S.dirty) { e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("beforeunload", (e) => { if (!window.__svNoUnload && S && S.dirty) { e.preventDefault(); e.returnValue = ""; } });
 window.addEventListener("resize", draw);
 
 document.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => {
@@ -242,6 +260,23 @@ async function finishGesture(st, ev) {
   sel = { layer: "face", ids: r.ids }; stroke = null; mergePv = null; healPv = null; showSel(); draw(); msg(`选区 ${r.ids.length} 个面（${mode}）`, true);
 }
 $("growSel").onclick = () => guard(async () => { if (sel.layer !== "face" || !sel.ids.length) throw new Error("先选面"); const r = await api("grow_sel", { ids: sel.ids }); setSel("face", r.ids); msg(`外扩到 ${r.ids.length} 个面`, true); });
+$("fragSelect").onclick = () => guard(async () => {
+  if (sel.layer !== "face" || !sel.ids.length) throw new Error("先用选面/框选选中主面或碎面");
+  const seed = S.faces.find(f => f.id === sel.ids[0]);
+  const maxA = +$("fragMaxArea").value, sameRgb = $("fragSameRgb").checked, sameLab = $("fragSameLabel").checked;
+  const seedLab = seed.attrs.label;
+  const xs = seed.rings[0].map(p => p[0]), ys = seed.rings[0].map(p => p[1]);
+  const near = [Math.min(...xs) - 120, Math.min(...ys) - 120, Math.max(...xs) + 120, Math.max(...ys) + 120];
+  const add = S.faces.filter(f => { if (sel.ids.includes(f.id)) return false;
+    const cx = f.rings[0].reduce((a, p) => a + p[0], 0) / f.rings[0].length, cy = f.rings[0].reduce((a, p) => a + p[1], 0) / f.rings[0].length;
+    if (cx < near[0] || cx > near[2] || cy < near[1] || cy > near[3]) return false;
+    if (faceArea(f) > maxA) return false;
+    if (sameRgb && f.rgb !== seed.rgb) return false;
+    if (sameLab && seedLab != null && String(f.attrs.label) !== String(seedLab)) return false;
+    return true; }).map(f => f.id);
+  if (!add.length) { msg("邻近没有符合筛选的碎面（可调大面积阈值或取消颜色限制）"); return; }
+  sel.ids = [...sel.ids, ...add]; draw(); showSel();
+  msg(`已加入 ${add.length} 个邻近碎面（≤${maxA}px${sameRgb ? " 同色" : ""}${sameLab ? " 同代号" : ""}），可「预览合并」或「归为同组」`, true); });
 $("shrinkSel").onclick = () => guard(async () => { if (sel.layer !== "face" || !sel.ids.length) throw new Error("先选面"); const r = await api("shrink_sel", { ids: sel.ids }); setSel("face", r.ids); msg(`内缩到 ${r.ids.length} 个面`, true); });
 $("mergePreview").onclick = () => guard(async () => {
   if (sel.layer !== "face" || sel.ids.length < 2) throw new Error("至少选中 2 个面"); const r = await api("merge_preview", { ids: sel.ids }); mergePv = r; healPv = null;
@@ -406,6 +441,14 @@ $("revEdit").onclick = () => guard(async () => {
 });
 function textEm(t) { let w = 0; for (const ch of String(t || "")) { const o = ch.codePointAt(0); w += (o >= 0x2E80 && o <= 0x9FFF) || (o >= 0x3000 && o <= 0x303F) || (o >= 0xFF00 && o <= 0xFFEF) ? 1.0 : 0.58; } return w; }
 // text hit test = the RENDERED extent (anchor point + font + angle), not the OCR detection box. Mirrors core._text_*.
+function nearEnd(x, y, tol, exclude) {
+  let best = null;
+  for (const l of S.lines) { if (exclude && l.id === exclude) continue;
+    for (const p of [l.coords[0], l.coords[l.coords.length - 1]]) {
+      const d = Math.hypot(p[0] - x, p[1] - y); if (d < tol && (!best || d < best.d)) best = { line: l.id, pt: p, d }; } }
+  return best; }
+function faceArea(f) { const r = f.rings[0]; let a = 0;
+  for (let i = 0; i < r.length; i++) { const p = r[i], q = r[(i + 1) % r.length]; a += p[0] * q[1] - q[0] * p[1]; } return Math.abs(a / 2); }
 function pickText(x, y) {
   if (!S || !S.texts || !$("showText").checked) return null;
   const pad = 2 / view.s;
