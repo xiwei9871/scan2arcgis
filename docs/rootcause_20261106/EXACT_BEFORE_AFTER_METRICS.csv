@@ -1,0 +1,6 @@
+region,pipeline,faces_total,lines_total,texts,small_frag,enclosed_face,interior_ring,glyph_line,line_crosses_text,anomalies
+full_map,B2c_baseline,17047,606,0,14568,2313,172,214,77,17344
+full_map,ocr_protected_v01,14894,523,131,,,,,,
+shot2_exact_redface_519-325-792-632,B2c_baseline,17047,606,0,2265,321,41,26,20,2626
+shot2_exact_redface_519-325-792-632,ocr_protected_v01,14894,523,131,1956,356,38,25,19,2374
+shot1_text_betaQ,B2c_baseline,SOURCE_NOT_MATCHED,,,,,,,,

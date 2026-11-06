@@ -1,0 +1,29 @@
+{
+  "task": "StitchVector OCR-protected P0 hardening + exact revalidation",
+  "branch": "feat/stitchvector-tfl-rootcause",
+  "screenshots": {
+    "shot2_redface_frag": {"status": "MATCHED", "confidence": 0.78, "box": [519.5, 325.0, 791.7, 632.3], "scale": 0.5, "inliers": 108, "inlier_ratio": 0.956, "map_sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7"},
+    "shot1_text_betaQ": {"status": "SOURCE_NOT_MATCHED", "note": "ORB+multi-scale edge template+colour-layout template over 30+ candidate maps; best NCC visually rejected; beta-Q text absent from U2 OCR; not claimed fixed"}
+  },
+  "mask_safety": {"raw_quads": 219, "deduped": 131, "auto_clean": 66, "preserve_review": 65, "ink_px_cleaned": 8333,
+                  "removed_lines_audit": {"total": 94, "glyph_stroke_removed": 38, "possible_real_geology_REVIEW": 56},
+                  "ordering": "all risk decisions computed on untouched class image BEFORE any pixel repaint"},
+  "pipeline_output": {"faces": [17047, 14894], "lines": [606, 523], "text_labels": 131, "ocr_quads_layer": 131,
+                      "text_schema": "Point geometry + full TEXT_COLS", "review_status": "OCR_CANDIDATE x131"},
+  "shot2_exact_region_metrics": {
+    "box": [519, 325, 792, 632],
+    "B2c":  {"small_frag": 2265, "enclosed_face": 321, "interior_ring": 41, "glyph_line": 26, "line_crosses_text": 20, "anomalies": 2626},
+    "prot": {"small_frag": 1956, "enclosed_face": 356, "interior_ring": 38, "glyph_line": 25, "line_crosses_text": 19, "anomalies": 2374},
+    "verdict": "frag -14%, ring -7%, glyph_line -1; enclosed +35 (fill rebuild). Defect reduced but NOT eliminated - remaining non-text frags require T02 semi-auto workflow"
+  },
+  "studio_e2e": {"open": true, "review_queue": 131, "confirm": 1, "text_edit_undo": true, "save_version": "v001 readback-verified",
+                 "reopen_persist": true, "export_draft": {"geological_faces": 14894, "geological_lines": 523, "text_confirmed": 1, "text_unconfirmed": 130}},
+  "tests": {"synthetic_ocr_protected": "5 passed (no U2 required)", "rootcause_t02_t04": "6 passed", "total_editor_suite": "103+"},
+  "gates": {
+    "exact_match": {"shot2": "PASS", "shot1": "SOURCE_NOT_MATCHED/NOT_VERIFIED"},
+    "mask_safety_ordering": "PASS",
+    "studio_contract": "STUDIO_INTEGRATION_VERIFIED",
+    "exact_case_fix": {"shot2": "PARTIAL (defect reduced, remains non-zero)", "shot1": "NOT_VERIFIED"}
+  },
+  "production_unchanged": true, "b2c_baseline_unchanged": true, "protected_data_local": true
+}
