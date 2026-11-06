@@ -1,0 +1,26 @@
+{
+ "input": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_map.png",
+ "input_sha256": "05cdada47beed21363e7d1bf11bfa308ec3d02d6b270d06b4074906c6dcd64c7",
+ "ocr_source": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_ocr_full.json",
+ "ocr_items": 219,
+ "code_commit": "c6ba710f3f4b765cb9ee77a4c38948fe4179cf6d",
+ "errors": [],
+ "ok": true,
+ "glyph_ink_px": 77098,
+ "faces": 9638,
+ "lines": 392,
+ "lines_crosses_text": 104,
+ "ambiguous_quads": 186,
+ "baseline_lines": 606,
+ "baseline_glyph_like_lines": 250,
+ "seconds": {
+  "labels": 0.1,
+  "glyph_mask+inpaint": 0.0,
+  "lines_b2c_group": 3.9,
+  "faces": 8.1,
+  "write+metrics": 0.2,
+  "total": 12.3
+ },
+ "output": "/Users/xiwei/geomap2arcgis/runs/stitchvector/u2_full/u2_full_ocr_protected.gpkg",
+ "output_sha256": "3ec481acb97cd5dcc8d4e3e7c56c6a448a28ab056b8ffc7c5d3e7e8a5a9950b7"
+}

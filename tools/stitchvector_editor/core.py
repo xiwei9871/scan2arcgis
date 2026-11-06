@@ -868,6 +868,107 @@ class SelectionMixin:
                 "risky": [r["eid"] for r in out if not r["suggested"]],
                 "total_px_ops_saved": max(0, len(out) - 1)}
 
+    def internal_fragment_scan(self, box=None, max_area=120.0, colour_de=18.0, keep_aspect=15.0):
+        """T02: interior fragmentation scan, independent of OCR boxes and same-colour adjacency.
+
+        Classes per face (one STRtree built once):
+          enclosed   - every edge-neighbour is a single larger face.
+          island     - no edge-neighbour at all.
+          hole       - polygon with interior rings (possible false hole).
+          frag       - small face (<= max_area) with >=2 neighbours.
+        Decisions:
+          auto_merge - enclosed AND colour distance to host <= colour_de AND no label AND no shared visual-line
+                     boundary evidence AND area <= max_area AND not elongated (real narrow bands kept).
+          review     - enclosed but colour differs more, or a >=3-face enclosed cluster, or elongated/island.
+          keep       - has a geological label, touches a visual line, exceeds max_area, or an island >= keep_aspect.
+        Nothing is modified; candidates carry the host face and evidence for a preview + one-shot merge via
+        merge_components (enclosed fragments share their full boundary with the host, so a real geometric merge is legal)."""
+        ids = np.asarray(self.F["_eid"]); geoms = np.asarray(self.F.geometry.values, object)
+        tree = shapely.STRtree(geoms); areas = shapely.area(geoms)
+        rgbs = np.asarray(self.F["rgb"]); lab = dict(zip(ids, self.F["label"])) if "label" in self.F.columns else {}
+        region = shapely.box(*box) if box else None
+        line_b = shapely.unary_union([g for g in self.L.geometry]) if len(self.L) else None
+
+        def rgb2arr(h):
+            h = str(h).lstrip("#"); return np.array([int(h[i:i + 2], 16) for i in (0, 2, 4)], float)
+        out = []
+        for i, (e, g) in enumerate(zip(ids, geoms)):
+            e = int(e)
+            if region is not None and not g.intersects(region): continue
+            nb = {}
+            if not g.boundary.is_empty:
+                for j in tree.query(g.boundary.buffer(0.6)):
+                    if j == i: continue
+                    s = float(shapely.length(shapely.intersection(g.boundary, geoms[j])))
+                    if s >= 0.5: nb[int(ids[j])] = s
+            elongated = float(g.length ** 2 / max(areas[i], 1e-9)) > keep_aspect * 4
+            v = lab.get(e)
+            has_label = bool(v not in (None, "") and not pd.isna(v) and not str(v).strip().lstrip("-").replace(".", "", 1).isdigit())
+            # a numeric `label` is the B2c colour-class id, not a geological name - only real names protect a face
+            line_evidence = bool(line_b is not None and g.boundary.intersection(line_b).length >= 1.0)
+            rec = {"eid": e, "area": round(float(areas[i]), 1), "rgb": rgbs[i], "bounds": [round(v, 1) for v in g.bounds],
+                   "neighbours": len(nb), "has_label": has_label, "line_evidence": line_evidence,
+                   "elongated": elongated, "interior_rings": len(g.interiors)}
+            if len(g.interiors): rec["kind"] = "hole"; rec["hole_area"] = round(float(sum(shapely.Polygon(r).area for r in g.interiors)), 1)
+            if len(nb) == 0:
+                rec["kind"] = "island"
+            elif len(nb) == 1 and areas[i] < max(areas[int(np.nonzero(ids == list(nb)[0])[0][0])], 1):
+                host = list(nb)[0]; rec["kind"] = "enclosed"; rec["host_eid"] = host
+                rec["colour_distance"] = round(float(np.linalg.norm(rgb2arr(rgbs[i]) - rgb2arr(self.F.loc[self.F["_eid"] == host, "rgb"].iloc[0]))), 1)
+            elif areas[i] <= max_area:
+                rec["kind"] = "frag"
+                # dominant neighbour by shared-boundary length; same-colour domination is the merge cue
+                dom = max(nb, key=nb.get); rec["host_eid"] = dom
+                dj = int(np.nonzero(ids == dom)[0][0])
+                rec["boundary_share"] = round(nb[dom] / max(float(g.length), 1e-9), 3)
+                rec["colour_distance"] = round(float(np.linalg.norm(rgb2arr(rgbs[i]) - rgb2arr(rgbs[dj]))), 1)
+            else:
+                continue
+            # decision
+            if has_label or (line_evidence and rec["kind"] in ("enclosed", "frag")):
+                rec["decision"] = "keep"; rec["reason"] = "geological label or drawn line boundary"
+            elif rec["kind"] == "enclosed" and rec["colour_distance"] <= colour_de and areas[i] <= max_area and not elongated:
+                rec["decision"] = "auto_merge"; rec["reason"] = f"enclosed, colour dE {rec['colour_distance']} <= {colour_de}"
+            elif rec["kind"] == "frag" and rec["colour_distance"] <= colour_de and rec["boundary_share"] >= 0.4 and not elongated:
+                rec["decision"] = "auto_merge"; rec["reason"] = f"same-colour dominant neighbour, share {rec['boundary_share']}"
+            elif rec["kind"] == "island" and areas[i] <= 4:
+                rec["decision"] = "review"; rec["reason"] = "tiny isolated speckle"
+            elif rec["kind"] == "hole":
+                rec["decision"] = "review"; rec["reason"] = "interior ring (possible false hole)"
+            else:
+                rec["decision"] = "review"; rec["reason"] = "enclosed but colour differs / elongated / no dominant neighbour"
+            out.append(rec)
+        # cluster detection: connected groups of small enclosed/frag faces inside one host
+        small = {r["eid"] for r in out if r["kind"] in ("enclosed", "frag") and r["area"] <= max_area}
+        host_of = {r["eid"]: r.get("host_eid") for r in out}
+        from collections import defaultdict
+        clusters = defaultdict(list)
+        for r in out:
+            h = host_of.get(r["eid"])
+            if r["eid"] in small and h is not None: clusters[h].append(r["eid"])
+        for h, members in clusters.items():
+            if len(members) >= 3:
+                for r in out:
+                    if r["eid"] in members: r["cluster_host"] = h; r["cluster_size"] = len(members)
+        return {"scanned": len(ids), "candidates": out,
+                "auto_merge": [r["eid"] for r in out if r["decision"] == "auto_merge"],
+                "review": [r["eid"] for r in out if r["decision"] == "review"],
+                "keep": [r["eid"] for r in out if r["decision"] == "keep"],
+                "counts": {"enclosed": sum(1 for r in out if r["kind"] == "enclosed"),
+                           "island": sum(1 for r in out if r["kind"] == "island"),
+                           "hole": sum(1 for r in out if r["kind"] == "hole"),
+                           "frag": sum(1 for r in out if r["kind"] == "frag"),
+                           "clusters": sum(1 for v in clusters.values() if len(v) >= 3)}}
+
+    def fragment_merge_apply(self, ids=None, auto_only=False, allow_mixed_labels=False):
+        """T02 apply: merge scan candidates into their host faces — REAL geometric merge (not face_group).
+        auto_only=True restricts to scan's auto_merge list (each with its host). One undoable step; merged_from kept."""
+        if auto_only:
+            sc = self.internal_fragment_scan(); pairs = [(r["eid"], r["host_eid"]) for r in sc["candidates"] if r["decision"] == "auto_merge"]
+            ids = sorted({e for p in pairs for e in p})
+        if not ids: raise EditError("nothing to merge")
+        return self.merge_components(ids, allow_mixed_labels=allow_mixed_labels)
+
     def group_faces(self, ids):
         """LOGICAL_GROUP: tag faces with a shared face_group id; geometry untouched, undoable."""
         ids = sorted(set(int(i) for i in ids))
@@ -1178,39 +1279,57 @@ class TextMixin:
         if (x1 - x0) * (y1 - y0) > 120 * 120: raise EditError("text box too large (max 120x120 px); draw one box per label")
         return x0, y0, x1, y1
 
-    def text_preview(self, box, max_area=60.0, inside_share=0.5, line_inside=0.9, ocr=True):
+    def text_preview(self, box, max_area=60.0, inside_share=0.5, line_inside=0.9, ocr=True,
+                     max_area_review=240.0, line_candidate_share=0.4):
         """Plan for one text box. Residue faces: area <= max_area and >= inside_share of their area inside the box.
-        Residue faces are grouped by shared edges; a group adjacent to exactly ONE ground face (a non-residue face that
-        covers part of the box) is proposed to merge into it; a group touching two or more ground faces (box on a contact)
-        or none is 'uncertain' and left alone. Lines with >= line_inside of their length in the box go to text_residue_lines
-        (restorable); lines that cross the box edge are kept. Stored on the server under a preview id. Nothing is modified."""
+        Faces between max_area and max_area_review are captured too but forced 'uncertain' (size-risk) so a large
+        residue blob is never silently auto-merged. Groups touching exactly ONE ground face are proposed to merge;
+        touching >=2 (box on a contact) or none stays 'uncertain'. Lines with >= line_inside of their length in the
+        box are residue candidates; lines crossing the edge with >= line_candidate_share inside and shorter than the
+        box diagonal are ALSO captured as candidates but risk-flagged 'partially_outside' (never suggested), so a
+        glyph stroke spilling out of the OCR box can still be isolated on user confirmation. Ink evidence
+        (dark stroke mean luminance) is attached so UNKNOWN-role lines with glyph-like ink stay visible to the user
+        instead of disappearing behind boundary_risk alone. Stored under a preview id. Nothing is modified."""
         x0, y0, x1, y1 = self._box(box); B = shapely.box(x0, y0, x1, y1)
         g = np.asarray(self.F.geometry.values, object); eids = np.asarray(self.F["_eid"]); area = shapely.area(g)
         inter = shapely.area(shapely.intersection(g, B))
         res = set(int(e) for e in eids[(area <= max_area) & (inter >= inside_share * area) & (inter > 0)])
-        ground = {int(e): float(a) for e, a, i in zip(eids, area, inter) if int(e) not in res and i > 0}
+        big = set(int(e) for e in eids[(area > max_area) & (area <= max_area_review) & (inter >= inside_share * area) & (inter > 0)])
+        ground = {int(e): float(a) for e, a, i in zip(eids, area, inter) if int(e) not in res | big and i > 0}
         groups = []
-        for c in self._components(sorted(res)):
+        for c in self._components(sorted(res | big)):
             adj = set()
             for e in c: adj |= set(self._edge_neighbours(e))
             adj -= res; gr = sorted(a for a in adj if a in ground)
-            if len(gr) == 1: groups.append({"faces": c, "decision": "merge", "target": gr[0], "reason": "inside one ground face"})
+            if len(gr) == 1 and not set(c) & big: groups.append({"faces": c, "decision": "merge", "target": gr[0], "reason": "inside one ground face"})
+            elif len(gr) == 1: groups.append({"faces": c, "decision": "uncertain", "target": gr[0], "grounds": gr, "reason": "residue face larger than max_area (size risk)",
+                                              "options": self._merge_options(c, gr)})
             elif len(gr) > 1: groups.append({"faces": c, "decision": "uncertain", "target": None, "grounds": gr, "reason": "touches two or more ground faces (possible contact)",
                                              "options": self._merge_options(c, gr)})
             else: groups.append({"faces": c, "decision": "uncertain", "target": None, "reason": "no ground face beside it"})
         lines = []; line_info = []
         roles = dict(zip(self.L["_eid"], self.L["line_role"])) if "line_role" in self.L.columns else {}
+        diag = float(shapely.distance(Point(x0, y0), Point(x1, y1)))
         for e, ln in zip(self.L["_eid"], self.L.geometry):
             if ln.length == 0: continue
             share = ln.intersection(B).length / ln.length
-            if share < line_inside: continue
+            if share < line_inside:
+                if not (share >= line_candidate_share and ln.length <= diag * 1.5): continue
             risks = []
+            if share < line_inside: risks.append("partially_outside")
             if roles.get(int(e)) in ("SPLIT", "UNKNOWN"): risks.append("boundary_risk")
             for pt in (ln.coords[0], ln.coords[-1]):
                 if B.exterior.distance(Point(pt)) < 1.0: risks.append("may_continue_outside"); break
+            ink = None
+            if self.img is not None:
+                pts = ln.interpolate(np.linspace(0.05, 0.95, 7).tolist(), normalized=True)
+                xy = np.asarray([(int(round(p.x)), int(round(p.y))) for p in pts])
+                ok = (xy[:, 0] >= 0) & (xy[:, 0] < self.img.shape[1]) & (xy[:, 1] >= 0) & (xy[:, 1] < self.img.shape[0])
+                if ok.any(): ink = round(float(self.img[xy[ok, 1], xy[ok, 0]].mean()), 1)
+            if ink is not None and ink < 100 and roles.get(int(e)) in ("SPLIT", "UNKNOWN"): risks.append("probable_glyph_ink")
             lines.append(int(e))
             line_info.append({"id": int(e), "inside_share": round(float(share), 3), "length": round(float(ln.length), 1),
-                              "role": roles.get(int(e)), "risks": risks, "suggested": not risks})
+                              "role": roles.get(int(e)), "ink_lum": ink, "risks": risks, "suggested": not risks})
         existing = self._texts_in_box(B)
         # reuse existing text objects first; only run local OCR when the box has no text object of its own yet
         if existing: cand = {"text": str(existing[0]["text"] or ""), "score": 0.0, "engine": "existing", "status": "reused",
@@ -1224,12 +1343,17 @@ class TextMixin:
                            "uncertain_faces": sum(len(x["faces"]) for x in groups if x["decision"] == "uncertain"), "residue_lines": len(lines),
                            "risky_lines": sum(1 for x in line_info if not x["suggested"])}}
 
-    def text_residue(self, ids, pad=4.0):
-        """T11 residue suggestion for EXISTING text objects: run the residue plan on each text's own display box
-        (padded), no OCR. Returns one stored preview per text - applying it edits that text in place (no duplicates)
-        and isolates only the lines the user keeps checked. Nothing is modified here."""
+    def text_residue(self, ids=None, pad=4.0, boxes=None):
+        """T11 residue suggestion. For EXISTING text objects: run the residue plan on each text's own display box
+        (padded), no OCR - applying it edits that text in place and isolates only the lines the user keeps checked.
+        `boxes` adds user-drawn regions for OCR-MISSED text (no text object exists): each box gets its own preview
+        whose apply creates the text object. Nothing is modified here."""
         out = []
-        for tid in ids:
+        for b in boxes or []:
+            pv = self.text_preview(b, ocr=False)
+            out.append({"text_id": None, "text": "", "box": pv["box"], "preview_id": pv["preview_id"],
+                        "missed_text_region": True, "counts": pv["counts"]})
+        for tid in ids or []:
             r = self.T[self.T["_eid"] == int(tid)]
             if r.empty: raise EditError(f"unknown text id {tid}")
             t = r.iloc[0]

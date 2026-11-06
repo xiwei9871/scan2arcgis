@@ -1,0 +1,36 @@
+{
+  "task": "STITCHVECTOR-TEXT-FACE-LINE-ROOTCAUSE-FIX",
+  "branch": "feat/stitchvector-tfl-rootcause",
+  "baseline_commit": "c7b74d9c9a16d1b082f0dab694cecc8dc45363f9",
+  "reopened_issues": ["A01", "A02", "A08", "A09", "E10"],
+  "issue_status": "REOPENED_REAL_UAT_FAILED",
+  "screenshots_2026_11_06": "NOT_FOUND_LOCALLY - evidence gap, provisional regions used",
+  "tests": {"editor_suite": "103 passed (97 existing + 6 new T02/T04)", "warnings_only": true},
+  "gate_a_localization": {
+    "status": "PASS",
+    "glyph_lines_baseline": 214,
+    "enclosed_faces_baseline": 2313,
+    "interior_rings_baseline": 172,
+    "note": "anomalies attributed to layer+object ids; coverage=PASS not used as proof"
+  },
+  "gate_b_local_repair": {
+    "status": "PASS_MECHANISM / PARTIAL_EXACT_LOCATION",
+    "case1_red_frag": {"anomalies": [923, 632], "small_frag": [806, 534], "glyph_line": [7, 3]},
+    "case2_ocr_dense": {"anomalies": [1297, 610], "small_frag": [1024, 415], "glyph_line": [19, 8]},
+    "auto_merge_safety": "0 forced merges - all heterochromatic candidates routed to review"
+  },
+  "gate_c_full_map_regression": {
+    "status": "PASS_WITH_REVIEW_FLAGS",
+    "faces": [17047, 9638], "lines": [606, 392], "glyph_line": [214, 65],
+    "small_frag": [14568, 7866], "enclosed": [2313, 1623], "interior_ring": [172, 103],
+    "runtime_seconds": {"b2c_original": "comparable order", "ocr_protected": 12.3},
+    "narrow_face_preservation": "elongated/labelled/line-bounded faces excluded from auto-merge by keep rule",
+    "ocr_text_positions": "219 quads preserved verbatim in text_labels layer",
+    "ambiguous_quads_flagged_for_review": 186,
+    "crosses_text_lines_flagged": 104,
+    "production_unchanged": true, "b2c_baseline_unchanged": true
+  },
+  "governance_gate": "tools/gov/s2a_gates.py run on main checkout previously: state-head PASS, workspace PASS, assets-decisions FAIL (pre-existing vendored-venv false positive, unchanged)",
+  "final_state": "PARTIAL",
+  "blocking": "exact screenshot locations absent -> cannot claim A01/A02/A09/E10 fixed on the user's real defect sites"
+}

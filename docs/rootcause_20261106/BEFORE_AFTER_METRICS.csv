@@ -1,0 +1,9 @@
+region,pipeline,faces,lines,texts,anomalies,small_frag,enclosed_face,interior_ring,island_face,glyph_line,line_crosses_text,residual_px_gt40_faces_only,uncovered_px
+full,B2c,17047,606,0,17344,14568,2313,172,0,214,77,0,0
+full,prot,9638,392,219,9774,7866,1623,103,0,65,117,0,0
+case1_red_frag,B2c,17047,606,0,923,806,98,9,0,7,3,0,0
+case1_red_frag,prot,9638,392,219,632,534,81,7,0,3,7,0,0
+case1b_red2,B2c,17047,606,0,648,522,98,13,0,10,5,0,0
+case1b_red2,prot,9638,392,219,489,394,76,8,0,1,10,0,0
+case2_ocr_dense,B2c,17047,606,0,1297,1024,219,30,0,19,5,0,0
+case2_ocr_dense,prot,9638,392,219,610,415,149,28,0,8,10,0,0
