@@ -41,22 +41,36 @@ def sha(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
 
 
 def dedupe_quads(quads, iou=0.5):
-    """The raw 219-item run has no dedup: same text detected at multiple scales -> merge IoU>iou boxes,
-    keep the higher score + the union quad. Returns merged quad list with source indices."""
+    """The raw 219-item run has no dedup: same text detected at multiple scales -> merge IoU>iou boxes.
+    P0 fix: a merge requires IoU>iou AND identical normalised text; different texts at the same spot are
+    NOT merged blindly - they stay as separate candidates flagged `conflict_text` with all source ids and
+    rival strings kept for audit (dedup must never silently drop a different reading)."""
     boxes = [shapely.box(*np.asarray(q["quad"]).min(0), *np.asarray(q["quad"]).max(0)) for q in quads]
     used = np.zeros(len(quads), bool); merged = []
+    def norm(t): return str(t).strip().lower()
     for i in np.argsort([-q["score"] for q in quads]):
         if used[i]: continue
         grp = [i]
         for j in range(len(quads)):
             if used[j] or j == i: continue
             inter = boxes[i].intersection(boxes[j]).area; union = boxes[i].union(boxes[j]).area
-            if union and inter / union > iou: grp.append(j); used[j] = True
+            if union and inter / union > iou and norm(quads[j]["text"]) == norm(quads[i]["text"]):
+                grp.append(j); used[j] = True
         used[i] = True
         pts = np.concatenate([np.asarray(quads[k]["quad"]) for k in grp])
         x0, y0 = pts.min(0); x1, y1 = pts.max(0)
         merged.append({"quad": [[x0, y0], [x1, y0], [x1, y1], [x0, y1]], "text": quads[i]["text"],
-                       "score": quads[i]["score"], "src": grp})
+                       "score": quads[i]["score"], "src": grp,
+                       "alt_texts": sorted({quads[k]["text"] for k in grp} | set())})
+    # conflict pass: overlapping but different-text boxes mark each other
+    for a in range(len(merged)):
+        ba = shapely.box(*np.asarray(merged[a]["quad"]).min(0), *np.asarray(merged[a]["quad"]).max(0))
+        for b in range(a + 1, len(merged)):
+            bb = shapely.box(*np.asarray(merged[b]["quad"]).min(0), *np.asarray(merged[b]["quad"]).max(0))
+            inter = ba.intersection(bb).area
+            if inter / min(ba.area, bb.area) > 0.3:
+                merged[a].setdefault("conflicts", []).append(merged[b]["text"])
+                merged[b].setdefault("conflicts", []).append(merged[a]["text"])
     return merged
 
 
@@ -157,40 +171,67 @@ if __name__ == "__main__":
         rem = LF.footprint(lines, shape, LF.Q["halo"]) | gmask
         Fimg = D.fill(X, rem); fc = O.faces(Fimg, LF.Q["tol"]); obs, inf = O.provenance(Fimg, rem, fc); t4 = time.time()
 
-        # -------- per-object audit: what did cleaning actually remove ---------------------
+        # -------- P0 per-object reconciliation: no baseline line is silently dropped --------
         base_L = gpd.read_file(RUN / "u2_full_B2c.gpkg", layer="visual_lines")
         quad_geoms = [Polygon(np.asarray(q["quad"], float)) for q in merged]
         clean_union = shapely.union_all([quad_geoms[d["quad"]] for d in decisions if d["decision"] == "auto_clean"]) if any(
             d["decision"] == "auto_clean" for d in decisions) else None
-        kept_geoms = shapely.unary_union([l["geom"] for l in lines]) if lines else None
-        removed_audit = []
+        new_geoms = np.asarray([l["geom"] for l in lines], object)
+        ntree = shapely.STRtree(new_geoms) if len(new_geoms) else None
+        recon, residue_lines, restore_count = [], [], 0
         for _, r in base_L.iterrows():
             g = r.geometry
             if clean_union is None or not g.intersects(clean_union): continue
             share = g.intersection(clean_union).length / max(g.length, 1e-9)
-            still = kept_geoms is not None and g.buffer(0.75).intersects(kept_geoms)
-            if share >= 0.4 and not still:
-                # geological-info check: long lines or lines whose endpoints sit in different colour classes stay suspect->review
-                p0, p1 = g.coords[0], g.coords[-1]
-                c0 = int(X[int(np.clip(round(p0[1]), 0, shape[0] - 1)), int(np.clip(round(p0[0]), 0, shape[1] - 1))])
-                c1 = int(X[int(np.clip(round(p1[1]), 0, shape[0] - 1)), int(np.clip(round(p1[0]), 0, shape[1] - 1))])
-                removed_audit.append({"line_id": r.get("line_id", ""), "logical_id": r.get("logical_id", ""), "length": round(float(g.length), 1),
-                                      "inside_clean_share": round(share, 3), "end_classes": f"{c0}->{c1}",
-                                      "verdict": "possible_real_geology_REVIEW" if (g.length > 30 or c0 != c1) else "glyph_stroke_removed"})
+            if share < 0.4: continue
+            # per-object match: best surviving new line by buffered-overlap of the baseline geometry
+            best, best_cover = None, 0.0
+            if ntree is not None:
+                for j in ntree.query(g.buffer(0.75)):
+                    cov = g.intersection(new_geoms[j].buffer(0.75)).length / max(g.length, 1e-9)
+                    if cov > best_cover: best_cover, best = cov, lines[j]["id"]
+            p0, p1 = g.coords[0], g.coords[-1]
+            c0 = int(X[int(np.clip(round(p0[1]), 0, shape[0] - 1)), int(np.clip(round(p0[0]), 0, shape[1] - 1))])
+            c1 = int(X[int(np.clip(round(p1[1]), 0, shape[0] - 1)), int(np.clip(round(p1[0]), 0, shape[1] - 1))])
+            glyph_like = g.length <= 30 and c0 == c1 and share >= 0.6
+            if best_cover >= 0.5:
+                verdict, action = "survived_as_new_line", "kept"
+            elif glyph_like:
+                verdict, action = "glyph_stroke_isolated", "to_residue_layer"
+                residue_lines.append({"res_id": f"residue-{len(residue_lines)}", "src_line_id": str(r.get("line_id", "")),
+                                      "src_logical_id": str(r.get("logical_id", "")), "kind": "ocr_glyph_residue",
+                                      "width_px": float(r.get("width_px", 1) or 1), "rgb": "#000000", "geom": g,
+                                      "restore_hint": "isolated suspect glyph stroke - restore to visual_lines on rejection"})
+            else:
+                # possible real geology: NEVER silently dropped - kept in visual_lines flagged for review
+                verdict, action = "possible_real_geology_REVIEW", "kept_flagged"
+                lines.append({"id": f"rev-{r.get('line_id','')}", "group": str(r.get("logical_id", "")), "kind": "auto_B2c_review_preserve",
+                              "width": float(r.get("width_px", 1) or 1), "rgb": np.asarray([0, 0, 0], np.uint8), "geom": g})
+                restore_count += 1
+            recon.append({"baseline_line_id": r.get("line_id", ""), "logical_id": r.get("logical_id", ""),
+                          "length": round(float(g.length), 1), "inside_clean_share": round(share, 3),
+                          "best_new_line": best or "", "best_cover": round(best_cover, 3),
+                          "end_classes": f"{c0}->{c1}", "verdict": verdict, "action": action})
         for l in lines:
             hit = [i for i in shapely.STRtree(np.asarray(quad_geoms, object)).query(l["geom"].buffer(0.75))]
-            if hit: l["kind"] = "auto_B2c_crosses_text"
+            if hit and l["kind"] == "auto_B2c": l["kind"] = "auto_B2c_crosses_text"
 
         if out.exists(): out.unlink()
         O2.write(out, fc, kpal, np.arange(len(kpal)), obs, inf, lines, [])
+        if residue_lines:
+            gpd.GeoDataFrame({"res_id": [r["res_id"] for r in residue_lines], "src_line_id": [r["src_line_id"] for r in residue_lines],
+                              "src_logical_id": [r["src_logical_id"] for r in residue_lines], "kind": [r["kind"] for r in residue_lines],
+                              "width_px": [r["width_px"] for r in residue_lines], "rgb": [r["rgb"] for r in residue_lines],
+                              "restore_hint": [r["restore_hint"] for r in residue_lines]},
+                             geometry=[r["geom"] for r in residue_lines]).to_file(out, layer="text_residue_lines", driver="GPKG", engine="pyogrio")
         # -------- editor-schema text layer (Point + full TEXT_COLS) + raw quad layer ------
         import pandas as pd
         rows, qrows = [], []
         for i, d in enumerate(decisions):
             q = merged[i]; qg = quad_geoms[i]; cx, cy = qg.centroid.x, qg.centroid.y
-            xs = np.asarray(q["quad"])[:, 0]; ys = np.asarray(q["quad"])[:, 1]
-            fpx = round(float(ys.max() - ys.min()) * 0.8, 1)
-            ang = float(np.degrees(np.arctan2(ys[1] - ys[0], xs[1] - xs[0])))
+            qa = np.asarray(q["quad"], float); xs, ys = qa[:, 0], qa[:, 1]
+            fpx = round(float(np.linalg.norm(qa[3] - qa[0])) * 0.8, 1)          # glyph height = quad short side (E09), not bbox height
+            ang = float(np.degrees(np.arctan2(qa[1][1] - qa[0][1], qa[1][0] - qa[0][0])))
             reason = ";".join(d["flags"]) if d["flags"] else ""
             rows.append({"label_id": f"ocr-{i}", "text": q["text"], "ocr_text": q["text"], "ocr_score": float(q["score"]),
                          "font_px": fpx, "angle_deg": ang, "anchor": "center", "rgb": "#000000",
@@ -198,19 +239,25 @@ if __name__ == "__main__":
                          "source": "paddleocr_raw", "review_status": "OCR_CANDIDATE",
                          "review_reason": reason, "reviewed_at": "", "review_actor": ""})
             qrows.append({"cand_id": f"ocr-{i}", "quad_json": json.dumps(q["quad"]), "text": q["text"], "score": float(q["score"]),
+                          "src_ids": ";".join(str(s) for s in q.get("src", [])), "conflict": ";".join(q.get("conflicts", [])),
                           "decision": d["decision"], "flags": reason, "ink_px": d["ink_px"], "engine": "paddleocr_raw_u2_full"})
         gpd.GeoDataFrame(pd.DataFrame(rows, columns=TEXT_COLS), geometry=[Point(r["box_x0"] + (r["box_x1"] - r["box_x0"]) / 2, r["box_y0"] + (r["box_y1"] - r["box_y0"]) / 2) for r in rows]).to_file(out, layer="text_labels", driver="GPKG", engine="pyogrio")
         gpd.GeoDataFrame(qrows, geometry=quad_geoms).to_file(out, layer="ocr_quads", driver="GPKG", engine="pyogrio")
-        pd.DataFrame(removed_audit).to_csv(OUTJ / "removed_lines_audit.csv", index=False)
+        pd.DataFrame(recon).to_csv(OUTJ / "REMOVED_GEOLOGY_LINE_RECONCILIATION.csv", index=False)
+        pd.DataFrame(recon).to_csv(OUTJ / "removed_lines_audit.csv", index=False)
         pd.DataFrame([{k: v for k, v in d.items() if k not in ("ink_mask", "bg")} for d in decisions]).to_json(OUTJ / "quad_decisions.json", orient="records", indent=1)
+        pd.DataFrame([{"merged_id": i, "text": q["text"], "src_ids": ";".join(str(s) for s in q["src"]),
+                       "alt_texts": ";".join(q["alt_texts"]), "conflicts": ";".join(q.get("conflicts", []))}
+                      for i, q in enumerate(merged)]).to_csv(OUTJ / "dedup_audit.csv", index=False)
 
         log.update(ok=True, glyph_ink_px_cleaned=int(gmask.sum()),
                    auto_clean_quads=sum(1 for d in decisions if d["decision"] == "auto_clean"),
                    preserve_review_quads=sum(1 for d in decisions if d["decision"] == "preserve_review"),
                    faces=int(len(fc["polys"])), lines=len(lines),
-                   removed_lines_total=len(removed_audit),
-                   removed_as_glyph=sum(1 for r in removed_audit if r["verdict"] == "glyph_stroke_removed"),
-                   removed_review=sum(1 for r in removed_audit if "REVIEW" in r["verdict"]),
+                   reconciled_baseline_lines=len(recon),
+                   survived_as_new=sum(1 for r in recon if r["action"] == "kept"),
+                   glyph_isolated_to_residue=len(residue_lines),
+                   review_lines_kept_flagged=restore_count,
                    seconds={"labels": round(t1 - t0, 1), "risk+inpaint": round(t2 - t1, 1), "lines_b2c_group": round(t3 - t2, 1),
                             "faces": round(t4 - t3, 1), "total": round(time.time() - t0, 1)},
                    output=str(out), output_sha256=sha(out))

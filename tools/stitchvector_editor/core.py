@@ -1614,5 +1614,83 @@ class TextMixin:
         return self.review_counters()
 
 
+class LineReviewMixin:
+    """P0 no-silent-geology-loss: suspect baseline lines preserved by the OCR-protected build stay in
+    visual_lines flagged kind=auto_B2c_review_preserve; the queue exposes them (plus pending residue
+    candidates) grouped by map region, and decisions are batch keep / batch cleanup. Nothing is deleted:
+    cleanup isolates to text_residue_lines where restore_residue_lines can bring a line back."""
+
+    def line_review_counters(self):
+        c = {"suspect_pending": 0, "residue_pending": int(len(self.Q)), "kept_confirmed": 0}
+        if "kind" in self.L.columns:
+            k = self.L["kind"]
+            c["suspect_pending"] = int((k == LINE_SUSPECT_KIND).sum()); c["kept_confirmed"] = int((k == LINE_KEPT_KIND).sum())
+        c["pending"] = c["suspect_pending"] + c["residue_pending"]
+        return c
+
+    def _region(self, g):
+        b = g.centroid; cx = min(max(b.x / max(self.W, 1), 0), 0.999); cy = min(max(b.y / max(self.H, 1), 0), 0.999)
+        return f"r{int(cy * 4)}c{int(cx * 4)}"
+
+    def line_review_queue(self):
+        out = []
+        if "kind" in self.L.columns:
+            for _, r in self.L.loc[self.L["kind"] == LINE_SUSPECT_KIND].iterrows():
+                b = r.geometry.bounds
+                out.append({"id": int(r["_eid"]), "layer": "visual_lines", "line_id": r.get("line_id", ""),
+                            "src_line_id": str(r.get("line_id", "")).removeprefix("rev-"), "logical_id": r.get("logical_id", ""),
+                            "region": self._region(r.geometry), "reason": "possible_real_geology_REVIEW",
+                            "length": round(float(r.geometry.length), 1), "box": [round(float(v), 1) for v in b],
+                            "x": round(float(b[0]), 1), "y": round(float(b[1]), 1), "status": "PENDING"})
+        for _, r in self.Q.iterrows():
+            b = r.geometry.bounds
+            out.append({"id": int(r["_eid"]), "layer": "text_residue_lines", "line_id": r.get("res_id", r.get("line_id", "")),
+                        "src_line_id": str(r.get("src_line_id", r.get("line_id", ""))), "logical_id": str(r.get("src_logical_id", r.get("logical_id", ""))),
+                        "region": self._region(r.geometry), "reason": str(r.get("kind", "ocr_glyph_residue")),
+                        "length": round(float(r.geometry.length), 1), "box": [round(float(v), 1) for v in b],
+                        "x": round(float(b[0]), 1), "y": round(float(b[1]), 1), "status": "PENDING"})
+        out.sort(key=lambda e: (e["region"], e["y"], e["x"]))
+        return out
+
+    def line_review_decide(self, ids, action, actor="human"):
+        """ids are _eid in the layer named by each queue row; both layers accepted in one call.
+        keep   -> suspect line confirmed real geology: kind=auto_B2c_review_keep (stays in visual_lines)
+        cleanup-> suspect line moved to text_residue_lines (isolated, recoverable via restore_residue_lines)
+        residue rows get restore (back to visual_lines) or confirm_cleanup (stays isolated, marked)."""
+        if action not in ("keep", "cleanup", "restore", "confirm_cleanup"): raise EditError("action must be keep|cleanup|restore|confirm_cleanup")
+        now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        mL = self.L["_eid"].isin([int(i) for i in ids]) & (self.L.get("kind") == LINE_SUSPECT_KIND) if "kind" in self.L.columns else self.L["_eid"].isin([])
+        mQ = self.Q["_eid"].isin([int(i) for i in ids]) if len(self.Q) else self.Q["_eid"].isin([])
+        if action in ("keep", "cleanup") and not mL.any(): raise EditError("no such pending suspect line in visual_lines")
+        if action in ("restore", "confirm_cleanup") and not mQ.any(): raise EditError("no such pending residue line")
+
+        def f():
+            if action == "keep":
+                self.L.loc[mL, "kind"] = LINE_KEPT_KIND
+                if "source" in self.L.columns: self.L.loc[mL, "source"] = f"reviewed_keep:{actor}:{now}"
+            elif action == "cleanup":
+                back = self.L.loc[mL].copy()
+                back["kind"] = "review_cleanup_isolated"
+                if "src_line_id" not in back.columns: back["src_line_id"] = [str(v).removeprefix("rev-") for v in back.get("line_id", "")]
+                back["restore_hint"] = f"human cleanup decision by {actor} at {now} - restore on rejection"
+                base = int(self.Q["_eid"].max()) + 1 if len(self.Q) else 0
+                back["_eid"] = np.arange(base, base + len(back))
+                self.Q = gpd.GeoDataFrame(pd.concat([self.Q, back], ignore_index=True), geometry="geometry")
+                self.L = self.L.loc[~mL].copy()
+            elif action == "restore":
+                back = self.Q.loc[mQ].copy(); back["kind"] = LINE_KEPT_KIND
+                if "source" in back.columns: back["source"] = f"reviewed_keep:{actor}:{now}"
+                back["_eid"] = np.arange(self.next_l, self.next_l + len(back)); self.next_l += len(back)
+                self.L = gpd.GeoDataFrame(pd.concat([self.L, back], ignore_index=True), geometry="geometry"); self.Q = self.Q.loc[~mQ].copy()
+            else:
+                self.Q.loc[mQ, "restore_hint"] = f"confirmed cleanup by {actor} at {now}"
+        self._do(f"line review {action}", f, objects=int(mL.sum() + mQ.sum()))
+        return self.line_review_counters()
+
+
+LINE_SUSPECT_KIND, LINE_KEPT_KIND = "auto_B2c_review_preserve", "auto_B2c_review_keep"
+
 for _n, _f in list(vars(TextMixin).items()):
+    if callable(_f) and not _n.startswith("__"): setattr(Document, _n, _f)
+for _n, _f in list(vars(LineReviewMixin).items()):
     if callable(_f) and not _n.startswith("__"): setattr(Document, _n, _f)

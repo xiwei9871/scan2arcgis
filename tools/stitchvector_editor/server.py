@@ -155,6 +155,8 @@ class H(BaseHTTPRequestHandler):
             elif op == "review_classify": r = {"review": d.classify_review(float(a.get("threshold", 0.90)))}
             elif op == "review_queue": r = {"queue": d.review_queue(bool(a.get("include_all"))), "review": d.review_counters()}
             elif op == "review_decide": r = {"review": d.review_decide(a["ids"], str(a["action"]), str(a.get("actor", "human")))}
+            elif op == "line_review_queue": r = {"queue": d.line_review_queue(), "review": d.line_review_counters()}
+            elif op == "line_review_decide": r = {"review": d.line_review_decide(a["ids"], str(a["action"]), str(a.get("actor", "human")))}
             elif op == "undo": r = {"undone": d.undo_op()}
             elif op == "redo": r = {"redone": d.redo_op()}
             elif op == "save": r = d.save_as(STATE["out_dir"] / safe_name(a["name"]), bool(a.get("draft")), a.get("roi_mode") or None)
